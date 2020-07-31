@@ -1,3 +1,14 @@
+src/.vs/Engine x64 CoP/v16/.suo
+src/.vs/Engine x64 CoP/v16/Browse.VC.db
+_build/intermediate/
+_build/_game/sym/
+_build/_game/Win64_Release/
+_build/_game/bin_dbg/
+_build/lib/
+src/Launcher/Win64_Release/
+src/Launcher/Start/
+src/Launcher/Stalker-CoC/
+
 # Prerequisites
 *.d
 
@@ -30,3 +41,8 @@
 *.exe
 *.out
 *.app
+*.tlog
+*.log
+*.bpk
+*.dpk
+*.bpl
