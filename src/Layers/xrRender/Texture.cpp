@@ -34,47 +34,60 @@ void fix_texture_name(LPSTR fn)
   bool is_enough_address_space_available(){return true;}
   #endif
 
-int get_texture_load_lod(LPCSTR fn)
-{
-	CInifile::Sect& sect	= pSettings->r_section("reduce_lod_texture_list");
-	CInifile::SectCIt it_	= sect.Data.begin();
-	CInifile::SectCIt it_e_	= sect.Data.end();
+#define DISABLE_LOD_MANAGER_DX9
+  int get_texture_load_lod(LPCSTR fn)
+  {
+#ifndef DISABLE_LOD_MANAGER_DX9
+	  CInifile::Sect& sect = pSettings->r_section("reduce_lod_texture_list");
+	  CInifile::SectCIt it_ = sect.Data.begin();
+	  CInifile::SectCIt it_e_ = sect.Data.end();
+#endif
 
-	CInifile::SectCIt it	= it_;
-	CInifile::SectCIt it_e	= it_e_;
+	  ENGINE_API bool is_enough_address_space_available();
+	  static bool enough_address_space_available = is_enough_address_space_available();
 
-	static bool enough_address_space_available = is_enough_address_space_available();
+#ifndef DISABLE_LOD_MANAGER_DX9
+	  CInifile::SectCIt it = it_;
+	  CInifile::SectCIt it_e = it_e_;
 
-	for(;it!=it_e;++it)
-	{
-		if( strstr(fn, it->first.c_str()) )
-		{
-			if(psTextureLOD<1) {
-				if ( enough_address_space_available || (g_current_renderer < 2) )
-					return 0;
-				else
-					return 1;
-			}
-			else
-			if(psTextureLOD<3)
-				return 1;
-			else
-				return 2;
-		}
-	}
+	  for (; it != it_e; ++it)
+	  {
+		  if (strstr(fn, it->first.c_str()))
+		  {
+			  if (psTextureLOD < 1) {
+				  if (enough_address_space_available)
+					  return 0;
+				  else
+					  return 1;
+			  }
+			  else
+				  if (psTextureLOD < 3)
+					  return 1;
+				  else
+					  return 2;
+		  }
+	  }
 
-	if(psTextureLOD<2) {
-//		if ( enough_address_space_available || (g_current_renderer < 2) )
-			return 0;
-//		else
-//			return 1;
-	}
-	else
-	if(psTextureLOD<4)
-		return 1;
-	else
-		return 2;
-}
+	  if (psTextureLOD < 2)
+	  {
+		  return 0;
+	  }
+#endif
+
+#ifdef DISABLE_LOD_MANAGER_DX9
+	  if (enough_address_space_available)
+		  return psTextureLOD % 2 == 0 ? psTextureLOD / 2 : 0;
+#endif
+	  else
+#ifndef DISABLE_LOD_MANAGER_DX9
+		  if (psTextureLOD < 4)
+			  return 1;
+		  else
+			  return 2;
+#else
+		  return 2;
+#endif
+  }
 
 u32 calc_texture_size(int lod, u32 mip_cnt, u32 orig_size)
 {
