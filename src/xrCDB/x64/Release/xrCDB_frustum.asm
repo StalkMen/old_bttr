@@ -295,20 +295,20 @@ $unwind$?_box@?$frustum_collider@$00$00@@QEAA?AW4EFC_Visible@@AEAU?$_vector3@M@@
 	DD	046830H
 	DD	0a207H
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\Frustum.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\Frustum.h
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\Frustum.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\Frustum.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\xutility
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?frustum_query@COLLIDER@CDB@@QEAAXPEBVMODEL@2@AEBVCFrustum@@@Z
 _TEXT	SEGMENT
 BC$1 = 32
@@ -326,12 +326,12 @@ $LN53:
 	push	r14
 	push	r15
 	sub	rsp, 64					; 00000040H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB.h
 
 ; 86   : 			if (S_READY!=status)
 
 	cmp	DWORD PTR [rdx+16], 0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 81   : {
 
@@ -340,7 +340,7 @@ $LN53:
 	mov	rsi, rcx
 	mov	QWORD PTR [rsp+112], r12
 	mov	rdi, rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB.h
 
 ; 86   : 			if (S_READY!=status)
 
@@ -359,12 +359,12 @@ $LN53:
 	mov	rcx, rdi
 	call	QWORD PTR __imp_?Leave@xrCriticalSection@@QEAAXXZ
 $LN10@frustum_qu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 86   : 	const AABBNoLeafNode*	N	= T->GetNodes();
 
 	mov	rax, QWORD PTR [rdi+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\Frustum.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\Frustum.h
 
 ; 82   : 	u32				getMask				() const { return (1<<p_count)-1; }
 
@@ -379,18 +379,18 @@ $LN10@frustum_qu:
 ; 1362 :         const pointer _Lastptr  = _Last._Ptr;
 
 	mov	rdx, QWORD PTR [rsi+24]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 86   : 	const AABBNoLeafNode*	N	= T->GetNodes();
 
 	mov	r9, QWORD PTR [rax+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\Frustum.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\Frustum.h
 
 ; 82   : 	u32				getMask				() const { return (1<<p_count)-1; }
 
 	shl	ebp, cl
 	dec	ebp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 86   : 	const AABBNoLeafNode*	N	= T->GetNodes();
 
@@ -425,7 +425,7 @@ $LN10@frustum_qu:
 	mov	rbx, QWORD PTR [rsp+96]
 	mov	QWORD PTR [rsi+24], rax
 $LN31@frustum_qu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 91   : 	if (frustum_mode&OPT_FULL_TEST) 
 
@@ -537,29 +537,29 @@ $LN6@frustum_qu:
 ?frustum_query@COLLIDER@CDB@@QEAAXPEBVMODEL@2@AEBVCFrustum@@@Z ENDP ; CDB::COLLIDER::frustum_query
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_stab@?$frustum_collider@$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@I@Z
 _TEXT	SEGMENT
 mM$1 = 32
@@ -576,39 +576,39 @@ $LN32:
 	mov	DWORD PTR [rax+24], r8d
 	push	rdi
 	sub	rsp, 80					; 00000050H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	lea	r8, QWORD PTR [rax+24]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 62   : 	{
 
 	mov	rbx, rdx
 	movaps	XMMWORD PTR [rax-24], xmm6
 	mov	rdi, rcx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm6, DWORD PTR [rdx]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	mov	rcx, QWORD PTR [rcx+24]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -639,12 +639,12 @@ $LN32:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm3, DWORD PTR [rdx+20]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	lea	rdx, QWORD PTR [rax-56]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -657,7 +657,7 @@ $LN32:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	movss	DWORD PTR [rax-36], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
@@ -676,22 +676,22 @@ $LL23@stab:
 
 	mov	rdx, QWORD PTR [rbx+24]
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 68   : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN3@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 68   : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -704,12 +704,12 @@ $LN3@stab:
 	mov	r8d, DWORD PTR mask$[rsp]
 	call	?_stab@?$frustum_collider@$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@I@Z ; frustum_collider<0,0>::_stab
 $LN4@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rbx+32], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 75   : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -724,7 +724,7 @@ $LN4@stab:
 	lea	r8, QWORD PTR mask$[rsp]
 	mov	rcx, QWORD PTR [rdi+24]
 	lea	rdx, QWORD PTR mM$1[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -767,7 +767,7 @@ $LN4@stab:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	movss	DWORD PTR mM$1[rsp+20], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
@@ -788,22 +788,22 @@ $LN4@stab:
 	pop	rdi
 	ret	0
 $LN27@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 75   : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 75   : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -820,7 +820,7 @@ $LN7@stab:
 ?_stab@?$frustum_collider@$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@I@Z ENDP ; frustum_collider<0,0>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_init@?$frustum_collider@$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@PEBVCFrustum@@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -847,31 +847,31 @@ _F$ = 40
 ?_init@?$frustum_collider@$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@PEBVCFrustum@@@Z ENDP ; frustum_collider<0,0>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_stab@?$frustum_collider@$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@I@Z
 _TEXT	SEGMENT
 mM$1 = 32
@@ -888,39 +888,39 @@ $LN40:
 	mov	DWORD PTR [rax+24], r8d
 	push	rdi
 	sub	rsp, 80					; 00000050H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	lea	r8, QWORD PTR [rax+24]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 62   : 	{
 
 	mov	rbx, rdx
 	movaps	XMMWORD PTR [rax-24], xmm6
 	mov	rdi, rcx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm6, DWORD PTR [rdx]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	mov	rcx, QWORD PTR [rcx+24]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -951,12 +951,12 @@ $LN40:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm3, DWORD PTR [rdx+20]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	lea	rdx, QWORD PTR [rax-56]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -969,7 +969,7 @@ $LN40:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	movss	DWORD PTR [rax-36], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
@@ -990,22 +990,22 @@ $LL29@stab:
 
 	mov	rdx, QWORD PTR [rbx+24]
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 68   : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN3@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 68   : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -1030,18 +1030,18 @@ $LN4@stab:
 	sub	rcx, QWORD PTR [rax+16]
 	sar	rcx, 3
 	imul	rcx, rsi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 72   : 		if (bFirst && dest->r_count())												return;
 
 	test	ecx, ecx
 	jne	$LN38@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rbx+32], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 75   : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -1056,7 +1056,7 @@ $LN4@stab:
 	lea	r8, QWORD PTR mask$[rsp]
 	mov	rcx, QWORD PTR [rdi+24]
 	lea	rdx, QWORD PTR mM$1[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -1099,7 +1099,7 @@ $LN4@stab:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	movss	DWORD PTR mM$1[rsp+20], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
@@ -1113,22 +1113,22 @@ $LN4@stab:
 	jne	$LL29@stab
 	jmp	SHORT $LN38@stab
 $LN34@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 75   : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 75   : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -1147,7 +1147,7 @@ $LN7@stab:
 ?_stab@?$frustum_collider@$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@I@Z ENDP ; frustum_collider<0,1>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_init@?$frustum_collider@$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@PEBVCFrustum@@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -1174,29 +1174,29 @@ _F$ = 40
 ?_init@?$frustum_collider@$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@PEBVCFrustum@@@Z ENDP ; frustum_collider<0,1>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_stab@?$frustum_collider@$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@I@Z
 _TEXT	SEGMENT
 mM$1 = 32
@@ -1213,39 +1213,39 @@ $LN32:
 	mov	DWORD PTR [rax+24], r8d
 	push	rdi
 	sub	rsp, 80					; 00000050H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	lea	r8, QWORD PTR [rax+24]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 62   : 	{
 
 	mov	rbx, rdx
 	movaps	XMMWORD PTR [rax-24], xmm6
 	mov	rdi, rcx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm6, DWORD PTR [rdx]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	mov	rcx, QWORD PTR [rcx+24]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -1276,12 +1276,12 @@ $LN32:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm3, DWORD PTR [rdx+20]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	lea	rdx, QWORD PTR [rax-56]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -1294,7 +1294,7 @@ $LN32:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	movss	DWORD PTR [rax-36], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
@@ -1313,22 +1313,22 @@ $LL23@stab:
 
 	mov	rdx, QWORD PTR [rbx+24]
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 68   : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN3@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 68   : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -1341,12 +1341,12 @@ $LN3@stab:
 	mov	r8d, DWORD PTR mask$[rsp]
 	call	?_stab@?$frustum_collider@$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@I@Z ; frustum_collider<1,0>::_stab
 $LN4@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rbx+32], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 75   : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -1361,7 +1361,7 @@ $LN4@stab:
 	lea	r8, QWORD PTR mask$[rsp]
 	mov	rcx, QWORD PTR [rdi+24]
 	lea	rdx, QWORD PTR mM$1[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -1404,7 +1404,7 @@ $LN4@stab:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	movss	DWORD PTR mM$1[rsp+20], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
@@ -1425,22 +1425,22 @@ $LN4@stab:
 	pop	rdi
 	ret	0
 $LN27@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 75   : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 75   : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -1457,7 +1457,7 @@ $LN7@stab:
 ?_stab@?$frustum_collider@$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@I@Z ENDP ; frustum_collider<1,0>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_init@?$frustum_collider@$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@PEBVCFrustum@@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -1484,31 +1484,31 @@ _F$ = 40
 ?_init@?$frustum_collider@$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@PEBVCFrustum@@@Z ENDP ; frustum_collider<1,0>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_stab@?$frustum_collider@$00$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@I@Z
 _TEXT	SEGMENT
 mM$1 = 32
@@ -1525,39 +1525,39 @@ $LN40:
 	mov	DWORD PTR [rax+24], r8d
 	push	rdi
 	sub	rsp, 80					; 00000050H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	lea	r8, QWORD PTR [rax+24]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 62   : 	{
 
 	mov	rbx, rdx
 	movaps	XMMWORD PTR [rax-24], xmm6
 	mov	rdi, rcx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm6, DWORD PTR [rdx]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	mov	rcx, QWORD PTR [rcx+24]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -1588,12 +1588,12 @@ $LN40:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm3, DWORD PTR [rdx+20]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	lea	rdx, QWORD PTR [rax-56]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -1606,7 +1606,7 @@ $LN40:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	movss	DWORD PTR [rax-36], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
@@ -1627,22 +1627,22 @@ $LL29@stab:
 
 	mov	rdx, QWORD PTR [rbx+24]
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 68   : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN3@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 68   : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -1667,18 +1667,18 @@ $LN4@stab:
 	sub	rcx, QWORD PTR [rax+16]
 	sar	rcx, 3
 	imul	rcx, rsi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 72   : 		if (bFirst && dest->r_count())												return;
 
 	test	ecx, ecx
 	jne	$LN38@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rbx+32], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 75   : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -1693,7 +1693,7 @@ $LN4@stab:
 	lea	r8, QWORD PTR mask$[rsp]
 	mov	rcx, QWORD PTR [rdi+24]
 	lea	rdx, QWORD PTR mM$1[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -1736,7 +1736,7 @@ $LN4@stab:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	movss	DWORD PTR mM$1[rsp+20], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
@@ -1750,22 +1750,22 @@ $LN4@stab:
 	jne	$LL29@stab
 	jmp	SHORT $LN38@stab
 $LN34@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 75   : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 75   : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -1784,7 +1784,7 @@ $LN7@stab:
 ?_stab@?$frustum_collider@$00$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@I@Z ENDP ; frustum_collider<1,1>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_init@?$frustum_collider@$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@PEBVCFrustum@@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -1811,7 +1811,7 @@ _F$ = 40
 ?_init@?$frustum_collider@$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@PEBVCFrustum@@@Z ENDP ; frustum_collider<1,1>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_prim@?$frustum_collider@$0A@$0A@@@QEAAXK@Z
 _TEXT	SEGMENT
 this$ = 48
@@ -1891,15 +1891,15 @@ $LN26:
 ?_prim@?$frustum_collider@$0A@$0A@@@QEAAXK@Z ENDP	; frustum_collider<0,0>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_box@?$frustum_collider@$0A@$0A@@@QEAA?AW4EFC_Visible@@AEAU?$_vector3@M@@0AEAI@Z
 _TEXT	SEGMENT
 this$ = 96
@@ -1913,7 +1913,7 @@ mask$ = 120
 $LN8:
 	mov	rax, rsp
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -1922,33 +1922,33 @@ $LN8:
 	movaps	xmm0, xmm5
 	movss	xmm4, DWORD PTR [r8+4]
 	movss	xmm1, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	lea	rdx, QWORD PTR [rax-56]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [r8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	mov	rcx, QWORD PTR [rcx+24]
 	movaps	XMMWORD PTR [rax-24], xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm6, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	mov	r8, r9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -1987,7 +1987,7 @@ $LN8:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	movss	DWORD PTR [rax-36], xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
@@ -2001,7 +2001,7 @@ $LN8:
 ?_box@?$frustum_collider@$0A@$0A@@@QEAA?AW4EFC_Visible@@AEAU?$_vector3@M@@0AEAI@Z ENDP ; frustum_collider<0,0>::_box
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_prim@?$frustum_collider@$0A@$00@@QEAAXK@Z
 _TEXT	SEGMENT
 this$ = 48
@@ -2081,15 +2081,15 @@ $LN26:
 ?_prim@?$frustum_collider@$0A@$00@@QEAAXK@Z ENDP	; frustum_collider<0,1>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_box@?$frustum_collider@$0A@$00@@QEAA?AW4EFC_Visible@@AEAU?$_vector3@M@@0AEAI@Z
 _TEXT	SEGMENT
 this$ = 96
@@ -2103,7 +2103,7 @@ mask$ = 120
 $LN8:
 	mov	rax, rsp
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -2112,33 +2112,33 @@ $LN8:
 	movaps	xmm0, xmm5
 	movss	xmm4, DWORD PTR [r8+4]
 	movss	xmm1, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	lea	rdx, QWORD PTR [rax-56]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [r8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	mov	rcx, QWORD PTR [rcx+24]
 	movaps	XMMWORD PTR [rax-24], xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm6, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	mov	r8, r9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -2177,7 +2177,7 @@ $LN8:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	movss	DWORD PTR [rax-36], xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
@@ -2191,9 +2191,9 @@ $LN8:
 ?_box@?$frustum_collider@$0A@$00@@QEAA?AW4EFC_Visible@@AEAU?$_vector3@M@@0AEAI@Z ENDP ; frustum_collider<0,1>::_box
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\FixedVector.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\FixedVector.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_prim@?$frustum_collider@$00$0A@@@QEAAXK@Z
 _TEXT	SEGMENT
 src$1 = 32
@@ -2217,12 +2217,12 @@ $LN26:
 	mov	rbx, rcx
 	mov	r9, QWORD PTR [rcx+8]
 	mov	DWORD PTR [rax-616], 3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\FixedVector.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\FixedVector.h
 
 ; 21   :     svector() : count(0)
 
 	mov	DWORD PTR [rax-24], 0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 39   : 			src[0]		= verts[ tris[prim].verts[0] ];
 
@@ -2324,15 +2324,15 @@ $LN4@prim:
 ?_prim@?$frustum_collider@$00$0A@@@QEAAXK@Z ENDP	; frustum_collider<1,0>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_box@?$frustum_collider@$00$0A@@@QEAA?AW4EFC_Visible@@AEAU?$_vector3@M@@0AEAI@Z
 _TEXT	SEGMENT
 this$ = 96
@@ -2346,7 +2346,7 @@ mask$ = 120
 $LN8:
 	mov	rax, rsp
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -2355,33 +2355,33 @@ $LN8:
 	movaps	xmm0, xmm5
 	movss	xmm4, DWORD PTR [r8+4]
 	movss	xmm1, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	lea	rdx, QWORD PTR [rax-56]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [r8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	mov	rcx, QWORD PTR [rcx+24]
 	movaps	XMMWORD PTR [rax-24], xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm6, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	mov	r8, r9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -2420,7 +2420,7 @@ $LN8:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	movss	DWORD PTR [rax-36], xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
@@ -2434,9 +2434,9 @@ $LN8:
 ?_box@?$frustum_collider@$00$0A@@@QEAA?AW4EFC_Visible@@AEAU?$_vector3@M@@0AEAI@Z ENDP ; frustum_collider<1,0>::_box
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\FixedVector.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\FixedVector.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_prim@?$frustum_collider@$00$00@@QEAAXK@Z
 _TEXT	SEGMENT
 src$1 = 32
@@ -2460,12 +2460,12 @@ $LN26:
 	mov	rbx, rcx
 	mov	r9, QWORD PTR [rcx+8]
 	mov	DWORD PTR [rax-616], 3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\FixedVector.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\FixedVector.h
 
 ; 21   :     svector() : count(0)
 
 	mov	DWORD PTR [rax-24], 0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 39   : 			src[0]		= verts[ tris[prim].verts[0] ];
 
@@ -2567,15 +2567,15 @@ $LN4@prim:
 ?_prim@?$frustum_collider@$00$00@@QEAAXK@Z ENDP		; frustum_collider<1,1>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 ;	COMDAT ?_box@?$frustum_collider@$00$00@@QEAA?AW4EFC_Visible@@AEAU?$_vector3@M@@0AEAI@Z
 _TEXT	SEGMENT
 this$ = 96
@@ -2589,7 +2589,7 @@ mask$ = 120
 $LN8:
 	mov	rax, rsp
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -2598,33 +2598,33 @@ $LN8:
 	movaps	xmm0, xmm5
 	movss	xmm4, DWORD PTR [r8+4]
 	movss	xmm1, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	lea	rdx, QWORD PTR [rax-56]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [r8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	mov	rcx, QWORD PTR [rcx+24]
 	movaps	XMMWORD PTR [rax-24], xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm6, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
 	mov	r8, r9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -2663,7 +2663,7 @@ $LN8:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	movss	DWORD PTR [rax-36], xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_frustum.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_frustum.cpp
 
 ; 32   : 		return F->testAABB		(&mM[0].x,mask);
 
@@ -2677,7 +2677,7 @@ $LN8:
 ?_box@?$frustum_collider@$00$00@@QEAA?AW4EFC_Visible@@AEAU?$_vector3@M@@0AEAI@Z ENDP ; frustum_collider<1,1>::_box
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\FixedVector.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\FixedVector.h
 ;	COMDAT ?resize@?$svector@U?$_vector3@M@@$0DA@@@QEAAXH@Z
 _TEXT	SEGMENT
 this$ = 8

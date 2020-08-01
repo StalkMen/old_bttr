@@ -710,9 +710,13 @@ public:
 #endif	//	DEBUG
 #endif	//	(RENDER == R_R3) || (RENDER == R_R4)
 
+Flags32 ps_r__common_flags = {/*RFLAG_NO_RAM_TEXTURES*/ }; // All renders
+
 //-----------------------------------------------------------------------
 void		xrRender_initconsole	()
 {
+	CMD3(CCC_Mask,		"xrRenderDX10_no_ram",  &ps_r__common_flags, RFLAG_NO_RAM_TEXTURES);
+
 	CMD3(CCC_Preset,	"_preset",				&ps_Preset,	qpreset_token	);
 
 	CMD4(CCC_Integer,	"rs_skeleton_update",	&psSkeletonUpdate,	2,		128	);

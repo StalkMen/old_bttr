@@ -6,7 +6,7 @@ INCLUDELIB OLDNAMES
 
 PUBLIC	?xrMemFill_x86@@YAXPEAXHI@Z			; xrMemFill_x86
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\xrMemory_pso_Fill.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\xrMemory_pso_Fill.cpp
 ;	COMDAT ?xrMemFill_x86@@YAXPEAXHI@Z
 _TEXT	SEGMENT
 dest$ = 8

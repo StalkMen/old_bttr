@@ -29,7 +29,7 @@ $unwind$?xrMemFill32_x86@@YAXPEAXII@Z DD 020501H
 	DD	027405H
 xdata	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\xrMemory_pso_Fill32.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\xrMemory_pso_Fill32.cpp
 ;	COMDAT ?xrMemFill32_MMX@@YAXPEAXII@Z
 _TEXT	SEGMENT
 tv73 = 8
@@ -70,7 +70,7 @@ $LN3@xrMemFill3:
 ?xrMemFill32_MMX@@YAXPEAXII@Z ENDP			; xrMemFill32_MMX
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\xrMemory_pso_Fill32.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\xrMemory_pso_Fill32.cpp
 ;	COMDAT ?xrMemFill32_x86@@YAXPEAXII@Z
 _TEXT	SEGMENT
 tv73 = 8

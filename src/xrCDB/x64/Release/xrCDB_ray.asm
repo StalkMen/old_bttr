@@ -1808,7 +1808,7 @@ $unwind$?_tri@?$ray_collider@$00$00$00$00@@QEAA_NPEAIAEAM11@Z DD 0174301H
 ?ps_cst_plus_inf$initializer$@@3P6AXXZEA DQ FLAT:??__Eps_cst_plus_inf@@YAXXZ ; ps_cst_plus_inf$initializer$
 ?ps_cst_minus_inf$initializer$@@3P6AXXZEA DQ FLAT:??__Eps_cst_minus_inf@@YAXXZ ; ps_cst_minus_inf$initializer$
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ??__Eflt_plus_inf@@YAXXZ
 text$di	SEGMENT
 ??__Eflt_plus_inf@@YAXXZ PROC				; `dynamic initializer for 'flt_plus_inf'', COMDAT
@@ -1825,7 +1825,7 @@ text$di	SEGMENT
 ??__Eflt_plus_inf@@YAXXZ ENDP				; `dynamic initializer for 'flt_plus_inf''
 text$di	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ??__Eps_cst_plus_inf@@YAXXZ
 text$di	SEGMENT
 ??__Eps_cst_plus_inf@@YAXXZ PROC			; `dynamic initializer for 'ps_cst_plus_inf'', COMDAT
@@ -1839,7 +1839,7 @@ text$di	SEGMENT
 ??__Eps_cst_plus_inf@@YAXXZ ENDP			; `dynamic initializer for 'ps_cst_plus_inf''
 text$di	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ??__Eps_cst_minus_inf@@YAXXZ
 text$di	SEGMENT
 ??__Eps_cst_minus_inf@@YAXXZ PROC			; `dynamic initializer for 'ps_cst_minus_inf'', COMDAT
@@ -1854,49 +1854,49 @@ text$di	SEGMENT
 ??__Eps_cst_minus_inf@@YAXXZ ENDP			; `dynamic initializer for 'ps_cst_minus_inf''
 text$di	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\xutility
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?ray_query@COLLIDER@CDB@@QEAAXPEBVMODEL@2@AEBU?$_vector3@M@@1M@Z
 _TEXT	SEGMENT
 RC$1 = 32
@@ -1925,12 +1925,12 @@ $LN1550:
 	push	r15
 	lea	rbp, QWORD PTR [rax-87]
 	sub	rsp, 248				; 000000f8H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB.h
 
 ; 86   : 			if (S_READY!=status)
 
 	cmp	DWORD PTR [rdx+16], 0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 359  : {
 
@@ -1945,7 +1945,7 @@ $LN1550:
 	mov	r13, r8
 	mov	QWORD PTR [rax-40], r14
 	mov	r14, rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB.h
 
 ; 86   : 			if (S_READY!=status)
 
@@ -1964,7 +1964,7 @@ $LN1550:
 	mov	rcx, r14
 	call	QWORD PTR __imp_?Leave@xrCriticalSection@@QEAAXXZ
 $LN34@ray_query:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 364  : 	const AABBNoLeafNode* N = T->GetNodes();
 
@@ -1978,7 +1978,7 @@ $LN34@ray_query:
 ; 1362 :         const pointer _Lastptr  = _Last._Ptr;
 
 	mov	rdx, QWORD PTR [rsi+24]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 364  : 	const AABBNoLeafNode* N = T->GetNodes();
 
@@ -2014,7 +2014,7 @@ $LN34@ray_query:
 	mov	rbx, QWORD PTR [rsp+288]
 	mov	QWORD PTR [rsi+24], rax
 $LN53@ray_query:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 367  : 	if (CPU::ID.feature&_CPU_FEATURE_SSE)	{
 
@@ -2240,7 +2240,7 @@ $LN1270@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm1, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -2253,7 +2253,7 @@ $LN1272@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -2286,7 +2286,7 @@ $LN1305@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm1, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -2299,7 +2299,7 @@ $LN1307@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -2338,7 +2338,7 @@ $LN1340@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm1, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -2351,7 +2351,7 @@ $LN1342@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -2384,7 +2384,7 @@ $LN1375@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm1, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -2397,7 +2397,7 @@ $LN1377@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -2442,7 +2442,7 @@ $LN1410@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm1, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -2455,7 +2455,7 @@ $LN1412@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -2488,7 +2488,7 @@ $LN1445@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm1, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -2501,7 +2501,7 @@ $LN1447@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -2540,7 +2540,7 @@ $LN1480@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm1, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -2553,7 +2553,7 @@ $LN1482@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -2586,7 +2586,7 @@ $LN1515@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm1, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -2599,7 +2599,7 @@ $LN1517@ray_query:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -2641,27 +2641,27 @@ $LN31@ray_query:
 ?ray_query@COLLIDER@CDB@@QEAAXPEBVMODEL@2@AEBU?$_vector3@M@@1M@Z ENDP ; CDB::COLLIDER::ray_query
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 MaxT$1 = 32
@@ -2705,17 +2705,17 @@ $LL284@stab:
 	mov	rax, QWORD PTR [rdx+32]
 	lea	rdi, QWORD PTR [rdx+32]
 	prefetchnta BYTE PTR [rax]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [rdx]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movaps	xmm0, xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -2724,12 +2724,12 @@ $LL284@stab:
 	movss	xmm5, DWORD PTR [rdx+8]
 	movaps	xmm12, xmm9
 	subss	xmm14, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm13, DWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -2740,19 +2740,19 @@ $LL284@stab:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm10, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	comiss	xmm14, xmm13
 	mov	eax, esi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm9, DWORD PTR [rdx+16]
 	addss	xmm5, DWORD PTR [rdx+20]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -2911,7 +2911,7 @@ $LN40@stab:
 
 	movaps	xmm6, xmm2
 $LN299@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -2922,7 +2922,7 @@ $LN299@stab:
 	comiss	xmm6, xmm5
 	jmp	$LN298@stab
 $LN35@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 61   : 	} else if(ray.pos[2] > max[2]) {
 
@@ -3027,7 +3027,7 @@ $LN49@stab:
 	ja	SHORT $LN12@stab
 	comiss	xmm7, xmm9
 $LN298@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -3044,30 +3044,30 @@ $LN293@stab:
 	mulss	xmm0, xmm0
 	addss	xmm2, xmm1
 	addss	xmm2, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 342  : 			if (P.distance_to_sqr(ray.pos)>rRange2)											return;
 
 	comiss	xmm2, DWORD PTR [rbx+84]
 	ja	SHORT $LN12@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdx+24], sil
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	mov	rcx, rbx
 	mov	rdx, QWORD PTR [rdx+24]
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -3083,22 +3083,22 @@ $LN9@stab:
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, sil
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	je	$LL284@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -3129,25 +3129,25 @@ $LN12@stab:
 ?_stab@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<0,0,0,0>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -3158,7 +3158,7 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<0,0,0,0>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -3168,23 +3168,23 @@ R$ = 56
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm2, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movaps	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
 	movss	xmm3, DWORD PTR __real@34000000
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -3193,7 +3193,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -3225,12 +3225,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rdx+4]
 	movss	DWORD PTR [rcx+52], xmm0
 	divss	xmm1, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -3243,17 +3243,17 @@ R$ = 56
 	mov	eax, DWORD PTR [rdx+4]
 	mov	DWORD PTR [rcx+68], eax
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	DWORD PTR [rcx+80], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [rcx+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -3266,7 +3266,7 @@ R$ = 56
 
 	movss	xmm1, DWORD PTR [rdx]
 	andps	xmm1, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -3280,7 +3280,7 @@ $LN4@init:
 
 	movss	xmm0, DWORD PTR [rdx+4]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -3294,7 +3294,7 @@ $LN6@init:
 
 	movss	xmm0, DWORD PTR [rdx+8]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -3310,27 +3310,27 @@ $LN8@init:
 ?_init@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<0,0,0,0>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$0A@$0A@$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 MaxT$1 = 32
@@ -3374,17 +3374,17 @@ $LL284@stab:
 	mov	rax, QWORD PTR [rdx+32]
 	lea	rdi, QWORD PTR [rdx+32]
 	prefetchnta BYTE PTR [rax]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [rdx]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movaps	xmm0, xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -3393,12 +3393,12 @@ $LL284@stab:
 	movss	xmm5, DWORD PTR [rdx+8]
 	movaps	xmm12, xmm9
 	subss	xmm14, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm13, DWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -3409,19 +3409,19 @@ $LL284@stab:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm10, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	comiss	xmm14, xmm13
 	mov	eax, esi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm9, DWORD PTR [rdx+16]
 	addss	xmm5, DWORD PTR [rdx+20]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -3580,7 +3580,7 @@ $LN40@stab:
 
 	movaps	xmm6, xmm2
 $LN299@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -3591,7 +3591,7 @@ $LN299@stab:
 	comiss	xmm6, xmm5
 	jmp	$LN298@stab
 $LN35@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 61   : 	} else if(ray.pos[2] > max[2]) {
 
@@ -3696,7 +3696,7 @@ $LN49@stab:
 	ja	SHORT $LN12@stab
 	comiss	xmm7, xmm9
 $LN298@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -3713,30 +3713,30 @@ $LN293@stab:
 	mulss	xmm0, xmm0
 	addss	xmm2, xmm1
 	addss	xmm2, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 342  : 			if (P.distance_to_sqr(ray.pos)>rRange2)											return;
 
 	comiss	xmm2, DWORD PTR [rbx+84]
 	ja	SHORT $LN12@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdx+24], sil
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	mov	rcx, rbx
 	mov	rdx, QWORD PTR [rdx+24]
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -3752,22 +3752,22 @@ $LN9@stab:
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, sil
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	je	$LL284@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -3798,25 +3798,25 @@ $LN12@stab:
 ?_stab@?$ray_collider@$0A@$0A@$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<0,0,0,1>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$0A@$0A@$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -3827,7 +3827,7 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$0A@$0A@$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<0,0,0,1>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -3837,23 +3837,23 @@ R$ = 56
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm2, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movaps	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
 	movss	xmm3, DWORD PTR __real@34000000
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -3862,7 +3862,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -3894,12 +3894,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rdx+4]
 	movss	DWORD PTR [rcx+52], xmm0
 	divss	xmm1, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -3912,17 +3912,17 @@ R$ = 56
 	mov	eax, DWORD PTR [rdx+4]
 	mov	DWORD PTR [rcx+68], eax
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	DWORD PTR [rcx+80], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [rcx+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -3935,7 +3935,7 @@ R$ = 56
 
 	movss	xmm1, DWORD PTR [rdx]
 	andps	xmm1, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -3949,7 +3949,7 @@ $LN4@init:
 
 	movss	xmm0, DWORD PTR [rdx+4]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -3963,7 +3963,7 @@ $LN6@init:
 
 	movss	xmm0, DWORD PTR [rdx+8]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -3979,29 +3979,29 @@ $LN8@init:
 ?_init@?$ray_collider@$0A@$0A@$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<0,0,0,1>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$0A@$0A@$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 MaxT$1 = 32
@@ -4047,17 +4047,17 @@ $LL290@stab:
 	mov	rax, QWORD PTR [rdx+32]
 	lea	rdi, QWORD PTR [rdx+32]
 	prefetchnta BYTE PTR [rax]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [rdx]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movaps	xmm0, xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -4066,12 +4066,12 @@ $LL290@stab:
 	movss	xmm5, DWORD PTR [rdx+8]
 	movaps	xmm12, xmm9
 	subss	xmm14, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm13, DWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -4082,19 +4082,19 @@ $LL290@stab:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm10, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	comiss	xmm14, xmm13
 	mov	eax, ebp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm9, DWORD PTR [rdx+16]
 	addss	xmm5, DWORD PTR [rdx+20]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -4253,7 +4253,7 @@ $LN40@stab:
 
 	movaps	xmm6, xmm2
 $LN306@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -4264,7 +4264,7 @@ $LN306@stab:
 	comiss	xmm6, xmm5
 	jmp	$LN305@stab
 $LN35@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 61   : 	} else if(ray.pos[2] > max[2]) {
 
@@ -4369,7 +4369,7 @@ $LN49@stab:
 	ja	$LN12@stab
 	comiss	xmm7, xmm9
 $LN305@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -4386,30 +4386,30 @@ $LN300@stab:
 	mulss	xmm0, xmm0
 	addss	xmm2, xmm1
 	addss	xmm2, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 342  : 			if (P.distance_to_sqr(ray.pos)>rRange2)											return;
 
 	comiss	xmm2, DWORD PTR [rbx+84]
 	ja	SHORT $LN12@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdx+24], bpl
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	mov	rcx, rbx
 	mov	rdx, QWORD PTR [rdx+24]
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -4433,7 +4433,7 @@ $LN9@stab:
 	sub	rcx, QWORD PTR [rax+16]
 	sar	rcx, 3
 	imul	rcx, rsi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 350  : 		if (bFirst && dest->r_count())														return;
 
@@ -4443,22 +4443,22 @@ $LN9@stab:
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, bpl
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	je	$LL290@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -4490,25 +4490,25 @@ $LN12@stab:
 ?_stab@?$ray_collider@$0A@$0A@$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<0,0,1,0>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$0A@$0A@$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -4519,7 +4519,7 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$0A@$0A@$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<0,0,1,0>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -4529,23 +4529,23 @@ R$ = 56
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm2, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movaps	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
 	movss	xmm3, DWORD PTR __real@34000000
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -4554,7 +4554,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -4586,12 +4586,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rdx+4]
 	movss	DWORD PTR [rcx+52], xmm0
 	divss	xmm1, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -4604,17 +4604,17 @@ R$ = 56
 	mov	eax, DWORD PTR [rdx+4]
 	mov	DWORD PTR [rcx+68], eax
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	DWORD PTR [rcx+80], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [rcx+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -4627,7 +4627,7 @@ R$ = 56
 
 	movss	xmm1, DWORD PTR [rdx]
 	andps	xmm1, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -4641,7 +4641,7 @@ $LN4@init:
 
 	movss	xmm0, DWORD PTR [rdx+4]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -4655,7 +4655,7 @@ $LN6@init:
 
 	movss	xmm0, DWORD PTR [rdx+8]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -4671,29 +4671,29 @@ $LN8@init:
 ?_init@?$ray_collider@$0A@$0A@$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<0,0,1,0>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$0A@$0A@$00$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 MaxT$1 = 32
@@ -4739,17 +4739,17 @@ $LL290@stab:
 	mov	rax, QWORD PTR [rdx+32]
 	lea	rdi, QWORD PTR [rdx+32]
 	prefetchnta BYTE PTR [rax]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [rdx]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movaps	xmm0, xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -4758,12 +4758,12 @@ $LL290@stab:
 	movss	xmm5, DWORD PTR [rdx+8]
 	movaps	xmm12, xmm9
 	subss	xmm14, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm13, DWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -4774,19 +4774,19 @@ $LL290@stab:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm10, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	comiss	xmm14, xmm13
 	mov	eax, ebp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm9, DWORD PTR [rdx+16]
 	addss	xmm5, DWORD PTR [rdx+20]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -4945,7 +4945,7 @@ $LN40@stab:
 
 	movaps	xmm6, xmm2
 $LN306@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -4956,7 +4956,7 @@ $LN306@stab:
 	comiss	xmm6, xmm5
 	jmp	$LN305@stab
 $LN35@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 61   : 	} else if(ray.pos[2] > max[2]) {
 
@@ -5061,7 +5061,7 @@ $LN49@stab:
 	ja	$LN12@stab
 	comiss	xmm7, xmm9
 $LN305@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -5078,30 +5078,30 @@ $LN300@stab:
 	mulss	xmm0, xmm0
 	addss	xmm2, xmm1
 	addss	xmm2, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 342  : 			if (P.distance_to_sqr(ray.pos)>rRange2)											return;
 
 	comiss	xmm2, DWORD PTR [rbx+84]
 	ja	SHORT $LN12@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdx+24], bpl
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	mov	rcx, rbx
 	mov	rdx, QWORD PTR [rdx+24]
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -5125,7 +5125,7 @@ $LN9@stab:
 	sub	rcx, QWORD PTR [rax+16]
 	sar	rcx, 3
 	imul	rcx, rsi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 350  : 		if (bFirst && dest->r_count())														return;
 
@@ -5135,22 +5135,22 @@ $LN9@stab:
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, bpl
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	je	$LL290@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -5182,25 +5182,25 @@ $LN12@stab:
 ?_stab@?$ray_collider@$0A@$0A@$00$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<0,0,1,1>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$0A@$0A@$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -5211,7 +5211,7 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$0A@$0A@$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<0,0,1,1>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -5221,23 +5221,23 @@ R$ = 56
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm2, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movaps	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
 	movss	xmm3, DWORD PTR __real@34000000
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -5246,7 +5246,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -5278,12 +5278,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rdx+4]
 	movss	DWORD PTR [rcx+52], xmm0
 	divss	xmm1, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -5296,17 +5296,17 @@ R$ = 56
 	mov	eax, DWORD PTR [rdx+4]
 	mov	DWORD PTR [rcx+68], eax
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	DWORD PTR [rcx+80], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [rcx+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -5319,7 +5319,7 @@ R$ = 56
 
 	movss	xmm1, DWORD PTR [rdx]
 	andps	xmm1, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -5333,7 +5333,7 @@ $LN4@init:
 
 	movss	xmm0, DWORD PTR [rdx+4]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -5347,7 +5347,7 @@ $LN6@init:
 
 	movss	xmm0, DWORD PTR [rdx+8]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -5363,27 +5363,27 @@ $LN8@init:
 ?_init@?$ray_collider@$0A@$0A@$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<0,0,1,1>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$0A@$00$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 MaxT$1 = 32
@@ -5427,17 +5427,17 @@ $LL284@stab:
 	mov	rax, QWORD PTR [rdx+32]
 	lea	rdi, QWORD PTR [rdx+32]
 	prefetchnta BYTE PTR [rax]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [rdx]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movaps	xmm0, xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -5446,12 +5446,12 @@ $LL284@stab:
 	movss	xmm5, DWORD PTR [rdx+8]
 	movaps	xmm12, xmm9
 	subss	xmm14, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm13, DWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -5462,19 +5462,19 @@ $LL284@stab:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm10, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	comiss	xmm14, xmm13
 	mov	eax, esi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm9, DWORD PTR [rdx+16]
 	addss	xmm5, DWORD PTR [rdx+20]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -5633,7 +5633,7 @@ $LN40@stab:
 
 	movaps	xmm6, xmm2
 $LN299@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -5644,7 +5644,7 @@ $LN299@stab:
 	comiss	xmm6, xmm5
 	jmp	$LN298@stab
 $LN35@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 61   : 	} else if(ray.pos[2] > max[2]) {
 
@@ -5749,7 +5749,7 @@ $LN49@stab:
 	ja	SHORT $LN12@stab
 	comiss	xmm7, xmm9
 $LN298@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -5766,30 +5766,30 @@ $LN293@stab:
 	mulss	xmm0, xmm0
 	addss	xmm2, xmm1
 	addss	xmm2, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 342  : 			if (P.distance_to_sqr(ray.pos)>rRange2)											return;
 
 	comiss	xmm2, DWORD PTR [rbx+84]
 	ja	SHORT $LN12@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdx+24], sil
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	mov	rcx, rbx
 	mov	rdx, QWORD PTR [rdx+24]
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -5805,22 +5805,22 @@ $LN9@stab:
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, sil
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	je	$LL284@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -5851,25 +5851,25 @@ $LN12@stab:
 ?_stab@?$ray_collider@$0A@$00$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<0,1,0,0>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$0A@$00$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -5880,7 +5880,7 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$0A@$00$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<0,1,0,0>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -5890,23 +5890,23 @@ R$ = 56
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm2, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movaps	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
 	movss	xmm3, DWORD PTR __real@34000000
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -5915,7 +5915,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -5947,12 +5947,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rdx+4]
 	movss	DWORD PTR [rcx+52], xmm0
 	divss	xmm1, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -5965,17 +5965,17 @@ R$ = 56
 	mov	eax, DWORD PTR [rdx+4]
 	mov	DWORD PTR [rcx+68], eax
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	DWORD PTR [rcx+80], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [rcx+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -5988,7 +5988,7 @@ R$ = 56
 
 	movss	xmm1, DWORD PTR [rdx]
 	andps	xmm1, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -6002,7 +6002,7 @@ $LN4@init:
 
 	movss	xmm0, DWORD PTR [rdx+4]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -6016,7 +6016,7 @@ $LN6@init:
 
 	movss	xmm0, DWORD PTR [rdx+8]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -6032,27 +6032,27 @@ $LN8@init:
 ?_init@?$ray_collider@$0A@$00$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<0,1,0,0>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$0A@$00$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 MaxT$1 = 32
@@ -6096,17 +6096,17 @@ $LL284@stab:
 	mov	rax, QWORD PTR [rdx+32]
 	lea	rdi, QWORD PTR [rdx+32]
 	prefetchnta BYTE PTR [rax]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [rdx]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movaps	xmm0, xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -6115,12 +6115,12 @@ $LL284@stab:
 	movss	xmm5, DWORD PTR [rdx+8]
 	movaps	xmm12, xmm9
 	subss	xmm14, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm13, DWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -6131,19 +6131,19 @@ $LL284@stab:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm10, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	comiss	xmm14, xmm13
 	mov	eax, esi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm9, DWORD PTR [rdx+16]
 	addss	xmm5, DWORD PTR [rdx+20]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -6302,7 +6302,7 @@ $LN40@stab:
 
 	movaps	xmm6, xmm2
 $LN299@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -6313,7 +6313,7 @@ $LN299@stab:
 	comiss	xmm6, xmm5
 	jmp	$LN298@stab
 $LN35@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 61   : 	} else if(ray.pos[2] > max[2]) {
 
@@ -6418,7 +6418,7 @@ $LN49@stab:
 	ja	SHORT $LN12@stab
 	comiss	xmm7, xmm9
 $LN298@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -6435,30 +6435,30 @@ $LN293@stab:
 	mulss	xmm0, xmm0
 	addss	xmm2, xmm1
 	addss	xmm2, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 342  : 			if (P.distance_to_sqr(ray.pos)>rRange2)											return;
 
 	comiss	xmm2, DWORD PTR [rbx+84]
 	ja	SHORT $LN12@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdx+24], sil
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	mov	rcx, rbx
 	mov	rdx, QWORD PTR [rdx+24]
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -6474,22 +6474,22 @@ $LN9@stab:
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, sil
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	je	$LL284@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -6520,25 +6520,25 @@ $LN12@stab:
 ?_stab@?$ray_collider@$0A@$00$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<0,1,0,1>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$0A@$00$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -6549,7 +6549,7 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$0A@$00$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<0,1,0,1>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -6559,23 +6559,23 @@ R$ = 56
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm2, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movaps	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
 	movss	xmm3, DWORD PTR __real@34000000
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -6584,7 +6584,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -6616,12 +6616,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rdx+4]
 	movss	DWORD PTR [rcx+52], xmm0
 	divss	xmm1, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -6634,17 +6634,17 @@ R$ = 56
 	mov	eax, DWORD PTR [rdx+4]
 	mov	DWORD PTR [rcx+68], eax
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	DWORD PTR [rcx+80], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [rcx+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -6657,7 +6657,7 @@ R$ = 56
 
 	movss	xmm1, DWORD PTR [rdx]
 	andps	xmm1, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -6671,7 +6671,7 @@ $LN4@init:
 
 	movss	xmm0, DWORD PTR [rdx+4]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -6685,7 +6685,7 @@ $LN6@init:
 
 	movss	xmm0, DWORD PTR [rdx+8]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -6701,29 +6701,29 @@ $LN8@init:
 ?_init@?$ray_collider@$0A@$00$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<0,1,0,1>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$0A@$00$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 MaxT$1 = 32
@@ -6769,17 +6769,17 @@ $LL290@stab:
 	mov	rax, QWORD PTR [rdx+32]
 	lea	rdi, QWORD PTR [rdx+32]
 	prefetchnta BYTE PTR [rax]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [rdx]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movaps	xmm0, xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -6788,12 +6788,12 @@ $LL290@stab:
 	movss	xmm5, DWORD PTR [rdx+8]
 	movaps	xmm12, xmm9
 	subss	xmm14, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm13, DWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -6804,19 +6804,19 @@ $LL290@stab:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm10, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	comiss	xmm14, xmm13
 	mov	eax, ebp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm9, DWORD PTR [rdx+16]
 	addss	xmm5, DWORD PTR [rdx+20]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -6975,7 +6975,7 @@ $LN40@stab:
 
 	movaps	xmm6, xmm2
 $LN306@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -6986,7 +6986,7 @@ $LN306@stab:
 	comiss	xmm6, xmm5
 	jmp	$LN305@stab
 $LN35@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 61   : 	} else if(ray.pos[2] > max[2]) {
 
@@ -7091,7 +7091,7 @@ $LN49@stab:
 	ja	$LN12@stab
 	comiss	xmm7, xmm9
 $LN305@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -7108,30 +7108,30 @@ $LN300@stab:
 	mulss	xmm0, xmm0
 	addss	xmm2, xmm1
 	addss	xmm2, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 342  : 			if (P.distance_to_sqr(ray.pos)>rRange2)											return;
 
 	comiss	xmm2, DWORD PTR [rbx+84]
 	ja	SHORT $LN12@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdx+24], bpl
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	mov	rcx, rbx
 	mov	rdx, QWORD PTR [rdx+24]
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -7155,7 +7155,7 @@ $LN9@stab:
 	sub	rcx, QWORD PTR [rax+16]
 	sar	rcx, 3
 	imul	rcx, rsi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 350  : 		if (bFirst && dest->r_count())														return;
 
@@ -7165,22 +7165,22 @@ $LN9@stab:
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, bpl
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	je	$LL290@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -7212,25 +7212,25 @@ $LN12@stab:
 ?_stab@?$ray_collider@$0A@$00$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<0,1,1,0>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$0A@$00$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -7241,7 +7241,7 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$0A@$00$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<0,1,1,0>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -7251,23 +7251,23 @@ R$ = 56
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm2, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movaps	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
 	movss	xmm3, DWORD PTR __real@34000000
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -7276,7 +7276,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -7308,12 +7308,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rdx+4]
 	movss	DWORD PTR [rcx+52], xmm0
 	divss	xmm1, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -7326,17 +7326,17 @@ R$ = 56
 	mov	eax, DWORD PTR [rdx+4]
 	mov	DWORD PTR [rcx+68], eax
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	DWORD PTR [rcx+80], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [rcx+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -7349,7 +7349,7 @@ R$ = 56
 
 	movss	xmm1, DWORD PTR [rdx]
 	andps	xmm1, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -7363,7 +7363,7 @@ $LN4@init:
 
 	movss	xmm0, DWORD PTR [rdx+4]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -7377,7 +7377,7 @@ $LN6@init:
 
 	movss	xmm0, DWORD PTR [rdx+8]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -7393,29 +7393,29 @@ $LN8@init:
 ?_init@?$ray_collider@$0A@$00$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<0,1,1,0>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$0A@$00$00$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 MaxT$1 = 32
@@ -7461,17 +7461,17 @@ $LL290@stab:
 	mov	rax, QWORD PTR [rdx+32]
 	lea	rdi, QWORD PTR [rdx+32]
 	prefetchnta BYTE PTR [rax]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [rdx]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movaps	xmm0, xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -7480,12 +7480,12 @@ $LL290@stab:
 	movss	xmm5, DWORD PTR [rdx+8]
 	movaps	xmm12, xmm9
 	subss	xmm14, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm13, DWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -7496,19 +7496,19 @@ $LL290@stab:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm10, DWORD PTR [rdx+12]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	comiss	xmm14, xmm13
 	mov	eax, ebp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm9, DWORD PTR [rdx+16]
 	addss	xmm5, DWORD PTR [rdx+20]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -7667,7 +7667,7 @@ $LN40@stab:
 
 	movaps	xmm6, xmm2
 $LN306@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -7678,7 +7678,7 @@ $LN306@stab:
 	comiss	xmm6, xmm5
 	jmp	$LN305@stab
 $LN35@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 61   : 	} else if(ray.pos[2] > max[2]) {
 
@@ -7783,7 +7783,7 @@ $LN49@stab:
 	ja	$LN12@stab
 	comiss	xmm7, xmm9
 $LN305@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 301  :         return (x - v.x)*(x - v.x) + (y - v.y)*(y - v.y) + (z - v.z)*(z - v.z);
 
@@ -7800,30 +7800,30 @@ $LN300@stab:
 	mulss	xmm0, xmm0
 	addss	xmm2, xmm1
 	addss	xmm2, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 342  : 			if (P.distance_to_sqr(ray.pos)>rRange2)											return;
 
 	comiss	xmm2, DWORD PTR [rbx+84]
 	ja	SHORT $LN12@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdx+24], bpl
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	mov	rcx, rbx
 	mov	rdx, QWORD PTR [rdx+24]
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -7847,7 +7847,7 @@ $LN9@stab:
 	sub	rcx, QWORD PTR [rax+16]
 	sar	rcx, 3
 	imul	rcx, rsi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 350  : 		if (bFirst && dest->r_count())														return;
 
@@ -7857,22 +7857,22 @@ $LN9@stab:
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, bpl
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	je	$LL290@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -7904,25 +7904,25 @@ $LN12@stab:
 ?_stab@?$ray_collider@$0A@$00$00$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<0,1,1,1>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$0A@$00$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -7933,7 +7933,7 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$0A@$00$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<0,1,1,1>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -7943,23 +7943,23 @@ R$ = 56
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm2, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movaps	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
 	movss	xmm3, DWORD PTR __real@34000000
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -7968,7 +7968,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -8000,12 +8000,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rdx+4]
 	movss	DWORD PTR [rcx+52], xmm0
 	divss	xmm1, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -8018,17 +8018,17 @@ R$ = 56
 	mov	eax, DWORD PTR [rdx+4]
 	mov	DWORD PTR [rcx+68], eax
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	DWORD PTR [rcx+80], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [rcx+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -8041,7 +8041,7 @@ R$ = 56
 
 	movss	xmm1, DWORD PTR [rdx]
 	andps	xmm1, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 201  : 			if (_abs(D.x)>flt_eps){}	else ray.inv_dir.x=0;
 
@@ -8055,7 +8055,7 @@ $LN4@init:
 
 	movss	xmm0, DWORD PTR [rdx+4]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 202  : 			if (_abs(D.y)>flt_eps){}	else ray.inv_dir.y=0;
 
@@ -8069,7 +8069,7 @@ $LN6@init:
 
 	movss	xmm0, DWORD PTR [rdx+8]
 	andps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 203  : 			if (_abs(D.z)>flt_eps){}	else ray.inv_dir.z=0;
 
@@ -8085,21 +8085,21 @@ $LN8@init:
 ?_init@?$ray_collider@$0A@$00$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<0,1,1,1>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$00$0A@$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -8149,7 +8149,7 @@ $LN294:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -8239,7 +8239,7 @@ $LN294:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
@@ -8255,22 +8255,22 @@ $LL284@stab:
 
 	mov	rdx, QWORD PTR [r8+24]
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -8282,12 +8282,12 @@ $LN8@stab:
 
 	call	?_stab@?$ray_collider@$00$0A@$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ; ray_collider<1,0,0,0>::_stab
 $LN9@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdi], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -8329,7 +8329,7 @@ $LN9@stab:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -8424,7 +8424,7 @@ $LN9@stab:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
@@ -8438,22 +8438,22 @@ $LN9@stab:
 	pop	rdi
 	ret	0
 $LN289@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -8470,17 +8470,17 @@ $LN12@stab:
 ?_stab@?$ray_collider@$00$0A@$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<1,0,0,0>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$00$0A@$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -8491,12 +8491,12 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$00$0A@$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<1,0,0,0>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movss	xmm1, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 190  : 	{
 
@@ -8505,7 +8505,7 @@ R$ = 56
 ; 191  : 		dest			= CL;
 
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -8514,7 +8514,7 @@ R$ = 56
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -8523,7 +8523,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -8552,12 +8552,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rcx+4]
 	movss	DWORD PTR [r10+52], xmm0
 	divss	xmm1, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -8570,7 +8570,7 @@ R$ = 56
 	mov	eax, DWORD PTR [rcx+4]
 	mov	DWORD PTR [r10+68], eax
 	mov	eax, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
@@ -8579,12 +8579,12 @@ R$ = 56
 ; 198  : 		rRange2			= R*R;
 
 	mulss	xmm0, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [r10+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 198  : 		rRange2			= R*R;
 
@@ -8602,21 +8602,21 @@ R$ = 56
 ?_init@?$ray_collider@$00$0A@$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<1,0,0,0>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$00$0A@$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -8666,7 +8666,7 @@ $LN294:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -8756,7 +8756,7 @@ $LN294:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
@@ -8772,22 +8772,22 @@ $LL284@stab:
 
 	mov	rdx, QWORD PTR [r8+24]
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -8799,12 +8799,12 @@ $LN8@stab:
 
 	call	?_stab@?$ray_collider@$00$0A@$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ; ray_collider<1,0,0,1>::_stab
 $LN9@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdi], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -8846,7 +8846,7 @@ $LN9@stab:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -8941,7 +8941,7 @@ $LN9@stab:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
@@ -8955,22 +8955,22 @@ $LN9@stab:
 	pop	rdi
 	ret	0
 $LN289@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -8987,17 +8987,17 @@ $LN12@stab:
 ?_stab@?$ray_collider@$00$0A@$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<1,0,0,1>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$00$0A@$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -9008,12 +9008,12 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$00$0A@$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<1,0,0,1>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movss	xmm1, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 190  : 	{
 
@@ -9022,7 +9022,7 @@ R$ = 56
 ; 191  : 		dest			= CL;
 
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -9031,7 +9031,7 @@ R$ = 56
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -9040,7 +9040,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -9069,12 +9069,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rcx+4]
 	movss	DWORD PTR [r10+52], xmm0
 	divss	xmm1, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -9087,7 +9087,7 @@ R$ = 56
 	mov	eax, DWORD PTR [rcx+4]
 	mov	DWORD PTR [r10+68], eax
 	mov	eax, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
@@ -9096,12 +9096,12 @@ R$ = 56
 ; 198  : 		rRange2			= R*R;
 
 	mulss	xmm0, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [r10+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 198  : 		rRange2			= R*R;
 
@@ -9119,23 +9119,23 @@ R$ = 56
 ?_init@?$ray_collider@$00$0A@$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<1,0,0,1>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$00$0A@$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -9185,7 +9185,7 @@ $LN302:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -9275,7 +9275,7 @@ $LN302:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
@@ -9296,22 +9296,22 @@ $LL290@stab:
 
 	mov	rdx, QWORD PTR [r8+24]
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -9335,18 +9335,18 @@ $LN9@stab:
 	sub	rcx, QWORD PTR [rax+16]
 	sar	rcx, 3
 	imul	rcx, rsi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 350  : 		if (bFirst && dest->r_count())														return;
 
 	test	ecx, ecx
 	jne	$LN300@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdi], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -9388,7 +9388,7 @@ $LN9@stab:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -9483,29 +9483,29 @@ $LN9@stab:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
 	jne	$LL290@stab
 	jmp	SHORT $LN300@stab
 $LN296@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -9524,17 +9524,17 @@ $LN12@stab:
 ?_stab@?$ray_collider@$00$0A@$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<1,0,1,0>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$00$0A@$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -9545,12 +9545,12 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$00$0A@$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<1,0,1,0>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movss	xmm1, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 190  : 	{
 
@@ -9559,7 +9559,7 @@ R$ = 56
 ; 191  : 		dest			= CL;
 
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -9568,7 +9568,7 @@ R$ = 56
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -9577,7 +9577,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -9606,12 +9606,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rcx+4]
 	movss	DWORD PTR [r10+52], xmm0
 	divss	xmm1, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -9624,7 +9624,7 @@ R$ = 56
 	mov	eax, DWORD PTR [rcx+4]
 	mov	DWORD PTR [r10+68], eax
 	mov	eax, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
@@ -9633,12 +9633,12 @@ R$ = 56
 ; 198  : 		rRange2			= R*R;
 
 	mulss	xmm0, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [r10+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 198  : 		rRange2			= R*R;
 
@@ -9656,23 +9656,23 @@ R$ = 56
 ?_init@?$ray_collider@$00$0A@$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<1,0,1,0>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$00$0A@$00$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -9722,7 +9722,7 @@ $LN302:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -9812,7 +9812,7 @@ $LN302:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
@@ -9833,22 +9833,22 @@ $LL290@stab:
 
 	mov	rdx, QWORD PTR [r8+24]
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -9872,18 +9872,18 @@ $LN9@stab:
 	sub	rcx, QWORD PTR [rax+16]
 	sar	rcx, 3
 	imul	rcx, rsi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 350  : 		if (bFirst && dest->r_count())														return;
 
 	test	ecx, ecx
 	jne	$LN300@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdi], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -9925,7 +9925,7 @@ $LN9@stab:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -10020,29 +10020,29 @@ $LN9@stab:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
 	jne	$LL290@stab
 	jmp	SHORT $LN300@stab
 $LN296@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -10061,17 +10061,17 @@ $LN12@stab:
 ?_stab@?$ray_collider@$00$0A@$00$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<1,0,1,1>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$00$0A@$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -10082,12 +10082,12 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$00$0A@$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<1,0,1,1>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movss	xmm1, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 190  : 	{
 
@@ -10096,7 +10096,7 @@ R$ = 56
 ; 191  : 		dest			= CL;
 
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -10105,7 +10105,7 @@ R$ = 56
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -10114,7 +10114,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -10143,12 +10143,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rcx+4]
 	movss	DWORD PTR [r10+52], xmm0
 	divss	xmm1, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -10161,7 +10161,7 @@ R$ = 56
 	mov	eax, DWORD PTR [rcx+4]
 	mov	DWORD PTR [r10+68], eax
 	mov	eax, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
@@ -10170,12 +10170,12 @@ R$ = 56
 ; 198  : 		rRange2			= R*R;
 
 	mulss	xmm0, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [r10+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 198  : 		rRange2			= R*R;
 
@@ -10193,21 +10193,21 @@ R$ = 56
 ?_init@?$ray_collider@$00$0A@$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<1,0,1,1>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$00$00$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -10257,7 +10257,7 @@ $LN294:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -10347,7 +10347,7 @@ $LN294:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
@@ -10363,22 +10363,22 @@ $LL284@stab:
 
 	mov	rdx, QWORD PTR [r8+24]
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -10390,12 +10390,12 @@ $LN8@stab:
 
 	call	?_stab@?$ray_collider@$00$00$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ; ray_collider<1,1,0,0>::_stab
 $LN9@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdi], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -10437,7 +10437,7 @@ $LN9@stab:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -10532,7 +10532,7 @@ $LN9@stab:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
@@ -10546,22 +10546,22 @@ $LN9@stab:
 	pop	rdi
 	ret	0
 $LN289@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -10578,17 +10578,17 @@ $LN12@stab:
 ?_stab@?$ray_collider@$00$00$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<1,1,0,0>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$00$00$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -10599,12 +10599,12 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$00$00$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<1,1,0,0>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movss	xmm1, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 190  : 	{
 
@@ -10613,7 +10613,7 @@ R$ = 56
 ; 191  : 		dest			= CL;
 
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -10622,7 +10622,7 @@ R$ = 56
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -10631,7 +10631,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -10660,12 +10660,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rcx+4]
 	movss	DWORD PTR [r10+52], xmm0
 	divss	xmm1, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -10678,7 +10678,7 @@ R$ = 56
 	mov	eax, DWORD PTR [rcx+4]
 	mov	DWORD PTR [r10+68], eax
 	mov	eax, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
@@ -10687,12 +10687,12 @@ R$ = 56
 ; 198  : 		rRange2			= R*R;
 
 	mulss	xmm0, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [r10+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 198  : 		rRange2			= R*R;
 
@@ -10710,21 +10710,21 @@ R$ = 56
 ?_init@?$ray_collider@$00$00$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<1,1,0,0>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$00$00$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -10774,7 +10774,7 @@ $LN294:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -10864,7 +10864,7 @@ $LN294:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
@@ -10880,22 +10880,22 @@ $LL284@stab:
 
 	mov	rdx, QWORD PTR [r8+24]
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -10907,12 +10907,12 @@ $LN8@stab:
 
 	call	?_stab@?$ray_collider@$00$00$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ; ray_collider<1,1,0,1>::_stab
 $LN9@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdi], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -10954,7 +10954,7 @@ $LN9@stab:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -11049,7 +11049,7 @@ $LN9@stab:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
@@ -11063,22 +11063,22 @@ $LN9@stab:
 	pop	rdi
 	ret	0
 $LN289@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -11095,17 +11095,17 @@ $LN12@stab:
 ?_stab@?$ray_collider@$00$00$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<1,1,0,1>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$00$00$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -11116,12 +11116,12 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$00$00$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<1,1,0,1>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movss	xmm1, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 190  : 	{
 
@@ -11130,7 +11130,7 @@ R$ = 56
 ; 191  : 		dest			= CL;
 
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -11139,7 +11139,7 @@ R$ = 56
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -11148,7 +11148,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -11177,12 +11177,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rcx+4]
 	movss	DWORD PTR [r10+52], xmm0
 	divss	xmm1, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -11195,7 +11195,7 @@ R$ = 56
 	mov	eax, DWORD PTR [rcx+4]
 	mov	DWORD PTR [r10+68], eax
 	mov	eax, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
@@ -11204,12 +11204,12 @@ R$ = 56
 ; 198  : 		rRange2			= R*R;
 
 	mulss	xmm0, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [r10+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 198  : 		rRange2			= R*R;
 
@@ -11227,23 +11227,23 @@ R$ = 56
 ?_init@?$ray_collider@$00$00$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<1,1,0,1>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$00$00$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -11293,7 +11293,7 @@ $LN302:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -11383,7 +11383,7 @@ $LN302:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
@@ -11404,22 +11404,22 @@ $LL290@stab:
 
 	mov	rdx, QWORD PTR [r8+24]
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -11443,18 +11443,18 @@ $LN9@stab:
 	sub	rcx, QWORD PTR [rax+16]
 	sar	rcx, 3
 	imul	rcx, rsi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 350  : 		if (bFirst && dest->r_count())														return;
 
 	test	ecx, ecx
 	jne	$LN300@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdi], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -11496,7 +11496,7 @@ $LN9@stab:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -11591,29 +11591,29 @@ $LN9@stab:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
 	jne	$LL290@stab
 	jmp	SHORT $LN300@stab
 $LN296@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -11632,17 +11632,17 @@ $LN12@stab:
 ?_stab@?$ray_collider@$00$00$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<1,1,1,0>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$00$00$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -11653,12 +11653,12 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$00$00$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<1,1,1,0>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movss	xmm1, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 190  : 	{
 
@@ -11667,7 +11667,7 @@ R$ = 56
 ; 191  : 		dest			= CL;
 
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -11676,7 +11676,7 @@ R$ = 56
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -11685,7 +11685,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -11714,12 +11714,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rcx+4]
 	movss	DWORD PTR [r10+52], xmm0
 	divss	xmm1, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -11732,7 +11732,7 @@ R$ = 56
 	mov	eax, DWORD PTR [rcx+4]
 	mov	DWORD PTR [r10+68], eax
 	mov	eax, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
@@ -11741,12 +11741,12 @@ R$ = 56
 ; 198  : 		rRange2			= R*R;
 
 	mulss	xmm0, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [r10+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 198  : 		rRange2			= R*R;
 
@@ -11764,23 +11764,23 @@ R$ = 56
 ?_init@?$ray_collider@$00$00$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<1,1,1,0>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_stab@?$ray_collider@$00$00$00$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -11830,7 +11830,7 @@ $LN302:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -11920,7 +11920,7 @@ $LN302:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
@@ -11941,22 +11941,22 @@ $LL290@stab:
 
 	mov	rdx, QWORD PTR [r8+24]
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN8@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 346  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -11980,18 +11980,18 @@ $LN9@stab:
 	sub	rcx, QWORD PTR [rax+16]
 	sar	rcx, 3
 	imul	rcx, rsi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 350  : 		if (bFirst && dest->r_count())														return;
 
 	test	ecx, ecx
 	jne	$LN300@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rdi], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -12033,7 +12033,7 @@ $LN9@stab:
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -12128,29 +12128,29 @@ $LN9@stab:
 	setae	al
 	movzx	ecx, al
 	test	edx, ecx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 336  : 			if (!_box_sse((Fvector&)node->mAABB.mCenter,(Fvector&)node->mAABB.mExtents,d))	return;
 
 	jne	$LL290@stab
 	jmp	SHORT $LN300@stab
 $LN296@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rdi]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rbx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 353  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -12169,17 +12169,17 @@ $LN12@stab:
 ?_stab@?$ray_collider@$00$00$00$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; ray_collider<1,1,1,1>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_init@?$ray_collider@$00$00$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -12190,12 +12190,12 @@ C$ = 40
 D$ = 48
 R$ = 56
 ?_init@?$ray_collider@$00$00$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z PROC ; ray_collider<1,1,1,1>::_init, COMDAT
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
 	movss	xmm1, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 190  : 	{
 
@@ -12204,7 +12204,7 @@ R$ = 56
 ; 191  : 		dest			= CL;
 
 	mov	QWORD PTR [rcx], rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -12213,7 +12213,7 @@ R$ = 56
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 192  : 		tris			= T;
 
@@ -12222,7 +12222,7 @@ R$ = 56
 ; 193  : 		verts			= V;
 
 	mov	QWORD PTR [rcx+16], r8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
@@ -12251,12 +12251,12 @@ R$ = 56
 	divss	xmm0, DWORD PTR [rcx+4]
 	movss	DWORD PTR [r10+52], xmm0
 	divss	xmm1, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
 	movss	xmm0, DWORD PTR R$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 45   :     ICF SelfRef div(const Self& v) { x /= v.x; y /= v.y; z /= v.z; return *this; };
 
@@ -12269,7 +12269,7 @@ R$ = 56
 	mov	eax, DWORD PTR [rcx+4]
 	mov	DWORD PTR [r10+68], eax
 	mov	eax, DWORD PTR [rcx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 197  : 		rRange			= R;
 
@@ -12278,12 +12278,12 @@ R$ = 56
 ; 198  : 		rRange2			= R*R;
 
 	mulss	xmm0, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 25   :     ICF SelfRef set(const _vector3<float>& v) { x = T(v.x); y = T(v.y); z = T(v.z); return *this; };
 
 	mov	DWORD PTR [r10+72], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 198  : 		rRange2			= R*R;
 
@@ -12301,27 +12301,27 @@ R$ = 56
 ?_init@?$ray_collider@$00$00$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3M@Z ENDP ; ray_collider<1,1,1,1>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAAXK@Z
 _TEXT	SEGMENT
 tv1073 = 208
@@ -12353,7 +12353,7 @@ $LN64:
 	movaps	XMMWORD PTR [rax-24], xmm6
 	movaps	XMMWORD PTR [rax-40], xmm7
 	movaps	XMMWORD PTR [rax-56], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -12363,7 +12363,7 @@ $LN64:
 	movaps	XMMWORD PTR [rax-120], xmm12
 	movaps	XMMWORD PTR [rsp+64], xmm13
 	movaps	XMMWORD PTR [rsp+48], xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
@@ -12380,13 +12380,13 @@ $LN64:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [r10+r9*4+4]
 	movss	xmm9, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -12395,7 +12395,7 @@ $LN64:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -12404,12 +12404,12 @@ $LN64:
 	subss	xmm1, xmm9
 	movss	xmm2, DWORD PTR [r10+rdx*4+4]
 	subss	xmm15, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -12460,7 +12460,7 @@ $LN64:
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -12470,29 +12470,29 @@ $LN64:
 	comiss	xmm0, xmm3
 	ja	$LN4@prim
 $LN59@prim:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rbx+32]
 	subss	xmm5, xmm9
 	movaps	XMMWORD PTR [rsp+96], xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm11, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm9, DWORD PTR [rbx+36]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movaps	xmm4, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -12503,12 +12503,12 @@ $LN59@prim:
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	mulss	xmm14, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	divss	xmm4, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -12521,7 +12521,7 @@ $LN59@prim:
 	addss	xmm7, xmm14
 	xorps	xmm14, xmm14
 	addss	xmm7, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -12533,7 +12533,7 @@ $LN59@prim:
 	ja	$LN62@prim
 	comiss	xmm7, xmm11
 	ja	$LN62@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -12578,7 +12578,7 @@ $LN59@prim:
 	mulss	xmm8, xmm3
 	addss	xmm8, xmm0
 	addss	xmm8, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -12592,7 +12592,7 @@ $LN59@prim:
 	addss	xmm0, xmm8
 	comiss	xmm0, xmm11
 	ja	$LN62@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -12601,7 +12601,7 @@ $LN59@prim:
 	mulss	xmm13, xmm2
 	addss	xmm6, xmm12
 	addss	xmm6, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -12729,9 +12729,9 @@ $LN4@prim:
 ?_prim@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAAXK@Z ENDP	; ray_collider<0,0,0,0>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -12772,7 +12772,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -12868,7 +12868,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -12876,22 +12876,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<0,0,0,0>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -12905,29 +12905,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -12942,24 +12942,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -12968,27 +12968,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -13266,7 +13266,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -13287,29 +13287,29 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<0,0,0,0>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$0A@$0A@$0A@$00@@QEAAXK@Z
 _TEXT	SEGMENT
 tv1031 = 224
@@ -13343,7 +13343,7 @@ $LN64:
 	movaps	XMMWORD PTR [rax-40], xmm6
 	movaps	XMMWORD PTR [rax-56], xmm7
 	movaps	XMMWORD PTR [rax-72], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -13363,7 +13363,7 @@ $LN64:
 	movaps	XMMWORD PTR [rsp+80], xmm12
 	movaps	xmm0, xmm11
 	movaps	XMMWORD PTR [rsp+64], xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
@@ -13371,12 +13371,12 @@ $LN64:
 	add	rdi, rdi
 	movaps	XMMWORD PTR [rsp+48], xmm14
 	movaps	XMMWORD PTR [rsp+32], xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 283  :         y = v1.z * v2.x - v1.x * v2.z;
 
 	movaps	xmm15, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 280  : 	{
 
@@ -13390,13 +13390,13 @@ $LN64:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm7, DWORD PTR [r10+r9*4+4]
 	movss	xmm6, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -13405,7 +13405,7 @@ $LN64:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -13415,12 +13415,12 @@ $LN64:
 	movss	xmm14, DWORD PTR [r10+rdx*4+8]
 	subss	xmm13, xmm7
 	subss	xmm14, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -13483,7 +13483,7 @@ $LN64:
 	mulss	xmm1, xmm14
 	addss	xmm2, xmm0
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -13493,28 +13493,28 @@ $LN64:
 	comiss	xmm0, xmm2
 	ja	$LN8@prim
 $LN61@prim:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rbx+36]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm5, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm3, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movaps	xmm4, xmm5
 	divss	xmm4, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -13534,7 +13534,7 @@ $LN61@prim:
 	mulss	xmm1, DWORD PTR tv1026[rsp]
 	addss	xmm7, xmm0
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -13546,7 +13546,7 @@ $LN61@prim:
 	ja	$LN8@prim
 	comiss	xmm7, xmm5
 	ja	$LN8@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -13579,7 +13579,7 @@ $LN61@prim:
 	mulss	xmm8, xmm6
 	addss	xmm8, xmm10
 	addss	xmm8, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -13593,7 +13593,7 @@ $LN61@prim:
 	addss	xmm0, xmm8
 	comiss	xmm0, xmm5
 	ja	$LN8@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -13602,7 +13602,7 @@ $LN61@prim:
 	mulss	xmm2, DWORD PTR tv1029[rsp]
 	addss	xmm6, xmm1
 	addss	xmm6, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -13628,7 +13628,7 @@ $LN61@prim:
 	sub	rax, r8
 	sar	rax, 3
 	imul	rax, rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 287  : 			if (dest->r_count())	
 
@@ -13802,9 +13802,9 @@ $LN8@prim:
 ?_prim@?$ray_collider@$0A@$0A@$0A@$00@@QEAAXK@Z ENDP	; ray_collider<0,0,0,1>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$0A@$0A@$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -13845,7 +13845,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -13941,7 +13941,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -13949,22 +13949,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$0A@$0A@$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<0,0,0,1>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$0A@$0A@$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -13978,29 +13978,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -14015,24 +14015,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -14041,27 +14041,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -14339,7 +14339,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -14360,27 +14360,27 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$0A@$0A@$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<0,0,0,1>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$0A@$0A@$00$0A@@@QEAAXK@Z
 _TEXT	SEGMENT
 tv1073 = 208
@@ -14412,7 +14412,7 @@ $LN64:
 	movaps	XMMWORD PTR [rax-24], xmm6
 	movaps	XMMWORD PTR [rax-40], xmm7
 	movaps	XMMWORD PTR [rax-56], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -14422,7 +14422,7 @@ $LN64:
 	movaps	XMMWORD PTR [rax-120], xmm12
 	movaps	XMMWORD PTR [rsp+64], xmm13
 	movaps	XMMWORD PTR [rsp+48], xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
@@ -14439,13 +14439,13 @@ $LN64:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [r10+r9*4+4]
 	movss	xmm9, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -14454,7 +14454,7 @@ $LN64:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -14463,12 +14463,12 @@ $LN64:
 	subss	xmm1, xmm9
 	movss	xmm2, DWORD PTR [r10+rdx*4+4]
 	subss	xmm15, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -14519,7 +14519,7 @@ $LN64:
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -14529,29 +14529,29 @@ $LN64:
 	comiss	xmm0, xmm3
 	ja	$LN4@prim
 $LN59@prim:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rbx+32]
 	subss	xmm5, xmm9
 	movaps	XMMWORD PTR [rsp+96], xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm11, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm9, DWORD PTR [rbx+36]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movaps	xmm4, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -14562,12 +14562,12 @@ $LN59@prim:
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	mulss	xmm14, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	divss	xmm4, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -14580,7 +14580,7 @@ $LN59@prim:
 	addss	xmm7, xmm14
 	xorps	xmm14, xmm14
 	addss	xmm7, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -14592,7 +14592,7 @@ $LN59@prim:
 	ja	$LN62@prim
 	comiss	xmm7, xmm11
 	ja	$LN62@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -14637,7 +14637,7 @@ $LN59@prim:
 	mulss	xmm8, xmm3
 	addss	xmm8, xmm0
 	addss	xmm8, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -14651,7 +14651,7 @@ $LN59@prim:
 	addss	xmm0, xmm8
 	comiss	xmm0, xmm11
 	ja	$LN62@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -14660,7 +14660,7 @@ $LN59@prim:
 	mulss	xmm13, xmm2
 	addss	xmm6, xmm12
 	addss	xmm6, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -14788,9 +14788,9 @@ $LN4@prim:
 ?_prim@?$ray_collider@$0A@$0A@$00$0A@@@QEAAXK@Z ENDP	; ray_collider<0,0,1,0>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$0A@$0A@$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -14831,7 +14831,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -14927,7 +14927,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -14935,22 +14935,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$0A@$0A@$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<0,0,1,0>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$0A@$0A@$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -14964,29 +14964,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -15001,24 +15001,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -15027,27 +15027,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -15325,7 +15325,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -15346,29 +15346,29 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$0A@$0A@$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<0,0,1,0>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$0A@$0A@$00$00@@QEAAXK@Z
 _TEXT	SEGMENT
 tv1031 = 224
@@ -15402,7 +15402,7 @@ $LN64:
 	movaps	XMMWORD PTR [rax-40], xmm6
 	movaps	XMMWORD PTR [rax-56], xmm7
 	movaps	XMMWORD PTR [rax-72], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -15422,7 +15422,7 @@ $LN64:
 	movaps	XMMWORD PTR [rsp+80], xmm12
 	movaps	xmm0, xmm11
 	movaps	XMMWORD PTR [rsp+64], xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
@@ -15430,12 +15430,12 @@ $LN64:
 	add	rdi, rdi
 	movaps	XMMWORD PTR [rsp+48], xmm14
 	movaps	XMMWORD PTR [rsp+32], xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 283  :         y = v1.z * v2.x - v1.x * v2.z;
 
 	movaps	xmm15, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 280  : 	{
 
@@ -15449,13 +15449,13 @@ $LN64:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm7, DWORD PTR [r10+r9*4+4]
 	movss	xmm6, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -15464,7 +15464,7 @@ $LN64:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -15474,12 +15474,12 @@ $LN64:
 	movss	xmm14, DWORD PTR [r10+rdx*4+8]
 	subss	xmm13, xmm7
 	subss	xmm14, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -15542,7 +15542,7 @@ $LN64:
 	mulss	xmm1, xmm14
 	addss	xmm2, xmm0
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -15552,28 +15552,28 @@ $LN64:
 	comiss	xmm0, xmm2
 	ja	$LN8@prim
 $LN61@prim:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rbx+36]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm5, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm3, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movaps	xmm4, xmm5
 	divss	xmm4, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -15593,7 +15593,7 @@ $LN61@prim:
 	mulss	xmm1, DWORD PTR tv1026[rsp]
 	addss	xmm7, xmm0
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -15605,7 +15605,7 @@ $LN61@prim:
 	ja	$LN8@prim
 	comiss	xmm7, xmm5
 	ja	$LN8@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -15638,7 +15638,7 @@ $LN61@prim:
 	mulss	xmm8, xmm6
 	addss	xmm8, xmm10
 	addss	xmm8, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -15652,7 +15652,7 @@ $LN61@prim:
 	addss	xmm0, xmm8
 	comiss	xmm0, xmm5
 	ja	$LN8@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -15661,7 +15661,7 @@ $LN61@prim:
 	mulss	xmm2, DWORD PTR tv1029[rsp]
 	addss	xmm6, xmm1
 	addss	xmm6, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -15687,7 +15687,7 @@ $LN61@prim:
 	sub	rax, r8
 	sar	rax, 3
 	imul	rax, rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 287  : 			if (dest->r_count())	
 
@@ -15861,9 +15861,9 @@ $LN8@prim:
 ?_prim@?$ray_collider@$0A@$0A@$00$00@@QEAAXK@Z ENDP	; ray_collider<0,0,1,1>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$0A@$0A@$00$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -15904,7 +15904,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -16000,7 +16000,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -16008,22 +16008,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$0A@$0A@$00$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<0,0,1,1>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$0A@$0A@$00$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -16037,29 +16037,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -16074,24 +16074,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -16100,27 +16100,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -16398,7 +16398,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -16419,25 +16419,25 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$0A@$0A@$00$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<0,0,1,1>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$0A@$00$0A@$0A@@@QEAAXK@Z
 _TEXT	SEGMENT
 this$ = 208
@@ -16467,7 +16467,7 @@ $LN61:
 	movaps	XMMWORD PTR [rax-24], xmm6
 	movaps	XMMWORD PTR [rax-40], xmm7
 	movaps	XMMWORD PTR [rax-56], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -16477,7 +16477,7 @@ $LN61:
 	movaps	XMMWORD PTR [rax-104], xmm11
 	movaps	XMMWORD PTR [rax-120], xmm12
 	movaps	XMMWORD PTR [rsp+64], xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
@@ -16495,13 +16495,13 @@ $LN61:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [r10+r9*4+4]
 	movss	xmm9, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -16510,7 +16510,7 @@ $LN61:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -16520,12 +16520,12 @@ $LN61:
 	movss	xmm14, DWORD PTR [r10+rdx*4+8]
 	subss	xmm2, xmm10
 	subss	xmm14, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -16572,23 +16572,23 @@ $LN61:
 	movaps	xmm1, xmm13
 	mulss	xmm1, xmm14
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm4, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm4
 	ja	$LN4@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -16613,7 +16613,7 @@ $LN61:
 	addss	xmm7, xmm3
 	addss	xmm7, xmm13
 	xorps	xmm13, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -16621,7 +16621,7 @@ $LN61:
 	ja	$LN4@prim
 	comiss	xmm7, xmm4
 	ja	$LN4@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -16668,7 +16668,7 @@ $LN61:
 	mulss	xmm5, xmm2
 	addss	xmm8, xmm0
 	addss	xmm8, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -16685,14 +16685,14 @@ $LN61:
 	movss	xmm0, DWORD PTR __real@3f800000
 	divss	xmm0, xmm4
 	mulss	xmm6, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	mulss	xmm11, xmm1
 	mulss	xmm12, xmm2
 	addss	xmm6, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -16701,12 +16701,12 @@ $LN61:
 ; 262  : 			v		*= inv_det;
 
 	mulss	xmm8, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm6, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 260  : 			range	*= inv_det;
 
@@ -16833,9 +16833,9 @@ $LN4@prim:
 ?_prim@?$ray_collider@$0A@$00$0A@$0A@@@QEAAXK@Z ENDP	; ray_collider<0,1,0,0>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$0A@$00$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -16876,7 +16876,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -16972,7 +16972,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -16980,22 +16980,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$0A@$00$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<0,1,0,0>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$0A@$00$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -17009,29 +17009,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -17046,24 +17046,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -17072,27 +17072,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -17370,7 +17370,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -17391,33 +17391,33 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$0A@$00$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<0,1,0,0>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$0A@$00$0A@$00@@QEAAXK@Z
 _TEXT	SEGMENT
 tv1031 = 224
@@ -17450,7 +17450,7 @@ $LN64:
 	movaps	XMMWORD PTR [r11-40], xmm6
 	movaps	XMMWORD PTR [r11-56], xmm7
 	movaps	XMMWORD PTR [r11-72], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -17468,24 +17468,24 @@ $LN64:
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
 	movss	xmm13, DWORD PTR [rbx+72]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
 	mov	edi, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
 	movaps	xmm0, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
 	add	rdi, rdi
 	movaps	XMMWORD PTR [rsp+48], xmm14
 	movaps	XMMWORD PTR [rsp+32], xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 283  :         y = v1.z * v2.x - v1.x * v2.z;
 
@@ -17494,7 +17494,7 @@ $LN64:
 ; 284  :         z = v1.x * v2.y - v1.y * v2.x;
 
 	movaps	xmm15, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 280  : 	{
 
@@ -17508,13 +17508,13 @@ $LN64:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm7, DWORD PTR [r10+r9*4+4]
 	movss	xmm5, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -17523,7 +17523,7 @@ $LN64:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -17533,12 +17533,12 @@ $LN64:
 	movss	xmm14, DWORD PTR [r10+rdx*4+8]
 	subss	xmm2, xmm7
 	subss	xmm14, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -17602,23 +17602,23 @@ $LN64:
 	movaps	xmm1, xmm15
 	mulss	xmm1, xmm14
 	addss	xmm3, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm3
 	ja	$LN8@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -17653,7 +17653,7 @@ $LN64:
 	mulss	xmm1, xmm15
 	addss	xmm7, xmm0
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -17661,7 +17661,7 @@ $LN64:
 	ja	$LN61@prim
 	comiss	xmm7, xmm3
 	ja	$LN61@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -17698,7 +17698,7 @@ $LN64:
 	mulss	xmm8, xmm6
 	addss	xmm8, xmm12
 	addss	xmm8, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -17713,23 +17713,23 @@ $LN64:
 
 	mulss	xmm6, DWORD PTR tv1030[rsp]
 	movss	xmm0, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	mulss	xmm1, DWORD PTR tv1031[rsp]
 	mulss	xmm2, DWORD PTR tv1029[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 259  : 			inv_det = 1.0f / det;
 
 	divss	xmm0, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm6, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -17738,12 +17738,12 @@ $LN64:
 ; 262  : 			v		*= inv_det;
 
 	mulss	xmm8, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm6, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 260  : 			range	*= inv_det;
 
@@ -17769,7 +17769,7 @@ $LN64:
 	sub	rax, r8
 	sar	rax, 3
 	imul	rax, rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 287  : 			if (dest->r_count())	
 
@@ -17948,9 +17948,9 @@ $LN8@prim:
 ?_prim@?$ray_collider@$0A@$00$0A@$00@@QEAAXK@Z ENDP	; ray_collider<0,1,0,1>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$0A@$00$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -17991,7 +17991,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -18087,7 +18087,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -18095,22 +18095,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$0A@$00$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<0,1,0,1>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$0A@$00$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -18124,29 +18124,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -18161,24 +18161,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -18187,27 +18187,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -18485,7 +18485,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -18506,25 +18506,25 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$0A@$00$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<0,1,0,1>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$0A@$00$00$0A@@@QEAAXK@Z
 _TEXT	SEGMENT
 this$ = 208
@@ -18554,7 +18554,7 @@ $LN61:
 	movaps	XMMWORD PTR [rax-24], xmm6
 	movaps	XMMWORD PTR [rax-40], xmm7
 	movaps	XMMWORD PTR [rax-56], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -18564,7 +18564,7 @@ $LN61:
 	movaps	XMMWORD PTR [rax-104], xmm11
 	movaps	XMMWORD PTR [rax-120], xmm12
 	movaps	XMMWORD PTR [rsp+64], xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
@@ -18582,13 +18582,13 @@ $LN61:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [r10+r9*4+4]
 	movss	xmm9, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -18597,7 +18597,7 @@ $LN61:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -18607,12 +18607,12 @@ $LN61:
 	movss	xmm14, DWORD PTR [r10+rdx*4+8]
 	subss	xmm2, xmm10
 	subss	xmm14, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -18659,23 +18659,23 @@ $LN61:
 	movaps	xmm1, xmm13
 	mulss	xmm1, xmm14
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm4, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm4
 	ja	$LN4@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -18700,7 +18700,7 @@ $LN61:
 	addss	xmm7, xmm3
 	addss	xmm7, xmm13
 	xorps	xmm13, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -18708,7 +18708,7 @@ $LN61:
 	ja	$LN4@prim
 	comiss	xmm7, xmm4
 	ja	$LN4@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -18755,7 +18755,7 @@ $LN61:
 	mulss	xmm5, xmm2
 	addss	xmm8, xmm0
 	addss	xmm8, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -18772,14 +18772,14 @@ $LN61:
 	movss	xmm0, DWORD PTR __real@3f800000
 	divss	xmm0, xmm4
 	mulss	xmm6, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	mulss	xmm11, xmm1
 	mulss	xmm12, xmm2
 	addss	xmm6, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -18788,12 +18788,12 @@ $LN61:
 ; 262  : 			v		*= inv_det;
 
 	mulss	xmm8, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm6, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 260  : 			range	*= inv_det;
 
@@ -18920,9 +18920,9 @@ $LN4@prim:
 ?_prim@?$ray_collider@$0A@$00$00$0A@@@QEAAXK@Z ENDP	; ray_collider<0,1,1,0>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$0A@$00$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -18963,7 +18963,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -19059,7 +19059,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -19067,22 +19067,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$0A@$00$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<0,1,1,0>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$0A@$00$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -19096,29 +19096,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -19133,24 +19133,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -19159,27 +19159,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -19457,7 +19457,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -19478,33 +19478,33 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$0A@$00$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<0,1,1,0>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$0A@$00$00$00@@QEAAXK@Z
 _TEXT	SEGMENT
 tv1031 = 224
@@ -19537,7 +19537,7 @@ $LN64:
 	movaps	XMMWORD PTR [r11-40], xmm6
 	movaps	XMMWORD PTR [r11-56], xmm7
 	movaps	XMMWORD PTR [r11-72], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -19555,24 +19555,24 @@ $LN64:
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
 	movss	xmm13, DWORD PTR [rbx+72]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
 	mov	edi, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
 	movaps	xmm0, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
 	add	rdi, rdi
 	movaps	XMMWORD PTR [rsp+48], xmm14
 	movaps	XMMWORD PTR [rsp+32], xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 283  :         y = v1.z * v2.x - v1.x * v2.z;
 
@@ -19581,7 +19581,7 @@ $LN64:
 ; 284  :         z = v1.x * v2.y - v1.y * v2.x;
 
 	movaps	xmm15, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 280  : 	{
 
@@ -19595,13 +19595,13 @@ $LN64:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm7, DWORD PTR [r10+r9*4+4]
 	movss	xmm5, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -19610,7 +19610,7 @@ $LN64:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -19620,12 +19620,12 @@ $LN64:
 	movss	xmm14, DWORD PTR [r10+rdx*4+8]
 	subss	xmm2, xmm7
 	subss	xmm14, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -19689,23 +19689,23 @@ $LN64:
 	movaps	xmm1, xmm15
 	mulss	xmm1, xmm14
 	addss	xmm3, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm3
 	ja	$LN8@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -19740,7 +19740,7 @@ $LN64:
 	mulss	xmm1, xmm15
 	addss	xmm7, xmm0
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -19748,7 +19748,7 @@ $LN64:
 	ja	$LN61@prim
 	comiss	xmm7, xmm3
 	ja	$LN61@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -19785,7 +19785,7 @@ $LN64:
 	mulss	xmm8, xmm6
 	addss	xmm8, xmm12
 	addss	xmm8, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -19800,23 +19800,23 @@ $LN64:
 
 	mulss	xmm6, DWORD PTR tv1030[rsp]
 	movss	xmm0, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	mulss	xmm1, DWORD PTR tv1031[rsp]
 	mulss	xmm2, DWORD PTR tv1029[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 259  : 			inv_det = 1.0f / det;
 
 	divss	xmm0, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm6, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -19825,12 +19825,12 @@ $LN64:
 ; 262  : 			v		*= inv_det;
 
 	mulss	xmm8, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm6, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 260  : 			range	*= inv_det;
 
@@ -19856,7 +19856,7 @@ $LN64:
 	sub	rax, r8
 	sar	rax, 3
 	imul	rax, rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 287  : 			if (dest->r_count())	
 
@@ -20035,9 +20035,9 @@ $LN8@prim:
 ?_prim@?$ray_collider@$0A@$00$00$00@@QEAAXK@Z ENDP	; ray_collider<0,1,1,1>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$0A@$00$00$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -20078,7 +20078,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -20174,7 +20174,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -20182,22 +20182,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$0A@$00$00$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<0,1,1,1>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$0A@$00$00$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -20211,29 +20211,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -20248,24 +20248,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -20274,27 +20274,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -20572,7 +20572,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -20593,27 +20593,27 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$0A@$00$00$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<0,1,1,1>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$00$0A@$0A@$0A@@@QEAAXK@Z
 _TEXT	SEGMENT
 tv1073 = 208
@@ -20645,7 +20645,7 @@ $LN64:
 	movaps	XMMWORD PTR [rax-24], xmm6
 	movaps	XMMWORD PTR [rax-40], xmm7
 	movaps	XMMWORD PTR [rax-56], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -20655,7 +20655,7 @@ $LN64:
 	movaps	XMMWORD PTR [rax-120], xmm12
 	movaps	XMMWORD PTR [rsp+64], xmm13
 	movaps	XMMWORD PTR [rsp+48], xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
@@ -20672,13 +20672,13 @@ $LN64:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [r10+r9*4+4]
 	movss	xmm9, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -20687,7 +20687,7 @@ $LN64:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -20696,12 +20696,12 @@ $LN64:
 	subss	xmm1, xmm9
 	movss	xmm2, DWORD PTR [r10+rdx*4+4]
 	subss	xmm15, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -20752,7 +20752,7 @@ $LN64:
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -20762,29 +20762,29 @@ $LN64:
 	comiss	xmm0, xmm3
 	ja	$LN4@prim
 $LN59@prim:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rbx+32]
 	subss	xmm5, xmm9
 	movaps	XMMWORD PTR [rsp+96], xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm11, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm9, DWORD PTR [rbx+36]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movaps	xmm4, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -20795,12 +20795,12 @@ $LN59@prim:
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	mulss	xmm14, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	divss	xmm4, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -20813,7 +20813,7 @@ $LN59@prim:
 	addss	xmm7, xmm14
 	xorps	xmm14, xmm14
 	addss	xmm7, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -20825,7 +20825,7 @@ $LN59@prim:
 	ja	$LN62@prim
 	comiss	xmm7, xmm11
 	ja	$LN62@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -20870,7 +20870,7 @@ $LN59@prim:
 	mulss	xmm8, xmm3
 	addss	xmm8, xmm0
 	addss	xmm8, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -20884,7 +20884,7 @@ $LN59@prim:
 	addss	xmm0, xmm8
 	comiss	xmm0, xmm11
 	ja	$LN62@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -20893,7 +20893,7 @@ $LN59@prim:
 	mulss	xmm13, xmm2
 	addss	xmm6, xmm12
 	addss	xmm6, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -21021,9 +21021,9 @@ $LN4@prim:
 ?_prim@?$ray_collider@$00$0A@$0A@$0A@@@QEAAXK@Z ENDP	; ray_collider<1,0,0,0>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$00$0A@$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -21064,7 +21064,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -21160,7 +21160,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -21168,22 +21168,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$00$0A@$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<1,0,0,0>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$00$0A@$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -21197,29 +21197,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -21234,24 +21234,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -21260,27 +21260,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -21558,7 +21558,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -21579,29 +21579,29 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$00$0A@$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<1,0,0,0>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$00$0A@$0A@$00@@QEAAXK@Z
 _TEXT	SEGMENT
 tv1031 = 224
@@ -21635,7 +21635,7 @@ $LN64:
 	movaps	XMMWORD PTR [rax-40], xmm6
 	movaps	XMMWORD PTR [rax-56], xmm7
 	movaps	XMMWORD PTR [rax-72], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -21655,7 +21655,7 @@ $LN64:
 	movaps	XMMWORD PTR [rsp+80], xmm12
 	movaps	xmm0, xmm11
 	movaps	XMMWORD PTR [rsp+64], xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
@@ -21663,12 +21663,12 @@ $LN64:
 	add	rdi, rdi
 	movaps	XMMWORD PTR [rsp+48], xmm14
 	movaps	XMMWORD PTR [rsp+32], xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 283  :         y = v1.z * v2.x - v1.x * v2.z;
 
 	movaps	xmm15, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 280  : 	{
 
@@ -21682,13 +21682,13 @@ $LN64:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm7, DWORD PTR [r10+r9*4+4]
 	movss	xmm6, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -21697,7 +21697,7 @@ $LN64:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -21707,12 +21707,12 @@ $LN64:
 	movss	xmm14, DWORD PTR [r10+rdx*4+8]
 	subss	xmm13, xmm7
 	subss	xmm14, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -21775,7 +21775,7 @@ $LN64:
 	mulss	xmm1, xmm14
 	addss	xmm2, xmm0
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -21785,28 +21785,28 @@ $LN64:
 	comiss	xmm0, xmm2
 	ja	$LN8@prim
 $LN61@prim:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rbx+36]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm5, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm3, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movaps	xmm4, xmm5
 	divss	xmm4, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -21826,7 +21826,7 @@ $LN61@prim:
 	mulss	xmm1, DWORD PTR tv1026[rsp]
 	addss	xmm7, xmm0
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -21838,7 +21838,7 @@ $LN61@prim:
 	ja	$LN8@prim
 	comiss	xmm7, xmm5
 	ja	$LN8@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -21871,7 +21871,7 @@ $LN61@prim:
 	mulss	xmm8, xmm6
 	addss	xmm8, xmm10
 	addss	xmm8, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -21885,7 +21885,7 @@ $LN61@prim:
 	addss	xmm0, xmm8
 	comiss	xmm0, xmm5
 	ja	$LN8@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -21894,7 +21894,7 @@ $LN61@prim:
 	mulss	xmm2, DWORD PTR tv1029[rsp]
 	addss	xmm6, xmm1
 	addss	xmm6, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -21920,7 +21920,7 @@ $LN61@prim:
 	sub	rax, r8
 	sar	rax, 3
 	imul	rax, rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 287  : 			if (dest->r_count())	
 
@@ -22094,9 +22094,9 @@ $LN8@prim:
 ?_prim@?$ray_collider@$00$0A@$0A@$00@@QEAAXK@Z ENDP	; ray_collider<1,0,0,1>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$00$0A@$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -22137,7 +22137,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -22233,7 +22233,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -22241,22 +22241,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$00$0A@$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<1,0,0,1>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$00$0A@$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -22270,29 +22270,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -22307,24 +22307,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -22333,27 +22333,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -22631,7 +22631,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -22652,27 +22652,27 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$00$0A@$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<1,0,0,1>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$00$0A@$00$0A@@@QEAAXK@Z
 _TEXT	SEGMENT
 tv1073 = 208
@@ -22704,7 +22704,7 @@ $LN64:
 	movaps	XMMWORD PTR [rax-24], xmm6
 	movaps	XMMWORD PTR [rax-40], xmm7
 	movaps	XMMWORD PTR [rax-56], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -22714,7 +22714,7 @@ $LN64:
 	movaps	XMMWORD PTR [rax-120], xmm12
 	movaps	XMMWORD PTR [rsp+64], xmm13
 	movaps	XMMWORD PTR [rsp+48], xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
@@ -22731,13 +22731,13 @@ $LN64:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [r10+r9*4+4]
 	movss	xmm9, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -22746,7 +22746,7 @@ $LN64:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -22755,12 +22755,12 @@ $LN64:
 	subss	xmm1, xmm9
 	movss	xmm2, DWORD PTR [r10+rdx*4+4]
 	subss	xmm15, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -22811,7 +22811,7 @@ $LN64:
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -22821,29 +22821,29 @@ $LN64:
 	comiss	xmm0, xmm3
 	ja	$LN4@prim
 $LN59@prim:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rbx+32]
 	subss	xmm5, xmm9
 	movaps	XMMWORD PTR [rsp+96], xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm11, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm9, DWORD PTR [rbx+36]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movaps	xmm4, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -22854,12 +22854,12 @@ $LN59@prim:
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	mulss	xmm14, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	divss	xmm4, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -22872,7 +22872,7 @@ $LN59@prim:
 	addss	xmm7, xmm14
 	xorps	xmm14, xmm14
 	addss	xmm7, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -22884,7 +22884,7 @@ $LN59@prim:
 	ja	$LN62@prim
 	comiss	xmm7, xmm11
 	ja	$LN62@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -22929,7 +22929,7 @@ $LN59@prim:
 	mulss	xmm8, xmm3
 	addss	xmm8, xmm0
 	addss	xmm8, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -22943,7 +22943,7 @@ $LN59@prim:
 	addss	xmm0, xmm8
 	comiss	xmm0, xmm11
 	ja	$LN62@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -22952,7 +22952,7 @@ $LN59@prim:
 	mulss	xmm13, xmm2
 	addss	xmm6, xmm12
 	addss	xmm6, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -23080,9 +23080,9 @@ $LN4@prim:
 ?_prim@?$ray_collider@$00$0A@$00$0A@@@QEAAXK@Z ENDP	; ray_collider<1,0,1,0>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$00$0A@$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -23123,7 +23123,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -23219,7 +23219,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -23227,22 +23227,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$00$0A@$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<1,0,1,0>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$00$0A@$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -23256,29 +23256,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -23293,24 +23293,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -23319,27 +23319,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -23617,7 +23617,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -23638,29 +23638,29 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$00$0A@$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<1,0,1,0>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$00$0A@$00$00@@QEAAXK@Z
 _TEXT	SEGMENT
 tv1031 = 224
@@ -23694,7 +23694,7 @@ $LN64:
 	movaps	XMMWORD PTR [rax-40], xmm6
 	movaps	XMMWORD PTR [rax-56], xmm7
 	movaps	XMMWORD PTR [rax-72], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -23714,7 +23714,7 @@ $LN64:
 	movaps	XMMWORD PTR [rsp+80], xmm12
 	movaps	xmm0, xmm11
 	movaps	XMMWORD PTR [rsp+64], xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
@@ -23722,12 +23722,12 @@ $LN64:
 	add	rdi, rdi
 	movaps	XMMWORD PTR [rsp+48], xmm14
 	movaps	XMMWORD PTR [rsp+32], xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 283  :         y = v1.z * v2.x - v1.x * v2.z;
 
 	movaps	xmm15, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 280  : 	{
 
@@ -23741,13 +23741,13 @@ $LN64:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm7, DWORD PTR [r10+r9*4+4]
 	movss	xmm6, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -23756,7 +23756,7 @@ $LN64:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -23766,12 +23766,12 @@ $LN64:
 	movss	xmm14, DWORD PTR [r10+rdx*4+8]
 	subss	xmm13, xmm7
 	subss	xmm14, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -23834,7 +23834,7 @@ $LN64:
 	mulss	xmm1, xmm14
 	addss	xmm2, xmm0
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -23844,28 +23844,28 @@ $LN64:
 	comiss	xmm0, xmm2
 	ja	$LN8@prim
 $LN61@prim:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rbx+36]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm5, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm3, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movaps	xmm4, xmm5
 	divss	xmm4, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -23885,7 +23885,7 @@ $LN61@prim:
 	mulss	xmm1, DWORD PTR tv1026[rsp]
 	addss	xmm7, xmm0
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -23897,7 +23897,7 @@ $LN61@prim:
 	ja	$LN8@prim
 	comiss	xmm7, xmm5
 	ja	$LN8@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -23930,7 +23930,7 @@ $LN61@prim:
 	mulss	xmm8, xmm6
 	addss	xmm8, xmm10
 	addss	xmm8, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -23944,7 +23944,7 @@ $LN61@prim:
 	addss	xmm0, xmm8
 	comiss	xmm0, xmm5
 	ja	$LN8@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -23953,7 +23953,7 @@ $LN61@prim:
 	mulss	xmm2, DWORD PTR tv1029[rsp]
 	addss	xmm6, xmm1
 	addss	xmm6, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -23979,7 +23979,7 @@ $LN61@prim:
 	sub	rax, r8
 	sar	rax, 3
 	imul	rax, rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 287  : 			if (dest->r_count())	
 
@@ -24153,9 +24153,9 @@ $LN8@prim:
 ?_prim@?$ray_collider@$00$0A@$00$00@@QEAAXK@Z ENDP	; ray_collider<1,0,1,1>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$00$0A@$00$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -24196,7 +24196,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -24292,7 +24292,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -24300,22 +24300,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$00$0A@$00$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<1,0,1,1>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$00$0A@$00$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -24329,29 +24329,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -24366,24 +24366,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -24392,27 +24392,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -24690,7 +24690,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -24711,25 +24711,25 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$00$0A@$00$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<1,0,1,1>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$00$00$0A@$0A@@@QEAAXK@Z
 _TEXT	SEGMENT
 this$ = 208
@@ -24759,7 +24759,7 @@ $LN61:
 	movaps	XMMWORD PTR [rax-24], xmm6
 	movaps	XMMWORD PTR [rax-40], xmm7
 	movaps	XMMWORD PTR [rax-56], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -24769,7 +24769,7 @@ $LN61:
 	movaps	XMMWORD PTR [rax-104], xmm11
 	movaps	XMMWORD PTR [rax-120], xmm12
 	movaps	XMMWORD PTR [rsp+64], xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
@@ -24787,13 +24787,13 @@ $LN61:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [r10+r9*4+4]
 	movss	xmm9, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -24802,7 +24802,7 @@ $LN61:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -24812,12 +24812,12 @@ $LN61:
 	movss	xmm14, DWORD PTR [r10+rdx*4+8]
 	subss	xmm2, xmm10
 	subss	xmm14, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -24864,23 +24864,23 @@ $LN61:
 	movaps	xmm1, xmm13
 	mulss	xmm1, xmm14
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm4, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm4
 	ja	$LN4@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -24905,7 +24905,7 @@ $LN61:
 	addss	xmm7, xmm3
 	addss	xmm7, xmm13
 	xorps	xmm13, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -24913,7 +24913,7 @@ $LN61:
 	ja	$LN4@prim
 	comiss	xmm7, xmm4
 	ja	$LN4@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -24960,7 +24960,7 @@ $LN61:
 	mulss	xmm5, xmm2
 	addss	xmm8, xmm0
 	addss	xmm8, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -24977,14 +24977,14 @@ $LN61:
 	movss	xmm0, DWORD PTR __real@3f800000
 	divss	xmm0, xmm4
 	mulss	xmm6, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	mulss	xmm11, xmm1
 	mulss	xmm12, xmm2
 	addss	xmm6, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -24993,12 +24993,12 @@ $LN61:
 ; 262  : 			v		*= inv_det;
 
 	mulss	xmm8, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm6, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 260  : 			range	*= inv_det;
 
@@ -25125,9 +25125,9 @@ $LN4@prim:
 ?_prim@?$ray_collider@$00$00$0A@$0A@@@QEAAXK@Z ENDP	; ray_collider<1,1,0,0>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$00$00$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -25168,7 +25168,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -25264,7 +25264,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -25272,22 +25272,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$00$00$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<1,1,0,0>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$00$00$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -25301,29 +25301,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -25338,24 +25338,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -25364,27 +25364,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -25662,7 +25662,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -25683,33 +25683,33 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$00$00$0A@$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<1,1,0,0>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$00$00$0A@$00@@QEAAXK@Z
 _TEXT	SEGMENT
 tv1031 = 224
@@ -25742,7 +25742,7 @@ $LN64:
 	movaps	XMMWORD PTR [r11-40], xmm6
 	movaps	XMMWORD PTR [r11-56], xmm7
 	movaps	XMMWORD PTR [r11-72], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -25760,24 +25760,24 @@ $LN64:
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
 	movss	xmm13, DWORD PTR [rbx+72]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
 	mov	edi, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
 	movaps	xmm0, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
 	add	rdi, rdi
 	movaps	XMMWORD PTR [rsp+48], xmm14
 	movaps	XMMWORD PTR [rsp+32], xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 283  :         y = v1.z * v2.x - v1.x * v2.z;
 
@@ -25786,7 +25786,7 @@ $LN64:
 ; 284  :         z = v1.x * v2.y - v1.y * v2.x;
 
 	movaps	xmm15, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 280  : 	{
 
@@ -25800,13 +25800,13 @@ $LN64:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm7, DWORD PTR [r10+r9*4+4]
 	movss	xmm5, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -25815,7 +25815,7 @@ $LN64:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -25825,12 +25825,12 @@ $LN64:
 	movss	xmm14, DWORD PTR [r10+rdx*4+8]
 	subss	xmm2, xmm7
 	subss	xmm14, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -25894,23 +25894,23 @@ $LN64:
 	movaps	xmm1, xmm15
 	mulss	xmm1, xmm14
 	addss	xmm3, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm3
 	ja	$LN8@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -25945,7 +25945,7 @@ $LN64:
 	mulss	xmm1, xmm15
 	addss	xmm7, xmm0
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -25953,7 +25953,7 @@ $LN64:
 	ja	$LN61@prim
 	comiss	xmm7, xmm3
 	ja	$LN61@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -25990,7 +25990,7 @@ $LN64:
 	mulss	xmm8, xmm6
 	addss	xmm8, xmm12
 	addss	xmm8, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -26005,23 +26005,23 @@ $LN64:
 
 	mulss	xmm6, DWORD PTR tv1030[rsp]
 	movss	xmm0, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	mulss	xmm1, DWORD PTR tv1031[rsp]
 	mulss	xmm2, DWORD PTR tv1029[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 259  : 			inv_det = 1.0f / det;
 
 	divss	xmm0, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm6, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -26030,12 +26030,12 @@ $LN64:
 ; 262  : 			v		*= inv_det;
 
 	mulss	xmm8, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm6, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 260  : 			range	*= inv_det;
 
@@ -26061,7 +26061,7 @@ $LN64:
 	sub	rax, r8
 	sar	rax, 3
 	imul	rax, rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 287  : 			if (dest->r_count())	
 
@@ -26240,9 +26240,9 @@ $LN8@prim:
 ?_prim@?$ray_collider@$00$00$0A@$00@@QEAAXK@Z ENDP	; ray_collider<1,1,0,1>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$00$00$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -26283,7 +26283,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -26379,7 +26379,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -26387,22 +26387,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$00$00$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<1,1,0,1>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$00$00$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -26416,29 +26416,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -26453,24 +26453,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -26479,27 +26479,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -26777,7 +26777,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -26798,25 +26798,25 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$00$00$0A@$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<1,1,0,1>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$00$00$00$0A@@@QEAAXK@Z
 _TEXT	SEGMENT
 this$ = 208
@@ -26846,7 +26846,7 @@ $LN61:
 	movaps	XMMWORD PTR [rax-24], xmm6
 	movaps	XMMWORD PTR [rax-40], xmm7
 	movaps	XMMWORD PTR [rax-56], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -26856,7 +26856,7 @@ $LN61:
 	movaps	XMMWORD PTR [rax-104], xmm11
 	movaps	XMMWORD PTR [rax-120], xmm12
 	movaps	XMMWORD PTR [rsp+64], xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
@@ -26874,13 +26874,13 @@ $LN61:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm10, DWORD PTR [r10+r9*4+4]
 	movss	xmm9, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -26889,7 +26889,7 @@ $LN61:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -26899,12 +26899,12 @@ $LN61:
 	movss	xmm14, DWORD PTR [r10+rdx*4+8]
 	subss	xmm2, xmm10
 	subss	xmm14, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -26951,23 +26951,23 @@ $LN61:
 	movaps	xmm1, xmm13
 	mulss	xmm1, xmm14
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm4, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm4
 	ja	$LN4@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -26992,7 +26992,7 @@ $LN61:
 	addss	xmm7, xmm3
 	addss	xmm7, xmm13
 	xorps	xmm13, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -27000,7 +27000,7 @@ $LN61:
 	ja	$LN4@prim
 	comiss	xmm7, xmm4
 	ja	$LN4@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -27047,7 +27047,7 @@ $LN61:
 	mulss	xmm5, xmm2
 	addss	xmm8, xmm0
 	addss	xmm8, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -27064,14 +27064,14 @@ $LN61:
 	movss	xmm0, DWORD PTR __real@3f800000
 	divss	xmm0, xmm4
 	mulss	xmm6, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	mulss	xmm11, xmm1
 	mulss	xmm12, xmm2
 	addss	xmm6, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -27080,12 +27080,12 @@ $LN61:
 ; 262  : 			v		*= inv_det;
 
 	mulss	xmm8, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm6, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 260  : 			range	*= inv_det;
 
@@ -27212,9 +27212,9 @@ $LN4@prim:
 ?_prim@?$ray_collider@$00$00$00$0A@@@QEAAXK@Z ENDP	; ray_collider<1,1,1,0>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$00$00$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -27255,7 +27255,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -27351,7 +27351,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -27359,22 +27359,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$00$00$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<1,1,1,0>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$00$00$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -27388,29 +27388,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -27425,24 +27425,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -27451,27 +27451,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -27749,7 +27749,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -27770,33 +27770,33 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$00$00$00$0A@@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<1,1,1,0>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_prim@?$ray_collider@$00$00$00$00@@QEAAXK@Z
 _TEXT	SEGMENT
 tv1031 = 224
@@ -27829,7 +27829,7 @@ $LN64:
 	movaps	XMMWORD PTR [r11-40], xmm6
 	movaps	XMMWORD PTR [r11-56], xmm7
 	movaps	XMMWORD PTR [r11-72], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -27847,24 +27847,24 @@ $LN64:
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
 	movss	xmm13, DWORD PTR [rbx+72]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
 	mov	edi, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
 	movaps	xmm0, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 282  : 		if (!_tri(tris[prim].verts, u, v, r))	return;
 
 	add	rdi, rdi
 	movaps	XMMWORD PTR [rsp+48], xmm14
 	movaps	XMMWORD PTR [rsp+32], xmm15
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 283  :         y = v1.z * v2.x - v1.x * v2.z;
 
@@ -27873,7 +27873,7 @@ $LN64:
 ; 284  :         z = v1.x * v2.y - v1.y * v2.x;
 
 	movaps	xmm15, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 280  : 	{
 
@@ -27887,13 +27887,13 @@ $LN64:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm7, DWORD PTR [r10+r9*4+4]
 	movss	xmm5, DWORD PTR [r10+r9*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -27902,7 +27902,7 @@ $LN64:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [r8+rdi*8+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -27912,12 +27912,12 @@ $LN64:
 	movss	xmm14, DWORD PTR [r10+rdx*4+8]
 	subss	xmm2, xmm7
 	subss	xmm14, DWORD PTR [r10+r9*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rcx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -27981,23 +27981,23 @@ $LN64:
 	movaps	xmm1, xmm15
 	mulss	xmm1, xmm14
 	addss	xmm3, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm3
 	ja	$LN8@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -28032,7 +28032,7 @@ $LN64:
 	mulss	xmm1, xmm15
 	addss	xmm7, xmm0
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -28040,7 +28040,7 @@ $LN64:
 	ja	$LN61@prim
 	comiss	xmm7, xmm3
 	ja	$LN61@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -28077,7 +28077,7 @@ $LN64:
 	mulss	xmm8, xmm6
 	addss	xmm8, xmm12
 	addss	xmm8, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -28092,23 +28092,23 @@ $LN64:
 
 	mulss	xmm6, DWORD PTR tv1030[rsp]
 	movss	xmm0, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	mulss	xmm1, DWORD PTR tv1031[rsp]
 	mulss	xmm2, DWORD PTR tv1029[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 259  : 			inv_det = 1.0f / det;
 
 	divss	xmm0, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm6, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -28117,12 +28117,12 @@ $LN64:
 ; 262  : 			v		*= inv_det;
 
 	mulss	xmm8, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm6, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 260  : 			range	*= inv_det;
 
@@ -28148,7 +28148,7 @@ $LN64:
 	sub	rax, r8
 	sar	rax, 3
 	imul	rax, rdx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 287  : 			if (dest->r_count())	
 
@@ -28327,9 +28327,9 @@ $LN8@prim:
 ?_prim@?$ray_collider@$00$00$00$00@@QEAAXK@Z ENDP	; ray_collider<1,1,1,1>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_sse@?$ray_collider@$00$00$00$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -28370,7 +28370,7 @@ dist$ = 32
 ; 229  : 		_mm_store_ps( (float*) &box.max , _mm_add_ps( CN , EX ) );
 
 	addps	xmm3, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 137  : 	const __m128 l1 = mulps(subps(box_min, pos), inv_dir);
 
@@ -28466,7 +28466,7 @@ dist$ = 32
 	setae	cl
 	movzx	edx, cl
 	and	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 232  : 	}
 
@@ -28474,22 +28474,22 @@ dist$ = 32
 ?_box_sse@?$ray_collider@$00$00$00$00@@QEAAHAEBU?$_vector3@M@@0AEAM@Z ENDP ; ray_collider<1,1,1,1>::_box_sse
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_box_fpu@?$ray_collider@$00$00$00$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z
 _TEXT	SEGMENT
 MaxT$1 = 0
@@ -28503,29 +28503,29 @@ coord$ = 120
 
 $LN264:
 	sub	rsp, 88					; 00000058H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm2, DWORD PTR [rdx]
 	movss	xmm0, DWORD PTR [rdx+8]
 	movss	xmm1, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	edx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [r8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 36   : 	BOOL Inside			= TRUE;
 
 	mov	eax, edx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -28540,24 +28540,24 @@ $LN264:
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	xmm0, DWORD PTR __real@bf800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm8, xmm2
 	subss	xmm8, xmm3
 	movaps	XMMWORD PTR [rsp+16], xmm9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 39   : 	if(ray.pos[0] < min[0]) {
 
 	movss	xmm9, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
@@ -28566,27 +28566,27 @@ $LN264:
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movaps	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm7, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
 	movss	DWORD PTR MaxT$1[rsp+4], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 32   :     ICF SelfRef add(const Self& a, const Self& v) { x = a.x + v.x; y = a.y + v.y; z = a.z + v.z; return *this; };
 
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\ISpatial_q_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\ISpatial_q_ray.cpp
 
 ; 35   : 	MaxT.x=MaxT.y=MaxT.z=-1.0f;
 
@@ -28864,7 +28864,7 @@ $LN32@box_fpu:
 	ja	SHORT $LN37@box_fpu
 	comiss	xmm0, xmm5
 $LN262@box_fpu:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 213  :         return 		isect_fpu	(BB.min,BB.max,ray,coord);
 
@@ -28885,23 +28885,23 @@ $LN7@box_fpu:
 ?_box_fpu@?$ray_collider@$00$00$00$00@@QEAAHAEBU?$_vector3@M@@0AEAU2@@Z ENDP ; ray_collider<1,1,1,1>::_box_fpu
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 tv771 = 160
@@ -28941,13 +28941,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rbx+r11*4+4]
 	movss	xmm3, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -28956,7 +28956,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -28966,12 +28966,12 @@ $LN44:
 	movss	xmm12, DWORD PTR [rbx+r10*4+8]
 	subss	xmm11, xmm5
 	subss	xmm12, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -29032,7 +29032,7 @@ $LN44:
 
 	mulss	xmm1, xmm12
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -29042,29 +29042,29 @@ $LN44:
 	comiss	xmm0, xmm2
 	ja	$LN11@tri
 $LN9@tri:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm4, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm7, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm4, xmm3
 	movss	xmm3, DWORD PTR [rcx+36]
 	subss	xmm3, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	divss	xmm7, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -29094,7 +29094,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR tv771[rsp]
 	addss	xmm5, xmm0
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -29107,7 +29107,7 @@ $LN9@tri:
 	ja	$LN11@tri
 	comiss	xmm5, DWORD PTR __real@3f800000
 	ja	$LN11@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -29138,7 +29138,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -29156,7 +29156,7 @@ $LN9@tri:
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
 	mov	rax, QWORD PTR range$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -29165,7 +29165,7 @@ $LN9@tri:
 	mulss	xmm4, xmm15
 	addss	xmm2, xmm6
 	addss	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -29202,23 +29202,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$0A@$0A@$0A@$0A@@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<0,0,0,0>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$0A@$0A@$0A@$00@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 tv771 = 160
@@ -29258,13 +29258,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rbx+r11*4+4]
 	movss	xmm3, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -29273,7 +29273,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -29283,12 +29283,12 @@ $LN44:
 	movss	xmm12, DWORD PTR [rbx+r10*4+8]
 	subss	xmm11, xmm5
 	subss	xmm12, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -29349,7 +29349,7 @@ $LN44:
 
 	mulss	xmm1, xmm12
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -29359,29 +29359,29 @@ $LN44:
 	comiss	xmm0, xmm2
 	ja	$LN11@tri
 $LN9@tri:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm4, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm7, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm4, xmm3
 	movss	xmm3, DWORD PTR [rcx+36]
 	subss	xmm3, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	divss	xmm7, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -29411,7 +29411,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR tv771[rsp]
 	addss	xmm5, xmm0
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -29424,7 +29424,7 @@ $LN9@tri:
 	ja	$LN11@tri
 	comiss	xmm5, DWORD PTR __real@3f800000
 	ja	$LN11@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -29455,7 +29455,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -29473,7 +29473,7 @@ $LN9@tri:
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
 	mov	rax, QWORD PTR range$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -29482,7 +29482,7 @@ $LN9@tri:
 	mulss	xmm4, xmm15
 	addss	xmm2, xmm6
 	addss	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -29519,23 +29519,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$0A@$0A@$0A@$00@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<0,0,0,1>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$0A@$0A@$00$0A@@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 tv771 = 160
@@ -29575,13 +29575,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rbx+r11*4+4]
 	movss	xmm3, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -29590,7 +29590,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -29600,12 +29600,12 @@ $LN44:
 	movss	xmm12, DWORD PTR [rbx+r10*4+8]
 	subss	xmm11, xmm5
 	subss	xmm12, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -29666,7 +29666,7 @@ $LN44:
 
 	mulss	xmm1, xmm12
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -29676,29 +29676,29 @@ $LN44:
 	comiss	xmm0, xmm2
 	ja	$LN11@tri
 $LN9@tri:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm4, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm7, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm4, xmm3
 	movss	xmm3, DWORD PTR [rcx+36]
 	subss	xmm3, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	divss	xmm7, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -29728,7 +29728,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR tv771[rsp]
 	addss	xmm5, xmm0
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -29741,7 +29741,7 @@ $LN9@tri:
 	ja	$LN11@tri
 	comiss	xmm5, DWORD PTR __real@3f800000
 	ja	$LN11@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -29772,7 +29772,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -29790,7 +29790,7 @@ $LN9@tri:
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
 	mov	rax, QWORD PTR range$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -29799,7 +29799,7 @@ $LN9@tri:
 	mulss	xmm4, xmm15
 	addss	xmm2, xmm6
 	addss	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -29836,23 +29836,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$0A@$0A@$00$0A@@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<0,0,1,0>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$0A@$0A@$00$00@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 tv771 = 160
@@ -29892,13 +29892,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rbx+r11*4+4]
 	movss	xmm3, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -29907,7 +29907,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -29917,12 +29917,12 @@ $LN44:
 	movss	xmm12, DWORD PTR [rbx+r10*4+8]
 	subss	xmm11, xmm5
 	subss	xmm12, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -29983,7 +29983,7 @@ $LN44:
 
 	mulss	xmm1, xmm12
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -29993,29 +29993,29 @@ $LN44:
 	comiss	xmm0, xmm2
 	ja	$LN11@tri
 $LN9@tri:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm4, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm7, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm4, xmm3
 	movss	xmm3, DWORD PTR [rcx+36]
 	subss	xmm3, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	divss	xmm7, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -30045,7 +30045,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR tv771[rsp]
 	addss	xmm5, xmm0
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -30058,7 +30058,7 @@ $LN9@tri:
 	ja	$LN11@tri
 	comiss	xmm5, DWORD PTR __real@3f800000
 	ja	$LN11@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -30089,7 +30089,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -30107,7 +30107,7 @@ $LN9@tri:
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
 	mov	rax, QWORD PTR range$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -30116,7 +30116,7 @@ $LN9@tri:
 	mulss	xmm4, xmm15
 	addss	xmm2, xmm6
 	addss	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -30153,23 +30153,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$0A@$0A@$00$00@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<0,0,1,1>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$0A@$00$0A@$0A@@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 this$ = 176
@@ -30209,13 +30209,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rbx+r11*4+4]
 	movss	xmm2, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -30224,7 +30224,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -30234,12 +30234,12 @@ $LN44:
 	movss	xmm11, DWORD PTR [rbx+r10*4+8]
 	subss	xmm10, xmm3
 	subss	xmm11, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -30287,23 +30287,23 @@ $LN44:
 	movaps	xmm1, xmm12
 	mulss	xmm1, xmm11
 	addss	xmm7, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -30337,7 +30337,7 @@ $LN44:
 	xorps	xmm8, xmm8
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -30346,7 +30346,7 @@ $LN44:
 	ja	$LN6@tri
 	comiss	xmm3, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -30377,7 +30377,7 @@ $LN44:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm4, xmm0
 	addss	xmm4, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -30398,7 +30398,7 @@ $LN44:
 
 	mov	rax, QWORD PTR range$[rsp]
 	divss	xmm0, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -30406,7 +30406,7 @@ $LN44:
 	mulss	xmm6, xmm13
 	mulss	xmm5, xmm15
 	addss	xmm2, xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -30416,12 +30416,12 @@ $LN44:
 
 	mulss	xmm4, xmm0
 	movss	DWORD PTR [r8], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm2, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 262  : 			v		*= inv_det;
 
@@ -30472,23 +30472,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$0A@$00$0A@$0A@@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<0,1,0,0>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$0A@$00$0A@$00@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 this$ = 176
@@ -30528,13 +30528,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rbx+r11*4+4]
 	movss	xmm2, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -30543,7 +30543,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -30553,12 +30553,12 @@ $LN44:
 	movss	xmm11, DWORD PTR [rbx+r10*4+8]
 	subss	xmm10, xmm3
 	subss	xmm11, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -30606,23 +30606,23 @@ $LN44:
 	movaps	xmm1, xmm12
 	mulss	xmm1, xmm11
 	addss	xmm7, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -30656,7 +30656,7 @@ $LN44:
 	xorps	xmm8, xmm8
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -30665,7 +30665,7 @@ $LN44:
 	ja	$LN6@tri
 	comiss	xmm3, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -30696,7 +30696,7 @@ $LN44:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm4, xmm0
 	addss	xmm4, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -30717,7 +30717,7 @@ $LN44:
 
 	mov	rax, QWORD PTR range$[rsp]
 	divss	xmm0, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -30725,7 +30725,7 @@ $LN44:
 	mulss	xmm6, xmm13
 	mulss	xmm5, xmm15
 	addss	xmm2, xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -30735,12 +30735,12 @@ $LN44:
 
 	mulss	xmm4, xmm0
 	movss	DWORD PTR [r8], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm2, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 262  : 			v		*= inv_det;
 
@@ -30791,23 +30791,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$0A@$00$0A@$00@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<0,1,0,1>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$0A@$00$00$0A@@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 this$ = 176
@@ -30847,13 +30847,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rbx+r11*4+4]
 	movss	xmm2, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -30862,7 +30862,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -30872,12 +30872,12 @@ $LN44:
 	movss	xmm11, DWORD PTR [rbx+r10*4+8]
 	subss	xmm10, xmm3
 	subss	xmm11, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -30925,23 +30925,23 @@ $LN44:
 	movaps	xmm1, xmm12
 	mulss	xmm1, xmm11
 	addss	xmm7, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -30975,7 +30975,7 @@ $LN44:
 	xorps	xmm8, xmm8
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -30984,7 +30984,7 @@ $LN44:
 	ja	$LN6@tri
 	comiss	xmm3, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -31015,7 +31015,7 @@ $LN44:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm4, xmm0
 	addss	xmm4, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -31036,7 +31036,7 @@ $LN44:
 
 	mov	rax, QWORD PTR range$[rsp]
 	divss	xmm0, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -31044,7 +31044,7 @@ $LN44:
 	mulss	xmm6, xmm13
 	mulss	xmm5, xmm15
 	addss	xmm2, xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -31054,12 +31054,12 @@ $LN44:
 
 	mulss	xmm4, xmm0
 	movss	DWORD PTR [r8], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm2, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 262  : 			v		*= inv_det;
 
@@ -31110,23 +31110,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$0A@$00$00$0A@@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<0,1,1,0>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$0A@$00$00$00@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 this$ = 176
@@ -31166,13 +31166,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rbx+r11*4+4]
 	movss	xmm2, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -31181,7 +31181,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -31191,12 +31191,12 @@ $LN44:
 	movss	xmm11, DWORD PTR [rbx+r10*4+8]
 	subss	xmm10, xmm3
 	subss	xmm11, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -31244,23 +31244,23 @@ $LN44:
 	movaps	xmm1, xmm12
 	mulss	xmm1, xmm11
 	addss	xmm7, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -31294,7 +31294,7 @@ $LN44:
 	xorps	xmm8, xmm8
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -31303,7 +31303,7 @@ $LN44:
 	ja	$LN6@tri
 	comiss	xmm3, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -31334,7 +31334,7 @@ $LN44:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm4, xmm0
 	addss	xmm4, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -31355,7 +31355,7 @@ $LN44:
 
 	mov	rax, QWORD PTR range$[rsp]
 	divss	xmm0, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -31363,7 +31363,7 @@ $LN44:
 	mulss	xmm6, xmm13
 	mulss	xmm5, xmm15
 	addss	xmm2, xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -31373,12 +31373,12 @@ $LN44:
 
 	mulss	xmm4, xmm0
 	movss	DWORD PTR [r8], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm2, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 262  : 			v		*= inv_det;
 
@@ -31429,23 +31429,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$0A@$00$00$00@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<0,1,1,1>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$00$0A@$0A@$0A@@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 tv771 = 160
@@ -31485,13 +31485,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rbx+r11*4+4]
 	movss	xmm3, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -31500,7 +31500,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -31510,12 +31510,12 @@ $LN44:
 	movss	xmm12, DWORD PTR [rbx+r10*4+8]
 	subss	xmm11, xmm5
 	subss	xmm12, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -31576,7 +31576,7 @@ $LN44:
 
 	mulss	xmm1, xmm12
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -31586,29 +31586,29 @@ $LN44:
 	comiss	xmm0, xmm2
 	ja	$LN11@tri
 $LN9@tri:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm4, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm7, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm4, xmm3
 	movss	xmm3, DWORD PTR [rcx+36]
 	subss	xmm3, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	divss	xmm7, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -31638,7 +31638,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR tv771[rsp]
 	addss	xmm5, xmm0
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -31651,7 +31651,7 @@ $LN9@tri:
 	ja	$LN11@tri
 	comiss	xmm5, DWORD PTR __real@3f800000
 	ja	$LN11@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -31682,7 +31682,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -31700,7 +31700,7 @@ $LN9@tri:
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
 	mov	rax, QWORD PTR range$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -31709,7 +31709,7 @@ $LN9@tri:
 	mulss	xmm4, xmm15
 	addss	xmm2, xmm6
 	addss	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -31746,23 +31746,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$00$0A@$0A@$0A@@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<1,0,0,0>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$00$0A@$0A@$00@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 tv771 = 160
@@ -31802,13 +31802,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rbx+r11*4+4]
 	movss	xmm3, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -31817,7 +31817,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -31827,12 +31827,12 @@ $LN44:
 	movss	xmm12, DWORD PTR [rbx+r10*4+8]
 	subss	xmm11, xmm5
 	subss	xmm12, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -31893,7 +31893,7 @@ $LN44:
 
 	mulss	xmm1, xmm12
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -31903,29 +31903,29 @@ $LN44:
 	comiss	xmm0, xmm2
 	ja	$LN11@tri
 $LN9@tri:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm4, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm7, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm4, xmm3
 	movss	xmm3, DWORD PTR [rcx+36]
 	subss	xmm3, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	divss	xmm7, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -31955,7 +31955,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR tv771[rsp]
 	addss	xmm5, xmm0
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -31968,7 +31968,7 @@ $LN9@tri:
 	ja	$LN11@tri
 	comiss	xmm5, DWORD PTR __real@3f800000
 	ja	$LN11@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -31999,7 +31999,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -32017,7 +32017,7 @@ $LN9@tri:
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
 	mov	rax, QWORD PTR range$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -32026,7 +32026,7 @@ $LN9@tri:
 	mulss	xmm4, xmm15
 	addss	xmm2, xmm6
 	addss	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -32063,23 +32063,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$00$0A@$0A@$00@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<1,0,0,1>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$00$0A@$00$0A@@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 tv771 = 160
@@ -32119,13 +32119,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rbx+r11*4+4]
 	movss	xmm3, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -32134,7 +32134,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -32144,12 +32144,12 @@ $LN44:
 	movss	xmm12, DWORD PTR [rbx+r10*4+8]
 	subss	xmm11, xmm5
 	subss	xmm12, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -32210,7 +32210,7 @@ $LN44:
 
 	mulss	xmm1, xmm12
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -32220,29 +32220,29 @@ $LN44:
 	comiss	xmm0, xmm2
 	ja	$LN11@tri
 $LN9@tri:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm4, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm7, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm4, xmm3
 	movss	xmm3, DWORD PTR [rcx+36]
 	subss	xmm3, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	divss	xmm7, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -32272,7 +32272,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR tv771[rsp]
 	addss	xmm5, xmm0
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -32285,7 +32285,7 @@ $LN9@tri:
 	ja	$LN11@tri
 	comiss	xmm5, DWORD PTR __real@3f800000
 	ja	$LN11@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -32316,7 +32316,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -32334,7 +32334,7 @@ $LN9@tri:
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
 	mov	rax, QWORD PTR range$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -32343,7 +32343,7 @@ $LN9@tri:
 	mulss	xmm4, xmm15
 	addss	xmm2, xmm6
 	addss	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -32380,23 +32380,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$00$0A@$00$0A@@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<1,0,1,0>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$00$0A@$00$00@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 tv771 = 160
@@ -32436,13 +32436,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm5, DWORD PTR [rbx+r11*4+4]
 	movss	xmm3, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -32451,7 +32451,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -32461,12 +32461,12 @@ $LN44:
 	movss	xmm12, DWORD PTR [rbx+r10*4+8]
 	subss	xmm11, xmm5
 	subss	xmm12, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -32527,7 +32527,7 @@ $LN44:
 
 	mulss	xmm1, xmm12
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 266  : 			if (det > -EPS && det < EPS) return false;
 
@@ -32537,29 +32537,29 @@ $LN44:
 	comiss	xmm0, xmm2
 	ja	$LN11@tri
 $LN9@tri:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm4, DWORD PTR [rcx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	movss	xmm7, DWORD PTR __real@3f800000
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	subss	xmm4, xmm3
 	movss	xmm3, DWORD PTR [rcx+36]
 	subss	xmm3, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 267  : 			inv_det = 1.0f / det;
 
 	divss	xmm7, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -32589,7 +32589,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR tv771[rsp]
 	addss	xmm5, xmm0
 	addss	xmm5, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 269  : 			u = tvec.dotproduct(pvec)*inv_det;			// calculate U parameter and test bounds
 
@@ -32602,7 +32602,7 @@ $LN9@tri:
 	ja	$LN11@tri
 	comiss	xmm5, DWORD PTR __real@3f800000
 	ja	$LN11@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -32633,7 +32633,7 @@ $LN9@tri:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 272  : 			v = ray.fwd_dir.dotproduct(qvec)*inv_det;	// calculate V parameter and test bounds
 
@@ -32651,7 +32651,7 @@ $LN9@tri:
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
 	mov	rax, QWORD PTR range$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -32660,7 +32660,7 @@ $LN9@tri:
 	mulss	xmm4, xmm15
 	addss	xmm2, xmm6
 	addss	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 274  : 			range = edge2.dotproduct(qvec)*inv_det;		// calculate t, ray intersects triangle
 
@@ -32697,23 +32697,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$00$0A@$00$00@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<1,0,1,1>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$00$00$0A@$0A@@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 this$ = 176
@@ -32753,13 +32753,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rbx+r11*4+4]
 	movss	xmm2, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -32768,7 +32768,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -32778,12 +32778,12 @@ $LN44:
 	movss	xmm11, DWORD PTR [rbx+r10*4+8]
 	subss	xmm10, xmm3
 	subss	xmm11, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -32831,23 +32831,23 @@ $LN44:
 	movaps	xmm1, xmm12
 	mulss	xmm1, xmm11
 	addss	xmm7, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -32881,7 +32881,7 @@ $LN44:
 	xorps	xmm8, xmm8
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -32890,7 +32890,7 @@ $LN44:
 	ja	$LN6@tri
 	comiss	xmm3, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -32921,7 +32921,7 @@ $LN44:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm4, xmm0
 	addss	xmm4, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -32942,7 +32942,7 @@ $LN44:
 
 	mov	rax, QWORD PTR range$[rsp]
 	divss	xmm0, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -32950,7 +32950,7 @@ $LN44:
 	mulss	xmm6, xmm13
 	mulss	xmm5, xmm15
 	addss	xmm2, xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -32960,12 +32960,12 @@ $LN44:
 
 	mulss	xmm4, xmm0
 	movss	DWORD PTR [r8], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm2, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 262  : 			v		*= inv_det;
 
@@ -33016,23 +33016,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$00$00$0A@$0A@@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<1,1,0,0>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$00$00$0A@$00@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 this$ = 176
@@ -33072,13 +33072,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rbx+r11*4+4]
 	movss	xmm2, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -33087,7 +33087,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -33097,12 +33097,12 @@ $LN44:
 	movss	xmm11, DWORD PTR [rbx+r10*4+8]
 	subss	xmm10, xmm3
 	subss	xmm11, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -33150,23 +33150,23 @@ $LN44:
 	movaps	xmm1, xmm12
 	mulss	xmm1, xmm11
 	addss	xmm7, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -33200,7 +33200,7 @@ $LN44:
 	xorps	xmm8, xmm8
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -33209,7 +33209,7 @@ $LN44:
 	ja	$LN6@tri
 	comiss	xmm3, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -33240,7 +33240,7 @@ $LN44:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm4, xmm0
 	addss	xmm4, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -33261,7 +33261,7 @@ $LN44:
 
 	mov	rax, QWORD PTR range$[rsp]
 	divss	xmm0, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -33269,7 +33269,7 @@ $LN44:
 	mulss	xmm6, xmm13
 	mulss	xmm5, xmm15
 	addss	xmm2, xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -33279,12 +33279,12 @@ $LN44:
 
 	mulss	xmm4, xmm0
 	movss	DWORD PTR [r8], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm2, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 262  : 			v		*= inv_det;
 
@@ -33335,23 +33335,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$00$00$0A@$00@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<1,1,0,1>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$00$00$00$0A@@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 this$ = 176
@@ -33391,13 +33391,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rbx+r11*4+4]
 	movss	xmm2, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -33406,7 +33406,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -33416,12 +33416,12 @@ $LN44:
 	movss	xmm11, DWORD PTR [rbx+r10*4+8]
 	subss	xmm10, xmm3
 	subss	xmm11, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -33469,23 +33469,23 @@ $LN44:
 	movaps	xmm1, xmm12
 	mulss	xmm1, xmm11
 	addss	xmm7, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -33519,7 +33519,7 @@ $LN44:
 	xorps	xmm8, xmm8
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -33528,7 +33528,7 @@ $LN44:
 	ja	$LN6@tri
 	comiss	xmm3, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -33559,7 +33559,7 @@ $LN44:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm4, xmm0
 	addss	xmm4, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -33580,7 +33580,7 @@ $LN44:
 
 	mov	rax, QWORD PTR range$[rsp]
 	divss	xmm0, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -33588,7 +33588,7 @@ $LN44:
 	mulss	xmm6, xmm13
 	mulss	xmm5, xmm15
 	addss	xmm2, xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -33598,12 +33598,12 @@ $LN44:
 
 	mulss	xmm4, xmm0
 	movss	DWORD PTR [r8], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm2, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 262  : 			v		*= inv_det;
 
@@ -33654,23 +33654,23 @@ $LN1@tri:
 ?_tri@?$ray_collider@$00$00$00$0A@@@QEAA_NPEAIAEAM11@Z ENDP ; ray_collider<1,1,1,0>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 ;	COMDAT ?_tri@?$ray_collider@$00$00$00$00@@QEAA_NPEAIAEAM11@Z
 _TEXT	SEGMENT
 this$ = 176
@@ -33710,13 +33710,13 @@ $LN44:
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
 	mov	eax, DWORD PTR [rdx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
 	movss	xmm3, DWORD PTR [rbx+r11*4+4]
 	movss	xmm2, DWORD PTR [rbx+r11*4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 241  : 		Fvector&			p1	= verts[ p[1] ];
 
@@ -33725,7 +33725,7 @@ $LN44:
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	mov	eax, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -33735,12 +33735,12 @@ $LN44:
 	movss	xmm11, DWORD PTR [rbx+r10*4+8]
 	subss	xmm10, xmm3
 	subss	xmm11, DWORD PTR [rbx+r11*4+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 242  : 		Fvector&			p2	= verts[ p[2] ];
 
 	lea	rdx, QWORD PTR [rax+rax*2]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -33788,23 +33788,23 @@ $LN44:
 	movaps	xmm1, xmm12
 	mulss	xmm1, xmm11
 	addss	xmm7, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	movss	xmm0, DWORD PTR __real@3727c5ac
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm7, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 251  : 			if (det < EPS)  return false;
 
 	comiss	xmm0, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -33838,7 +33838,7 @@ $LN44:
 	xorps	xmm8, xmm8
 	addss	xmm3, xmm0
 	addss	xmm3, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 254  : 			if (u < 0.f || u > det) return false;
 
@@ -33847,7 +33847,7 @@ $LN44:
 	ja	$LN6@tri
 	comiss	xmm3, xmm7
 	ja	$LN6@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 282  :         x = v1.y * v2.z - v1.z * v2.y;
 
@@ -33878,7 +33878,7 @@ $LN44:
 	mulss	xmm1, DWORD PTR [rcx+72]
 	addss	xmm4, xmm0
 	addss	xmm4, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 257  : 			if (v < 0.f || u + v > det) return false;
 
@@ -33899,7 +33899,7 @@ $LN44:
 
 	mov	rax, QWORD PTR range$[rsp]
 	divss	xmm0, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
@@ -33907,7 +33907,7 @@ $LN44:
 	mulss	xmm6, xmm13
 	mulss	xmm5, xmm15
 	addss	xmm2, xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 261  : 			u		*= inv_det;
 
@@ -33917,12 +33917,12 @@ $LN44:
 
 	mulss	xmm4, xmm0
 	movss	DWORD PTR [r8], xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 276  :         return x*v.x + y*v.y + z*v.z;
 
 	addss	xmm2, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_ray.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_ray.cpp
 
 ; 262  : 			v		*= inv_det;
 

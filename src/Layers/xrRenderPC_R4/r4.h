@@ -73,6 +73,8 @@ public:
         u32		HW_smap_PCF			: 1;
         u32		HW_smap_FETCH4		: 1;
 
+        u32     no_ram_textures     : 1; // don't keep textures in RAM
+
         u32		HW_smap_FORMAT		: 32;
 
         u32		nvstencil			: 1;

@@ -16,7 +16,8 @@
 //#include "shader.h"
 //#include "R_Backend.h"
 
-#define VIEWPORT_NEAR 0.2f
+#define VIEWPORT_NEAR 0.2f		//Main viewport near
+#define R_VIEWPORT_NEAR 0.05f	//Second viewport near (to avoid z-fighting)
 
 #define DEVICE_RESET_PRECACHE_FRAME_COUNT 10
 

@@ -46,3 +46,10 @@ src/Launcher/Stalker-CoC/
 *.bpk
 *.dpk
 *.bpl
+*.db-shm
+*.db-wal
+*.opendb
+*.db
+*.db
+*.pdb
+*.pdb

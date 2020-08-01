@@ -623,11 +623,11 @@ $unwind$?_tri@?$box_collider@$00$00@@QEAA_NXZ DD 0146601H
 	DD	01b010aH
 xdata	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?planeBoxOverlap@@YA_NAEBVicePoint@IceMaths@@M0@Z
 _TEXT	SEGMENT
 normal$ = 112
@@ -711,7 +711,7 @@ $LN22@planeBoxOv:
 	movaps	xmm8, xmm4
 	movaps	xmm4, xmm2
 $LN23@planeBoxOv:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -723,14 +723,14 @@ $LN23@planeBoxOv:
 	mulss	xmm1, xmm4
 	addss	xmm2, xmm0
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	addss	xmm2, xmm11
 	comiss	xmm2, xmm5
 	ja	SHORT $LN8@planeBoxOv
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -739,7 +739,7 @@ $LN23@planeBoxOv:
 	mulss	xmm7, xmm8
 	addss	xmm3, xmm6
 	addss	xmm3, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 28   : 	if((normal|vmax)+d>=0.0f) return true;
 
@@ -767,17 +767,17 @@ $LN11@planeBoxOv:
 ?planeBoxOverlap@@YA_NAEBVicePoint@IceMaths@@M0@Z ENDP	; planeBoxOverlap
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\xutility
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?box_query@COLLIDER@CDB@@QEAAXPEBVMODEL@2@AEBU?$_vector3@M@@1@Z
 _TEXT	SEGMENT
 BC$1 = 32
@@ -796,12 +796,12 @@ $LN84:
 	push	r15
 	lea	rbp, QWORD PTR [rax-95]
 	sub	rsp, 256				; 00000100H
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB.h
 
 ; 86   : 			if (S_READY!=status)
 
 	cmp	DWORD PTR [rdx+16], 0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 222  : {
 
@@ -813,7 +813,7 @@ $LN84:
 	mov	QWORD PTR [rax-32], r13
 	mov	r13, r8
 	mov	QWORD PTR [rax-40], r14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB.h
 
 ; 86   : 			if (S_READY!=status)
 
@@ -832,7 +832,7 @@ $LN84:
 	mov	rcx, rsi
 	call	QWORD PTR __imp_?Leave@xrCriticalSection@@QEAAXXZ
 $LN10@box_query:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 227  : 	const AABBNoLeafNode* N = T->GetNodes();
 
@@ -846,7 +846,7 @@ $LN10@box_query:
 ; 1362 :         const pointer _Lastptr  = _Last._Ptr;
 
 	mov	rdx, QWORD PTR [rdi+24]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 227  : 	const AABBNoLeafNode* N = T->GetNodes();
 
@@ -882,7 +882,7 @@ $LN10@box_query:
 	mov	rbx, QWORD PTR [rsp+288]
 	mov	QWORD PTR [rdi+24], rax
 $LN29@box_query:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 231  : 	if (box_mode&OPT_FULL_TEST) 
 
@@ -1079,17 +1079,17 @@ this$ = 8
 ??1?$box_collider@$0A@$0A@@@QEAA@XZ ENDP		; box_collider<0,0>::~box_collider<0,0>
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_stab@?$box_collider@$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -1160,22 +1160,22 @@ $LL674@stab:
 
 	mov	rdx, QWORD PTR [rbx+24]
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 209  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN3@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 209  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -1187,12 +1187,12 @@ $LN3@stab:
 
 	call	?_stab@?$box_collider@$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ; box_collider<0,0>::_stab
 $LN4@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rbx+32], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 216  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -1203,22 +1203,22 @@ $LN4@stab:
 	mov	rbx, QWORD PTR [rbx+32]
 	jmp	$LL674@stab
 $LN678@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 216  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 216  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -1235,19 +1235,19 @@ $LN7@stab:
 ?_stab@?$box_collider@$0A@$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; box_collider<0,0>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_init@?$box_collider@$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3@Z
 _TEXT	SEGMENT
 $T1 = 0
@@ -1269,12 +1269,12 @@ $LN13:
 
 	mov	QWORD PTR [rcx], rdx
 	mov	r10, rcx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 98   : 		verts		= V;
 
@@ -1283,56 +1283,56 @@ $LN13:
 ; 99   : 		tris		= T;
 
 	mov	QWORD PTR [rcx+8], r9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	movss	xmm2, DWORD PTR [rdx+4]
 	movss	xmm0, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 100  : 		center		= Point(C.x,C.y,C.z);
 
 	movss	xmm1, DWORD PTR [rdx]
 	unpcklps xmm1, xmm2
 	movsd	QWORD PTR [rcx+48], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	movss	DWORD PTR $T2[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 100  : 		center		= Point(C.x,C.y,C.z);
 
 	mov	eax, DWORD PTR $T2[rsp+8]
 	mov	DWORD PTR [rcx+56], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	mov	rcx, QWORD PTR E$[rsp]
 	movss	xmm0, DWORD PTR [rcx+8]
 	movss	xmm2, DWORD PTR [rcx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 101  : 		extents		= Point(E.x,E.y,E.z);
 
 	movss	xmm1, DWORD PTR [rcx]
 	unpcklps xmm1, xmm2
 	movsd	QWORD PTR [r10+60], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	movss	DWORD PTR $T1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 101  : 		extents		= Point(E.x,E.y,E.z);
 
 	mov	eax, DWORD PTR $T1[rsp+8]
 	mov	DWORD PTR [r10+68], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -1357,7 +1357,7 @@ $LN13:
 	movss	xmm1, DWORD PTR [rdx+8]
 	addss	xmm1, DWORD PTR [rcx+8]
 	movss	DWORD PTR [r10+44], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 104  : 	}
 
@@ -1366,19 +1366,19 @@ $LN13:
 ?_init@?$box_collider@$0A@$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3@Z ENDP ; box_collider<0,0>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_stab@?$box_collider@$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -1451,22 +1451,22 @@ $LL680@stab:
 
 	mov	rdx, QWORD PTR [rbx+24]
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 209  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN3@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 209  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -1490,18 +1490,18 @@ $LN4@stab:
 	sub	rcx, QWORD PTR [rax+16]
 	sar	rcx, 3
 	imul	rcx, rsi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 213  : 		if (bFirst && dest->r_count())												return;
 
 	test	ecx, ecx
 	jne	SHORT $LN7@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rbx+32], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 216  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -1512,22 +1512,22 @@ $LN4@stab:
 	mov	rbx, QWORD PTR [rbx+32]
 	jmp	$LL680@stab
 $LN685@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 216  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 216  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -1545,19 +1545,19 @@ $LN7@stab:
 ?_stab@?$box_collider@$0A@$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; box_collider<0,1>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_init@?$box_collider@$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3@Z
 _TEXT	SEGMENT
 $T1 = 0
@@ -1579,12 +1579,12 @@ $LN13:
 
 	mov	QWORD PTR [rcx], rdx
 	mov	r10, rcx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 98   : 		verts		= V;
 
@@ -1593,56 +1593,56 @@ $LN13:
 ; 99   : 		tris		= T;
 
 	mov	QWORD PTR [rcx+8], r9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	movss	xmm2, DWORD PTR [rdx+4]
 	movss	xmm0, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 100  : 		center		= Point(C.x,C.y,C.z);
 
 	movss	xmm1, DWORD PTR [rdx]
 	unpcklps xmm1, xmm2
 	movsd	QWORD PTR [rcx+48], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	movss	DWORD PTR $T2[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 100  : 		center		= Point(C.x,C.y,C.z);
 
 	mov	eax, DWORD PTR $T2[rsp+8]
 	mov	DWORD PTR [rcx+56], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	mov	rcx, QWORD PTR E$[rsp]
 	movss	xmm0, DWORD PTR [rcx+8]
 	movss	xmm2, DWORD PTR [rcx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 101  : 		extents		= Point(E.x,E.y,E.z);
 
 	movss	xmm1, DWORD PTR [rcx]
 	unpcklps xmm1, xmm2
 	movsd	QWORD PTR [r10+60], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	movss	DWORD PTR $T1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 101  : 		extents		= Point(E.x,E.y,E.z);
 
 	mov	eax, DWORD PTR $T1[rsp+8]
 	mov	DWORD PTR [r10+68], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -1667,7 +1667,7 @@ $LN13:
 	movss	xmm1, DWORD PTR [rdx+8]
 	addss	xmm1, DWORD PTR [rcx+8]
 	movss	DWORD PTR [r10+44], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 104  : 	}
 
@@ -1676,17 +1676,17 @@ $LN13:
 ?_init@?$box_collider@$0A@$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3@Z ENDP ; box_collider<0,1>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_stab@?$box_collider@$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -1757,22 +1757,22 @@ $LL674@stab:
 
 	mov	rdx, QWORD PTR [rbx+24]
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 209  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN3@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 209  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -1784,12 +1784,12 @@ $LN3@stab:
 
 	call	?_stab@?$box_collider@$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ; box_collider<1,0>::_stab
 $LN4@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rbx+32], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 216  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -1800,22 +1800,22 @@ $LN4@stab:
 	mov	rbx, QWORD PTR [rbx+32]
 	jmp	$LL674@stab
 $LN678@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 216  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 216  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -1832,19 +1832,19 @@ $LN7@stab:
 ?_stab@?$box_collider@$00$0A@@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; box_collider<1,0>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_init@?$box_collider@$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3@Z
 _TEXT	SEGMENT
 $T1 = 0
@@ -1866,12 +1866,12 @@ $LN13:
 
 	mov	QWORD PTR [rcx], rdx
 	mov	r10, rcx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 98   : 		verts		= V;
 
@@ -1880,56 +1880,56 @@ $LN13:
 ; 99   : 		tris		= T;
 
 	mov	QWORD PTR [rcx+8], r9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	movss	xmm2, DWORD PTR [rdx+4]
 	movss	xmm0, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 100  : 		center		= Point(C.x,C.y,C.z);
 
 	movss	xmm1, DWORD PTR [rdx]
 	unpcklps xmm1, xmm2
 	movsd	QWORD PTR [rcx+48], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	movss	DWORD PTR $T2[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 100  : 		center		= Point(C.x,C.y,C.z);
 
 	mov	eax, DWORD PTR $T2[rsp+8]
 	mov	DWORD PTR [rcx+56], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	mov	rcx, QWORD PTR E$[rsp]
 	movss	xmm0, DWORD PTR [rcx+8]
 	movss	xmm2, DWORD PTR [rcx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 101  : 		extents		= Point(E.x,E.y,E.z);
 
 	movss	xmm1, DWORD PTR [rcx]
 	unpcklps xmm1, xmm2
 	movsd	QWORD PTR [r10+60], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	movss	DWORD PTR $T1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 101  : 		extents		= Point(E.x,E.y,E.z);
 
 	mov	eax, DWORD PTR $T1[rsp+8]
 	mov	DWORD PTR [r10+68], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -1954,7 +1954,7 @@ $LN13:
 	movss	xmm1, DWORD PTR [rdx+8]
 	addss	xmm1, DWORD PTR [rcx+8]
 	movss	DWORD PTR [r10+44], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 104  : 	}
 
@@ -1963,19 +1963,19 @@ $LN13:
 ?_init@?$box_collider@$00$0A@@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3@Z ENDP ; box_collider<1,0>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_stab@?$box_collider@$00$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -2048,22 +2048,22 @@ $LL680@stab:
 
 	mov	rdx, QWORD PTR [rbx+24]
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	dl, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 209  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
 	je	SHORT $LN3@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 209  : 		if (node->HasLeaf())	_prim	(node->GetPrimitive());
 
@@ -2087,18 +2087,18 @@ $LN4@stab:
 	sub	rcx, QWORD PTR [rax+16]
 	sar	rcx, 3
 	imul	rcx, rsi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 213  : 		if (bFirst && dest->r_count())												return;
 
 	test	ecx, ecx
 	jne	SHORT $LN7@stab
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	test	BYTE PTR [rbx+32], 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 216  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -2109,22 +2109,22 @@ $LN4@stab:
 	mov	rbx, QWORD PTR [rbx+32]
 	jmp	$LL680@stab
 $LN685@stab:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	mov	rdx, QWORD PTR [rbx+32]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 216  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
 	mov	rcx, rdi
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_OptimizedTree.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_OptimizedTree.h
 
 ; 104  : 		IMPLEMENT_NOLEAF_NODE(AABBNoLeafNode, CollisionAABB)
 
 	shr	rdx, 1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 216  : 		if (node->HasLeaf2())	_prim	(node->GetPrimitive2());
 
@@ -2142,19 +2142,19 @@ $LN7@stab:
 ?_stab@?$box_collider@$00$00@@QEAAXPEBVAABBNoLeafNode@Opcode@@@Z ENDP ; box_collider<1,1>::_stab
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_init@?$box_collider@$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3@Z
 _TEXT	SEGMENT
 $T1 = 0
@@ -2176,12 +2176,12 @@ $LN13:
 
 	mov	QWORD PTR [rcx], rdx
 	mov	r10, rcx
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	mov	rdx, QWORD PTR C$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 98   : 		verts		= V;
 
@@ -2190,56 +2190,56 @@ $LN13:
 ; 99   : 		tris		= T;
 
 	mov	QWORD PTR [rcx+8], r9
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	movss	xmm2, DWORD PTR [rdx+4]
 	movss	xmm0, DWORD PTR [rdx+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 100  : 		center		= Point(C.x,C.y,C.z);
 
 	movss	xmm1, DWORD PTR [rdx]
 	unpcklps xmm1, xmm2
 	movsd	QWORD PTR [rcx+48], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	movss	DWORD PTR $T2[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 100  : 		center		= Point(C.x,C.y,C.z);
 
 	mov	eax, DWORD PTR $T2[rsp+8]
 	mov	DWORD PTR [rcx+56], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	mov	rcx, QWORD PTR E$[rsp]
 	movss	xmm0, DWORD PTR [rcx+8]
 	movss	xmm2, DWORD PTR [rcx+4]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 101  : 		extents		= Point(E.x,E.y,E.z);
 
 	movss	xmm1, DWORD PTR [rcx]
 	unpcklps xmm1, xmm2
 	movsd	QWORD PTR [r10+60], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
 	movss	DWORD PTR $T1[rsp+8], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 101  : 		extents		= Point(E.x,E.y,E.z);
 
 	mov	eax, DWORD PTR $T1[rsp+8]
 	mov	DWORD PTR [r10+68], eax
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\_vector3d.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\_vector3d.h
 
 ; 37   :     ICF SelfRef sub(const Self& a, const Self& v) { x = a.x - v.x; y = a.y - v.y; z = a.z - v.z; return *this; };
 
@@ -2264,7 +2264,7 @@ $LN13:
 	movss	xmm1, DWORD PTR [rdx+8]
 	addss	xmm1, DWORD PTR [rcx+8]
 	movss	DWORD PTR [r10+44], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 104  : 	}
 
@@ -2273,19 +2273,19 @@ $LN13:
 ?_init@?$box_collider@$00$00@@QEAAXPEAVCOLLIDER@CDB@@PEAU?$_vector3@M@@PEAVTRI@3@AEBU4@3@Z ENDP ; box_collider<1,1>::_init
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_prim@?$box_collider@$0A@$0A@@@QEAAXK@Z
 _TEXT	SEGMENT
 v0$1 = 32
@@ -2476,7 +2476,7 @@ $LN339:
 	lea	rdx, QWORD PTR e1$4[rbp-169]
 	lea	rcx, QWORD PTR v2$3[rbp-169]
 	call	??GicePoint@IceMaths@@QEBA?AV01@AEBV01@@Z ; IceMaths::icePoint::operator-
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 396  : 									return Point(
 
@@ -2494,12 +2494,12 @@ $LN339:
 	subss	xmm12, xmm0
 	mulss	xmm3, DWORD PTR e0$5[rbp-169]
 	mulss	xmm2, DWORD PTR e0$5[rbp-165]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
 	comiss	xmm12, xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
@@ -2533,19 +2533,19 @@ $LN339:
 
 	mulss	xmm1, DWORD PTR v0$1[rsp+8]
 	addss	xmm11, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
 	movss	xmm0, DWORD PTR [rbx+60]
 	movaps	xmm5, xmm0
 	xorps	xmm5, xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	addss	xmm11, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
@@ -2597,17 +2597,17 @@ $LN331@prim:
 ; 22   : 	for(udword q=0;q<=2;q++)
 
 	movaps	xmm1, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	mulss	xmm5, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 22   : 	for(udword q=0;q<=2;q++)
 
 	mulss	xmm1, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -2615,14 +2615,14 @@ $LN331@prim:
 	mulss	xmm0, xmm3
 	addss	xmm1, xmm5
 	addss	xmm1, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	addss	xmm1, xmm11
 	comiss	xmm1, xmm8
 	ja	SHORT $LN336@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -2631,7 +2631,7 @@ $LN331@prim:
 	mulss	xmm4, xmm9
 	addss	xmm2, xmm7
 	addss	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 28   : 	if((normal|vmax)+d>=0.0f) return true;
 
@@ -2701,7 +2701,7 @@ $LN1@prim:
 ?_prim@?$box_collider@$0A@$0A@@@QEAAXK@Z ENDP		; box_collider<0,0>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_box@?$box_collider@$0A@$0A@@@QEAA_NAEBU?$_vector3@M@@0@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -2775,19 +2775,19 @@ $LN9@box:
 ?_box@?$box_collider@$0A@$0A@@@QEAA_NAEBU?$_vector3@M@@0@Z ENDP ; box_collider<0,0>::_box
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_prim@?$box_collider@$0A@$00@@QEAAXK@Z
 _TEXT	SEGMENT
 v0$1 = 32
@@ -2978,7 +2978,7 @@ $LN339:
 	lea	rdx, QWORD PTR e1$4[rbp-169]
 	lea	rcx, QWORD PTR v2$3[rbp-169]
 	call	??GicePoint@IceMaths@@QEBA?AV01@AEBV01@@Z ; IceMaths::icePoint::operator-
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 396  : 									return Point(
 
@@ -2996,12 +2996,12 @@ $LN339:
 	subss	xmm12, xmm0
 	mulss	xmm3, DWORD PTR e0$5[rbp-169]
 	mulss	xmm2, DWORD PTR e0$5[rbp-165]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
 	comiss	xmm12, xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
@@ -3035,19 +3035,19 @@ $LN339:
 
 	mulss	xmm1, DWORD PTR v0$1[rsp+8]
 	addss	xmm11, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
 	movss	xmm0, DWORD PTR [rbx+60]
 	movaps	xmm5, xmm0
 	xorps	xmm5, xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	addss	xmm11, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
@@ -3099,17 +3099,17 @@ $LN331@prim:
 ; 22   : 	for(udword q=0;q<=2;q++)
 
 	movaps	xmm1, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	mulss	xmm5, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 22   : 	for(udword q=0;q<=2;q++)
 
 	mulss	xmm1, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -3117,14 +3117,14 @@ $LN331@prim:
 	mulss	xmm0, xmm3
 	addss	xmm1, xmm5
 	addss	xmm1, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	addss	xmm1, xmm11
 	comiss	xmm1, xmm8
 	ja	SHORT $LN336@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -3133,7 +3133,7 @@ $LN331@prim:
 	mulss	xmm4, xmm9
 	addss	xmm2, xmm7
 	addss	xmm2, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 28   : 	if((normal|vmax)+d>=0.0f) return true;
 
@@ -3203,7 +3203,7 @@ $LN1@prim:
 ?_prim@?$box_collider@$0A@$00@@QEAAXK@Z ENDP		; box_collider<0,1>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_box@?$box_collider@$0A@$00@@QEAA_NAEBU?$_vector3@M@@0@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -3277,65 +3277,65 @@ $LN9@box:
 ?_box@?$box_collider@$0A@$00@@QEAA_NAEBU?$_vector3@M@@0@Z ENDP ; box_collider<0,1>::_box
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_prim@?$box_collider@$00$0A@@@QEAAXK@Z
 _TEXT	SEGMENT
 d$1$ = 32
@@ -3534,7 +3534,7 @@ $LN342:
 	lea	rdx, QWORD PTR e1$4[rsp]
 	lea	rcx, QWORD PTR v2$2[rsp]
 	call	??GicePoint@IceMaths@@QEBA?AV01@AEBV01@@Z ; IceMaths::icePoint::operator-
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 396  : 									return Point(
 
@@ -3549,12 +3549,12 @@ $LN342:
 	movss	xmm14, DWORD PTR e1$4[rsp]
 	movss	xmm13, DWORD PTR e0$5[rsp]
 	movaps	xmm2, xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
 	movss	xmm15, DWORD PTR [rbx+60]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 396  : 									return Point(
 
@@ -3565,12 +3565,12 @@ $LN342:
 	mulss	xmm7, xmm13
 	movaps	xmm0, xmm1
 	mulss	xmm0, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
 	comiss	xmm9, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 396  : 									return Point(
 
@@ -3600,20 +3600,20 @@ $LN342:
 
 	mulss	xmm1, DWORD PTR v0$1[rsp+8]
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
 	movaps	xmm0, xmm15
 	xorps	xmm0, xmm6
 	movss	DWORD PTR $T7[rbp-256], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	addss	xmm4, xmm1
 	movss	DWORD PTR d$1$[rsp], xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
@@ -3665,41 +3665,41 @@ $LN331@prim:
 ; 22   : 	for(udword q=0;q<=2;q++)
 
 	movaps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	mulss	xmm4, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 22   : 	for(udword q=0;q<=2;q++)
 
 	mulss	xmm0, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	movaps	xmm1, xmm9
 	mulss	xmm1, DWORD PTR $T7[rbp-256]
 	addss	xmm1, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	movss	xmm0, DWORD PTR d$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	addss	xmm1, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	addss	xmm1, xmm0
 	comiss	xmm1, xmm10
 	ja	$LN339@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -3708,7 +3708,7 @@ $LN331@prim:
 	mulss	xmm7, xmm11
 	addss	xmm2, xmm9
 	addss	xmm2, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 28   : 	if((normal|vmax)+d>=0.0f) return true;
 
@@ -3720,7 +3720,7 @@ $LN331@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm10, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -3735,7 +3735,7 @@ $LN331@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm11, xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -3745,7 +3745,7 @@ $LN331@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm9, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -3755,7 +3755,7 @@ $LN331@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm11, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -3765,7 +3765,7 @@ $LN331@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm9, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -3801,7 +3801,7 @@ $LN25@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm7, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 169  : 			AXISTEST_Y02(e0.z, e0.x, fez0, fex0);
 
@@ -3811,7 +3811,7 @@ $LN25@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm7, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 169  : 			AXISTEST_Y02(e0.z, e0.x, fez0, fex0);
 
@@ -3865,7 +3865,7 @@ $LN31@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm11, DWORD PTR e1$4[rsp+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -3880,7 +3880,7 @@ $LN31@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm8, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -3890,7 +3890,7 @@ $LN31@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm9, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -3902,7 +3902,7 @@ $LN31@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm8, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -3912,7 +3912,7 @@ $LN31@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm9, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -3946,7 +3946,7 @@ $LN34@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm7, xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 176  : 			AXISTEST_Y02(e1.z, e1.x, fez1, fex1);
 
@@ -3956,7 +3956,7 @@ $LN34@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm7, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 176  : 			AXISTEST_Y02(e1.z, e1.x, fez1, fex1);
 
@@ -4017,7 +4017,7 @@ $LN40@prim:
 
 	movss	xmm1, DWORD PTR e2$6[rsp+4]
 	movss	xmm8, DWORD PTR e2$6[rbp-248]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -4032,7 +4032,7 @@ $LN40@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm12, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -4042,7 +4042,7 @@ $LN40@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm11, xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -4052,7 +4052,7 @@ $LN40@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm12, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -4062,7 +4062,7 @@ $LN40@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm11, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -4093,7 +4093,7 @@ $LN43@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm7, DWORD PTR e2$6[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 184  : 			AXISTEST_Y1(e2.z, e2.x, fez2, fex2);
 
@@ -4105,7 +4105,7 @@ $LN43@prim:
 
 	movaps	xmm9, xmm7
 	andps	xmm9, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 184  : 			AXISTEST_Y1(e2.z, e2.x, fez2, fex2);
 
@@ -4225,7 +4225,7 @@ $LN1@prim:
 ?_prim@?$box_collider@$00$0A@@@QEAAXK@Z ENDP		; box_collider<1,0>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_box@?$box_collider@$00$0A@@@QEAA_NAEBU?$_vector3@M@@0@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -4299,65 +4299,65 @@ $LN9@box:
 ?_box@?$box_collider@$00$0A@@@QEAA_NAEBU?$_vector3@M@@0@Z ENDP ; box_collider<1,0>::_box
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_prim@?$box_collider@$00$00@@QEAAXK@Z
 _TEXT	SEGMENT
 d$1$ = 32
@@ -4556,7 +4556,7 @@ $LN342:
 	lea	rdx, QWORD PTR e1$4[rsp]
 	lea	rcx, QWORD PTR v2$2[rsp]
 	call	??GicePoint@IceMaths@@QEBA?AV01@AEBV01@@Z ; IceMaths::icePoint::operator-
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 396  : 									return Point(
 
@@ -4571,12 +4571,12 @@ $LN342:
 	movss	xmm14, DWORD PTR e1$4[rsp]
 	movss	xmm13, DWORD PTR e0$5[rsp]
 	movaps	xmm2, xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
 	movss	xmm15, DWORD PTR [rbx+60]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 396  : 									return Point(
 
@@ -4587,12 +4587,12 @@ $LN342:
 	mulss	xmm7, xmm13
 	movaps	xmm0, xmm1
 	mulss	xmm0, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
 	comiss	xmm9, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 396  : 									return Point(
 
@@ -4622,20 +4622,20 @@ $LN342:
 
 	mulss	xmm1, DWORD PTR v0$1[rsp+8]
 	addss	xmm4, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
 	movaps	xmm0, xmm15
 	xorps	xmm0, xmm6
 	movss	DWORD PTR $T7[rbp-256], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	addss	xmm4, xmm1
 	movss	DWORD PTR d$1$[rsp], xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
@@ -4687,41 +4687,41 @@ $LN331@prim:
 ; 22   : 	for(udword q=0;q<=2;q++)
 
 	movaps	xmm0, xmm2
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	mulss	xmm4, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 22   : 	for(udword q=0;q<=2;q++)
 
 	mulss	xmm0, xmm5
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	movaps	xmm1, xmm9
 	mulss	xmm1, DWORD PTR $T7[rbp-256]
 	addss	xmm1, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	movss	xmm0, DWORD PTR d$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	addss	xmm1, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	addss	xmm1, xmm0
 	comiss	xmm1, xmm10
 	ja	$LN339@prim
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -4730,7 +4730,7 @@ $LN331@prim:
 	mulss	xmm7, xmm11
 	addss	xmm2, xmm9
 	addss	xmm2, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 28   : 	if((normal|vmax)+d>=0.0f) return true;
 
@@ -4742,7 +4742,7 @@ $LN331@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm10, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -4757,7 +4757,7 @@ $LN331@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm11, xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -4767,7 +4767,7 @@ $LN331@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm9, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -4777,7 +4777,7 @@ $LN331@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm11, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -4787,7 +4787,7 @@ $LN331@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm9, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -4823,7 +4823,7 @@ $LN25@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm7, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 169  : 			AXISTEST_Y02(e0.z, e0.x, fez0, fex0);
 
@@ -4833,7 +4833,7 @@ $LN25@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm7, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 169  : 			AXISTEST_Y02(e0.z, e0.x, fez0, fex0);
 
@@ -4887,7 +4887,7 @@ $LN31@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm11, DWORD PTR e1$4[rsp+8]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -4902,7 +4902,7 @@ $LN31@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm8, xmm3
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -4912,7 +4912,7 @@ $LN31@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm9, xmm11
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -4924,7 +4924,7 @@ $LN31@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm8, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -4934,7 +4934,7 @@ $LN31@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm9, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -4968,7 +4968,7 @@ $LN34@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm7, xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 176  : 			AXISTEST_Y02(e1.z, e1.x, fez1, fex1);
 
@@ -4978,7 +4978,7 @@ $LN34@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm7, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 176  : 			AXISTEST_Y02(e1.z, e1.x, fez1, fex1);
 
@@ -5039,7 +5039,7 @@ $LN40@prim:
 
 	movss	xmm1, DWORD PTR e2$6[rsp+4]
 	movss	xmm8, DWORD PTR e2$6[rbp-248]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -5054,7 +5054,7 @@ $LN40@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm12, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -5064,7 +5064,7 @@ $LN40@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm11, xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -5074,7 +5074,7 @@ $LN40@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm12, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -5084,7 +5084,7 @@ $LN40@prim:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm11, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -5115,7 +5115,7 @@ $LN43@prim:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm7, DWORD PTR e2$6[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 184  : 			AXISTEST_Y1(e2.z, e2.x, fez2, fex2);
 
@@ -5127,7 +5127,7 @@ $LN43@prim:
 
 	movaps	xmm9, xmm7
 	andps	xmm9, xmm10
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 184  : 			AXISTEST_Y1(e2.z, e2.x, fez2, fex2);
 
@@ -5247,7 +5247,7 @@ $LN1@prim:
 ?_prim@?$box_collider@$00$00@@QEAAXK@Z ENDP		; box_collider<1,1>::_prim
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_box@?$box_collider@$00$00@@QEAA_NAEBU?$_vector3@M@@0@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -5321,19 +5321,19 @@ $LN9@box:
 ?_box@?$box_collider@$00$00@@QEAA_NAEBU?$_vector3@M@@0@Z ENDP ; box_collider<1,1>::_box
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_tri@?$box_collider@$0A@$0A@@@QEAA_NXZ
 _TEXT	SEGMENT
 this$ = 176
@@ -5482,7 +5482,7 @@ $LN147:
 	maxss	xmm1, xmm0
 	comiss	xmm2, xmm1
 	ja	$LN19@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
@@ -5531,12 +5531,12 @@ $LN147:
 	mulss	xmm10, xmm3
 	subss	xmm5, xmm8
 	xorps	xmm8, xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
 	comiss	xmm13, xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 396  : 									return Point(
 
@@ -5570,7 +5570,7 @@ $LN147:
 
 	addss	xmm15, xmm0
 	addss	xmm15, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
@@ -5618,27 +5618,27 @@ $LN140@tri:
 	movaps	xmm7, xmm3
 	movaps	xmm3, xmm0
 $LN141@tri:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	movaps	xmm2, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 22   : 	for(udword q=0;q<=2;q++)
 
 	movaps	xmm0, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	mulss	xmm2, xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 22   : 	for(udword q=0;q<=2;q++)
 
 	mulss	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -5646,14 +5646,14 @@ $LN141@tri:
 	mulss	xmm1, xmm3
 	addss	xmm2, xmm0
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	addss	xmm2, xmm15
 	comiss	xmm2, xmm8
 	ja	SHORT $LN19@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -5662,7 +5662,7 @@ $LN141@tri:
 	mulss	xmm7, xmm5
 	addss	xmm4, xmm13
 	addss	xmm4, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 28   : 	if((normal|vmax)+d>=0.0f) return true;
 
@@ -5739,19 +5739,19 @@ $LN62@tri:
 ?_tri@?$box_collider@$0A@$0A@@@QEAA_NXZ ENDP		; box_collider<0,0>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_tri@?$box_collider@$0A@$00@@QEAA_NXZ
 _TEXT	SEGMENT
 this$ = 176
@@ -5900,7 +5900,7 @@ $LN147:
 	maxss	xmm1, xmm0
 	comiss	xmm2, xmm1
 	ja	$LN19@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 46   : 		inline_					Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z)	{}
 
@@ -5949,12 +5949,12 @@ $LN147:
 	mulss	xmm10, xmm3
 	subss	xmm5, xmm8
 	xorps	xmm8, xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
 	comiss	xmm13, xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 396  : 									return Point(
 
@@ -5988,7 +5988,7 @@ $LN147:
 
 	addss	xmm15, xmm0
 	addss	xmm15, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
@@ -6036,27 +6036,27 @@ $LN140@tri:
 	movaps	xmm7, xmm3
 	movaps	xmm3, xmm0
 $LN141@tri:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	movaps	xmm2, xmm13
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 22   : 	for(udword q=0;q<=2;q++)
 
 	movaps	xmm0, xmm4
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	mulss	xmm2, xmm6
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 22   : 	for(udword q=0;q<=2;q++)
 
 	mulss	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -6064,14 +6064,14 @@ $LN141@tri:
 	mulss	xmm1, xmm3
 	addss	xmm2, xmm0
 	addss	xmm2, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	addss	xmm2, xmm15
 	comiss	xmm2, xmm8
 	ja	SHORT $LN19@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -6080,7 +6080,7 @@ $LN141@tri:
 	mulss	xmm7, xmm5
 	addss	xmm4, xmm13
 	addss	xmm4, xmm7
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 28   : 	if((normal|vmax)+d>=0.0f) return true;
 
@@ -6157,61 +6157,61 @@ $LN62@tri:
 ?_tri@?$box_collider@$0A@$00@@QEAA_NXZ ENDP		; box_collider<0,1>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_tri@?$box_collider@$00$0A@@@QEAA_NXZ
 _TEXT	SEGMENT
 $T1 = 0
@@ -6387,7 +6387,7 @@ $LN148:
 	xorps	xmm0, xmm7
 	comiss	xmm0, xmm1
 	ja	$LN19@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 375  : 		inline_	Point			operator-(const Point& p)			const		{ return Point(x - p.x, y - p.y, z - p.z);			}
 
@@ -6496,7 +6496,7 @@ $LN148:
 	addss	xmm0, xmm1
 	xorps	xmm1, xmm1
 	movss	DWORD PTR d$1$[rsp], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
@@ -6547,43 +6547,43 @@ $LN140@tri:
 	movss	DWORD PTR $T4[rsp], xmm14
 	movaps	xmm14, xmm6
 $LN141@tri:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	mulss	xmm0, DWORD PTR tv2651[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	movss	xmm7, DWORD PTR __xmm@80000000800000008000000080000000
 	mulss	xmm1, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	addss	xmm1, xmm0
 	movss	xmm0, DWORD PTR tv2649[rsp]
 	mulss	xmm0, xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	movss	xmm14, DWORD PTR v2$$sroa$1294$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	addss	xmm1, xmm0
 	xorps	xmm0, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	addss	xmm1, DWORD PTR d$1$[rsp]
 	comiss	xmm1, xmm0
 	ja	$LN39@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -6595,7 +6595,7 @@ $LN141@tri:
 	mulss	xmm0, DWORD PTR $T4[rsp]
 	addss	xmm12, xmm0
 	xorps	xmm0, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 28   : 	if((normal|vmax)+d>=0.0f) return true;
 
@@ -6607,7 +6607,7 @@ $LN141@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm1, DWORD PTR e0$$sroa$1282$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -6619,7 +6619,7 @@ $LN141@tri:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm1, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -6632,7 +6632,7 @@ $LN141@tri:
 
 	movss	DWORD PTR fey0$1$[rsp], xmm1
 	movss	xmm1, DWORD PTR e0$$sroa$1277$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -6644,7 +6644,7 @@ $LN141@tri:
 
 	andps	xmm1, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
 	movss	DWORD PTR fez0$1$[rsp], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -6670,7 +6670,7 @@ $LN22@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm1, DWORD PTR e0$$sroa$1295$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 169  : 			AXISTEST_Y02(e0.z, e0.x, fez0, fex0);
 
@@ -6680,7 +6680,7 @@ $LN22@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 169  : 			AXISTEST_Y02(e0.z, e0.x, fez0, fex0);
 
@@ -6690,7 +6690,7 @@ $LN22@tri:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm0, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 169  : 			AXISTEST_Y02(e0.z, e0.x, fez0, fex0);
 
@@ -6700,7 +6700,7 @@ $LN22@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	DWORD PTR fex0$1$[rsp], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 169  : 			AXISTEST_Y02(e0.z, e0.x, fez0, fex0);
 
@@ -6761,7 +6761,7 @@ $LN28@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm14, DWORD PTR e1$$sroa$1283$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -6776,7 +6776,7 @@ $LN28@tri:
 	movss	DWORD PTR fey1$1$[rsp], xmm1
 	movss	xmm1, DWORD PTR e1$$sroa$1303$1$[rsp]
 	movaps	xmm12, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -6786,7 +6786,7 @@ $LN28@tri:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm12, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -6796,7 +6796,7 @@ $LN28@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	DWORD PTR fez1$1$[rsp], xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -6827,7 +6827,7 @@ $LN31@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm1, DWORD PTR e1$$sroa$1285$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 176  : 			AXISTEST_Y02(e1.z, e1.x, fez1, fex1);
 
@@ -6838,7 +6838,7 @@ $LN31@tri:
 
 	movss	xmm14, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
 	movaps	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 176  : 			AXISTEST_Y02(e1.z, e1.x, fez1, fex1);
 
@@ -6848,7 +6848,7 @@ $LN31@tri:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm0, xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 176  : 			AXISTEST_Y02(e1.z, e1.x, fez1, fex1);
 
@@ -6859,7 +6859,7 @@ $LN31@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	DWORD PTR fex1$1$[rsp], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 176  : 			AXISTEST_Y02(e1.z, e1.x, fez1, fex1);
 
@@ -6913,7 +6913,7 @@ $LN37@tri:
 	xorps	xmm1, xmm7
 	comiss	xmm1, xmm8
 	ja	$LN39@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 375  : 		inline_	Point			operator-(const Point& p)			const		{ return Point(x - p.x, y - p.y, z - p.z);			}
 
@@ -6924,7 +6924,7 @@ $LN37@tri:
 	movss	xmm12, DWORD PTR [rcx+72]
 	subss	xmm12, DWORD PTR [rcx+96]
 	movss	DWORD PTR tv2487[rsp], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 181  : 			const float fez2 = _abs(e2.z);
 
@@ -6934,7 +6934,7 @@ $LN37@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm8, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 375  : 		inline_	Point			operator-(const Point& p)			const		{ return Point(x - p.x, y - p.y, z - p.z);			}
 
@@ -6947,7 +6947,7 @@ $LN37@tri:
 	movss	DWORD PTR fey2$1$[rsp], xmm8
 	movaps	xmm8, xmm0
 	andps	xmm8, xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -6958,7 +6958,7 @@ $LN37@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	DWORD PTR fez2$1$[rsp], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -6995,7 +6995,7 @@ $LN40@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm8, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 183  : 			const float fex2 = _abs(e2.x);
 
@@ -7005,7 +7005,7 @@ $LN40@tri:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm8, xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 184  : 			AXISTEST_Y1(e2.z, e2.x, fez2, fex2);
 
@@ -7087,61 +7087,61 @@ $LN19@tri:
 ?_tri@?$box_collider@$00$0A@@@QEAA_NXZ ENDP		; box_collider<1,0>::_tri
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ; File C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math.h
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 ;	COMDAT ?_tri@?$box_collider@$00$00@@QEAA_NXZ
 _TEXT	SEGMENT
 $T1 = 0
@@ -7317,7 +7317,7 @@ $LN148:
 	xorps	xmm0, xmm7
 	comiss	xmm0, xmm1
 	ja	$LN19@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 375  : 		inline_	Point			operator-(const Point& p)			const		{ return Point(x - p.x, y - p.y, z - p.z);			}
 
@@ -7426,7 +7426,7 @@ $LN148:
 	addss	xmm0, xmm1
 	xorps	xmm1, xmm1
 	movss	DWORD PTR d$1$[rsp], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 24   : 		if(((const float*)normal)[q]>0.0f)	{ ((float*)vmin)[q]=-((const float*)maxbox)[q]; ((float*)vmax)[q]=((const float*)maxbox)[q]; }
 
@@ -7477,43 +7477,43 @@ $LN140@tri:
 	movss	DWORD PTR $T4[rsp], xmm14
 	movaps	xmm14, xmm6
 $LN141@tri:
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	mulss	xmm0, DWORD PTR tv2651[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	movss	xmm7, DWORD PTR __xmm@80000000800000008000000080000000
 	mulss	xmm1, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	addss	xmm1, xmm0
 	movss	xmm0, DWORD PTR tv2649[rsp]
 	mulss	xmm0, xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	movss	xmm14, DWORD PTR v2$$sroa$1294$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
 	addss	xmm1, xmm0
 	xorps	xmm0, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 27   : 	if((normal|vmin)+d>0.0f) return false;
 
 	addss	xmm1, DWORD PTR d$1$[rsp]
 	comiss	xmm1, xmm0
 	ja	$LN39@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 392  : 		inline_	float			operator|(const Point& p)			const		{ return x*p.x + y*p.y + z*p.z;						}
 
@@ -7525,7 +7525,7 @@ $LN141@tri:
 	mulss	xmm0, DWORD PTR $T4[rsp]
 	addss	xmm12, xmm0
 	xorps	xmm0, xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 28   : 	if((normal|vmax)+d>=0.0f) return true;
 
@@ -7537,7 +7537,7 @@ $LN141@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm1, DWORD PTR e0$$sroa$1282$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -7549,7 +7549,7 @@ $LN141@tri:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm1, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -7562,7 +7562,7 @@ $LN141@tri:
 
 	movss	DWORD PTR fey0$1$[rsp], xmm1
 	movss	xmm1, DWORD PTR e0$$sroa$1277$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -7574,7 +7574,7 @@ $LN141@tri:
 
 	andps	xmm1, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
 	movss	DWORD PTR fez0$1$[rsp], xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 167  : 			AXISTEST_X01(e0.z, e0.y, fez0, fey0);
 
@@ -7600,7 +7600,7 @@ $LN22@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm1, DWORD PTR e0$$sroa$1295$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 169  : 			AXISTEST_Y02(e0.z, e0.x, fez0, fex0);
 
@@ -7610,7 +7610,7 @@ $LN22@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 169  : 			AXISTEST_Y02(e0.z, e0.x, fez0, fex0);
 
@@ -7620,7 +7620,7 @@ $LN22@tri:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm0, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 169  : 			AXISTEST_Y02(e0.z, e0.x, fez0, fex0);
 
@@ -7630,7 +7630,7 @@ $LN22@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	DWORD PTR fex0$1$[rsp], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 169  : 			AXISTEST_Y02(e0.z, e0.x, fez0, fex0);
 
@@ -7691,7 +7691,7 @@ $LN28@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm14, DWORD PTR e1$$sroa$1283$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -7706,7 +7706,7 @@ $LN28@tri:
 	movss	DWORD PTR fey1$1$[rsp], xmm1
 	movss	xmm1, DWORD PTR e1$$sroa$1303$1$[rsp]
 	movaps	xmm12, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -7716,7 +7716,7 @@ $LN28@tri:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm12, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -7726,7 +7726,7 @@ $LN28@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	DWORD PTR fez1$1$[rsp], xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 174  : 			AXISTEST_X01(e1.z, e1.y, fez1, fey1);
 
@@ -7757,7 +7757,7 @@ $LN31@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	xmm1, DWORD PTR e1$$sroa$1285$1$[rsp]
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 176  : 			AXISTEST_Y02(e1.z, e1.x, fez1, fex1);
 
@@ -7768,7 +7768,7 @@ $LN31@tri:
 
 	movss	xmm14, DWORD PTR __xmm@7fffffff7fffffff7fffffff7fffffff
 	movaps	xmm0, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 176  : 			AXISTEST_Y02(e1.z, e1.x, fez1, fex1);
 
@@ -7778,7 +7778,7 @@ $LN31@tri:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm0, xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 176  : 			AXISTEST_Y02(e1.z, e1.x, fez1, fex1);
 
@@ -7789,7 +7789,7 @@ $LN31@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	DWORD PTR fex1$1$[rsp], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 176  : 			AXISTEST_Y02(e1.z, e1.x, fez1, fex1);
 
@@ -7843,7 +7843,7 @@ $LN37@tri:
 	xorps	xmm1, xmm7
 	comiss	xmm1, xmm8
 	ja	$LN39@tri
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 375  : 		inline_	Point			operator-(const Point& p)			const		{ return Point(x - p.x, y - p.y, z - p.z);			}
 
@@ -7854,7 +7854,7 @@ $LN37@tri:
 	movss	xmm12, DWORD PTR [rcx+72]
 	subss	xmm12, DWORD PTR [rcx+96]
 	movss	DWORD PTR tv2487[rsp], xmm0
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 181  : 			const float fez2 = _abs(e2.z);
 
@@ -7864,7 +7864,7 @@ $LN37@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm8, xmm1
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\OPC_Point.h
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\OPC_Point.h
 
 ; 375  : 		inline_	Point			operator-(const Point& p)			const		{ return Point(x - p.x, y - p.y, z - p.z);			}
 
@@ -7877,7 +7877,7 @@ $LN37@tri:
 	movss	DWORD PTR fey2$1$[rsp], xmm8
 	movaps	xmm8, xmm0
 	andps	xmm8, xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -7888,7 +7888,7 @@ $LN37@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movss	DWORD PTR fez2$1$[rsp], xmm8
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 182  : 			AXISTEST_X2(e2.z, e2.y, fez2, fey2);
 
@@ -7925,7 +7925,7 @@ $LN40@tri:
 ; 671  :             return (float)fabs(_X);
 
 	movaps	xmm8, xmm12
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 183  : 			const float fex2 = _abs(e2.x);
 
@@ -7935,7 +7935,7 @@ $LN40@tri:
 ; 671  :             return (float)fabs(_X);
 
 	andps	xmm8, xmm14
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCDB\xrCDB_box.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCDB\xrCDB_box.cpp
 
 ; 184  : 			AXISTEST_Y1(e2.z, e2.x, fez2, fex2);
 

@@ -7,7 +7,7 @@ INCLUDELIB OLDNAMES
 PUBLIC	?xrMemCopy_x86@@YAXPEAXPEBXI@Z			; xrMemCopy_x86
 PUBLIC	?xrMemCopy_MMX@@YAXPEAXPEBXI@Z			; xrMemCopy_MMX
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\xrMemory_pso_Copy.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\xrMemory_pso_Copy.cpp
 ;	COMDAT ?xrMemCopy_MMX@@YAXPEAXPEBXI@Z
 _TEXT	SEGMENT
 dest$ = 8
@@ -22,7 +22,7 @@ n$ = 24
 ?xrMemCopy_MMX@@YAXPEAXPEBXI@Z ENDP			; xrMemCopy_MMX
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
-; File C:\GitHub\Engine_Call_of_Chernobyl_x64\src\xrCore\xrMemory_pso_Copy.cpp
+; File C:\GitHub\Call_of_Chernobyl_New_Engine_x64\src\xrCore\xrMemory_pso_Copy.cpp
 ;	COMDAT ?xrMemCopy_x86@@YAXPEAXPEBXI@Z
 _TEXT	SEGMENT
 dest$ = 8

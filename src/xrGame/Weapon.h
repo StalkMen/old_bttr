@@ -89,6 +89,9 @@ public:
     virtual void			OnHiddenItem();
     virtual void			SendHiddenItem();	//same as OnHiddenItem but for client... (sends message to a server)...
 
+    float                   m_fLR_MovingFactor;
+    Fvector                 m_strafe_offset[3][2]; // pos,rot,data/ normal,aim-GL --#SM+#--
+
 public:
     virtual bool			can_kill() const;
     virtual CInventoryItem	*can_kill(CInventory *inventory) const;
