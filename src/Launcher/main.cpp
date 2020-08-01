@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[])
 {
-	std::string pathToExe = "database\\engine\\xrEngine.exe";
+	std::string pathToExe = "bin\\xrEngine.exe";
 
 	// combine the rest of the arguments into a single string
 	std::string command_line = "";
