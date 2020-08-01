@@ -27,15 +27,19 @@ void fix_texture_name(LPSTR fn)
 		*_ext = 0;
 }
 
+#define DISABLE_LOD_MANAGER
 int get_texture_load_lod(LPCSTR fn)
 {
+#ifndef DISABLE_LOD_MANAGER
 	CInifile::Sect& sect	= pSettings->r_section("reduce_lod_texture_list");
 	CInifile::SectCIt it_	= sect.Data.begin();
 	CInifile::SectCIt it_e_	= sect.Data.end();
+#endif
 
 	ENGINE_API bool is_enough_address_space_available();
 	static bool enough_address_space_available = is_enough_address_space_available();
 
+#ifndef DISABLE_LOD_MANAGER
 	CInifile::SectCIt it	= it_;
 	CInifile::SectCIt it_e	= it_e_;
 
@@ -57,17 +61,25 @@ int get_texture_load_lod(LPCSTR fn)
 		}
 	}
 
-	if(psTextureLOD<2) {
-//		if ( enough_address_space_available )
-			return 0;
-//		else
-//			return 1;
+	if(psTextureLOD<2) 
+	{
+		return 0;
 	}
+#endif
+
+#ifdef DISABLE_LOD_MANAGER
+	if (enough_address_space_available)
+		return psTextureLOD % 2 == 0 ? psTextureLOD / 2 : 0;
+#endif
 	else
-		if(psTextureLOD<4)
+#ifndef DISABLE_LOD_MANAGER
+		if (psTextureLOD < 4)
 			return 1;
 		else
 			return 2;
+#else
+	return 2;
+#endif
 }
 
 u32 calc_texture_size(int lod, u32 mip_cnt, u32 orig_size)
@@ -495,11 +507,13 @@ _DDS_2D:
 			LoadInfo.Width	= IMG.Width;
 			LoadInfo.Height	= IMG.Height;
 
+// x64 crash workaround
+#ifdef XR_X64
+			LoadInfo.FirstMipLevel = img_loaded_lod;
+#else
 			if (img_loaded_lod)
-			{
 				Reduce(LoadInfo.Width, LoadInfo.Height, IMG.MipLevels, img_loaded_lod);
-			}
-
+#endif
 			//LoadInfo.Usage = D3D_USAGE_IMMUTABLE;
 			if (bStaging)
 			{
