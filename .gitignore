@@ -53,3 +53,4 @@ src/Launcher/Stalker-CoC/
 *.db
 *.pdb
 *.pdb
+*.exp
