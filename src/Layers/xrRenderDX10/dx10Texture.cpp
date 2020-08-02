@@ -441,7 +441,7 @@ _DDS_CUBE:
 			}
 			else
 			{
-				LoadInfo.Usage = D3D_USAGE_IMMUTABLE;
+				LoadInfo.Usage = D3D_USAGE_DEFAULT;
 				LoadInfo.BindFlags = D3D_BIND_SHADER_RESOURCE;
 			}
 			
@@ -523,7 +523,7 @@ _DDS_2D:
 			}
 			else
 			{
-				LoadInfo.Usage = D3D_USAGE_IMMUTABLE;
+				LoadInfo.Usage = D3D_USAGE_DEFAULT;
 				LoadInfo.BindFlags = D3D_BIND_SHADER_RESOURCE;
 			}
 			LoadInfo.pSrcInfo = &IMG;
