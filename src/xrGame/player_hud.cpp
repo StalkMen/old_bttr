@@ -12,8 +12,8 @@ player_hud* g_player_hud = NULL;
 Fvector _ancor_pos;
 Fvector _wpn_root_pos;
 
-static const float PITCH_OFFSET_R = 0.017f;   // Насколько сильно ствол смещается вбок (влево) при вертикальных поворотах камеры	--#SM+#--
-static const float PITCH_OFFSET_N = 0.012f;   // Насколько сильно ствол поднимается\опускается при вертикальных поворотах камеры	--#SM+#--
+static const float PITCH_OFFSET_R = 0.f;   // Насколько сильно ствол смещается вбок (влево) при вертикальных поворотах камеры	--#SM+#--
+static const float PITCH_OFFSET_N = 0.f;   // Насколько сильно ствол поднимается\опускается при вертикальных поворотах камеры	--#SM+#--
 static const float PITCH_OFFSET_D = 0.02f;    // Насколько сильно ствол приближается\отдаляется при вертикальных поворотах камеры --#SM+#--
 static const float PITCH_LOW_LIMIT = -PI;      // Минимальное значение pitch при использовании совместно с PITCH_OFFSET_N			--#SM+#--
 static const float ORIGIN_OFFSET = -0.05f;   // Фактор влияния инерции на положение ствола (чем меньше, тем маштабней инерция)	--#SM+#--
