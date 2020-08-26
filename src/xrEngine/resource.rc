@@ -65,7 +65,7 @@ BEGIN
             VALUE "InternalName", "xrEngine"
             VALUE "LegalCopyright", "Copyright © 2009 GSC Game World"
             VALUE "OriginalFilename", "xrEngine.exe"
-            VALUE "ProductName", "S.T.A.L.K.E.R.: Call Of Pripyat"
+            VALUE "ProductName", "S.T.A.L.K.E.R.: Call Of Chernobyl I.W.P."
             VALUE "ProductVersion", "1.6.02"
         END
     END
