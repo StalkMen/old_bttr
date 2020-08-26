@@ -544,10 +544,10 @@ virtual void Save (IWriter *F) {};
 #endif
 */
 
-ENGINE_API BOOL r2_sun_static = TRUE;
-ENGINE_API BOOL r2_advanced_pp = FALSE; // advanced post process and effects
+ENGINE_API BOOL r2_sun_static = FALSE;
+ENGINE_API BOOL r2_advanced_pp = TRUE; // advanced post process and effects
 
-u32 renderer_value = 3;
+u32 renderer_value = 0;
 //void fill_render_mode_list();
 //void free_render_mode_list();
 
@@ -570,13 +570,10 @@ public:
         // 0 - r1
         // 1..3 - r2
         // 4 - r3
-        psDeviceFlags.set(rsR2, ((renderer_value > 0) && renderer_value < 4));
-        psDeviceFlags.set(rsR3, (renderer_value == 4));
-        psDeviceFlags.set(rsR4, (renderer_value >= 5));
 
-        r2_sun_static = (renderer_value < 2);
+        psDeviceFlags.set(rsR3, (renderer_value == 0));
+        psDeviceFlags.set(rsR4, (renderer_value >= 1));
 
-        r2_advanced_pp = (renderer_value >= 3);
     }
 
     virtual void Save(IWriter* F)
