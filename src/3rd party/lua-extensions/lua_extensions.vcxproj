@@ -152,6 +152,8 @@
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);</LibraryPath>
     <GenerateManifest>true</GenerateManifest>
+    <OutDir>$(xrGameDir)Win64_Release\</OutDir>
+    <IntDir>$(xrIntDir)$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_NEW|Win32'">
     <TargetName>$(ProjectName)</TargetName>

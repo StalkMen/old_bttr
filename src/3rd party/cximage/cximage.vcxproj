@@ -163,6 +163,8 @@
     <TargetName>$(ProjectName)</TargetName>
     <TargetExt>.lib</TargetExt>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <OutDir>$(xrGameDir)Win64_Release\</OutDir>
+    <IntDir>$(xrIntDir)$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_NEW|Win32'">
     <OutDir>$(xrLibDir)</OutDir>

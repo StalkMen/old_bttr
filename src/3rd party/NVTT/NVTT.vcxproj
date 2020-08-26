@@ -332,7 +332,10 @@
     <OutDir>$(xrLibDir)</OutDir>
     <IntDir>$(xrIntDir)$(ProjectName)\</IntDir>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(xrGameDir)Win64_Release\</OutDir>
+    <IntDir>$(xrIntDir)$(ProjectName)\</IntDir>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_NEW|Win32'">
     <OutDir>$(xrLibDir)</OutDir>
     <IntDir>$(xrIntDir)$(ProjectName)\</IntDir>
