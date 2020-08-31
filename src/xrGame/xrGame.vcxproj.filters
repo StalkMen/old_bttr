@@ -706,186 +706,6 @@
     <Filter Include="AI\AMonsters\common\trajectories">
       <UniqueIdentifier>{ffafbef6-6ee7-4ebd-b54a-da4336e92842}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AMonsters\monsters">
-      <UniqueIdentifier>{1fb2ae47-39c4-433b-b703-95d06e749abe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Bloodsucker">
-      <UniqueIdentifier>{89859c80-ad55-41fc-90b8-439873439207}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Bloodsucker\Vampire State">
-      <UniqueIdentifier>{a6a4a630-af29-4f0b-86f3-4bf62ea543fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Bloodsucker\Script">
-      <UniqueIdentifier>{af0df016-fe59-4327-9a9d-e417d4af0c44}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Bloodsucker\Predator State">
-      <UniqueIdentifier>{3d4207a8-633d-4381-95ef-9a183eb50c51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Bloodsucker\Attack">
-      <UniqueIdentifier>{e5e2f253-a15b-4128-bf1e-bf27adada4a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Bloodsucker\Capture Jump">
-      <UniqueIdentifier>{dda98da5-18b4-45d3-972b-547c0393f434}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Bloodsucker\Alien Feature">
-      <UniqueIdentifier>{604a599d-c0d7-492a-881a-c41ab3d3d4ea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Boar">
-      <UniqueIdentifier>{3387d1c8-3ee8-45eb-ba7f-b35828a7e6f0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Boar\Script">
-      <UniqueIdentifier>{dff8421b-dd37-42d4-abdb-331c4d8ccde8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Crow">
-      <UniqueIdentifier>{8d9832b3-4c8e-438c-99b8-9aabc897e434}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Burer">
-      <UniqueIdentifier>{a080b1ff-f8ba-40ab-b768-14b7b69a492a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Burer\Script">
-      <UniqueIdentifier>{a1c33576-7289-4432-a4e1-133e01fa1002}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Burer\Attack">
-      <UniqueIdentifier>{e6eee127-3b42-48e4-b2f7-cbbe436fb15c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Burer\Fast Gravi">
-      <UniqueIdentifier>{e89d6463-92a7-462e-b7f7-5b486742861e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Chimera">
-      <UniqueIdentifier>{f9fd2d0f-ce89-4e64-aece-aa59b8e72bb1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Chimera\state threaten">
-      <UniqueIdentifier>{c027367f-d461-4d2e-894e-0f37610af676}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Chimera\state hunting">
-      <UniqueIdentifier>{b09f7bd7-7bf3-4cc0-9a9a-9bbe02d7b131}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Chimera\Script">
-      <UniqueIdentifier>{7ce139e5-922b-4707-a14e-2ad0f6111065}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Chimera\states">
-      <UniqueIdentifier>{8d6475ec-c185-4ebb-9ba6-e7dc1644c4c1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\PseudoGigant">
-      <UniqueIdentifier>{b63ebd95-6d63-4b98-b8a8-3587f5b69dbb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\PseudoGigant\Script">
-      <UniqueIdentifier>{5b01e2b7-a8e3-4a2f-a2d2-ff8aea5c1ab6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Poltergeist">
-      <UniqueIdentifier>{af50598f-db2f-4151-89b1-2100e2843894}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Poltergeist\Script">
-      <UniqueIdentifier>{f4c16e04-474d-48bd-a5dd-ff38c23bd983}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Poltergeist\Hidden Attack">
-      <UniqueIdentifier>{a3358a33-880e-445e-9cba-5d7cb4b9db0b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Poltergeist\Abilities">
-      <UniqueIdentifier>{c8cffc20-4b96-4e96-9eff-868c6f8f7d72}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Zombie">
-      <UniqueIdentifier>{41d0fd68-dd22-4f31-a236-6ebf5692cc9b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Zombie\States">
-      <UniqueIdentifier>{605f44ab-fee0-4b26-8f58-d060220aee01}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Zombie\Script">
-      <UniqueIdentifier>{244a386c-4d98-4ba4-885f-8f0a4500b840}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Fracture">
-      <UniqueIdentifier>{cb1396d7-300f-4791-9af9-35832b3c9a29}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Fracture\Script">
-      <UniqueIdentifier>{095ae7ca-0958-4fea-8ce4-d17af1ae3071}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Snork">
-      <UniqueIdentifier>{2e095859-ac71-4e4c-9bf3-145fd573f5be}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Snork\Special Jump">
-      <UniqueIdentifier>{d2509b5f-b039-4403-92a7-7a4eeec145e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Snork\Script">
-      <UniqueIdentifier>{ea415953-eef0-45d5-9e96-bae5dfacd211}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Controller">
-      <UniqueIdentifier>{a8e904bd-f2f1-44e0-9dbc-a14e7abc3259}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Controller\State Attack">
-      <UniqueIdentifier>{af574b30-444e-4a0d-98c5-b764d643e0f3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Controller\State Attack\Cover">
-      <UniqueIdentifier>{6ca132a5-e9a7-4b68-81b9-5204f74333fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Controller\State Panic">
-      <UniqueIdentifier>{e41bda80-172b-437a-8b53-b3d4372e051c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Controller\Script">
-      <UniqueIdentifier>{84ec8a17-d892-4fd8-a7a4-6fe08561866d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Controller\Base Controllers">
-      <UniqueIdentifier>{79b7e79a-4821-496a-b720-5fbca0c66bbc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Controller\Base Controllers\Animation">
-      <UniqueIdentifier>{ad35a145-bbf3-4ea6-a5e2-04d033c95a40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Controller\Base Controllers\Direction">
-      <UniqueIdentifier>{b1e730b8-c916-4e27-8f3f-43e8f661aef4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Controller\Psy hit">
-      <UniqueIdentifier>{2601984b-2b76-4fbc-840c-37d0380e1b12}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Cat">
-      <UniqueIdentifier>{200fdbb6-d390-41b7-8fe4-22b76ee26ca7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Cat\Script">
-      <UniqueIdentifier>{4eed3f99-7eb7-4136-b1f0-89f6b67c25c4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Tushkano">
-      <UniqueIdentifier>{ddbaffbb-4f31-4039-a3b1-7afe67efb599}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Tushkano\Script">
-      <UniqueIdentifier>{840acde8-9b2e-4498-8e8f-d0ef887a0a39}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Phantom">
-      <UniqueIdentifier>{315e4277-bd93-4c2e-9bb0-28c92c60c62a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Dog">
-      <UniqueIdentifier>{4f457e84-16eb-4a6e-a8bc-811232138897}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Dog\Script">
-      <UniqueIdentifier>{d959227f-d88e-467a-8f7b-b2265ac24d51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Rats">
-      <UniqueIdentifier>{bf23cb55-2e31-4894-863b-9b3787d8c271}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Rats\state_manager">
-      <UniqueIdentifier>{12bea024-475c-4b4f-88a7-3e7cd124ac73}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Rats\states">
-      <UniqueIdentifier>{c762ef14-b0dc-4e21-aa6a-451506e94b7c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Rats\states\base">
-      <UniqueIdentifier>{f6c2d319-c3c0-4bb8-8baf-176a05084605}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Flesh">
-      <UniqueIdentifier>{ad755256-b131-4fe9-870b-ef6197ea7c51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\Flesh\Script">
-      <UniqueIdentifier>{1c91e7d0-60e8-4a52-b22f-c245039222e9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\PseudoDog">
-      <UniqueIdentifier>{f896fd15-e4cb-4764-a644-418f1321d29f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\PseudoDog\Script">
-      <UniqueIdentifier>{c66b49dd-5107-4081-834d-24fe22bdf15e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\DogPsy">
-      <UniqueIdentifier>{f84a39d3-5b90-46da-bfb2-61ac45bfd8c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\monsters\DogPsy\Psy Attack Hide">
-      <UniqueIdentifier>{f6589916-a9f0-4986-b5bd-aaccf21dab9c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="AI\AMonsters\humans">
       <UniqueIdentifier>{3a6795c1-bf4b-4152-a160-ba220a519fa6}</UniqueIdentifier>
     </Filter>
@@ -2494,6 +2314,189 @@
     <Filter Include="UI\Common\PDA\Encylopedia">
       <UniqueIdentifier>{73dc453e-a9d1-4200-83b7-3564dbf9fc80}</UniqueIdentifier>
     </Filter>
+    <Filter Include="xrGame_monsters">
+      <UniqueIdentifier>{89719f57-8f5f-4819-a5b6-1eba2c6a9d96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Boar">
+      <UniqueIdentifier>{3387d1c8-3ee8-45eb-ba7f-b35828a7e6f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Boar\Script">
+      <UniqueIdentifier>{dff8421b-dd37-42d4-abdb-331c4d8ccde8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Burer">
+      <UniqueIdentifier>{a080b1ff-f8ba-40ab-b768-14b7b69a492a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Burer\Script">
+      <UniqueIdentifier>{a1c33576-7289-4432-a4e1-133e01fa1002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Burer\Attack">
+      <UniqueIdentifier>{e6eee127-3b42-48e4-b2f7-cbbe436fb15c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Burer\Fast Gravi">
+      <UniqueIdentifier>{e89d6463-92a7-462e-b7f7-5b486742861e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Cat">
+      <UniqueIdentifier>{200fdbb6-d390-41b7-8fe4-22b76ee26ca7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Cat\Script">
+      <UniqueIdentifier>{4eed3f99-7eb7-4136-b1f0-89f6b67c25c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Chimera">
+      <UniqueIdentifier>{f9fd2d0f-ce89-4e64-aece-aa59b8e72bb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Chimera\state threaten">
+      <UniqueIdentifier>{c027367f-d461-4d2e-894e-0f37610af676}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Chimera\state hunting">
+      <UniqueIdentifier>{b09f7bd7-7bf3-4cc0-9a9a-9bbe02d7b131}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Chimera\Script">
+      <UniqueIdentifier>{7ce139e5-922b-4707-a14e-2ad0f6111065}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Chimera\states">
+      <UniqueIdentifier>{8d6475ec-c185-4ebb-9ba6-e7dc1644c4c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Controller">
+      <UniqueIdentifier>{a8e904bd-f2f1-44e0-9dbc-a14e7abc3259}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Controller\State Attack">
+      <UniqueIdentifier>{af574b30-444e-4a0d-98c5-b764d643e0f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Controller\State Attack\Cover">
+      <UniqueIdentifier>{6ca132a5-e9a7-4b68-81b9-5204f74333fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Controller\State Panic">
+      <UniqueIdentifier>{e41bda80-172b-437a-8b53-b3d4372e051c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Controller\Script">
+      <UniqueIdentifier>{84ec8a17-d892-4fd8-a7a4-6fe08561866d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Controller\Base Controllers">
+      <UniqueIdentifier>{79b7e79a-4821-496a-b720-5fbca0c66bbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Controller\Base Controllers\Animation">
+      <UniqueIdentifier>{ad35a145-bbf3-4ea6-a5e2-04d033c95a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Controller\Base Controllers\Direction">
+      <UniqueIdentifier>{b1e730b8-c916-4e27-8f3f-43e8f661aef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Controller\Psy hit">
+      <UniqueIdentifier>{2601984b-2b76-4fbc-840c-37d0380e1b12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Crow">
+      <UniqueIdentifier>{8d9832b3-4c8e-438c-99b8-9aabc897e434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Dog">
+      <UniqueIdentifier>{4f457e84-16eb-4a6e-a8bc-811232138897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Dog\Script">
+      <UniqueIdentifier>{d959227f-d88e-467a-8f7b-b2265ac24d51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\DogPsy">
+      <UniqueIdentifier>{f84a39d3-5b90-46da-bfb2-61ac45bfd8c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\DogPsy\Psy Attack Hide">
+      <UniqueIdentifier>{f6589916-a9f0-4986-b5bd-aaccf21dab9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Flesh">
+      <UniqueIdentifier>{ad755256-b131-4fe9-870b-ef6197ea7c51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Flesh\Script">
+      <UniqueIdentifier>{1c91e7d0-60e8-4a52-b22f-c245039222e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Fracture">
+      <UniqueIdentifier>{cb1396d7-300f-4791-9af9-35832b3c9a29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Fracture\Script">
+      <UniqueIdentifier>{095ae7ca-0958-4fea-8ce4-d17af1ae3071}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Phantom">
+      <UniqueIdentifier>{315e4277-bd93-4c2e-9bb0-28c92c60c62a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Poltergeist">
+      <UniqueIdentifier>{af50598f-db2f-4151-89b1-2100e2843894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Poltergeist\Script">
+      <UniqueIdentifier>{f4c16e04-474d-48bd-a5dd-ff38c23bd983}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Poltergeist\Hidden Attack">
+      <UniqueIdentifier>{a3358a33-880e-445e-9cba-5d7cb4b9db0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Poltergeist\Abilities">
+      <UniqueIdentifier>{c8cffc20-4b96-4e96-9eff-868c6f8f7d72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\PseudoGigant">
+      <UniqueIdentifier>{b63ebd95-6d63-4b98-b8a8-3587f5b69dbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\PseudoGigant\Script">
+      <UniqueIdentifier>{5b01e2b7-a8e3-4a2f-a2d2-ff8aea5c1ab6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\PseudoDog">
+      <UniqueIdentifier>{f896fd15-e4cb-4764-a644-418f1321d29f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\PseudoDog\Script">
+      <UniqueIdentifier>{c66b49dd-5107-4081-834d-24fe22bdf15e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Rats">
+      <UniqueIdentifier>{bf23cb55-2e31-4894-863b-9b3787d8c271}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Rats\state_manager">
+      <UniqueIdentifier>{12bea024-475c-4b4f-88a7-3e7cd124ac73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Rats\states">
+      <UniqueIdentifier>{c762ef14-b0dc-4e21-aa6a-451506e94b7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Rats\states\base">
+      <UniqueIdentifier>{f6c2d319-c3c0-4bb8-8baf-176a05084605}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Snork">
+      <UniqueIdentifier>{2e095859-ac71-4e4c-9bf3-145fd573f5be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Snork\Special Jump">
+      <UniqueIdentifier>{d2509b5f-b039-4403-92a7-7a4eeec145e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Snork\Script">
+      <UniqueIdentifier>{ea415953-eef0-45d5-9e96-bae5dfacd211}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Tushkano">
+      <UniqueIdentifier>{ddbaffbb-4f31-4039-a3b1-7afe67efb599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Tushkano\Script">
+      <UniqueIdentifier>{840acde8-9b2e-4498-8e8f-d0ef887a0a39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Zombie">
+      <UniqueIdentifier>{41d0fd68-dd22-4f31-a236-6ebf5692cc9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Zombie\States">
+      <UniqueIdentifier>{605f44ab-fee0-4b26-8f58-d060220aee01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Zombie\Script">
+      <UniqueIdentifier>{244a386c-4d98-4ba4-885f-8f0a4500b840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Bloodsucker_SoC">
+      <UniqueIdentifier>{0f69609f-71a2-4e3c-9028-79ab12acdc38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Bloodsucker_CoP">
+      <UniqueIdentifier>{89859c80-ad55-41fc-90b8-439873439207}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Bloodsucker_CoP\Vampire State">
+      <UniqueIdentifier>{a6a4a630-af29-4f0b-86f3-4bf62ea543fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Bloodsucker_CoP\Script">
+      <UniqueIdentifier>{af0df016-fe59-4327-9a9d-e417d4af0c44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Bloodsucker_CoP\Predator State">
+      <UniqueIdentifier>{3d4207a8-633d-4381-95ef-9a183eb50c51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Bloodsucker_CoP\Attack">
+      <UniqueIdentifier>{e5e2f253-a15b-4128-bf1e-bf27adada4a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Bloodsucker_CoP\Capture Jump">
+      <UniqueIdentifier>{dda98da5-18b4-45d3-972b-547c0393f434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Bloodsucker_CoP\Alien Feature">
+      <UniqueIdentifier>{604a599d-c0d7-492a-881a-c41ab3d3d4ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mt_config.h">
@@ -4075,394 +4078,394 @@
       <Filter>AI\AMonsters\common\trajectories</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_effector.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Vampire State</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_approach.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Vampire State</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_approach_inline.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Vampire State</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_execute.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Vampire State</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_execute_inline.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Vampire State</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_hide.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Vampire State</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_hide_inline.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Vampire State</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_inline.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Vampire State</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_predator.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Predator State</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Predator State</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_predator_inline.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Predator State</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Predator State</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_predator_lite.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Predator State</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Predator State</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_predator_lite_inline.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Predator State</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Predator State</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Attack</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state_hide.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Attack</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state_hide_inline.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Attack</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state_inline.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Attack</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\bloodsucker\bloodsucker_state_capture_jump.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Capture Jump</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Capture Jump</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\bloodsucker\bloodsucker_state_capture_jump_inline.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Capture Jump</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Capture Jump</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_alien.h">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Alien Feature</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Alien Feature</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Boar\boar.h">
-      <Filter>AI\AMonsters\monsters\Boar</Filter>
+      <Filter>xrGame_monsters\Boar</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Boar\boar_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Boar</Filter>
+      <Filter>xrGame_monsters\Boar</Filter>
     </ClInclude>
     <ClInclude Include="AI\Crow\ai_crow.h">
-      <Filter>AI\AMonsters\monsters\Crow</Filter>
+      <Filter>xrGame_monsters\Crow</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer.h">
-      <Filter>AI\AMonsters\monsters\Burer</Filter>
+      <Filter>xrGame_monsters\Burer</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Burer</Filter>
+      <Filter>xrGame_monsters\Burer</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\burer\burer_state_attack_antiaim.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\burer\burer_state_attack_antiaim_inline.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_gravi.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_gravi_inline.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_inline.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_melee.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_melee_inline.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_run_around.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_run_around_inline.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\burer\burer_state_attack_shield.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\burer\burer_state_attack_shield_inline.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_tele.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_tele_inline.h">
-      <Filter>AI\AMonsters\monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_fast_gravi.h">
-      <Filter>AI\AMonsters\monsters\Burer\Fast Gravi</Filter>
+      <Filter>xrGame_monsters\Burer\Fast Gravi</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera.h">
-      <Filter>AI\AMonsters\monsters\Chimera</Filter>
+      <Filter>xrGame_monsters\Chimera</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Chimera</Filter>
+      <Filter>xrGame_monsters\Chimera</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_inline.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_roar.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_roar_inline.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_steal.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_steal_inline.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_walk.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_walk_inline.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_hunting.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state hunting</Filter>
+      <Filter>xrGame_monsters\Chimera\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_hunting_come_out.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state hunting</Filter>
+      <Filter>xrGame_monsters\Chimera\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_hunting_come_out_inline.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state hunting</Filter>
+      <Filter>xrGame_monsters\Chimera\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_hunting_inline.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state hunting</Filter>
+      <Filter>xrGame_monsters\Chimera\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_hunting_move_to_cover.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state hunting</Filter>
+      <Filter>xrGame_monsters\Chimera\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_hunting_move_to_cover_inline.h">
-      <Filter>AI\AMonsters\monsters\Chimera\state hunting</Filter>
+      <Filter>xrGame_monsters\Chimera\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudo_gigant.h">
-      <Filter>AI\AMonsters\monsters\PseudoGigant</Filter>
+      <Filter>xrGame_monsters\PseudoGigant</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudo_gigant_step_effector.h">
-      <Filter>AI\AMonsters\monsters\PseudoGigant</Filter>
+      <Filter>xrGame_monsters\PseudoGigant</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudogigant_state_manager.h">
-      <Filter>AI\AMonsters\monsters\PseudoGigant</Filter>
+      <Filter>xrGame_monsters\PseudoGigant</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist.h">
-      <Filter>AI\AMonsters\monsters\Poltergeist</Filter>
+      <Filter>xrGame_monsters\Poltergeist</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_movement.h">
-      <Filter>AI\AMonsters\monsters\Poltergeist</Filter>
+      <Filter>xrGame_monsters\Poltergeist</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Poltergeist</Filter>
+      <Filter>xrGame_monsters\Poltergeist</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_rest.h">
-      <Filter>AI\AMonsters\monsters\Poltergeist</Filter>
+      <Filter>xrGame_monsters\Poltergeist</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_attack_hidden.h">
-      <Filter>AI\AMonsters\monsters\Poltergeist\Hidden Attack</Filter>
+      <Filter>xrGame_monsters\Poltergeist\Hidden Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_attack_hidden_inline.h">
-      <Filter>AI\AMonsters\monsters\Poltergeist\Hidden Attack</Filter>
+      <Filter>xrGame_monsters\Poltergeist\Hidden Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Zombie\zombie.h">
-      <Filter>AI\AMonsters\monsters\Zombie</Filter>
+      <Filter>xrGame_monsters\Zombie</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Zombie\zombie_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Zombie</Filter>
+      <Filter>xrGame_monsters\Zombie</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Zombie\zombie_state_attack_run.h">
-      <Filter>AI\AMonsters\monsters\Zombie\States</Filter>
+      <Filter>xrGame_monsters\Zombie\States</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Zombie\zombie_state_attack_run_inline.h">
-      <Filter>AI\AMonsters\monsters\Zombie\States</Filter>
+      <Filter>xrGame_monsters\Zombie\States</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Fracture\fracture.h">
-      <Filter>AI\AMonsters\monsters\Fracture</Filter>
+      <Filter>xrGame_monsters\Fracture</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Fracture\fracture_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Fracture</Filter>
+      <Filter>xrGame_monsters\Fracture</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Snork\snork.h">
-      <Filter>AI\AMonsters\monsters\Snork</Filter>
+      <Filter>xrGame_monsters\Snork</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Snork\snork_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Snork</Filter>
+      <Filter>xrGame_monsters\Snork</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Snork\snork_jump.h">
-      <Filter>AI\AMonsters\monsters\Snork\Special Jump</Filter>
+      <Filter>xrGame_monsters\Snork\Special Jump</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller.h">
-      <Filter>AI\AMonsters\monsters\Controller</Filter>
+      <Filter>xrGame_monsters\Controller</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Controller</Filter>
+      <Filter>xrGame_monsters\Controller</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_fast_move.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_fast_move_inline.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_inline.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_control_hit.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_control_hit_inline.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_tube.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_tube_inline.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_camp.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack\Cover</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_camp_inline.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack\Cover</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_fire.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack\Cover</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_fire_inline.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack\Cover</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_hide.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack\Cover</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_hide_inline.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack\Cover</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_hide_lite.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack\Cover</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_hide_lite_inline.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack\Cover</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_moveout.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack\Cover</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_moveout_inline.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Attack\Cover</Filter>
+      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_panic.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Panic</Filter>
+      <Filter>xrGame_monsters\Controller\State Panic</Filter>
     </ClInclude>
     <ClInclude Include="controller_state_panic_inline.h">
-      <Filter>AI\AMonsters\monsters\Controller\State Panic</Filter>
+      <Filter>xrGame_monsters\Controller\State Panic</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_animation.h">
-      <Filter>AI\AMonsters\monsters\Controller\Base Controllers\Animation</Filter>
+      <Filter>xrGame_monsters\Controller\Base Controllers\Animation</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_direction.h">
-      <Filter>AI\AMonsters\monsters\Controller\Base Controllers\Direction</Filter>
+      <Filter>xrGame_monsters\Controller\Base Controllers\Direction</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_psy_hit.h">
-      <Filter>AI\AMonsters\monsters\Controller\Psy hit</Filter>
+      <Filter>xrGame_monsters\Controller\Psy hit</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_psy_hit_effector.h">
-      <Filter>AI\AMonsters\monsters\Controller\Psy hit</Filter>
+      <Filter>xrGame_monsters\Controller\Psy hit</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Cat\cat.h">
-      <Filter>AI\AMonsters\monsters\Cat</Filter>
+      <Filter>xrGame_monsters\Cat</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Cat\cat_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Cat</Filter>
+      <Filter>xrGame_monsters\Cat</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Tushkano\tushkano.h">
-      <Filter>AI\AMonsters\monsters\Tushkano</Filter>
+      <Filter>xrGame_monsters\Tushkano</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Tushkano\tushkano_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Tushkano</Filter>
+      <Filter>xrGame_monsters\Tushkano</Filter>
     </ClInclude>
     <ClInclude Include="ai\phantom\phantom.h">
-      <Filter>AI\AMonsters\monsters\Phantom</Filter>
+      <Filter>xrGame_monsters\Phantom</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Dog\dog.h">
-      <Filter>AI\AMonsters\monsters\Dog</Filter>
+      <Filter>xrGame_monsters\Dog</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Dog\dog_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Dog</Filter>
+      <Filter>xrGame_monsters\Dog</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\rats\ai_rat.h">
-      <Filter>AI\AMonsters\monsters\Rats</Filter>
+      <Filter>xrGame_monsters\Rats</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\rats\ai_rat_impl.h">
-      <Filter>AI\AMonsters\monsters\Rats</Filter>
+      <Filter>xrGame_monsters\Rats</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\rats\ai_rat_inline.h">
-      <Filter>AI\AMonsters\monsters\Rats</Filter>
+      <Filter>xrGame_monsters\Rats</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\rats\ai_rat_space.h">
-      <Filter>AI\AMonsters\monsters\Rats</Filter>
+      <Filter>xrGame_monsters\Rats</Filter>
     </ClInclude>
     <ClInclude Include="rat_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Rats\state_manager</Filter>
+      <Filter>xrGame_monsters\Rats\state_manager</Filter>
     </ClInclude>
     <ClInclude Include="rat_state_manager_inline.h">
-      <Filter>AI\AMonsters\monsters\Rats\state_manager</Filter>
+      <Filter>xrGame_monsters\Rats\state_manager</Filter>
     </ClInclude>
     <ClInclude Include="rat_states.h">
-      <Filter>AI\AMonsters\monsters\Rats\states</Filter>
+      <Filter>xrGame_monsters\Rats\states</Filter>
     </ClInclude>
     <ClInclude Include="rat_state_base.h">
-      <Filter>AI\AMonsters\monsters\Rats\states\base</Filter>
+      <Filter>xrGame_monsters\Rats\states\base</Filter>
     </ClInclude>
     <ClInclude Include="rat_state_base_inline.h">
-      <Filter>AI\AMonsters\monsters\Rats\states\base</Filter>
+      <Filter>xrGame_monsters\Rats\states\base</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Flesh\flesh.h">
-      <Filter>AI\AMonsters\monsters\Flesh</Filter>
+      <Filter>xrGame_monsters\Flesh</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Flesh\flesh_state_manager.h">
-      <Filter>AI\AMonsters\monsters\Flesh</Filter>
+      <Filter>xrGame_monsters\Flesh</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Pseudodog\pseudodog.h">
-      <Filter>AI\AMonsters\monsters\PseudoDog</Filter>
+      <Filter>xrGame_monsters\PseudoDog</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Pseudodog\pseudodog_psi_effector.h">
-      <Filter>AI\AMonsters\monsters\PseudoDog</Filter>
+      <Filter>xrGame_monsters\PseudoDog</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Pseudodog\pseudodog_state_manager.h">
-      <Filter>AI\AMonsters\monsters\PseudoDog</Filter>
+      <Filter>xrGame_monsters\PseudoDog</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Pseudodog\psy_dog.h">
-      <Filter>AI\AMonsters\monsters\DogPsy</Filter>
+      <Filter>xrGame_monsters\DogPsy</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Pseudodog\psy_dog_aura.h">
-      <Filter>AI\AMonsters\monsters\DogPsy</Filter>
+      <Filter>xrGame_monsters\DogPsy</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Pseudodog\psy_dog_state_manager.h">
-      <Filter>AI\AMonsters\monsters\DogPsy</Filter>
+      <Filter>xrGame_monsters\DogPsy</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Pseudodog\psy_dog_state_psy_attack.h">
-      <Filter>AI\AMonsters\monsters\DogPsy\Psy Attack Hide</Filter>
+      <Filter>xrGame_monsters\DogPsy\Psy Attack Hide</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Pseudodog\psy_dog_state_psy_attack_hide.h">
-      <Filter>AI\AMonsters\monsters\DogPsy\Psy Attack Hide</Filter>
+      <Filter>xrGame_monsters\DogPsy\Psy Attack Hide</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Pseudodog\psy_dog_state_psy_attack_hide_inline.h">
-      <Filter>AI\AMonsters\monsters\DogPsy\Psy Attack Hide</Filter>
+      <Filter>xrGame_monsters\DogPsy\Psy Attack Hide</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Pseudodog\psy_dog_state_psy_attack_inline.h">
-      <Filter>AI\AMonsters\monsters\DogPsy\Psy Attack Hide</Filter>
+      <Filter>xrGame_monsters\DogPsy\Psy Attack Hide</Filter>
     </ClInclude>
     <ClInclude Include="Ai\Trader\ai_trader.h">
       <Filter>AI\AMonsters\humans\trader</Filter>
@@ -7384,6 +7387,66 @@
       <Filter>Core\Client\Objects\zones\Ameba</Filter>
     </ClInclude>
     <ClInclude Include="HolderEntityObject.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_alien.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_attack_state.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_attack_state_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_attack_state_hide_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_attack_state_hide.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_predator.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_predator_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_predator_lite.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_predator_lite_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_state_manager.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_approach.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_approach_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_effector.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_execute.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_execute_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_hide.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_hide_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -8068,238 +8131,238 @@
       <Filter>AI\AMonsters\common\trajectories</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker.cpp">
-      <Filter>AI\AMonsters\monsters\Bloodsucker</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Bloodsucker</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_effector.cpp">
-      <Filter>AI\AMonsters\monsters\Bloodsucker</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker_script.cpp">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Script</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker_alien.cpp">
-      <Filter>AI\AMonsters\monsters\Bloodsucker\Alien Feature</Filter>
+      <Filter>xrGame_monsters\Bloodsucker_CoP\Alien Feature</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Boar\boar.cpp">
-      <Filter>AI\AMonsters\monsters\Boar</Filter>
+      <Filter>xrGame_monsters\Boar</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Boar\boar_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Boar</Filter>
+      <Filter>xrGame_monsters\Boar</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Boar\boar_script.cpp">
-      <Filter>AI\AMonsters\monsters\Boar\Script</Filter>
+      <Filter>xrGame_monsters\Boar\Script</Filter>
     </ClCompile>
     <ClCompile Include="AI\Crow\ai_crow.cpp">
-      <Filter>AI\AMonsters\monsters\Crow</Filter>
+      <Filter>xrGame_monsters\Crow</Filter>
     </ClCompile>
     <ClCompile Include="ai_crow_script.cpp">
-      <Filter>AI\AMonsters\monsters\Crow</Filter>
+      <Filter>xrGame_monsters\Crow</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Burer\burer.cpp">
-      <Filter>AI\AMonsters\monsters\Burer</Filter>
+      <Filter>xrGame_monsters\Burer</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Burer\burer_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Burer</Filter>
+      <Filter>xrGame_monsters\Burer</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Burer\burer_script.cpp">
-      <Filter>AI\AMonsters\monsters\Burer\Script</Filter>
+      <Filter>xrGame_monsters\Burer\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Burer\burer_fast_gravi.cpp">
-      <Filter>AI\AMonsters\monsters\Burer\Fast Gravi</Filter>
+      <Filter>xrGame_monsters\Burer\Fast Gravi</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Chimera\chimera.cpp">
-      <Filter>AI\AMonsters\monsters\Chimera</Filter>
+      <Filter>xrGame_monsters\Chimera</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Chimera\chimera_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Chimera</Filter>
+      <Filter>xrGame_monsters\Chimera</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Chimera\chimera_script.cpp">
-      <Filter>AI\AMonsters\monsters\Chimera\Script</Filter>
+      <Filter>xrGame_monsters\Chimera\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudo_gigant.cpp">
-      <Filter>AI\AMonsters\monsters\PseudoGigant</Filter>
+      <Filter>xrGame_monsters\PseudoGigant</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudo_gigant_step_effector.cpp">
-      <Filter>AI\AMonsters\monsters\PseudoGigant</Filter>
+      <Filter>xrGame_monsters\PseudoGigant</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudogigant_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\PseudoGigant</Filter>
+      <Filter>xrGame_monsters\PseudoGigant</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudogigant_script.cpp">
-      <Filter>AI\AMonsters\monsters\PseudoGigant\Script</Filter>
+      <Filter>xrGame_monsters\PseudoGigant\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist.cpp">
-      <Filter>AI\AMonsters\monsters\Poltergeist</Filter>
+      <Filter>xrGame_monsters\Poltergeist</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_movement.cpp">
-      <Filter>AI\AMonsters\monsters\Poltergeist</Filter>
+      <Filter>xrGame_monsters\Poltergeist</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Poltergeist</Filter>
+      <Filter>xrGame_monsters\Poltergeist</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_script.cpp">
-      <Filter>AI\AMonsters\monsters\Poltergeist\Script</Filter>
+      <Filter>xrGame_monsters\Poltergeist\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_ability.cpp">
-      <Filter>AI\AMonsters\monsters\Poltergeist\Abilities</Filter>
+      <Filter>xrGame_monsters\Poltergeist\Abilities</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_flame_thrower.cpp">
-      <Filter>AI\AMonsters\monsters\Poltergeist\Abilities</Filter>
+      <Filter>xrGame_monsters\Poltergeist\Abilities</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_telekinesis.cpp">
-      <Filter>AI\AMonsters\monsters\Poltergeist\Abilities</Filter>
+      <Filter>xrGame_monsters\Poltergeist\Abilities</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Zombie\zombie.cpp">
-      <Filter>AI\AMonsters\monsters\Zombie</Filter>
+      <Filter>xrGame_monsters\Zombie</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Zombie\zombie_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Zombie</Filter>
+      <Filter>xrGame_monsters\Zombie</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Zombie\zombie_script.cpp">
-      <Filter>AI\AMonsters\monsters\Zombie\Script</Filter>
+      <Filter>xrGame_monsters\Zombie\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Fracture\fracture.cpp">
-      <Filter>AI\AMonsters\monsters\Fracture</Filter>
+      <Filter>xrGame_monsters\Fracture</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Fracture\fracture_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Fracture</Filter>
+      <Filter>xrGame_monsters\Fracture</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Fracture\fracture_script.cpp">
-      <Filter>AI\AMonsters\monsters\Fracture\Script</Filter>
+      <Filter>xrGame_monsters\Fracture\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Snork\snork.cpp">
-      <Filter>AI\AMonsters\monsters\Snork</Filter>
+      <Filter>xrGame_monsters\Snork</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Snork\snork_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Snork</Filter>
+      <Filter>xrGame_monsters\Snork</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Snork\snork_jump.cpp">
-      <Filter>AI\AMonsters\monsters\Snork\Special Jump</Filter>
+      <Filter>xrGame_monsters\Snork\Special Jump</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Snork\snork_script.cpp">
-      <Filter>AI\AMonsters\monsters\Snork\Script</Filter>
+      <Filter>xrGame_monsters\Snork\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Controller\controller.cpp">
-      <Filter>AI\AMonsters\monsters\Controller</Filter>
+      <Filter>xrGame_monsters\Controller</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Controller\controller_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Controller</Filter>
+      <Filter>xrGame_monsters\Controller</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Controller\controller_script.cpp">
-      <Filter>AI\AMonsters\monsters\Controller\Script</Filter>
+      <Filter>xrGame_monsters\Controller\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Controller\controller_animation.cpp">
-      <Filter>AI\AMonsters\monsters\Controller\Base Controllers\Animation</Filter>
+      <Filter>xrGame_monsters\Controller\Base Controllers\Animation</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Controller\controller_direction.cpp">
-      <Filter>AI\AMonsters\monsters\Controller\Base Controllers\Direction</Filter>
+      <Filter>xrGame_monsters\Controller\Base Controllers\Direction</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Controller\controller_psy_hit.cpp">
-      <Filter>AI\AMonsters\monsters\Controller\Psy hit</Filter>
+      <Filter>xrGame_monsters\Controller\Psy hit</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Controller\controller_psy_hit_effector.cpp">
-      <Filter>AI\AMonsters\monsters\Controller\Psy hit</Filter>
+      <Filter>xrGame_monsters\Controller\Psy hit</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Cat\cat.cpp">
-      <Filter>AI\AMonsters\monsters\Cat</Filter>
+      <Filter>xrGame_monsters\Cat</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Cat\cat_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Cat</Filter>
+      <Filter>xrGame_monsters\Cat</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Cat\cat_script.cpp">
-      <Filter>AI\AMonsters\monsters\Cat\Script</Filter>
+      <Filter>xrGame_monsters\Cat\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Tushkano\tushkano.cpp">
-      <Filter>AI\AMonsters\monsters\Tushkano</Filter>
+      <Filter>xrGame_monsters\Tushkano</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Tushkano\tushkano_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Tushkano</Filter>
+      <Filter>xrGame_monsters\Tushkano</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Tushkano\tushkano_script.cpp">
-      <Filter>AI\AMonsters\monsters\Tushkano\Script</Filter>
+      <Filter>xrGame_monsters\Tushkano\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\phantom\phantom.cpp">
-      <Filter>AI\AMonsters\monsters\Phantom</Filter>
+      <Filter>xrGame_monsters\Phantom</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Dog\dog.cpp">
-      <Filter>AI\AMonsters\monsters\Dog</Filter>
+      <Filter>xrGame_monsters\Dog</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Dog\dog_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Dog</Filter>
+      <Filter>xrGame_monsters\Dog</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Dog\dog_script.cpp">
-      <Filter>AI\AMonsters\monsters\Dog\Script</Filter>
+      <Filter>xrGame_monsters\Dog\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\monsters\rats\ai_rat.cpp">
-      <Filter>AI\AMonsters\monsters\Rats</Filter>
+      <Filter>xrGame_monsters\Rats</Filter>
     </ClCompile>
     <ClCompile Include="ai\monsters\rats\ai_rat_animations.cpp">
-      <Filter>AI\AMonsters\monsters\Rats</Filter>
+      <Filter>xrGame_monsters\Rats</Filter>
     </ClCompile>
     <ClCompile Include="ai\monsters\rats\ai_rat_behaviour.cpp">
-      <Filter>AI\AMonsters\monsters\Rats</Filter>
+      <Filter>xrGame_monsters\Rats</Filter>
     </ClCompile>
     <ClCompile Include="ai\monsters\rats\ai_rat_feel.cpp">
-      <Filter>AI\AMonsters\monsters\Rats</Filter>
+      <Filter>xrGame_monsters\Rats</Filter>
     </ClCompile>
     <ClCompile Include="ai\monsters\rats\ai_rat_fire.cpp">
-      <Filter>AI\AMonsters\monsters\Rats</Filter>
+      <Filter>xrGame_monsters\Rats</Filter>
     </ClCompile>
     <ClCompile Include="ai\monsters\rats\ai_rat_fsm.cpp">
-      <Filter>AI\AMonsters\monsters\Rats</Filter>
+      <Filter>xrGame_monsters\Rats</Filter>
     </ClCompile>
     <ClCompile Include="ai\monsters\rats\ai_rat_templates.cpp">
-      <Filter>AI\AMonsters\monsters\Rats</Filter>
+      <Filter>xrGame_monsters\Rats</Filter>
     </ClCompile>
     <ClCompile Include="rat_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Rats\state_manager</Filter>
+      <Filter>xrGame_monsters\Rats\state_manager</Filter>
     </ClCompile>
     <ClCompile Include="ai\monsters\rats\rat_state_activation.cpp">
-      <Filter>AI\AMonsters\monsters\Rats\states</Filter>
+      <Filter>xrGame_monsters\Rats\states</Filter>
     </ClCompile>
     <ClCompile Include="ai\monsters\rats\rat_state_initialize.cpp">
-      <Filter>AI\AMonsters\monsters\Rats\states</Filter>
+      <Filter>xrGame_monsters\Rats\states</Filter>
     </ClCompile>
     <ClCompile Include="ai\monsters\rats\rat_state_switch.cpp">
-      <Filter>AI\AMonsters\monsters\Rats\states</Filter>
+      <Filter>xrGame_monsters\Rats\states</Filter>
     </ClCompile>
     <ClCompile Include="rat_states.cpp">
-      <Filter>AI\AMonsters\monsters\Rats\states</Filter>
+      <Filter>xrGame_monsters\Rats\states</Filter>
     </ClCompile>
     <ClCompile Include="rat_state_base.cpp">
-      <Filter>AI\AMonsters\monsters\Rats\states\base</Filter>
+      <Filter>xrGame_monsters\Rats\states\base</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Flesh\flesh.cpp">
-      <Filter>AI\AMonsters\monsters\Flesh</Filter>
+      <Filter>xrGame_monsters\Flesh</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Flesh\flesh_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\Flesh</Filter>
+      <Filter>xrGame_monsters\Flesh</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Flesh\flesh_script.cpp">
-      <Filter>AI\AMonsters\monsters\Flesh\Script</Filter>
+      <Filter>xrGame_monsters\Flesh\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Pseudodog\pseudodog.cpp">
-      <Filter>AI\AMonsters\monsters\PseudoDog</Filter>
+      <Filter>xrGame_monsters\PseudoDog</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Pseudodog\pseudodog_psi_effector.cpp">
-      <Filter>AI\AMonsters\monsters\PseudoDog</Filter>
+      <Filter>xrGame_monsters\PseudoDog</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Pseudodog\pseudodog_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\PseudoDog</Filter>
+      <Filter>xrGame_monsters\PseudoDog</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Pseudodog\pseudodog_script.cpp">
-      <Filter>AI\AMonsters\monsters\PseudoDog\Script</Filter>
+      <Filter>xrGame_monsters\PseudoDog\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Pseudodog\psy_dog.cpp">
-      <Filter>AI\AMonsters\monsters\DogPsy</Filter>
+      <Filter>xrGame_monsters\DogPsy</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Pseudodog\psy_dog_aura.cpp">
-      <Filter>AI\AMonsters\monsters\DogPsy</Filter>
+      <Filter>xrGame_monsters\DogPsy</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Pseudodog\psy_dog_state_manager.cpp">
-      <Filter>AI\AMonsters\monsters\DogPsy</Filter>
+      <Filter>xrGame_monsters\DogPsy</Filter>
     </ClCompile>
     <ClCompile Include="Ai\Trader\ai_trader.cpp">
       <Filter>AI\AMonsters\humans\trader</Filter>
@@ -11035,13 +11098,28 @@
       <Filter>Core\Client\Objects\zones\Ameba</Filter>
     </ClCompile>
     <ClCompile Include="HolderEntityObject.cpp" />
+    <ClCompile Include="ai\Monsters\bloodsucksoc\bloodsucksoc.cpp">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\bloodsucksoc\bloodsucksoc_alien.cpp">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\bloodsucksoc\bloodsucksoc_script.cpp">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_state_manager.cpp">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_effector.cpp">
+      <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="ai\monsters\chimera\chimera_attack_state.h">
-      <Filter>AI\AMonsters\monsters\Chimera\states</Filter>
+      <Filter>xrGame_monsters\Chimera\states</Filter>
     </CustomBuild>
     <CustomBuild Include="ai\monsters\chimera\chimera_attack_state_inline.h">
-      <Filter>AI\AMonsters\monsters\Chimera\states</Filter>
+      <Filter>xrGame_monsters\Chimera\states</Filter>
     </CustomBuild>
     <CustomBuild Include="graph_abstract.h">
       <Filter>AI\ANavigation\GraphAbstract</Filter>

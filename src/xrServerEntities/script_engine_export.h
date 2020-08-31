@@ -81,6 +81,7 @@
 #	include "ef_storage.h"
 #	include "ai/stalker/ai_stalker.h"
 #	include "ai/monsters/bloodsucker/bloodsucker.h"
+#	include "ai/monsters/bloodsucksoc/bloodsucksoc.h"
 #	include "ai/monsters/boar/boar.h"
 #	include "ai/monsters/dog/dog.h"
 #	include "ai/monsters/flesh/flesh.h"

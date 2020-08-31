@@ -1,5 +1,16 @@
 #pragma once
 
+// Back to the Roots
+	#define BLOODSUCKER_FROM_SOC							// Кровосос ТЧ
+	#define BLOODSUCKER_FROM_CS								// Кровосос ЧН
+	#define BOAR_CS											// Кабан ТЧ
+	#define BURER_CS										// Бюрер ТЧ
+	#define CHIMERA_SOC										// Химера ТЧ
+	#define CONTROLLER_SOC									// Констролер ТЧ
+	#define DOG_SOC											// Слепой пес ТЧ
+	#define POLTER_SOC										// Полтергейст ТЧ
+	#define GIANT_JUMPER									// Прыгающий псевдогигант
+
 // CALLBACKS
 	#define EXTENDED_ITEM_CALLBACKS							// (eItemToBelt, eItemToSlot, eItemToRuck)
 	#define EXTENDED_WEAPON_CALLBACKS						// (eOnWeaponZoomIn, eOnWeaponZoomOut, eOnWeaponJammed)

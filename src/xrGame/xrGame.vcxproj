@@ -415,6 +415,8 @@
     <ClInclude Include="ai\monsters\anti_aim_ability.h" />
     <ClInclude Include="ai\Monsters\BaseMonster\base_monster.h" />
     <ClInclude Include="ai\Monsters\BaseMonster\base_monster_inline.h" />
+	
+	<!-- Кровосос из Зова Припяти -->
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker.h" />
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_alien.h" />
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state.h" />
@@ -437,6 +439,31 @@
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_hide.h" />
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_hide_inline.h" />
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_inline.h" />
+	<!-- Кровосос из Зова Припяти -->
+	
+	<!-- Кровосос из Теней Чернобыля -->
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_alien.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_attack_state.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_attack_state_hide.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_attack_state_hide_inline.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_attack_state_inline.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_predator.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_predator_inline.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_predator_lite.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_predator_lite_inline.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_state_manager.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_approach.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_approach_inline.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_effector.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_execute.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_execute_inline.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_hide.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_hide_inline.h" />
+    <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_inline.h" />
+	<!-- Кровосос из Теней Чернобыля -->
+	
     <ClInclude Include="ai\Monsters\Boar\boar.h" />
     <ClInclude Include="ai\Monsters\Boar\boar_state_manager.h" />
     <ClInclude Include="ai\Monsters\Burer\burer.h" />
@@ -2165,6 +2192,15 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\BaseMonster\base_monster_startup.cpp" />
     <ClCompile Include="ai\Monsters\BaseMonster\base_monster_think.cpp" />
+    <ClCompile Include="ai\Monsters\bloodsucksoc\bloodsucksoc.cpp" />
+    <ClCompile Include="ai\Monsters\bloodsucksoc\bloodsucksoc_alien.cpp" />
+    <ClCompile Include="ai\Monsters\bloodsucksoc\bloodsucksoc_script.cpp">
+      <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_state_manager.cpp" />
+    <ClCompile Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_effector.cpp" />
+    <!-- Кек -->
     <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker.cpp" />
     <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker_alien.cpp" />
     <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker_script.cpp">
