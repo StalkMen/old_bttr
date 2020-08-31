@@ -9,6 +9,7 @@
 #include "../../xrCore/xrpool.h"
 #include "detailformat.h"
 #include "detailmodel.h"
+#include "../../build_render_config.h"
 
 #ifdef _EDITOR
 //.	#include	"ESceneClassList.h"

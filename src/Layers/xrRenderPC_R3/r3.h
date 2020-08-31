@@ -22,6 +22,7 @@
 #include "../../xrEngine/irenderable.h"
 #include "../../xrEngine/fmesh.h"
 
+#include "../../build_render_config.h"
 
 class dxRender_Visual;
 

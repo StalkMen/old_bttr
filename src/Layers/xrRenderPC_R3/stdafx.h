@@ -47,6 +47,7 @@
 #include "../xrRender/blenders\blender_clsid.h"
 #include "../xrRender/xrRender_console.h"
 #include "r3.h"
+#include "../../build_render_config.h"
 
 IC	void	jitter(CBlender_Compile& C)
 {
