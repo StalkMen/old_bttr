@@ -47,38 +47,35 @@
 	#define LAYERED_SND_SHOOT								// see comment down below 
 //-SOUND
 
-
-
-
 /*LAYERED_SND_SHOOT by Alundaio
-When defined, it will allow you to play a group of sounds from a specified section for snd_shoot.
-You can have as many layers as you want, but you must follow naming convention,
+	When defined, it will allow you to play a group of sounds from a specified section for snd_shoot.
+	You can have as many layers as you want, but you must follow naming convention,
 
-snd_1_layer
-snd_2_layer
-snd_3_layer
-...
+	snd_1_layer
+	snd_2_layer
+	snd_3_layer
+	...
 
-You can also have different variants for each layer defined,
+	You can also have different variants for each layer defined,
 
-snd_1_layer
-snd_1_layer1
-snd_1_layer2
-...
+	snd_1_layer
+	snd_1_layer1
+	snd_1_layer2
+	...
 
-The correct line settings are standard, (ie. snd_1_layer = sound_path, volume, delay)
-ex.
+	The correct line settings are standard, (ie. snd_1_layer = sound_path, volume, delay)
+	ex.
 
-Here is an example usage:
-snd_shoot = new_snd_section
+	Here is an example usage:
+	snd_shoot = new_snd_section
 
-[new_snd_section]
-snd_1_layer = weapons\new_sound_shoot1
-snd_1_layer1 = weapons\new_sound_shoot2
-snd_1_layer2 = weapons\new_sound_shoot3
-snd_1_layer3 = weapons\new_sound_shoot4
+	[new_snd_section]
+	snd_1_layer = weapons\new_sound_shoot1
+	snd_1_layer1 = weapons\new_sound_shoot2
+	snd_1_layer2 = weapons\new_sound_shoot3
+	snd_1_layer3 = weapons\new_sound_shoot4
 
-snd_2_layer = weapons\mechanical_noise, 1.0, 0.1
+	snd_2_layer = weapons\mechanical_noise, 1.0, 0.1
 
-snd_3_layer = weapons\gunshot_echo, 1.0, 0.8
+	snd_3_layer = weapons\gunshot_echo, 1.0, 0.8
 */

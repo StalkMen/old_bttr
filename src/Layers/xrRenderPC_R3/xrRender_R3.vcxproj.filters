@@ -16,9 +16,6 @@
     <Filter Include="Lights">
       <UniqueIdentifier>{c7e79c6e-213a-4cbb-aa5e-4a7f68c6479d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Glows">
-      <UniqueIdentifier>{e086bd78-be45-492d-b58c-3c085137439c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Wallmarks">
       <UniqueIdentifier>{2421ec41-d6d9-4cc0-a176-d3798fbd5d41}</UniqueIdentifier>
     </Filter>
