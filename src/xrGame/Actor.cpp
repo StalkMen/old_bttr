@@ -1027,7 +1027,9 @@ void CActor::g_Physics(Fvector& _accel, float jump, float dt)
         }
     }
 }
+
 float g_fov = 55.0f;
+extern float xrgame_scope_fov;
 
 float CActor::currentFOV()
 {
@@ -1041,7 +1043,7 @@ float CActor::currentFOV()
         (!pWeapon->ZoomTexture() || (!pWeapon->IsRotatingToZoom() && pWeapon->ZoomTexture()))
         )
     {
-        return pWeapon->GetZoomFactor() * (0.75f);
+        return pWeapon->GetZoomFactor() * (xrgame_scope_fov);
     }
     else
     {

@@ -1877,8 +1877,12 @@ public:
 	}
 };
 
+float xrgame_scope_fov = 0.65f;
+
 void CCC_RegisterCommands()
 {
+	CMD4(CCC_Float, "xrGame_scope_fov", &xrgame_scope_fov, 0.45f, 0.85f);
+
 	// options
 	g_OptConCom.Init();
 
