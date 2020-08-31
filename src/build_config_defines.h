@@ -1,7 +1,6 @@
 #pragma once
 
 // Back to the Roots
-	#define BLOODSUCKER_FROM_SOC							// Кровосос ТЧ
 	#define BLOODSUCKER_FROM_CS								// Кровосос ЧН
 	#define BOAR_CS											// Кабан ТЧ
 	#define BURER_CS										// Бюрер ТЧ

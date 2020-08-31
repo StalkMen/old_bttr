@@ -23,6 +23,7 @@
 #define CLSID_AI_CONTROLLER			MK_CLSID('A','I','_','C','O','N','T','R')
 #define CLSID_AI_BLOODSUCKER		MK_CLSID('A','I','_','B','L','O','O','D')
 #define CLSID_AI_BLOODSUCKSOC		MK_CLSID('A','I','_','B','L','O','D','S')
+#define CLSID_AI_BLOODSUCKCS		MK_CLSID('A','I','_','B','L','O','D','C')
 #define CLSID_AI_STALKER			MK_CLSID('A','I','_','S','T','L',' ',' ')
 #define CLSID_AI_BURER				MK_CLSID('A','I','_','B','U','R','E','R')
 #define CLSID_AI_GIANT				MK_CLSID('A','I','_','G','I','A','N','T')

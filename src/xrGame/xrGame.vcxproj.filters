@@ -2497,6 +2497,9 @@
     <Filter Include="xrGame_monsters\Bloodsucker_CoP\Alien Feature">
       <UniqueIdentifier>{604a599d-c0d7-492a-881a-c41ab3d3d4ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="xrGame_monsters\Bloodsucker_CS">
+      <UniqueIdentifier>{5daf2add-8de3-4f98-8f6a-48c773e9dfb6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mt_config.h">
@@ -7447,6 +7450,72 @@
     <ClInclude Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_inline.h">
       <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
     </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_alien.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_attack_state_hide.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_attack_state.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_attack_state_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_attack_state_hide_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_predator.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_predator_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_predator_lite.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_predator_lite_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\monsters\Bloodsuckcs\bloodsuckcs_state_capture_jump.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\monsters\Bloodsuckcs\bloodsuckcs_state_capture_jump_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_state_manager.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_vampire.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_vampire_approach.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_vampire_approach_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_vampire_effector.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_vampire_execute.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_vampire_execute_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_vampire_hide.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_vampire_hide_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_vampire_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -11112,6 +11181,21 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\Bloodsucksoc\bloodsucksoc_vampire_effector.cpp">
       <Filter>xrGame_monsters\Bloodsucker_SoC</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Bloodsuckcs\bloodsuckcs.cpp">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_alien.cpp">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_script.cpp">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_state_manager.cpp">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_vampire_effector.cpp">
+      <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
