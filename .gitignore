@@ -55,3 +55,5 @@ src/Launcher/Stalker-CoC/
 *.pdb
 *.exp
 *.db
+src/.vs/Engine x64 IWP/v16/.suo
+*.ipch

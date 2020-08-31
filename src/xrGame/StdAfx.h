@@ -16,7 +16,7 @@
 #pragma warning(disable:4201)
 
 //AVO: print, don't fail
-#include "../build_config_defines.h"
+#include "../build_engine_config.h"
 #ifdef NON_FATAL_VERIFY
 #	define	THROW					VERIFY
 #	define	THROW2					VERIFY2

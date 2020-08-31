@@ -85,6 +85,12 @@
     <Filter Include="OS">
       <UniqueIdentifier>{6d6f8325-ad31-4677-b0b9-de5d952c320b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine_build">
+      <UniqueIdentifier>{63e70d62-fa73-4adf-b549-c00ab707b03e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sync">
+      <UniqueIdentifier>{d2a43ce3-bb15-434b-b4c2-9a40b0de800c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FTimer.cpp">
@@ -288,7 +294,12 @@
     <ClCompile Include="os_clipboard.cpp">
       <Filter>OS</Filter>
     </ClCompile>
-    <ClCompile Include="xrSyncronize.cpp" />
+    <ClCompile Include="Event.cpp">
+      <Filter>Sync</Filter>
+    </ClCompile>
+    <ClCompile Include="xrSyncronize.cpp">
+      <Filter>Sync</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FTimer.h">
@@ -597,8 +608,18 @@
     <ClInclude Include="os_clipboard.h">
       <Filter>OS</Filter>
     </ClInclude>
-    <ClInclude Include="xrSyncronize.h" />
-    <ClInclude Include="..\build_config_defines.h" />
+    <ClInclude Include="..\build_engine_config.h">
+      <Filter>Engine_build</Filter>
+    </ClInclude>
+    <ClInclude Include="..\build_render_config.h">
+      <Filter>Engine_build</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.hpp">
+      <Filter>Sync</Filter>
+    </ClInclude>
+    <ClInclude Include="xrSyncronize.h">
+      <Filter>Sync</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="xrCore.rc">

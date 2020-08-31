@@ -11,7 +11,7 @@
 #include "ai_space.h"
 #include "object_factory.h"
 #include "script_process.h"
-#include "../build_config_defines.h"
+#include "../build_engine_config.h"
 #include "script_storage.h"
 
 #ifdef USE_DEBUGGER

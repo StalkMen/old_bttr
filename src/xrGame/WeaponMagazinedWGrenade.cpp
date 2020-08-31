@@ -13,7 +13,7 @@
 #include "../xrphysics/MathUtils.h"
 #include "player_hud.h"
 
-#include "../build_config_defines.h"
+#include "../build_engine_config.h"
 
 #ifdef DEBUG
 #	include "phdebug.h"
@@ -426,7 +426,7 @@ void CWeaponMagazinedWGrenade::ReloadMagazine()
     }
 }
 
-void CWeaponMagazinedWGrenade::OnStateSwitch(u32 S)
+void CWeaponMagazinedWGrenade::OnStateSwitch(u32 S, u32 oldState)
 {
     switch (S)
     {
@@ -440,7 +440,7 @@ void CWeaponMagazinedWGrenade::OnStateSwitch(u32 S)
     }break;
     }
 
-    inherited::OnStateSwitch(S);
+    inherited::OnStateSwitch(S, oldState);
     UpdateGrenadeVisibility(!!iAmmoElapsed || S == eReload);
 }
 

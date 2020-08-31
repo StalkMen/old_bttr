@@ -282,28 +282,20 @@ void CEnvDescriptor::load(CEnvironment& environment, CInifile& config)
     rain_color = config.r_fvector3(m_identifier.c_str(), "rain_color");
     wind_velocity = config.r_float(m_identifier.c_str(), "wind_velocity");
     wind_direction = deg2rad(config.r_float(m_identifier.c_str(), "wind_direction"));
-    ambient = config.r_fvector3(m_identifier.c_str(), "ambient_color");
+#pragma TODO("OldSerpskiStalker. Vanilla Call Of Chernobyl")
+    ambient = config.r_fvector3(m_identifier.c_str(), (strstr(Core.Params, "-o")) ? "ambient_color" : "ambient");
     hemi_color = config.r_fvector4(m_identifier.c_str(), "hemisphere_color");
     sun_color = config.r_fvector3(m_identifier.c_str(), "sun_color");
-    // if (config.line_exist(m_identifier.c_str(),"sun_altitude"))
-    sun_dir.setHP(
-        deg2rad(config.r_float(m_identifier.c_str(), "sun_altitude")),
-        deg2rad(config.r_float(m_identifier.c_str(), "sun_longitude"))
-        );
-    R_ASSERT(_valid(sun_dir));
-    // else
-    // sun_dir.setHP (
-    // deg2rad(config.r_fvector2(m_identifier.c_str(),"sun_dir").y),
-    // deg2rad(config.r_fvector2(m_identifier.c_str(),"sun_dir").x)
-    // );
-    //AVO: commented to allow COC run in debug. I belive Cromm set longtitude to negative value in AF3 and that's why it is failing here
-    //VERIFY2(sun_dir.y < 0, "Invalid sun direction settings while loading");
 
+    sun_dir.setHP(deg2rad(config.r_float(m_identifier.c_str(), "sun_altitude")), deg2rad(config.r_float(m_identifier.c_str(), "sun_longitude")));
+    R_ASSERT(_valid(sun_dir));
+   
     lens_flare_id = environment.eff_LensFlare->AppendDef(environment, environment.m_suns_config, config.r_string(m_identifier.c_str(), "sun"));
     tb_id = environment.eff_Thunderbolt->AppendDef(environment, environment.m_thunderbolt_collections_config, environment.m_thunderbolts_config, config.r_string(m_identifier.c_str(), "thunderbolt_collection"));
     bolt_period = (tb_id.size()) ? config.r_float(m_identifier.c_str(), "thunderbolt_period") : 0.f;
     bolt_duration = (tb_id.size()) ? config.r_float(m_identifier.c_str(), "thunderbolt_duration") : 0.f;
-    env_ambient = config.line_exist(m_identifier.c_str(), "ambient") ? environment.AppendEnvAmb(config.r_string(m_identifier.c_str(), "ambient")) : 0;
+#pragma TODO("OldSerpskiStalker. Vanilla Call Of Chernobyl")
+    env_ambient = config.line_exist(m_identifier.c_str(), (strstr(Core.Params, "-o")) ? "ambient" : "env_ambient") ? environment.AppendEnvAmb(config.r_string(m_identifier.c_str(), (strstr(Core.Params, "-o")) ? "ambient" : "env_ambient")) : 0;
 
     if (config.line_exist(m_identifier.c_str(), "sun_shafts_intensity"))
         m_fSunShaftsIntensity = config.r_float(m_identifier.c_str(), "sun_shafts_intensity");
@@ -329,26 +321,11 @@ void CEnvDescriptor::load(CEnvironment& environment, CInifile& config)
 void CEnvDescriptor::on_device_create()
 {
     m_pDescriptor->OnDeviceCreate(*this);
-    /*
-    if (sky_texture_name.size())
-    sky_texture.create (sky_texture_name.c_str());
-
-    if (sky_texture_env_name.size())
-    sky_texture_env.create (sky_texture_env_name.c_str());
-
-    if (clouds_texture_name.size())
-    clouds_texture.create (clouds_texture_name.c_str());
-    */
 }
 
 void CEnvDescriptor::on_device_destroy()
 {
     m_pDescriptor->OnDeviceDestroy();
-    /*
-    sky_texture.destroy ();
-    sky_texture_env.destroy ();
-    clouds_texture.destroy ();
-    */
 }
 
 //-----------------------------------------------------------------------------
@@ -362,41 +339,13 @@ CEnvDescriptor(identifier)
 void CEnvDescriptorMixer::destroy()
 {
     m_pDescriptorMixer->Destroy();
-    /*
-    sky_r_textures.clear ();
-    sky_r_textures_env.clear ();
-    clouds_r_textures.clear ();
-    */
-
     // Reuse existing code
     on_device_destroy();
-    /*
-     sky_texture.destroy ();
-     sky_texture_env.destroy ();
-     clouds_texture.destroy ();
-     */
 }
 
 void CEnvDescriptorMixer::clear()
 {
     m_pDescriptorMixer->Clear();
-    /*
-    std::pair<u32,ref_texture> zero = mk_pair(u32(0),ref_texture(0));
-    sky_r_textures.clear ();
-    sky_r_textures.push_back (zero);
-    sky_r_textures.push_back (zero);
-    sky_r_textures.push_back (zero);
-
-    sky_r_textures_env.clear ();
-    sky_r_textures_env.push_back(zero);
-    sky_r_textures_env.push_back(zero);
-    sky_r_textures_env.push_back(zero);
-
-    clouds_r_textures.clear ();
-    clouds_r_textures.push_back (zero);
-    clouds_r_textures.push_back (zero);
-    clouds_r_textures.push_back (zero);
-    */
 }
 
 int get_ref_count(IUnknown* ii);
@@ -407,20 +356,6 @@ void CEnvDescriptorMixer::lerp(CEnvironment*, CEnvDescriptor& A, CEnvDescriptor&
     float fi = 1 - f;
 
     m_pDescriptorMixer->lerp(&*A.m_pDescriptor, &*B.m_pDescriptor);
-    /*
-    sky_r_textures.clear ();
-    sky_r_textures.push_back (mk_pair(0,A.sky_texture));
-    sky_r_textures.push_back (mk_pair(1,B.sky_texture));
-
-    sky_r_textures_env.clear ();
-
-    sky_r_textures_env.push_back(mk_pair(0,A.sky_texture_env));
-    sky_r_textures_env.push_back(mk_pair(1,B.sky_texture_env));
-
-    clouds_r_textures.clear ();
-    clouds_r_textures.push_back (mk_pair(0,A.clouds_texture));
-    clouds_r_textures.push_back (mk_pair(1,B.clouds_texture));
-    */
 
     weight = f;
 
@@ -550,8 +485,9 @@ void CEnvironment::mods_load()
         }
         FS.r_close(fs);
     }
-
-    load_level_specific_ambients();
+#pragma TODO("OldSerpskiStalker. Vanilla Call Of Chernobyl")
+    if (strstr(Core.Params, "-o"))
+        load_level_specific_ambients();
 }
 
 void CEnvironment::mods_unload()
@@ -713,30 +649,6 @@ void CEnvironment::load_weather_effects()
     }
 
     FS.file_list_close(file_list);
-
-#if 0
-    int line_count = pSettings->line_count("weather_effects");
-    for (int w_idx = 0; w_idx < line_count; w_idx++)
-    {
-        LPCSTR weather, sect_w;
-        if (pSettings->r_line("weather_effects", w_idx, &weather, &sect_w))
-        {
-            EnvVec& env = WeatherFXs[weather];
-            env.push_back(xr_new<CEnvDescriptor>("00:00:00"));
-            env.back()->exec_time_loaded = 0;
-            //. why? env.push_back (xr_new<CEnvDescriptor>("00:00:00")); env.back()->exec_time_loaded = 0;
-            int env_count = pSettings->line_count(sect_w);
-            LPCSTR exec_tm, sect_e;
-            for (int env_idx = 0; env_idx < env_count; env_idx++)
-            {
-                if (pSettings->r_line(sect_w, env_idx, &exec_tm, &sect_e))
-                    env.push_back(create_descriptor(sect_e));
-            }
-            env.push_back(create_descriptor("23:59:59"));
-            env.back()->exec_time_loaded = DAY_LENGTH;
-        }
-    }
-#endif // #if 0
 
     // sorting weather envs
     EnvsMapIt _I = WeatherFXs.begin();

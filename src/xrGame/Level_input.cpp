@@ -24,7 +24,7 @@
 
 #include "../Include/xrRender/DebugRender.h"
 
-#include "build_config_defines.h"
+#include "build_engine_config.h"
 
 //Alundaio
 #include "pch_script.h"
@@ -401,7 +401,7 @@ void CLevel::IR_OnKeyboardPress(int key)
                                  CHudItem* pHudItem = smart_cast<CHudItem*>(pActor->inventory().ActiveItem());
                                  if (pHudItem)
                                  {
-                                     pHudItem->OnStateSwitch(pHudItem->GetState());
+                                     pHudItem->OnStateSwitch(pHudItem->GetState(), pHudItem->GetState());
                                  }
                              }
                          }

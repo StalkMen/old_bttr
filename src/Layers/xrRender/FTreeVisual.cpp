@@ -6,7 +6,7 @@
 #include "../../xrEngine/environment.h"
 #include "../../xrEngine/fmesh.h"
 
-#include "../../build_config_defines.h"
+#include "../../build_engine_config.h"
 
 #include "ftreevisual.h"
 

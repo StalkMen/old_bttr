@@ -139,9 +139,6 @@
     <Filter Include="RenderRef\Execution &amp; 3D">
       <UniqueIdentifier>{32271206-64dd-4f87-a215-4b1106afd35f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="RenderRef\Execution &amp; 3D\Device">
-      <UniqueIdentifier>{43966447-6d34-46c3-956d-adaa49b48525}</UniqueIdentifier>
-    </Filter>
     <Filter Include="RenderRef\Execution &amp; 3D\Visuals">
       <UniqueIdentifier>{2e6b0e5e-5f71-4eca-a5a7-9e4ab9a6ef2f}</UniqueIdentifier>
     </Filter>
@@ -249,6 +246,9 @@
     </Filter>
     <Filter Include="My Amplifier Results">
       <UniqueIdentifier>{6aec60dd-7590-4a0f-accf-2550c71f6aa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Device">
+      <UniqueIdentifier>{b3ff08a7-793a-48c4-a8e7-e92849d3e973}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -501,15 +501,6 @@
     <ClInclude Include="edit_actions.h">
       <Filter>Engine\text_editor\edit_actions</Filter>
     </ClInclude>
-    <ClInclude Include="device.h">
-      <Filter>RenderRef\Execution &amp; 3D\Device</Filter>
-    </ClInclude>
-    <ClInclude Include="StatGraph.h">
-      <Filter>RenderRef\Execution &amp; 3D\Device</Filter>
-    </ClInclude>
-    <ClInclude Include="Stats.h">
-      <Filter>RenderRef\Execution &amp; 3D\Device</Filter>
-    </ClInclude>
     <ClInclude Include="Fmesh.h">
       <Filter>RenderRef\Execution &amp; 3D\Visuals</Filter>
     </ClInclude>
@@ -617,6 +608,15 @@
     </ClInclude>
     <ClInclude Include="xrSASH.h">
       <Filter>OpenAutomate</Filter>
+    </ClInclude>
+    <ClInclude Include="device.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="StatGraph.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Stats.h">
+      <Filter>Device</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -839,33 +839,6 @@
     <ClCompile Include="edit_actions.cpp">
       <Filter>Engine\text_editor\edit_actions</Filter>
     </ClCompile>
-    <ClCompile Include="device.cpp">
-      <Filter>RenderRef\Execution &amp; 3D\Device</Filter>
-    </ClCompile>
-    <ClCompile Include="Device_create.cpp">
-      <Filter>RenderRef\Execution &amp; 3D\Device</Filter>
-    </ClCompile>
-    <ClCompile Include="Device_destroy.cpp">
-      <Filter>RenderRef\Execution &amp; 3D\Device</Filter>
-    </ClCompile>
-    <ClCompile Include="Device_Initialize.cpp">
-      <Filter>RenderRef\Execution &amp; 3D\Device</Filter>
-    </ClCompile>
-    <ClCompile Include="Device_Misc.cpp">
-      <Filter>RenderRef\Execution &amp; 3D\Device</Filter>
-    </ClCompile>
-    <ClCompile Include="Device_overdraw.cpp">
-      <Filter>RenderRef\Execution &amp; 3D\Device</Filter>
-    </ClCompile>
-    <ClCompile Include="Device_wndproc.cpp">
-      <Filter>RenderRef\Execution &amp; 3D\Device</Filter>
-    </ClCompile>
-    <ClCompile Include="StatGraph.cpp">
-      <Filter>RenderRef\Execution &amp; 3D\Device</Filter>
-    </ClCompile>
-    <ClCompile Include="Stats.cpp">
-      <Filter>RenderRef\Execution &amp; 3D\Device</Filter>
-    </ClCompile>
     <ClCompile Include="fmesh.cpp">
       <Filter>RenderRef\Execution &amp; 3D\Visuals</Filter>
     </ClCompile>
@@ -961,6 +934,33 @@
     </ClCompile>
     <ClCompile Include="xrSASH.cpp">
       <Filter>OpenAutomate</Filter>
+    </ClCompile>
+    <ClCompile Include="device.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device_create.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device_destroy.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device_Initialize.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device_Misc.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device_overdraw.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device_wndproc.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Stats.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="StatGraph.cpp">
+      <Filter>Device</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -122,9 +122,9 @@ void CCustomDetector::ToggleDetector(bool bFastMode)
 
 }
 
-void CCustomDetector::OnStateSwitch(u32 S)
+void CCustomDetector::OnStateSwitch(u32 S, u32 oldState)
 {
-	inherited::OnStateSwitch(S);
+	inherited::OnStateSwitch(S, oldState);
 
 	switch(S)
 	{
@@ -137,9 +137,12 @@ void CCustomDetector::OnStateSwitch(u32 S)
 		}break;
 	case eHiding:
 		{
-			m_sounds.PlaySound			("sndHide", Fvector().set(0,0,0), this, true, false);
-			PlayHUDMotion				(m_bFastAnimMode?"anm_hide_fast":"anm_hide", FALSE/*TRUE*/, this, GetState());
-			SetPending					(TRUE);
+			if (oldState != eHiding)
+			{
+				m_sounds.PlaySound("sndHide", Fvector().set(0, 0, 0), this, true, false);
+				PlayHUDMotion(m_bFastAnimMode ? "anm_hide_fast" : "anm_hide", FALSE/*TRUE*/, this, GetState());
+				SetPending(TRUE);
+			}
 		}break;
 	case eIdle:
 		{

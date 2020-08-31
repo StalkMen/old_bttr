@@ -47,21 +47,23 @@ size_t xrMemory::mem_usage()
         if (hinfo._useflag == _USEDENTRY)
             bytesUsed += hinfo._size;
     }
+#pragma todo("OldSerpskiStalker. OGSR fix #1")
     switch (status)
     {
-    case _HEAPEMPTY:
-        break;
-    case _HEAPEND:
-        break;
-    case _HEAPBADPTR:
-        FATAL("bad pointer to heap");
-        break;
-    case _HEAPBADBEGIN:
-        FATAL("bad start of heap");
-        break;
-    case _HEAPBADNODE:
-        FATAL("bad node in heap");
-        break;
+        case _HEAPEMPTY:
+            break;
+        case _HEAPEND:
+            break;
+        case _HEAPBADPTR:
+            Msg("# [%s] Bad pointer to heap", __FUNCTION__);
+            break;
+        case _HEAPBADBEGIN:
+            Msg("# [%s] Bad start of heap", __FUNCTION__);
+            break;
+        case _HEAPBADNODE:
+            Msg("# [%s] Bad node in heap", __FUNCTION__);
+            break;
     }
+
     return bytesUsed;
 }

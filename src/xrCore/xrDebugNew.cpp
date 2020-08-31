@@ -13,7 +13,7 @@
 #include <direct.h>
 #pragma warning(pop)
 
-#include "../build_config_defines.h"
+#include "../build_engine_config.h"
 
 extern bool shared_str_initialized;
 

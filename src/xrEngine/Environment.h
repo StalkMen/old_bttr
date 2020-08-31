@@ -23,7 +23,7 @@ class CLensFlareDescriptor;
 #include "../Include/xrRender/FactoryPtr.h"
 #include "../Include/xrRender/EnvironmentRender.h"
 
-#include "../build_config_defines.h"
+#include "../build_engine_config.h"
 
 #ifdef INGAME_EDITOR
 # define INGAME_EDITOR_VIRTUAL virtual

@@ -11,7 +11,7 @@
 #include "player_hud.h"
 #include "../xrEngine/SkeletonMotions.h"
 
-#include "../build_config_defines.h"
+#include "../build_engine_config.h"
 #include "ui_base.h"
 
 #include "script_callback_ex.h"
@@ -112,14 +112,14 @@ void CHudItem::OnEvent(NET_Packet& P, u16 type)
     case GE_WPN_STATE_CHANGE:
     {
         u8				S;
-        P.r_u8(S);
-        OnStateSwitch(u32(S));
+        P.r_u8(S);		
+        OnStateSwitch(u32(S), GetState());
     }
     break;
     }
 }
 
-void CHudItem::OnStateSwitch(u32 S)
+void CHudItem::OnStateSwitch(u32 S, u32 oldState)
 {
     SetState(S);
 

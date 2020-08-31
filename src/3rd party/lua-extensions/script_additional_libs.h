@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../build_config_defines.h"
+#include "../../build_engine_config.h"
 
 #include "lua.hpp"
 

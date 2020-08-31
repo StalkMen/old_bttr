@@ -80,7 +80,6 @@ void xrMemory::_initialize(BOOL bDebug)
         mem_fill32 = xrMemFill32_x86;
     }
 
-#ifndef M_BORLAND
     if (!strstr(Core.Params, "-pure_alloc"))
     {
         // initialize POOLs
@@ -92,7 +91,6 @@ void xrMemory::_initialize(BOOL bDebug)
             element += mem_pools_ebase;
         }
     }
-#endif // M_BORLAND
 
 #ifdef DEBUG_MEMORY_MANAGER
     if (0 == strstr(Core.Params, "-memo")) mem_initialized = TRUE;
@@ -202,67 +200,11 @@ void xrMemory::mem_statistic(LPCSTR fn)
         }
     }
 
-    /*
-    fprintf (Fa,"$BEGIN CHUNK #3\n");
-    for (u32 it=0; it<debug_info.size(); it++)
-    {
-    if (0==debug_info[it]._p) continue ;
-    try{
-    if (0==strcmp(debug_info[it]._name,"storage: sstring"))
-    fprintf (Fa,"0x%08X: %8d %s %s\n",*(u32*)(&debug_info[it]._p),debug_info[it]._size,debug_info[it]._name,((str_value*)(*(u32*)(&debug_info[it]._p)))->value);
-    }catch(...){
-    }
-    }
-    */
-
     fclose(Fa);
 
     // leave
     debug_mode = TRUE;
     debug_cs.Leave();
-
-    /*
-    mem_compact ();
-    LPCSTR fn = "$memstat$.tmp";
-    xr_map<u32,u32> stats;
-
-    if (g_pStringContainer) Msg ("memstat: shared_str: economy: %d bytes",g_pStringContainer->stat_economy());
-    if (g_pSharedMemoryContainer) Msg ("memstat: shared_mem: economy: %d bytes",g_pSharedMemoryContainer->stat_economy());
-
-    // Dump memory stats into file to avoid reallocation while traversing
-    {
-    IWriter* F = FS.w_open(fn);
-    F->w_u32 (0);
-    _HEAPINFO hinfo;
-    int heapstatus;
-    hinfo._pentry = NULL;
-    while( ( heapstatus = _heapwalk( &hinfo ) ) == _HEAPOK )
-    if (hinfo._useflag == _USEDENTRY) F->w_u32 (u32(hinfo._size));
-    FS.w_close (F);
-    }
-
-    // Read back and perform sorting
-    {
-    IReader* F = FS.r_open (fn);
-    u32 size = F->r_u32 ();
-    while (!F->eof())
-    {
-    size = F->r_u32 ();
-    xr_map<u32,u32>::iterator I = stats.find(size);
-    if (I!=stats.end()) I->second += 1;
-    else stats.insert(mk_pair(size,1));
-    }
-    FS.r_close (F);
-    FS.file_delete (fn);
-    }
-
-    // Output to log
-    {
-    xr_map<u32,u32>::iterator I = stats.begin();
-    xr_map<u32,u32>::iterator E = stats.end();
-    for (; I!=E; I++) Msg ("%8d : %-4d [%d]",I->first,I->second,I->first*I->second);
-    }
-    */
 }
 #endif // DEBUG_MEMORY_MANAGER
 

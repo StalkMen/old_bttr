@@ -2,23 +2,13 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#if !defined(AFX_HW_H__0E25CF4A_FFEC_11D3_B4E3_4854E82A090D__INCLUDED_)
-#define AFX_HW_H__0E25CF4A_FFEC_11D3_B4E3_4854E82A090D__INCLUDED_
 #pragma once
 
 #include "hwcaps.h"
-
-#include "../../build_config_defines.h"
-
-#ifndef _MAYA_EXPORT
+#include "../../build_engine_config.h"
 #include "stats_manager.h"
-#endif
 
-class  CHW
-#if defined(USE_DX10) || defined(USE_DX11)
-	:	public pureAppActivate, 
-		public pureAppDeactivate
-#endif	//	USE_DX10
+class  CHW:	public pureAppActivate, public pureAppDeactivate
 {
 //	Functions section
 public:
@@ -42,18 +32,10 @@ public:
 	void					updateWindowProps		(HWND hw);
 	BOOL					support					(D3DFORMAT fmt, DWORD type, DWORD usage);
 
-#ifdef DEBUG
-#if defined(USE_DX10) || defined(USE_DX11)
 	void	Validate(void)	{};
-#else	//	USE_DX10
-	void	Validate(void)	{	VERIFY(pDevice); VERIFY(pD3D); };
-#endif	//	USE_DX10
-#else
-	void	Validate(void)	{};
-#endif
 
 //	Variables section
-#if defined(USE_DX11)	//	USE_DX10
+#if defined(USE_DX11)
 public:
 	IDXGIAdapter*			m_pAdapter;	//	pD3D equivalent
 	ID3D11Device*			pDevice;	//	combine with DX9 pDevice via typedef
@@ -85,40 +67,18 @@ public:
 	DXGI_SWAP_CHAIN_DESC	m_ChainDesc;	//	DevPP equivalent
 	bool					m_bUsePerfhud;
 	D3D_FEATURE_LEVEL		FeatureLevel;
-#else
-private:
-	HINSTANCE 				hD3D;
-
-public:
-
-	IDirect3D9* 			pD3D;		// D3D
-	IDirect3DDevice9*		pDevice;	// render device
-
-	IDirect3DSurface9*		pBaseRT;
-	IDirect3DSurface9*		pBaseZB;
-
-	CHWCaps					Caps;
-
-	UINT					DevAdapter;
-	D3DDEVTYPE				DevT;
-	D3DPRESENT_PARAMETERS	DevPP;
-#endif	//	USE_DX10
-
-#ifndef _MAYA_EXPORT
-	stats_manager			stats_manager;
 #endif
-#if defined(USE_DX10) || defined(USE_DX11)
+
+	stats_manager			stats_manager;
+
 	void			UpdateViews();
 	DXGI_RATIONAL	selectRefresh(u32 dwWidth, u32 dwHeight, DXGI_FORMAT fmt);
 
 	virtual	void	OnAppActivate();
 	virtual void	OnAppDeactivate();
-#endif	//	USE_DX10
 
 private:
 	bool					m_move_window;
 };
 
 extern ECORE_API CHW		HW;
-
-#endif // !defined(AFX_HW_H__0E25CF4A_FFEC_11D3_B4E3_4854E82A090D__INCLUDED_)

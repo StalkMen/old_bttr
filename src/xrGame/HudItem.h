@@ -41,7 +41,7 @@ public:
 	IC		u32				CurrStateTime		() const			{return Device.dwTimeGlobal-m_dw_curr_state_time;}
 	IC		void			ResetSubStateTime	()					{m_dw_curr_substate_time=Device.dwTimeGlobal;}
 	virtual void			SwitchState			(u32 S)				= 0;
-	virtual void			OnStateSwitch		(u32 S)				= 0;
+	virtual void			OnStateSwitch		(u32 S, u32 oldState) 	= 0;
 };
 
 class CHudItem :public CHUDState
@@ -104,7 +104,7 @@ public:
 	bool						IsShowing			()	const		{	return GetState() == eShowing;}
 
 	virtual void				SwitchState			(u32 S);
-	virtual void				OnStateSwitch		(u32 S);
+	virtual void				OnStateSwitch		(u32 S, u32 oldState);
 
 	virtual void				OnAnimationEnd		(u32 state);
 	virtual void				OnMotionMark		(u32 state, const motion_marks&){};

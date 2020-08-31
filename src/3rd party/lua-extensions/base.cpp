@@ -1,4 +1,4 @@
-#include "../../build_config_defines.h"
+#include "../../build_engine_config.h"
 
 #ifdef USE_LUAJIT_ONE
 #pragma comment(lib, "LuaJIT-1.1.8.lib")

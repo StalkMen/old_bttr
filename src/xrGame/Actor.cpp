@@ -74,7 +74,7 @@
 #include "ActorHelmet.h"
 #include "UI/UIDragDropReferenceList.h"
 
-#include "build_config_defines.h"
+#include "build_engine_config.h"
 
 //Alundaio
 #include "script_hit.h"

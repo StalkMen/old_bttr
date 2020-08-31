@@ -12,9 +12,7 @@
 #include <D3DX10Tex.h>
 
 #include "../xrRender/dxRenderDeviceRender.h"
-
-// #include "std_classes.h"
-// #include "xr_avi.h"
+#include "../../build_render_config.h"
 
 void fix_texture_name(LPSTR fn)
 {
@@ -27,10 +25,9 @@ void fix_texture_name(LPSTR fn)
 		*_ext = 0;
 }
 
-#define DISABLE_LOD_MANAGER_DX10
 int get_texture_load_lod(LPCSTR fn)
 {
-#ifndef DISABLE_LOD_MANAGER_DX10
+#ifndef DISABLE_LOD_MANAGER
 	CInifile::Sect& sect	= pSettings->r_section("reduce_lod_texture_list");
 	CInifile::SectCIt it_	= sect.Data.begin();
 	CInifile::SectCIt it_e_	= sect.Data.end();
@@ -39,7 +36,7 @@ int get_texture_load_lod(LPCSTR fn)
 	ENGINE_API bool is_enough_address_space_available();
 	static bool enough_address_space_available = is_enough_address_space_available();
 
-#ifndef DISABLE_LOD_MANAGER_DX10
+#ifndef DISABLE_LOD_MANAGER
 	CInifile::SectCIt it	= it_;
 	CInifile::SectCIt it_e	= it_e_;
 
@@ -67,12 +64,12 @@ int get_texture_load_lod(LPCSTR fn)
 	}
 #endif
 
-#ifdef DISABLE_LOD_MANAGER_DX10
+#ifdef DISABLE_LOD_MANAGER
 	if (enough_address_space_available)
 		return psTextureLOD % 2 == 0 ? psTextureLOD / 2 : 0;
 #endif
 	else
-#ifndef DISABLE_LOD_MANAGER_DX10
+#ifndef DISABLE_LOD_MANAGER
 		if (psTextureLOD < 4)
 			return 1;
 		else

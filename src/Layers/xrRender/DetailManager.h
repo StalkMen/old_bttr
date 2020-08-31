@@ -36,7 +36,7 @@ const float		dm_slot_size		= DETAIL_SLOT_SIZE;
 
 
 //AVO: detail radius
-#include "../../build_config_defines.h"
+#include "../../build_engine_config.h"
 #ifdef DETAIL_RADIUS
 const u32		dm_max_cache_size = 62001 * 2; // assuming max dm_size = 124
 extern u32		dm_size;

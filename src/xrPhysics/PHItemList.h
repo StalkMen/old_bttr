@@ -32,7 +32,7 @@ template<class T>
 		public:
 		
 		class iterator;
-		typedef  class iterator
+		/*typedef*/  class iterator
 			{
 				
 						T		*my_ptr;

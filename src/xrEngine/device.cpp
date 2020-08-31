@@ -28,7 +28,7 @@
 #include "xrSash.h"
 #include "igame_persistent.h"
 
-#include "../build_config_defines.h"
+#include "../build_engine_config.h"
 
 #pragma comment( lib, "d3dx9.lib" )
 
@@ -82,9 +82,6 @@ extern void CheckPrivilegySlowdown();
 
 void CRenderDevice::End(void)
 {
-#ifndef DEDICATED_SERVER
-
-
 #ifdef INGAME_EDITOR
     bool load_finished = false;
 #endif // #ifdef INGAME_EDITOR
@@ -102,11 +99,11 @@ void CRenderDevice::End(void)
 
             m_pRender->updateGamma();
 
-            if (precache_light) 
-			{
-				precache_light->set_active(false);
-				precache_light.destroy();
-			}
+            if (precache_light)
+            {
+                precache_light->set_active(false);
+                precache_light.destroy();
+            }
             ::Sound->set_master_volume(1.f);
 
             m_pRender->ResourcesDestroyNecessaryTextures();
@@ -137,13 +134,11 @@ void CRenderDevice::End(void)
         g_SASH.DisplayFrame(Device.fTimeGlobal);
     m_pRender->End();
 
-# ifdef INGAME_EDITOR
+#ifdef INGAME_EDITOR
     if (load_finished && m_editor)
         m_editor->on_load_finished();
-# endif // #ifdef INGAME_EDITOR
-#endif
+#endif // #ifdef INGAME_EDITOR
 }
-
 
 volatile u32 mt_Thread_marker = 0x12345678;
 void mt_Thread(void* ptr)
@@ -312,13 +307,6 @@ void CRenderDevice::on_idle()
         seqFrameMT.Process(rp_Frame);
     }
 
-#ifdef DEDICATED_SERVER
-    u32 FrameEndTime = TimerGlobal.GetElapsed_ms();
-    u32 FrameTime = (FrameEndTime - FrameStartTime);
-    u32 DSUpdateDelta = 1000 / g_svDedicateServerUpdateReate;
-    if (FrameTime < DSUpdateDelta)
-        Sleep(DSUpdateDelta - FrameTime);
-#endif
     if (!b_is_Active)
         Sleep(1);
 }
@@ -371,9 +359,7 @@ void CRenderDevice::Run()
         u32 time_local = TimerAsync();
         Timer_MM_Delta = time_system - time_local;
     }
-    // Start all threads
-    // InitializeCriticalSection (&mt_csEnter);
-    // InitializeCriticalSection (&mt_csLeave);
+
     mt_csEnter.Enter();
     mt_bMustExit = FALSE;
     thread_spawn(mt_Thread, "X-RAY Secondary thread", 0, this);
@@ -386,9 +372,8 @@ void CRenderDevice::Run()
     // Stop Balance-Thread
     mt_bMustExit = TRUE;
     mt_csEnter.Leave();
-    while (mt_bMustExit) Sleep(0);
-    // DeleteCriticalSection (&mt_csEnter);
-    // DeleteCriticalSection (&mt_csLeave);
+    while (mt_bMustExit) 
+        Sleep(0);
 }
 
 u32 app_inactive_time = 0;
@@ -450,7 +435,7 @@ void CRenderDevice::Pause(BOOL bOn, BOOL bTimer, BOOL bSound, LPCSTR reason)
 
     if (g_bBenchmark) 
 		return;
-#ifndef DEDICATED_SERVER
+
     if (bOn)
     {
         if (!Paused())
@@ -505,9 +490,6 @@ void CRenderDevice::Pause(BOOL bOn, BOOL bTimer, BOOL bSound, LPCSTR reason)
             }
         }
     }
-
-#endif
-
 }
 
 BOOL CRenderDevice::Paused()
@@ -530,7 +512,6 @@ void CRenderDevice::OnWM_Activate(WPARAM wParam, LPARAM lParam)
             Device.seqAppActivate.Process(rp_AppActivate);
             app_inactive_time += TimerMM.GetElapsed_ms() - app_inactive_time_start;
 
-#ifndef DEDICATED_SERVER
 # ifdef INGAME_EDITOR
             if (!editor())
 # endif // #ifdef INGAME_EDITOR
@@ -541,7 +522,6 @@ void CRenderDevice::OnWM_Activate(WPARAM wParam, LPARAM lParam)
                     GetWindowRect(m_hWnd, &winRect);
                     ClipCursor(&winRect);
                 }
-#endif // #ifndef DEDICATED_SERVER
         }
         else
         {
