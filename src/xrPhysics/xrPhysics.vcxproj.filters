@@ -201,7 +201,7 @@
     <ClCompile Include="PHContactBodyEffector.cpp">
       <Filter>physics\Base\Objects\BodyEffectors</Filter>
     </ClCompile>
-    <ClCompile Include="..\xrServerEntities\PHNetState.cpp">
+    <ClCompile Include="..\xrServer\PHNetState.cpp">
       <Filter>physics\Base\Objects\PHNet</Filter>
     </ClCompile>
     <ClCompile Include="PHMoveStorage.cpp">
@@ -437,7 +437,7 @@
     <ClInclude Include="PHContactBodyEffector.h">
       <Filter>physics\Base\Objects\BodyEffectors</Filter>
     </ClInclude>
-    <ClInclude Include="..\xrServerEntities\PHNetState.h">
+    <ClInclude Include="..\xrServer\PHNetState.h">
       <Filter>physics\Base\Objects\PHNet</Filter>
     </ClInclude>
     <ClInclude Include="PHMoveStorage.h">

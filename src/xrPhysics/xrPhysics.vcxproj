@@ -179,7 +179,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\xrServerEntities\PHNetState.cpp" />
+    <ClCompile Include="..\xrServer\PHNetState.cpp" />
     <ClCompile Include="ActorCameraCollision.cpp" />
     <ClCompile Include="collisiondamagereceiver.cpp" />
     <ClCompile Include="console_vars.cpp" />
@@ -249,7 +249,7 @@
     <ClCompile Include="xrPhysics.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\xrServerEntities\PHNetState.h" />
+    <ClInclude Include="..\xrServer\PHNetState.h" />
     <ClInclude Include="ActorCameraCollision.h" />
     <ClInclude Include="BlockAllocator.h" />
     <ClInclude Include="CalculateTriangle.h" />
@@ -346,7 +346,7 @@
       <Project>{1bf75feb-87dd-486c-880b-227987d191c2}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)Layers\xrAPI\xrAPI.vcxproj">
+    <ProjectReference Include="$(SolutionDir)xrRenders\xrAPI\xrAPI.vcxproj">
       <Project>{1daec516-e52c-4a3c-a4da-ae3553e6e0f8}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

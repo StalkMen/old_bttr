@@ -83,7 +83,7 @@ void CInventoryBox::net_Destroy()
 {
 	inherited::net_Destroy	();
 }
-#include "../xrServerEntities/xrServer_Objects_Alife.h"
+#include "../xrServer/xrServer_Objects_Alife.h"
 BOOL CInventoryBox::net_Spawn(CSE_Abstract* DC)
 {
 	inherited::net_Spawn	(DC);

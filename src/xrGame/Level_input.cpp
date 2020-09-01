@@ -28,7 +28,7 @@
 
 //Alundaio
 #include "pch_script.h"
-#include "../../xrServerEntities/script_engine.h" 
+#include "../../xrServer/script_engine.h" 
 using namespace luabind; 
 //-Alundaio
 

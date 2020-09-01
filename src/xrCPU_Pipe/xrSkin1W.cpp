@@ -6,11 +6,7 @@
  	#include "skeletoncustom.h"
 #else
 #include "../xrEngine/bone.h"
-#include "../Layers/xrRender/SkeletonXVertRender.h"
-//#	include "../xrEngine/skeletonX.h"
-//#	include "../xrEngine/skeletoncustom.h"
-//#	include "../Layers/xrRender/skeletonX.h"
-//#	include "../Layers/xrRender/skeletoncustom.h"
+#include "../xrRenders/xrRender/SkeletonXVertRender.h"
 #endif
 
 void __stdcall xrSkin1W_x86(	vertRender*		D,

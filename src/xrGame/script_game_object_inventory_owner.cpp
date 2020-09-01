@@ -1717,7 +1717,7 @@ void CScriptGameObject::IterateInstalledUpgrades(luabind::functor<void> functor)
 #include "inventory_item.h"
 #include "inventory.h"
 #include "xrserver_objects_alife_items.h"
-#include "./xrServerEntities/inventory_space.h"
+#include "./xrServer/inventory_space.h"
 CScriptGameObject *CScriptGameObject::ItemOnBelt	(u32 item_id) const
 {
 	CInventoryOwner	*inventory_owner = smart_cast<CInventoryOwner*>(&object());

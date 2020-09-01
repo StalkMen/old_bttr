@@ -34,7 +34,7 @@
 #endif // MASTER_GOLD
 
 //Alundaio
-#include "../../xrServerEntities/script_engine.h"
+#include "../../xrServer/script_engine.h"
 #include "script_game_object.h"
 using namespace luabind; //Alundaio
 //-Alundaio

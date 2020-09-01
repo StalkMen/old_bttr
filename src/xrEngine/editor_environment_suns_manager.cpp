@@ -13,7 +13,7 @@
 #include "editor_environment_suns_sun.hpp"
 #include "../include/editor/ide.hpp"
 #include "../include/editor/property_holder.hpp"
-#include "../xrServerEntities/object_broker.h"
+#include "../xrServer/object_broker.h"
 #include "ide.hpp"
 #include "property_collection.hpp"
 #include "editor_environment_detail.hpp"

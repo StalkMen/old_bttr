@@ -15,8 +15,8 @@
 #endif
 //#include "PHCommander.h"
 //#include "PHSimpleCalls.h"
-#include "../xrserverentities/PHSynchronize.h"
-#include "../xrserverentities/phnetstate.h"
+#include "../xrServer/PHSynchronize.h"
+#include "../xrServer/phnetstate.h"
 #include "geometrybits.h"
 #include "console_vars.h"
 #include "../xrengine/device.h"

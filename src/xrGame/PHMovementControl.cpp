@@ -2,7 +2,7 @@
 #include "phmovementcontrol.h"
 
 #include "../xrEngine/cl_intersect.h"
-#include "../xrserverentities/alife_space.h"
+#include "../xrServer/alife_space.h"
 
 //#include "entity.h"
 //#include "PHDynamicData.h"
@@ -20,7 +20,6 @@
 #include "../xrphysics/phvalide.h"
 #include "../xrphysics/physicsshell.h"
 #include "../xrphysics/iphworld.h"
-//#include "../xrserverentities/ai_space.h"
 #include "detail_path_manager.h"
 #include "../xrEngine/gamemtllib.h"
 #include "../xrEngine/xr_object.h"

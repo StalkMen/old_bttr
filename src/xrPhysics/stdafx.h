@@ -9,7 +9,7 @@
 
 #include "../xrCore/xrCore.h"
 
-#include "../xrServerEntities/smart_cast.h"
+#include "../xrServer/smart_cast.h"
 //#include "../xrEngine/pure.h"
 //#include "../xrEngine/engineapi.h"
 //#include "../xrEngine/eventapi.h"
