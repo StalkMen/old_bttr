@@ -91,6 +91,9 @@
     <Filter Include="Sync">
       <UniqueIdentifier>{d2a43ce3-bb15-434b-b4c2-9a40b0de800c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="XML_Parser">
+      <UniqueIdentifier>{3531f73c-13aa-40d1-bea0-24de6646b25e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FTimer.cpp">
@@ -299,6 +302,18 @@
     </ClCompile>
     <ClCompile Include="xrSyncronize.cpp">
       <Filter>Sync</Filter>
+    </ClCompile>
+    <ClCompile Include="XML_Parser\tinyxml.cpp">
+      <Filter>XML_Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="XML_Parser\tinyxmlerror.cpp">
+      <Filter>XML_Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="XML_Parser\tinyxmlparser.cpp">
+      <Filter>XML_Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="XML_Parser\xrXMLParser.cpp">
+      <Filter>XML_Parser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -619,6 +634,12 @@
     </ClInclude>
     <ClInclude Include="xrSyncronize.h">
       <Filter>Sync</Filter>
+    </ClInclude>
+    <ClInclude Include="XML_Parser\tinyxml.h">
+      <Filter>XML_Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="XML_Parser\xrXMLParser.h">
+      <Filter>XML_Parser</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
