@@ -356,6 +356,10 @@
     <ClCompile Include="stream_reader.cpp" />
     <ClCompile Include="string_concatenations.cpp" />
     <ClCompile Include="xrCore.cpp" />
+	<ClCompile Include="XML_Parser\tinyxml.cpp" />
+    <ClCompile Include="XML_Parser\tinyxmlerror.cpp" />
+    <ClCompile Include="XML_Parser\tinyxmlparser.cpp" />
+    <ClCompile Include="XML_Parser\xrXMLParser.cpp" />
     <ClCompile Include="xrDebug.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">true</ExcludedFromBuild>
@@ -461,6 +465,8 @@
     <ClInclude Include="SubAlloc.hpp" />
     <ClInclude Include="vector.h" />
     <ClInclude Include="xrCore.h" />
+	<ClInclude Include="XML_Parser\tinyxml.h" />
+    <ClInclude Include="XML_Parser\xrXMLParser.h" />
     <ClInclude Include="xrCore_platform.h" />
     <ClInclude Include="xrDebug.h" />
     <ClInclude Include="xrDebug_macros.h" />
