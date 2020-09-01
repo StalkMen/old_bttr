@@ -2323,21 +2323,6 @@
     <Filter Include="xrGame_monsters\Cat\Script">
       <UniqueIdentifier>{4eed3f99-7eb7-4136-b1f0-89f6b67c25c4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="xrGame_monsters\Chimera">
-      <UniqueIdentifier>{f9fd2d0f-ce89-4e64-aece-aa59b8e72bb1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Chimera\state threaten">
-      <UniqueIdentifier>{c027367f-d461-4d2e-894e-0f37610af676}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Chimera\state hunting">
-      <UniqueIdentifier>{b09f7bd7-7bf3-4cc0-9a9a-9bbe02d7b131}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Chimera\Script">
-      <UniqueIdentifier>{7ce139e5-922b-4707-a14e-2ad0f6111065}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Chimera\states">
-      <UniqueIdentifier>{8d6475ec-c185-4ebb-9ba6-e7dc1644c4c1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="xrGame_monsters\Controller">
       <UniqueIdentifier>{a8e904bd-f2f1-44e0-9dbc-a14e7abc3259}</UniqueIdentifier>
     </Filter>
@@ -2508,6 +2493,24 @@
     </Filter>
     <Filter Include="xrGame_monsters\Burer_SoC">
       <UniqueIdentifier>{5c946145-65a5-4089-9925-1a10c7657e8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Chimera_CoP">
+      <UniqueIdentifier>{f9fd2d0f-ce89-4e64-aece-aa59b8e72bb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Chimera_CoP\state threaten">
+      <UniqueIdentifier>{c027367f-d461-4d2e-894e-0f37610af676}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Chimera_CoP\state hunting">
+      <UniqueIdentifier>{b09f7bd7-7bf3-4cc0-9a9a-9bbe02d7b131}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Chimera_CoP\Script">
+      <UniqueIdentifier>{7ce139e5-922b-4707-a14e-2ad0f6111065}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Chimera_CoP\states">
+      <UniqueIdentifier>{8d6475ec-c185-4ebb-9ba6-e7dc1644c4c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Chimera_CS">
+      <UniqueIdentifier>{35fc23f4-9211-47c9-b6cf-b5f8c333a63a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -4216,52 +4219,52 @@
       <Filter>xrGame_monsters\Burer_CoP\Fast Gravi</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera.h">
-      <Filter>xrGame_monsters\Chimera</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_manager.h">
-      <Filter>xrGame_monsters\Chimera</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten.h">
-      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_inline.h">
-      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_roar.h">
-      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_roar_inline.h">
-      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_steal.h">
-      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_steal_inline.h">
-      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_walk.h">
-      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_walk_inline.h">
-      <Filter>xrGame_monsters\Chimera\state threaten</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state threaten</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_hunting.h">
-      <Filter>xrGame_monsters\Chimera\state hunting</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_hunting_come_out.h">
-      <Filter>xrGame_monsters\Chimera\state hunting</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_hunting_come_out_inline.h">
-      <Filter>xrGame_monsters\Chimera\state hunting</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_hunting_inline.h">
-      <Filter>xrGame_monsters\Chimera\state hunting</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_hunting_move_to_cover.h">
-      <Filter>xrGame_monsters\Chimera\state hunting</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_hunting_move_to_cover_inline.h">
-      <Filter>xrGame_monsters\Chimera\state hunting</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudo_gigant.h">
       <Filter>xrGame_monsters\PseudoGigant</Filter>
@@ -7570,6 +7573,60 @@
     <ClInclude Include="ai\Monsters\Burcs\burcs_state_manager.h">
       <Filter>xrGame_monsters\Burer_SoC</Filter>
     </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_attack_run.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_attack_run_inline.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_hunting.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_hunting_come_out.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_hunting_come_out_inline.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_hunting_inline.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_hunting_move_to_cover.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_hunting_move_to_cover_inline.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_manager.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_inline.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_roar.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_roar_inline.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_steal.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_steal_inline.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_walk.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_walk_inline.h">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -8296,13 +8353,13 @@
       <Filter>xrGame_monsters\Burer_CoP\Fast Gravi</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Chimera\chimera.cpp">
-      <Filter>xrGame_monsters\Chimera</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Chimera\chimera_state_manager.cpp">
-      <Filter>xrGame_monsters\Chimera</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Chimera\chimera_script.cpp">
-      <Filter>xrGame_monsters\Chimera\Script</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudo_gigant.cpp">
       <Filter>xrGame_monsters\PseudoGigant</Filter>
@@ -11272,13 +11329,22 @@
     <ClCompile Include="ai\Monsters\Burcs\burcs_state_manager.cpp">
       <Filter>xrGame_monsters\Burer_SoC</Filter>
     </ClCompile>
+    <ClCompile Include="ai\Monsters\Chimera_cs\chimera_cs.cpp">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Chimera_cs\chimera_cs_script.cpp">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Chimera_cs\chimera_cs_state_manager.cpp">
+      <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="ai\monsters\chimera\chimera_attack_state.h">
-      <Filter>xrGame_monsters\Chimera\states</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\states</Filter>
     </CustomBuild>
     <CustomBuild Include="ai\monsters\chimera\chimera_attack_state_inline.h">
-      <Filter>xrGame_monsters\Chimera\states</Filter>
+      <Filter>xrGame_monsters\Chimera_CoP\states</Filter>
     </CustomBuild>
     <CustomBuild Include="graph_abstract.h">
       <Filter>AI\ANavigation\GraphAbstract</Filter>

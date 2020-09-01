@@ -539,6 +539,24 @@
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_steal_inline.h" />
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_walk.h" />
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_walk_inline.h" />
+	<ClInclude Include="ai\Monsters\chimera_cs\chimera_cs.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_walk_inline.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_walk.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_steal_inline.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_steal.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_roar_inline.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_roar.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_inline.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_manager.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_hunting_move_to_cover_inline.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_hunting_move_to_cover.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_hunting_inline.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_hunting_come_out_inline.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_hunting_come_out.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_hunting.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_attack_run_inline.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_attack_run.h" />
     <ClInclude Include="ai\Monsters\controlled_actor.h" />
     <ClInclude Include="ai\Monsters\controlled_entity.h" />
     <ClInclude Include="ai\Monsters\controlled_entity_inline.h" />
@@ -2286,6 +2304,12 @@
     <ClCompile Include="ai\Monsters\Cat\cat_state_manager.cpp" />
     <ClCompile Include="ai\Monsters\Chimera\chimera.cpp" />
     <ClCompile Include="ai\Monsters\Chimera\chimera_script.cpp">
+      <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+	<ClCompile Include="ai\Monsters\Chimera_cs\chimera_cs.cpp" />
+    <ClCompile Include="ai\Monsters\Chimera_cs\chimera_cs_state_manager.cpp" />
+    <ClCompile Include="ai\Monsters\Chimera_cs\chimera_cs_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
