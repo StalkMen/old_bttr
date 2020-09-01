@@ -2353,12 +2353,6 @@
     <Filter Include="xrGame_monsters\Crow">
       <UniqueIdentifier>{8d9832b3-4c8e-438c-99b8-9aabc897e434}</UniqueIdentifier>
     </Filter>
-    <Filter Include="xrGame_monsters\Dog">
-      <UniqueIdentifier>{4f457e84-16eb-4a6e-a8bc-811232138897}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Dog\Script">
-      <UniqueIdentifier>{d959227f-d88e-467a-8f7b-b2265ac24d51}</UniqueIdentifier>
-    </Filter>
     <Filter Include="xrGame_monsters\DogPsy">
       <UniqueIdentifier>{f84a39d3-5b90-46da-bfb2-61ac45bfd8c0}</UniqueIdentifier>
     </Filter>
@@ -2511,6 +2505,15 @@
     </Filter>
     <Filter Include="xrGame_monsters\Chimera_CS">
       <UniqueIdentifier>{35fc23f4-9211-47c9-b6cf-b5f8c333a63a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Dog_CoP">
+      <UniqueIdentifier>{4f457e84-16eb-4a6e-a8bc-811232138897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Dog_CoP\Script">
+      <UniqueIdentifier>{d959227f-d88e-467a-8f7b-b2265ac24d51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Dog_SoC">
+      <UniqueIdentifier>{2cddd796-b765-4135-850d-57e229338a98}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -4414,10 +4417,10 @@
       <Filter>xrGame_monsters\Phantom</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Dog\dog.h">
-      <Filter>xrGame_monsters\Dog</Filter>
+      <Filter>xrGame_monsters\Dog_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Dog\dog_state_manager.h">
-      <Filter>xrGame_monsters\Dog</Filter>
+      <Filter>xrGame_monsters\Dog_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\rats\ai_rat.h">
       <Filter>xrGame_monsters\Rats</Filter>
@@ -7627,6 +7630,12 @@
     <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_walk_inline.h">
       <Filter>xrGame_monsters\Chimera_CS</Filter>
     </ClInclude>
+    <ClInclude Include="ai\Monsters\Dogsoc\dogsoc.h">
+      <Filter>xrGame_monsters\Dog_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Dogsoc\dogsoc_state_manager.h">
+      <Filter>xrGame_monsters\Dog_SoC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -8467,13 +8476,13 @@
       <Filter>xrGame_monsters\Phantom</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Dog\dog.cpp">
-      <Filter>xrGame_monsters\Dog</Filter>
+      <Filter>xrGame_monsters\Dog_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Dog\dog_state_manager.cpp">
-      <Filter>xrGame_monsters\Dog</Filter>
+      <Filter>xrGame_monsters\Dog_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Dog\dog_script.cpp">
-      <Filter>xrGame_monsters\Dog\Script</Filter>
+      <Filter>xrGame_monsters\Dog_CoP\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\monsters\rats\ai_rat.cpp">
       <Filter>xrGame_monsters\Rats</Filter>
@@ -11337,6 +11346,15 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\Chimera_cs\chimera_cs_state_manager.cpp">
       <Filter>xrGame_monsters\Chimera_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Dogsoc\dogsoc.cpp">
+      <Filter>xrGame_monsters\Dog_SoC</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Dogsoc\dogsoc_script.cpp">
+      <Filter>xrGame_monsters\Dog_SoC</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Dogsoc\dogsoc_state_manager.cpp">
+      <Filter>xrGame_monsters\Dog_SoC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

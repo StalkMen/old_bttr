@@ -5,7 +5,6 @@
 // Back to the Roots
 
 	#define CONTROLLER_SOC									// Констролер ТЧ
-	#define DOG_SOC											// Слепой пес ТЧ
 	#define POLTER_SOC										// Полтергейст ТЧ
 	#define GIANT_JUMPER									// Прыгающий псевдогигант
 

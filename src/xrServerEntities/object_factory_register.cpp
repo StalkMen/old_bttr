@@ -29,6 +29,7 @@
 #	include "ai/monsters/chimera/chimera.h"
 #	include "ai/monsters/chimera_cs/chimera_cs.h"
 #	include "ai/monsters/dog/dog.h"
+#	include "ai/monsters/dogsoc/dogsoc.h"
 #	include "ai/stalker/ai_stalker.h"
 #	include "ai/monsters/bloodsucker/bloodsucker.h"
 #	include "ai/monsters/bloodsucksoc/bloodsucksoc.h"
@@ -256,6 +257,7 @@ void CObjectFactory::register_classes	()
 	ADD(CChimera				,CSE_ALifeMonsterBase			,CLSID_AI_CHIMERA				,"chimera");
 	ADD(CChimecs				,CSE_ALifeMonsterBase			,CLSID_AI_CHIMECS				,"chimecs");
 	ADD(CAI_Dog					,CSE_ALifeMonsterBase			,CLSID_AI_DOG_RED				,"dog_red");
+	ADD(CAI_Dogsoc				,CSE_ALifeMonsterBase			,CLSID_AI_DOG_SOC				,"dog_soc");
 	ADD(CAI_Stalker				,CSE_ALifeHumanStalker			,CLSID_AI_STALKER				,"stalker");
 	ADD(CAI_Bloodsucker			,CSE_ALifeMonsterBase			,CLSID_AI_BLOODSUCKER			,"bloodsucker");
 	ADD(CAI_Bloodsucksoc		,CSE_ALifeMonsterBase			,CLSID_AI_BLOODSUCKSOC			,"bloodsucksoc");
