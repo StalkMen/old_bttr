@@ -299,8 +299,9 @@ void CMapLocation::CalcLevelName()
 
 bool CMapLocation::Update() //returns actual
 {
-	R_ASSERT(m_cached.m_updatedFrame!=Device.dwFrame);
-		
+#pragma todo("OldSerpskiStalker. Пробный фикс вылета с картой")
+//	R_ASSERT(m_cached.m_updatedFrame!=Device.dwFrame);
+	ASSERT_FMT(m_cached.m_updatedFrame != Device.dwFrame, "~ OldSerpskiStalker. Trial fix of departure with the time of the card");
 
 	if(	m_flags.test(eTTL) )
 	{
