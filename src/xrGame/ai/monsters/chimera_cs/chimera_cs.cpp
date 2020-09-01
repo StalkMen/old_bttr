@@ -15,7 +15,7 @@
 
 CChimecs::CChimecs()
 {
-	StateMan = new CStateManagerChimecs(this);
+	StateMan = xr_new<CStateManagerChimecs>(this);
 	com_man().add_ability(ControlCom::eControlJump);
 }
 

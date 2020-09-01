@@ -3,9 +3,7 @@
 	
 	#define MULTITHREADING				public:				// Специальный дефайн для отделения функций потоков в device.h
 // Back to the Roots
-	#define BOAR_CS											// Кабан ТЧ
-	#define BURER_CS										// Бюрер ТЧ
-	#define CHIMERA_SOC										// Химера ТЧ
+
 	#define CONTROLLER_SOC									// Констролер ТЧ
 	#define DOG_SOC											// Слепой пес ТЧ
 	#define POLTER_SOC										// Полтергейст ТЧ

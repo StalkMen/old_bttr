@@ -1,8 +1,10 @@
 #pragma once
 
-namespace MonsterMovement {
+namespace MonsterMovement 
+{
 
-	enum EMovementParameters {
+	enum EMovementParameters 
+	{
 		eVelocityParameterIdle			= u32(1) <<	 1,
 		eVelocityParameterStand			= u32(1) <<  4,
 		eVelocityParameterWalkNormal	= u32(1) <<  3,
@@ -34,20 +36,24 @@ namespace MonsterMovement {
 		eVelocityParameterCustom		= u32(1) <<	 12,
 	};
 
-	enum EMovementParametersChimera {
+	enum EMovementParametersChimera 
+	{
 		eChimeraVelocityParameterPrepare			= eVelocityParameterCustom << 1,
 		eChimeraVelocityParameterJumpGround			= eVelocityParameterCustom << 2,
 	};
 
-	enum EMovementParametersSnork {
+	enum EMovementParametersSnork
+	{
 		eSnorkVelocityParameterJumpGround		= eVelocityParameterCustom << 2,
 	};
 
-	enum EMovementParametersBloodsucker {
+	enum EMovementParametersBloodsucker 
+	{
 		eBloodsuckerVelocityParameterJumpGround		= eVelocityParameterCustom << 2,
 	};
 
-	enum EMovementParametersController {
+	enum EMovementParametersController 
+	{
 		eControllerVelocityParameterMoveFwd		= eVelocityParameterCustom << 1,
 		eControllerVelocityParameterMoveBkwd	= eVelocityParameterCustom << 2,
 
@@ -55,11 +61,18 @@ namespace MonsterMovement {
 		eControllerVelocityParamsMoveBkwd		= eControllerVelocityParameterMoveBkwd	| eVelocityParameterStand,
 	};
 
-	enum EMovementParametersGiant {
+	enum EMovementParametersGiant
+	{
 		eGiantVelocityParameterJumpPrepare		= eVelocityParameterCustom << 1,
 		eGiantVelocityParameterJumpGround		= eVelocityParameterCustom << 2,
 	};
 
+	enum EMovementParametersChimecs 
+	{
+		eChimecsVelocityParameterUpperWalkFwd = eVelocityParameterCustom << 1,
+		eChimecsVelocityParameterJumpGround = eVelocityParameterCustom << 2,
+		eChimecsVelocityParamsUpperWalkFwd = eVelocityParameterStand | eChimecsVelocityParameterUpperWalkFwd,
+	};
 };
 
 

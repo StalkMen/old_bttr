@@ -18,7 +18,7 @@ public:
 	virtual void		finalize_cs				();
 	virtual void		critical_finalize_cs	();
 			bool		check_home_point_cs		();	
-	virtual void		remove_links			(IGameObject* object) { inherited::remove_links(object);}
+	virtual void		remove_links			(CObject* object) { inherited::remove_links(object);}
 
 private:
 	        void		choose_action			();

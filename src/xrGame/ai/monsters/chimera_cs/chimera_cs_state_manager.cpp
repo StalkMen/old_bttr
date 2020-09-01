@@ -17,30 +17,21 @@
 #include "../states/monster_state_hitted.h"
 #include "../states/monster_state_attack_melee.h"
 #include "../states/monster_state_attack_run.h"
-
-
 #include "chimera_cs_state_threaten.h"
 #include "../states/state_test_state.h"
-//#include "../group_states/group_state_home_point_attack.h"
 #include "chimera_cs_state_attack_run.h"
 
-CStateManagerChimecs::CStateManagerChimecs(CChimecs *obj) : inherited(obj)
+CStateManagerChimecs::CStateManagerChimecs(CChimecs* obj) : inherited(obj)
 {
-	//CStateMonsterAttackMoveToHomePoint<CChimecs>* move2home = 
- 	//new CStateMonsterAttackMoveToHomePoint<CChimecs> (obj, true);
-	
-	add_state(eStateRest,					new CStateMonsterRest<CChimecs> 					(obj));
-	add_state(eStatePanic,					new CStateMonsterPanic<CChimecs> 					(obj));
-	
-    add_state(eStateAttack,					new CStateChimecsAttackRun<CChimecs> 			    (obj));
-
- 	//add_state(eStateAttack, new CStateChimecsAttackRun<CChimecs>(obj, move2home));
-	add_state(eStateEat,					new CStateMonsterEat<CChimecs> 						(obj));
-	add_state(eStateHearInterestingSound,	new CStateMonsterHearInterestingSound<CChimecs> 	(obj));
-	add_state(eStateHearDangerousSound,		new CStateMonsterHearDangerousSound<CChimecs> 		(obj));
-	add_state(eStateHitted,					 new CStateMonsterHitted<CChimecs> 					(obj));
-	add_state(eStateThreaten,				new CStateChimecsThreaten<CChimecs> 				(obj));
-	add_state(eStateCustom,					new CStateMonsterTestState<CChimecs> 				(obj));
+	add_state(eStateRest, xr_new<CStateMonsterRest<CChimecs>>(obj));
+	add_state(eStatePanic, xr_new<CStateMonsterPanic<CChimecs> 		>(obj));
+	add_state(eStateAttack, xr_new <CStateChimecsAttackRun<CChimecs> >(obj));
+	add_state(eStateEat, xr_new <CStateMonsterEat<CChimecs>>(obj));
+	add_state(eStateHearInterestingSound, xr_new <CStateMonsterHearInterestingSound<CChimecs> >(obj));
+	add_state(eStateHearDangerousSound, xr_new <CStateMonsterHearDangerousSound<CChimecs> 	>(obj));
+	add_state(eStateHitted, xr_new <CStateMonsterHitted<CChimecs> 		>(obj));
+	add_state(eStateThreaten, xr_new <CStateChimecsThreaten<CChimecs> 	>(obj));
+	add_state(eStateCustom, xr_new <CStateMonsterTestState<CChimecs> 	>(obj));
 }
 
 CStateManagerChimecs::~CStateManagerChimecs()

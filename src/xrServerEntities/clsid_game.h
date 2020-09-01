@@ -29,6 +29,7 @@
 #define CLSID_AI_BURCS				MK_CLSID('A','I','_','B','U','R','C','S')
 #define CLSID_AI_GIANT				MK_CLSID('A','I','_','G','I','A','N','T')
 #define CLSID_AI_CHIMERA			MK_CLSID('A','I','_','H','I','M','E','R')
+#define CLSID_AI_CHIMECS			MK_CLSID('A','I','_','H','I','M','C','S')
 #define CLSID_AI_FRACTURE			MK_CLSID('A','I','_','F','R','A','C','T')
 #define CLSID_AI_DOG_BLACK			MK_CLSID('A','I','_','D','O','G','_','B')
 #define CLSID_AI_DOG_RED			MK_CLSID('A','I','_','D','O','G','_','R')

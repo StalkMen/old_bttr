@@ -1,10 +1,14 @@
 #include "pch_script.h"
-
 #include "chimera_cs.h"
-#include "xrScriptEngine/ScriptExporter.hpp"
 
-    using namespace luabind;
+using namespace luabind;
 
-SCRIPT_EXPORT(
-    CChimecs, (CGameObject), { module(luaState)[class_<CChimecs, CGameObject>("CChimecs").def(constructor<>())]; });
-
+#pragma optimize("s",on)
+void CChimecs::script_register(lua_State* L)
+{
+	module(L)
+		[
+			class_<CChimecs, CGameObject>("CChimecs")
+			.def(constructor<>())
+		];
+}
