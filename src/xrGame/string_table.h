@@ -30,6 +30,7 @@ public:
 
 	static	BOOL				m_bWriteErrorsToLog;
 	static	void				ReparseKeyBindings		();
+			void				ReloadLanguage();
 private:
 			void				Init					();
 			void				Load					(LPCSTR xml_file);
