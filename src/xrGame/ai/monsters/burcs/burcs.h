@@ -14,7 +14,7 @@ class CBurcs :	public CBaseMonster,
 	typedef		CBaseMonster				inherited;
 
 private:
-	xr_vector<IGObj*>	m_nearest;
+	xr_vector<CObject*>	m_nearest;
 
 public:
 	typedef		CScanningAbility<CBurcs>	TScanner;
@@ -117,11 +117,11 @@ public:
 	virtual void	Load				(LPCSTR section);
 
 	virtual void	net_Destroy			();
-	virtual void	net_Relcase			(IGObj*O);
+	virtual void	net_Relcase			(CObject*O);
 	virtual	void	shedule_Update		(u32 dt);
 	virtual void	UpdateCL			();
 	virtual	void	Hit					(SHit* pHDS);
-	virtual void	Die					(IGObj* who);
+	virtual void	Die					(CObject* who);
 			void	ProcessTurn			();
 	virtual void	CheckSpecParams		(u32 spec_params);
 
@@ -137,7 +137,7 @@ public:
 			void	DeactivateShield	() {m_shield_active = false;}
 
 	virtual bool	ability_distant_feel() {return true;}
-	pcstr			get_monster_class_name() override { return "burcs"; }
+	virtual	char*   get_monster_class_name() { return "burcs"; }
 	virtual void	on_scanning			();
 	virtual void	on_scan_success		();
 
@@ -145,5 +145,10 @@ public:
 	SAnimationTripleData	anim_triple_gravi;
 	SAnimationTripleData	anim_triple_tele;
 
+	DECLARE_SCRIPT_REGISTER_FUNCTION
 
 };
+
+add_to_type_list(CBurcs)
+#undef script_type_list
+#define script_type_list save_type_list(CBurcs)

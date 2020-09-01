@@ -90,6 +90,7 @@
 #	include "ai/monsters/pseudodog/pseudodog.h"
 #	include "ai/monsters/pseudodog/psy_dog.h"
 #	include "ai/monsters/burer/burer.h"
+#	include "ai/monsters/burcs/burcs.h"
 #	include "ai/monsters/chimera/chimera.h"
 #	include "ai/monsters/pseudogigant/pseudo_gigant.h"
 #	include "ai/monsters/poltergeist/poltergeist.h"

@@ -20,14 +20,14 @@
 
 CStateManagerBurcs::CStateManagerBurcs(CBurcs *monster) : inherited(monster)
 {
-	add_state(eStateRest,					xr_new CStateMonsterRest<CBurcs> 					(monster));
-	add_state(eStatePanic,					xr_new CStateMonsterPanic<CBurcs> 					(monster));
-	add_state(eStateAttack,					xr_new CStateBurcsAttack<CBurcs> 					(monster));
-	add_state(eStateEat,					xr_new CStateMonsterEat<CBurcs> 					(monster));
-	add_state(eStateHearInterestingSound,	xr_new CStateMonsterHearInterestingSound<CBurcs> 	(monster));
-	add_state(eStateHearDangerousSound,		xr_new CStateMonsterHearDangerousSound<CBurcs> 	(monster));
-	add_state(eStateHitted,					xr_new CStateMonsterHitted<CBurcs> 				(monster));
-	add_state(eStateBurcsScanning,			xr_new CStateMonsterCustomAction<CBurcs> 				(monster));
+	add_state(eStateRest,					xr_new<CStateMonsterRest<CBurcs>> (monster));
+	add_state(eStatePanic,					xr_new<CStateMonsterPanic<CBurcs>>(monster));
+	add_state(eStateAttack,					xr_new<CStateBurcsAttack<CBurcs>>(monster));
+	add_state(eStateEat,					xr_new<CStateMonsterEat<CBurcs>>(monster));
+	add_state(eStateHearInterestingSound,	xr_new<CStateMonsterHearInterestingSound<CBurcs>>(monster));
+	add_state(eStateHearDangerousSound,		xr_new<CStateMonsterHearDangerousSound<CBurcs>>(monster));
+	add_state(eStateHitted,					xr_new<CStateMonsterHitted<CBurcs>>(monster));
+	add_state(eStateBurerScanning,			xr_new<CStateMonsterCustomAction<CBurcs>>(monster));
 }
 
 #define SCAN_STATE_TIME 4000
@@ -52,7 +52,7 @@ void CStateManagerBurcs::execute()
 	} 
 	else if (object->time_last_scan + SCAN_STATE_TIME > Device.dwTimeGlobal)
 	{
-		state = eStateBurcsScanning;
+		state = eStateBurerScanning;
 	} 
 	else if (can_eat()) 
 	{
@@ -70,7 +70,8 @@ void CStateManagerBurcs::execute()
 
 void CStateManagerBurcs::setup_substates()
 {
-	if (current_substate == eStateBurcsScanning) {
+	if (current_substate == eStateBurerScanning) 
+	{
 		SStateDataAction	data;
 		
 		data.action			= ACT_LOOK_AROUND;

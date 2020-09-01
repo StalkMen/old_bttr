@@ -29,10 +29,10 @@ bool CBurcs::can_scan = true;
 
 CBurcs::CBurcs()
 {
-	StateMan = xr_new CStateManagerBurcs(this);
+	StateMan = xr_new<CStateManagerBurcs>(this);
 	TScanner::init_external(this);
 
-	m_fast_gravi		= xr_new CBurcsFastGravi();
+	m_fast_gravi		= xr_new<CBurcsFastGravi>();
 	control().add		(m_fast_gravi,  ControlCom::eComCustom1);
 
 }
@@ -65,8 +65,8 @@ void CBurcs::reload(LPCSTR section)
 	inherited::reload	(section);
 
 	// add specific sounds
-	sound().add			(true, pSettings->r_string(section,"sound_gravi_attack"),	DEFAULT_SAMPLE_COUNT,	SOUND_TYPE_MONSTER_ATTACKING,	MonsterSound::eHighPriority + 2,	u32(MonsterSound::eBaseChannel),	eMonsterSoundGraviAttack, "bip01_head");
-	sound().add			(true, pSettings->r_string(section,"sound_tele_attack"),	DEFAULT_SAMPLE_COUNT,	SOUND_TYPE_MONSTER_ATTACKING,	MonsterSound::eHighPriority + 3,	u32(MonsterSound::eBaseChannel),	eMonsterSoundTeleAttack, "bip01_head");
+	sound().add			(pSettings->r_string(section,"sound_gravi_attack"),	DEFAULT_SAMPLE_COUNT,	SOUND_TYPE_MONSTER_ATTACKING,	MonsterSound::eHighPriority + 2,	u32(MonsterSound::eBaseChannel),	eMonsterSoundGraviAttack, "bip01_head");
+	sound().add			(pSettings->r_string(section,"sound_tele_attack"),	DEFAULT_SAMPLE_COUNT,	SOUND_TYPE_MONSTER_ATTACKING,	MonsterSound::eHighPriority + 3,	u32(MonsterSound::eBaseChannel),	eMonsterSoundTeleAttack, "bip01_head");
 
 	// add triple animations
 	com_man().ta_fill_data(anim_triple_gravi,	"stand_gravi_0",	"stand_gravi_1",	"stand_gravi_2",	TA_EXECUTE_ONCE, TA_DONT_SKIP_PREPARE, ControlCom::eCapturePath | ControlCom::eCaptureMovement);
@@ -89,9 +89,9 @@ void CBurcs::Load(LPCSTR section)
 	particle_gravi_prepare	= pSettings->r_string(section,"Particle_Gravi_Prepare");
 	particle_tele_object	= pSettings->r_string(section,"Particle_Tele_Object");
 	
-	GEnv.Sound->create(sound_gravi_wave,	pSettings->r_string(section,"sound_gravi_wave"),st_Effect,SOUND_TYPE_WORLD);
-	GEnv.Sound->create(sound_tele_hold,	pSettings->r_string(section,"sound_tele_hold"),	st_Effect,SOUND_TYPE_WORLD);
-	GEnv.Sound->create(sound_tele_throw,	pSettings->r_string(section,"sound_tele_throw"),st_Effect,SOUND_TYPE_WORLD);
+	::Sound->create(sound_gravi_wave,	pSettings->r_string(section,"sound_gravi_wave"),st_Effect,SOUND_TYPE_WORLD);
+	::Sound->create(sound_tele_hold,	pSettings->r_string(section,"sound_tele_hold"),	st_Effect,SOUND_TYPE_WORLD);
+	::Sound->create(sound_tele_throw,	pSettings->r_string(section,"sound_tele_throw"),st_Effect,SOUND_TYPE_WORLD);
 
 	m_gravi_speed					= pSettings->r_u32(section,"Gravi_Speed");
 	m_gravi_step					= pSettings->r_u32(section,"Gravi_Step");
@@ -180,7 +180,7 @@ void CBurcs::CheckSpecParams(u32 spec_params)
 void CBurcs::UpdateGraviObject()
 {
 	if (!m_gravi_object.active) return;
-	
+
 	if (!m_gravi_object.enemy || (m_gravi_object.enemy && m_gravi_object.enemy->getDestroy())) {
 		m_gravi_object.deactivate();
 		return;
@@ -192,16 +192,16 @@ void CBurcs::UpdateGraviObject()
 	}
 
 	float dt = float(Device.dwTimeGlobal - m_gravi_object.time_last_update);
-	float dist = dt * float(m_gravi_speed)/1000.f;
-		
+	float dist = dt * float(m_gravi_speed) / 1000.f;
+
 	if (dist < m_gravi_step) return;
-	
+
 	Fvector new_pos;
 	Fvector dir;
-	dir.sub(m_gravi_object.target_pos,m_gravi_object.cur_pos);
+	dir.sub(m_gravi_object.target_pos, m_gravi_object.cur_pos);
 	dir.normalize();
-	
-	new_pos.mad(m_gravi_object.cur_pos,dir,dist);
+
+	new_pos.mad(m_gravi_object.cur_pos, dir, dist);
 
 	// Trace to enemy 
 	Fvector enemy_center;
@@ -210,29 +210,29 @@ void CBurcs::UpdateGraviObject()
 	dir.normalize();
 
 	float trace_dist = float(m_gravi_step);
-	
+
 	collide::rq_result	l_rq;
 	if (Level().ObjectSpace.RayPick(new_pos, dir, trace_dist, collide::rqtBoth, l_rq, NULL)) {
-		const IGObj*enemy = smart_cast<const IGObj*>(m_gravi_object.enemy);
+		const CObject* enemy = smart_cast<const CObject*>(m_gravi_object.enemy);
 		if ((l_rq.O == enemy) && (l_rq.range < trace_dist)) {
-			
+
 			// check for visibility
 			bool b_enemy_visible = false;
-			xr_vector<IGObj*> visible_objects;
+			xr_vector<CObject*> visible_objects;
 			feel_vision_get(visible_objects);
 
 			// find object
-			for (u32 i = 0; i<visible_objects.size(); i++) {
+			for (u32 i = 0; i < visible_objects.size(); i++) {
 				if (visible_objects[i] == enemy) {
 					b_enemy_visible = true;
 					break;
 				}
 			}
-			
+
 			if (b_enemy_visible) {
 				Fvector impulse_dir;
 
-				impulse_dir.set(0.0f,0.0f,1.0f);
+				impulse_dir.set(0.0f, 0.0f, 1.0f);
 				impulse_dir.normalize();
 
 				HitEntity(m_gravi_object.enemy, m_gravi_hit_power, m_gravi_impulse_to_enemy, impulse_dir);
@@ -241,45 +241,46 @@ void CBurcs::UpdateGraviObject()
 			}
 		}
 	}
-																								
-	m_gravi_object.cur_pos				= new_pos;
-	m_gravi_object.time_last_update		= Device.dwTimeGlobal;
+
+	m_gravi_object.cur_pos = new_pos;
+	m_gravi_object.time_last_update = Device.dwTimeGlobal;
 
 	// ---------------------------------------------------------------------
 	// draw particle
-	CParticlesObject* ps = CParticlesObject::Create(particle_gravi_wave,TRUE);
+	CParticlesObject* ps = CParticlesObject::Create(particle_gravi_wave, TRUE);
 
 	// вычислить позицию и направленность партикла
-	Fmatrix pos; 
+	Fmatrix pos;
 	pos.identity();
 	pos.k.set(dir);
-	Fvector::generate_orthonormal_basis_normalized(pos.k,pos.j,pos.i);
+	Fvector::generate_orthonormal_basis_normalized(pos.k, pos.j, pos.i);
 	// установить позицию
 	pos.translate_over(m_gravi_object.cur_pos);
 
 	ps->UpdateParent(pos, zero_vel);
 	ps->Play(false);
-	
+
 	// hit objects
 	m_nearest.clear();
-	Level().ObjectSpace.GetNearest	(m_nearest,m_gravi_object.cur_pos, m_gravi_radius, NULL); 
-	for (u32 i=0;i<m_nearest.size();i++) {
-		CPhysicsShellHolder  *obj = smart_cast<CPhysicsShellHolder *>(m_nearest[i]);
+	Level().ObjectSpace.GetNearest(m_nearest, m_gravi_object.cur_pos, m_gravi_radius, NULL);
+	for (u32 i = 0; i < m_nearest.size(); i++) 
+	{
+		CPhysicsShellHolder* obj = smart_cast<CPhysicsShellHolder*>(m_nearest[i]);
 		if (!obj || !obj->m_pPhysicsShell) continue;
-		
+
 		Fvector dir;
 		dir.sub(obj->Position(), m_gravi_object.cur_pos);
 		dir.normalize();
-		obj->m_pPhysicsShell->applyImpulse(dir,m_gravi_impulse_to_objects * obj->m_pPhysicsShell->getMass());
+		obj->m_pPhysicsShell->applyImpulse(dir, m_gravi_impulse_to_objects * obj->m_pPhysicsShell->getMass());
 	}
 
 	// играть звук
 	Fvector snd_pos = m_gravi_object.cur_pos;
 	snd_pos.y += 0.5f;
-	if (sound_gravi_wave._feedback())		
+	if (sound_gravi_wave._feedback())
 		sound_gravi_wave.set_position(snd_pos);
-	else 
-		GEnv.Sound->play_at_pos(sound_gravi_wave,0,snd_pos);
+	else
+		::Sound->play_at_pos(sound_gravi_wave, 0, snd_pos);
 }
 
 void CBurcs::UpdateCL()
@@ -346,7 +347,7 @@ void	CBurcs::Hit								(SHit* pHDS)
 }
 
 
-void CBurcs::Die(IGObj* who)
+void CBurcs::Die(CObject* who)
 {
 	inherited::Die(who);
 	TScanner::on_destroy();
@@ -368,7 +369,7 @@ void CBurcs::on_scan_success()
 	EnemyMan.add_enemy(pA);
 }
 
-void CBurcs::net_Relcase(IGObj*O)
+void CBurcs::net_Relcase(CObject*O)
 {
 	inherited::net_Relcase		(O);
 

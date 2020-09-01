@@ -9,6 +9,6 @@ public:
 					CStateManagerBurcs		(CBurcs *monster); 
 	virtual void	execute					();
 	virtual void	setup_substates			();
-	virtual void	remove_links			(IGObj* object) { inherited::remove_links(object);}
+	virtual void	remove_links			(CObject* object) { inherited::remove_links(object);}
 };
 

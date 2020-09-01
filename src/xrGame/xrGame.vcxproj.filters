@@ -2317,18 +2317,6 @@
     <Filter Include="xrGame_monsters">
       <UniqueIdentifier>{89719f57-8f5f-4819-a5b6-1eba2c6a9d96}</UniqueIdentifier>
     </Filter>
-    <Filter Include="xrGame_monsters\Burer">
-      <UniqueIdentifier>{a080b1ff-f8ba-40ab-b768-14b7b69a492a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Burer\Script">
-      <UniqueIdentifier>{a1c33576-7289-4432-a4e1-133e01fa1002}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Burer\Attack">
-      <UniqueIdentifier>{e6eee127-3b42-48e4-b2f7-cbbe436fb15c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Burer\Fast Gravi">
-      <UniqueIdentifier>{e89d6463-92a7-462e-b7f7-5b486742861e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="xrGame_monsters\Cat">
       <UniqueIdentifier>{200fdbb6-d390-41b7-8fe4-22b76ee26ca7}</UniqueIdentifier>
     </Filter>
@@ -2505,6 +2493,21 @@
     </Filter>
     <Filter Include="Class_Registrator">
       <UniqueIdentifier>{f9d9f4d8-7a4e-4908-8c58-feffb2ff56a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Burer_CoP">
+      <UniqueIdentifier>{a080b1ff-f8ba-40ab-b768-14b7b69a492a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Burer_CoP\Script">
+      <UniqueIdentifier>{a1c33576-7289-4432-a4e1-133e01fa1002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Burer_CoP\Attack">
+      <UniqueIdentifier>{e6eee127-3b42-48e4-b2f7-cbbe436fb15c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Burer_CoP\Fast Gravi">
+      <UniqueIdentifier>{e89d6463-92a7-462e-b7f7-5b486742861e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Burer_SoC">
+      <UniqueIdentifier>{5c946145-65a5-4089-9925-1a10c7657e8c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -4162,55 +4165,55 @@
       <Filter>xrGame_monsters\Crow</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer.h">
-      <Filter>xrGame_monsters\Burer</Filter>
+      <Filter>xrGame_monsters\Burer_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_manager.h">
-      <Filter>xrGame_monsters\Burer</Filter>
+      <Filter>xrGame_monsters\Burer_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\burer\burer_state_attack_antiaim.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\burer\burer_state_attack_antiaim_inline.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_gravi.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_gravi_inline.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_inline.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_melee.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_melee_inline.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_run_around.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_run_around_inline.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\burer\burer_state_attack_shield.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\monsters\burer\burer_state_attack_shield_inline.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_tele.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_tele_inline.h">
-      <Filter>xrGame_monsters\Burer\Attack</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Burer\burer_fast_gravi.h">
-      <Filter>xrGame_monsters\Burer\Fast Gravi</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Fast Gravi</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Chimera\chimera.h">
       <Filter>xrGame_monsters\Chimera</Filter>
@@ -7528,6 +7531,45 @@
     <ClInclude Include="..\xrServerEntities\clsid_game.h">
       <Filter>Class_Registrator</Filter>
     </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs_fast_gravi.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_gravi.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_inline.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_gravi_inline.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_melee_inline.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_melee.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_run_around.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_run_around_inline.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_tele.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_tele_inline.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_manager.h">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -8242,16 +8284,16 @@
       <Filter>xrGame_monsters\Crow</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Burer\burer.cpp">
-      <Filter>xrGame_monsters\Burer</Filter>
+      <Filter>xrGame_monsters\Burer_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Burer\burer_state_manager.cpp">
-      <Filter>xrGame_monsters\Burer</Filter>
+      <Filter>xrGame_monsters\Burer_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Burer\burer_script.cpp">
-      <Filter>xrGame_monsters\Burer\Script</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Burer\burer_fast_gravi.cpp">
-      <Filter>xrGame_monsters\Burer\Fast Gravi</Filter>
+      <Filter>xrGame_monsters\Burer_CoP\Fast Gravi</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Chimera\chimera.cpp">
       <Filter>xrGame_monsters\Chimera</Filter>
@@ -11217,6 +11259,18 @@
     </ClCompile>
     <ClCompile Include="..\xrServerEntities\object_factory_register.cpp">
       <Filter>Class_Registrator</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Burcs\burcs.cpp">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Burcs\burcs_fast_gravi.cpp">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Burcs\burcs_script.cpp">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Burcs\burcs_state_manager.cpp">
+      <Filter>xrGame_monsters\Burer_SoC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

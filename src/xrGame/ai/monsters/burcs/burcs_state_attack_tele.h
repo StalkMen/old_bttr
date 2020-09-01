@@ -9,7 +9,7 @@ class CStateBurcsAttackTele : public CState<_Object>
 
 	xr_vector<CPhysicsShellHolder *>	tele_objects;
 	CPhysicsShellHolder					*selected_object;
-	xr_vector<IGObj*>					m_nearest;
+	xr_vector<CObject*>					m_nearest;
 	
 	u32									time_started;
 
@@ -30,7 +30,7 @@ public:
 	virtual	void		execute					();
 	virtual void		finalize				();
 	virtual void		critical_finalize		();
-	virtual void		remove_links			(IGObj* object) { inherited::remove_links(object);}
+	virtual void		remove_links			(CObject* object) { inherited::remove_links(object);}
 
 	virtual bool		check_start_conditions	();
 	virtual bool		check_completion		();
@@ -54,7 +54,7 @@ private:
 			void		SelectObjects			();
 
 			// internal for FindObjects
-			void		FindFreeObjects			(xr_vector<IGObj*> &tpObjects, const Fvector &pos);
+			void		FindFreeObjects			(xr_vector<CObject*> &tpObjects, const Fvector &pos);
 
 private:
 };

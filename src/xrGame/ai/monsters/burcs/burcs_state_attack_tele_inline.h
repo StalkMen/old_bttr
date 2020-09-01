@@ -140,7 +140,7 @@ bool CStateBurcsAttackTeleAbstract::check_completion()
 //////////////////////////////////////////////////////////////////////////
 
 template <typename _Object>
-void CStateBurcsAttackTeleAbstract::FindFreeObjects(xr_vector<IGObj*> &tpObjects, const Fvector &pos)
+void CStateBurcsAttackTeleAbstract::FindFreeObjects(xr_vector<CObject*> &tpObjects, const Fvector &pos)
 {
 	Level().ObjectSpace.GetNearest	(tpObjects, pos, object->m_tele_find_radius, NULL);
 
