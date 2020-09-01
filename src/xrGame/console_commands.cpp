@@ -2060,38 +2060,21 @@ void CCC_RegisterCommands()
 	CMD1(CCC_PHIterations, "ph_iterations");
 
 #ifdef DEBUG
-	CMD1(CCC_PHGravity, "ph_gravity");
 	CMD4(CCC_FloatBlock, "ph_timefactor", &phTimefactor, 0.000001f, 1000.f);
 	CMD4(CCC_FloatBlock, "ph_break_common_factor", &ph_console::phBreakCommonFactor, 0.f, 1000000000.f);
 	CMD4(CCC_FloatBlock, "ph_rigid_break_weapon_factor", &ph_console::phRigidBreakWeaponFactor, 0.f, 1000000000.f);
 	CMD4(CCC_Integer, "ph_tri_clear_disable_count", &ph_console::ph_tri_clear_disable_count, 0, 255);
 	CMD4(CCC_FloatBlock, "ph_tri_query_ex_aabb_rate", &ph_console::ph_tri_query_ex_aabb_rate, 1.01f, 3.f);
 	CMD3(CCC_Mask, "g_no_clip", &psActorFlags, AF_NO_CLIP);
+#endif // DEBUG
+
 	CMD1(CCC_JumpToLevel, "jump_to_level");
 	CMD3(CCC_Mask, "g_god", &psActorFlags, AF_GODMODE);
 	CMD3(CCC_Mask, "g_unlimitedammo", &psActorFlags, AF_UNLIMITEDAMMO);
 	CMD1(CCC_Script, "run_script");
 	CMD1(CCC_ScriptCommand, "run_string");
 	CMD1(CCC_TimeFactor, "time_factor");
-#endif // DEBUG
-
-	/* AVO: changing restriction to -dbg key instead of DEBUG */
-	//#ifndef MASTER_GOLD
-#ifdef MASTER_GOLD
-	if (0 != strstr(Core.Params, "-dbg"))
-	{
-		CMD1(CCC_JumpToLevel, "jump_to_level");
-		CMD3(CCC_Mask, "g_god", &psActorFlags, AF_GODMODE);
-		CMD3(CCC_Mask, "g_unlimitedammo", &psActorFlags, AF_UNLIMITEDAMMO);
-		CMD1(CCC_Script, "run_script");
-		CMD1(CCC_ScriptCommand, "run_string");
-		CMD1(CCC_TimeFactor, "time_factor");
-		//CMD3(CCC_Mask, "g_no_clip", &psActorFlags, AF_NO_CLIP);
-		CMD1(CCC_PHGravity, "ph_gravity");
-	}
-#endif // MASTER_GOLD
-	//#endif // MASTER_GOLD
-	/* AVO: end */
+	CMD1(CCC_PHGravity, "ph_gravity");
 
 	CMD3(CCC_Mask, "g_use_tracers", &psActorFlags, AF_USE_TRACERS);
 	CMD3(CCC_Mask, "g_autopickup", &psActorFlags, AF_AUTOPICKUP);
