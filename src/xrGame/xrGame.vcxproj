@@ -506,6 +506,19 @@
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_tele.h" />
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_tele_inline.h" />
     <ClInclude Include="ai\Monsters\Burer\burer_state_manager.h" />
+	<ClInclude Include="ai\Monsters\Burcs\burcs.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs_fast_gravi.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_gravi.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_gravi_inline.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_inline.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_melee.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_melee_inline.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_run_around.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_run_around_inline.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_tele.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_tele_inline.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs_state_manager.h" />
     <ClInclude Include="ai\Monsters\Cat\cat.h" />
     <ClInclude Include="ai\Monsters\Cat\cat_state_manager.h" />
     <ClInclude Include="ai\Monsters\Chimera\chimera.h" />
@@ -2257,6 +2270,13 @@
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
+	<ClCompile Include="ai\Monsters\Burcs\burcs.cpp" />
+    <ClCompile Include="ai\Monsters\Burcs\burcs_fast_gravi.cpp" />
+    <ClCompile Include="ai\Monsters\Burcs\burcs_script.cpp">
+      <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Burcs\burcs_state_manager.cpp" />
     <ClCompile Include="ai\Monsters\Burer\burer_state_manager.cpp" />
     <ClCompile Include="ai\Monsters\Cat\cat.cpp" />
     <ClCompile Include="ai\Monsters\Cat\cat_script.cpp">
