@@ -1,7 +1,8 @@
 #pragma once
 //-' Глобальный конфиг для дефайнов по всему движку (включая рендеры)
 	
-	#define MULTITHREADING				public:				// Специальный дефайн для отделения функций потоков в device.h
+	#define MULTITHREADING				public:										// Специальный дефайн для отделения функций потоков в device.h
+	#define ASSERT_FMT(cond, ...) do { if (!(cond)) Msg(__VA_ARGS__); } while (0)	// Защита от вылета, когда аргумент равен нулю или исключению(DEBUG), OGSR +
 // Back to the Roots
 
 	#define CONTROLLER_SOC									// Констролер ТЧ

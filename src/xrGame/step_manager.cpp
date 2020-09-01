@@ -250,7 +250,7 @@ void CStepManager::update(bool b_hud_view)
 //////////////////////////////////////////////////////////////////////////
 Fvector	CStepManager::get_foot_position(ELegType leg_type)
 {
-	R_ASSERT2(m_foot_bones[leg_type] != BI_NONE, "foot bone had not been set");
+	ASSERT_FMT(m_foot_bones[leg_type] != BI_NONE, "# Foot bone had not been set");
 
 	IKinematics *pK					= smart_cast<IKinematics*>(m_object->Visual());
 	const Fmatrix& bone_transform = pK->LL_GetBoneInstance(m_foot_bones[leg_type]).mTransform;	
