@@ -1,6 +1,7 @@
 #pragma once
 //-' Глобальный конфиг для дефайнов по всему движку (включая рендеры)
-
+	
+	#define MULTITHREADING				public:				// Специальный дефайн для отделения функций потоков в device.h
 // Back to the Roots
 	#define BOAR_CS											// Кабан ТЧ
 	#define BURER_CS										// Бюрер ТЧ
