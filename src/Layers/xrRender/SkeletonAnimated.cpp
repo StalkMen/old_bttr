@@ -405,7 +405,7 @@ MotionID CKinematicsAnimated::ID_FX_Safe		(LPCSTR  N)
 MotionID CKinematicsAnimated::ID_FX			(LPCSTR  N)
 {
 	MotionID motion_ID		= ID_FX_Safe(N);
-	ASSERT_FMT(motion_ID.valid(), "# [%s] MODEL: can't find FX: [%s]", __FUNCTION__, N);
+	CRASH_PROTECTION_OGSR(motion_ID.valid(), "# [%s] MODEL: can't find FX: [%s]", __FUNCTION__, N);
     return motion_ID;
 }
 CBlend*	CKinematicsAnimated::PlayFX			(MotionID motion_ID, float power_scale)
