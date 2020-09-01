@@ -109,9 +109,6 @@
     <Filter Include="Engine\Console">
       <UniqueIdentifier>{0f1086cd-e02a-4030-ae77-22e04fa5cf74}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Console\commands">
-      <UniqueIdentifier>{758ebbb6-fd04-48c4-a303-7f110452ea17}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Core">
       <UniqueIdentifier>{d0fc2a3a-c3e4-41ca-8027-79e04f61f8ba}</UniqueIdentifier>
     </Filter>
@@ -249,6 +246,9 @@
     </Filter>
     <Filter Include="Device">
       <UniqueIdentifier>{b3ff08a7-793a-48c4-a8e7-e92849d3e973}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Console">
+      <UniqueIdentifier>{89099b03-c80b-434f-aae3-e20eab144875}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -468,9 +468,6 @@
     <ClInclude Include="XR_IOConsole.h">
       <Filter>Engine\Console</Filter>
     </ClInclude>
-    <ClInclude Include="xr_ioc_cmd.h">
-      <Filter>Engine\Console\commands</Filter>
-    </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
@@ -617,6 +614,9 @@
     </ClInclude>
     <ClInclude Include="Stats.h">
       <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="xr_ioc_cmd.h">
+      <Filter>Console</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -803,9 +803,6 @@
     <ClCompile Include="XR_IOConsole_get.cpp">
       <Filter>Engine\Console</Filter>
     </ClCompile>
-    <ClCompile Include="xr_ioc_cmd.cpp">
-      <Filter>Engine\Console\commands</Filter>
-    </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
@@ -961,6 +958,9 @@
     </ClCompile>
     <ClCompile Include="StatGraph.cpp">
       <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="xr_ioc_cmd.cpp">
+      <Filter>Console</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

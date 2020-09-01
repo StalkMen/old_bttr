@@ -220,10 +220,6 @@ public:
         m_editor(0),
         m_engine(0)
 #endif // #ifdef INGAME_EDITOR
-#ifdef PROFILE_CRITICAL_SECTIONS
-        ,mt_csEnter(MUTEX_PROFILE_ID(CRenderDevice::mt_csEnter))
-        ,mt_csLeave(MUTEX_PROFILE_ID(CRenderDevice::mt_csLeave))
-#endif // #ifdef PROFILE_CRITICAL_SECTIONS
     {
         m_hWnd = NULL;
         b_is_Active = FALSE;
@@ -259,7 +255,6 @@ public:
     void Reset(bool precache = true);
 
     void Initialize(void);
-    void ShutDown(void);
 
 public:
     void time_factor(const float& time_factor)
@@ -329,12 +324,7 @@ private:
 
 extern ENGINE_API CRenderDevice Device;
 
-#ifndef _EDITOR
 #define RDEVICE Device
-#else
-#define RDEVICE EDevice
-#endif
-
 
 extern ENGINE_API bool g_bBenchmark;
 

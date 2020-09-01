@@ -2317,12 +2317,6 @@
     <Filter Include="xrGame_monsters">
       <UniqueIdentifier>{89719f57-8f5f-4819-a5b6-1eba2c6a9d96}</UniqueIdentifier>
     </Filter>
-    <Filter Include="xrGame_monsters\Boar">
-      <UniqueIdentifier>{3387d1c8-3ee8-45eb-ba7f-b35828a7e6f0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Boar\Script">
-      <UniqueIdentifier>{dff8421b-dd37-42d4-abdb-331c4d8ccde8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="xrGame_monsters\Burer">
       <UniqueIdentifier>{a080b1ff-f8ba-40ab-b768-14b7b69a492a}</UniqueIdentifier>
     </Filter>
@@ -2499,6 +2493,18 @@
     </Filter>
     <Filter Include="xrGame_monsters\Bloodsucker_CS">
       <UniqueIdentifier>{5daf2add-8de3-4f98-8f6a-48c773e9dfb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Boar_CoP">
+      <UniqueIdentifier>{3387d1c8-3ee8-45eb-ba7f-b35828a7e6f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Boar_CoP\Script">
+      <UniqueIdentifier>{dff8421b-dd37-42d4-abdb-331c4d8ccde8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Boar_CS">
+      <UniqueIdentifier>{f719ce4c-421e-4109-bd3e-027076c4490b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class_Registrator">
+      <UniqueIdentifier>{f9d9f4d8-7a4e-4908-8c58-feffb2ff56a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -4147,10 +4153,10 @@
       <Filter>xrGame_monsters\Bloodsucker_CoP\Alien Feature</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Boar\boar.h">
-      <Filter>xrGame_monsters\Boar</Filter>
+      <Filter>xrGame_monsters\Boar_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Boar\boar_state_manager.h">
-      <Filter>xrGame_monsters\Boar</Filter>
+      <Filter>xrGame_monsters\Boar_CoP</Filter>
     </ClInclude>
     <ClInclude Include="AI\Crow\ai_crow.h">
       <Filter>xrGame_monsters\Crow</Filter>
@@ -6138,9 +6144,6 @@
     <ClInclude Include="..\xrServerEntities\object_type_traits.h">
       <Filter>Core\Common\ObjectBroker</Filter>
     </ClInclude>
-    <ClInclude Include="..\xrServerEntities\clsid_game.h">
-      <Filter>Core\Common\ObjectFactory</Filter>
-    </ClInclude>
     <ClInclude Include="..\xrServerEntities\object_factory.h">
       <Filter>Core\Common\ObjectFactory</Filter>
     </ClInclude>
@@ -7516,6 +7519,15 @@
     <ClInclude Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_vampire_inline.h">
       <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
     </ClInclude>
+    <ClInclude Include="ai\Monsters\bocs\bocs.h">
+      <Filter>xrGame_monsters\Boar_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\bocs\bocs_state_manager.h">
+      <Filter>xrGame_monsters\Boar_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\xrServerEntities\clsid_game.h">
+      <Filter>Class_Registrator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -8215,13 +8227,13 @@
       <Filter>xrGame_monsters\Bloodsucker_CoP\Alien Feature</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Boar\boar.cpp">
-      <Filter>xrGame_monsters\Boar</Filter>
+      <Filter>xrGame_monsters\Boar_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Boar\boar_state_manager.cpp">
-      <Filter>xrGame_monsters\Boar</Filter>
+      <Filter>xrGame_monsters\Boar_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Boar\boar_script.cpp">
-      <Filter>xrGame_monsters\Boar\Script</Filter>
+      <Filter>xrGame_monsters\Boar_CoP\Script</Filter>
     </ClCompile>
     <ClCompile Include="AI\Crow\ai_crow.cpp">
       <Filter>xrGame_monsters\Crow</Filter>
@@ -9885,9 +9897,6 @@
     <ClCompile Include="..\xrServerEntities\object_factory.cpp">
       <Filter>Core\Common\ObjectFactory</Filter>
     </ClCompile>
-    <ClCompile Include="..\xrServerEntities\object_factory_register.cpp">
-      <Filter>Core\Common\ObjectFactory</Filter>
-    </ClCompile>
     <ClCompile Include="..\xrServerEntities\object_factory_script.cpp">
       <Filter>Core\Common\ObjectFactory</Filter>
     </ClCompile>
@@ -11196,6 +11205,18 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\Bloodsuckcs\bloodsuckcs_vampire_effector.cpp">
       <Filter>xrGame_monsters\Bloodsucker_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\bocs\bocs.cpp">
+      <Filter>xrGame_monsters\Boar_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\bocs\bocs_script.cpp">
+      <Filter>xrGame_monsters\Boar_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\bocs\bocs_state_manager.cpp">
+      <Filter>xrGame_monsters\Boar_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\xrServerEntities\object_factory_register.cpp">
+      <Filter>Class_Registrator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

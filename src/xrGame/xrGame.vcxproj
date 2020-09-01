@@ -487,6 +487,8 @@
     <!-- Кровосос из Чистого неба -->
     <ClInclude Include="ai\Monsters\Boar\boar.h" />
     <ClInclude Include="ai\Monsters\Boar\boar_state_manager.h" />
+	<ClInclude Include="ai\Monsters\bocs\bocs.h" />
+    <ClInclude Include="ai\Monsters\bocs\bocs_state_manager.h" />
     <ClInclude Include="ai\Monsters\Burer\burer.h" />
     <ClInclude Include="ai\Monsters\Burer\burer_fast_gravi.h" />
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack.h" />
@@ -2243,6 +2245,12 @@
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Boar\boar_state_manager.cpp" />
+	<ClCompile Include="ai\Monsters\bocs\bocs.cpp" />
+    <ClCompile Include="ai\Monsters\bocs\bocs_script.cpp">
+      <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\bocs\bocs_state_manager.cpp" />
     <ClCompile Include="ai\Monsters\Burer\burer.cpp" />
     <ClCompile Include="ai\Monsters\Burer\burer_fast_gravi.cpp" />
     <ClCompile Include="ai\Monsters\Burer\burer_script.cpp">

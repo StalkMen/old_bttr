@@ -701,16 +701,17 @@ extern int psNET_ServerPending;
 extern int psNET_DedicatedSleep;
 extern char psNET_Name[32];
 extern Flags32 psEnvFlags;
-//extern float r__dtex_range;
+BOOL xrengint_noprefetch = 0;
 
 extern int g_ErrorLineCount;
 
-ENGINE_API int ps_r__Supersample = 1;
 ENGINE_API float ps_r2_sun_shafts_min = 0.f;
 ENGINE_API float ps_r2_sun_shafts_value = 1.f;
 
 void CCC_Register()
 {
+    CMD4(CCC_Integer, "xrEngine_noprefetch", &xrengint_noprefetch, 0, 1);
+
     // General
     CMD1(CCC_Help, "help");
     CMD1(CCC_Quit, "quit");
@@ -754,9 +755,6 @@ void CCC_Register()
     CMD3(CCC_Mask, "rs_render_statics", &psDeviceFlags, rsDrawStatic);
     CMD3(CCC_Mask, "rs_render_dynamics", &psDeviceFlags, rsDrawDynamic);
 #endif
-
-    // Render device states
-    CMD4(CCC_Integer, "r__supersample", &ps_r__Supersample, 1, 4);
 
     CMD4(CCC_Float, "r2_sun_shafts_min", &ps_r2_sun_shafts_min, 0.0, 0.5);
     CMD4(CCC_Float, "r2_sun_shafts_value", &ps_r2_sun_shafts_value, 0.5, 2.0);

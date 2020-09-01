@@ -285,7 +285,6 @@ void xrSASH::GetAllOptions()
     Option.Dependency.ComparisonVal.Enum = TEXT("renderer_r1");
     Option.Dependency.ComparisonValType = GetOptionType("renderer");
     {
-        DescribeOption("r__supersample", Option.Dependency);
         DescribeOption("r1_no_detail_textures", Option.Dependency);
     }
 
@@ -365,7 +364,6 @@ void xrSASH::GetCurrentOptions()
     GetOption("ai_use_torch_dynamic_lights");
 
     // r1 only
-    GetOption("r__supersample");
     GetOption("r1_no_detail_textures");
 
     // >=r2
