@@ -5,7 +5,7 @@
 #include "Geometry.h"
 #include "phdefs.h"
 #include "PhysicsCommon.h"
-#include "../xrServer/PHSynchronize.h"
+#include "../xrserverentities/PHSynchronize.h"
 #include "PHDisabling.h"
 #include "PHGeometryOwner.h"
 #include "PHInterpolation.h"

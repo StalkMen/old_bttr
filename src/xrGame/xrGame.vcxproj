@@ -85,7 +85,7 @@
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <AdditionalIncludeDirectories>.;$(SolutionDir);$(SolutionDir)xrServer;$(SolutionDir)3rd party\luajit-2\src\;$(SolutionDir)3rd party\luabind\;$(xrSdkDir)include;$(xrSdkDir)include\loki;$(XRAY_16X_LIBS)OpenAutomate\inc;$(SolutionDir)3rd party\CxImage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;$(SolutionDir);$(SolutionDir)xrServerEntities;$(SolutionDir)3rd party\luajit-2\src\;$(SolutionDir)3rd party\luabind\;$(xrSdkDir)include;$(xrSdkDir)include\loki;$(XRAY_16X_LIBS)OpenAutomate\inc;$(SolutionDir)3rd party\CxImage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>USE_LUAJIT_ONE;WIN32;DEBUG;XRGAME_EXPORTS;_WINDOWS;_USRDLL;MSVC;_SECURE_SCL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>false</StringPooling>
       <MinimalRebuild>false</MinimalRebuild>
@@ -139,7 +139,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>false</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <AdditionalIncludeDirectories>.;$(SolutionDir);$(SolutionDir)xrServer;$(xrSdkDir)include;$(XRAY_16X_LIBS)OpenAutomate\inc;$(SolutionDir)3rd party\CxImage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;$(SolutionDir);$(SolutionDir)xrServerEntities;$(xrSdkDir)include;$(XRAY_16X_LIBS)OpenAutomate\inc;$(SolutionDir)3rd party\CxImage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG;MIXED;WIN32;_WINDOWS;_USRDLL;XRGAME_EXPORTS;dSINGLE;MSVC;_SECURE_SCL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -187,7 +187,7 @@
       <OmitFramePointers>true</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
       <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>.;$(SolutionDir);$(SolutionDir)xrServer;$(SolutionDir)3rd party\luajit-2\src\;$(SolutionDir)3rd party\luabind\;$(xrSdkDir)include;$(XRAY_16X_LIBS)OpenAutomate\inc;$(SolutionDir)3rd party\CxImage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;$(SolutionDir);$(SolutionDir)xrServerEntities;$(SolutionDir)3rd party\luajit-2\src\;$(SolutionDir)3rd party\luabind\;$(xrSdkDir)include;$(XRAY_16X_LIBS)OpenAutomate\inc;$(SolutionDir)3rd party\CxImage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;XRGAME_EXPORTS;dSINGLE;MSVC;_SECURE_SCL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>
@@ -231,110 +231,110 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\xrGameSpy\gamespy\md5.h" />
-    <ClInclude Include="..\xrServer\ai_sounds.h" />
-    <ClInclude Include="..\xrServer\alife_human_brain.h" />
-    <ClInclude Include="..\xrServer\alife_human_brain_inline.h" />
-    <ClInclude Include="..\xrServer\alife_monster_brain.h" />
-    <ClInclude Include="..\xrServer\alife_monster_brain_inline.h" />
-    <ClInclude Include="..\xrServer\alife_movement_manager_holder.h" />
-    <ClInclude Include="..\xrServer\alife_space.h" />
-    <ClInclude Include="..\xrServer\associative_vector.h" />
-    <ClInclude Include="..\xrServer\associative_vector_compare_predicate.h" />
-    <ClInclude Include="..\xrServer\associative_vector_compare_predicate_inline.h" />
-    <ClInclude Include="..\xrServer\associative_vector_inline.h" />
-    <ClInclude Include="..\xrServer\character_info.h" />
-    <ClInclude Include="..\xrServer\character_info_defs.h" />
-    <ClInclude Include="..\xrServer\clsid_game.h" />
-    <ClInclude Include="..\xrServer\DrawUtils.h" />
-    <ClInclude Include="..\xrServer\FastDelegate.h" />
-    <ClInclude Include="..\xrServer\gametype_chooser.h" />
-    <ClInclude Include="..\xrServer\game_base_space.h" />
-    <ClInclude Include="..\xrServer\game_graph_space.h" />
-    <ClInclude Include="..\xrServer\InfoPortionDefs.h" />
-    <ClInclude Include="..\xrServer\inventory_space.h" />
-    <ClInclude Include="..\xrServer\ItemListTypes.h" />
-    <ClInclude Include="..\xrServer\LevelGameDef.h" />
-    <ClInclude Include="..\xrServer\lua_studio.h" />
-    <ClInclude Include="..\xrServer\mslotutils.h" />
-    <ClInclude Include="..\xrServer\object_broker.h" />
-    <ClInclude Include="..\xrServer\object_cloner.h" />
-    <ClInclude Include="..\xrServer\object_comparer.h" />
-    <ClInclude Include="..\xrServer\object_destroyer.h" />
-    <ClInclude Include="..\xrServer\object_factory.h" />
-    <ClInclude Include="..\xrServer\object_factory_impl.h" />
-    <ClInclude Include="..\xrServer\object_factory_inline.h" />
-    <ClInclude Include="..\xrServer\object_factory_space.h" />
-    <ClInclude Include="..\xrServer\object_interfaces.h" />
-    <ClInclude Include="..\xrServer\object_item_abstract.h" />
-    <ClInclude Include="..\xrServer\object_item_abstract_inline.h" />
-    <ClInclude Include="..\xrServer\object_item_client_server.h" />
-    <ClInclude Include="..\xrServer\object_item_client_server_inline.h" />
-    <ClInclude Include="..\xrServer\object_item_script.h" />
-    <ClInclude Include="..\xrServer\object_item_single.h" />
-    <ClInclude Include="..\xrServer\object_item_single_inline.h" />
-    <ClInclude Include="..\xrServer\object_loader.h" />
-    <ClInclude Include="..\xrServer\object_saver.h" />
-    <ClInclude Include="..\xrServer\object_type_traits.h" />
-    <ClInclude Include="..\xrServer\pch_script.h" />
-    <ClInclude Include="..\xrServer\PHNetState.h" />
-    <ClInclude Include="..\xrServer\PropertiesListTypes.h" />
-    <ClInclude Include="..\xrServer\restriction_space.h" />
-    <ClInclude Include="..\xrServer\script_callStack.h" />
-    <ClInclude Include="..\xrServer\script_debugger.h" />
-    <ClInclude Include="..\xrServer\script_debugger_messages.h" />
-    <ClInclude Include="..\xrServer\script_debugger_threads.h" />
-    <ClInclude Include="..\xrServer\script_engine.h" />
-    <ClInclude Include="..\xrServer\script_engine_inline.h" />
-    <ClInclude Include="..\xrServer\script_engine_space.h" />
-    <ClInclude Include="..\xrServer\script_export_macroses.h" />
-    <ClInclude Include="..\xrServer\script_export_space.h" />
-    <ClInclude Include="..\xrServer\script_fcolor.h" />
-    <ClInclude Include="..\xrServer\script_flags.h" />
-    <ClInclude Include="..\xrServer\script_fmatrix.h" />
-    <ClInclude Include="..\xrServer\script_fvector.h" />
-    <ClInclude Include="..\xrServer\script_ini_file.h" />
-    <ClInclude Include="..\xrServer\script_ini_file_inline.h" />
-    <ClInclude Include="..\xrServer\script_lua_helper.h" />
-    <ClInclude Include="..\xrServer\script_net_packet.h" />
-    <ClInclude Include="..\xrServer\script_process.h" />
-    <ClInclude Include="..\xrServer\script_process_inline.h" />
-    <ClInclude Include="..\xrServer\script_reader.h" />
-    <ClInclude Include="..\xrServer\script_rtoken_list.h" />
-    <ClInclude Include="..\xrServer\script_rtoken_list_inline.h" />
-    <ClInclude Include="..\xrServer\script_sound_type.h" />
-    <ClInclude Include="..\xrServer\script_space_forward.h" />
-    <ClInclude Include="..\xrServer\script_stack_tracker.h" />
-    <ClInclude Include="..\xrServer\script_stack_tracker_inline.h" />
-    <ClInclude Include="..\xrServer\script_storage.h" />
-    <ClInclude Include="..\xrServer\script_storage_inline.h" />
-    <ClInclude Include="..\xrServer\script_storage_space.h" />
-    <ClInclude Include="..\xrServer\script_thread.h" />
-    <ClInclude Include="..\xrServer\script_thread_inline.h" />
-    <ClInclude Include="..\xrServer\script_token_list.h" />
-    <ClInclude Include="..\xrServer\script_token_list_inline.h" />
-    <ClInclude Include="..\xrServer\script_value_container.h" />
-    <ClInclude Include="..\xrServer\script_value_container_impl.h" />
-    <ClInclude Include="..\xrServer\ShapeData.h" />
-    <ClInclude Include="..\xrServer\shared_data.h" />
-    <ClInclude Include="..\xrServer\smart_cast.h" />
-    <ClInclude Include="..\xrServer\smart_cast_impl0.h" />
-    <ClInclude Include="..\xrServer\smart_cast_impl1.h" />
-    <ClInclude Include="..\xrServer\smart_cast_impl2.h" />
-    <ClInclude Include="..\xrServer\specific_character.h" />
-    <ClInclude Include="..\xrServer\WaveForm.h" />
-    <ClInclude Include="..\xrServer\xml_str_id_loader.h" />
-    <ClInclude Include="..\xrServer\xrEProps.h" />
-    <ClInclude Include="..\xrServer\xrMessages.h" />
-    <ClInclude Include="..\xrServer\xrServer_Objects.h" />
-    <ClInclude Include="..\xrServer\xrServer_Objects_Abstract.h" />
-    <ClInclude Include="..\xrServer\xrServer_Objects_ALife.h" />
-    <ClInclude Include="..\xrServer\xrServer_Objects_ALife_All.h" />
-    <ClInclude Include="..\xrServer\xrServer_Objects_ALife_Items.h" />
-    <ClInclude Include="..\xrServer\xrServer_Objects_ALife_Monsters.h" />
-    <ClInclude Include="..\xrServer\xrServer_Objects_Alife_Smartcovers.h" />
-    <ClInclude Include="..\xrServer\xrServer_Object_Base.h" />
-    <ClInclude Include="..\xrServer\xrServer_script_macroses.h" />
-    <ClInclude Include="..\xrServer\xrServer_Space.h" />
+    <ClInclude Include="..\xrServerEntities\ai_sounds.h" />
+    <ClInclude Include="..\xrServerEntities\alife_human_brain.h" />
+    <ClInclude Include="..\xrServerEntities\alife_human_brain_inline.h" />
+    <ClInclude Include="..\xrServerEntities\alife_monster_brain.h" />
+    <ClInclude Include="..\xrServerEntities\alife_monster_brain_inline.h" />
+    <ClInclude Include="..\xrServerEntities\alife_movement_manager_holder.h" />
+    <ClInclude Include="..\xrServerEntities\alife_space.h" />
+    <ClInclude Include="..\xrServerEntities\associative_vector.h" />
+    <ClInclude Include="..\xrServerEntities\associative_vector_compare_predicate.h" />
+    <ClInclude Include="..\xrServerEntities\associative_vector_compare_predicate_inline.h" />
+    <ClInclude Include="..\xrServerEntities\associative_vector_inline.h" />
+    <ClInclude Include="..\xrServerEntities\character_info.h" />
+    <ClInclude Include="..\xrServerEntities\character_info_defs.h" />
+    <ClInclude Include="..\xrServerEntities\clsid_game.h" />
+    <ClInclude Include="..\xrServerEntities\DrawUtils.h" />
+    <ClInclude Include="..\xrServerEntities\FastDelegate.h" />
+    <ClInclude Include="..\xrServerEntities\gametype_chooser.h" />
+    <ClInclude Include="..\xrServerEntities\game_base_space.h" />
+    <ClInclude Include="..\xrServerEntities\game_graph_space.h" />
+    <ClInclude Include="..\xrServerEntities\InfoPortionDefs.h" />
+    <ClInclude Include="..\xrServerEntities\inventory_space.h" />
+    <ClInclude Include="..\xrServerEntities\ItemListTypes.h" />
+    <ClInclude Include="..\xrServerEntities\LevelGameDef.h" />
+    <ClInclude Include="..\xrServerEntities\lua_studio.h" />
+    <ClInclude Include="..\xrServerEntities\mslotutils.h" />
+    <ClInclude Include="..\xrServerEntities\object_broker.h" />
+    <ClInclude Include="..\xrServerEntities\object_cloner.h" />
+    <ClInclude Include="..\xrServerEntities\object_comparer.h" />
+    <ClInclude Include="..\xrServerEntities\object_destroyer.h" />
+    <ClInclude Include="..\xrServerEntities\object_factory.h" />
+    <ClInclude Include="..\xrServerEntities\object_factory_impl.h" />
+    <ClInclude Include="..\xrServerEntities\object_factory_inline.h" />
+    <ClInclude Include="..\xrServerEntities\object_factory_space.h" />
+    <ClInclude Include="..\xrServerEntities\object_interfaces.h" />
+    <ClInclude Include="..\xrServerEntities\object_item_abstract.h" />
+    <ClInclude Include="..\xrServerEntities\object_item_abstract_inline.h" />
+    <ClInclude Include="..\xrServerEntities\object_item_client_server.h" />
+    <ClInclude Include="..\xrServerEntities\object_item_client_server_inline.h" />
+    <ClInclude Include="..\xrServerEntities\object_item_script.h" />
+    <ClInclude Include="..\xrServerEntities\object_item_single.h" />
+    <ClInclude Include="..\xrServerEntities\object_item_single_inline.h" />
+    <ClInclude Include="..\xrServerEntities\object_loader.h" />
+    <ClInclude Include="..\xrServerEntities\object_saver.h" />
+    <ClInclude Include="..\xrServerEntities\object_type_traits.h" />
+    <ClInclude Include="..\xrServerEntities\pch_script.h" />
+    <ClInclude Include="..\xrServerEntities\PHNetState.h" />
+    <ClInclude Include="..\xrServerEntities\PropertiesListTypes.h" />
+    <ClInclude Include="..\xrServerEntities\restriction_space.h" />
+    <ClInclude Include="..\xrServerEntities\script_callStack.h" />
+    <ClInclude Include="..\xrServerEntities\script_debugger.h" />
+    <ClInclude Include="..\xrServerEntities\script_debugger_messages.h" />
+    <ClInclude Include="..\xrServerEntities\script_debugger_threads.h" />
+    <ClInclude Include="..\xrServerEntities\script_engine.h" />
+    <ClInclude Include="..\xrServerEntities\script_engine_inline.h" />
+    <ClInclude Include="..\xrServerEntities\script_engine_space.h" />
+    <ClInclude Include="..\xrServerEntities\script_export_macroses.h" />
+    <ClInclude Include="..\xrServerEntities\script_export_space.h" />
+    <ClInclude Include="..\xrServerEntities\script_fcolor.h" />
+    <ClInclude Include="..\xrServerEntities\script_flags.h" />
+    <ClInclude Include="..\xrServerEntities\script_fmatrix.h" />
+    <ClInclude Include="..\xrServerEntities\script_fvector.h" />
+    <ClInclude Include="..\xrServerEntities\script_ini_file.h" />
+    <ClInclude Include="..\xrServerEntities\script_ini_file_inline.h" />
+    <ClInclude Include="..\xrServerEntities\script_lua_helper.h" />
+    <ClInclude Include="..\xrServerEntities\script_net_packet.h" />
+    <ClInclude Include="..\xrServerEntities\script_process.h" />
+    <ClInclude Include="..\xrServerEntities\script_process_inline.h" />
+    <ClInclude Include="..\xrServerEntities\script_reader.h" />
+    <ClInclude Include="..\xrServerEntities\script_rtoken_list.h" />
+    <ClInclude Include="..\xrServerEntities\script_rtoken_list_inline.h" />
+    <ClInclude Include="..\xrServerEntities\script_sound_type.h" />
+    <ClInclude Include="..\xrServerEntities\script_space_forward.h" />
+    <ClInclude Include="..\xrServerEntities\script_stack_tracker.h" />
+    <ClInclude Include="..\xrServerEntities\script_stack_tracker_inline.h" />
+    <ClInclude Include="..\xrServerEntities\script_storage.h" />
+    <ClInclude Include="..\xrServerEntities\script_storage_inline.h" />
+    <ClInclude Include="..\xrServerEntities\script_storage_space.h" />
+    <ClInclude Include="..\xrServerEntities\script_thread.h" />
+    <ClInclude Include="..\xrServerEntities\script_thread_inline.h" />
+    <ClInclude Include="..\xrServerEntities\script_token_list.h" />
+    <ClInclude Include="..\xrServerEntities\script_token_list_inline.h" />
+    <ClInclude Include="..\xrServerEntities\script_value_container.h" />
+    <ClInclude Include="..\xrServerEntities\script_value_container_impl.h" />
+    <ClInclude Include="..\xrServerEntities\ShapeData.h" />
+    <ClInclude Include="..\xrServerEntities\shared_data.h" />
+    <ClInclude Include="..\xrServerEntities\smart_cast.h" />
+    <ClInclude Include="..\xrServerEntities\smart_cast_impl0.h" />
+    <ClInclude Include="..\xrServerEntities\smart_cast_impl1.h" />
+    <ClInclude Include="..\xrServerEntities\smart_cast_impl2.h" />
+    <ClInclude Include="..\xrServerEntities\specific_character.h" />
+    <ClInclude Include="..\xrServerEntities\WaveForm.h" />
+    <ClInclude Include="..\xrServerEntities\xml_str_id_loader.h" />
+    <ClInclude Include="..\xrServerEntities\xrEProps.h" />
+    <ClInclude Include="..\xrServerEntities\xrMessages.h" />
+    <ClInclude Include="..\xrServerEntities\xrServer_Objects.h" />
+    <ClInclude Include="..\xrServerEntities\xrServer_Objects_Abstract.h" />
+    <ClInclude Include="..\xrServerEntities\xrServer_Objects_ALife.h" />
+    <ClInclude Include="..\xrServerEntities\xrServer_Objects_ALife_All.h" />
+    <ClInclude Include="..\xrServerEntities\xrServer_Objects_ALife_Items.h" />
+    <ClInclude Include="..\xrServerEntities\xrServer_Objects_ALife_Monsters.h" />
+    <ClInclude Include="..\xrServerEntities\xrServer_Objects_Alife_Smartcovers.h" />
+    <ClInclude Include="..\xrServerEntities\xrServer_Object_Base.h" />
+    <ClInclude Include="..\xrServerEntities\xrServer_script_macroses.h" />
+    <ClInclude Include="..\xrServerEntities\xrServer_Space.h" />
     <ClInclude Include="abstract_location_selector.h" />
     <ClInclude Include="abstract_location_selector_inline.h" />
     <ClInclude Include="abstract_path_manager.h" />
@@ -1957,178 +1957,178 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\xrServer\alife_human_brain.cpp" />
-    <ClCompile Include="..\xrServer\alife_monster_brain.cpp" />
-    <ClCompile Include="..\xrServer\alife_space.cpp" />
-    <ClCompile Include="..\xrServer\character_info.cpp" />
-    <ClCompile Include="..\xrServer\gametype_chooser.cpp" />
-    <ClCompile Include="..\xrServer\LevelGameDef.cpp" />
-    <ClCompile Include="..\xrServer\lua_studio.cpp">
+    <ClCompile Include="..\xrServerEntities\alife_human_brain.cpp" />
+    <ClCompile Include="..\xrServerEntities\alife_monster_brain.cpp" />
+    <ClCompile Include="..\xrServerEntities\alife_space.cpp" />
+    <ClCompile Include="..\xrServerEntities\character_info.cpp" />
+    <ClCompile Include="..\xrServerEntities\gametype_chooser.cpp" />
+    <ClCompile Include="..\xrServerEntities\LevelGameDef.cpp" />
+    <ClCompile Include="..\xrServerEntities\lua_studio.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\object_factory.cpp" />
-    <ClCompile Include="..\xrServer\object_factory_register.cpp">
+    <ClCompile Include="..\xrServerEntities\object_factory.cpp" />
+    <ClCompile Include="..\xrServerEntities\object_factory_register.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\object_factory_script.cpp">
+    <ClCompile Include="..\xrServerEntities\object_factory_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\object_item_script.cpp">
+    <ClCompile Include="..\xrServerEntities\object_item_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\pch_script.cpp">
+    <ClCompile Include="..\xrServerEntities\pch_script.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\PHNetState.cpp" />
-    <ClCompile Include="..\xrServer\script_callStack.cpp" />
-    <ClCompile Include="..\xrServer\script_debugger.cpp" />
-    <ClCompile Include="..\xrServer\script_debugger_threads.cpp" />
-    <ClCompile Include="..\xrServer\script_engine.cpp">
+    <ClCompile Include="..\xrServerEntities\PHNetState.cpp" />
+    <ClCompile Include="..\xrServerEntities\script_callStack.cpp" />
+    <ClCompile Include="..\xrServerEntities\script_debugger.cpp" />
+    <ClCompile Include="..\xrServerEntities\script_debugger_threads.cpp" />
+    <ClCompile Include="..\xrServerEntities\script_engine.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_engine_export.cpp">
+    <ClCompile Include="..\xrServerEntities\script_engine_export.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_engine_script.cpp">
+    <ClCompile Include="..\xrServerEntities\script_engine_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_fcolor_script.cpp">
+    <ClCompile Include="..\xrServerEntities\script_fcolor_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_flags_script.cpp">
+    <ClCompile Include="..\xrServerEntities\script_flags_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_fmatrix_script.cpp">
+    <ClCompile Include="..\xrServerEntities\script_fmatrix_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_fvector_script.cpp">
+    <ClCompile Include="..\xrServerEntities\script_fvector_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_ini_file.cpp" />
-    <ClCompile Include="..\xrServer\script_ini_file_script.cpp">
+    <ClCompile Include="..\xrServerEntities\script_ini_file.cpp" />
+    <ClCompile Include="..\xrServerEntities\script_ini_file_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_lua_helper.cpp">
+    <ClCompile Include="..\xrServerEntities\script_lua_helper.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_net_packet_script.cpp">
+    <ClCompile Include="..\xrServerEntities\script_net_packet_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_process.cpp">
+    <ClCompile Include="..\xrServerEntities\script_process.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_reader_script.cpp">
+    <ClCompile Include="..\xrServerEntities\script_reader_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_rtoken_list_script.cpp">
+    <ClCompile Include="..\xrServerEntities\script_rtoken_list_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_sound_type_script.cpp">
+    <ClCompile Include="..\xrServerEntities\script_sound_type_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_stack_tracker.cpp">
+    <ClCompile Include="..\xrServerEntities\script_stack_tracker.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_storage.cpp">
+    <ClCompile Include="..\xrServerEntities\script_storage.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_thread.cpp">
+    <ClCompile Include="..\xrServerEntities\script_thread.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\script_token_list.cpp" />
-    <ClCompile Include="..\xrServer\script_token_list_script.cpp">
+    <ClCompile Include="..\xrServerEntities\script_token_list.cpp" />
+    <ClCompile Include="..\xrServerEntities\script_token_list_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\smart_cast.cpp" />
-    <ClCompile Include="..\xrServer\smart_cast_stats.cpp" />
-    <ClCompile Include="..\xrServer\specific_character.cpp" />
-    <ClCompile Include="..\xrServer\xrServer_Factory.cpp" />
-    <ClCompile Include="..\xrServer\xrServer_Objects.cpp" />
-    <ClCompile Include="..\xrServer\xrServer_Objects_Abstract.cpp" />
-    <ClCompile Include="..\xrServer\xrServer_Objects_ALife.cpp" />
-    <ClCompile Include="..\xrServer\xrServer_Objects_ALife_Items.cpp" />
-    <ClCompile Include="..\xrServer\xrServer_Objects_ALife_Items_script.cpp">
+    <ClCompile Include="..\xrServerEntities\smart_cast.cpp" />
+    <ClCompile Include="..\xrServerEntities\smart_cast_stats.cpp" />
+    <ClCompile Include="..\xrServerEntities\specific_character.cpp" />
+    <ClCompile Include="..\xrServerEntities\xrServer_Factory.cpp" />
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects.cpp" />
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_Abstract.cpp" />
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_ALife.cpp" />
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_ALife_Items.cpp" />
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_ALife_Items_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Objects_ALife_Items_script2.cpp">
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_ALife_Items_script2.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Objects_ALife_Items_script3.cpp">
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_ALife_Items_script3.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Objects_ALife_Monsters.cpp" />
-    <ClCompile Include="..\xrServer\xrServer_Objects_ALife_Monsters_script.cpp">
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_ALife_Monsters.cpp" />
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_ALife_Monsters_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Objects_ALife_Monsters_script2.cpp">
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_ALife_Monsters_script2.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrserver_objects_alife_monsters_script3.cpp">
+    <ClCompile Include="..\xrServerEntities\xrserver_objects_alife_monsters_script3.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Objects_ALife_Monsters_script4.cpp">
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_ALife_Monsters_script4.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Objects_ALife_script.cpp">
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_ALife_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Objects_ALife_script2.cpp">
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_ALife_script2.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Objects_ALife_script3.cpp">
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_ALife_script3.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Objects_Alife_Smartcovers.cpp">
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_Alife_Smartcovers.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Objects_Alife_Smartcovers_script.cpp">
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_Alife_Smartcovers_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Objects_script.cpp">
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Objects_script2.cpp">
+    <ClCompile Include="..\xrServerEntities\xrServer_Objects_script2.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="..\xrServer\xrServer_Object_Base.cpp" />
+    <ClCompile Include="..\xrServerEntities\xrServer_Object_Base.cpp" />
     <ClCompile Include="account_manager.cpp" />
     <ClCompile Include="account_manager_console.cpp" />
     <ClCompile Include="account_manager_script.cpp" />
@@ -4264,7 +4264,7 @@
       <Project>{1bf75feb-87dd-486c-880b-227987d191c2}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)xrRenders\xrAPI\xrAPI.vcxproj">
+    <ProjectReference Include="$(SolutionDir)Layers\xrAPI\xrAPI.vcxproj">
       <Project>{1daec516-e52c-4a3c-a4da-ae3553e6e0f8}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

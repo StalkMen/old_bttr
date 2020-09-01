@@ -7,7 +7,7 @@
 #include "UIStatic.h"
 #include "UICursor.h"
 #include "../ai_space.h"
-#include "../../xrServer/script_engine.h"
+#include "../../xrServerEntities/script_engine.h"
 #include "../string_table.h"
 
 using namespace luabind;

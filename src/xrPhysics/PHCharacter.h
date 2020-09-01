@@ -4,7 +4,7 @@
 #endif
 #include "PHObject.h"
 #include "PHInterpolation.h"
-#include "../xrServer/PHSynchronize.h"
+#include "../xrserverentities/PHSynchronize.h"
 #include "PHDisabling.h"
 
 #include "../xrEngine/iphysicsshell.h"

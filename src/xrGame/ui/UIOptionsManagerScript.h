@@ -1,6 +1,6 @@
 
 #pragma once
-#include "../../xrServer/script_export_space.h"
+#include "../../xrServerEntities/script_export_space.h"
 
 class CUIOptionsManagerScript 
 {

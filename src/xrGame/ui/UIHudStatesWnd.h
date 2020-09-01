@@ -1,8 +1,8 @@
 #pragma once
 
 #include "UIWindow.h"
-#include "..\..\xrServer\alife_space.h"
-#include "..\..\xrServer\inventory_space.h"
+#include "..\..\xrServerEntities\alife_space.h"
+#include "..\..\xrServerEntities\inventory_space.h"
 #include "..\actor_defs.h"
 
 class CUIStatic;

@@ -1,7 +1,7 @@
 #pragma once
 #include "../BaseMonster/base_monster.h"
 #include "../anim_triple.h"
-#include "../../../../xrServer/script_export_space.h"
+#include "../../../../xrServerEntities/script_export_space.h"
 #include "../controlled_actor.h"
 
 class CControllerAnimation;

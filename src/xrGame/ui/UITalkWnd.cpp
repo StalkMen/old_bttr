@@ -7,7 +7,7 @@
 #include "../trade.h"
 #include "../UIGameSP.h"
 #include "../PDA.h"
-#include "../../xrServer/character_info.h"
+#include "../../xrServerEntities/character_info.h"
 #include "../level.h"
 
 #include "../PhraseDialog.h"

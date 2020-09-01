@@ -12,7 +12,7 @@
 #ifdef INGAME_EDITOR
 
 #include <boost/noncopyable.hpp>
-#include "../xrServer/associative_vector.h"
+#include "../xrserverentities/associative_vector.h"
 
 namespace editor
 {

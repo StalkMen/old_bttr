@@ -20,7 +20,7 @@
 #include "../ai_space.h"
 #include "../alife_simulator.h"
 
-#include "../../xrServer/script_engine.h"
+#include "../../xrServerEntities/script_engine.h"
 #include "../character_community.h"
 #include "../character_reputation.h"
 #include "../relation_registry.h"

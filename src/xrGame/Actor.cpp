@@ -78,7 +78,7 @@
 
 //Alundaio
 #include "script_hit.h"
-#include "../../xrServer/script_engine.h" 
+#include "../../xrServerEntities/script_engine.h" 
 using namespace luabind;
 //-Alundaio
 

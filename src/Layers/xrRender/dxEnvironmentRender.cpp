@@ -4,7 +4,7 @@
 #include "dxRenderDeviceRender.h"
 
 #include "../../xrEngine/environment.h"
-#include "../../xrRenders/xrRender/ResourceManager.h"
+#include "../../Layers/xrRender/ResourceManager.h"
 
 #include "../../xrEngine/xr_efflensflare.h"
 

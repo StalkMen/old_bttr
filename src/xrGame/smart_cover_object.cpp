@@ -8,7 +8,7 @@
 
 #include "pch_script.h"
 #include "smart_cover_object.h"
-#include "../xrServer/xrServer_Objects_ALife_Smartcovers.h"
+#include "../xrServerEntities/xrServer_Objects_ALife_Smartcovers.h"
 #include "level.h"
 #include "debug_renderer.h"
 #include "ai_space.h"

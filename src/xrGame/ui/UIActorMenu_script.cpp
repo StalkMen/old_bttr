@@ -19,7 +19,7 @@
 #include "../inventory_item.h"
 #include "UICellItem.h"
 #include "../ai_space.h"
-#include "../../xrServer/script_engine.h"
+#include "../../xrServerEntities/script_engine.h"
 #include "eatable_item.h"
 
 #include "UIPdaWnd.h"

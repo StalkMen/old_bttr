@@ -35,7 +35,7 @@
 #include "../../../monster_community.h"
 #include "../../../character_community.h"
 #include "../../../InventoryOwner.h"
-#include "../../../../xrServer/character_info.h"
+#include "../../../../xrServerEntities/character_info.h"
 
 #include "controller_psy_hit.h"
 #include "../monster_cover_manager.h"

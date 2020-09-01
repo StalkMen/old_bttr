@@ -1,6 +1,6 @@
 #pragma once
 #include "../BaseMonster/base_monster.h"
-#include "../../../../xrServer/script_export_space.h"
+#include "../../../../xrServerEntities/script_export_space.h"
 
 class CCat : public CBaseMonster{
 	typedef		CBaseMonster	inherited;

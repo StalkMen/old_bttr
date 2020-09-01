@@ -576,7 +576,7 @@
       <Project>{94a1c366-3d19-48e6-8170-4adc2e70df97}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)xrRenders\xrAPI\xrAPI.vcxproj">
+    <ProjectReference Include="$(SolutionDir)Layers\xrAPI\xrAPI.vcxproj">
       <Project>{1daec516-e52c-4a3c-a4da-ae3553e6e0f8}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

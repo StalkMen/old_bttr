@@ -28,7 +28,7 @@
 
 using namespace InventoryUtilities;
 //Alundaio
-#include "../../xrServer/script_engine.h" 
+#include "../../xrServerEntities/script_engine.h" 
 using namespace luabind; 
 //-Alundaio
 
