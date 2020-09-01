@@ -35,6 +35,7 @@
 #define CLSID_AI_DOG_PSY_PHANTOM	MK_CLSID('A','I','_','D','O','G','_','F')
 #define CLSID_AI_TRADER				MK_CLSID('A','I','_','T','R','A','D','E')
 #define CLSID_AI_BOAR				MK_CLSID('A','I','_','B','O','A','R',' ')
+#define CLSID_AI_BOCS				MK_CLSID('A','I','_','B','O','A','C','S')
 #define CLSID_AI_SNORK				MK_CLSID('A','I','_','S','N','O','R','K')
 #define CLSID_AI_CAT				MK_CLSID('A','I','_','C','A','T',' ',' ')
 #define CLSID_AI_TUSHKANO			MK_CLSID('A','I','_','T','U','S','H',' ')

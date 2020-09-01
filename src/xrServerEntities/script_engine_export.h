@@ -84,6 +84,7 @@
 #	include "ai/monsters/bloodsucksoc/bloodsucksoc.h"
 #	include "ai/monsters/bloodsuckcs/bloodsuckcs.h"
 #	include "ai/monsters/boar/boar.h"
+#	include "ai/monsters/bocs/bocs.h"
 #	include "ai/monsters/dog/dog.h"
 #	include "ai/monsters/flesh/flesh.h"
 #	include "ai/monsters/pseudodog/pseudodog.h"
