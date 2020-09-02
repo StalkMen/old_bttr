@@ -6,7 +6,6 @@
 	#define LUA_EXPORT					luabind::functor<LPCSTR>								// Для экспорта С++ в LUA вызовы
 
 	#define POLTER_SOC										// Полтергейст ТЧ
-	#define GIANT_JUMPER									// Прыгающий псевдогигант
 
 // CALLBACKS
 	#define EXTENDED_ITEM_CALLBACKS							// (eItemToBelt, eItemToSlot, eItemToRuck)

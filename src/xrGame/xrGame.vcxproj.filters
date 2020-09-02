@@ -2362,12 +2362,6 @@
     <Filter Include="xrGame_monsters\Poltergeist\Abilities">
       <UniqueIdentifier>{c8cffc20-4b96-4e96-9eff-868c6f8f7d72}</UniqueIdentifier>
     </Filter>
-    <Filter Include="xrGame_monsters\PseudoGigant">
-      <UniqueIdentifier>{b63ebd95-6d63-4b98-b8a8-3587f5b69dbb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\PseudoGigant\Script">
-      <UniqueIdentifier>{5b01e2b7-a8e3-4a2f-a2d2-ff8aea5c1ab6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="xrGame_monsters\PseudoDog">
       <UniqueIdentifier>{f896fd15-e4cb-4764-a644-418f1321d29f}</UniqueIdentifier>
     </Filter>
@@ -2472,6 +2466,12 @@
     </Filter>
     <Filter Include="xrGame_monsters\Dog_SoC">
       <UniqueIdentifier>{2cddd796-b765-4135-850d-57e229338a98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Pseudogigant_jumper">
+      <UniqueIdentifier>{735377c7-2d08-4a3b-a508-632d773b0895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Pseudogigant_CoP">
+      <UniqueIdentifier>{b63ebd95-6d63-4b98-b8a8-3587f5b69dbb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -4171,13 +4171,13 @@
       <Filter>xrGame_monsters\Chimera_CoP\state hunting</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudo_gigant.h">
-      <Filter>xrGame_monsters\PseudoGigant</Filter>
+      <Filter>xrGame_monsters\Pseudogigant_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudo_gigant_step_effector.h">
-      <Filter>xrGame_monsters\PseudoGigant</Filter>
+      <Filter>xrGame_monsters\Pseudogigant_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudogigant_state_manager.h">
-      <Filter>xrGame_monsters\PseudoGigant</Filter>
+      <Filter>xrGame_monsters\Pseudogigant_CoP</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist.h">
       <Filter>xrGame_monsters\Poltergeist</Filter>
@@ -7594,6 +7594,15 @@
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_inline.h">
       <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
     </ClInclude>
+    <ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_jumper.h">
+      <Filter>xrGame_monsters\Pseudogigant_jumper</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_step_effector_jumper.h">
+      <Filter>xrGame_monsters\Pseudogigant_jumper</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudogigant_state_manager_jumper.h">
+      <Filter>xrGame_monsters\Pseudogigant_jumper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -8323,16 +8332,13 @@
       <Filter>xrGame_monsters\Chimera_CoP\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudo_gigant.cpp">
-      <Filter>xrGame_monsters\PseudoGigant</Filter>
+      <Filter>xrGame_monsters\Pseudogigant_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudo_gigant_step_effector.cpp">
-      <Filter>xrGame_monsters\PseudoGigant</Filter>
+      <Filter>xrGame_monsters\Pseudogigant_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudogigant_state_manager.cpp">
-      <Filter>xrGame_monsters\PseudoGigant</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\PseudoGigant\pseudogigant_script.cpp">
-      <Filter>xrGame_monsters\PseudoGigant\Script</Filter>
+      <Filter>xrGame_monsters\Pseudogigant_CoP</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist.cpp">
       <Filter>xrGame_monsters\Poltergeist</Filter>
@@ -11313,6 +11319,21 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker_script.cpp">
       <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_jumper.cpp">
+      <Filter>xrGame_monsters\Pseudogigant_jumper</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_step_effector_jumper.cpp">
+      <Filter>xrGame_monsters\Pseudogigant_jumper</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\PseudoGigant_jumper\pseudogigant_script_jumper.cpp">
+      <Filter>xrGame_monsters\Pseudogigant_jumper</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\PseudoGigant_jumper\pseudogigant_state_manager_jumper.cpp">
+      <Filter>xrGame_monsters\Pseudogigant_jumper</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\PseudoGigant\pseudogigant_script.cpp">
+      <Filter>xrGame_monsters\Pseudogigant_CoP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

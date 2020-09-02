@@ -41,6 +41,7 @@
 #	include "ai/monsters/Burer/burer.h"
 #	include "ai/monsters/Burcs/burcs.h"
 #	include "ai/monsters/PseudoGigant/pseudo_gigant.h"
+#	include "ai/monsters/pseudogigant_jumper/pseudo_gigant_jumper.h"
 #	include "ai/monsters/controller/controller.h"
 #	include "ai/monsters/poltergeist/poltergeist.h"
 #	include "ai/monsters/zombie/zombie.h"
@@ -270,6 +271,7 @@ void CObjectFactory::register_classes	()
 	ADD(CBurer					,CSE_ALifeMonsterBase			,CLSID_AI_BURER					,"burer");
 	ADD(CBurcs					,CSE_ALifeMonsterBase			,CLSID_AI_BURCS					,"burcs");
 	ADD(CPseudoGigant			,CSE_ALifeMonsterBase			,CLSID_AI_GIANT					,"pseudo_gigant");
+	ADD(CPseudoGigant_jumper	,CSE_ALifeMonsterBase			,CLSID_AI_GIANJ					,"pseudo_gigant_jumper");
 	ADD(CController				,CSE_ALifeMonsterBase			,CLSID_AI_CONTROLLER			,"controller");
 	ADD(CPoltergeist			,CSE_ALifeMonsterBase			,CLSID_AI_POLTERGEIST			,"poltergeist");
 	ADD(CZombie					,CSE_ALifeMonsterBase			,CLSID_AI_ZOMBIE				,"zombie");

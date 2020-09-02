@@ -682,6 +682,9 @@
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudogigant_state_manager.h" />
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudo_gigant.h" />
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudo_gigant_step_effector.h" />
+	<ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudogigant_state_manager_jumper.h" />
+    <ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_jumper.h" />
+    <ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_step_effector_jumper.h" />
     <ClInclude Include="ai\Monsters\psy_aura.h" />
     <ClInclude Include="ai\monsters\rats\ai_rat.h" />
     <ClInclude Include="ai\monsters\rats\ai_rat_impl.h" />
@@ -2419,6 +2422,13 @@
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudogigant_state_manager.cpp" />
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudo_gigant.cpp" />
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudo_gigant_step_effector.cpp" />
+	<ClCompile Include="ai\Monsters\PseudoGigant_jumper\pseudogigant_script_jumper.cpp">
+      <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\PseudoGigant_jumper\pseudogigant_state_manager_jumper.cpp" />
+    <ClCompile Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_jumper.cpp" />
+    <ClCompile Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_step_effector_jumper.cpp" />
     <ClCompile Include="ai\Monsters\psy_aura.cpp" />
     <ClCompile Include="ai\monsters\rats\ai_rat.cpp" />
     <ClCompile Include="ai\monsters\rats\ai_rat_animations.cpp" />
