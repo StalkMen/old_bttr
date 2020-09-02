@@ -4,8 +4,7 @@
 	#define MULTITHREADING				public:													// Специальный дефайн для отделения функций потоков в device.h
 	#define CRASH_PROTECTION_OGSR(cond, ...) do { if (!(cond)) Msg(__VA_ARGS__); } while (0)	// Защита от вылета, когда аргумент равен нулю или исключению(DEBUG), OGSR +
 	#define LUA_EXPORT					luabind::functor<LPCSTR>								// Для экспорта С++ в LUA вызовы
-
-	#define POLTER_SOC										// Полтергейст ТЧ
+	#define NEW_AI_POLTER																		// Новая логика полтергейста ЧН
 
 // CALLBACKS
 	#define EXTENDED_ITEM_CALLBACKS							// (eItemToBelt, eItemToSlot, eItemToRuck)

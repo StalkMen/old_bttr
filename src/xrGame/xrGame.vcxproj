@@ -669,6 +669,12 @@
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_attack_hidden_inline.h" />
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_manager.h" />
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_rest.h" />
+	<ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs.h" />
+    <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_movement.h" />
+    <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_state_attack_hidden.h" />
+    <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_state_attack_hidden_inline.h" />
+    <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_state_manager.h" />
+    <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_state_rest.h" />
     <ClInclude Include="ai\Monsters\Pseudodog\pseudodog.h" />
     <ClInclude Include="ai\Monsters\Pseudodog\pseudodog_psi_effector.h" />
     <ClInclude Include="ai\Monsters\Pseudodog\pseudodog_state_manager.h" />
@@ -2403,6 +2409,16 @@
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
+	<ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs.cpp" />
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_ability.cpp" />
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_flame_thrower.cpp" />
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_movement.cpp" />
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_script.cpp">
+      <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_state_manager.cpp" />
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_telekinesis.cpp" />
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_state_manager.cpp" />
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_telekinesis.cpp" />
     <ClCompile Include="ai\Monsters\Pseudodog\pseudodog.cpp" />

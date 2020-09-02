@@ -44,6 +44,7 @@
 #	include "ai/monsters/pseudogigant_jumper/pseudo_gigant_jumper.h"
 #	include "ai/monsters/controller/controller.h"
 #	include "ai/monsters/poltergeist/poltergeist.h"
+#	include "ai/monsters/poltergeist_cs/poltergeist_cs.h"
 #	include "ai/monsters/zombie/zombie.h"
 #	include "ai/monsters/fracture/fracture.h"
 #	include "ai/monsters/snork/snork.h"
@@ -274,6 +275,7 @@ void CObjectFactory::register_classes	()
 	ADD(CPseudoGigant_jumper	,CSE_ALifeMonsterBase			,CLSID_AI_GIANJ					,"pseudo_gigant_jumper");
 	ADD(CController				,CSE_ALifeMonsterBase			,CLSID_AI_CONTROLLER			,"controller");
 	ADD(CPoltergeist			,CSE_ALifeMonsterBase			,CLSID_AI_POLTERGEIST			,"poltergeist");
+	ADD(CPoltergeist_cs			,CSE_ALifeMonsterBase			,CLSID_AI_POLTERGEIST_CS		,"poltergeist_cs");
 	ADD(CZombie					,CSE_ALifeMonsterBase			,CLSID_AI_ZOMBIE				,"zombie");
 	ADD(CFracture				,CSE_ALifeMonsterBase			,CLSID_AI_FRACTURE				,"fracture");
 	ADD(CSnork					,CSE_ALifeMonsterBase			,CLSID_AI_SNORK					,"snork");

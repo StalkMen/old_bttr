@@ -2353,15 +2353,6 @@
     <Filter Include="xrGame_monsters\Poltergeist">
       <UniqueIdentifier>{af50598f-db2f-4151-89b1-2100e2843894}</UniqueIdentifier>
     </Filter>
-    <Filter Include="xrGame_monsters\Poltergeist\Script">
-      <UniqueIdentifier>{f4c16e04-474d-48bd-a5dd-ff38c23bd983}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Poltergeist\Hidden Attack">
-      <UniqueIdentifier>{a3358a33-880e-445e-9cba-5d7cb4b9db0b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Poltergeist\Abilities">
-      <UniqueIdentifier>{c8cffc20-4b96-4e96-9eff-868c6f8f7d72}</UniqueIdentifier>
-    </Filter>
     <Filter Include="xrGame_monsters\PseudoDog">
       <UniqueIdentifier>{f896fd15-e4cb-4764-a644-418f1321d29f}</UniqueIdentifier>
     </Filter>
@@ -2466,6 +2457,9 @@
     </Filter>
     <Filter Include="xrGame_monsters\Pseudogigant_CoP">
       <UniqueIdentifier>{b63ebd95-6d63-4b98-b8a8-3587f5b69dbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_monsters\Poltergeist_CS">
+      <UniqueIdentifier>{3e3bd513-eae1-4d13-b6b1-3e54db6c4fe1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -4184,12 +4178,6 @@
     </ClInclude>
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_rest.h">
       <Filter>xrGame_monsters\Poltergeist</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_attack_hidden.h">
-      <Filter>xrGame_monsters\Poltergeist\Hidden Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_attack_hidden_inline.h">
-      <Filter>xrGame_monsters\Poltergeist\Hidden Attack</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Zombie\zombie.h">
       <Filter>xrGame_monsters\Zombie</Filter>
@@ -7597,6 +7585,30 @@
     <ClInclude Include="ai\Monsters\Snork\snork_jump.h">
       <Filter>xrGame_monsters\Snork</Filter>
     </ClInclude>
+    <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs.h">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_movement.h">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_state_attack_hidden_inline.h">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_state_attack_hidden.h">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_state_manager.h">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_state_rest.h">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_attack_hidden.h">
+      <Filter>xrGame_monsters\Poltergeist</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_attack_hidden_inline.h">
+      <Filter>xrGame_monsters\Poltergeist</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -8342,18 +8354,6 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_state_manager.cpp">
       <Filter>xrGame_monsters\Poltergeist</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_script.cpp">
-      <Filter>xrGame_monsters\Poltergeist\Script</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_ability.cpp">
-      <Filter>xrGame_monsters\Poltergeist\Abilities</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_flame_thrower.cpp">
-      <Filter>xrGame_monsters\Poltergeist\Abilities</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_telekinesis.cpp">
-      <Filter>xrGame_monsters\Poltergeist\Abilities</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Zombie\zombie.cpp">
       <Filter>xrGame_monsters\Zombie</Filter>
@@ -11328,6 +11328,39 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\Snork\snork_jump.cpp">
       <Filter>xrGame_monsters\Snork</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs.cpp">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_ability.cpp">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_flame_thrower.cpp">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_movement.cpp">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_script.cpp">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_state_manager.cpp">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_telekinesis.cpp">
+      <Filter>xrGame_monsters\Poltergeist_CS</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_script.cpp">
+      <Filter>xrGame_monsters\Poltergeist</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_ability.cpp">
+      <Filter>xrGame_monsters\Poltergeist</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_telekinesis.cpp">
+      <Filter>xrGame_monsters\Poltergeist</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_flame_thrower.cpp">
+      <Filter>xrGame_monsters\Poltergeist</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -97,6 +97,7 @@
 #	include "ai/monsters/pseudogigant/pseudo_gigant.h"
 #	include "ai/monsters/pseudogigant_jumper/pseudo_gigant_jumper.h"
 #	include "ai/monsters/poltergeist/poltergeist.h"
+#	include "ai/monsters/poltergeist_cs/poltergeist_cs.h"
 #	include "ai/monsters/zombie/zombie.h"
 #	include "ai/monsters/fracture/fracture.h"
 #	include "ai/monsters/snork/snork.h"

@@ -1,11 +1,11 @@
 #include "stdafx.h"
-#include "poltergeist.h"
+#include "poltergeist_cs.h"
 #include "../../../../xrphysics/PhysicsShell.h"
 #include "../../../level.h"
 #include "../../../material_manager.h"
 #include "../../../level_debug.h"
 
-CPolterSpecialAbility::CPolterSpecialAbility(CPoltergeist *polter)
+CPolterSpecialAbility_cs::CPolterSpecialAbility_cs(CPoltergeist_cs *polter)
 {
 	m_object					= polter;
 
@@ -14,13 +14,13 @@ CPolterSpecialAbility::CPolterSpecialAbility(CPoltergeist *polter)
 }
 
 
-CPolterSpecialAbility::~CPolterSpecialAbility()
+CPolterSpecialAbility_cs::~CPolterSpecialAbility_cs()
 {
 	CParticlesObject::Destroy	(m_particles_object);
 	CParticlesObject::Destroy	(m_particles_object_electro);
 }
 
-void CPolterSpecialAbility::load(LPCSTR section)
+void CPolterSpecialAbility_cs::load(LPCSTR section)
 {
 	m_particles_hidden					= pSettings->r_string(section,"Particles_Hidden");
 	m_particles_damage					= pSettings->r_string(section,"Particles_Damage");
@@ -32,7 +32,7 @@ void CPolterSpecialAbility::load(LPCSTR section)
 	m_last_hit_frame					= 0;
 }
 
-void CPolterSpecialAbility::update_schedule()
+void CPolterSpecialAbility_cs::update_schedule()
 {
 	if (m_object->g_Alive()) {
 		if (!m_sound_base._feedback()) m_sound_base.play_at_pos(m_object, m_object->Position());
@@ -40,29 +40,28 @@ void CPolterSpecialAbility::update_schedule()
 	}
 }
 
-void CPolterSpecialAbility::on_hide()
+void CPolterSpecialAbility_cs::on_hide()
 {
 	VERIFY(m_particles_object == 0);
 	if (!m_object->g_Alive())
 		return;
-
- 	m_particles_object			= m_object->PlayParticles	(m_particles_hidden, m_object->Position(),Fvector().set(0.0f,0.1f,0.0f), false);
- 	m_particles_object_electro	= m_object->PlayParticles	(m_particles_idle, m_object->Position(),Fvector().set(0.0f,0.1f,0.0f), false);
+	m_particles_object			= m_object->PlayParticles	(m_particles_hidden, m_object->Position(),Fvector().set(0.0f,0.1f,0.0f), false);
+	m_particles_object_electro	= m_object->PlayParticles	(m_particles_idle, m_object->Position(),Fvector().set(0.0f,0.1f,0.0f), false);
 }
 
-void CPolterSpecialAbility::on_show()
+void CPolterSpecialAbility_cs::on_show()
 {
 	if (m_particles_object)			CParticlesObject::Destroy(m_particles_object);
 	if (m_particles_object_electro) CParticlesObject::Destroy(m_particles_object_electro);
 }
 
-void CPolterSpecialAbility::update_frame()
+void CPolterSpecialAbility_cs::update_frame()
 {
 	if (m_particles_object)			m_particles_object->SetXFORM		(m_object->XFORM());
 	if (m_particles_object_electro)	m_particles_object_electro->SetXFORM(m_object->XFORM());
 }
 
-void CPolterSpecialAbility::on_die()
+void CPolterSpecialAbility_cs::on_die()
 {
 	Fvector particles_position	= m_object->m_current_position;
 	particles_position.y		+= m_object->target_height;
@@ -73,7 +72,7 @@ void CPolterSpecialAbility::on_die()
 	CParticlesObject::Destroy		(m_particles_object);
 }
 
-void CPolterSpecialAbility::on_hit(SHit* pHDS)
+void CPolterSpecialAbility_cs::on_hit(SHit* pHDS)
 {
 	if (m_object->g_Alive() && (pHDS->hit_type == ALife::eHitTypeFireWound) && (Device.dwFrame != m_last_hit_frame)) {
 		if(BI_NONE != pHDS->bone()) {
@@ -104,9 +103,9 @@ void CPolterSpecialAbility::on_hit(SHit* pHDS)
 #define TRACE_DISTANCE			10.f
 #define TRACE_ATTEMPT_COUNT		3
 
-void CPoltergeist::PhysicalImpulse	(const Fvector &position)
+void CPoltergeist_cs::PhysicalImpulse	(const Fvector &position)
 {
-	m_nearest.clear_not_free		();
+    m_nearest.clear();
 	Level().ObjectSpace.GetNearest	(m_nearest,position, IMPULSE_RADIUS, NULL); 
 	//xr_vector<CObject*> &m_nearest = Level().ObjectSpace.q_nearest;
 	if (m_nearest.empty())			return;
@@ -125,7 +124,7 @@ void CPoltergeist::PhysicalImpulse	(const Fvector &position)
 	E->applyImpulse(dir,IMPULSE * E->getMass());
 }
 
-void CPoltergeist::StrangeSounds(const Fvector &position)
+void CPoltergeist_cs::StrangeSounds(const Fvector &position)
 {
 	if (m_strange_sound._feedback()) return;
 	
@@ -139,19 +138,21 @@ void CPoltergeist::StrangeSounds(const Fvector &position)
 
 				// Получить пару материалов
 				CDB::TRI*	pTri	= Level().ObjectSpace.GetStaticTris() + l_rq.element;
-				SGameMtlPair* mtl_pair = GMLib.GetMaterialPair(material().self_material_idx(),pTri->material);
+                SGameMtlPair* mtl_pair = GMLib.GetMaterialPair(material().self_material_idx(), pTri->material);
 				if (!mtl_pair) continue;
 
 				// Играть звук
 				if (!mtl_pair->CollideSounds.empty()) {
-					CLONE_MTL_SOUND(m_strange_sound, mtl_pair, CollideSounds);
-					Fvector pos;
-					pos.mad(position, dir, ((l_rq.range - 0.1f > 0) ? l_rq.range - 0.1f  : l_rq.range));
-					m_strange_sound.play_at_pos(this,pos);
-					return;
+                    ref_sound& randSound = mtl_pair->CollideSounds[Random.randI(mtl_pair->CollideSounds.size())];
+                    m_strange_sound.clone(randSound, st_Effect, sg_SourceType);
+                    Fvector pos;
+                    pos.mad(position, dir, ((l_rq.range - 0.1f > 0) ? l_rq.range - 0.1f : l_rq.range));
+                    m_strange_sound.play_at_pos(this, pos);
+                    return;
 				}			
 			}
 		}
 	}
 }
+
 

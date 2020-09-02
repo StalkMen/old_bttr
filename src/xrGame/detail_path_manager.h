@@ -75,7 +75,6 @@ public:
 			STravelParams
 		>										VELOCITIES;
 
-protected:
 	VELOCITIES									m_movement_params;
 	u32											m_current_travel_point;
 
