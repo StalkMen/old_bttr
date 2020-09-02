@@ -1,25 +1,21 @@
 #pragma once
 
-#define TEMPLATE_SPECIALIZATION template <\
-	typename _Object\
->
-
 #define CStateControllerControlHitAbstract CStateControlAttack<_Object>
 
 #define GOOD_DISTANCE_FOR_CONTROL_HIT	8.f
 #define CONTROL_PREPARE_TIME			2900
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 CStateControllerControlHitAbstract::CStateControlAttack(_Object *obj) : inherited(obj)
 {
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 CStateControllerControlHitAbstract::~CStateControlAttack()
 {
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerControlHitAbstract::initialize()
 {
 	inherited::initialize();
@@ -28,7 +24,7 @@ void CStateControllerControlHitAbstract::initialize()
 	time_control_started	= 0;
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerControlHitAbstract::execute()
 {
 	switch (m_action) {
@@ -61,7 +57,7 @@ void CStateControllerControlHitAbstract::execute()
 	object->sound().play(MonsterSound::eMonsterSoundAggressive, 0,0,object->db().m_dwAttackSndDelay);
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControllerControlHitAbstract::check_start_conditions()
 {
 	float dist = object->Position().distance_to(object->EnemyMan.get_enemy_position());
@@ -73,19 +69,19 @@ bool CStateControllerControlHitAbstract::check_start_conditions()
 	return true;
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControllerControlHitAbstract::check_completion()
 {
 	return (m_action == eActionCompleted);
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerControlHitAbstract::finalize()
 {
 	inherited::finalize();
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerControlHitAbstract::critical_finalize()
 {
 	inherited::critical_finalize();
@@ -96,7 +92,7 @@ void CStateControllerControlHitAbstract::critical_finalize()
 //////////////////////////////////////////////////////////////////////////
 
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerControlHitAbstract::execute_hit_prepare()
 {
 	object->com_man().ta_activate(object->anim_triple_control);
@@ -105,7 +101,7 @@ void CStateControllerControlHitAbstract::execute_hit_prepare()
 	time_control_started = Device.dwTimeGlobal;
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerControlHitAbstract::execute_hit_continue()
 {
 	// проверить на грави удар
@@ -114,7 +110,7 @@ void CStateControllerControlHitAbstract::execute_hit_continue()
 	}
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerControlHitAbstract::execute_hit_fire()
 {
 	object->com_man().ta_pointbreak();
@@ -122,5 +118,5 @@ void CStateControllerControlHitAbstract::execute_hit_fire()
 	if (object->EnemyMan.see_enemy_now()) object->control_hit();
 }
 
-#undef TEMPLATE_SPECIALIZATION
+
 #undef CStateControllerControlHitAbstract

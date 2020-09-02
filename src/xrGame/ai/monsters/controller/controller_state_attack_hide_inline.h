@@ -6,13 +6,9 @@
 #include "../../../level.h"
 #include "../../../level_debug.h"
 
-
-#define TEMPLATE_SPECIALIZATION template <\
-	typename _Object\
->
 #define CStateControllerHideAbstract CStateControlHide<_Object>
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerHideAbstract::initialize()
 {
 	inherited::initialize();
@@ -23,7 +19,7 @@ void CStateControllerHideAbstract::initialize()
 	
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerHideAbstract::execute()
 {
 	if (m_state_fast_run) {
@@ -56,33 +52,33 @@ void CStateControllerHideAbstract::execute()
 	object->custom_anim().set_body_state(CControllerAnimation::eTorsoRun,CControllerAnimation::eLegsTypeRun);
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControllerHideAbstract::check_start_conditions()
 {
 	return true;
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerHideAbstract::finalize()
 {
 	inherited::finalize();
 	object->set_mental_state	(CController::eStateDanger);
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerHideAbstract::critical_finalize()
 {
 	inherited::finalize();
 	object->set_mental_state	(CController::eStateDanger);
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControllerHideAbstract::check_completion()
 {
 	return ((object->ai_location().level_vertex_id() == target.node) && !object->control().path_builder().is_moving_on_path());
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerHideAbstract::select_target_point()
 {
 #ifdef DEBUG
@@ -103,5 +99,5 @@ void CStateControllerHideAbstract::select_target_point()
 		object->set_mental_state	(CController::eStateIdle);
 }
 
-#undef TEMPLATE_SPECIALIZATION
+
 #undef CStateControllerHideAbstract

@@ -2,13 +2,9 @@
 
 #include "controller_psy_hit.h"
 
-#define TEMPLATE_SPECIALIZATION template <\
-	typename _Object\
->
-
 #define CStateControllerTubeAbstract CStateControllerTube<_Object>
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerTubeAbstract::execute()
 {
 	object->control().activate	(ControlCom::eComCustom1);
@@ -17,7 +13,7 @@ void CStateControllerTubeAbstract::execute()
 
 #define SEE_ENEMY_DURATION 1000
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControllerTubeAbstract::check_start_conditions()
 {
 	if (object->EnemyMan.see_enemy_duration() < SEE_ENEMY_DURATION) return false;
@@ -26,11 +22,11 @@ bool CStateControllerTubeAbstract::check_start_conditions()
 	return true;
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControllerTubeAbstract::check_completion()
 {
 	return (!object->m_psy_hit->is_active());
 }
 
-#undef TEMPLATE_SPECIALIZATION
+
 #undef CStateControllerTubeAbstract

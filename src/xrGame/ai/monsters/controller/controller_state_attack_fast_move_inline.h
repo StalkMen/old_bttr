@@ -1,12 +1,8 @@
 #pragma once
 
-#define TEMPLATE_SPECIALIZATION template <\
-	typename _Object\
->
-
 #define CStateControllerFastMoveAbstract CStateControllerFastMove<_Object>
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerFastMoveAbstract::initialize()
 {
 	inherited::initialize();
@@ -14,14 +10,14 @@ void CStateControllerFastMoveAbstract::initialize()
 	object->set_mental_state(CController::eStateIdle);
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerFastMoveAbstract::finalize()
 {
 	inherited::finalize();
 	object->set_mental_state	(CController::eStateDanger);	
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerFastMoveAbstract::critical_finalize()
 {
 	inherited::critical_finalize();
@@ -29,7 +25,7 @@ void CStateControllerFastMoveAbstract::critical_finalize()
 }
 
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerFastMoveAbstract::execute()
 {
 	object->set_action	(ACT_RUN);
@@ -39,5 +35,5 @@ void CStateControllerFastMoveAbstract::execute()
 
 }
 
-#undef TEMPLATE_SPECIALIZATION
+
 #undef CStateControllerFastMoveAbstract

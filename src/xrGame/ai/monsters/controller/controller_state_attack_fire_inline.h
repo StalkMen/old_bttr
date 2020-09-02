@@ -1,15 +1,12 @@
 #pragma once
 
-#define TEMPLATE_SPECIALIZATION template <\
-	typename _Object\
->
 #define CStateControlFireAbstract CStateControlFire<_Object>
 
 #define MIN_ENEMY_DISTANCE	10.f
 #define STATE_MAX_TIME		3000
 #define STATE_EXECUTE_DELAY	5000
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControlFireAbstract::reinit()
 {
 	inherited::reinit();
@@ -18,7 +15,7 @@ void CStateControlFireAbstract::reinit()
 
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControlFireAbstract::initialize()
 {
 	inherited::initialize			();
@@ -26,7 +23,7 @@ void CStateControlFireAbstract::initialize()
 	m_time_started					= time();
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControlFireAbstract::execute()
 {
 	object->dir().face_target				(object->EnemyMan.get_enemy());
@@ -35,14 +32,14 @@ void CStateControlFireAbstract::execute()
 	object->custom_anim().set_body_state	(CControllerAnimation::eTorsoIdle,CControllerAnimation::eLegsTypeSteal);
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControlFireAbstract::finalize()
 {
 	inherited::finalize();
 	object->set_psy_fire_delay_default	();
 	m_time_state_last_execute			= time();
 }
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControlFireAbstract::critical_finalize()
 {
 	inherited::critical_finalize();
@@ -51,7 +48,7 @@ void CStateControlFireAbstract::critical_finalize()
 }
 
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControlFireAbstract::check_start_conditions()
 {
 	if (!object->EnemyMan.see_enemy_now()) return false;
@@ -61,7 +58,7 @@ bool CStateControlFireAbstract::check_start_conditions()
 	return true;
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControlFireAbstract::check_completion()
 {
 	if (!object->EnemyMan.see_enemy_now()) return true;
@@ -72,5 +69,5 @@ bool CStateControlFireAbstract::check_completion()
 	return false;
 }
 
-#undef TEMPLATE_SPECIALIZATION
+
 #undef CStateControlFireAbstract

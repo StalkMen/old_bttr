@@ -6,12 +6,9 @@
 #include "../../../level.h"
 #include "../../../level_debug.h"
 
-#define TEMPLATE_SPECIALIZATION template <\
-	typename _Object\
->
 #define CStateControllerHideLiteAbstract CStateControlHideLite<_Object>
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerHideLiteAbstract::initialize()
 {
 	inherited::initialize			();
@@ -21,7 +18,7 @@ void CStateControllerHideLiteAbstract::initialize()
 
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerHideLiteAbstract::execute()
 {
 	object->path().set_target_point		(target.position, target.node);
@@ -38,13 +35,13 @@ void CStateControllerHideLiteAbstract::execute()
 	object->custom_anim().set_body_state(CControllerAnimation::eTorsoRun,CControllerAnimation::eLegsTypeRun);
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControllerHideLiteAbstract::check_start_conditions()
 {
 	return true;
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerHideLiteAbstract::reinit()
 {
 	inherited::reinit();
@@ -52,7 +49,7 @@ void CStateControllerHideLiteAbstract::reinit()
 }
 
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerHideLiteAbstract::finalize()
 {
 	inherited::finalize();
@@ -60,7 +57,7 @@ void CStateControllerHideLiteAbstract::finalize()
 }
 
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControllerHideLiteAbstract::check_completion()
 {
 	if ((object->ai_location().level_vertex_id() == target.node) && 
@@ -69,7 +66,7 @@ bool CStateControllerHideLiteAbstract::check_completion()
 	return (!object->EnemyMan.see_enemy_now());
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControllerHideLiteAbstract::select_target_point()
 {
 #ifdef DEBUG
@@ -87,5 +84,5 @@ void CStateControllerHideLiteAbstract::select_target_point()
 	}
 }
 
-#undef TEMPLATE_SPECIALIZATION
+
 #undef CStateControllerHideLiteAbstract

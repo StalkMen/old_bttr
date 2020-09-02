@@ -1,8 +1,5 @@
 #pragma once
 
-#define TEMPLATE_SPECIALIZATION template <\
-	typename _Object\
->
 #define CStateControlCampAbstract CStateControlCamp<_Object>
 
 #define ANGLE_DISP					PI_DIV_2
@@ -12,12 +9,12 @@
 #define TIME_POINT_CHANGE_MAX		5000
 
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControlCampAbstract::initialize()
 {
 	inherited::initialize			();
 
-	float angle			= ai().level_graph().vertex_low_cover_angle(object->ai_location().level_vertex_id(),deg(10), std::greater<float>());
+	float angle			= ai().level_graph().vertex_cover_angle(object->ai_location().level_vertex_id(),deg(10), std::greater<float>());
 	
 	collide::rq_result	l_rq;
 
@@ -63,7 +60,7 @@ void CStateControlCampAbstract::initialize()
 	object->dir().face_target(pos);
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControlCampAbstract::execute()
 {
 	update_target_angle						();
@@ -75,14 +72,14 @@ void CStateControlCampAbstract::execute()
 	object->custom_anim().set_body_state	(CControllerAnimation::eTorsoIdle,CControllerAnimation::eLegsTypeSteal);
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControlCampAbstract::check_start_conditions()
 {
 	if (object->EnemyMan.see_enemy_now()) return false;
 	return true;
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControlCampAbstract::check_completion()
 {
 	if (object->EnemyMan.see_enemy_now()) return true;
@@ -91,7 +88,7 @@ bool CStateControlCampAbstract::check_completion()
 	return false;
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControlCampAbstract::update_target_angle()
 {
 	if (m_time_next_updated > time()) return;
@@ -103,5 +100,5 @@ void CStateControlCampAbstract::update_target_angle()
 		m_target_angle = m_angle_from;
 }
 
-#undef TEMPLATE_SPECIALIZATION
+
 #undef CStateControlCampAbstract

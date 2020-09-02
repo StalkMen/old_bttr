@@ -78,22 +78,8 @@ void CControllerAnimation::on_event(ControlCom::EEventType type, ControlCom::IEv
 
 void CControllerAnimation::update_frame()
 {
-	
 	inherited::update_frame();
 	return;
-
-	
-	//if (m_controller->m_mental_state == CController::eStateIdle) {
-	//	inherited::update_frame();
-	//	return;
-	//}
-	//
-	//if (is_moving()) set_path_direction();
-	//
-	//select_legs_animation	();	
-	//select_torso_animation	();	
-	//
-	//select_velocity			();
 }
 
 void CControllerAnimation::load()
@@ -143,24 +129,23 @@ void CControllerAnimation::load()
 	add_path_rotation					(eLegsTypeStealMotion, (PI - PI_DIV_4),	eLegsStealBkwdLeft);
 	add_path_rotation					(eLegsTypeStealMotion, -(PI - PI_DIV_4),eLegsStealBkwdRight);
 
-
-	// 1. link animation with action
-	// 2. link animation with velocities and path velocities
-	// 3. 
 }
 
 void CControllerAnimation::add_path_rotation(ELegsActionType action, float angle, ELegsActionType type)
 {
-	SPathRotations	rot;
-	rot.angle		= angle;
-	rot.legs_motion	= type;
+	SPathRotations rot;
+	rot.angle = angle;
+	rot.legs_motion = type;
 
-	PATH_ROTATIONS_MAP_IT map_it = m_path_rotations.find(action);
-	if (map_it == m_path_rotations.end()) {
+	auto map_it = m_path_rotations.find(action);
+	if (map_it == m_path_rotations.end())
+	{
 		PATH_ROTATIONS_VEC vec;
 		vec.push_back(rot);
-		m_path_rotations.insert(mk_pair(action, vec));
-	} else {
+		m_path_rotations.insert(std::make_pair(action, vec));
+	}
+	else
+	{
 		map_it->second.push_back(rot);
 	}
 }
@@ -205,26 +190,31 @@ void CControllerAnimation::set_path_direction()
 
 void CControllerAnimation::select_torso_animation()
 {
-	if (m_wait_torso_anim_end) return;
-	
-	SControlAnimationData		*ctrl_data = (SControlAnimationData*)m_man->data(this, ControlCom::eControlAnimation); 
-	if (!ctrl_data) return;
+	if (m_wait_torso_anim_end)
+		return;
+
+	SControlAnimationData* ctrl_data = (SControlAnimationData*)m_man->data(this, ControlCom::eControlAnimation);
+	if (!ctrl_data)
+		return;
 
 	MotionID target_motion;
 
 	// check fire animation
-	if (m_controller->can_psy_fire()) {
-		target_motion			= m_torso[eTorsoPsyAttack];
-		m_wait_torso_anim_end	= true;
-	} else {
-		target_motion			= m_torso[m_current_torso_action];
+	if (m_controller->can_psy_fire())
+	{
+		target_motion = m_torso[eTorsoPsyAttack];
+		m_wait_torso_anim_end = true;
 	}
-	
-	if ((ctrl_data->torso.get_motion() != target_motion) || m_wait_torso_anim_end) {
-		ctrl_data->torso.set_motion(target_motion);
-		ctrl_data->torso.actual	= false;
+	else
+	{
+		target_motion = m_torso[m_current_torso_action];
 	}
 
+	if ((ctrl_data->torso.get_motion() != target_motion) || m_wait_torso_anim_end)
+	{
+		ctrl_data->torso.set_motion(target_motion);
+		ctrl_data->torso.actual = false;
+	}
 }
 
 void CControllerAnimation::select_legs_animation()
@@ -232,33 +222,38 @@ void CControllerAnimation::select_legs_animation()
 	// select from action
 	ELegsActionType legs_action = eLegsUndefined;
 
-	if (is_moving()) {
+	if (is_moving())
+	{
 		// if we are moving, get yaw from path
 		float cur_yaw, target_yaw;
 		m_man->direction().get_heading(cur_yaw, target_yaw);
 
-		SPathRotations	path_rot = get_path_rotation(cur_yaw);
-		legs_action		= path_rot.legs_motion;
-	
-	} else {
+		SPathRotations path_rot = get_path_rotation(cur_yaw);
+		legs_action = path_rot.legs_motion;
+	}
+	else
+	{
 		// else select standing animation
-		for (LEGS_MOTION_MAP_IT it = m_legs.begin(); it != m_legs.end(); it++) {
-			if ((it->first & m_current_legs_action) == m_current_legs_action) {
-				legs_action		= it->first;
+		for (auto it = m_legs.begin(); it != m_legs.end(); it++)
+		{
+			if ((it->first & m_current_legs_action) == m_current_legs_action)
+			{
+				legs_action = it->first;
 				break;
 			}
 		}
 		VERIFY(legs_action != eLegsUndefined);
 	}
-	
-	// start new animation
-	SControlAnimationData		*ctrl_data = (SControlAnimationData*)m_man->data(this, ControlCom::eControlAnimation); 
-	if (!ctrl_data) return;
-	
-	if (ctrl_data->legs.get_motion() != m_legs[legs_action])
-		ctrl_data->legs.actual	= false;
 
-	ctrl_data->legs.set_motion( m_legs[legs_action] );
+	// start new animation
+	SControlAnimationData* ctrl_data = (SControlAnimationData*)m_man->data(this, ControlCom::eControlAnimation);
+	if (!ctrl_data)
+		return;
+
+	if (ctrl_data->legs.get_motion() != m_legs[legs_action])
+		ctrl_data->legs.actual = false;
+
+	ctrl_data->legs.set_motion(m_legs[legs_action]);
 }
 
 CControllerAnimation::SPathRotations CControllerAnimation::get_path_rotation(float cur_yaw)
@@ -290,8 +285,6 @@ void CControllerAnimation::set_body_state(ETorsoActionType torso, ELegsActionTyp
 {
 	m_current_legs_action		= CControllerAnimation::eLegsTypeStealMotion;
 	m_current_torso_action		= CControllerAnimation::eTorsoSteal;
-	//m_current_legs_action		= legs;
-	//m_current_torso_action		= torso;
 }
 
 bool CControllerAnimation::is_moving()

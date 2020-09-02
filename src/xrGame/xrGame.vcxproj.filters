@@ -2326,30 +2326,6 @@
     <Filter Include="xrGame_monsters\Controller">
       <UniqueIdentifier>{a8e904bd-f2f1-44e0-9dbc-a14e7abc3259}</UniqueIdentifier>
     </Filter>
-    <Filter Include="xrGame_monsters\Controller\State Attack">
-      <UniqueIdentifier>{af574b30-444e-4a0d-98c5-b764d643e0f3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Controller\State Attack\Cover">
-      <UniqueIdentifier>{6ca132a5-e9a7-4b68-81b9-5204f74333fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Controller\State Panic">
-      <UniqueIdentifier>{e41bda80-172b-437a-8b53-b3d4372e051c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Controller\Script">
-      <UniqueIdentifier>{84ec8a17-d892-4fd8-a7a4-6fe08561866d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Controller\Base Controllers">
-      <UniqueIdentifier>{79b7e79a-4821-496a-b720-5fbca0c66bbc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Controller\Base Controllers\Animation">
-      <UniqueIdentifier>{ad35a145-bbf3-4ea6-a5e2-04d033c95a40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Controller\Base Controllers\Direction">
-      <UniqueIdentifier>{b1e730b8-c916-4e27-8f3f-43e8f661aef4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Controller\Psy hit">
-      <UniqueIdentifier>{2601984b-2b76-4fbc-840c-37d0380e1b12}</UniqueIdentifier>
-    </Filter>
     <Filter Include="xrGame_monsters\Crow">
       <UniqueIdentifier>{8d9832b3-4c8e-438c-99b8-9aabc897e434}</UniqueIdentifier>
     </Filter>
@@ -4328,78 +4304,6 @@
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller_state_manager.h">
       <Filter>xrGame_monsters\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack.h">
-      <Filter>xrGame_monsters\Controller\State Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_fast_move.h">
-      <Filter>xrGame_monsters\Controller\State Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_fast_move_inline.h">
-      <Filter>xrGame_monsters\Controller\State Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_inline.h">
-      <Filter>xrGame_monsters\Controller\State Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_control_hit.h">
-      <Filter>xrGame_monsters\Controller\State Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_control_hit_inline.h">
-      <Filter>xrGame_monsters\Controller\State Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_tube.h">
-      <Filter>xrGame_monsters\Controller\State Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_tube_inline.h">
-      <Filter>xrGame_monsters\Controller\State Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_camp.h">
-      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_camp_inline.h">
-      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_fire.h">
-      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_fire_inline.h">
-      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_hide.h">
-      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_hide_inline.h">
-      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_hide_lite.h">
-      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_hide_lite_inline.h">
-      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_moveout.h">
-      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_moveout_inline.h">
-      <Filter>xrGame_monsters\Controller\State Attack\Cover</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_state_panic.h">
-      <Filter>xrGame_monsters\Controller\State Panic</Filter>
-    </ClInclude>
-    <ClInclude Include="controller_state_panic_inline.h">
-      <Filter>xrGame_monsters\Controller\State Panic</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_animation.h">
-      <Filter>xrGame_monsters\Controller\Base Controllers\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_direction.h">
-      <Filter>xrGame_monsters\Controller\Base Controllers\Direction</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_psy_hit.h">
-      <Filter>xrGame_monsters\Controller\Psy hit</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Controller\controller_psy_hit_effector.h">
-      <Filter>xrGame_monsters\Controller\Psy hit</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Cat\cat.h">
       <Filter>xrGame_monsters\Cat</Filter>
@@ -7636,6 +7540,78 @@
     <ClInclude Include="ai\Monsters\Dogsoc\dogsoc_state_manager.h">
       <Filter>xrGame_monsters\Dog_SoC</Filter>
     </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_psy_aura.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_animation.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_direction.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_psy_hit.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_camp.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_camp_inline.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_fire.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_fire_inline.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_hide.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_hide_inline.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_hide_lite.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_hide_lite_inline.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_moveout.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_moveout_inline.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_fast_move.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_fast_move_inline.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_attack_inline.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_control_hit.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_control_hit_inline.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_tube.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_tube_inline.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Controller\controller_state_panic.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="controller_state_panic_inline.h">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -8438,21 +8414,6 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\Controller\controller_state_manager.cpp">
       <Filter>xrGame_monsters\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Controller\controller_script.cpp">
-      <Filter>xrGame_monsters\Controller\Script</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Controller\controller_animation.cpp">
-      <Filter>xrGame_monsters\Controller\Base Controllers\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Controller\controller_direction.cpp">
-      <Filter>xrGame_monsters\Controller\Base Controllers\Direction</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Controller\controller_psy_hit.cpp">
-      <Filter>xrGame_monsters\Controller\Psy hit</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Controller\controller_psy_hit_effector.cpp">
-      <Filter>xrGame_monsters\Controller\Psy hit</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Cat\cat.cpp">
       <Filter>xrGame_monsters\Cat</Filter>
@@ -11355,6 +11316,21 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\Dogsoc\dogsoc_state_manager.cpp">
       <Filter>xrGame_monsters\Dog_SoC</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Controller\controller_psy_aura.cpp">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Controller\controller_animation.cpp">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Controller\controller_direction.cpp">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Controller\controller_psy_hit.cpp">
+      <Filter>xrGame_monsters\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Controller\controller_script.cpp">
+      <Filter>xrGame_monsters\Controller</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

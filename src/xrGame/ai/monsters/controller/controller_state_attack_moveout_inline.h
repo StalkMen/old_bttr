@@ -1,15 +1,12 @@
 #pragma once
 
-#define TEMPLATE_SPECIALIZATION template <\
-	typename _Object\
->
 #define CStateControlMoveOutAbstract CStateControlMoveOut<_Object>
 
 #define MAX_STATE_TIME						10000
 #define DEFAULT_LOOK_POINT_CHANGE_DELAY		2000
 #define LOOK_COVER_PROBABILITY				30
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControlMoveOutAbstract::initialize()
 {
 	inherited::initialize			();
@@ -25,7 +22,7 @@ void CStateControlMoveOutAbstract::initialize()
 	m_enemy_vertex					= object->EnemyMan.get_enemy()->ai_location().level_vertex_id();
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControlMoveOutAbstract::execute()
 {
 	
@@ -48,7 +45,7 @@ void CStateControlMoveOutAbstract::execute()
 	object->custom_anim().set_body_state	(CControllerAnimation::eTorsoSteal,CControllerAnimation::eLegsTypeStealMotion);
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControlMoveOutAbstract::check_start_conditions()
 {
 	if (object->EnemyMan.see_enemy_now())		return false;
@@ -56,7 +53,7 @@ bool CStateControlMoveOutAbstract::check_start_conditions()
 	return true;
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 bool CStateControlMoveOutAbstract::check_completion()
 {
 	if (object->EnemyMan.see_enemy_now())		return true;
@@ -69,7 +66,7 @@ bool CStateControlMoveOutAbstract::check_completion()
 	return false;
 }
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControlMoveOutAbstract::update_target_point()
 {
 	if (m_state == eMoveToNodeEnemyLastSeen) {
@@ -89,7 +86,7 @@ void CStateControlMoveOutAbstract::update_target_point()
 }
 
 
-TEMPLATE_SPECIALIZATION
+template <typename _Object>
 void CStateControlMoveOutAbstract::update_look_point()
 {
 	if (object->HitMemory.get_last_hit_time() > object->EnemyMan.get_enemy_time_last_seen()) {
@@ -102,7 +99,7 @@ void CStateControlMoveOutAbstract::update_look_point()
 	if (m_last_time_look_point_updated + m_current_delay > time()) return;
 
 	if ((Random.randI(100) < LOOK_COVER_PROBABILITY) && (m_last_time_look_point_updated != 0)) {
-		float angle			= ai().level_graph().vertex_low_cover_angle(object->ai_location().level_vertex_id(),deg(10), std::greater<float>());
+		float angle			= ai().level_graph().vertex_cover_angle(object->ai_location().level_vertex_id(),deg(10), std::greater<float>());
 		m_look_point.mad	(object->Position(), Fvector().setHP(angle,0.f), 3.f);
 		m_current_delay		= DEFAULT_LOOK_POINT_CHANGE_DELAY;
 	} else {
@@ -114,5 +111,5 @@ void CStateControlMoveOutAbstract::update_look_point()
 	m_last_time_look_point_updated	= time();
 }
 
-#undef TEMPLATE_SPECIALIZATION
+
 #undef CStateControlMoveOutAbstract
