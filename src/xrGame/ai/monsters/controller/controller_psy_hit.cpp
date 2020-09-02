@@ -108,10 +108,13 @@ void CControllerPsyHit::deactivate()
         P.w_u8(u8(false));
         Actor()->u_EventSend(P);
 
-        LPCSTR _execute;
-        LUA_EXPORT m_function;
-        R_ASSERT(ai().script_engine().functor("_export_touch_of_ray.CControllerPsyHit_deactivate", m_function));
-        _execute = m_function();
+        if (Actor()) // Если это актер, а не НПС
+        {
+            LPCSTR _execute;
+            LUA_EXPORT m_function;
+            R_ASSERT(ai().script_engine().functor("_export_touch_of_ray.CControllerPsyHit_deactivate", m_function));
+            _execute = m_function();
+        }
     }
 
     set_sound_state(eNone);

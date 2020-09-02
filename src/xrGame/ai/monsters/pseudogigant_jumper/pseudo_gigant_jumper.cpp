@@ -258,14 +258,14 @@ void CPseudoGigant_jumper::on_threaten_execute()
 	HS.hit_type			= ( ALife::eHitTypeStrike);										//	l_P.w_u16	( u16(ALife::eHitTypeWound) );
 	HS.Write_Packet		(l_P);
 	u_EventSend			(l_P);
-/*
+
+	if (Actor()) // Если это актер, а не НПС
 	{
 		LPCSTR _execute;
-		LUA m_function;
-		R_ASSERT(GEnv.ScriptEngine->functor("bind_back_to_the_roots.CPseudoGigant_on_threaten_execute", m_function));
+		LUA_EXPORT m_function;
+		R_ASSERT(ai().script_engine().functor("_export_touch_of_ray.CPseudoGigant_on_threaten_execute", m_function));
 		_execute = m_function();
 	}
-	*/
 }
 
 void CPseudoGigant_jumper::HitEntityInJump		(const CEntity *pEntity) 
