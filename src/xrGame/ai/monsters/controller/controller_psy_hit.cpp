@@ -107,13 +107,11 @@ void CControllerPsyHit::deactivate()
         P.w_u16(INV_STATE_BLOCK_ALL);
         P.w_u8(u8(false));
         Actor()->u_EventSend(P);
-/*
+
         LPCSTR _execute;
-        LUA m_function;
-        R_ASSERT(GEnv.ScriptEngine->functor("bind_back_to_the_roots.CControllerPsyHit_deactivate", m_function));
+        LUA_EXPORT m_function;
+        R_ASSERT(ai().script_engine().functor("_export_touch_of_ray.CControllerPsyHit_deactivate", m_function));
         _execute = m_function();
-        Msg("- [C++]: called void CControllerPsyHit::deactivate");
-*/
     }
 
     set_sound_state(eNone);
