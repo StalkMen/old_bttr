@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "snork.h"
+#include "Actor.h"
 #include "snork_state_manager.h"
 #include "../../../detail_path_manager_space.h"
 #include "../../../detail_path_manager.h"
@@ -249,9 +250,16 @@ void CSnork::CheckSpecParams(u32 spec_params)
 
 void CSnork::HitEntityInJump(const CEntity *pEntity)
 {
-	
 	SAAParam &params	= anim().AA_GetParams("stand_attack_2_1");
 	HitEntity			(pEntity, params.hit_power, params.impulse, params.impulse_dir);
+
+	if (Actor()) // Если это актер, а не НПС
+	{
+		LPCSTR _execute;
+		LUA_EXPORT m_function;
+		R_ASSERT(ai().script_engine().functor("_export_touch_of_ray.CSnork_HitEntityInJump", m_function));
+		_execute = m_function();
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////

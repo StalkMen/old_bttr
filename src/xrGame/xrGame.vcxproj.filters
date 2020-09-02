@@ -2383,12 +2383,6 @@
     <Filter Include="xrGame_monsters\Snork">
       <UniqueIdentifier>{2e095859-ac71-4e4c-9bf3-145fd573f5be}</UniqueIdentifier>
     </Filter>
-    <Filter Include="xrGame_monsters\Snork\Special Jump">
-      <UniqueIdentifier>{d2509b5f-b039-4403-92a7-7a4eeec145e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Snork\Script">
-      <UniqueIdentifier>{ea415953-eef0-45d5-9e96-bae5dfacd211}</UniqueIdentifier>
-    </Filter>
     <Filter Include="xrGame_monsters\Tushkano">
       <UniqueIdentifier>{ddbaffbb-4f31-4039-a3b1-7afe67efb599}</UniqueIdentifier>
     </Filter>
@@ -4220,9 +4214,6 @@
     </ClInclude>
     <ClInclude Include="ai\Monsters\Snork\snork_state_manager.h">
       <Filter>xrGame_monsters\Snork</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Snork\snork_jump.h">
-      <Filter>xrGame_monsters\Snork\Special Jump</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Controller\controller.h">
       <Filter>xrGame_monsters\Controller</Filter>
@@ -7603,6 +7594,9 @@
     <ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudogigant_state_manager_jumper.h">
       <Filter>xrGame_monsters\Pseudogigant_jumper</Filter>
     </ClInclude>
+    <ClInclude Include="ai\Monsters\Snork\snork_jump.h">
+      <Filter>xrGame_monsters\Snork</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -8384,12 +8378,6 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\Snork\snork_state_manager.cpp">
       <Filter>xrGame_monsters\Snork</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Snork\snork_jump.cpp">
-      <Filter>xrGame_monsters\Snork\Special Jump</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Snork\snork_script.cpp">
-      <Filter>xrGame_monsters\Snork\Script</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Controller\controller.cpp">
       <Filter>xrGame_monsters\Controller</Filter>
@@ -11334,6 +11322,12 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudogigant_script.cpp">
       <Filter>xrGame_monsters\Pseudogigant_CoP</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Snork\snork_script.cpp">
+      <Filter>xrGame_monsters\Snork</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Snork\snork_jump.cpp">
+      <Filter>xrGame_monsters\Snork</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
