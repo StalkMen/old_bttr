@@ -498,6 +498,8 @@ BOOL CInifile::section_exist(const shared_str& S)const { return section_exist(*S
 //--------------------------------------------------------------------------------------
 CInifile::Sect& CInifile::r_section(LPCSTR S)const
 {
+    if (!S)
+        LogStackTrace("! Check out the newly added section! After equal, no value found.");
     char section[256];
     xr_strcpy(section, sizeof(section), S);
     strlwr(section);

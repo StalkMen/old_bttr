@@ -631,7 +631,9 @@ public:
     {
         return m_can_be_strapped;
     };
-
+	
+	float					GetMagazineWeight(const decltype(m_magazine)& mag) const;
+	
 protected:
     u32						m_ef_main_weapon_type;
     u32						m_ef_weapon_type;
