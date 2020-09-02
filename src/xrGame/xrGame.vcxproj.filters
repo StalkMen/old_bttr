@@ -2416,24 +2416,6 @@
     <Filter Include="xrGame_monsters\Bloodsucker_CoP">
       <UniqueIdentifier>{89859c80-ad55-41fc-90b8-439873439207}</UniqueIdentifier>
     </Filter>
-    <Filter Include="xrGame_monsters\Bloodsucker_CoP\Vampire State">
-      <UniqueIdentifier>{a6a4a630-af29-4f0b-86f3-4bf62ea543fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Bloodsucker_CoP\Script">
-      <UniqueIdentifier>{af0df016-fe59-4327-9a9d-e417d4af0c44}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Bloodsucker_CoP\Predator State">
-      <UniqueIdentifier>{3d4207a8-633d-4381-95ef-9a183eb50c51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Bloodsucker_CoP\Attack">
-      <UniqueIdentifier>{e5e2f253-a15b-4128-bf1e-bf27adada4a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Bloodsucker_CoP\Capture Jump">
-      <UniqueIdentifier>{dda98da5-18b4-45d3-972b-547c0393f434}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="xrGame_monsters\Bloodsucker_CoP\Alien Feature">
-      <UniqueIdentifier>{604a599d-c0d7-492a-881a-c41ab3d3d4ea}</UniqueIdentifier>
-    </Filter>
     <Filter Include="xrGame_monsters\Bloodsucker_CS">
       <UniqueIdentifier>{5daf2add-8de3-4f98-8f6a-48c773e9dfb6}</UniqueIdentifier>
     </Filter>
@@ -4079,63 +4061,6 @@
     </ClInclude>
     <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_effector.h">
       <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_approach.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_approach_inline.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_execute.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_execute_inline.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_hide.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_hide_inline.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_inline.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Vampire State</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_predator.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Predator State</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_predator_inline.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Predator State</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_predator_lite.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Predator State</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_predator_lite_inline.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Predator State</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state_hide.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state_hide_inline.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state_inline.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Attack</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\monsters\bloodsucker\bloodsucker_state_capture_jump.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Capture Jump</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\monsters\bloodsucker\bloodsucker_state_capture_jump_inline.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Capture Jump</Filter>
-    </ClInclude>
-    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_alien.h">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Alien Feature</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\Boar\boar.h">
       <Filter>xrGame_monsters\Boar_CoP</Filter>
@@ -7612,6 +7537,63 @@
     <ClInclude Include="controller_state_panic_inline.h">
       <Filter>xrGame_monsters\Controller</Filter>
     </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_alien.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state_hide.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state_hide_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_attack_state_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\monsters\bloodsucker\bloodsucker_state_capture_jump.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\monsters\bloodsucker\bloodsucker_state_capture_jump_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_predator.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_predator_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_predator_lite.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_predator_lite_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_approach.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_approach_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_execute.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_execute_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_hide.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_hide_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
+    <ClInclude Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_inline.h">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -8303,12 +8285,6 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker_vampire_effector.cpp">
       <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker_script.cpp">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Script</Filter>
-    </ClCompile>
-    <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker_alien.cpp">
-      <Filter>xrGame_monsters\Bloodsucker_CoP\Alien Feature</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Boar\boar.cpp">
       <Filter>xrGame_monsters\Boar_CoP</Filter>
@@ -11331,6 +11307,12 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\Controller\controller_script.cpp">
       <Filter>xrGame_monsters\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker_alien.cpp">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
+    </ClCompile>
+    <ClCompile Include="ai\Monsters\Bloodsucker\bloodsucker_script.cpp">
+      <Filter>xrGame_monsters\Bloodsucker_CoP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
