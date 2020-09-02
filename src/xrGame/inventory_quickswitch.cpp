@@ -3,6 +3,7 @@
 #include "weapon.h"
 #include "actor.h"
 #include "../xrCore/xr_ini.h"
+#include "Grenade.h"
 
 static u32 const ammo_to_cost_map_koef = 3;
 class next_weapon_searcher
@@ -263,4 +264,97 @@ void priority_group::init_group			(shared_str const & game_section, shared_str c
 bool priority_group::is_item_in_group	(shared_str const & section_name) const
 {
 	return m_sections.find(section_name) != m_sections.end();
+}
+
+void CInventory::ActivateDeffered()
+{
+	m_change_after_deactivate = true;
+	Activate(NO_ACTIVE_SLOT);
+}
+
+PIItem CInventory::GetNextActiveGrenade()
+{
+	// (c) NanoBot
+	xr_vector<shared_str> types_sect_grn;        // òåêóùèé ñïèñîê ñåêöèé ãðàíàò
+	// Íàõîäèì ñïèñîê ñåêöèé ãðàíàò ðàçíûõ òèïîâ â àêòèâå
+	// â m_belt èëè m_ruck íåò ãðàíàòû êîòîðóþ àêòîð äåðæèò â ðóêàõ, ò.å. this
+	types_sect_grn.push_back(ActiveItem()->cast_game_object()->cNameSect());
+	int count_types = 1;    // òåêóùèå êîëè÷åñòâî òèïîâ ãðàíàò â àêòèâå
+	TIItemContainer::iterator it = m_ruck.begin();
+	TIItemContainer::iterator it_e = m_ruck.end();
+	for (; it != it_e; ++it)
+	{
+		CGrenade *pGrenade = smart_cast<CGrenade*>(*it);
+		if (pGrenade)
+		{
+			// ñîñòàâëÿåì ñïèñîê òèïîâ ãðàíàò (ñ) ÍàíîÁîò
+			xr_vector<shared_str>::const_iterator I = types_sect_grn.begin();
+			xr_vector<shared_str>::const_iterator E = types_sect_grn.end();
+			bool new_type = true;
+			for (; I != E; ++I)
+			{
+				if (!xr_strcmp(pGrenade->cNameSect(), *I)) // åñëè ñîâïàäàþò
+					new_type = false;
+			}
+			if (new_type)    // íîâûé òèï ãðàíàòû?, äîáàâëÿåì
+			{
+				types_sect_grn.push_back(pGrenade->cNameSect());
+				count_types++;
+			}
+		}
+	}
+	// Åñëè òèïîâ áîëüøå 1 òî, ñîðòèðóåì ñïèñîê ïî àëôàâèòó
+	// è íàõîäèì íîìåð òåêóùåé ãðàíàòû â ñïèñêå.
+	if (count_types > 1)
+	{
+		int curr_num = 0;        // íîìåð òèïà òåêóùåé ãðàíàòû
+		std::sort(types_sect_grn.begin(), types_sect_grn.end());
+		xr_vector<shared_str>::const_iterator I = types_sect_grn.begin();
+		xr_vector<shared_str>::const_iterator E = types_sect_grn.end();
+		for (; I != E; ++I)
+		{
+			if (!xr_strcmp(ActiveItem()->cast_game_object()->cNameSect(), *I)) // åñëè ñîâïàäàþò
+				break;
+			curr_num++;
+		}
+		int next_num = curr_num + 1;    // íîìåð ñåêöèè ñëåäóþùåé ãðàíàòû
+		if (next_num >= count_types)
+			next_num = 0;
+
+		shared_str sect_next_grn = types_sect_grn[next_num];    // ñåêöèÿ ñëåäóùåé ãðàíàòû
+		// Èùåì â àêòèâå ãðàíàòó ñ ñåêöèåé ñëåäóùåãî òèïà
+		it = m_ruck.begin();
+		it_e = m_ruck.end();
+		for (; it != it_e; ++it)
+		{
+			CGrenade *pGrenade = smart_cast<CGrenade*>(*it);
+			if (pGrenade && !xr_strcmp(pGrenade->cNameSect(), sect_next_grn))
+				return *it;
+		}
+	}
+
+	return nullptr;
+}
+
+bool CInventory::ActivateNextGrenage()
+{
+	if (m_iActiveSlot == NO_ACTIVE_SLOT)
+		return false;
+
+	CObject* pActor_owner = smart_cast<CObject*>(m_pOwner);
+	if (Level().CurrentViewEntity() != pActor_owner)
+		return false;
+
+	PIItem new_item = GetNextActiveGrenade();
+	if (!new_item)
+		return false;
+
+	PIItem current_item = ActiveItem();
+	if (current_item)
+	{
+		m_change_after_deactivate = false;
+		Ruck(current_item);
+		Slot(new_item->BaseSlot(), new_item);
+	}
+	return true;
 }
