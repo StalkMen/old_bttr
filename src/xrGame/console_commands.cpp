@@ -1860,8 +1860,25 @@ public:
 
 float xrgame_scope_fov = 0.65f;
 
+u32 type_hud_token = 0;
+const xr_token type_hud_token_ext[] = {
+    {"type_hud_coc", 0},
+    {"type_hud_cop", 1},
+    {"type_hud_cmp", 2},
+    {"type_hud_st174", 3},
+    {"type_hud_clear_sky", 4},
+    {"type_hud_soc", 5},
+    {"type_hud_veter_vremeni", 6},
+    {"type_hud_lost_alpha", 7},
+    {"type_hud_misery", 8},
+    {"type_hud_pch", 9},
+    {nullptr, 0}
+};
+
 void CCC_RegisterCommands()
 {
+	CMD3(CCC_Token, "xrGame_type_hud", &type_hud_token, type_hud_token_ext);
+	
 	CMD4(CCC_Float, "xrGame_scope_fov", &xrgame_scope_fov, 0.45f, 0.85f);
 
 	// options
