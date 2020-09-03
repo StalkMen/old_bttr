@@ -104,6 +104,7 @@ _action  actions[]		= {
 	{ "custom13", kCUSTOM13, _sp },
 	{ "custom14", kCUSTOM14, _sp },
 	{ "custom15", kCUSTOM15, _sp },
+	{ "kick", kKICK, _sp },
 	{ "cam_autoaim", kCAM_AUTOAIM, _sp },
 	{ NULL, 				kLASTACTION				,_both}		
 };															

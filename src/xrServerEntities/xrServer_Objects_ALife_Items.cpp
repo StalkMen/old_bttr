@@ -201,7 +201,14 @@ void CSE_ALifeInventoryItem::UPDATE_Read	(NET_Packet &tNetPacket)
 		//Msg("--- Object [%d] has no sync items", this->cast_abstract()->ID);
 		return;
 	}
-
+	
+	//Alundaio: Bug workaround
+	if (tNetPacket.r_elapsed() < 52)
+	{
+		tNetPacket.r_advance(tNetPacket.r_elapsed());
+		return;
+	}
+	
 	mask_num_items					num_items;
 	num_items.common				= m_u8NumItems;
 	m_u8NumItems					= num_items.num_items;

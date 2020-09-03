@@ -1738,9 +1738,6 @@
     <Filter Include="Core\Common">
       <UniqueIdentifier>{f5555d92-4e46-4fe0-a196-969d339d6c53}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Common\Console Commands">
-      <UniqueIdentifier>{89f1bed5-cc9b-4120-80a0-2ab10a4a2bd9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Common\DateTime">
       <UniqueIdentifier>{dacf82d6-3431-41a3-be9f-274157a901f0}</UniqueIdentifier>
     </Filter>
@@ -2460,6 +2457,9 @@
     </Filter>
     <Filter Include="xrGame_monsters\Poltergeist_CS">
       <UniqueIdentifier>{3e3bd513-eae1-4d13-b6b1-3e54db6c4fe1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xrGame_console">
+      <UniqueIdentifier>{ad857e51-fe45-4bc6-9746-1c41328fcec1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -7609,6 +7609,7 @@
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_attack_hidden_inline.h">
       <Filter>xrGame_monsters\Poltergeist</Filter>
     </ClInclude>
+    <ClInclude Include="ui\UIPdaSpot.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -9909,12 +9910,6 @@
     <ClCompile Include="spectator_camera_first_eye.cpp">
       <Filter>Core\Client\Spectator\Cameras</Filter>
     </ClCompile>
-    <ClCompile Include="console_commands.cpp">
-      <Filter>Core\Common\Console Commands</Filter>
-    </ClCompile>
-    <ClCompile Include="console_commands_mp.cpp">
-      <Filter>Core\Common\Console Commands</Filter>
-    </ClCompile>
     <ClCompile Include="date_time.cpp">
       <Filter>Core\Common\DateTime</Filter>
     </ClCompile>
@@ -11361,6 +11356,13 @@
     </ClCompile>
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_flame_thrower.cpp">
       <Filter>xrGame_monsters\Poltergeist</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIPdaSpot.cpp" />
+    <ClCompile Include="console_commands.cpp">
+      <Filter>xrGame_console</Filter>
+    </ClCompile>
+    <ClCompile Include="console_commands_mp.cpp">
+      <Filter>xrGame_console</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

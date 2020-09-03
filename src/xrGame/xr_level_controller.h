@@ -96,7 +96,9 @@ enum	EGameActions
 	kCUSTOM13,
 	kCUSTOM14,
 	kCUSTOM15,
-
+	
+	kKICK, // alpet
+	
 	kCAM_AUTOAIM,
 
 	kLASTACTION,

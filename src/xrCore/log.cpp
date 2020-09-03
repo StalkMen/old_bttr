@@ -202,6 +202,12 @@ void CreateLog(BOOL nl)
         FS.update_path(logFName, "$logs$", log_file_name);
     if (!no_log)
     {
+#ifdef COPY_LOG
+		//Alun: Backup existing log
+		xr_string backup_logFName = EFS.ChangeFileExt(logFName,".bkp");
+		FS.file_rename(logFName, backup_logFName.c_str(), true);
+		//-Alun
+#endif	
         IWriter* f = FS.w_open(logFName);
         if (f == NULL)
         {

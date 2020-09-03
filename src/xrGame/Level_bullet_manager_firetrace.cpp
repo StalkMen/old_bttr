@@ -30,6 +30,7 @@
 
 //расстояния не пролетев которого пуля не трогает того кто ее пустил
 extern float gCheckHitK;
+extern BOOL int_wallmarks;
 
 //test callback функция 
 //  object - object for testing
@@ -157,9 +158,8 @@ void CBulletManager::FireShotmark (SBullet* bullet, const Fvector& vDir, const F
 	SGameMtlPair* mtl_pair	= GMLib.GetMaterialPair(bullet->bullet_material_idx, target_material);
 	Fvector particle_dir	= vNormal;
 
-	if (R.O)
+	if (R.O && int_wallmarks == 1)
 	{
-/*  add_SkeletonWallmark not implemented now...
 		particle_dir		 = vDir;
 		particle_dir.invert	();
 
@@ -171,15 +171,8 @@ void CBulletManager::FireShotmark (SBullet* bullet, const Fvector& vDir, const F
 			//добавить отметку на материале
 			Fvector p;
 			p.mad(bullet->bullet_pos,bullet->dir,R.range-0.01f);
-			if(!g_dedicated_server)
-				::Render->add_SkeletonWallmark	(	&R.O->renderable.xform, 
-													PKinematics(R.O->Visual()), 
-													&*mtl_pair->m_pCollideMarks,
-													p, 
-													bullet->dir, 
-													bullet->wallmark_size);
+			::Render->add_SkeletonWallmark(&R.O->renderable.xform, PKinematics(R.O->Visual()), &*mtl_pair->m_pCollideMarks,	p, bullet->dir, bullet->wallmark_size);
 		}
-*/
 	} 
 	else 
 	{

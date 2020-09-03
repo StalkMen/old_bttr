@@ -259,7 +259,8 @@ protected:
     bool					use_Holder				(CHolderCustom* holder);
     bool					use_Vehicle				(CHolderCustom* object);
     void					ActorUse				();
-
+	void					actor_kick				();
+	
 protected:
     BOOL					m_bAnimTorsoPlayed;
     static void				AnimTorsoPlayCallBack(CBlend* B);

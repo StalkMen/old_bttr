@@ -21,6 +21,7 @@ class CGameTask;
 class CUIXml;
 class UIHint;
 class CUIPropertiesBox;
+class CUIPdaSpot;
 
 DEFINE_MAP(shared_str,CUICustomMap*,GameMaps,GameMapsPairIt);
 
@@ -47,7 +48,8 @@ private:
 	CMapActionPlanner*			m_ActionPlanner;
 //	CUIFrameLineWnd*			UIMainMapHeader;
 	CUIMapLocationHint*			m_map_location_hint;
-
+	CUIPdaSpot*					m_UserSpotWnd;
+	
 #ifdef DEBUG
 //	CUIStatic*					m_dbg_text_hint;
 //	CUIStatic*					m_dbg_info;
@@ -92,8 +94,18 @@ private:
 	void						OnToolPrevMapClicked	(CUIWindow*, void*);
 
 	void						ResetActionPlanner		();
-
+	// qweasdd
+	CMapLocation*				m_cur_location;
+	
 public:
+
+	// qweasdd
+	bool						ConvertCursorPosToMap(Fvector*, CUILevelMap*);
+	void						CreateSpotWindow(Fvector, shared_str);
+	void						ShowSettingsWindow(u16 id, Fvector position, shared_str levelName);
+	CMapLocation*				UnderSpot(Fvector RealPosition, CUILevelMap*);
+	//-qweasdd
+	
 	void						ViewGlobalMap	();
 	void						ViewActor		();
 	void						ViewZoomIn		();

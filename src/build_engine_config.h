@@ -5,7 +5,8 @@
 	#define CRASH_PROTECTION_OGSR(cond, ...) do { if (!(cond)) Msg(__VA_ARGS__); } while (0)	// Защита от вылета, когда аргумент равен нулю или исключению(DEBUG), OGSR +
 	#define LUA_EXPORT					luabind::functor<LPCSTR>								// Для экспорта С++ в LUA вызовы
 	#define NEW_AI_POLTER																		// Новая логика полтергейста ЧН
-
+//	#define COPY_LOG																			// Создать копию лога при выходе из игры
+//	#define ACTIVE_VERIFY																	    // Активировать режим точности ошибок в релизе
 // CALLBACKS
 	#define EXTENDED_ITEM_CALLBACKS							// (eItemToBelt, eItemToSlot, eItemToRuck)
 	#define EXTENDED_WEAPON_CALLBACKS						// (eOnWeaponZoomIn, eOnWeaponZoomOut, eOnWeaponJammed)

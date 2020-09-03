@@ -1859,9 +1859,10 @@ public:
 };
 
 float xrgame_scope_fov = 0.65f;
+BOOL int_wallmarks = 1;
 
 u32 type_hud_token = 0;
-const xr_token type_hud_token_ext[] = {
+xr_token type_hud_token_ext[] = {
     {"type_hud_coc", 0},
     {"type_hud_cop", 1},
     {"type_hud_cmp", 2},
@@ -1878,8 +1879,8 @@ const xr_token type_hud_token_ext[] = {
 void CCC_RegisterCommands()
 {
 	CMD3(CCC_Token, "xrGame_type_hud", &type_hud_token, type_hud_token_ext);
-	
 	CMD4(CCC_Float, "xrGame_scope_fov", &xrgame_scope_fov, 0.45f, 0.85f);
+	CMD4(CCC_Integer, "xrGame_wallmarks", &int_wallmarks, 0, 1);
 
 	// options
 	g_OptConCom.Init();
