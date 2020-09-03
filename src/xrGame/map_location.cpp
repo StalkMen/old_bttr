@@ -357,8 +357,9 @@ void CMapLocation::CalcLevelName()
 
 bool CMapLocation::Update() //returns actual
 {
-	R_ASSERT(m_cached.m_updatedFrame!=Device.dwFrame);
-		
+	{
+		CRASH_PROTECTION_OGSR(m_cached.m_updatedFrame != Device.dwFrame, "! OldSerpskiStalker. Test correction of an annoying error, knocks out rarely and it is not clear why. File map_location.cpp, line 358, func ::Update()");
+	}
 
 	if(	m_flags.test(eTTL) )
 	{
