@@ -410,7 +410,8 @@ void CBaseMonster::Die(CObject* who)
 	}
 
 	inherited::Die(who);
-
+	sound().clear_playing_sounds();
+	
 	if (is_special_killer(who))
 		sound().play			(MonsterSound::eMonsterSoundDieInAnomaly);
 	else
