@@ -475,22 +475,21 @@ public:
 };
 
 //-----------------------------------------------------------------------
-float ps_gamma = 1.f, ps_brightness = 1.f, ps_contrast = 1.f;
+float ps_gamma = 0.f;
+float ps_brightness = 0.f;
+float ps_contrast = 0.f;
+
 class CCC_Gamma : public CCC_Float
 {
 public:
-    CCC_Gamma(LPCSTR N, float* V) : CCC_Float(N, V, 0.5f, 1.5f) {}
+    CCC_Gamma(LPCSTR N, float* V) : CCC_Float(N, V, 0.0f, 1.5f) {}
 
     virtual void Execute(LPCSTR args)
     {
         CCC_Float::Execute(args);
-        //Device.Gamma.Gamma (ps_gamma);
-        Device.m_pRender->setGamma(ps_gamma);
-        //Device.Gamma.Brightness (ps_brightness);
-        Device.m_pRender->setBrightness(ps_brightness);
-        //Device.Gamma.Contrast (ps_contrast);
-        Device.m_pRender->setContrast(ps_contrast);
-        //Device.Gamma.Update ();
+        Device.m_pRender->setGamma(1.f + ps_gamma);
+        Device.m_pRender->setBrightness(1.f + ps_brightness);
+        Device.m_pRender->setContrast(1.f + ps_contrast);
         Device.m_pRender->updateGamma();
     }
 };
