@@ -59,7 +59,9 @@ xr_token							qmsaa_token							[ ]={
 	{ "st_opt_off",					0												},
 	{ "2x",							1												},
 	{ "4x",							2												},
-//	{ "8x",							3												},
+#ifdef USE_DX11
+	{ "8x",							3												},
+#endif
 	{ 0,							0												}
 };
 
@@ -761,7 +763,6 @@ void		xrRender_initconsole()
 
 	// R1-specific
 	CMD4(CCC_Integer, "r1_glows_per_frame", &ps_r1_GlowsPerFrame, 2, 32);
-	CMD3(CCC_Mask, "r1_detail_textures", &ps_r2_ls_flags, R1FLAG_DETAIL_TEXTURES);
 
 	CMD4(CCC_Float, "r1_fog_luminance", &ps_r1_fog_luminance, 0.2f, 5.f);
 
@@ -821,9 +822,7 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "r2_sun_tsm_proj", &ps_r2_sun_tsm_projection, .001f, 0.8f);
 	CMD4(CCC_Float, "r2_sun_tsm_bias", &ps_r2_sun_tsm_bias, -0.5, +0.5);
 	CMD4(CCC_Float, "r2_sun_near", &ps_r2_sun_near, 1.f,	/*50.f*/150.f); //AVO: extended from 50 to 150
-#if RENDER!=R_R1
 	CMD4(CCC_Float, "r2_sun_far", &OLES_SUN_LIMIT_27_01_07, 51.f, 180.f);
-#endif
 	CMD4(CCC_Float, "r2_sun_near_border", &ps_r2_sun_near_border, .5f, 1.0f);
 	CMD4(CCC_Float, "r2_sun_depth_far_scale", &ps_r2_sun_depth_far_scale, 0.5, 1.5);
 	CMD4(CCC_Float, "r2_sun_depth_far_bias", &ps_r2_sun_depth_far_bias, -0.5, +0.5);

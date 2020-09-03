@@ -97,7 +97,7 @@ void	CSoundRender_Target::attach()
 	VERIFY			(m_pEmitter);
 	ov_callbacks ovc= {ov_read_func,ov_seek_func,ov_close_func,ov_tell_func};
 	wave			= FS.r_open		(m_pEmitter->source()->pname.c_str()); 
-	R_ASSERT3		(wave&&wave->length(),"Can't open wave file:", m_pEmitter->source()->pname.c_str());
+	R_ASSERT3		(wave&&wave->length(),"Can't open ogg file:", m_pEmitter->source()->pname.c_str());
  	ov_open_callbacks(wave,&ovf,NULL,0,ovc);
 	VERIFY			(0!=wave);
 }
