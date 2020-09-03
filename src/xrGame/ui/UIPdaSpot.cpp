@@ -57,7 +57,7 @@ void CUIPdaSpot::InitControls()
 	this->SetWndRect(Frect().set(0.0f, 0.0f, 1024.f, 768.f));
 
 	CUIXml uiXml;
-	uiXml.Load(CONFIG_PATH, UI_PATH, "pda_spot.xml");
+	uiXml.Load(CONFIG_PATH, UI_PATH, "pda\\pda_spot.xml");
 
 	m_background = UIHelper::CreateStatic(uiXml, "background", this);
 	m_editBox = UIHelper::CreateEditBox(uiXml, "spot_name_edit", this);
