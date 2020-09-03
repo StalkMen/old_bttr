@@ -27,12 +27,6 @@ const u32 BIG_FILE_READER_WINDOW_SIZE = 1024*1024;
 
 CLocatorAPI* xr_FS = NULL;
 
-#ifdef _EDITOR
-# define FSLTX "fs.ltx"
-#else
-# define FSLTX "fsgame.ltx"
-#endif
-
 struct _open_file
 {
     union
@@ -677,7 +671,7 @@ IReader* CLocatorAPI::setup_fs_ltx(LPCSTR fs_name)
     // return (0);
     // }
 
-    LPCSTR fs_file_name = FSLTX;
+    LPCSTR fs_file_name = ((strstr(Core.Params, "-o")) ? "fsgame.ltx" : "Back_to_the_Roots_config.stalker");
     if (fs_name && *fs_name)
         fs_file_name = fs_name;
 
@@ -686,10 +680,7 @@ IReader* CLocatorAPI::setup_fs_ltx(LPCSTR fs_name)
     int file_handle;
     u32 file_size;
     IReader* result = 0;
-    CHECK_OR_EXIT(
-        file_handle_internal(fs_file_name, file_size, file_handle),
-        make_string("Cannot open file \"%s\".\nCheck your working folder.", fs_file_name)
-        );
+    CHECK_OR_EXIT(file_handle_internal(fs_file_name, file_size, file_handle), make_string("Cannot open file \"%s\".\nCheck your working folder.", fs_file_name));
 
     void* buffer = FileDownload(fs_file_name, file_handle, file_size);
     result = xr_new<CTempReader>(buffer, file_size, 0);
