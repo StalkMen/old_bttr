@@ -494,61 +494,10 @@ public:
     }
 };
 
-//-----------------------------------------------------------------------
-/*
-#ifdef DEBUG
-extern INT g_bDR_LM_UsePointsBBox;
-extern INT g_bDR_LM_4Steps;
-extern INT g_iDR_LM_Step;
-extern Fvector g_DR_LM_Min, g_DR_LM_Max;
-
-class CCC_DR_ClearPoint : public IConsole_Command
-{
-public:
-CCC_DR_ClearPoint(LPCSTR N) : IConsole_Command(N) { bEmptyArgsHandled = TRUE; };
-virtual void Execute(LPCSTR args) {
-g_DR_LM_Min.x = 1000000.0f;
-g_DR_LM_Min.z = 1000000.0f;
-
-g_DR_LM_Max.x = -1000000.0f;
-g_DR_LM_Max.z = -1000000.0f;
-
-Msg("Local BBox (%f, %f) - (%f, %f)", g_DR_LM_Min.x, g_DR_LM_Min.z, g_DR_LM_Max.x, g_DR_LM_Max.z);
-}
-};
-
-class CCC_DR_TakePoint : public IConsole_Command
-{
-public:
-CCC_DR_TakePoint(LPCSTR N) : IConsole_Command(N) { bEmptyArgsHandled = TRUE; };
-virtual void Execute(LPCSTR args) {
-Fvector CamPos = Device.vCameraPosition;
-
-if (g_DR_LM_Min.x > CamPos.x) g_DR_LM_Min.x = CamPos.x;
-if (g_DR_LM_Min.z > CamPos.z) g_DR_LM_Min.z = CamPos.z;
-
-if (g_DR_LM_Max.x < CamPos.x) g_DR_LM_Max.x = CamPos.x;
-if (g_DR_LM_Max.z < CamPos.z) g_DR_LM_Max.z = CamPos.z;
-
-Msg("Local BBox (%f, %f) - (%f, %f)", g_DR_LM_Min.x, g_DR_LM_Min.z, g_DR_LM_Max.x, g_DR_LM_Max.z);
-}
-};
-
-class CCC_DR_UsePoints : public CCC_Integer
-{
-public:
-CCC_DR_UsePoints(LPCSTR N, int* V, int _min=0, int _max=999) : CCC_Integer(N, V, _min, _max) {};
-virtual void Save (IWriter *F) {};
-};
-#endif
-*/
-
 ENGINE_API BOOL r2_sun_static = FALSE;
 ENGINE_API BOOL r2_advanced_pp = TRUE; // advanced post process and effects
-
-u32 renderer_value = 0;
-//void fill_render_mode_list();
-//void free_render_mode_list();
+ENGINE_API BOOL render_dx10_1 = FALSE;
+ENGINE_API u32 renderer_value = 0;
 
 class CCC_r2 : public CCC_Token
 {
@@ -566,12 +515,10 @@ public:
         tokens = vid_quality_token;
 
         inherited::Execute(args);
-        // 0 - r1
-        // 1..3 - r2
-        // 4 - r3
-
+       
         psDeviceFlags.set(rsR3, (renderer_value == 0));
-        psDeviceFlags.set(rsR4, (renderer_value >= 1));
+        render_dx10_1 = (renderer_value >= 1);
+        psDeviceFlags.set(rsR4, (renderer_value >= 2));
 
     }
 

@@ -188,7 +188,10 @@ void CEngineAPI::CreateRendererList()
     xr_vector<LPCSTR> _tmp;
 
     if (proceed &= bSupports_dx10, proceed)
+    {
         _tmp.push_back("support_DX10");
+        _tmp.push_back("support_DX10_1");
+    }
     if (proceed &= bSupports_dx11, proceed)
         _tmp.push_back("support_DX11");
 

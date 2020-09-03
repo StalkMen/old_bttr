@@ -6,6 +6,8 @@
 
 #include "../../build_engine_config.h"
 
+extern ENGINE_API u32 renderer_value;
+
 u32			ps_Preset				=	2	;
 xr_token							qpreset_token							[ ]={
 	{ "Minimum",					0											},
@@ -59,9 +61,9 @@ xr_token							qmsaa_token							[ ]={
 	{ "st_opt_off",					0												},
 	{ "2x",							1												},
 	{ "4x",							2												},
-#ifdef USE_DX11
-	{ "8x",							3												},
-#endif
+
+	{ ((renderer_value >= 2) ? "8x" : "st_opt_msaa_x8_error"),	((renderer_value >= 2) ? 3	: 0) },
+
 	{ 0,							0												}
 };
 
@@ -69,7 +71,7 @@ u32			ps_r3_msaa_atest		=	0;			//	=	0;
 xr_token							qmsaa__atest_token					[ ]={
 	{ "st_opt_off",					0												},
 	{ "st_opt_atest_msaa_dx10_0",	1												},
-	{ "st_opt_atest_msaa_dx10_1",	2												},
+	{ ((renderer_value >= 1) ? "st_opt_atest_msaa_dx10_1" : "st_opt_error_dx10_1"),	((renderer_value >= 1) ? 2 : 0)	},
 	{ 0,							0												}
 };
 
@@ -911,7 +913,7 @@ void		xrRender_initconsole()
 	//CMD3(CCC_Mask,		"r3_msaa_hybrid",				&ps_r2_ls_flags,			R3FLAG_MSAA_HYBRID);
 	//CMD3(CCC_Mask,		"r3_msaa_opt",					&ps_r2_ls_flags,			R3FLAG_MSAA_OPT);
 	CMD3(CCC_Mask, "r3_gbuffer_opt", &ps_r2_ls_flags, R3FLAG_GBUFFER_OPT);
-	CMD3(CCC_Mask, "r3_use_dx10_1", &ps_r2_ls_flags, (u32)R3FLAG_USE_DX10_1);
+
 	//CMD3(CCC_Mask,		"r3_msaa_alphatest",			&ps_r2_ls_flags,			(u32)R3FLAG_MSAA_ALPHATEST);
 	CMD3(CCC_Token, "r3_msaa_alphatest", &ps_r3_msaa_atest, qmsaa__atest_token);
 	CMD3(CCC_Token, "r3_minmax_sm", &ps_r3_minmax_sm, qminmax_sm_token);
