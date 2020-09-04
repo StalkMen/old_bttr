@@ -13,6 +13,7 @@
 
 #include "../xrRender/dxRenderDeviceRender.h"
 #include "../../build_render_config.h"
+#include "dx10TextureDDS.h"
 
 void fix_texture_name(LPSTR fn)
 {
@@ -176,6 +177,7 @@ ID3DBaseTexture*	CRender::texture_load(LPCSTR fRName, u32& ret_msize, bool bStag
 	string_path				fname;
 	xr_strcpy(fname,fRName); //. andy if (strext(fname)) *strext(fname)=0;
 	fix_texture_name		(fname);
+	XRayDDSLoader			TextureLoader;
 	IReader* S				= NULL;
 	//if (!FS.exist(fn,"$game_textures$",	fname,	".dds")	&& strstr(fname,"_bump"))	goto _BUMP_from_base;
 	if (strstr(fname,"_bump")) 
@@ -214,7 +216,10 @@ ID3DBaseTexture*	CRender::texture_load(LPCSTR fRName, u32& ret_msize, bool bStag
 	if (FS.exist(fn,"$game_saves$",		fname,	".dds"))							goto _DDS;
 	if (FS.exist(fn,"$game_textures$",	fname,	".dds"))							goto _DDS;
 
-	Msg("! Can't find texture '%s'",fname);
+CANT_LOAD:
+	{
+		Msg("! Can't find texture '%s'", fname);
+	}
 	R_ASSERT(FS.exist(fn,"$game_textures$",	"ed\\ed_not_existing_texture",".dds"));
 	goto _DDS;
 
@@ -223,7 +228,7 @@ ID3DBaseTexture*	CRender::texture_load(LPCSTR fRName, u32& ret_msize, bool bStag
 _DDS:
 	{
 		// Load and get header
-
+#ifdef OLD_LOADER_DDS
 		S = FS.r_open(fn);
 #ifdef DEBUG
 		Msg("* Loaded: %s[%d]", fn, S->length());
@@ -235,13 +240,35 @@ _DDS:
 #else
 		R_CHK2(D3DX10GetImageInfoFromMemory(S->pointer(), S->length(), 0, &IMG, 0), fn);
 #endif
-		//if (IMG.ResourceType	== D3DRTYPE_CUBETEXTURE)			goto _DDS_CUBE;
 		if (IMG.MiscFlags & D3D_RESOURCE_MISC_TEXTURECUBE)			goto _DDS_CUBE;
 		else														goto _DDS_2D;
+#else
+		{
+			Msg("Load Texture:%s", fn);
 
+			if (!TextureLoader.Load(fn))
+			{
+				Msg("Cant Load Texture:%s", fn);
+				goto CANT_LOAD;
+			}
+			else
+			{
+				if (TextureLoader.isCube())
+				{
+					Msg("is cube Texture:%s", fn);
+					goto _DDS_CUBE;
+				}
+				else
+				{
+					goto _DDS_2D;
+				}
+			}
+		}
+#endif
 	_DDS_CUBE:
 		{
 			//	Inited to default by provided default constructor
+#ifdef OLD_LOADER_DDS
 #ifdef USE_DX11
 			D3DX11_IMAGE_LOAD_INFO LoadInfo;
 #else
@@ -273,10 +300,22 @@ _DDS:
 			// OK
 			mip_cnt = IMG.MipLevels;
 			ret_msize = calc_texture_size(img_loaded_lod, mip_cnt, img_size);
-			return					pTexture2D;
+
+#else
+#ifndef USE_DX10
+			ID3D11Texture2D* ptr = 0;
+#else
+			ID3D10Texture2D* ptr = 0;
+#endif
+			TextureLoader.To(ptr, bStaging);
+			ret_msize = TextureLoader.GetSizeInMemory();
+			pTexture2D = ptr;
+#endif
+			return pTexture2D;
 		}
 	_DDS_2D:
 		{
+#ifdef OLD_LOADER_DDS
 			// Check for LMAP and compress if needed
 			strlwr(fn);
 
@@ -337,6 +376,16 @@ _DDS:
 			mip_cnt = IMG.MipLevels;
 			// OK
 			ret_msize = calc_texture_size(img_loaded_lod, mip_cnt, img_size);
+#else
+#ifndef USE_DX10
+		ID3D11Texture2D* ptr = 0;
+#else
+		ID3D10Texture2D* ptr = 0;
+#endif
+		TextureLoader.To(ptr, bStaging);
+		ret_msize = TextureLoader.GetSizeInMemory();
+		pTexture2D = ptr;
+#endif
 			return					pTexture2D;
 		}
 	}
@@ -351,8 +400,10 @@ _BUMP_from_base:
 			R_ASSERT2(FS.exist(fn, "$game_textures$", "ed\\ed_dummy_bump#", ".dds"), "ed_dummy_bump#");
 			S = FS.r_open(fn);
 			R_ASSERT2(S, fn);
+#ifndef OLD_LOADER_DDS
 			img_size = S->length();
 			goto		_DDS_2D;
+#endif
 		}
 		if (strstr(fname, "_bump"))
 		{
@@ -360,9 +411,10 @@ _BUMP_from_base:
 			S = FS.r_open(fn);
 
 			R_ASSERT2(S, fn);
-
+#ifndef OLD_LOADER_DDS
 			img_size = S->length();
 			goto		_DDS_2D;
+#endif
 		}
 		//////////////////
 			}

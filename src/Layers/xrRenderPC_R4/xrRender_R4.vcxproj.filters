@@ -738,6 +738,8 @@
     <ClInclude Include="..\xrRender\Debug\dxPixEventWrapper.h">
       <Filter>Debug</Filter>
     </ClInclude>
+    <ClInclude Include="..\xrRenderDX10\dx10TextureDDS.h" />
+    <ClInclude Include="..\xrRenderDX10\dx10DDS.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1076,9 +1078,6 @@
     <ClCompile Include="..\xrRender\ColorMapManager.cpp">
       <Filter>Core_Target\ColorMap</Filter>
     </ClCompile>
-    <ClCompile Include="..\xrRenderDX10\dx10HW.cpp">
-      <Filter>Refactored\HW</Filter>
-    </ClCompile>
     <ClCompile Include="..\xrRender\HWCaps.cpp">
       <Filter>Refactored\HW</Filter>
     </ClCompile>
@@ -1343,5 +1342,7 @@
     <ClCompile Include="..\xrRender\Debug\dxPixEventWrapper.cpp">
       <Filter>Debug</Filter>
     </ClCompile>
+    <ClCompile Include="..\xrRenderDX11\dx11HW.cpp" />
+    <ClCompile Include="..\xrRenderDX10\dx10TextureDDS.cpp" />
   </ItemGroup>
 </Project>
