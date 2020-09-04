@@ -122,30 +122,32 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 
 	UINT createDeviceFlags = 0;
 
-	HRESULT R = D3DX10CreateDeviceAndSwapChain(m_pAdapter, m_DriverType, NULL, createDeviceFlags, &sd, &m_pSwapChain, &pDevice);
-
-	pContext = pDevice;
-	FeatureLevel = D3D_FEATURE_LEVEL_10_0;
-
-	if (!FAILED(R) && renderer_value == 1)
+#pragma todo("OldSerpskiStalker. Этот механизм лучше не трогать, пусть DX10 создается как приписали ему GSC.")
 	{
-		D3DX10GetFeatureLevel1(pDevice, &pDevice1);
-		FeatureLevel = D3D_FEATURE_LEVEL_10_1;
+		HRESULT R = D3DX10CreateDeviceAndSwapChain(m_pAdapter, m_DriverType, NULL, createDeviceFlags, &sd, &m_pSwapChain, &pDevice);
+
+		pContext = pDevice;
+		FeatureLevel = D3D_FEATURE_LEVEL_10_0;
+
+		if (!FAILED(R) && renderer_value == 1)
+		{
+			D3DX10GetFeatureLevel1(pDevice, &pDevice1);
+			FeatureLevel = D3D_FEATURE_LEVEL_10_1;
+		}
+
+		pContext1 = pDevice1;
+
+		if (FAILED(R))
+		{
+			// Fatal error! Cannot create rendering device AT STARTUP !!!
+			Msg("Error in loading the graphics process.\n" "CreateDevice returned 0x%08x", R);
+			FlushLog();
+			MessageBox(NULL, "Your video card does not support DirectX 10 or 10.1! The app cannot be started.", "Error!", MB_OK | MB_ICONERROR);
+			TerminateProcess(GetCurrentProcess(), 0);
+		};
+
+		R_CHK(R);
 	}
-
-	pContext1 = pDevice1;
-
-	if (FAILED(R))
-	{
-		// Fatal error! Cannot create rendering device AT STARTUP !!!
-		Msg("Error in loading the graphics process.\n" "CreateDevice returned 0x%08x", R);
-		FlushLog();
-		MessageBox(NULL, "Your video card does not support DirectX 10 or 10.1! The app cannot be started.", "Error!", MB_OK | MB_ICONERROR);
-		TerminateProcess(GetCurrentProcess(), 0);
-	};
-
-	R_CHK(R);
-
 	_SHOW_REF("* CREATE: DeviceREF:", HW.pDevice);
 
 	//	Create render target and depth-stencil views here
