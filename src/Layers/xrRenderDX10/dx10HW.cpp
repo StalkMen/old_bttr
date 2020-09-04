@@ -81,13 +81,6 @@ void CHW::CreateDevice( HWND m_hWnd, bool move_window )
 	//	Warning: Desc.Description is wide string
 	Msg		("* GPU [vendor:%X]-[device:%X]: %S", Desc.VendorId, Desc.DeviceId, Desc.Description);
 
-	D3DADAPTER_IDENTIFIER9	adapterID;
-	u16	drv_Product = HIWORD(adapterID.DriverVersion.HighPart);
-	u16	drv_Version = LOWORD(adapterID.DriverVersion.HighPart);
-	u16	drv_SubVersion = HIWORD(adapterID.DriverVersion.LowPart);
-	u16	drv_Build = LOWORD(adapterID.DriverVersion.LowPart);
-	Msg("* GPU driver: %d.%d.%d.%d", u32(drv_Product), u32(drv_Version), u32(drv_SubVersion), u32(drv_Build));
-
 	Caps.id_vendor	= Desc.VendorId;
 	Caps.id_device	= Desc.DeviceId;
 
