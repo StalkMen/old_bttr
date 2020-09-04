@@ -503,7 +503,7 @@ class CCC_r2 : public CCC_Token
 {
     typedef CCC_Token inherited;
 public:
-    CCC_r2(LPCSTR N) :inherited(N, &renderer_value, NULL) { renderer_value = 0; };
+    CCC_r2(LPCSTR N) :inherited(N, &renderer_value, NULL) { renderer_value = 3; };
     virtual ~CCC_r2()
     {
         //free_render_mode_list();
@@ -516,8 +516,8 @@ public:
 
         inherited::Execute(args);
        
-        psDeviceFlags.set(rsR3, (renderer_value >= 0) || (renderer_value == 1));
-        render_dx10_1 = (renderer_value == 1);
+        psDeviceFlags.set(rsR3, (renderer_value == 0));
+        render_dx10_1 = (renderer_value >= 1);
         psDeviceFlags.set(rsR4, (renderer_value >= 2));
 
     }
