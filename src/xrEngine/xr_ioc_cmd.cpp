@@ -515,11 +515,14 @@ public:
         tokens = vid_quality_token;
 
         inherited::Execute(args);
-       
-        psDeviceFlags.set(rsR3, (renderer_value == 0));
-        render_dx10_1 = (renderer_value >= 1);
-        psDeviceFlags.set(rsR4, (renderer_value >= 2));
 
+        //DX10
+        {
+            psDeviceFlags.set(rsR3, ((renderer_value == 0) || (renderer_value == 1)));
+            render_dx10_1 = (renderer_value == 1);
+        }
+        //DX11
+        psDeviceFlags.set(rsR4, (renderer_value >= 2));
     }
 
     virtual void Save(IWriter* F)
