@@ -17,6 +17,8 @@
 void	fill_vid_mode_list(CHW* _hw);
 void	free_vid_mode_list();
 
+extern ENGINE_API u32 renderer_value;
+
 CHW			HW;
 
 CHW::CHW() :m_pAdapter(0), pDevice(NULL), m_move_window(true)
@@ -124,11 +126,13 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 
 	pContext = pDevice;
 	FeatureLevel = D3D_FEATURE_LEVEL_10_0;
-	if (!FAILED(R))
+
+	if (!FAILED(R) && renderer_value == 1)
 	{
 		D3DX10GetFeatureLevel1(pDevice, &pDevice1);
 		FeatureLevel = D3D_FEATURE_LEVEL_10_1;
 	}
+
 	pContext1 = pDevice1;
 
 	if (FAILED(R))
@@ -136,9 +140,10 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 		// Fatal error! Cannot create rendering device AT STARTUP !!!
 		Msg("Error in loading the graphics process.\n" "CreateDevice returned 0x%08x", R);
 		FlushLog();
-		MessageBox(NULL, "Your video card does not support DirectX 10! The app cannot be started.", "Error!", MB_OK | MB_ICONERROR);
+		MessageBox(NULL, "Your video card does not support DirectX 10 or 10.1! The app cannot be started.", "Error!", MB_OK | MB_ICONERROR);
 		TerminateProcess(GetCurrentProcess(), 0);
 	};
+
 	R_CHK(R);
 
 	_SHOW_REF("* CREATE: DeviceREF:", HW.pDevice);

@@ -139,7 +139,7 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	if (FeatureLevel != D3D_FEATURE_LEVEL_11_1)
 	{
 		R_ASSERT(FeatureLevel == D3D_FEATURE_LEVEL_11_0);
-		Msg("# DirectX 11.1 not supported!");
+		Msg("# DirectX11.1 is not supported by the video card, so we launch from the standard level  - DirectX11.");
 	}
 
 	if (FAILED(R))
