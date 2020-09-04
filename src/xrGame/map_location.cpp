@@ -357,11 +357,12 @@ void CMapLocation::CalcLevelName()
 
 bool CMapLocation::Update() //returns actual
 {
-	if (m_cached.m_updatedFrame != Device.dwFrame)
-		m_cached.m_updatedFrame = Device.dwFrame;
-
+#pragma todo("OldSerpskiStalker. Убрал тут вылет, херь какая-то, для тестов")
+#if 0
 	R_ASSERT(m_cached.m_updatedFrame != Device.dwFrame);
-
+//	if (m_cached.m_updatedFrame != Device.dwFrame)
+//		m_cached.m_updatedFrame = Device.dwFrame;
+#endif
 	if(	m_flags.test(eTTL) )
 	{
 		if( m_actual_time < Device.dwTimeGlobal)
