@@ -25,6 +25,7 @@
 #include "../../build_render_config.h"
 
 class dxRender_Visual;
+extern ENGINE_API u32 renderer_value;
 
 // definition
 class CRender	:	public R_dsgraph_structure
@@ -256,7 +257,7 @@ public:
     virtual	GenerationLevel			get_generation			()	{ return IRender_interface::GENERATION_R2; }
 
     virtual bool					is_sun_static			()	{ return o.sunstatic;}
-    virtual DWORD					get_dx_level			()	{ return /*HW.pDevice1?0x000A0001:*/0x000A0000; }
+    virtual DWORD					get_dx_level			()	{ return renderer_value == 0 ? 10 : 10.1; }
 
     // Loading / Unloading
     virtual void					create						();
