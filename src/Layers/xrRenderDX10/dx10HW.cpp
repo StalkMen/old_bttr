@@ -20,7 +20,8 @@ void	free_vid_mode_list			();
 void	fill_render_mode_list		();
 void	free_render_mode_list		();
 
-CHW			HW;
+CHW		HW;
+extern ENGINE_API u32 renderer_value;
 
 CHW::CHW():m_move_window(true)
 {
@@ -132,7 +133,7 @@ void CHW::CreateDevice( HWND m_hWnd, bool move_window )
 #ifdef USE_DX11
 	constexpr D3D_FEATURE_LEVEL featureLevels[] =
 	{
-		D3D_FEATURE_LEVEL_11_1,
+//		D3D_FEATURE_LEVEL_11_1,
 		D3D_FEATURE_LEVEL_11_0,
 	};
 
@@ -169,28 +170,37 @@ void CHW::CreateDevice( HWND m_hWnd, bool move_window )
 	);
 
 	pContext = pDevice;
-	FeatureLevel = D3D_FEATURE_LEVEL_10_0;
+	// HACK, OldSerpskiStlaker
+	FeatureLevel = ((renderer_value >= 1) ? D3D_FEATURE_LEVEL_10_1 : D3D_FEATURE_LEVEL_10_0);
+
+	if (renderer_value == 2)
+	{
+		R_ASSERT((renderer_value == 2));
+		FlushLog();
+		MessageBox(NULL, "An internal error occurred in the Render, restart the game or delete settings.", "Error!", MB_OK | MB_ICONERROR);
+		TerminateProcess(GetCurrentProcess(), 0);
+	}
+
 	if (!FAILED(R))
 	{
 		D3DX10GetFeatureLevel1(pDevice, &pDevice1);
-		FeatureLevel = D3D_FEATURE_LEVEL_10_1;
+		FeatureLevel = ((renderer_value >= 1) ? D3D_FEATURE_LEVEL_10_1 : D3D_FEATURE_LEVEL_10_0);
 	}
+
 	pContext1 = pDevice1;
+
+#endif
 
 	if (FAILED(R))
 	{
 		// Fatal error! Cannot create rendering device AT STARTUP !!!
-		Msg("Failed to initialize graphics hardware.\n"
-			"Please try to restart the game.\n"
-			"CreateDevice returned 0x%08x", R
-		);
+		Msg("Error in loading the graphics process.\n" "CreateDevice returned 0x%08x", R);
 		FlushLog();
-		MessageBox(NULL, "Failed to initialize graphics hardware.\nPlease try to restart the game.", "Error!", MB_OK | MB_ICONERROR);
+		MessageBox(NULL, "Your video card does not support DirectX 10, 11 or 12! The app cannot be started.", "Error!", MB_OK | MB_ICONERROR);
 		TerminateProcess(GetCurrentProcess(), 0);
-	};
-	R_CHK(R);
+	}
 
-#endif
+	R_CHK(R);
 
 	_SHOW_REF("* CREATE: DeviceREF:", HW.pDevice);
 
