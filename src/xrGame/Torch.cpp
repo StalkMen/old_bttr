@@ -25,10 +25,7 @@ static const float		TORCH_INERTION_SPEED_MIN	= 0.5f;
 static		 Fvector	TORCH_OFFSET				= {-0.2f,+0.1f,-0.3f};
 static const Fvector	OMNI_OFFSET					= {-0.2f,+0.1f,-0.1f};
 static const float		OPTIMIZATION_DISTANCE		= 100.f;
-
-static bool stalker_use_dynamic_lights	= false;
-
-ENGINE_API int g_current_renderer;
+static bool				stalker_use_dynamic_lights	= false;
 
 CTorch::CTorch(void) 
 {
@@ -47,14 +44,6 @@ CTorch::CTorch(void)
 	m_prev_hp.set				(0,0);
 	m_delta_h					= 0;
 	m_night_vision				= NULL;
-
-	// Disabling shift by x and z axes for 1st render, 
-	// because we don't have dynamic lighting in it. 
-	if( g_current_renderer == 1 )
-	{
-		TORCH_OFFSET.x = 0;
-		TORCH_OFFSET.z = 0;
-	}
 }
 
 CTorch::~CTorch() 

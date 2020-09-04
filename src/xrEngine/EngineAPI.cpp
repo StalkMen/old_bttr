@@ -10,12 +10,10 @@
 
 extern xr_token* vid_quality_token;
 extern "C" { typedef bool _declspec(dllexport) SupportsDX10Rendering();  typedef bool _declspec(dllexport) SupportsDX11Rendering(); };
+extern u32 renderer_value; //con cmd
 
 LPCSTR dx10_name = "xrRender_DX10.dll";
 LPCSTR dx11_name = "xrRender_DX11.dll";
-
-extern u32 renderer_value; //con cmd
-ENGINE_API int g_current_renderer = 0;
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -57,25 +55,20 @@ void CEngineAPI::InitializeNotDedicated()
 {
     if (psDeviceFlags.test(rsR4))
     {
-        // try to initialize R4
+        // try to initialize DX11
         Log("Loading DLL:", dx11_name);
         hRender = LoadLibrary(dx11_name);
         if (0 == hRender)
             R_ASSERT("! ...Failed - incompatible hardware/pre-Vista OS.");
-        else
-            g_current_renderer = 1;
     }
 
     if (psDeviceFlags.test(rsR3))
     {
-        // try to initialize R3
+        // try to initialize DX10
         Log("Loading DLL:", dx10_name);
         hRender = LoadLibrary(dx10_name);
         if (0 == hRender)
-            // try to load R1
             R_ASSERT("! ...Failed - incompatible hardware/pre-Vista OS.");
-        else
-            g_current_renderer = 0;
     }
 }
 
@@ -97,7 +90,6 @@ void CEngineAPI::Initialize(void)
         if (0 == hRender) 
             R_CHK(GetLastError());
         R_ASSERT(hRender);
-        g_current_renderer = 0;
     }
 
     Device.ConnectToRender();
