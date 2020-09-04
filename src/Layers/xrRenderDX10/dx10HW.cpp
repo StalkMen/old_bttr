@@ -22,10 +22,7 @@ void	free_render_mode_list		();
 
 CHW			HW;
 
-CHW::CHW() : 
-	m_pAdapter(0),
-	pDevice(NULL),
-	m_move_window(true)
+CHW::CHW():m_move_window(true)
 {
 	Device.seqAppActivate.Add(this);
 	Device.seqAppDeactivate.Add(this);
@@ -41,22 +38,23 @@ CHW::~CHW()
 //////////////////////////////////////////////////////////////////////
 void CHW::CreateD3D()
 {
-	IDXGIFactory * pFactory;
+#ifdef USE_DX11
+	// Минимально поддерживаемая версия Windows => Windows Vista SP2 или Windows 7.
+	R_CHK(CreateDXGIFactory1(__uuidof(IDXGIFactory1), (void**)(&pFactory)));
+	pFactory->EnumAdapters1(0, &m_pAdapter);
+#else
 	R_CHK( CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)(&pFactory)) );
-
-	m_pAdapter = 0;
-	m_bUsePerfhud = false;
-
-	if (!m_pAdapter)
-		pFactory->EnumAdapters(0, &m_pAdapter);
-
-	pFactory->Release();
+	pFactory->EnumAdapters(0, &m_pAdapter);
+#endif
 }
 
 void CHW::DestroyD3D()
 {
-	_SHOW_REF				("refCount:m_pAdapter",m_pAdapter);
-	_RELEASE				(m_pAdapter);
+	_SHOW_REF("refCount:m_pAdapter", m_pAdapter);
+	_RELEASE(m_pAdapter);
+	
+	_SHOW_REF("refCount:pFactory", pFactory);
+	_RELEASE(pFactory);
 }
 
 void CHW::CreateDevice( HWND m_hWnd, bool move_window )
@@ -72,12 +70,14 @@ void CHW::CreateDevice( HWND m_hWnd, bool move_window )
 	m_DriverType = Caps.bForceGPU_REF ? 
 		D3D_DRIVER_TYPE_REFERENCE : D3D_DRIVER_TYPE_HARDWARE;
 
-	if (m_bUsePerfhud)
-		m_DriverType = D3D_DRIVER_TYPE_REFERENCE;
-
 	// Display the name of video board
+#ifdef USE_DX11
+	DXGI_ADAPTER_DESC1 Desc;
+	R_CHK(m_pAdapter->GetDesc1(&Desc));
+#else
 	DXGI_ADAPTER_DESC Desc;
 	R_CHK( m_pAdapter->GetDesc(&Desc) );
+#endif
 	//	Warning: Desc.Description is wide string
 	Msg		("* GPU [vendor:%X]-[device:%X]: %S", Desc.VendorId, Desc.DeviceId, Desc.Description);
 
@@ -124,78 +124,86 @@ void CHW::CreateDevice( HWND m_hWnd, bool move_window )
 
 	UINT createDeviceFlags = 0;
 
-   HRESULT R;
-	// Create the device
-	//	DX10 don't need it?
-	//u32 GPU		= selectGPU();
-#ifdef USE_DX11
-    D3D_FEATURE_LEVEL pFeatureLevels[] =
-    {
-        D3D_FEATURE_LEVEL_11_0,
-    };
-
-   R =  D3D11CreateDeviceAndSwapChain
-   (
-	0,
-    m_DriverType,
-    NULL,
-    createDeviceFlags,
-    pFeatureLevels,
-	sizeof(pFeatureLevels)/sizeof(pFeatureLevels[0]),
-	D3D11_SDK_VERSION,
-    &sd,
-    &m_pSwapChain,
-	&pDevice,
-	&FeatureLevel,		
-	&pContext
-   );
-#else
-   R =  D3DX10CreateDeviceAndSwapChain
-   (
-	m_pAdapter,
-    m_DriverType,
-    NULL,
-    createDeviceFlags,
-    &sd,
-    &m_pSwapChain,
-	&pDevice 
-   );
-
-   pContext = pDevice;
-   FeatureLevel = D3D_FEATURE_LEVEL_10_0;
-   if(!FAILED(R))
-   {
-      D3DX10GetFeatureLevel1( pDevice, &pDevice1 );
-	  FeatureLevel = D3D_FEATURE_LEVEL_10_1;
-   }
-   pContext1 = pDevice1;
+#ifdef DEBUG
+	if (IsDebuggerPresent())
+		createDeviceFlags |= D3D_CREATE_DEVICE_DEBUG;
 #endif
+
+#ifdef USE_DX11
+	constexpr D3D_FEATURE_LEVEL featureLevels[] =
+	{
+		D3D_FEATURE_LEVEL_11_1,
+		D3D_FEATURE_LEVEL_11_0,
+	};
+
+	constexpr auto count = std::size(featureLevels);
+
+	const auto createDevice = [&](const D3D_FEATURE_LEVEL* level, const u32 levels)
+	{
+		// Если мы выбираем конкретный адаптер, то мы обязаны использовать D3D_DRIVER_TYPE_UNKNOWN.
+		return D3D11CreateDevice(m_pAdapter, D3D_DRIVER_TYPE_UNKNOWN, nullptr, createDeviceFlags, level, levels, D3D11_SDK_VERSION, &pDevice, &FeatureLevel, &pContext);
+	};
+
+	HRESULT R = createDevice(featureLevels, count);
+
+	if (FAILED(R))
+		R_CHK(createDevice(&featureLevels[1], count - 1));
+
+	R_CHK(pFactory->CreateSwapChain(pDevice, &sd, &m_pSwapChain));
+
+	if (FeatureLevel != D3D_FEATURE_LEVEL_11_1)
+	{
+		R_ASSERT(FeatureLevel == D3D_FEATURE_LEVEL_11_0); //На всякий случай, OGSR
+		Msg("# [%s] DirectX 11.1 not supported!", __FUNCTION__);
+	}
+#else
+	HRESULT R = D3DX10CreateDeviceAndSwapChain
+	(
+		m_pAdapter,
+		m_DriverType,
+		NULL,
+		createDeviceFlags,
+		&sd,
+		&m_pSwapChain,
+		&pDevice
+	);
+
+	pContext = pDevice;
+	FeatureLevel = D3D_FEATURE_LEVEL_10_0;
+	if (!FAILED(R))
+	{
+		D3DX10GetFeatureLevel1(pDevice, &pDevice1);
+		FeatureLevel = D3D_FEATURE_LEVEL_10_1;
+	}
+	pContext1 = pDevice1;
 
 	if (FAILED(R))
 	{
 		// Fatal error! Cannot create rendering device AT STARTUP !!!
-		Msg					("Failed to initialize graphics hardware.\n"
-							 "Please try to restart the game.\n"
-							 "CreateDevice returned 0x%08x", R
-							 );
-		FlushLog			();
-		MessageBox			(NULL,"Failed to initialize graphics hardware.\nPlease try to restart the game.","Error!",MB_OK|MB_ICONERROR);
-		TerminateProcess	(GetCurrentProcess(),0);
+		Msg("Failed to initialize graphics hardware.\n"
+			"Please try to restart the game.\n"
+			"CreateDevice returned 0x%08x", R
+		);
+		FlushLog();
+		MessageBox(NULL, "Failed to initialize graphics hardware.\nPlease try to restart the game.", "Error!", MB_OK | MB_ICONERROR);
+		TerminateProcess(GetCurrentProcess(), 0);
 	};
 	R_CHK(R);
 
-	_SHOW_REF	("* CREATE: DeviceREF:",HW.pDevice);
+#endif
+
+	_SHOW_REF("* CREATE: DeviceREF:", HW.pDevice);
 
 	//	Create render target and depth-stencil views here
 	UpdateViews();
 
 	//u32	memory									= pDevice->GetAvailableTextureMem	();
-	size_t	memory									= Desc.DedicatedVideoMemory;
-	Msg		("*     Texture memory: %d M",		memory/(1024*1024));
+	size_t	memory = Desc.DedicatedVideoMemory;
+	Msg("*     Texture memory: %d M", memory / (1024 * 1024));
 	//Msg		("*          DDI-level: %2.1f",		float(D3DXGetDriverLevel(pDevice))/100.f);
 
-	updateWindowProps							(m_hWnd);
-	fill_vid_mode_list							(this);
+	updateWindowProps(m_hWnd);
+	fill_vid_mode_list(this);
 }
 
 void CHW::DestroyDevice()
@@ -371,7 +379,7 @@ void CHW::OnAppActivate()
 	if ( m_pSwapChain && !m_ChainDesc.Windowed )
 	{
 		ShowWindow( m_ChainDesc.OutputWindow, SW_RESTORE );
-		m_pSwapChain->SetFullscreenState( TRUE, NULL );
+		m_pSwapChain->SetFullscreenState(psDeviceFlags.is(rsFullscreen), nullptr);
 	}
 }
 
