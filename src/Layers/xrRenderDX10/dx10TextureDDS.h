@@ -1,15 +1,15 @@
 #pragma once
-//-' Авторы:
-//-'		Mortan - Правка шрифтов, Isobolevskiy (Bear Ivan) - Автор загрузчика
+
+//-' Authors:
+//-' Mortan, Isobolevskiy
 class XRayDDSLoader
 {
-
 	static inline size_t GetCountMips(size_t w, size_t h)
 	{
 		size_t max_size = _max(w, h);
 		return static_cast<size_t>(log2(static_cast<double>(max_size)) + 1);
 	}
-	static inline void maskShiftAndSize(size_t mask, size_t * shift, size_t * size)
+	static inline void maskShiftAndSize(size_t mask, size_t* shift, size_t* size)
 	{
 		if (!mask)
 		{
@@ -151,7 +151,7 @@ private:
 		}
 		return 0;
 	}
-	
+
 	static inline  DXGI_FORMAT TranslateTextureFromat(BearTexturePixelFormat format)
 	{
 		switch (format)
@@ -261,45 +261,45 @@ private:
 			{
 				size_t mip_w = GetMip(w, i);
 				size_t mip_h = GetMip(h, i);
-				result += GetCountBlock(mip_w)*GetCountBlock(mip_h)* size_block;
+				result += GetCountBlock(mip_w) * GetCountBlock(mip_h) * size_block;
 			}
 		}
 		return result;
 	}
-	static	inline u8 * GetImage(u8 * data, size_t w, size_t h, size_t mips, size_t depth, size_t mip,BearTexturePixelFormat format)
+	static	inline u8* GetImage(u8* data, size_t w, size_t h, size_t mips, size_t depth, size_t mip, BearTexturePixelFormat format)
 	{
-		return data + GetSizeInMemory(w, h, mips, format)*depth +GetSizeInMemory(w, h, mip, format);
+		return data + GetSizeInMemory(w, h, mips, format) * depth + GetSizeInMemory(w, h, mip, format);
 	}
-	static	inline u8 * GetPixelUint8(size_t x, size_t y, size_t w, size_t comps, size_t comp_id, u8 * data)
+	static	inline u8* GetPixelUint8(size_t x, size_t y, size_t w, size_t comps, size_t comp_id, u8* data)
 	{
-		return  &data[(x + (y * w))*comps + comp_id];
+		return  &data[(x + (y * w)) * comps + comp_id];
 	}
-	
-	static inline size_t   GetSizeWidth(size_t w,BearTexturePixelFormat format)
+
+	static inline size_t   GetSizeWidth(size_t w, BearTexturePixelFormat format)
 	{
 		if (isCompressor(format))
 		{
-			return GetSizeBlock(format)*GetCountBlock(w);
+			return GetSizeBlock(format) * GetCountBlock(w);
 		}
 		else
 		{
-			return GetSizePixel(format)*w;
+			return GetSizePixel(format) * w;
 		}
 	}
 
-	static inline size_t   GetSizeDepth(size_t w, size_t h,BearTexturePixelFormat format)
+	static inline size_t   GetSizeDepth(size_t w, size_t h, BearTexturePixelFormat format)
 	{
 		if (isCompressor(format))
 		{
-			return GetSizeBlock(format)*GetCountBlock(w)*GetCountBlock(h);
+			return GetSizeBlock(format) * GetCountBlock(w) * GetCountBlock(h);
 		}
 		else
 		{
-			return GetSizePixel(format)*w*h;
+			return GetSizePixel(format) * w * h;
 		}
 	}
 
-	static inline void R8G8B8ToR8G8B8A8(u8 * data, size_t w, size_t h)
+	static inline void R8G8B8ToR8G8B8A8(u8* data, size_t w, size_t h)
 	{
 		for (size_t y = h; y != 0;)
 		{
@@ -307,8 +307,8 @@ private:
 			for (size_t x = w; x != 0;)
 			{
 				x--;
-				u8*src = GetPixelUint8(x, y, w, 3, 0, data);
-				u8*dst = GetPixelUint8(x, y, w, 4, 0, data);
+				u8* src = GetPixelUint8(x, y, w, 3, 0, data);
+				u8* dst = GetPixelUint8(x, y, w, 4, 0, data);
 				dst[3] = 255;
 				dst[2] = src[2];
 				dst[1] = src[1];
@@ -318,26 +318,26 @@ private:
 		}
 	}
 
-	int Load(IReader*F);
+	int Load(IReader* F);
 	void Create();
 public:
 	XRayDDSLoader();
 	~XRayDDSLoader();
-#ifndef USE_DX10
-	void To(ID3D11Texture2D *& Texture ,bool bStaging);
+#ifdef USE_DX11
+	void To(ID3D11Texture2D*& Texture, bool bStaging);
 #else
 	void To(ID3D10Texture2D*& Texture, bool bStaging);
 #endif
 	void Clear();
-	bool Load(const char*file_name);
+	bool Load(const char* file_name);
 	inline size_t GetSizeInMemory() const
 	{
-		return GetSizeInMemory(m_w, m_h, m_mips, m_px)*m_depth;
+		return GetSizeInMemory(m_w, m_h, m_mips, m_px) * m_depth;
 	}
 	bool isCube()const { return m_bCube; }
 private:
 	bool m_bCube;
-	u8*m_data;
+	u8* m_data;
 	size_t m_depth;
 	size_t m_mips;
 	size_t m_h;

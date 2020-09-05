@@ -1,11 +1,11 @@
 #include "stdafx.h"
-//-' Авторы:
-//-'		Mortan - Правка шрифтов, Isobolevskiy (Bear Ivan) - Автор загрузчика
 #pragma pack(push,4)
-#include "dx10TextureDDS.h"
-#pragma pack(pop)
 #include "dx10DDS.h"
+#pragma pack(pop)
+#include "dx10TextureDDS.h"
 
+//-' Authors:
+//-' Mortan, Isobolevskiy
 bool XRayDDSLoader::Load(const char* file_name)
 {
 	auto* F = FS.r_open(file_name);
@@ -46,9 +46,7 @@ int XRayDDSLoader::Load(IReader* F)
 			return 1;
 
 		F->r(&header, size);
-		//if (!(header.dwHeaderFlags&DDSD_WIDTH) || !(header.dwHeaderFlags&DDSD_HEIGHT) || !(header.dwHeaderFlags&DDSD_PIXELFORMAT))
-		//return 2;
-
+		
 		m_mips = header.dwHeaderFlags & DDSD_MIPMAPCOUNT ? header.dwMipMapCount : 1;
 		m_h = header.dwHeight;
 		m_w = header.dwWidth;
@@ -220,13 +218,13 @@ XRayDDSLoader::~XRayDDSLoader()
 	Clear();
 }
 
-#ifndef USE_DX10
+#ifdef USE_DX11
 void XRayDDSLoader::To(ID3D11Texture2D*& Texture, bool bStaging)
 #else
 void XRayDDSLoader::To(ID3D10Texture2D*& Texture, bool bStaging)
 #endif
 {
-#ifndef USE_DX10
+#ifdef USE_DX11
 	D3D11_TEXTURE2D_DESC desc;
 #else
 	D3D10_TEXTURE2D_DESC desc;
@@ -240,6 +238,7 @@ void XRayDDSLoader::To(ID3D10Texture2D*& Texture, bool bStaging)
 	desc.Height = static_cast<UINT>(m_h);
 	if (isCompressor(m_px))
 	{
+
 		UINT w = desc.Width % 4;
 		if (w)w = 4 - w;
 		UINT h = desc.Width % 4;
@@ -248,14 +247,14 @@ void XRayDDSLoader::To(ID3D10Texture2D*& Texture, bool bStaging)
 		desc.Height += h;
 	}
 	desc.Format = TranslateTextureFromat(m_px);
-#ifndef USE_DX10
+#ifdef USE_DX11
 	desc.MiscFlags = isCube() ? D3D11_RESOURCE_MISC_TEXTURECUBE : 0;
 #else
 	desc.MiscFlags = isCube() ? D3D10_RESOURCE_MISC_TEXTURECUBE : 0;
 #endif
 	if (bStaging)
 	{
-#ifndef USE_DX10
+#ifdef USE_DX11
 		desc.CPUAccessFlags = D3D11_CPU_ACCESS_FLAG::D3D11_CPU_ACCESS_WRITE;
 		desc.Usage = D3D11_USAGE_STAGING;
 #else
@@ -266,7 +265,7 @@ void XRayDDSLoader::To(ID3D10Texture2D*& Texture, bool bStaging)
 	else
 	{
 		desc.CPUAccessFlags = 0;
-#ifndef USE_DX10
+#ifdef USE_DX11
 		desc.Usage = D3D11_USAGE_DEFAULT;
 		desc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_SHADER_RESOURCE;
 #else
@@ -303,12 +302,9 @@ void XRayDDSLoader::To(ID3D10Texture2D*& Texture, bool bStaging)
 	}
 #ifdef USE_DX11
 	D3D11_SUBRESOURCE_DATA subdata[256];
-#else
-	D3D10_SUBRESOURCE_DATA subdata[256];
-#endif
-#ifdef USE_DX11
 	FillMemory(&subdata[0], sizeof(D3D11_SUBRESOURCE_DATA) * 256, 0);
 #else
+	D3D10_SUBRESOURCE_DATA subdata[256];
 	FillMemory(&subdata[0], sizeof(D3D10_SUBRESOURCE_DATA) * 256, 0);
 #endif
 	for (size_t d = 0; d < desc.ArraySize; d++)
@@ -323,9 +319,7 @@ void XRayDDSLoader::To(ID3D10Texture2D*& Texture, bool bStaging)
 			ptr += subdata[i + d * m_mips].SysMemSlicePitch;
 		}
 	}
-
 	R_CHK(HW.pDevice->CreateTexture2D(&desc, subdata, &Texture));
-
 	if (m_px == TPF_R8G8B8)
 	{
 		xr_free(ptr_free);
