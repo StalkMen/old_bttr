@@ -18,6 +18,8 @@
 #include "ui/UIInventoryUtilities.h"
 //////////////////////////////////////////////////////////////////////////
 
+extern float minimap_zoom_factor;
+
 CUIZoneMap::CUIZoneMap()
 :m_current_map_idx(u8(-1)),
 visible(true)
@@ -173,7 +175,7 @@ void CUIZoneMap::SetupCurrentMap()
 	m_activeMap->WorkingArea().set	(r);
 	
 	Fvector2						wnd_size;
-	float zoom_factor				= float(m_clipFrame.GetWidth())/100.0f;
+	float zoom_factor 				= float(m_clipFrame.GetWidth()) / 100.0f * minimap_zoom_factor;
 
 	LPCSTR ln						= Level().name().c_str();
 	if(	pGameIni->section_exist(ln) )

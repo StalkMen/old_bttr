@@ -1039,7 +1039,7 @@ void CRender::render_sun_cascades ( )
     if ( b_need_to_render_sunshafts )
         m_sun_cascades[m_sun_cascades.size()-1].reset_chain = true;
 
-    for( u32 i = 1; i < m_sun_cascades.size(); ++i )
+    for( u32 i = 0; i < m_sun_cascades.size(); ++i )
         render_sun_cascade ( i );
 
     if ( b_need_to_render_sunshafts )
