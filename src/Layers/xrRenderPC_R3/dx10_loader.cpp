@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "r3.h"
+#include "dx10.h"
 #include "../xrRender/ResourceManager.h"
 #include "../xrRender/fbasicvisual.h"
 #include "../../xrEngine/fmesh.h"
