@@ -5,8 +5,8 @@
 
 #include "../xrRender/PSLibrary.h"
 
-#include "dx10_types.h"
-#include "dx10_rendertarget.h"
+#include "r2_types.h"
+#include "r3_rendertarget.h"
 
 #include "../xrRender/hom.h"
 #include "../xrRender/detailmanager.h"
@@ -15,7 +15,7 @@
 
 #include "smap_allocator.h"
 #include "../xrRender/light_db.h"
-#include "..\xrRender\light_render_direct.h"
+#include "light_render_direct.h"
 #include "../xrRender/LightTrack.h"
 #include "../xrRender/r_sun_cascades.h"
 
