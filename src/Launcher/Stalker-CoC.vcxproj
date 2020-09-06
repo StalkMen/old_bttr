@@ -68,6 +68,7 @@
       <MinimalRebuild>true</MinimalRebuild>
       <EnableFiberSafeOptimizations />
       <ForceConformanceInForLoopScope />
+      <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

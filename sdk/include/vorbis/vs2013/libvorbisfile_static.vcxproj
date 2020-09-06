@@ -85,6 +85,7 @@
       <WarningLevel>Level1</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <StringPooling>true</StringPooling>
+      <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>

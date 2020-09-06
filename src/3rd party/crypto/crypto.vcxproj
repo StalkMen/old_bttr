@@ -79,7 +79,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FloatingPointModel>Precise</FloatingPointModel>
       <WarningLevel>Level1</WarningLevel>
-      <DebugInformationFormat>None</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
@@ -90,9 +90,11 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <StringPooling>true</StringPooling>
+      <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <ImportLibrary>$(xrLibDir)$(TargetName).lib</ImportLibrary>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

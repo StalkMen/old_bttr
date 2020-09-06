@@ -73,10 +73,11 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level1</WarningLevel>
-      <DebugInformationFormat>None</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4530;4100;4714;4127;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <UndefinePreprocessorDefinitions>USE_LUAJIT_ONE</UndefinePreprocessorDefinitions>
       <FunctionLevelLinking>true</FunctionLevelLinking>
+      <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(ProjectDir)..\luajit-2\src\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -91,6 +92,7 @@
       <ImportLibrary>$(xrLibDir)$(TargetName).lib</ImportLibrary>
       <LargeAddressAware>true</LargeAddressAware>
       <AdditionalDependencies>lua51.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

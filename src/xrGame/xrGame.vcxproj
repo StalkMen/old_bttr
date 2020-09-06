@@ -180,7 +180,7 @@
       <TypeLibraryName>$(OutDir)$(TargetName).tlb</TypeLibraryName>
     </Midl>
     <ClCompile>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
@@ -206,11 +206,12 @@
       </BrowseInformation>
       <WarningLevel>Level1</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <DebugInformationFormat>None</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4995;4005;4237;4530;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <UndefinePreprocessorDefinitions>USE_LUAJIT_ONE</UndefinePreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
+      <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -227,6 +228,7 @@
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <ImportLibrary>$(xrLibDir)$(TargetName).lib</ImportLibrary>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -487,7 +489,7 @@
     <!-- Кровосос из Чистого неба -->
     <ClInclude Include="ai\Monsters\Boar\boar.h" />
     <ClInclude Include="ai\Monsters\Boar\boar_state_manager.h" />
-	<ClInclude Include="ai\Monsters\bocs\bocs.h" />
+    <ClInclude Include="ai\Monsters\bocs\bocs.h" />
     <ClInclude Include="ai\Monsters\bocs\bocs_state_manager.h" />
     <ClInclude Include="ai\Monsters\Burer\burer.h" />
     <ClInclude Include="ai\Monsters\Burer\burer_fast_gravi.h" />
@@ -506,7 +508,7 @@
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_tele.h" />
     <ClInclude Include="ai\Monsters\Burer\burer_state_attack_tele_inline.h" />
     <ClInclude Include="ai\Monsters\Burer\burer_state_manager.h" />
-	<ClInclude Include="ai\Monsters\Burcs\burcs.h" />
+    <ClInclude Include="ai\Monsters\Burcs\burcs.h" />
     <ClInclude Include="ai\Monsters\Burcs\burcs_fast_gravi.h" />
     <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack.h" />
     <ClInclude Include="ai\Monsters\Burcs\burcs_state_attack_gravi.h" />
@@ -539,7 +541,7 @@
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_steal_inline.h" />
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_walk.h" />
     <ClInclude Include="ai\Monsters\Chimera\chimera_state_threaten_walk_inline.h" />
-	<ClInclude Include="ai\Monsters\chimera_cs\chimera_cs.h" />
+    <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs.h" />
     <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_walk_inline.h" />
     <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_walk.h" />
     <ClInclude Include="ai\Monsters\chimera_cs\chimera_cs_state_threaten_steal_inline.h" />
@@ -563,7 +565,7 @@
     <ClInclude Include="ai\Monsters\Controller\controller.h" />
     <ClInclude Include="ai\Monsters\Controller\controller_animation.h" />
     <ClInclude Include="ai\Monsters\Controller\controller_direction.h" />
-	<ClInclude Include="ai\Monsters\Controller\controller_psy_aura.h" />
+    <ClInclude Include="ai\Monsters\Controller\controller_psy_aura.h" />
     <ClInclude Include="ai\Monsters\Controller\controller_psy_hit.h" />
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack.h" />
     <ClInclude Include="ai\Monsters\Controller\controller_state_attack_camp.h" />
@@ -609,7 +611,7 @@
     <ClInclude Include="ai\Monsters\custom_events.h" />
     <ClInclude Include="ai\Monsters\Dog\dog.h" />
     <ClInclude Include="ai\Monsters\Dog\dog_state_manager.h" />
-	<ClInclude Include="ai\Monsters\Dogsoc\dogsoc.h" />
+    <ClInclude Include="ai\Monsters\Dogsoc\dogsoc.h" />
     <ClInclude Include="ai\Monsters\Dogsoc\dogsoc_state_manager.h" />
     <ClInclude Include="ai\Monsters\energy_holder.h" />
     <ClInclude Include="ai\Monsters\Flesh\flesh.h" />
@@ -669,7 +671,7 @@
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_attack_hidden_inline.h" />
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_manager.h" />
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_rest.h" />
-	<ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs.h" />
+    <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs.h" />
     <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_movement.h" />
     <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_state_attack_hidden.h" />
     <ClInclude Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_state_attack_hidden_inline.h" />
@@ -688,7 +690,7 @@
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudogigant_state_manager.h" />
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudo_gigant.h" />
     <ClInclude Include="ai\Monsters\PseudoGigant\pseudo_gigant_step_effector.h" />
-	<ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudogigant_state_manager_jumper.h" />
+    <ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudogigant_state_manager_jumper.h" />
     <ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_jumper.h" />
     <ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_step_effector_jumper.h" />
     <ClInclude Include="ai\Monsters\psy_aura.h" />
@@ -1757,7 +1759,7 @@
     <ClInclude Include="ui\UI3tButton.h" />
     <ClInclude Include="ui\uiabstract.h" />
     <ClInclude Include="ui\UIAchievements.h" />
-	<ClInclude Include="ui\UIPdaSpot.h" />
+    <ClInclude Include="ui\UIPdaSpot.h" />
     <ClInclude Include="ui\UIRankingsCoC.h" />
     <ClInclude Include="ui\UIActorMenu.h" />
     <ClInclude Include="ui\UIActorStateInfo.h" />
@@ -2288,7 +2290,7 @@
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Boar\boar_state_manager.cpp" />
-	<ClCompile Include="ai\Monsters\bocs\bocs.cpp" />
+    <ClCompile Include="ai\Monsters\bocs\bocs.cpp" />
     <ClCompile Include="ai\Monsters\bocs\bocs_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
@@ -2300,7 +2302,7 @@
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-	<ClCompile Include="ai\Monsters\Burcs\burcs.cpp" />
+    <ClCompile Include="ai\Monsters\Burcs\burcs.cpp" />
     <ClCompile Include="ai\Monsters\Burcs\burcs_fast_gravi.cpp" />
     <ClCompile Include="ai\Monsters\Burcs\burcs_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
@@ -2319,7 +2321,7 @@
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-	<ClCompile Include="ai\Monsters\Chimera_cs\chimera_cs.cpp" />
+    <ClCompile Include="ai\Monsters\Chimera_cs\chimera_cs.cpp" />
     <ClCompile Include="ai\Monsters\Chimera_cs\chimera_cs_state_manager.cpp" />
     <ClCompile Include="ai\Monsters\Chimera_cs\chimera_cs_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
@@ -2330,7 +2332,7 @@
     <ClCompile Include="ai\Monsters\Controller\controller.cpp" />
     <ClCompile Include="ai\Monsters\Controller\controller_animation.cpp" />
     <ClCompile Include="ai\Monsters\Controller\controller_direction.cpp" />
-	<ClCompile Include="ai\Monsters\Controller\controller_psy_aura.cpp" />
+    <ClCompile Include="ai\Monsters\Controller\controller_psy_aura.cpp" />
     <ClCompile Include="ai\Monsters\Controller\controller_psy_hit.cpp" />
     <ClCompile Include="ai\Monsters\Controller\controller_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
@@ -2373,7 +2375,7 @@
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-	<ClCompile Include="ai\Monsters\Dogsoc\dogsoc.cpp" />
+    <ClCompile Include="ai\Monsters\Dogsoc\dogsoc.cpp" />
     <ClCompile Include="ai\Monsters\Dogsoc\dogsoc_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
@@ -2410,7 +2412,7 @@
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-	<ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs.cpp" />
+    <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs.cpp" />
     <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_ability.cpp" />
     <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_flame_thrower.cpp" />
     <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs_movement.cpp" />
@@ -2439,7 +2441,7 @@
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudogigant_state_manager.cpp" />
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudo_gigant.cpp" />
     <ClCompile Include="ai\Monsters\PseudoGigant\pseudo_gigant_step_effector.cpp" />
-	<ClCompile Include="ai\Monsters\PseudoGigant_jumper\pseudogigant_script_jumper.cpp">
+    <ClCompile Include="ai\Monsters\PseudoGigant_jumper\pseudogigant_script_jumper.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
@@ -3850,7 +3852,7 @@
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-	<ClCompile Include="ui\UIPdaSpot.cpp" />
+    <ClCompile Include="ui\UIPdaSpot.cpp" />
     <ClCompile Include="ui\UIRankingsCoC.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>

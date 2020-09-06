@@ -240,6 +240,8 @@
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <DisableSpecificWarnings>4005</DisableSpecificWarnings>
       <StringPooling>true</StringPooling>
+      <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

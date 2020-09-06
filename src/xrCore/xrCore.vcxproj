@@ -129,8 +129,9 @@
       <BrowseInformation>
       </BrowseInformation>
       <WarningLevel>Level1</WarningLevel>
-      <DebugInformationFormat>None</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <UndefinePreprocessorDefinitions>USE_LUAJIT_ONE</UndefinePreprocessorDefinitions>
+      <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(xrSdkDir)libraries;$(DXSDK_DIR)Lib\x86;$(XRAY_16X_LIBS)BugTrap\Bin;$(xrLibDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -143,6 +144,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <ImportLibrary>$(xrLibDir)$(TargetName).lib</ImportLibrary>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">
@@ -291,7 +293,7 @@
     <ClCompile Include="file_stream_reader.cpp" />
     <ClCompile Include="FS.cpp" />
     <ClCompile Include="FTimer.cpp" />
-	<ClCompile Include="Event.cpp" />
+    <ClCompile Include="Event.cpp" />
     <ClCompile Include="LocatorAPI.cpp" />
     <ClCompile Include="LocatorAPI_auth.cpp" />
     <ClCompile Include="LocatorAPI_defs.cpp" />
@@ -356,7 +358,7 @@
     <ClCompile Include="stream_reader.cpp" />
     <ClCompile Include="string_concatenations.cpp" />
     <ClCompile Include="xrCore.cpp" />
-	<ClCompile Include="XML_Parser\tinyxml.cpp" />
+    <ClCompile Include="XML_Parser\tinyxml.cpp" />
     <ClCompile Include="XML_Parser\tinyxmlerror.cpp" />
     <ClCompile Include="XML_Parser\tinyxmlparser.cpp" />
     <ClCompile Include="XML_Parser\xrXMLParser.cpp" />
@@ -397,7 +399,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\build_engine_config.h" />
-	<ClInclude Include="..\build_render_config.h" />
+    <ClInclude Include="..\build_render_config.h" />
     <ClInclude Include="blackbox\BugslayerUtil.h" />
     <ClInclude Include="blackbox\CrashHandler.h" />
     <ClInclude Include="blackbox\DiagAssert.h" />
@@ -425,7 +427,7 @@
     <ClInclude Include="FS_impl.h" />
     <ClInclude Include="FS_internal.h" />
     <ClInclude Include="FTimer.h" />
-	<ClInclude Include="Event.hpp" />
+    <ClInclude Include="Event.hpp" />
     <ClInclude Include="intrusive_ptr.h" />
     <ClInclude Include="intrusive_ptr_inline.h" />
     <ClInclude Include="LocatorAPI.h" />
@@ -465,7 +467,7 @@
     <ClInclude Include="SubAlloc.hpp" />
     <ClInclude Include="vector.h" />
     <ClInclude Include="xrCore.h" />
-	<ClInclude Include="XML_Parser\tinyxml.h" />
+    <ClInclude Include="XML_Parser\tinyxml.h" />
     <ClInclude Include="XML_Parser\xrXMLParser.h" />
     <ClInclude Include="xrCore_platform.h" />
     <ClInclude Include="xrDebug.h" />

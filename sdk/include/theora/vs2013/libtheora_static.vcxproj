@@ -88,10 +88,11 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <PrecompiledHeader />
       <WarningLevel>Level1</WarningLevel>
-      <DebugInformationFormat />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>CompileAsC</CompileAs>
       <DisableSpecificWarnings>4244;4267;4057;4100;4245;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
