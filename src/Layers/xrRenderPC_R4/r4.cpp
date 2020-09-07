@@ -1571,7 +1571,7 @@ HRESULT	CRender::shader_compile			(
 	return		_result;
 }
 
-static inline bool match_shader		( LPCSTR const debug_shader_id, LPCSTR const full_shader_id, LPCSTR const mask, size_t const mask_length )
+static IC bool match_shader		( LPCSTR const debug_shader_id, LPCSTR const full_shader_id, LPCSTR const mask, size_t const mask_length )
 {
 	u32 const full_shader_id_length	= xr_strlen( full_shader_id );
 	R_ASSERT2				(
@@ -1599,9 +1599,9 @@ static inline bool match_shader		( LPCSTR const debug_shader_id, LPCSTR const fu
 	return					true;
 }
 
-static inline bool match_shader_id	( LPCSTR const debug_shader_id, LPCSTR const full_shader_id, FS_FileSet const& file_set, string_path& result )
+static IC bool match_shader_id	( LPCSTR const debug_shader_id, LPCSTR const full_shader_id, FS_FileSet const& file_set, string_path& result )
 {
-#if 0
+#ifdef DISABLED_PRECOMPILED_SHADERS_USAGE
 	strcpy_s					( result, "" );
 	return						false;
 #else // #if 1
