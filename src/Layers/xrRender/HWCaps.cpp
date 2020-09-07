@@ -29,7 +29,7 @@ u32 GetNVGpuNum()
 
 	if (status != NVAPI_OK)
 	{
-		Msg("* NVAPI is missing.");
+		Msg("! NVAPI is missing.");
 		return iGpuNum;
 	}
 
@@ -96,7 +96,7 @@ u32 GetGpuNum()
 	//	code will fail.
 	VERIFY(res>0);
 
-	Msg("* Starting rendering as %d-GPU.", res);
+	Msg("- Starting rendering as GPU: %d.", res);
 	
 	return res;
 }
@@ -138,7 +138,7 @@ void CHWCaps::Update()
 	raster.dwInstructions		= (caps.PS20Caps.NumInstructionSlots);
 
 	// ***************** Info
-	Msg							("* GPU shading: vs(%x/%d.%d/%d), ps(%x/%d.%d/%d)",
+	Msg							("~ GPU shading: vs(%x/%d.%d/%d), ps(%x/%d.%d/%d)",
 		caps.VertexShaderVersion,	geometry_major, geometry_minor, CAP_VERSION(geometry_major,	geometry_minor),
 		caps.PixelShaderVersion,	raster_major,	raster_minor,	CAP_VERSION(raster_major,	raster_minor)
 		);
@@ -159,7 +159,7 @@ void CHWCaps::Update()
 		if (1==vc.OptMethod	)	geometry.dwVertexCache	= vc.CacheSize;
 		else					geometry.dwVertexCache	= 16;
 	}
-	Msg					("* GPU vertex cache: %s, %d",(1==vc.OptMethod)?"recognized":"unrecognized",u32(geometry.dwVertexCache));
+	Msg					("~ GPU vertex cache: %s, %d",(1==vc.OptMethod)?"recognized":"unrecognized",u32(geometry.dwVertexCache));
 
 	// *******1********** Compatibility : vertex shader
 	if (0==raster_major)		geometry_major=0;		// Disable VS if no PS
@@ -238,7 +238,7 @@ void CHWCaps::Update()
 	raster.dwInstructions		= 256;
 
 	// ***************** Info
-	Msg							("* GPU shading: vs(%x/%d.%d/%d), ps(%x/%d.%d/%d)",
+	Msg							("~ GPU shading: vs(%x/%d.%d/%d), ps(%x/%d.%d/%d)",
 		0,	geometry_major, geometry_minor, CAP_VERSION(geometry_major,	geometry_minor),
 		0,	raster_major,	raster_minor,	CAP_VERSION(raster_major,	raster_minor)
 		);
@@ -246,7 +246,7 @@ void CHWCaps::Update()
 	// *******1********** Vertex cache
 	//	TODO: DX10: Find a way to detect cache size
 	geometry.dwVertexCache = 24;
-	Msg					("* GPU vertex cache: %s, %d","unrecognized",u32(geometry.dwVertexCache));
+	Msg					("~ GPU vertex cache: %s, %d","unrecognized",u32(geometry.dwVertexCache));
 
 	// *******1********** Compatibility : vertex shader
 	if (0==raster_major)		geometry_major=0;		// Disable VS if no PS

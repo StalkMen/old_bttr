@@ -38,7 +38,7 @@ void _VertexStream::Create	()
 	mPosition				= 0;
 	mDiscardID				= 0;
 
-	Msg("* DVB created: %dK", mSize/1024);
+	Msg("# DVB created: %dK", mSize/1024);
 }
 
 void _VertexStream::Destroy	()
@@ -190,7 +190,7 @@ void	_IndexStream::Create	()
 	mPosition				= 0;
 	mDiscardID				= 0;
 
-	Msg("* DIB created: %dK", mSize/1024);
+	Msg("# DIB created: %dK", mSize/1024);
 }
 
 void	_IndexStream::Destroy()

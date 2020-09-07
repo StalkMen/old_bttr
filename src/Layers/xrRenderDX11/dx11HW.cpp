@@ -172,19 +172,19 @@ void CHW::DestroyDevice()
 	BSManager.ClearStateArray();
 	SSManager.ClearStateArray();
 
-	_SHOW_REF				("refCount:pBaseZB",pBaseZB);
+	_SHOW_REF				("# refCount:pBaseZB",pBaseZB);
 	_RELEASE				(pBaseZB);
 
-	_SHOW_REF				("refCount:pBaseRT",pBaseRT);
+	_SHOW_REF				("# refCount:pBaseRT",pBaseRT);
 	_RELEASE				(pBaseRT);
 
 	//	Must switch to windowed mode to release swap chain
 	if (!m_ChainDesc.Windowed) m_pSwapChain->SetFullscreenState( FALSE, NULL);
-	_SHOW_REF				("refCount:m_pSwapChain",m_pSwapChain);
+	_SHOW_REF				("# refCount:m_pSwapChain",m_pSwapChain);
 	_RELEASE				(m_pSwapChain);
 	_RELEASE				(pContext);
 
-	_SHOW_REF				("DeviceREF:",HW.pDevice);
+	_SHOW_REF				("# DeviceREF:",HW.pDevice);
 	_RELEASE				(HW.pDevice);
 
 	DestroyD3D				();
@@ -219,8 +219,8 @@ void CHW::Reset (HWND hwnd)
 
 	CHK_DX(m_pSwapChain->ResizeTarget(&desc));
 
-	_SHOW_REF				("refCount:pBaseZB",pBaseZB);
-	_SHOW_REF				("refCount:pBaseRT",pBaseRT);
+	_SHOW_REF				("# refCount:pBaseZB",pBaseZB);
+	_SHOW_REF				("# refCount:pBaseRT",pBaseRT);
 
 	_RELEASE(pBaseZB);
 	_RELEASE(pBaseRT);

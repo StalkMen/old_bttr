@@ -161,19 +161,19 @@ D3DFORMAT CHW::selectDepthStencil	(D3DFORMAT fTarget)
 
 void	CHW::DestroyDevice	()
 {
-    _SHOW_REF				("refCount:pBaseZB",pBaseZB);
+    _SHOW_REF				("# refCount:pBaseZB",pBaseZB);
     _RELEASE				(pBaseZB);
 
-    _SHOW_REF				("refCount:pBaseRT",pBaseRT);
+    _SHOW_REF				("# refCount:pBaseRT",pBaseRT);
     _RELEASE				(pBaseRT);
 #ifdef DEBUG
-    _SHOW_REF				("refCount:dwDebugSB",dwDebugSB);
+    _SHOW_REF				("# refCount:dwDebugSB",dwDebugSB);
     _RELEASE				(dwDebugSB);
 #endif
 #ifdef _EDITOR
     _RELEASE				(HW.pDevice);
 #else
-    _SHOW_REF				("DeviceREF:",HW.pDevice);
+    _SHOW_REF				("# DeviceREF:",HW.pDevice);
     _RELEASE				(HW.pDevice);
 #endif    
     DestroyD3D				();

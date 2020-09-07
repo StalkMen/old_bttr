@@ -242,7 +242,7 @@ public:
             for (it = Console->Commands.begin(); it != Console->Commands.end(); it++)
                 it->second->Save(F);
             FS.w_close(F);
-            Msg("Config-file [%s] saved successfully", cfg_full_name);
+            Msg("~ file [%s] saved successfully", cfg_full_name);
         }
         else
             Msg("!Cannot store config file [%s]", cfg_full_name);
