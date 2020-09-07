@@ -212,6 +212,8 @@ extern BOOL						xrRender_test_hw		();
 extern void						xrRender_apply_tf		();
 
 enum { RFLAG_NO_RAM_TEXTURES = (1 << 0), };
+extern ECORE_API u32 ps_r2_smapsize;
+extern ECORE_API xr_token qsmapsize_token[];
 extern ECORE_API Flags32 ps_r__common_flags;
 
 #endif

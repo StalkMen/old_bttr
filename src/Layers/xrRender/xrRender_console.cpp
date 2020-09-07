@@ -692,14 +692,27 @@ public:
 #endif	//	DEBUG
 
 Flags32 ps_r__common_flags = {/*RFLAG_NO_RAM_TEXTURES*/ }; // All renders
+u32 ps_r2_smapsize = 2048;
+xr_token qsmapsize_token[] =
+{
+	{ "st_size_1536", 1536 },
+	{ "st_size_2048", 2048 },
+	{ "st_size_2560", 2560 },
+	{ "st_size_3072", 3072 },
+	{ "st_size_3584", 3584 },
+	{ "st_size_4096", 4096 },
+	{ "st_size_8192", 8192 },
+	{ nullptr, 0 }
+};
 
 //-----------------------------------------------------------------------
 void		xrRender_initconsole()
 {
 //////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma todo("OldSerpskiStalker. Новые консольные команды:")
-	CMD3(CCC_Mask, "xrRenderDX10_no_ram", &ps_r__common_flags, RFLAG_NO_RAM_TEXTURES);
-	//////////////////////////////////////////////////////////////////////////////////////////////////
+	CMD3(CCC_Mask,  "xrRenderDX10_no_ram",				 &ps_r__common_flags,				RFLAG_NO_RAM_TEXTURES);
+	CMD3(CCC_Token, "xrRenderDX10_shadow_map_size",		 &ps_r2_smapsize,					qsmapsize_token);
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);
 

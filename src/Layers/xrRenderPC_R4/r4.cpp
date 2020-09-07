@@ -146,20 +146,12 @@ void					CRender::create					()
 	m_MSAASample		= -1;
 
 	// hardware
-	o.smapsize			= 2048;
+	o.smapsize			= ps_r2_smapsize;
 	o.mrt				= (HW.Caps.raster.dwMRT_count >= 3);
 	o.mrtmixdepth		= (HW.Caps.raster.b_MRT_mixdepth);
 
-	// Check for NULL render target support
-	//	DX10 disabled
-	//D3DFORMAT	nullrt	= (D3DFORMAT)MAKEFOURCC('N','U','L','L');
-	//o.nullrt			= HW.support	(nullrt,			D3DRTYPE_SURFACE, D3DUSAGE_RENDERTARGET);
 	o.nullrt = false;
-	/*
-	if (o.nullrt)		{
-	Msg				("* NULLRT supported and used");
-	};
-	*/
+	
 	if (o.nullrt)		{
 		Msg				("* NULLRT supported");
 

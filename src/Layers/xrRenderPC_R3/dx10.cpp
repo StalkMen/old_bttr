@@ -137,20 +137,12 @@ void					CRender::create					()
 	m_MSAASample		= -1;
 
 	// hardware
-	o.smapsize			= 2048;
+	o.smapsize			= ps_r2_smapsize;
 	o.mrt				= (HW.Caps.raster.dwMRT_count >= 3);
 	o.mrtmixdepth		= (HW.Caps.raster.b_MRT_mixdepth);
 
-	// Check for NULL render target support
-	//	DX10 disabled
-	//D3DFORMAT	nullrt	= (D3DFORMAT)MAKEFOURCC('N','U','L','L');
-	//o.nullrt			= HW.support	(nullrt,			D3DRTYPE_SURFACE, D3DUSAGE_RENDERTARGET);
 	o.nullrt = false;
-	/*
-	if (o.nullrt)		{
-	Msg				("* NULLRT supported and used");
-	};
-	*/
+	
 	if (o.nullrt)		{
 		Msg				("* NULLRT supported");
 
@@ -220,8 +212,7 @@ void					CRender::create					()
 	}
 
 	//	DX10 disabled
-	//o.fp16_filter		= HW.support	(D3DFMT_A16B16G16R16F,	D3DRTYPE_TEXTURE,D3DUSAGE_QUERY_FILTER);
-	//o.fp16_blend		= HW.support	(D3DFMT_A16B16G16R16F,	D3DRTYPE_TEXTURE,D3DUSAGE_QUERY_POSTPIXELSHADER_BLENDING);
+	
 	o.fp16_filter		= true;
 	o.fp16_blend		= true;
 
