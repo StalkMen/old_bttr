@@ -244,18 +244,18 @@ _DDS:
 		else														goto _DDS_2D;
 #else
 		{
-			Msg("Load Texture:%s", fn);
+			Msg("![Debug]: Load Texture:%s", fn);
 
 			if (!TextureLoader.Load(fn))
 			{
-				Msg("Cant Load Texture:%s", fn);
+				Msg("![Debug]: Can't load texture:%s", fn);
 				goto CANT_LOAD;
 			}
 			else
 			{
 				if (TextureLoader.isCube())
 				{
-					Msg("is cube Texture:%s", fn);
+					Msg("![Debug]: Cube texture:%s", fn);
 					goto _DDS_CUBE;
 				}
 				else
