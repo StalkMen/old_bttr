@@ -874,9 +874,9 @@ static HRESULT create_shader				(
 	else if (pTarget[0] == 'g') {
 		SGS* sgs_result = (SGS*)result;
 #ifdef USE_DX11
-		_result			= HW.pDevice->CreateGeometryShader(buffer, buffer_size, 0, &sgs_result->gs);
+		_result			= HW.pDevice->CreateGeometryShader(buffer, buffer_size, 0, &sgs_result->sh);
 #else // #ifdef USE_DX11
-		_result			= HW.pDevice->CreateGeometryShader(buffer, buffer_size, &sgs_result->gs);
+		_result			= HW.pDevice->CreateGeometryShader(buffer, buffer_size, &sgs_result->sh);
 #endif // #ifdef USE_DX11
 		if ( !SUCCEEDED(_result) ) {
 			Log			("! GS: ", file_name);

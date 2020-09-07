@@ -248,7 +248,7 @@ public:
 	ICF void						set_PS				(ref_ps& _ps)						{ set_PS(_ps->ps,_ps->cName.c_str());				}
 
 	ICF void						set_GS				(ID3DGeometryShader* _gs, LPCSTR _n=0);
-	ICF void						set_GS				(ref_gs& _gs)						{ set_GS(_gs->gs,_gs->cName.c_str());				}
+	ICF void						set_GS				(ref_gs& _gs)						{ set_GS(_gs->sh,_gs->cName.c_str());				}
 
 #ifdef USE_DX11
 	ICF void						set_HS				(ID3D11HullShader* _hs, LPCSTR _n=0);
