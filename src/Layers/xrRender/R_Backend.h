@@ -245,7 +245,7 @@ public:
 	ICF void						set_Format			(SDeclaration* _decl);
 
 	ICF void						set_PS				(ID3DPixelShader* _ps, LPCSTR _n=0);
-	ICF void						set_PS				(ref_ps& _ps)						{ set_PS(_ps->ps,_ps->cName.c_str());				}
+	ICF void						set_PS				(ref_ps& _ps)						{ set_PS(_ps->sh,_ps->cName.c_str());				}
 
 	ICF void						set_GS				(ID3DGeometryShader* _gs, LPCSTR _n=0);
 	ICF void						set_GS				(ref_gs& _gs)						{ set_GS(_gs->sh,_gs->cName.c_str());				}

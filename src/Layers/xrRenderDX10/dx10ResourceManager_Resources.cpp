@@ -257,7 +257,7 @@ SPS*	CResourceManager::_CreatePS			(LPCSTR _name)
 		_ps->dwFlags				|=	xr_resource_flagged::RF_REGISTERED;
 		m_ps.insert					(mk_pair(_ps->set_name(name),_ps));
 		if (0==stricmp(_name,"null"))	{
-			_ps->ps				= NULL;
+			_ps->sh				= NULL;
 			return _ps;
 		}
 

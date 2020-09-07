@@ -33,7 +33,7 @@ typedef	resptr_core<SVS,resptr_base<SVS> >	ref_vs;
 //////////////////////////////////////////////////////////////////////////
 struct ECORE_API SPS : public xr_resource_named
 {
-	ID3DPixelShader*					ps;
+	ID3DPixelShader*					sh;
 	R_constant_table					constants;
 	~SPS			();
 };
