@@ -23,8 +23,6 @@
 
 #include "../Include/xrRender/FactoryPtr.h"
 #include "../Include/xrRender/RenderDeviceRender.h"
-#include "../build_engine_config.h"
-#include "../xrCore/Event.hpp"
 
 #ifdef INGAME_EDITOR
 # include "../Include/editor/interfaces.hpp"
@@ -269,9 +267,9 @@ public:
         return (Timer.time_factor());
     }
 
-MULTITHREADING
-    static void SecondaryThreadProc(void* context);
-    Event syncProcessFrame, syncFrameDone, syncThreadExit;
+    // Multi-threading
+    xrCriticalSection mt_csEnter;
+    xrCriticalSection mt_csLeave;
     volatile BOOL mt_bMustExit;
 
     ICF void remove_from_seq_parallel(const fastdelegate::FastDelegate0<>& delegate)
@@ -285,7 +283,6 @@ MULTITHREADING
             seqParallel.erase(I);
     }
 
-public:
     //AVO: elapsed famed counter (by alpet)
     IC u32 frame_elapsed()
     {

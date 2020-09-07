@@ -357,8 +357,8 @@ void CMapLocation::CalcLevelName()
 
 bool CMapLocation::Update() //returns actual
 {
-
-	R_ASSERT(m_cached.m_updatedFrame != Device.dwFrame);
+#pragma todo("OldSerpskiStalker. Убрал тут этот вылет, думаю не критично")
+//	R_ASSERT(m_cached.m_updatedFrame != Device.dwFrame);
 
 	if(	m_flags.test(eTTL) )
 	{

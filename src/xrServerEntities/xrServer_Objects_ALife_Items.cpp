@@ -203,11 +203,11 @@ void CSE_ALifeInventoryItem::UPDATE_Read	(NET_Packet &tNetPacket)
 	}
 	
 	//Alundaio: Bug workaround
-//	if (tNetPacket.r_elapsed() < 52)
-//	{
-//		tNetPacket.r_advance(tNetPacket.r_elapsed());
-//		return;
-//	}
+	if (tNetPacket.r_elapsed() < 52)
+	{
+		tNetPacket.r_advance(tNetPacket.r_elapsed());
+		return;
+	}
 	
 	mask_num_items					num_items;
 	num_items.common				= m_u8NumItems;
