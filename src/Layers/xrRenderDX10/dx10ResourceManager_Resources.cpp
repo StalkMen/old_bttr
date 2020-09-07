@@ -143,71 +143,8 @@ SVS*	CResourceManager::_CreateVS		(LPCSTR _name)
 	if (2 == ::Render->m_skinning)	xr_strcat(name,"_2");
 	if (3 == ::Render->m_skinning)	xr_strcat(name,"_3");
 	if (4 == ::Render->m_skinning)	xr_strcat(name,"_4");
-	LPSTR N				= LPSTR		(name);
-	map_VS::iterator I	= m_vs.find	(N);
-	if (I!=m_vs.end())	return I->second;
-	else
-	{
-		SVS*	_vs					= xr_new<SVS>	();
-		_vs->dwFlags				|= xr_resource_flagged::RF_REGISTERED;
-		m_vs.insert					(mk_pair(_vs->set_name(name),_vs));
-		//_vs->vs				= NULL;
-		//_vs->signature		= NULL;
-		if (0==stricmp(_name,"null"))	{
-			return _vs;
-		}
-
-		string_path					shName;
-		{
-			const char*	pchr = strchr(_name, '(');
-			ptrdiff_t	size = pchr?pchr-_name:xr_strlen(_name);
-			strncpy(shName, _name, size);
-			shName[size] = 0;
-		}
-
-		string_path					cname;
-		strconcat					(sizeof(cname),cname,::Render->getShaderPath(),/*_name*/shName,".vs");
-		FS.update_path				(cname,	"$game_shaders$", cname);
-		//		LPCSTR						target		= NULL;
-
-		// duplicate and zero-terminate
-		IReader* file			= FS.r_open(cname);
-		//	TODO: DX10: HACK: Implement all shaders. Remove this for PS
-		if (!file)
-		{
-			string1024			tmp;
-			xr_sprintf			(tmp, "DX10: %s is missing. Replace with stub_default.vs", cname);
-			Msg					(tmp);
-			strconcat			(sizeof(cname), cname,::Render->getShaderPath(),"stub_default",".vs");
-			FS.update_path		(cname,	"$game_shaders$", cname);
-			file				= FS.r_open(cname);
-		}
-		u32	const size			= file->length();
-		char* const data		= (LPSTR)_alloca(size + 1);
-		CopyMemory				( data, file->pointer(), size );
-		data[size]				= 0;
-		FS.r_close				( file );
-
-		// Select target
-		LPCSTR						c_target	= "vs_2_0";
-		LPCSTR						c_entry		= "main";
-		if (HW.Caps.geometry_major>=2)	c_target="vs_2_0";
-		else 							c_target="vs_1_1";
-
-		if (strstr(data, "main_vs_1_1"))	{ c_target = "vs_1_1"; c_entry = "main_vs_1_1";	}
-		if (strstr(data, "main_vs_2_0"))	{ c_target = "vs_2_0"; c_entry = "main_vs_2_0";	}
-
-		HRESULT	const _hr		= ::Render->shader_compile(name,(DWORD const*)data,size, c_entry, c_target, D3D10_SHADER_PACK_MATRIX_ROW_MAJOR, (void*&)_vs );
-
-		VERIFY(SUCCEEDED(_hr));
-
-		CHECK_OR_EXIT			(
-			!FAILED(_hr),
-			make_string("Your video card doesn't meet game requirements.\n\nTry to lower game settings.")
-		);
-
-		return					_vs;
-	}
+	
+	return CreateShader<SVS>(name, true);
 }
 
 void	CResourceManager::_DeleteVS			(const SVS* vs)
@@ -248,85 +185,11 @@ SPS*	CResourceManager::_CreatePS			(LPCSTR _name)
 	if (5 == ::Render->m_MSAASample)	xr_strcat(name,"_5");
 	if (6 == ::Render->m_MSAASample)	xr_strcat(name,"_6");
 	if (7 == ::Render->m_MSAASample)	xr_strcat(name,"_7");
-	LPSTR N				= LPSTR(name);
-	map_PS::iterator I	= m_ps.find	(N);
-	if (I!=m_ps.end())	return		I->second;
-	else
-	{
-		SPS*	_ps					=	xr_new<SPS>	();
-		_ps->dwFlags				|=	xr_resource_flagged::RF_REGISTERED;
-		m_ps.insert					(mk_pair(_ps->set_name(name),_ps));
-		if (0==stricmp(_name,"null"))	{
-			_ps->sh				= NULL;
-			return _ps;
-		}
-
-		string_path					shName;
-		const char*	pchr = strchr(_name, '(');
-		ptrdiff_t	strSize = pchr?pchr-_name:xr_strlen(_name);
-		strncpy(shName, _name, strSize );
-		shName[strSize] = 0;
-
-		// Open file
-		string_path					cname;
-		strconcat					(sizeof(cname), cname,::Render->getShaderPath(),/*_name*/shName,".ps");
-		FS.update_path				(cname,	"$game_shaders$", cname);
-
-		// duplicate and zero-terminate
-		IReader*		file		= FS.r_open(cname);
-		//	TODO: DX10: HACK: Implement all shaders. Remove this for PS
-		if (!file)
-		{
-			string1024			tmp;
-			//	TODO: HACK: Test failure
-			//Memory.mem_compact();
-			xr_sprintf				(tmp, "DX10: %s is missing. Replace with stub_default.ps", cname);
-			Msg					(tmp);
-			strconcat					(sizeof(cname), cname,::Render->getShaderPath(),"stub_default",".ps");
-			FS.update_path				(cname,	"$game_shaders$", cname);
-			file		= FS.r_open(cname);
-		}
-
-		R_ASSERT2				( file, cname );
-		u32	const size			= file->length();
-		char* const data		= (LPSTR)_alloca(size + 1);
-		CopyMemory				( data, file->pointer(), size );
-		data[size]				= 0;
-		FS.r_close				( file );
-
-		// Select target
-		LPCSTR						c_target	= "ps_2_0";
-		LPCSTR						c_entry		= "main";
-		if (strstr(data,"main_ps_1_1"))			{ c_target = "ps_1_1"; c_entry = "main_ps_1_1";	}
-		if (strstr(data,"main_ps_1_2"))			{ c_target = "ps_1_2"; c_entry = "main_ps_1_2";	}
-		if (strstr(data,"main_ps_1_3"))			{ c_target = "ps_1_3"; c_entry = "main_ps_1_3";	}
-		if (strstr(data,"main_ps_1_4"))			{ c_target = "ps_1_4"; c_entry = "main_ps_1_4";	}
-		if (strstr(data,"main_ps_2_0"))			{ c_target = "ps_2_0"; c_entry = "main_ps_2_0";	}
-
-		HRESULT	const _hr		= ::Render->shader_compile(name,(DWORD const*)data,size, c_entry, c_target, D3D10_SHADER_PACK_MATRIX_ROW_MAJOR, (void*&)_ps );
-		
-		VERIFY(SUCCEEDED(_hr));
-
-		CHECK_OR_EXIT		(
-			!FAILED(_hr),
-			make_string("Your video card doesn't meet game requirements.\n\nTry to lower game settings.")
-			);
-
-		return			_ps;
-	}
+	
+	return CreateShader<SPS>(name, true);
 }
 
-void	CResourceManager::_DeletePS			(const SPS* ps)
-{
-	if (0==(ps->dwFlags&xr_resource_flagged::RF_REGISTERED))	return;
-	LPSTR N				= LPSTR		(*ps->cName);
-	map_PS::iterator I	= m_ps.find	(N);
-	if (I!=m_ps.end())	{
-		m_ps.erase(I);
-		return;
-	}
-	Msg	("! ERROR: Failed to find compiled pixel-shader '%s'",*ps->cName);
-}
+void CResourceManager::_DeletePS(const SPS* ps) { DestroyShader(ps); }
 
 //--------------------------------------------------------------------------------------------------------------
 static BOOL	dcl_equal			(D3DVERTEXELEMENT9* a, D3DVERTEXELEMENT9* b)
@@ -421,53 +284,10 @@ void	CResourceManager::_DeleteRT		(const CRT* RT)
 	}
 	Msg	("! ERROR: Failed to find render-target '%s'",*RT->cName);
 }
-/*	//	DX10 cut 
-//--------------------------------------------------------------------------------------------------------------
-CRTC*	CResourceManager::_CreateRTC		(LPCSTR Name, u32 size,	D3DFORMAT f)
-{
-	R_ASSERT(Name && Name[0] && size);
 
-	// ***** first pass - search already created RTC
-	LPSTR N = LPSTR(Name);
-	map_RTC::iterator I = m_rtargets_c.find	(N);
-	if (I!=m_rtargets_c.end())	return I->second;
-	else
-	{
-		CRTC *RT				=	xr_new<CRTC>();
-		RT->dwFlags				|=	xr_resource_flagged::RF_REGISTERED;
-		m_rtargets_c.insert		(mk_pair(RT->set_name(Name),RT));
-		if (Device.b_is_Ready)	RT->create	(Name,size,f);
-		return					RT;
-	}
-}
-void	CResourceManager::_DeleteRTC		(const CRTC* RT)
-{
-	if (0==(RT->dwFlags&xr_resource_flagged::RF_REGISTERED))	return;
-	LPSTR N				= LPSTR		(*RT->cName);
-	map_RTC::iterator I	= m_rtargets_c.find	(N);
-	if (I!=m_rtargets_c.end())	{
-		m_rtargets_c.erase(I);
-		return;
-	}
-	Msg	("! ERROR: Failed to find render-target '%s'",*RT->cName);
-}
-*/
 //--------------------------------------------------------------------------------------------------------------
 void	CResourceManager::DBG_VerifyGeoms	()
 {
-	/*
-	for (u32 it=0; it<v_geoms.size(); it++)
-	{
-	SGeometry* G					= v_geoms[it];
-
-	D3DVERTEXELEMENT9		test	[MAX_FVF_DECL_SIZE];
-	u32						size	= 0;
-	G->dcl->GetDeclaration			(test,(unsigned int*)&size);
-	u32 vb_stride					= D3DXGetDeclVertexSize	(test,0);
-	u32 vb_stride_cached			= G->vb_stride;
-	R_ASSERT						(vb_stride == vb_stride_cached);
-	}
-	*/
 }
 
 SGeometry*	CResourceManager::CreateGeom	(D3DVERTEXELEMENT9* decl, ID3DVertexBuffer* vb, ID3DIndexBuffer* ib)
