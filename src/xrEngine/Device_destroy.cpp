@@ -20,12 +20,20 @@ void CRenderDevice::_Destroy(BOOL bKeepTextures)
     Memory.mem_compact();
 }
 
+extern u32 renderer_value; //con cmd
+
 void CRenderDevice::Destroy(void)
 {
-    if (!b_is_Ready) return;
-
-    Log("Destroying Direct3D...");
-
+    if (!b_is_Ready) 
+		return;
+	
+	if (renderer_value == 0)
+		Log("# Destroying Direct3D10");
+	else if (renderer_value == 1)
+		Log("# Destroying Direct3D10_1");
+	else if (renderer_value == 2)
+		Log("# Destroying Direct3D11");
+	
     ShowCursor(TRUE);
     ClipCursor(NULL);
     m_pRender->ValidateHW();
@@ -83,7 +91,7 @@ void CRenderDevice::Reset(bool precache)
     if (precache)
         PreCache(20, true, false);
     u32 tm_end = TimerAsync();
-    Msg("*** RESET [%d ms]", tm_end - tm_start);
+    Msg("~ RESET [%d ms]", tm_end - tm_start);
 
     // TODO: Remove this! It may hide crash
     Memory.mem_compact();

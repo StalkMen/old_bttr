@@ -108,8 +108,8 @@ void CRenderDevice::End(void)
 
             m_pRender->ResourcesDestroyNecessaryTextures();
             Memory.mem_compact();
-            Msg("* MEMORY USAGE: %lld K", Memory.mem_usage() / 1024);
-            Msg("* End of synchronization A[%d] R[%d]", b_is_Active, b_is_Ready);
+            Msg("~ MEMORY USAGE: %lld K", Memory.mem_usage() / 1024);
+            Msg("~ End of synchronization A[%d] R[%d]", b_is_Active, b_is_Ready);
 
 #ifdef FIND_CHUNK_BENCHMARK_ENABLE
             g_find_chunk_counter.flush();
@@ -347,7 +347,7 @@ void CRenderDevice::Run()
 {
     // DUMP_PHASE;
     g_bLoaded = FALSE;
-    Log("Starting engine...");
+    Log("- Starting engine...");
     thread_name("X-RAY Primary thread");
     // Startup timers and calculate timer delta
     dwTimeGlobal = 0;

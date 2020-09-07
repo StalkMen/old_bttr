@@ -29,6 +29,7 @@ IGame_Level::IGame_Level()
 }
 
 //#include "resourcemanager.h"
+extern u32 renderer_value; //con cmd
 
 IGame_Level::~IGame_Level()
 {
@@ -53,8 +54,12 @@ IGame_Level::~IGame_Level()
     if (Device.m_pRender)
         Device.m_pRender->ResourcesGetMemoryUsage(m_base, c_base, m_lmaps, c_lmaps);
 
-    Msg("* [ D3D ]: textures[%d K]", (m_base + m_lmaps) / 1024);
-
+    if (renderer_value == 0)
+        Msg("~ [D3D10]: textures[%d K]", (m_base + m_lmaps) / 1024);
+    else if (renderer_value == 1)
+        Msg("~ [D3D10_1]: textures[%d K]", (m_base + m_lmaps) / 1024);
+    else if (renderer_value == 2)
+        Msg("~ [D3D11]: textures[%d K]", (m_base + m_lmaps) / 1024);
 }
 
 void IGame_Level::net_Stop()

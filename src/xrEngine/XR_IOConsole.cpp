@@ -639,7 +639,7 @@ void CConsole::ExecuteCommand(LPCSTR cmd_str, bool record_cmd)
     }
     else
     {
-        Log("! Unknown command: ", first);
+		Log("~ There is no such command or it is used as debugging:", first);
     }
 
     if (record_cmd)

@@ -236,12 +236,13 @@ bool g_initialize_cpu_called = false;
 //------------------------------------------------------------------------------------
 void _initialize_cpu(void)
 {
-    Msg("* Detected CPU: %s [%s], F%d/M%d/S%d, %.2f mhz, %d-clk 'rdtsc'",
-        CPU::ID.model_name, CPU::ID.v_name,
-        CPU::ID.family, CPU::ID.model, CPU::ID.stepping,
-        float(CPU::clk_per_second / u64(1000000)),
-        u32(CPU::clk_overhead)
-       );
+	Msg("########################################################################################");
+	Msg("----------------------------------------------------------------------------------------");
+	Msg("---' TouchOfRay Engine x64 OldSerpskiStalker, LVutner");
+	Msg("----------------------------------------------------------------- АМК - Our everything ©");
+	Msg("########################################################################################");
+	
+    Msg("# Detected CPU: %s [%s], F%d/M%d/S%d, %.2f mhz, %d-clk 'rdtsc'",CPU::ID.model_name, CPU::ID.v_name,CPU::ID.family, CPU::ID.model, CPU::ID.stepping,float(CPU::clk_per_second / u64(1000000)),u32(CPU::clk_overhead));
 
     // DUMP_PHASE;
 
@@ -269,8 +270,8 @@ void _initialize_cpu(void)
     if (CPU::ID.feature&_CPU_FEATURE_SSE4_2)xr_strcat(features, ", SSE4.2");
     if (CPU::ID.feature&_CPU_FEATURE_HTT) xr_strcat(features, ", HTT");
 
-    Msg("* CPU features: %s", features);
-    Msg("* CPU cores/threads: %d/%d\n", CPU::ID.n_cores, CPU::ID.n_threads);
+    Msg("# CPU features: %s", features);
+    Msg("# CPU cores/threads: %d/%d\n", CPU::ID.n_cores, CPU::ID.n_threads);
 
     Fidentity.identity(); // Identity matrix
     Didentity.identity(); // Identity matrix

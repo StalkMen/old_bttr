@@ -56,7 +56,7 @@ void CEngineAPI::InitializeNotDedicated()
     if (psDeviceFlags.test(rsR4))
     {
         // try to initialize DX11
-        Log("Loading DLL:", dx11_name);
+        Log("# Loading DLL:", dx11_name);
         hRender = LoadLibrary(dx11_name);
         if (0 == hRender)
             R_ASSERT("! ...Failed - incompatible hardware/pre-Vista OS.");
@@ -65,7 +65,7 @@ void CEngineAPI::InitializeNotDedicated()
     if (psDeviceFlags.test(rsR3))
     {
         // try to initialize DX10
-        Log("Loading DLL:", dx10_name);
+        Log("# Loading DLL:", dx10_name);
         hRender = LoadLibrary(dx10_name);
         if (0 == hRender)
             R_ASSERT("! ...Failed - incompatible hardware/pre-Vista OS.");
@@ -85,7 +85,7 @@ void CEngineAPI::Initialize(void)
 
         renderer_value = 0; //con cmd
 
-        Log("Loading DLL:", dx10_name);
+        Log("# Loading DLL:", dx10_name);
         hRender = LoadLibrary(dx10_name);
         if (0 == hRender) 
             R_CHK(GetLastError());
@@ -97,7 +97,7 @@ void CEngineAPI::Initialize(void)
     // game
     {
         LPCSTR g_name = "xrGame.dll";
-        Log("Loading DLL:", g_name);
+        Log("# Loading DLL:", g_name);
         hGame = LoadLibrary(g_name);
         if (0 == hGame) R_CHK(GetLastError());
         R_ASSERT2(hGame, "Game DLL raised exception during loading or there is no game DLL at all");
@@ -113,7 +113,7 @@ void CEngineAPI::Initialize(void)
     if (strstr(Core.Params, "-tune"))
     {
         LPCSTR g_name = "vTuneAPI.dll";
-        Log("Loading DLL:", g_name);
+        Log("# Loading DLL:", g_name);
         hTuner = LoadLibrary(g_name);
         if (0 == hTuner) R_CHK(GetLastError());
         R_ASSERT2(hTuner, "Intel vTune is not installed");
@@ -145,7 +145,7 @@ void CEngineAPI::CreateRendererList()
     bool bSupports_dx11 = false;
 
     // try to initialize DX10
-    Log("Loading DLL:", dx10_name);
+    Log("# Loading DLL:", dx10_name);
     // Hide "d3d10.dll not found" message box for XP
     SetErrorMode(SEM_FAILCRITICALERRORS);
     hRender = LoadLibrary(dx10_name);
@@ -160,7 +160,7 @@ void CEngineAPI::CreateRendererList()
     }
 
     // try to initialize R4
-    Log("Loading DLL:", dx11_name);
+    Log("# Loading DLL:", dx11_name);
     // Hide "d3d10.dll not found" message box for XP
     SetErrorMode(SEM_FAILCRITICALERRORS);
     hRender = LoadLibrary(dx11_name);

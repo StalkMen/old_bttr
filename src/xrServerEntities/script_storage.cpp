@@ -395,7 +395,7 @@ int CScriptStorage::vscript_log(ScriptStorage::ELuaMessageType tLuaMessageType, 
     switch (tLuaMessageType)
     {
     case ScriptStorage::eLuaMessageTypeInfo: {
-        S = "* [LUA] ";
+        S = "~ [LUA] ";
         SS = "[INFO]        ";
         break;
     }
@@ -405,32 +405,32 @@ int CScriptStorage::vscript_log(ScriptStorage::ELuaMessageType tLuaMessageType, 
         break;
     }
     case ScriptStorage::eLuaMessageTypeMessage: {
-        S = "~ [LUA] ";
+        S = "- [LUA] ";
         SS = "[MESSAGE]     ";
         break;
     }
     case ScriptStorage::eLuaMessageTypeHookCall: {
-        S = "[LUA][HOOK_CALL] ";
+        S = "# [LUA][HOOK_CALL] ";
         SS = "[CALL]        ";
         break;
     }
     case ScriptStorage::eLuaMessageTypeHookReturn: {
-        S = "[LUA][HOOK_RETURN] ";
+        S = "# [LUA][HOOK_RETURN] ";
         SS = "[RETURN]      ";
         break;
     }
     case ScriptStorage::eLuaMessageTypeHookLine: {
-        S = "[LUA][HOOK_LINE] ";
+        S = "# [LUA][HOOK_LINE] ";
         SS = "[LINE]        ";
         break;
     }
     case ScriptStorage::eLuaMessageTypeHookCount: {
-        S = "[LUA][HOOK_COUNT] ";
+        S = "# [LUA][HOOK_COUNT] ";
         SS = "[COUNT]       ";
         break;
     }
     case ScriptStorage::eLuaMessageTypeHookTailReturn: {
-        S = "[LUA][HOOK_TAIL_RETURN] ";
+        S = "# [LUA][HOOK_TAIL_RETURN] ";
         SS = "[TAIL_RETURN] ";
         break;
     }

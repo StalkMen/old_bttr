@@ -20,7 +20,7 @@ CGameSpy_Patching::~CGameSpy_Patching()
 void	CGameSpy_Patching::LoadGameSpy()
 {
 	LPCSTR			g_name	= "xrGameSpy.dll";
-	Log				("Loading DLL:",g_name);
+	Log				("# Loading DLL:",g_name);
 	hGameSpyDLL			= LoadLibrary	(g_name);
 	if (0==hGameSpyDLL)	R_CHK			(GetLastError());
 	R_ASSERT2		(hGameSpyDLL,"GameSpy DLL raised exception during loading or there is no game DLL at all");

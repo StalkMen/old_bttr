@@ -155,6 +155,8 @@ extern		u32 game_lua_memory_usage();
 typedef void(*full_memory_stats_callback_type) ();
 XRCORE_API full_memory_stats_callback_type g_full_memory_stats_callback;
 
+ENGINE_API extern u32 renderer_value; //con cmd
+
 static void full_memory_stats()
 {
 	Memory.mem_compact();
@@ -173,18 +175,29 @@ static void full_memory_stats()
 
 	log_vminfo();
 
-	Msg("* [ D3D ]: textures[%d K]", (m_base + m_lmaps) / 1024);
+	if (renderer_value == 0)
+		Msg("~ [D3D10]: textures[%d K]", (m_base + m_lmaps) / 1024);
+	else if (renderer_value == 1)
+		Msg("~ [D3D10_1]: textures[%d K]", (m_base + m_lmaps) / 1024);
+	else if (renderer_value == 2)
+		Msg("~ [D3D11]: textures[%d K]", (m_base + m_lmaps) / 1024);
 
 #ifndef SEVERAL_ALLOCATORS
-	Msg("* [x-ray]: process heap[%u K]", _process_heap / 1024);
+	Msg("- [TouchOfRay Engine x64]: process heap[%u K]", _process_heap / 1024);
 #else // SEVERAL_ALLOCATORS
-	Msg("* [x-ray]: process heap[%u K], game lua[%d K], render[%d K]", _process_heap / 1024, _game_lua / 1024, _render / 1024);
+//	Msg("- [TouchOfRay Engine x64]: process heap[%u K], game lua[%d K], render[%d K]", _process_heap / 1024, _game_lua / 1024, _render / 1024);
+	if (renderer_value == 0)
+		Msg("- [TouchOfRay Engine x64]: process heap[%u K], xrRenderD3D10[%d K]", _process_heap / 1024, _render / 1024);
+	else if (renderer_value == 1)
+		Msg("- [TouchOfRay Engine x64]: process heap[%u K], xrRenderD3D10_1[%d K]", _process_heap / 1024, _render / 1024);
+	else if (renderer_value == 2)
+		Msg("- [TouchOfRay Engine x64]: process heap[%u K], xrRenderD3D11[%d K]", _process_heap / 1024, _render / 1024);
 #endif // SEVERAL_ALLOCATORS
 
-	Msg("* [x-ray]: economy: strings[%d K], smem[%d K]", _eco_strings / 1024, _eco_smem);
+	Msg("- [TouchOfRay Engine x64]: economy: strings[%d K], smem[%d K]", _eco_strings / 1024, _eco_smem);
 
 #ifdef FS_DEBUG
-	Msg("* [x-ray]: file mapping: memory[%d K], count[%d]", g_file_mapped_memory / 1024, g_file_mapped_count);
+	Msg("- [TouchOfRay Engine x64]: file mapping: memory[%d K], count[%d]", g_file_mapped_memory / 1024, g_file_mapped_count);
 	dump_file_mappings();
 #endif // DEBUG
 }

@@ -212,9 +212,7 @@ struct path_excluder_predicate
 
 PROTECT_API void InitSettings()
 {
-#ifndef DEDICATED_SERVER
-    Msg("EH: %s\n", ComputeModuleHash(szEngineHash));
-#endif // DEDICATED_SERVER
+    Msg("Compute Module Hash: %s", ComputeModuleHash(szEngineHash));
 
     string_path fname;
     FS.update_path(fname, "$game_config$", "system.ltx");
@@ -1219,8 +1217,8 @@ void CApplication::LoadEnd()
     ll_dwReference--;
     if (0 == ll_dwReference)
     {
-        Msg("* phase time: %d ms", phase_timer.GetElapsed_ms());
-        Msg("* phase cmem: %lld K", Memory.mem_usage() / 1024);
+        Msg("# phase time: %d ms", phase_timer.GetElapsed_ms());
+        Msg("# phase cmem: %lld K", Memory.mem_usage() / 1024);
         Console->Execute("stat_memory");
         g_appLoaded = TRUE;
         // DUMP_PHASE;
@@ -1269,9 +1267,9 @@ void CApplication::LoadStage()
 {
     load_stage++;
     VERIFY(ll_dwReference);
-    Msg("* phase time: %d ms", phase_timer.GetElapsed_ms());
+    Msg("# phase time: %d ms", phase_timer.GetElapsed_ms());
     phase_timer.Start();
-    Msg("* phase cmem: %lld K", Memory.mem_usage() / 1024);
+    Msg("# phase cmem: %lld K", Memory.mem_usage() / 1024);
 
     if (g_pGamePersistent->GameType() == 1 && strstr(Core.Params, "alife"))
         max_load_stage = 17;
