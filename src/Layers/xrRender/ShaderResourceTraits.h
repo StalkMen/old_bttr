@@ -126,7 +126,7 @@ struct ShaderTypeTraits<SGS>
             return "gs_4_0";
         else if (HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1)
             return "gs_4_1";
-        else if (HW.FeatureLevel == D3D_FEATURE_LEVEL_11_0)
+        else if (HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0)
             return "gs_5_0";
 #endif
         NODEFAULT;
