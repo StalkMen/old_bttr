@@ -2,6 +2,7 @@
 #include "dx10.h"
 #include "../xrRender/ShaderResourceTraits.h"
 #include "../xrRender/dxRenderDeviceRender.h"
+#include "../xrCore/FileCRC32.h"
 
 extern ENGINE_API u32 renderer_value;
 static inline bool match_shader_id(LPCSTR const debug_shader_id, LPCSTR const full_shader_id, FS_FileSet const& file_set, string_path& result);
@@ -155,14 +156,7 @@ public:
 
 #include <boost/crc.hpp>
 
-HRESULT	CRender::shader_compile			(
-	LPCSTR							name,
-	DWORD const*					pSrcData,
-	UINT                            SrcDataLen,
-	LPCSTR                          pFunctionName,
-	LPCSTR                          pTarget,
-	DWORD                           Flags,
-	void*&							result)
+HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, LPCSTR pTarget, DWORD Flags, void*& result)
 {
 	D3D_SHADER_MACRO				defines			[128];
 	int								def_it			= 0;
@@ -611,15 +605,12 @@ HRESULT	CRender::shader_compile			(
 	}
 
 	HRESULT		_result = E_FAIL;
-
-	string_path	folder_name, folder;
-	xr_strcpy		( folder, "r3\\objects\\r3\\" );
-	xr_strcat		( folder, name );
-	xr_strcat		( folder, "." );
-
+	
 	char extension[3];
+	string_path	folder_name, folder;
+	
 	strncpy_s		( extension, pTarget, 2 );
-	xr_strcat		( folder, extension );
+	strconcat		(sizeof(folder), folder, "r3\\objects\\r3\\", name, ".", extension);
 
 	FS.update_path	( folder_name, "$game_shaders$", folder );
 	xr_strcat		( folder_name, "\\" );
@@ -631,79 +622,80 @@ HRESULT	CRender::shader_compile			(
 	if (ps_use_precompiled_shaders == 0 || !match_shader_id(name, sh_name, m_file_set, temp_file_name)) 
 	{
 		string_path file;
-		xr_strcpy		( file, "shaders_cache\\r3\\" );
-		xr_strcat		( file, name );
-		xr_strcat		( file, "." );
-		xr_strcat		( file, extension );
-		xr_strcat		( file, "\\" );
-		xr_strcat		( file, sh_name );
+		strconcat(sizeof(file), file, "shaders_cache\\r3\\", name, ".", extension, "\\", sh_name);
 		FS.update_path	( file_name, "$app_data_root$", file);
 	}
 	else {
 		xr_strcpy		( file_name, folder_name );
 		xr_strcat		( file_name, temp_file_name );
 	}
+	
+	string_path shadersFolder;
+    FS.update_path(shadersFolder, "$game_shaders$", ::Render->getShaderPath());
 
-	if (FS.exist(file_name))
-	{
-		IReader* file = FS.r_open(file_name);
-		if (file->length()>4)
-		{
-			u32 crc = 0;
-			crc = file->r_u32();
+    u32 fileCrc = 0;
+    getFileCrc32(fs, shadersFolder, fileCrc);
+    fs->seek(0);
 
-			boost::crc_32_type		processor;
-			processor.process_block	( file->pointer(), ((char*)file->pointer()) + file->elapsed() );
-			u32 const real_crc		= processor.checksum( );
-
-			if ( real_crc == crc ) {
-				_result				= create_shader(pTarget, (DWORD*)file->pointer(), file->elapsed(), file_name, result, o.disasm);
-			}
-		}
-		file->close();
-	}
+    if (FS.exist(file_name))
+    {
+        IReader* file = FS.r_open(file_name);
+        if (file->length() > 4)
+        {
+            u32 savedFileCrc = file->r_u32();
+            if (savedFileCrc == fileCrc)
+            {
+                u32 savedBytecodeCrc = file->r_u32();
+                u32 bytecodeCrc = crc32(file->pointer(), file->elapsed());
+                if (bytecodeCrc == savedBytecodeCrc)
+                    _result =
+                        create_shader(pTarget, (DWORD*)file->pointer(), file->elapsed(), file_name, result, o.disasm);
+            }
+        }
+        file->close();
+    }
 
 	if (FAILED(_result))
 	{
 		includer					Includer;
 		LPD3DBLOB					pShaderBuf	= NULL;
 		LPD3DBLOB					pErrorBuf	= NULL;
-		_result						=
-			D3DCompile(
-				pSrcData, 
-				SrcDataLen,
-				"",//NULL, //LPCSTR pFileName,	//	NVPerfHUD bug workaround.
-				defines, &Includer, pFunctionName,
-				pTarget,
-				Flags,
-				0,
-				&pShaderBuf,
-				&pErrorBuf
-			);
+		_result = D3DCompile(fs->pointer(), fs->length(), "", defines, &Includer, pFunctionName, pTarget, Flags, 0,
+            &pShaderBuf, &pErrorBuf);
+
+#if 0
+        if (pErrorBuf)
+        {
+            std::string shaderErrStr = std::string((const char*)pErrorBuf->GetBufferPointer(), pErrorBuf->GetBufferSize());
+            Msg("shader: %s \n %s", name, shaderErrStr.c_str());
+        }
+#endif
 
 		if (SUCCEEDED(_result))
-		{
-			IWriter* file = FS.w_open(file_name);
+        {
+            IWriter* file = FS.w_open(file_name);
 
-			boost::crc_32_type		processor;
-			processor.process_block	( pShaderBuf->GetBufferPointer(), ((char*)pShaderBuf->GetBufferPointer()) + pShaderBuf->GetBufferSize() );
-			u32 const crc			= processor.checksum( );
+            file->w_u32(fileCrc);
 
-			file->w_u32				(crc);
-			file->w					(pShaderBuf->GetBufferPointer(), (u32)pShaderBuf->GetBufferSize());
-			FS.w_close				(file);
-			
-			_result					= create_shader(pTarget, (DWORD*)pShaderBuf->GetBufferPointer(), (u32)pShaderBuf->GetBufferSize(), file_name, result, o.disasm);
-		}
-		else {
-//			Msg						( "! shader compilation failed" );
-			Log						("! ", file_name);
-			if ( pErrorBuf )
-				Log					("! error: ",(LPCSTR)pErrorBuf->GetBufferPointer());
-			else
-				Msg					("Can't compile shader hr=0x%08x", _result);
-		}
-	}
+            u32 bytecodeCrc = crc32(pShaderBuf->GetBufferPointer(), pShaderBuf->GetBufferSize());
+            file->w_u32(bytecodeCrc);
+
+            file->w(pShaderBuf->GetBufferPointer(), (u32)pShaderBuf->GetBufferSize());
+
+            FS.w_close(file);
+
+            _result = create_shader(pTarget, (DWORD*)pShaderBuf->GetBufferPointer(), pShaderBuf->GetBufferSize(),
+                file_name, result, o.disasm);
+        }
+        else
+        {
+            Log("! ", file_name);
+            if (pErrorBuf)
+                Log("! error: ", (LPCSTR)pErrorBuf->GetBufferPointer());
+            else
+                Msg("Can't compile shader hr=0x%08x", _result);
+        }
+    }
 
 	return		_result;
 }
