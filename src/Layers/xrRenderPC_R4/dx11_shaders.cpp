@@ -2,6 +2,7 @@
 #include "r4.h"
 #include "../xrRender/ShaderResourceTraits.h"
 #include "../xrRender/dxRenderDeviceRender.h"
+#include "../../xrCore/FileCRC32.h"
 
 extern ENGINE_API u32 renderer_value;
 
@@ -21,12 +22,7 @@ static HRESULT create_shader				(
 	result->sh			= ShaderTypeTraits<T>::CreateHWShader(buffer, buffer_size);
 
 	ID3DShaderReflection *pReflection = 0;
-
-#ifdef USE_DX11
     HRESULT const _hr = D3DReflect(buffer, buffer_size, IID_ID3DShaderReflection, (void**)&pReflection);
-#else
-    HRESULT const _hr = D3D10ReflectShader(buffer, buffer_size, &pReflection);
-#endif
 
 	if (SUCCEEDED(_hr) && pReflection)
 	{
@@ -57,13 +53,10 @@ static HRESULT create_shader				(
 	{
 		_result = create_shader(pTarget, buffer, buffer_size, file_name, (SPS*&)result, disasm);
 	}
-	else if (pTarget[0] == 'v') {
+	else if (pTarget[0] == 'v') 
+	{
 		SVS* svs_result = (SVS*)result;
-#ifdef USE_DX11
 		_result			= HW.pDevice->CreateVertexShader(buffer, buffer_size, 0, &svs_result->sh);
-#else // #ifdef USE_DX11
-		_result			= HW.pDevice->CreateVertexShader(buffer, buffer_size, &svs_result->sh);
-#endif // #ifdef USE_DX11
 
 		if ( !SUCCEEDED(_result) ) {
 			Log			("! VS: ", file_name);
@@ -72,12 +65,8 @@ static HRESULT create_shader				(
 		}
 
 		ID3DShaderReflection *pReflection = 0;
-#ifdef USE_DX11
         _result			= D3DReflect( buffer, buffer_size, guidShaderReflection, (void**)&pReflection);
-#else
-		_result			= D3D10ReflectShader( buffer, buffer_size, &pReflection);
-#endif
-		
+
 		//	Parse constant, texture, sampler binding
 		//	Store input signature blob
 		if (SUCCEEDED(_result) && pReflection)
@@ -118,7 +107,8 @@ static HRESULT create_shader				(
 	else if (pTarget[0] == 'd') {
 		_result = create_shader	( pTarget, buffer, buffer_size, file_name, (SDS*&)result, disasm );
 	}
-	else {
+	else 
+	{
 		NODEFAULT;
 	}
 
@@ -126,7 +116,6 @@ static HRESULT create_shader				(
 	{
 		ID3DBlob*		disasm	= 0;
 		D3DDisassemble	(buffer, buffer_size, FALSE, 0, &disasm );
-		//D3DXDisassembleShader		(LPDWORD(code->GetBufferPointer()), FALSE, 0, &disasm );
 		string_path		dname;
 		strconcat		(sizeof(dname),dname,"disasm\\",file_name,('v'==pTarget[0])?".vs":('p'==pTarget[0])?".ps":".gs" );
 		IWriter*		W		= FS.w_open("$logs$",dname);
@@ -175,14 +164,8 @@ public:
 
 static inline bool match_shader_id		( LPCSTR const debug_shader_id, LPCSTR const full_shader_id, FS_FileSet const& file_set, string_path& result );
 
-HRESULT	CRender::shader_compile			(
-	LPCSTR							name,
-	DWORD const*                    pSrcData,
-	UINT                            SrcDataLen,
-	LPCSTR                          pFunctionName,
-	LPCSTR                          pTarget,
-	DWORD                           Flags,
-	void*&							result)
+HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
+    LPCSTR pTarget, DWORD Flags, void*& result)
 {
 	D3D_SHADER_MACRO				defines			[128];
 	int								def_it			= 0;
@@ -363,16 +346,7 @@ HRESULT	CRender::shader_compile			(
     if( o.dx10_msaa )
 	{
 		static char def[ 256 ];
-		//if( m_MSAASample < 0 )
-		//{
-			def[0]= '0';
-		//	sh_name[len]='0'; ++len;
-		//}
-		//else
-		//{
-		//	def[0]= '0' + char(m_MSAASample);
-		//	sh_name[len]='0' + char(m_MSAASample); ++len;
-		//}
+		def[0]= '0';
 		def[1] = 0;
 		defines[def_it].Name		=	"ISAMPLE";
 		defines[def_it].Definition	=	def;
@@ -656,15 +630,12 @@ HRESULT	CRender::shader_compile			(
 	}
 
 	HRESULT		_result = E_FAIL;
-
-	string_path	folder_name, folder;
-	xr_strcpy		( folder, "r3\\objects\\r4\\" );
-	xr_strcat		( folder, name );
-	xr_strcat		( folder, "." );
-
+	
 	char extension[3];
+	string_path	folder_name, folder;
+	
 	strncpy_s		( extension, pTarget, 2 );
-	xr_strcat		( folder, extension );
+	strconcat(sizeof(folder), folder, "r3\\objects\\r4\\", name, ".", extension);
 
 	FS.update_path	( folder_name, "$game_shaders$", folder );
 	xr_strcat		( folder_name, "\\" );
@@ -675,34 +646,41 @@ HRESULT	CRender::shader_compile			(
 	string_path temp_file_name, file_name;
 	if (ps_use_precompiled_shaders == 0 || !match_shader_id(name, sh_name, m_file_set, temp_file_name)) {
 		string_path file;
-		xr_strcpy		( file, "shaders_cache\\r4\\" );
-		xr_strcat		( file, name );
-		xr_strcat		( file, "." );
-		xr_strcat		( file, extension );
-		xr_strcat		( file, "\\" );
-		xr_strcat		( file, sh_name );
+		strconcat(sizeof(file), file, "shaders_cache\\r4\\", name, ".", extension, "\\", sh_name);
 		FS.update_path	( file_name, "$app_data_root$", file);
 	}
 	else {
 		xr_strcpy		( file_name, folder_name );
 		xr_strcat		( file_name, temp_file_name );
 	}
+	
+	string_path shadersFolder;
+    FS.update_path(shadersFolder, "$game_shaders$", ::Render->getShaderPath());
 
+    u32 fileCrc = 0;
+    getFileCrc32(fs, shadersFolder, fileCrc);
+    fs->seek(0);
+	
 	if (FS.exist(file_name))
 	{
 		IReader* file = FS.r_open(file_name);
 		if (file->length()>4)
 		{
-			u32 crc = 0;
-			crc = file->r_u32();
+			u32 savedFileCrc = file->r_u32();
+            if (savedFileCrc == fileCrc)
+            {
+                u32 savedBytecodeCrc = file->r_u32();
+                u32 bytecodeCrc = crc32(file->pointer(), file->elapsed());
+				if (bytecodeCrc == savedBytecodeCrc)
+				{
+					if (renderer_value == 2)
+						if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
+							Log("# DX11: Loading shader:", file_name);
 
-			boost::crc_32_type		processor;
-			processor.process_block	( file->pointer(), ((char*)file->pointer()) + file->elapsed() );
-			u32 const real_crc		= processor.checksum( );
-
-			if ( real_crc == crc ) {
-				_result				= create_shader(pTarget, (DWORD*)file->pointer(), file->elapsed(), file_name, result, o.disasm);
-			}
+					_result =
+						create_shader(pTarget, (DWORD*)file->pointer(), file->elapsed(), file_name, result, o.disasm);
+				}
+            }
 		}
 		file->close();
 	}
@@ -712,34 +690,41 @@ HRESULT	CRender::shader_compile			(
 		includer					Includer;
 		LPD3DBLOB					pShaderBuf	= NULL;
 		LPD3DBLOB					pErrorBuf	= NULL;
-		_result						= 
-			D3DCompile( 
-				pSrcData, 
-				SrcDataLen,
-				"",//NULL, //LPCSTR pFileName,	//	NVPerfHUD bug workaround.
-				defines, &Includer, pFunctionName,
-				pTarget,
-				Flags, 0,
-				&pShaderBuf,
-				&pErrorBuf
-			);
+		_result = D3DCompile(fs->pointer(), fs->length(), "", defines, &Includer, pFunctionName, pTarget, Flags, 0,
+            &pShaderBuf, &pErrorBuf);
+
+#if 0
+        if (pErrorBuf)
+        {
+            std::string shaderErrStr = std::string((const char*)pErrorBuf->GetBufferPointer(), pErrorBuf->GetBufferSize());
+            Msg("shader: %s \n %s", name, shaderErrStr.c_str());
+        }
+#endif
 
 		if (SUCCEEDED(_result))
+        {
+			if (ps_r__common_flags.test(RFLAGDX11_NO_SHADER_CACHE))
+			{
+				IWriter* file = FS.w_open(file_name);
+
+				file->w_u32(fileCrc);
+
+				u32 bytecodeCrc = crc32(pShaderBuf->GetBufferPointer(), pShaderBuf->GetBufferSize());
+				file->w_u32(bytecodeCrc);
+
+				file->w(pShaderBuf->GetBufferPointer(), (u32)pShaderBuf->GetBufferSize());
+
+				if (renderer_value == 2)
+					if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
+						Log("# DX11: Compile shader:", file_name);
+
+				FS.w_close(file);
+			}
+            _result = create_shader(pTarget, (DWORD*)pShaderBuf->GetBufferPointer(), pShaderBuf->GetBufferSize(),
+                file_name, result, o.disasm);
+        }
+		else 
 		{
-			IWriter* file = FS.w_open(file_name);
-
-			boost::crc_32_type		processor;
-			processor.process_block	( pShaderBuf->GetBufferPointer(), ((char*)pShaderBuf->GetBufferPointer()) + pShaderBuf->GetBufferSize() );
-			u32 const crc			= processor.checksum( );
-
-			file->w_u32				(crc);
-			file->w					(pShaderBuf->GetBufferPointer(), (u32)pShaderBuf->GetBufferSize());
-			FS.w_close				(file);
-
-			_result					= create_shader(pTarget, (DWORD*)pShaderBuf->GetBufferPointer(), (u32)pShaderBuf->GetBufferSize(), file_name, result, o.disasm);
-		}
-		else {
-//			Msg						( "! shader compilation failed" );
 			Log						("! ", file_name);
 			if ( pErrorBuf )
 				Log					("! error: ",(LPCSTR)pErrorBuf->GetBufferPointer());
