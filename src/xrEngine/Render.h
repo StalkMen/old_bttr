@@ -210,15 +210,8 @@ public:
 
     //virtual IDirect3DBaseTexture9* texture_load (LPCSTR fname, u32& msize) = 0;
     void shader_option_skinning(s32 mode) { m_skinning = mode; }
-    virtual HRESULT shader_compile(
-        LPCSTR name,
-        DWORD const* pSrcData,
-        UINT SrcDataLen,
-        LPCSTR pFunctionName,
-        LPCSTR pTarget,
-        DWORD Flags,
-        void*& result
-    ) = 0;
+    virtual HRESULT shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, LPCSTR pTarget, DWORD Flags,
+        void*& result) = 0;
 
     // Information
     virtual void Statistics(CGameFont* F) {};

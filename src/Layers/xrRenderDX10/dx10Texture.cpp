@@ -244,18 +244,21 @@ _DDS:
 		else														goto _DDS_2D;
 #else
 		{
-			Msg("![Debug]: Load Texture:%s", fn);
+			if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
+				Msg("- [Debug]: Load Texture:%s", fn);
 
 			if (!TextureLoader.Load(fn))
 			{
-				Msg("![Debug]: Can't load texture:%s", fn);
+				if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
+					Msg("- [Debug]: Can't load texture:%s", fn);
 				goto CANT_LOAD;
 			}
 			else
 			{
 				if (TextureLoader.isCube())
 				{
-					Msg("![Debug]: Cube texture:%s", fn);
+					if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
+						Msg("- [Debug]: Cube texture:%s", fn);
 					goto _DDS_CUBE;
 				}
 				else
@@ -420,4 +423,4 @@ _BUMP_from_base:
 			}
 
 	return 0;
-	}
+}

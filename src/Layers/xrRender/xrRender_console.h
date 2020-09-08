@@ -209,7 +209,14 @@ RFLAG_ACTOR_SHADOW = (1<<0),
 extern void						xrRender_initconsole	();
 extern BOOL						xrRender_test_hw		();
 
-enum { RFLAG_NO_RAM_TEXTURES = (1 << 0), };
+enum 
+{ 
+	RFLAG_NO_RAM_TEXTURES		= (1 << 0),
+	RFLAGDX10_NO_SHADER_CACHE	= (1 << 1),
+	RFLAGDX_ENABLE_DEBUG_LOG    = (1 << 2),
+	RFLAGDX11_NO_SHADER_CACHE	= (1 << 3),
+};
+
 extern ECORE_API u32 ps_r2_smapsize;
 extern ECORE_API xr_token qsmapsize_token[];
 extern ECORE_API Flags32 ps_r__common_flags;

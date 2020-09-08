@@ -689,7 +689,9 @@ public:
 };
 #endif	//	DEBUG
 
-Flags32 ps_r__common_flags = {/*RFLAG_NO_RAM_TEXTURES*/ }; // All renders
+//OldSerpskiStalker, технические флаги
+Flags32 ps_r__common_flags = { RFLAGDX_ENABLE_DEBUG_LOG };
+
 u32 ps_r2_smapsize = 2048;
 xr_token qsmapsize_token[] =
 {
@@ -710,9 +712,12 @@ void		xrRender_initconsole()
 {
 //////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma todo("OldSerpskiStalker. Новые консольные команды:")
-	CMD2(CCC_MipT,  "xrRenderDX10_mipTextures", 	 	 &ps_r__tf_Mipbias); // {-3 +3}
+	CMD2(CCC_MipT,  "xrRenderDX10_mipTextures", 	 	 &ps_r__tf_Mipbias);
 	CMD3(CCC_Mask,  "xrRenderDX10_no_ram",				 &ps_r__common_flags,				RFLAG_NO_RAM_TEXTURES);
 	CMD3(CCC_Token, "xrRenderDX10_shadow_map_size",		 &ps_r2_smapsize,					qsmapsize_token);
+	CMD3(CCC_Mask,  "xrRenderDX10_shader_cache",		 &ps_r__common_flags,				RFLAGDX10_NO_SHADER_CACHE);
+	CMD3(CCC_Mask,  "xrRenderDX_enable_debug_log",		 &ps_r__common_flags,				RFLAGDX_ENABLE_DEBUG_LOG);
+	CMD3(CCC_Mask, "xrRenderDX11_shader_cache",			 &ps_r__common_flags,				RFLAGDX11_NO_SHADER_CACHE);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);
