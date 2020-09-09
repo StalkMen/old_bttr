@@ -176,7 +176,6 @@ private:
     void							LoadBuffers					(CStreamReader	*fs,	BOOL	_alternative);
     void							LoadVisuals					(IReader	*fs);
     void							LoadLights					(IReader	*fs);
-    void							LoadPortals					(IReader	*fs);
     void							LoadSectors					(IReader	*fs);
     void							LoadSWIs					(CStreamReader	*fs);
     void							Load3DFluid					();
@@ -187,10 +186,8 @@ private:
     void							add_leafs_Static			(dxRender_Visual*pVisual);					// if detected node's full visibility
 
 public:
-    IRender_Sector*					rimp_detectSector			(Fvector& P, Fvector& D);
     void							render_main					(Fmatrix& mCombined, bool _fportals);
     void							render_forward				();
-    void							render_smap_direct			(Fmatrix& mCombined);
     void							render_indirect				(light*			L	);
     void							render_lights				(light_Package& LP	);
     void							render_sun					();
@@ -207,8 +204,8 @@ public:
     ShaderElement*					rimp_select_sh_static		(dxRender_Visual	*pVisual, float cdist_sq);
     ShaderElement*					rimp_select_sh_dynamic		(dxRender_Visual	*pVisual, float cdist_sq);
     D3DVERTEXELEMENT9*				getVB_Format				(int id, BOOL	_alt=FALSE);
-    ID3DVertexBuffer*			getVB						(int id, BOOL	_alt=FALSE);
-    ID3DIndexBuffer*			getIB						(int id, BOOL	_alt=FALSE);
+    ID3DVertexBuffer*			    getVB						(int id, BOOL	_alt=FALSE);
+    ID3DIndexBuffer*			    getIB						(int id, BOOL	_alt=FALSE);
     FSlideWindowItem*				getSWI						(int id);
     IRender_Portal*					getPortal					(int id);
     IRender_Sector*					getSectorActive				();
@@ -275,7 +272,10 @@ public:
 
     // Information
     virtual void					Statistics					(CGameFont* F);
-    virtual LPCSTR					getShaderPath				()									{ return "r3\\";	}
+    virtual LPCSTR					getShaderPath				()									
+    { 
+        return "DX10\\";	
+    }
     virtual ref_shader				getShader					(int id);
     virtual IRender_Sector*			getSector					(int id);
     virtual IRenderVisual*			getVisual					(int id);

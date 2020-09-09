@@ -93,11 +93,10 @@ void	uber_deffer	(CBlender_Compile& C, bool hq, LPCSTR _vspec, LPCSTR _pspec, BO
 	}
 
 	// Uber-construct
-#if defined(USE_DX10) || defined(USE_DX11)
-#	ifdef USE_DX11
+#ifdef USE_DX11
 	if (bump && hq && RImplementation.o.dx11_enable_tessellation && C.TessMethod!=0)
 	{
-		char hs[256], ds[256];// = "DX11\\tess", ds[256] = "DX11\\tess";
+		char hs[256], ds[256];
 		char params[256] = "(";
 		
 		if (C.TessMethod == CBlender_Compile::TESS_PN || C.TessMethod == CBlender_Compile::TESS_PN_HM)
@@ -134,8 +133,8 @@ void	uber_deffer	(CBlender_Compile& C, bool hq, LPCSTR _vspec, LPCSTR _pspec, BO
 
 		strconcat(sizeof(vs),vs,"deffer_", _vspec, "_bump", params);
 		strconcat(sizeof(ps),ps,"deffer_", _pspec, _aref?"_aref":"", "_bump", params);
-		strconcat(sizeof(hs),hs,"DX11\\tess", params);
-		strconcat(sizeof(ds),ds,"DX11\\tess", params);
+		strconcat(sizeof(hs),hs,"tess", params);
+		strconcat(sizeof(ds),ds,"tess", params);
 	
 		VERIFY(strstr(vs, "bump")!=0);
 		VERIFY(strstr(ps, "bump")!=0);
@@ -157,13 +156,9 @@ void	uber_deffer	(CBlender_Compile& C, bool hq, LPCSTR _vspec, LPCSTR _pspec, BO
 		}
 	}
 	else
-#	endif
+#endif
 		C.r_Pass		(vs,ps,	FALSE);
-	//C.r_Sampler		("s_base",		C.L_textures[0],	false,	D3DTADDRESS_WRAP,	D3DTEXF_ANISOTROPIC,D3DTEXF_LINEAR,	D3DTEXF_ANISOTROPIC);
-	//C.r_Sampler		("s_bumpX",		fnameB,				false,	D3DTADDRESS_WRAP,	D3DTEXF_ANISOTROPIC,D3DTEXF_LINEAR,	D3DTEXF_ANISOTROPIC);	// should be before base bump
-	//C.r_Sampler		("s_bump",		fnameA,				false,	D3DTADDRESS_WRAP,	D3DTEXF_ANISOTROPIC,D3DTEXF_LINEAR,	D3DTEXF_ANISOTROPIC);
-	//C.r_Sampler		("s_bumpD",		dt,					false,	D3DTADDRESS_WRAP,	D3DTEXF_ANISOTROPIC,D3DTEXF_LINEAR,	D3DTEXF_ANISOTROPIC);
-	//C.r_Sampler		("s_detail",	dt,					false,	D3DTADDRESS_WRAP,	D3DTEXF_ANISOTROPIC,D3DTEXF_LINEAR,	D3DTEXF_ANISOTROPIC);
+
 	C.r_dx10Texture		("s_base",		C.L_textures[0]);
 	C.r_dx10Texture		("s_bumpX",		fnameB);	// should be before base bump
 	C.r_dx10Texture		("s_bump",		fnameA);
@@ -177,35 +172,9 @@ void	uber_deffer	(CBlender_Compile& C, bool hq, LPCSTR _vspec, LPCSTR _pspec, BO
 	C.r_dx10Sampler		("smp_base");
 	if (lmap)
 	{
-		//C.r_Sampler("s_hemi",	C.L_textures[2],	false,	D3DTADDRESS_CLAMP,	D3DTEXF_LINEAR,		D3DTEXF_NONE,	D3DTEXF_LINEAR);
 		C.r_dx10Texture	("s_hemi",	C.L_textures[2]);
 		C.r_dx10Sampler	("smp_rtlinear");
 	}
-#else	//	USE_DX10
-	C.r_Pass		(vs,ps,	FALSE);
-	VERIFY(C.L_textures[0].size());
-	if(bump)
-	{
-		VERIFY2(xr_strlen(fnameB), C.L_textures[0].c_str());
-		VERIFY2(xr_strlen(fnameA), C.L_textures[0].c_str());
-	}
-	if(bHasDetailBump)
-	{
-		VERIFY2(xr_strlen(texDetailBump), C.L_textures[0].c_str());
-		VERIFY2(xr_strlen(texDetailBumpX), C.L_textures[0].c_str());
-	}
-	C.r_Sampler		("s_base",		C.L_textures[0],	false,	D3DTADDRESS_WRAP,	D3DTEXF_ANISOTROPIC,D3DTEXF_LINEAR,	D3DTEXF_ANISOTROPIC);
-	C.r_Sampler		("s_bumpX",		fnameB,				false,	D3DTADDRESS_WRAP,	D3DTEXF_ANISOTROPIC,D3DTEXF_LINEAR,	D3DTEXF_ANISOTROPIC);	// should be before base bump
-	C.r_Sampler		("s_bump",		fnameA,				false,	D3DTADDRESS_WRAP,	D3DTEXF_ANISOTROPIC,D3DTEXF_LINEAR,	D3DTEXF_ANISOTROPIC);
-	C.r_Sampler		("s_bumpD",		dt,					false,	D3DTADDRESS_WRAP,	D3DTEXF_ANISOTROPIC,D3DTEXF_LINEAR,	D3DTEXF_ANISOTROPIC);
-	C.r_Sampler		("s_detail",	dt,					false,	D3DTADDRESS_WRAP,	D3DTEXF_ANISOTROPIC,D3DTEXF_LINEAR,	D3DTEXF_ANISOTROPIC);
-	if (bHasDetailBump)
-	{
-		C.r_Sampler		("s_detailBump", texDetailBump,	false,	D3DTADDRESS_WRAP,	D3DTEXF_ANISOTROPIC,D3DTEXF_LINEAR,	D3DTEXF_ANISOTROPIC);
-		C.r_Sampler		("s_detailBumpX",texDetailBumpX,false,	D3DTADDRESS_WRAP,	D3DTEXF_ANISOTROPIC,D3DTEXF_LINEAR,	D3DTEXF_ANISOTROPIC);
-	}
-	if (lmap)C.r_Sampler("s_hemi",	C.L_textures[2],	false,	D3DTADDRESS_CLAMP,	D3DTEXF_LINEAR,		D3DTEXF_NONE,	D3DTEXF_LINEAR);
-#endif	//	USE_DX10
 
 	if (!DO_NOT_FINISH)		C.r_End	();
 }
@@ -300,9 +269,9 @@ void uber_shadow(CBlender_Compile& C, LPCSTR _vspec)
 		xr_strcat(params, ")");
 
 		strconcat(sizeof(vs),vs,"deffer_", _vspec, "_bump", params);
-		strconcat(sizeof(hs),hs,"DX11\\tess", params);
-		strconcat(sizeof(ds),ds,"DX11\\tess_shadow", params);
-	
+		strconcat(sizeof(hs), hs, "tess", params);
+		strconcat(sizeof(ds), ds, "tess_shadow", params);
+
 		C.r_TessPass	(vs, hs, ds, "null", "dumb", FALSE,TRUE,TRUE,FALSE);
 		RImplementation.clearAllShaderOptions();
 		C.r_dx10Texture		("s_base",		C.L_textures[0]);

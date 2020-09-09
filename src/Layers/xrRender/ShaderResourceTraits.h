@@ -11,7 +11,7 @@ struct ShaderTypeTraits<SVS>
     typedef CResourceManager::map_VS MapType;
     using HWShaderType = ID3DVertexShader*;
 
-    static inline const char* GetShaderExt() { return ".vs"; }
+    static inline const char* GetShaderExt() { return (strstr(Core.Params, "-s")) ? ".vs" : "vs_"; }
     static inline const char* GetCompilationTarget()
     {
         return "vs_2_0";
@@ -57,7 +57,7 @@ struct ShaderTypeTraits<SPS>
     typedef CResourceManager::map_PS MapType;
     using HWShaderType = ID3DPixelShader*;
 
-    static inline const char* GetShaderExt() { return ".ps"; }
+    static inline const char* GetShaderExt() { return (strstr(Core.Params, "-s")) ? ".ps" : "ps_"; }
     static inline const char* GetCompilationTarget()
     {
         return "ps_2_0";
@@ -112,7 +112,7 @@ struct ShaderTypeTraits<SGS>
     typedef CResourceManager::map_GS MapType;
     using HWShaderType = ID3DGeometryShader*;
 
-    static inline const char* GetShaderExt() { return ".gs"; }
+    static inline const char* GetShaderExt() { return (strstr(Core.Params, "-s")) ? ".gs" : "gs_"; }
     static inline const char* GetCompilationTarget()
     {
 #ifdef USE_DX10
@@ -160,7 +160,7 @@ struct ShaderTypeTraits<SHS>
     typedef CResourceManager::map_HS MapType;
     using HWShaderType = ID3D11HullShader*;
 
-    static inline const char* GetShaderExt() { return ".hs"; }
+    static inline const char* GetShaderExt() { return (strstr(Core.Params, "-s")) ? ".hs" : "hs_"; }
     static inline const char* GetCompilationTarget() { return "hs_5_0"; }
 	
 	static void GetCompilationTarget(const char*& target, const char*& entry, const char* /*data*/)
@@ -186,7 +186,7 @@ struct ShaderTypeTraits<SDS>
     typedef CResourceManager::map_DS MapType;
     using HWShaderType = ID3D11DomainShader*;
 
-    static inline const char* GetShaderExt() { return ".ds"; }
+    static inline const char* GetShaderExt() { return (strstr(Core.Params, "-s")) ? ".ds" : "ds_"; }
     static inline const char* GetCompilationTarget() { return "ds_5_0"; }
 	
 	static void GetCompilationTarget(const char*& target, const char*& entry, const char* /*data*/)
@@ -212,7 +212,7 @@ struct ShaderTypeTraits<SCS>
     typedef CResourceManager::map_CS MapType;
     using HWShaderType = ID3D11ComputeShader*;
 
-    static inline const char* GetShaderExt() { return ".cs"; }
+    static inline const char* GetShaderExt() { return (strstr(Core.Params, "-s")) ? ".cs" : "cs_"; }
     static inline const char* GetCompilationTarget() { return "cs_5_0"; }
 	
 	static void GetCompilationTarget(const char*& target, const char*& entry, const char* /*data*/)
@@ -303,11 +303,16 @@ inline T* CResourceManager::CreateShader(const char* name, const char* filename 
             strncpy(shName, filename, size);
             shName[size] = 0;
         }
-
+ //       (strstr(Core.Params, "-o"))
         // Open file
         string_path cname;
-        strconcat(sizeof(cname), cname, ::Render->getShaderPath(), shName,
-            ShaderTypeTraits<T>::GetShaderExt());
+        pcstr shaderExt = ShaderTypeTraits<T>::GetShaderExt();
+
+        if (strstr(Core.Params, "-s"))
+            strconcat(sizeof(cname), cname, ::Render->getShaderPath(), shName, shaderExt);
+        else 
+            strconcat(sizeof(cname), cname, ::Render->getShaderPath(), shaderExt, shName, ".hlsl");
+
         FS.update_path(cname, "$game_shaders$", cname);
 
         // duplicate and zero-terminate
@@ -318,10 +323,18 @@ inline T* CResourceManager::CreateShader(const char* name, const char* filename 
 			fallback:
 				fallback = false;
             string1024 tmp;
-            xr_sprintf(tmp, "CreateShader: %s is missing. Replacing it with stub_default%s", cname, ShaderTypeTraits<T>::GetShaderExt());
+
+            if (strstr(Core.Params, "-s"))
+                xr_sprintf(tmp, "CreateShader: %s is missing. Replacing it with stub_default%s", cname, shaderExt);
+            else
+                xr_sprintf(tmp, "CreateShader: %s is missing. Replacing it with stub_default%s", shaderExt, cname, ".hlsl");
+
             Msg(tmp);
-            strconcat(sizeof(cname), cname, ::Render->getShaderPath(), "stub_default", ShaderTypeTraits<T>::GetShaderExt());
+
+            strconcat(sizeof(cname), cname, ::Render->getShaderPath(), "stub_default", shaderExt);
+
             FS.update_path(cname, "$game_shaders$", cname);
+
             file = FS.r_open(cname);
         }
         R_ASSERT3(file, "Shader file doesnt exist:", cname);
