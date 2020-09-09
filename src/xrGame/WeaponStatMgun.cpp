@@ -300,9 +300,10 @@ void CWeaponStatMgun::SetParam			(int id, Fvector2 val)
 
 bool CWeaponStatMgun::attach_Actor		(CGameObject* actor)
 {
-	CActor* real_actor = actor->cast_actor();
-	assert(real_actor);
-	real_actor->cam_Set(eacFirstEye);
+	if (Owner())
+		return false;
+
+	actor->setVisible(0);
 	
 	inheritedHolder::attach_Actor	(actor);
 	SetBoneCallbacks				();
@@ -312,6 +313,7 @@ bool CWeaponStatMgun::attach_Actor		(CGameObject* actor)
 
 void CWeaponStatMgun::detach_Actor		()
 {
+	Owner()->setVisible(1);
 	inheritedHolder::detach_Actor	();
 	ResetBoneCallbacks				();
 	FireEnd							();
