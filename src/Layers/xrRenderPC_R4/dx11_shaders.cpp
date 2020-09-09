@@ -646,7 +646,7 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	string_path temp_file_name, file_name;
 	if (ps_use_precompiled_shaders == 0 || !match_shader_id(name, sh_name, m_file_set, temp_file_name)) {
 		string_path file;
-		strconcat(sizeof(file), file, "shaders_cache\\r4\\", name, ".", extension, "\\", sh_name);
+		strconcat(sizeof(file), file, "shaders_cache\\DX11\\", name, ".", extension, "\\", sh_name);
 		FS.update_path	( file_name, "$app_data_root$", file);
 	}
 	else {
