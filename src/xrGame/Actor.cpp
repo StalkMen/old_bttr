@@ -900,39 +900,24 @@ void CActor::Die(CObject* who)
         m_DangerSnd.stop();
     }
 
-    if (IsGameTypeSingle())
+#pragma todo("OldSerpskiStalker: Перевел на консольную команду для отключения этой опции")
+#pragma todo("TEAM Epic: first person death view (Note: It's fixed to position and does not follow corpse)")
+    extern BOOL actor_death_first_eye;
+    if (actor_death_first_eye)
     {
-#ifdef FP_DEATH
         cam_Set(eacFirstEye);
-#else
-        cam_Set(eacFreeLook);
-#endif // FP_DEATH
-        CurrentGameUI()->HideShownDialogs();
-        
-        /* avo: attempt to set camera on timer */
-        /*CTimer T;
-        T.Start();
-
-        if (!SwitchToThread())
-        Sleep(2);
-
-        while (true)
         {
-        if (T.GetElapsed_sec() == 5)
-        {
-        cam_Set(eacFreeLook);
-        start_tutorial("game_over");
-        break;
+            LPCSTR game_over1;
+            LUA_EXPORT m_functor1;
+            R_ASSERT(ai().script_engine().functor("_G_Back_to_the_Roots.game_over_script", m_functor1));
+            game_over1 = m_functor1();
         }
-        }*/
-        /* avo: end */
-
-        start_tutorial("game_over");
     }
     else
-    {
-        cam_Set(eacFixedLookAt);
-    }
+        cam_Set(eacFreeLook);
+
+    CurrentGameUI()->HideShownDialogs();
+    start_tutorial("game_over");
 
     mstate_wishful &= ~mcAnyMove;
     mstate_real &= ~mcAnyMove;

@@ -1874,6 +1874,8 @@ public:
 float xrgame_scope_fov = 0.65f;
 float minimap_zoom_factor = 1.0f;
 BOOL int_wallmarks = 1;
+BOOL actor_death_first_eye = 1;
+BOOL dead_body_collision = 1;
 
 u32 type_hud_token = 0;
 xr_token type_hud_token_ext[] = {
@@ -1896,7 +1898,9 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Float, "xrGame_scope_fov", &xrgame_scope_fov, 0.45f, 0.85f);
 	CMD4(CCC_Integer, "xrGame_wallmarks", &int_wallmarks, 0, 1);
 	CMD4(CCC_Float, "xrGame_minimap_zoom_factor", &minimap_zoom_factor, 0.5f, 3.5f);
-	
+	CMD4(CCC_Integer, "xrGame_actor_death_first_eye", &actor_death_first_eye, 0, 1);
+	CMD4(CCC_Integer, "xrGame_dead_body_collision", &dead_body_collision, 0, 1);
+
 	// options
 	g_OptConCom.Init();
 

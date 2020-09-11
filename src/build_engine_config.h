@@ -19,7 +19,6 @@
 //-CALLBACKS
 
 // SCRIPTS:
-	//#define MORE_INVENTORY_SLOTS							// Adds 5 more slots CUSTOM_SLOT_1..5
 	#define GAME_OBJECT_EXTENDED_EXPORTS					// see: script_game_object*.cpp/h
 	#define GAME_OBJECT_TESTING_EXPORTS						// see: script_game_object4.cpp  functions for object testing (ie. is_stalker(), is_heli())
 	#define NAMESPACE_LEVEL_EXPORTS							// see: level_script.cpp
@@ -41,8 +40,6 @@
 
 // TWEAKS:
 	//#define ACTOR_FEEL_GRENADE							// When undefined it disables the grenade HUD indicator for thrown grenades
-	//#define FP_DEATH										// first person death view (Note: It's fixed to position and does not follow corpse)
-	//#define DEAD_BODY_COLLISION								// restore collision with dead bodies (thanks malandrinus) (Note: Collides with AI and they can get stuck)
 	#define NEW_ANIMS										// use new animations. Please enclose any new animation addions with this define
 	//#define DYNAMIC_SUN_MOVEMENT							// use dynamic sun movement. If this is not defined sun will move as configured in weather ltx files
 //-TWEAKS

@@ -3,7 +3,8 @@
 #define CMD_START	(1<<0)
 #define CMD_STOP	(1<<1)
 
-enum{
+enum
+{
 	NO_ACTIVE_SLOT	= 0,
 	KNIFE_SLOT		= 1,//btn1			was (0)			!!!
 	INV_SLOT_2,		//btn2 PISTOL_SLOT	was (1)
@@ -17,18 +18,7 @@ enum{
 	TORCH_SLOT,		// torch
 	ARTEFACT_SLOT,	// artefact
 	HELMET_SLOT,
-	//Alundaio: More slots for custom uses
-#ifdef MORE_INVENTORY_SLOTS
-	CUSTOM_SLOT_1,
-	CUSTOM_SLOT_2,
-	CUSTOM_SLOT_3,
-	CUSTOM_SLOT_4,
-	CUSTOM_SLOT_5,
-	LAST_SLOT = CUSTOM_SLOT_5
-#else
 	LAST_SLOT = HELMET_SLOT
-#endif
-	//-Alundaio
 };
 
 #define RUCK_HEIGHT			280
