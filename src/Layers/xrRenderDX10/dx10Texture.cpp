@@ -215,22 +215,22 @@ CANT_LOAD:
 	R_ASSERT(FS.exist(fn,"$game_textures$",	"ed\\ed_not_existing_texture",".dds"));
 	goto _DDS;
 
-	//	Debug.fatal(DEBUG_INFO,"Can't find texture '%s'",fname);
-
 _DDS:
 	{
 		// Load and get header
-#ifdef OLD_LOADER_DDS
-		S = FS.r_open(fn);
+		if (strstr(Core.Params, "-nlt"))
+		{
+			S = FS.r_open(fn);
 #ifdef DEBUG
-		Msg("* Loaded: %s[%d]", fn, S->length());
+			Msg("* Loaded: %s[%d]", fn, S->length());
 #endif // DEBUG
-		img_size = S->length();
-		R_ASSERT(S);
-		R_CHK2(D3DX10GetImageInfoFromMemory(S->pointer(), S->length(), 0, &IMG, 0), fn);
-		if (IMG.MiscFlags & D3D_RESOURCE_MISC_TEXTURECUBE)			goto _DDS_CUBE;
-		else														goto _DDS_2D;
-#else
+			img_size = S->length();
+			R_ASSERT(S);
+			R_CHK2(D3DX10GetImageInfoFromMemory(S->pointer(), S->length(), 0, &IMG, 0), fn);
+			if (IMG.MiscFlags & D3D_RESOURCE_MISC_TEXTURECUBE)			goto _DDS_CUBE;
+			else														goto _DDS_2D;
+		}
+else
 		{
 			if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
 				Msg("- [Debug]: Load Texture DX10:%s", fn);
@@ -255,89 +255,88 @@ _DDS:
 				}
 			}
 		}
-#endif
+
 	_DDS_CUBE:
 		{
 			//	Inited to default by provided default constructor
-#ifdef OLD_LOADER_DDS
-			D3DX10_IMAGE_LOAD_INFO LoadInfo;
-			//LoadInfo.Usage = D3D_USAGE_IMMUTABLE;
-			if (bStaging)
+			if (strstr(Core.Params, "-nlt"))
 			{
-				LoadInfo.Usage = D3D_USAGE_STAGING;
-				LoadInfo.BindFlags = 0;
-				LoadInfo.CpuAccessFlags = D3D_CPU_ACCESS_WRITE;
+				D3DX10_IMAGE_LOAD_INFO LoadInfo;
+				if (bStaging)
+				{
+					LoadInfo.Usage = D3D_USAGE_STAGING;
+					LoadInfo.BindFlags = 0;
+					LoadInfo.CpuAccessFlags = D3D_CPU_ACCESS_WRITE;
+				}
+				else
+				{
+					LoadInfo.Usage = D3D_USAGE_DEFAULT;
+					LoadInfo.BindFlags = D3D_BIND_SHADER_RESOURCE;
+				}
+
+				LoadInfo.pSrcInfo = &IMG;
+				R_CHK(D3DX10CreateTextureFromMemory(HW.pDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0));
+				FS.r_close(S);
+
+				// OK
+				mip_cnt = IMG.MipLevels;
+				ret_msize = calc_texture_size(img_loaded_lod, mip_cnt, img_size);
 			}
-			else
+else
 			{
-				LoadInfo.Usage = D3D_USAGE_DEFAULT;
-				LoadInfo.BindFlags = D3D_BIND_SHADER_RESOURCE;
+				ID3D10Texture2D* ptr = 0;
+				TextureLoader.To(ptr, bStaging);
+				ret_msize = TextureLoader.GetSizeInMemory();
+				pTexture2D = ptr;
 			}
 
-			LoadInfo.pSrcInfo = &IMG;
-			R_CHK(D3DX10CreateTextureFromMemory(HW.pDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0));
-			FS.r_close(S);
-
-			// OK
-			mip_cnt = IMG.MipLevels;
-			ret_msize = calc_texture_size(img_loaded_lod, mip_cnt, img_size);
-
-#else
-			ID3D10Texture2D* ptr = 0;
-			TextureLoader.To(ptr, bStaging);
-			ret_msize = TextureLoader.GetSizeInMemory();
-			pTexture2D = ptr;
-#endif
 			return pTexture2D;
 		}
 	_DDS_2D:
 		{
-#ifdef OLD_LOADER_DDS
-			// Check for LMAP and compress if needed
-			strlwr(fn);
+			if (strstr(Core.Params, "-nlt"))
+			{
+				// Check for LMAP and compress if needed
+				strlwr(fn);
 
-			img_loaded_lod = get_texture_load_lod(fn);
+				img_loaded_lod = get_texture_load_lod(fn);
 
-			//	Inited to default by provided default constructor
-			D3DX10_IMAGE_LOAD_INFO LoadInfo;
-			//LoadInfo.FirstMipLevel = img_loaded_lod;
-			LoadInfo.Width = IMG.Width;
-			LoadInfo.Height = IMG.Height;
+				//	Inited to default by provided default constructor
+				D3DX10_IMAGE_LOAD_INFO LoadInfo;
+				LoadInfo.Width = IMG.Width;
+				LoadInfo.Height = IMG.Height;
 
-			// x64 crash workaround
-			//#ifdef XR_X64
+				// x64 crash workaround
 #pragma TODO("OldSerpskiStalker, исправление вылета с текстурами на х64")
-			LoadInfo.FirstMipLevel = img_loaded_lod;
-			//#else
-			//			if (img_loaded_lod)
-			//				Reduce(LoadInfo.Width, LoadInfo.Height, IMG.MipLevels, img_loaded_lod);
-			//#endif
-						//LoadInfo.Usage = D3D_USAGE_IMMUTABLE;
-			if (bStaging)
-			{
-				LoadInfo.Usage = D3D_USAGE_STAGING;
-				LoadInfo.BindFlags = 0;
-				LoadInfo.CpuAccessFlags = D3D_CPU_ACCESS_WRITE;
-			}
-			else
-			{
-				LoadInfo.Usage = D3D_USAGE_DEFAULT;
-				LoadInfo.BindFlags = D3D_BIND_SHADER_RESOURCE;
-			}
-			LoadInfo.pSrcInfo = &IMG;
+				LoadInfo.FirstMipLevel = img_loaded_lod;
 
+				if (bStaging)
+				{
+					LoadInfo.Usage = D3D_USAGE_STAGING;
+					LoadInfo.BindFlags = 0;
+					LoadInfo.CpuAccessFlags = D3D_CPU_ACCESS_WRITE;
+				}
+				else
+				{
+					LoadInfo.Usage = D3D_USAGE_DEFAULT;
+					LoadInfo.BindFlags = D3D_BIND_SHADER_RESOURCE;
+				}
+				LoadInfo.pSrcInfo = &IMG;
 
-			R_CHK2(D3DX10CreateTextureFromMemory(HW.pDevice, S->pointer(), S->length(),&LoadInfo,0,&pTexture2D,0), fn);
-			FS.r_close(S);
-			mip_cnt = IMG.MipLevels;
-			// OK
-			ret_msize = calc_texture_size(img_loaded_lod, mip_cnt, img_size);
-#else
-		ID3D10Texture2D* ptr = 0;
-		TextureLoader.To(ptr, bStaging);
-		ret_msize = TextureLoader.GetSizeInMemory();
-		pTexture2D = ptr;
-#endif
+				R_CHK2(D3DX10CreateTextureFromMemory(HW.pDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0), fn);
+				FS.r_close(S);
+				mip_cnt = IMG.MipLevels;
+				// OK
+				ret_msize = calc_texture_size(img_loaded_lod, mip_cnt, img_size);
+			}
+else
+			{
+				ID3D10Texture2D* ptr = 0;
+				TextureLoader.To(ptr, bStaging);
+				ret_msize = TextureLoader.GetSizeInMemory();
+				pTexture2D = ptr;
+			}
+
 			return					pTexture2D;
 		}
 	}
@@ -352,10 +351,14 @@ _BUMP_from_base:
 			R_ASSERT2(FS.exist(fn, "$game_textures$", "ed\\ed_dummy_bump#", ".dds"), "ed_dummy_bump#");
 			S = FS.r_open(fn);
 			R_ASSERT2(S, fn);
-#ifndef OLD_LOADER_DDS
-			img_size = S->length();
-			goto		_DDS_2D;
-#endif
+
+			if (strstr(Core.Params, "-nlt"))
+			{}
+			else
+			{
+				img_size = S->length();
+				goto		_DDS_2D;
+			}
 		}
 		if (strstr(fname, "_bump"))
 		{
@@ -363,10 +366,13 @@ _BUMP_from_base:
 			S = FS.r_open(fn);
 
 			R_ASSERT2(S, fn);
-#ifndef OLD_LOADER_DDS
-			img_size = S->length();
-			goto		_DDS_2D;
-#endif
+			if (strstr(Core.Params, "-nlt"))
+			{}
+			else
+			{
+				img_size = S->length();
+				goto		_DDS_2D;
+			}
 		}
 		//////////////////
 			}
