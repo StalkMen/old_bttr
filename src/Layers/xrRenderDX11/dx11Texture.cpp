@@ -13,7 +13,7 @@
 
 #include "../xrRender/dxRenderDeviceRender.h"
 #include "../../build_render_config.h"
-#include "dx10TextureDDS.h"
+#include "../xrRenderDX10/dx10TextureDDS.h"
 
 void fix_texture_name(LPSTR fn)
 {
@@ -140,14 +140,13 @@ void				TW_Save(ID3DTexture2D* T, LPCSTR name, LPCSTR prefix, LPCSTR postfix)
 		if ('\\' == fn[it])	fn[it] = '_';
 	string256		fn2;	strconcat(sizeof(fn2), fn2, "debug\\", fn, ".dds");
 	Log("* debug texture save: ", fn2);
-	R_CHK(D3DX10SaveTextureToFile(T, D3DX10_IFF_DDS, fn2));
+	R_CHK(D3DX11SaveTextureToFile(HW.pContext, T, D3DX11_IFF_DDS, fn2));
 }
 
 ID3DBaseTexture*	CRender::texture_load(LPCSTR fRName, u32& ret_msize, bool bStaging)
 {
 	//	Moved here just to avoid warning
-
-	D3DX10_IMAGE_INFO			IMG;
+	D3DX11_IMAGE_INFO			IMG;
 	ZeroMemory(&IMG, sizeof(IMG));
 
 	//	Staging control
@@ -228,7 +227,7 @@ _DDS:
 #endif // DEBUG
 		img_size = S->length();
 		R_ASSERT(S);
-		R_CHK2(D3DX10GetImageInfoFromMemory(S->pointer(), S->length(), 0, &IMG, 0), fn);
+		R_CHK2(D3DX11GetImageInfoFromMemory(S->pointer(), S->length(), 0, &IMG, 0), fn);
 		if (IMG.MiscFlags & D3D_RESOURCE_MISC_TEXTURECUBE)			goto _DDS_CUBE;
 		else														goto _DDS_2D;
 #else
@@ -261,7 +260,7 @@ _DDS:
 		{
 			//	Inited to default by provided default constructor
 #ifdef OLD_LOADER_DDS
-			D3DX10_IMAGE_LOAD_INFO LoadInfo;
+			D3DX11_IMAGE_LOAD_INFO LoadInfo;
 			//LoadInfo.Usage = D3D_USAGE_IMMUTABLE;
 			if (bStaging)
 			{
@@ -276,7 +275,9 @@ _DDS:
 			}
 
 			LoadInfo.pSrcInfo = &IMG;
-			R_CHK(D3DX10CreateTextureFromMemory(HW.pDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0));
+
+			R_CHK(D3DX11CreateTextureFromMemory(HW.pDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0));
+
 			FS.r_close(S);
 
 			// OK
@@ -284,7 +285,7 @@ _DDS:
 			ret_msize = calc_texture_size(img_loaded_lod, mip_cnt, img_size);
 
 #else
-			ID3D10Texture2D* ptr = 0;
+			ID3D11Texture2D* ptr = 0;
 			TextureLoader.To(ptr, bStaging);
 			ret_msize = TextureLoader.GetSizeInMemory();
 			pTexture2D = ptr;
@@ -300,7 +301,7 @@ _DDS:
 			img_loaded_lod = get_texture_load_lod(fn);
 
 			//	Inited to default by provided default constructor
-			D3DX10_IMAGE_LOAD_INFO LoadInfo;
+			D3DX11_IMAGE_LOAD_INFO LoadInfo;
 			//LoadInfo.FirstMipLevel = img_loaded_lod;
 			LoadInfo.Width = IMG.Width;
 			LoadInfo.Height = IMG.Height;
@@ -328,13 +329,14 @@ _DDS:
 			LoadInfo.pSrcInfo = &IMG;
 
 
-			R_CHK2(D3DX10CreateTextureFromMemory(HW.pDevice, S->pointer(), S->length(),&LoadInfo,0,&pTexture2D,0), fn);
+			R_CHK2(D3DX11CreateTextureFromMemory(HW.pDevice, S->pointer(), S->length(),&LoadInfo,0,&pTexture2D,0), fn);
+
 			FS.r_close(S);
 			mip_cnt = IMG.MipLevels;
 			// OK
 			ret_msize = calc_texture_size(img_loaded_lod, mip_cnt, img_size);
 #else
-		ID3D10Texture2D* ptr = 0;
+		ID3D11Texture2D* ptr = 0;
 		TextureLoader.To(ptr, bStaging);
 		ret_msize = TextureLoader.GetSizeInMemory();
 		pTexture2D = ptr;
