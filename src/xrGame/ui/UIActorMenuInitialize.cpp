@@ -104,6 +104,12 @@ void CUIActorMenu::Construct()
 	m_OutfitSlotHighlight		->Show(false);
 	m_DetectorSlotHighlight		= UIHelper::CreateStatic(uiXml, "detector_slot_highlight", this);
 	m_DetectorSlotHighlight		->Show(false);
+	m_KnifeSlotHighlight		= UIHelper::CreateStatic(uiXml, "knife_slot_highlight", this);
+	m_KnifeSlotHighlight		->Show(false);
+	m_BinocSlotHighlight		= UIHelper::CreateStatic(uiXml, "binoc_slot_highlight", this);
+	m_BinocSlotHighlight		->Show(false);
+	m_BackpackSlotHighlight		= UIHelper::CreateStatic(uiXml, "backpack_slot_highlight", this);
+	m_BackpackSlotHighlight		->Show(false);
 	m_QuickSlotsHighlight[0]	= UIHelper::CreateStatic(uiXml, "quick_slot_highlight", this);
 	m_QuickSlotsHighlight[0]	->Show(false);
 	m_ArtefactSlotsHighlight[0]	= UIHelper::CreateStatic(uiXml, "artefact_slot_highlight", this);
@@ -144,6 +150,11 @@ void CUIActorMenu::Construct()
 	m_pQuickSlot				= UIHelper::CreateDragDropReferenceList(uiXml, "dragdrop_quick_slots", this);
 	m_pQuickSlot->Initialize	();
 
+	m_pInventoryKnifeList		= UIHelper::CreateDragDropListEx(uiXml, "dragdrop_knife", this);
+	m_pInventoryBinocList		= UIHelper::CreateDragDropListEx(uiXml, "dragdrop_binoc", this);
+	
+	m_pInventoryBackpackList	= UIHelper::CreateDragDropListEx(uiXml, "dragdrop_backpack", this);
+	
 	m_pTrashList				= UIHelper::CreateDragDropListEx		(uiXml, "dragdrop_trash", this);
 	m_pTrashList->m_f_item_drop	= CUIDragDropListEx::DRAG_CELL_EVENT	(this,&CUIActorMenu::OnItemDrop);
 	m_pTrashList->m_f_drag_event= CUIDragDropListEx::DRAG_ITEM_EVENT	(this,&CUIActorMenu::OnDragItemOnTrash);
@@ -169,6 +180,9 @@ void CUIActorMenu::Construct()
 
 	m_WeaponSlot1_progress	= UIHelper::CreateProgressBar(uiXml, "progess_bar_weapon1", this);
 	m_WeaponSlot2_progress	= UIHelper::CreateProgressBar(uiXml, "progess_bar_weapon2", this);
+	m_KnifeSlot_progress	= UIHelper::CreateProgressBar(uiXml, "progess_bar_knife", this);
+	m_BinocularSlot_progress	= UIHelper::CreateProgressBar(uiXml, "progess_bar_binoc", this);
+	m_DetectorSlot_progress	= UIHelper::CreateProgressBar(uiXml, "progess_bar_detector", this);
 	m_Helmet_progress		= UIHelper::CreateProgressBar(uiXml, "progess_bar_helmet", this);
 	m_Outfit_progress		= UIHelper::CreateProgressBar(uiXml, "progess_bar_outfit", this);
 
@@ -179,12 +193,6 @@ void CUIActorMenu::Construct()
 
 //	m_clock_value						= UIHelper::CreateStatic(uiXml, "clock_value", this);
 
-/*
-	m_pDeadBodyBagList					= xr_new<CUIDragDropListEx>(); 
-	AttachChild							(m_pDeadBodyBagList);
-	m_pDeadBodyBagList->SetAutoDelete	(true);
-	xml_init.InitDragDropListEx			(uiXml, "dragdrop_deadbody_bag", 0, m_pDeadBodyBagList);
-*/
 	m_ActorStateInfo					= xr_new<ui_actor_state_wnd>();
 	m_ActorStateInfo->init_from_xml		(uiXml, "actor_state_info");
 	m_ActorStateInfo->SetAutoDelete		(true);
@@ -237,7 +245,10 @@ void CUIActorMenu::Construct()
 	InitCallbacks						();
 
 	BindDragDropListEvents				(m_pInventoryBeltList);		
-	BindDragDropListEvents				(m_pInventoryPistolList);		
+	BindDragDropListEvents				(m_pInventoryPistolList);	
+	BindDragDropListEvents				(m_pInventoryKnifeList);
+	BindDragDropListEvents				(m_pInventoryBinocList);
+	BindDragDropListEvents				(m_pInventoryBackpackList);
 	BindDragDropListEvents				(m_pInventoryAutomaticList);	
 	BindDragDropListEvents				(m_pInventoryOutfitList);	
 	BindDragDropListEvents				(m_pInventoryHelmetList);	
