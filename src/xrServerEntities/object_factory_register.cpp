@@ -338,7 +338,7 @@ void CObjectFactory::register_classes	()
 
 	ADD(CStalkerOutfit			,CSE_ALifeItemCustomOutfit		,CLSID_EQUIPMENT_STALKER		,"equ_stalker");
 	ADD(CHelmet					,CSE_ALifeItem					,CLSID_EQUIPMENT_HELMET			,"helmet");
-	ADD(CBackpack				,CSE_ALifeItemEx				,CLSID_EQUIPMENT_BACKPACK		,"equ_backpack");
+	ADD(CBackpack				,CSE_ALifeItem					,CLSID_EQUIPMENT_BACKPACK		,"equ_backpack");
 	
 	// Grenades
 	ADD(CF1						,CSE_ALifeItemGrenade			,CLSID_GRENADE_F1				,"wpn_grenade_f1");
