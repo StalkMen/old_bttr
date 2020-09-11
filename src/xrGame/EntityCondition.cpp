@@ -13,6 +13,12 @@
 #include "ActorHelmet.h"
 #include "ActorBackpack.h"
 
+#define MAX_HEALTH 1.0f
+#define MIN_HEALTH -0.01f
+#define MAX_POWER 1.0f
+#define MAX_RADIATION 1.0f
+#define MAX_PSY_HEALTH 1.0f
+
 CEntityConditionSimple::CEntityConditionSimple()
 {
 	max_health()		= MAX_HEALTH;

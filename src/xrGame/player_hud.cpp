@@ -16,7 +16,7 @@ const float _CalcMotionSpeed = 1.f;
 
 float CalcMotionSpeed(const shared_str& anim_name)
 {
-	return _CalcMotionSpeed
+	return _CalcMotionSpeed;
 }
 
 player_hud_motion* player_hud_motion_container::find_motion(const shared_str& name)
