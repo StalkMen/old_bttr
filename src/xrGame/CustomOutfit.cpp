@@ -106,9 +106,7 @@ void CCustomOutfit::Load(LPCSTR section)
 	m_fSatietyRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "satiety_restore_speed",   0.0f );
 	m_fPowerRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "power_restore_speed",     0.0f );
 	m_fBleedingRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "bleeding_restore_speed",  0.0f );
-
-
-	m_full_icon_name		= pSettings->r_string( section, "full_icon_name" );
+	
 	m_artefact_count 		= READ_IF_EXISTS( pSettings, r_u32, section, "artefact_count", 0 );
 	clamp( m_artefact_count, (u32)0, (u32)5 );
 
@@ -158,26 +156,11 @@ float CCustomOutfit::HitThroughArmor(float hit_power, s16 element, float ap, boo
 	if(hit_type == ALife::eHitTypeFireWound)
 	{
 		float ba = GetBoneArmor(element);
-		if(ba<0.0f)
+		if(ba <= 0.0f)
 			return NewHitPower;
 
 		float BoneArmor = ba*GetCondition();
-		if(/*!fis_zero(ba, EPS) && */(ap > BoneArmor))
-		{
-			//пуля пробила бронь
-			if(!IsGameTypeSingle())
-			{
-				float hit_fraction = (ap - BoneArmor) / ap;
-				if(hit_fraction < m_boneProtection->m_fHitFracActor)
-					hit_fraction = m_boneProtection->m_fHitFracActor;
-
-				NewHitPower *= hit_fraction;
-				NewHitPower *= m_boneProtection->getBoneProtection(element);
-			}
-
-			VERIFY(NewHitPower>=0.0f);
-		}
-		else
+		if (ap <= BoneArmor)
 		{
 			//пуля НЕ пробила бронь
 			NewHitPower *= m_boneProtection->m_fHitFracActor;

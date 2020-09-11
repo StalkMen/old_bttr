@@ -122,6 +122,7 @@
 #	include "StalkerOutfit.h"
 #	include "CustomOutfit.h"
 #	include "ActorHelmet.h"
+#	include "ActorBackpack.h"
 
 #	include "f1.h"
 #	include "rgd5.h"
@@ -337,7 +338,8 @@ void CObjectFactory::register_classes	()
 
 	ADD(CStalkerOutfit			,CSE_ALifeItemCustomOutfit		,CLSID_EQUIPMENT_STALKER		,"equ_stalker");
 	ADD(CHelmet					,CSE_ALifeItem					,CLSID_EQUIPMENT_HELMET			,"helmet");
-
+	ADD(CBackpack				,CSE_ALifeItemEx				,CLSID_EQUIPMENT_BACKPACK		,"equ_backpack");
+	
 	// Grenades
 	ADD(CF1						,CSE_ALifeItemGrenade			,CLSID_GRENADE_F1				,"wpn_grenade_f1");
 	ADD(CRGD5					,CSE_ALifeItemGrenade			,CLSID_GRENADE_RGD5				,"wpn_grenade_rgd5");

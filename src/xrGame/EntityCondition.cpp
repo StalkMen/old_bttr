@@ -11,14 +11,7 @@
 #include "../Include/xrRender/Kinematics.h"
 #include "object_broker.h"
 #include "ActorHelmet.h"
-
-#define MAX_HEALTH 1.0f
-#define MIN_HEALTH -0.01f
-
-
-#define MAX_POWER 1.0f
-#define MAX_RADIATION 1.0f
-#define MAX_PSY_HEALTH 1.0f
+#include "ActorBackpack.h"
 
 CEntityConditionSimple::CEntityConditionSimple()
 {
@@ -359,11 +352,10 @@ float CEntityCondition::HitPowerEffect(float power_loss)
 	if(!pInvOwner)					 return power_loss;
 
 	CCustomOutfit* pOutfit			= pInvOwner->GetOutfit();
-	if(!pOutfit)					return power_loss*0.5f;
+	CHelmet* pHelmet = (CHelmet*)pInvOwner->inventory().ItemFromSlot(HELMET_SLOT);
+	CBackpack* pBackpack = (CBackpack*)pInvOwner->inventory().ItemFromSlot(BACKPACK_SLOT);
 
-	float new_power_loss			= power_loss*pOutfit->m_fPowerLoss;
-
-	return							new_power_loss;
+	return power_loss * (0.5f +(pOutfit?pOutfit->m_fPowerLoss:EPS) + (pHelmet?pHelmet->m_fPowerLoss:EPS) + (pBackpack?pBackpack->m_fPowerLoss:EPS));
 }
 
 CWound* CEntityCondition::AddWound(float hit_power, ALife::EHitType hit_type, u16 element)

@@ -117,40 +117,44 @@ BOOL CActor::CanPickItem(const CFrustum& frustum, const Fvector& from, CObject* 
 
 void CActor::PickupModeUpdate()
 {
-	if(!m_bPickupMode)				return; // kUSE key pressed
-	if(!IsGameTypeSingle())			return;
+	if (!m_bPickupMode)
+		return;
 
-	//подбирание объекта
-	if(	m_pObjectWeLookingAt									&& 
-		m_pObjectWeLookingAt->cast_inventory_item()				&& 
-		m_pObjectWeLookingAt->cast_inventory_item()->Useful()	&&
-		m_pUsableObject											&& 
-		!m_pUsableObject->nonscript_usable()					&&
-		!Level().m_feel_deny.is_object_denied(m_pObjectWeLookingAt) )
-	{
-		m_pUsableObject->use(this);
-		Game().SendPickUpEvent(ID(), m_pObjectWeLookingAt->ID());
-	}
+	feel_touch_update(Position(), m_fPickupInfoRadius);
 
-	feel_touch_update	(Position(), m_fPickupInfoRadius);
-	
 	CFrustum frustum;
-	frustum.CreateFromMatrix(Device.mFullTransform, FRUSTUM_P_LRTB|FRUSTUM_P_FAR);
+	frustum.CreateFromMatrix(Device.mFullTransform, FRUSTUM_P_LRTB | FRUSTUM_P_FAR);
 
-	for(xr_vector<CObject*>::iterator it = feel_touch.begin(); it != feel_touch.end(); it++)
+	for (xr_vector<CObject*>::iterator it = feel_touch.begin(); it != feel_touch.end(); it++)
 	{
-		if (CanPickItem(frustum, Device.vCameraPosition, *it)) 
+		if (CanPickItem(frustum, Device.vCameraPosition, *it))
 			PickupInfoDraw(*it);
 	}
+
+	CInventoryItem* pPickUpItem = smart_cast<CInventoryItem*>(m_pObjectWeLookingAt);
+	if (!pPickUpItem)
+		return;
+
+	if (Level().m_feel_deny.is_object_denied(m_pObjectWeLookingAt))
+		return;
+
+	if (m_pUsableObject)
+		m_pUsableObject->use(this);
+
+	Game().SendPickUpEvent(ID(), m_pObjectWeLookingAt->ID());
 }
 
 #include "../xrEngine/CameraBase.h"
-BOOL	g_b_COD_PickUpMode = TRUE;
+BOOL	g_b_COD_PickUpMode = FALSE;
 void	CActor::PickupModeUpdate_COD	()
 {
-	if (Level().CurrentViewEntity() != this || !g_b_COD_PickUpMode) return;
+	if (!g_b_COD_PickUpMode)
+		return;
+
+	if (Level().CurrentViewEntity() != this) 
+		return;
 		
-	if (!g_Alive() || eacFirstEye != cam_active) 
+	if (eacFirstEye != cam_active)
 	{
 		CurrentGameUI()->UIMainIngameWnd->SetPickUpItem(NULL);
 		return;
@@ -230,48 +234,7 @@ void	CActor::PickupModeUpdate_COD	()
 
 void	CActor::Check_for_AutoPickUp()
 {
-	// mp only
-	if (!psActorFlags.test(AF_AUTOPICKUP))		return;
-	if (IsGameTypeSingle())						return;
-	if (Level().CurrentControlEntity() != this) return;
-	if (!g_Alive())								return;
-
-	Fvector bc; 
-	bc.add				(Position(), m_AutoPickUp_AABB_Offset);
-	Fbox APU_Box;
-	APU_Box.set			(Fvector().sub(bc, m_AutoPickUp_AABB), Fvector().add(bc, m_AutoPickUp_AABB));
-
-	xr_vector<ISpatial*>	ISpatialResult;
-	g_SpatialSpace->q_box   (ISpatialResult, 0, STYPE_COLLIDEABLE, bc, m_AutoPickUp_AABB);
-
-	// Determine visibility for dynamic part of scene
-	for (u32 o_it=0; o_it<ISpatialResult.size(); o_it++)
-	{
-		ISpatial*		spatial	= ISpatialResult[o_it];
-		CInventoryItem*	pIItem	= smart_cast<CInventoryItem*> (spatial->dcast_CObject());
-
-		if (0 == pIItem)														continue;
-		if (!pIItem->CanTake())													continue;
-		if (Level().m_feel_deny.is_object_denied(spatial->dcast_CObject()) )	continue;
-
-
-		CGrenade*	pGrenade	= smart_cast<CGrenade*> (pIItem);
-		if (pGrenade) continue;
-
-		if (APU_Box.Pick(pIItem->object().Position(), pIItem->object().Position()))
-		{
-			if (GameID() == eGameIDDeathmatch || GameID() == eGameIDTeamDeathmatch)
-			{
-				if (pIItem->BaseSlot() == INV_SLOT_2 || pIItem->BaseSlot() == INV_SLOT_3 )
-				{
-					if (inventory().ItemFromSlot(pIItem->BaseSlot()))
-						continue;
-				}
-			}			
-			
-			Game().SendPickUpEvent(ID(), pIItem->object().ID());
-		}		
-	}
+	return;
 }
 
 

@@ -341,6 +341,7 @@ float CInventoryOwner::GetWeaponAccuracy() const
     return 0.f;
 }
 
+#include "ActorBackpack.h"
 //максимальный переносимы вес
 float  CInventoryOwner::MaxCarryWeight() const
 {
@@ -349,7 +350,11 @@ float  CInventoryOwner::MaxCarryWeight() const
     const CCustomOutfit* outfit = GetOutfit();
     if (outfit)
         ret += outfit->m_additional_weight2;
-
+	
+	CBackpack* pBackpack = smart_cast<CBackpack*>(inventory().ItemFromSlot(BACKPACK_SLOT));
+	if (pBackpack)
+		ret += pBackpack->m_additional_weight2;
+	
     return ret;
 }
 

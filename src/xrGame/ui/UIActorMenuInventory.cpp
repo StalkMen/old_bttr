@@ -34,6 +34,7 @@
 #include "../CustomDetector.h"
 #include "../PDA.h"
 
+#include "../ActorBackpack.h"
 #include "../actor_defs.h"
 
 using namespace luabind; //Alundaio

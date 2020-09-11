@@ -218,26 +218,11 @@ float CHelmet::HitThroughArmor(float hit_power, s16 element, float ap, bool& add
 	if(hit_type == ALife::eHitTypeFireWound)
 	{
 		float ba = GetBoneArmor(element);
-		if(ba<0.0f)
+		if(ba <= 0.0f)
 			return NewHitPower;
 
 		float BoneArmor = ba*GetCondition();
-		if(/*!fis_zero(ba, EPS) && */(ap > BoneArmor))
-		{
-			//пуля пробила бронь
-			if(!IsGameTypeSingle())
-			{
-				float hit_fraction = (ap - BoneArmor) / ap;
-				if(hit_fraction < m_boneProtection->m_fHitFracActor)
-					hit_fraction = m_boneProtection->m_fHitFracActor;
-
-				NewHitPower *= hit_fraction;
-				NewHitPower *= m_boneProtection->getBoneProtection(element);
-			}
-
-			VERIFY(NewHitPower>=0.0f);
-		}
-		else
+		if (ap <= BoneArmor)
 		{
 			//пуля НЕ пробила бронь
 			NewHitPower *= m_boneProtection->m_fHitFracActor;

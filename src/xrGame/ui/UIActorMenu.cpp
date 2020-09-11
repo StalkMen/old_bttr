@@ -239,7 +239,8 @@ void CUIActorMenu::Update()
 	}
 	
 	inherited::Update();
-	m_ItemInfo->Update();
+	if (m_ItemInfo->CurrentItem())
+		m_ItemInfo->Update();
 	m_hint_wnd->Update();
 }
 
@@ -365,7 +366,7 @@ void CUIActorMenu::SetCurrentItem(CUICellItem* itm)
 
 void CUIActorMenu::InfoCurItem( CUICellItem* cell_item )
 {
-	if ( !cell_item )
+	if ( !cell_item || !cell_item->m_pData )
 	{
 		m_ItemInfo->InitItem( NULL );
 		return;

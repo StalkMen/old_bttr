@@ -12,13 +12,11 @@ player_hud* g_player_hud = NULL;
 Fvector _ancor_pos;
 Fvector _wpn_root_pos;
 
+const float _CalcMotionSpeed = 1.f;
+
 float CalcMotionSpeed(const shared_str& anim_name)
 {
-
-	if(!IsGameTypeSingle() && (anim_name=="anm_show" || anim_name=="anm_hide") )
-		return 2.0f;
-	else
-		return 1.0f;
+	return _CalcMotionSpeed
 }
 
 player_hud_motion* player_hud_motion_container::find_motion(const shared_str& name)
