@@ -112,6 +112,11 @@ void CLevel::g_sv_Spawn		(CSE_Abstract* E)
 #ifdef DEBUG_MEMORY_MANAGER
 	mem_alloc_gather_stats		(false);
 #endif // DEBUG_MEMORY_MANAGER
+
+	//Alundaio: Knowing last object to spawn can be very useful to debugging
+	if (strstr(Core.Params, "-dbg"))
+		Msg("~ Try Spawning object Name:[%s] Section:[%s] ID:[%d] ParentID:[%d]", E->name_replace(), *E->s_name, E->ID, E->ID_Parent);
+
 	if (O == 0)
 	{
 		Msg("! Failed to spawn entity '%s'", *E->s_name);
@@ -199,6 +204,9 @@ void CLevel::g_sv_Spawn		(CSE_Abstract* E)
 		Msg						("* %20s : %lld bytes, %d ops", *E->s_name,Memory.mem_usage()-E_mem, Memory.stat_calls );
 	}
 #endif // DEBUG_MEMORY_MANAGER
+
+	if (strstr(Core.Params, "-dbg"))
+		Msg("~ [%d] net_Spawn successful", E->ID);
 }
 
 CSE_Abstract *CLevel::spawn_item		(LPCSTR section, const Fvector &position, u32 level_vertex_id, u16 parent_id, bool return_item)

@@ -29,12 +29,18 @@ private:
 
 	enum EStateType
 	{
-//		stt_stamina = 0,
 		stt_health = 0,
-		stt_bleeding,
-		stt_radiation,
-//		stt_armor,
-//		stt_main,
+		stt_sleep,
+		stt_psy_health,
+		stt_bleding,
+		stt_radiat,
+		stt_stamina,
+		stt_satiety,
+		stt_thirst,
+		stt_healh,
+		stt_armor,
+		stt_armor1,
+		stt_battery,
 		stt_fire,
 		stt_radia,
 		stt_acid,
@@ -43,6 +49,8 @@ private:
 		stt_fire_wound,
 		stt_shock,
 		stt_power,
+		stt_bleeding,
+		stt_radiation,
 		stt_count
 	};
 	ui_actor_state_item*	m_state[stt_count];
@@ -87,6 +95,8 @@ public:
 			void	set_progress_shape		( float value ); // 0..1
 			void	set_arrow				( float value ); // 0..1
 			void	show_static				( bool status, u8 number=1 );
+
+	shared_str		m_hint_description_base;
 
 }; // class ui_actor_state_item
 
