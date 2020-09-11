@@ -139,7 +139,7 @@ void				TW_Save(ID3DTexture2D* T, LPCSTR name, LPCSTR prefix, LPCSTR postfix)
 	for (int it = 0; it<int(xr_strlen(fn)); it++)
 		if ('\\' == fn[it])	fn[it] = '_';
 	string256		fn2;	strconcat(sizeof(fn2), fn2, "debug\\", fn, ".dds");
-	Log("* debug texture save: ", fn2);
+	Log("! DX11 debug texture save: ", fn2);
 	R_CHK(D3DX11SaveTextureToFile(HW.pContext, T, D3DX11_IFF_DDS, fn2));
 }
 
@@ -210,7 +210,7 @@ ID3DBaseTexture*	CRender::texture_load(LPCSTR fRName, u32& ret_msize, bool bStag
 
 CANT_LOAD:
 	{
-		Msg("! Can't find texture '%s'", fname);
+		Msg("! DX11 Can't find texture '%s'", fname);
 	}
 	R_ASSERT(FS.exist(fn,"$game_textures$",	"ed\\ed_not_existing_texture",".dds"));
 	goto _DDS;
@@ -233,12 +233,12 @@ _DDS:
 #else
 		{
 			if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
-				Msg("- [Debug]: Load Texture:%s", fn);
+				Msg("- [Debug]: Load Texture DX11:%s", fn);
 
 			if (!TextureLoader.Load(fn))
 			{
 				if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
-					Msg("- [Debug]: Can't load texture:%s", fn);
+					Msg("- [Debug]: Can't load texture DX11:%s", fn);
 				goto CANT_LOAD;
 			}
 			else
@@ -246,7 +246,7 @@ _DDS:
 				if (TextureLoader.isCube())
 				{
 					if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
-						Msg("- [Debug]: Cube texture:%s", fn);
+						Msg("- [Debug]: Cube texture DX11:%s", fn);
 					goto _DDS_CUBE;
 				}
 				else
@@ -348,7 +348,7 @@ _DDS:
 _BUMP_from_base:
 	{
 		//Msg			("! auto-generated bump map: %s",fname);
-		Msg("! Fallback to default bump map: %s", fname);
+		Msg("! Fallback to default bump map DX11: %s", fname);
 		//////////////////
 		if (strstr(fname, "_bump#"))
 		{

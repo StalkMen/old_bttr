@@ -94,6 +94,9 @@
     <Filter Include="XML_Parser">
       <UniqueIdentifier>{3531f73c-13aa-40d1-bea0-24de6646b25e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{f4e91cc4-c16a-4e60-a043-111c2c108207}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FTimer.cpp">
@@ -314,6 +317,9 @@
     </ClCompile>
     <ClCompile Include="XML_Parser\xrXMLParser.cpp">
       <Filter>XML_Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="FileCRC32.cpp">
+      <Filter>Shaders</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -640,6 +646,9 @@
     </ClInclude>
     <ClInclude Include="XML_Parser\xrXMLParser.h">
       <Filter>XML_Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="FileCRC32.h">
+      <Filter>Shaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

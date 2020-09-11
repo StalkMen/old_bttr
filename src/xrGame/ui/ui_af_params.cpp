@@ -68,8 +68,8 @@ LPCSTR af_immunity_caption[] =  // ALife::EInfluenceType
 
 	//Alundaio: Uncommented
 	"ui_inv_outfit_wound_protection",			// "(wound_imm)",
-	"ui_inv_outfit_explosion_protection",		// "(explosion_imm)",
 	"ui_inv_outfit_fire_wound_protection",		// "(fire_wound_imm)",
+	"ui_inv_outfit_explosion_protection",		// "(explosion_imm)",
 	"ui_inv_outfit_strike_protection",			// "(strike_imm)",
 };
 
@@ -81,17 +81,6 @@ LPCSTR af_restore_caption[] =  // ALife::EConditionRestoreType
 	"ui_inv_bleeding",
 	"ui_inv_radiation",
 };
-
-/*
-LPCSTR af_actor_param_names[]=
-{
-	"satiety_health_v",
-	"radiation_v",
-	"satiety_v",
-	"satiety_power_v",
-	"wound_incarnation_v",
-};
-*/
 
 void CUIArtefactParams::InitFromXml( CUIXml& xml )
 {
