@@ -63,6 +63,8 @@ static BOOL bException = FALSE;
 # define USE_OWN_MINI_DUMP
 #endif //-NO_BUG_TRAP //DEBUG
 
+# define USE_OWN_MINI_DUMP
+
 XRCORE_API xrDebug Debug;
 
 static bool error_after_dialog = false;
@@ -425,8 +427,8 @@ int out_of_memory_handler(size_t size)
         size_t process_heap = Memory.mem_usage();
         int eco_strings = (int) g_pStringContainer->stat_economy();
         int eco_smem = (int) g_pSharedMemoryContainer->stat_economy();
-        Msg("* [x-ray]: process heap[%llu K]", process_heap / 1024, process_heap / 1024);
-        Msg("* [x-ray]: economy: strings[%lld K], smem[%lld K]", eco_strings / 1024, eco_smem);
+        Msg("~ [TouchOfRay Engine x64]: process heap[%llu K]", process_heap / 1024, process_heap / 1024);
+        Msg("~ [TouchOfRay Engine x64]: economy: strings[%lld K], smem[%lld K]", eco_strings / 1024, eco_smem);
     }
 
     Debug.fatal(DEBUG_INFO, "Out of memory. Memory request: %lld K", size / 1024);
@@ -492,7 +494,7 @@ void SetupExceptionHandler(const bool& dedicated)
     BT_SetDialogMessage(
         BTDM_INTRO2,
         "\
-                                                This is X-Ray Engine v1.6 crash reporting client. \
+                                                This is TouchOfRay Engine x64 crash reporting client. \
                                                                                                                                                                         To help the development process, \
                                                                                                                                                                                                                                                                                                                                                                                                                                                                 please Submit Bug or save report and email it manually (button More...).\
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 \r\nMany thanks in advance and sorry for the inconvenience."
@@ -750,13 +752,15 @@ LONG WINAPI UnhandledFilter(_EXCEPTION_POINTERS* pExceptionInfo)
 #endif //-DEBUG
     }
 
-    FlushLog();
-
     if (pExceptionInfo->ExceptionRecord)
     {
         Msg("at address 0x%p", pExceptionInfo->ExceptionRecord->ExceptionAddress);
     }
-    //return EXCEPTION_CONTINUE_EXECUTION;
+
+    FlushLog();
+#ifdef USE_OWN_MINI_DUMP
+    save_mini_dump(pExceptionInfo);
+#endif
 
     ShowCursor(true);
     ShowWindow(GetActiveWindow(), SW_FORCEMINIMIZE);

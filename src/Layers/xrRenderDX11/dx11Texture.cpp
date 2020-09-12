@@ -218,7 +218,7 @@ CANT_LOAD:
 _DDS:
 	{
 		// Load and get header
-		if (strstr(Core.Params, "-nlt"))
+		if (strstr(Core.Params, "-old_dds"))
 		{
 			S = FS.r_open(fn);
 #ifdef DEBUG
@@ -258,7 +258,7 @@ else
 	_DDS_CUBE:
 		{
 			//	Inited to default by provided default constructor
-			if (strstr(Core.Params, "-nlt"))
+			if (strstr(Core.Params, "-old_dds"))
 			{
 				D3DX11_IMAGE_LOAD_INFO LoadInfo;
 				if (bStaging)
@@ -295,7 +295,7 @@ else
 		}
 	_DDS_2D:
 		{
-			if (strstr(Core.Params, "-nlt"))
+			if (strstr(Core.Params, "-old_dds"))
 			{
 				// Check for LMAP and compress if needed
 				strlwr(fn);
@@ -353,7 +353,7 @@ _BUMP_from_base:
 			R_ASSERT2(FS.exist(fn, "$game_textures$", "ed\\ed_dummy_bump#", ".dds"), "ed_dummy_bump#");
 			S = FS.r_open(fn);
 			R_ASSERT2(S, fn);
-			if (strstr(Core.Params, "-nlt"))
+			if (strstr(Core.Params, "-old_dds"))
 			{}
 			else
 			{
@@ -367,7 +367,7 @@ _BUMP_from_base:
 			S = FS.r_open(fn);
 
 			R_ASSERT2(S, fn);
-			if (strstr(Core.Params, "-nlt"))
+			if (strstr(Core.Params, "-old_dds"))
 			{}
 			else
 			{

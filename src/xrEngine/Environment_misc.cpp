@@ -283,7 +283,7 @@ void CEnvDescriptor::load(CEnvironment& environment, CInifile& config)
     wind_velocity = config.r_float(m_identifier.c_str(), "wind_velocity");
     wind_direction = deg2rad(config.r_float(m_identifier.c_str(), "wind_direction"));
 #pragma TODO("OldSerpskiStalker. Vanilla Call Of Chernobyl")
-    ambient = config.r_fvector3(m_identifier.c_str(), (strstr(Core.Params, "-o")) ? "ambient_color" : "ambient");
+    ambient = config.r_fvector3(m_identifier.c_str(), (strstr(Core.Params, "-old_ver")) ? "ambient_color" : "ambient");
     hemi_color = config.r_fvector4(m_identifier.c_str(), "hemisphere_color");
     sun_color = config.r_fvector3(m_identifier.c_str(), "sun_color");
 
@@ -295,7 +295,7 @@ void CEnvDescriptor::load(CEnvironment& environment, CInifile& config)
     bolt_period = (tb_id.size()) ? config.r_float(m_identifier.c_str(), "thunderbolt_period") : 0.f;
     bolt_duration = (tb_id.size()) ? config.r_float(m_identifier.c_str(), "thunderbolt_duration") : 0.f;
 #pragma TODO("OldSerpskiStalker. Vanilla Call Of Chernobyl")
-    env_ambient = config.line_exist(m_identifier.c_str(), (strstr(Core.Params, "-o")) ? "ambient" : "env_ambient") ? environment.AppendEnvAmb(config.r_string(m_identifier.c_str(), (strstr(Core.Params, "-o")) ? "ambient" : "env_ambient")) : 0;
+    env_ambient = config.line_exist(m_identifier.c_str(), (strstr(Core.Params, "-old_ver")) ? "ambient" : "env_ambient") ? environment.AppendEnvAmb(config.r_string(m_identifier.c_str(), (strstr(Core.Params, "-old_ver")) ? "ambient" : "env_ambient")) : 0;
 
     if (config.line_exist(m_identifier.c_str(), "sun_shafts_intensity"))
         m_fSunShaftsIntensity = config.r_float(m_identifier.c_str(), "sun_shafts_intensity");
@@ -484,7 +484,7 @@ void CEnvironment::mods_load()
         FS.r_close(fs);
     }
 #pragma TODO("OldSerpskiStalker. Vanilla Call Of Chernobyl")
-    if (strstr(Core.Params, "-o"))
+    if (strstr(Core.Params, "-old_ver"))
         load_level_specific_ambients();
 }
 

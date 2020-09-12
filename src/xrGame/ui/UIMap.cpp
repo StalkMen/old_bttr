@@ -518,7 +518,7 @@ bool CUILevelMap::OnMouseAction(float x, float y, EUIMessages mouse_action)
 
 #pragma TODO("OldSerpskiStalker. Vanilla Call Of Chernobyl")
 
-	if (mouse_action == WINDOW_LBUTTON_DB_CLICK && !(strstr(Core.Params, "-o")))
+	if (mouse_action == WINDOW_LBUTTON_DB_CLICK && !(strstr(Core.Params, "-old_ver")))
 	{
 		Msg("qweasdd: CUIMapWnd::OnMouseAction, mouse left btn db click, adding spot!");
 		Fvector RealPosition;

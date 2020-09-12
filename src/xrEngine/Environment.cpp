@@ -98,13 +98,13 @@ CEnvironment::CEnvironment() :
 
 #pragma TODO("OldSerpskiStalker. Vanilla Call Of Chernobyl")
     string_path file_name;
-    m_ambients_config                   = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-o")) ? "environment\\ambients.ltx" : "environment\\ambients_af3.ltx"), TRUE, TRUE, FALSE);
-    m_sound_channels_config             = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-o")) ? "environment\\sound_channels.ltx" : "environment\\ambients_mw_sound_channels.ltx"), TRUE, TRUE, FALSE);
-    m_effects_config                    = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-o")) ? "environment\\effects.ltx" : "environment\\ambients_af3_effects.ltx"), TRUE, TRUE, FALSE);
-    m_suns_config                       = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-o")) ? "environment\\suns.ltx" : "environment\\flares_af3_suns.ltx"), TRUE, TRUE, FALSE);
-    m_thunderbolt_collections_config    = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-o")) ? "environment\\thunderbolt_collections.ltx" : "environment\\ambietns_af3_thunderbolt_collections.ltx"), TRUE, TRUE, FALSE);
-    m_thunderbolts_config               = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-o")) ? "environment\\thunderbolts.ltx" : "environment\\ambients_af3_thunderbolts.ltx"), TRUE, TRUE, FALSE);
-    CInifile* config                    = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-o")) ? "environment\\environment.ltx" : "environment\\af3_environment.ltx"), TRUE, TRUE, FALSE);
+    m_ambients_config                   = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-old_ver")) ? "environment\\ambients.ltx" : "environment\\ambients_af3.ltx"), TRUE, TRUE, FALSE);
+    m_sound_channels_config             = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-old_ver")) ? "environment\\sound_channels.ltx" : "environment\\ambients_mw_sound_channels.ltx"), TRUE, TRUE, FALSE);
+    m_effects_config                    = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-old_ver")) ? "environment\\effects.ltx" : "environment\\ambients_af3_effects.ltx"), TRUE, TRUE, FALSE);
+    m_suns_config                       = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-old_ver")) ? "environment\\suns.ltx" : "environment\\flares_af3_suns.ltx"), TRUE, TRUE, FALSE);
+    m_thunderbolt_collections_config    = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-old_ver")) ? "environment\\thunderbolt_collections.ltx" : "environment\\ambietns_af3_thunderbolt_collections.ltx"), TRUE, TRUE, FALSE);
+    m_thunderbolts_config               = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-old_ver")) ? "environment\\thunderbolts.ltx" : "environment\\ambients_af3_thunderbolts.ltx"), TRUE, TRUE, FALSE);
+    CInifile* config                    = xr_new<CInifile>(FS.update_path(file_name, "$game_config$", (strstr(Core.Params, "-old_ver")) ? "environment\\environment.ltx" : "environment\\af3_environment.ltx"), TRUE, TRUE, FALSE);
 
     // params
     p_var_alt = deg2rad(config->r_float("environment", "altitude"));

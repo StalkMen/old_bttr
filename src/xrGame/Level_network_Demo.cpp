@@ -20,7 +20,7 @@ void CLevel::PrepareToSaveDemo		()
 	string_path demo_path;
 	SYSTEMTIME Time;
 	GetLocalTime		(&Time);
-	xr_sprintf			(demo_name, "xray_%02d-%02d-%02d_%02d-%02d-%02d.demo",
+	xr_sprintf			(demo_name, "TouchOfRay_Engine_x64_%02d-%02d-%02d_%02d-%02d-%02d.demo",
 		Time.wMonth,
 		Time.wDay,
 		Time.wYear,

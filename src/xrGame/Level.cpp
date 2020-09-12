@@ -555,13 +555,6 @@ void CLevel::OnFrame()
             MapManager().Update();
         if (IsGameTypeSingle() && Device.dwPrecacheFrame == 0)
         {
-            // XXX nitrocaster: was enabled in x-ray 1.5; to be restored or removed
-            //if (g_mt_config.test(mtMap))
-            //{
-            //    Device.seqParallel.push_back(fastdelegate::FastDelegate0<>(
-            //    m_game_task_manager,&CGameTaskManager::UpdateTasks));
-            //}
-            //else
             GameTaskManager().UpdateTasks();
         }
     }

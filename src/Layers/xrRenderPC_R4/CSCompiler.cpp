@@ -188,7 +188,7 @@ void CSCompiler::compile(const char* name)
 
 	string_path					cname;
 
-	if (strstr(Core.Params, "-s"))
+	if (strstr(Core.Params, "-old_shaders"))
 		strconcat					(sizeof(cname),cname,::Render->getShaderPath(), name, ".cs");
 	else
 		strconcat					(sizeof(cname), cname, ::Render->getShaderPath(), "cs_", name, ".hlsl");
