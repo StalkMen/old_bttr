@@ -12,6 +12,7 @@
 #include "game_cl_base.h"
 
 #include "../Weapon.h"
+#include "../WeaponKnife.h"
 #include "../WeaponMagazinedWGrenade.h"
 #include "../WeaponAmmo.h"
 #include "../Silencer.h"
@@ -293,6 +294,7 @@ EDDListType CUIActorMenu::GetListType(CUIDragDropListEx* l)
 
 	if(l==m_pInventoryAutomaticList)	return iActorSlot;
 	if(l==m_pInventoryPistolList)		return iActorSlot;
+	if(l==m_pInventoryKnifeList)		return iActorSlot;
 	if(l==m_pInventoryOutfitList)		return iActorSlot;
 	if(l==m_pInventoryHelmetList)		return iActorSlot;
 	if(l==m_pInventoryDetectorList)		return iActorSlot;
@@ -463,6 +465,7 @@ void CUIActorMenu::clear_highlight_lists()
 {
 	m_InvSlot2Highlight->Show(false);
 	m_InvSlot3Highlight->Show(false);
+	m_KnifeSlotHighlight->Show(false);
 	m_HelmetSlotHighlight->Show(false);
 	m_OutfitSlotHighlight->Show(false);
 	m_DetectorSlotHighlight->Show(false);
@@ -508,6 +511,7 @@ void CUIActorMenu::highlight_item_slot(CUICellItem* cell_item)
 	CCustomDetector* detector = smart_cast<CCustomDetector*>(item);
 	CEatableItem* eatable = smart_cast<CEatableItem*>(item);
 	CArtefact* artefact = smart_cast<CArtefact*>(item);
+	CWeaponKnife* knife = smart_cast<CWeaponKnife*>(item);
 
 	u16 slot_id = item->BaseSlot();
 
@@ -530,6 +534,11 @@ void CUIActorMenu::highlight_item_slot(CUICellItem* cell_item)
 	if(detector && slot_id == DETECTOR_SLOT)
 	{
 		m_DetectorSlotHighlight->Show(true);
+		return;
+	}
+	if (knife && slot_id == KNIFE_SLOT)
+	{
+		m_KnifeSlotHighlight->Show(true);
 		return;
 	}
 	if(eatable)
@@ -801,6 +810,7 @@ void CUIActorMenu::ClearAllLists()
 	m_pInventoryBeltList->ClearAll				(true);
 	m_pInventoryOutfitList->ClearAll			(true);
 	m_pInventoryHelmetList->ClearAll			(true);
+	m_pInventoryKnifeList->ClearAll				(true);
 	m_pInventoryDetectorList->ClearAll			(true);
 	m_pInventoryPistolList->ClearAll			(true);
 	m_pInventoryAutomaticList->ClearAll			(true);
@@ -875,6 +885,12 @@ bool CUIActorMenu::CanSetItemToList(PIItem item, CUIDragDropListEx* l, u16& ret_
 		return		true;
 	}
 
+	if (item_slot == KNIFE_SLOT && l == m_pInventoryKnifeList)
+	{
+		ret_slot = KNIFE_SLOT;
+		return true;
+	}
+
 	return false;
 }
 void CUIActorMenu::UpdateConditionProgressBars()
@@ -904,6 +920,12 @@ void CUIActorMenu::UpdateConditionProgressBars()
 		m_Helmet_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
 	else
 		m_Helmet_progress->SetProgressPos(0);
+
+	itm = m_pActorInvOwner->inventory().ItemFromSlot(KNIFE_SLOT);
+	if (itm)
+		m_Knife_progress->SetProgressPos(iCeil(itm->GetCondition() * 15.0f) / 15.0f);
+	else
+		m_Knife_progress->SetProgressPos(0);
 
 	//Highlight 'equipped' items in actor bag
 	CUIDragDropListEx* slot_list = m_pInventoryBagList;

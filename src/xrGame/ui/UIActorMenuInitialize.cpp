@@ -100,6 +100,10 @@ void CUIActorMenu::Construct()
 	m_InvSlot3Highlight			->Show(false);
 	m_HelmetSlotHighlight		= UIHelper::CreateStatic(uiXml, "helmet_slot_highlight", this);
 	m_HelmetSlotHighlight		->Show(false);
+
+	m_KnifeSlotHighlight		= UIHelper::CreateStatic(uiXml, "knife_slot_highlight", this);
+	m_KnifeSlotHighlight		->Show(false);
+
 	m_OutfitSlotHighlight		= UIHelper::CreateStatic(uiXml, "outfit_slot_highlight", this);
 	m_OutfitSlotHighlight		->Show(false);
 	m_DetectorSlotHighlight		= UIHelper::CreateStatic(uiXml, "detector_slot_highlight", this);
@@ -136,6 +140,9 @@ void CUIActorMenu::Construct()
 	m_pInventoryDetectorList	= UIHelper::CreateDragDropListEx(uiXml, "dragdrop_detector", this);
 	m_pInventoryPistolList		= UIHelper::CreateDragDropListEx(uiXml, "dragdrop_pistol", this);
 	m_pInventoryAutomaticList	= UIHelper::CreateDragDropListEx(uiXml, "dragdrop_automatic", this);
+
+	m_pInventoryKnifeList		= UIHelper::CreateDragDropListEx(uiXml, "dragdrop_knife", this);
+
 	m_pTradeActorBagList		= UIHelper::CreateDragDropListEx(uiXml, "dragdrop_actor_trade_bag", this);
 	m_pTradeActorList			= UIHelper::CreateDragDropListEx(uiXml, "dragdrop_actor_trade", this);
 	m_pTradePartnerBagList		= UIHelper::CreateDragDropListEx(uiXml, "dragdrop_partner_bag", this);
@@ -171,6 +178,8 @@ void CUIActorMenu::Construct()
 	m_WeaponSlot2_progress	= UIHelper::CreateProgressBar(uiXml, "progess_bar_weapon2", this);
 	m_Helmet_progress		= UIHelper::CreateProgressBar(uiXml, "progess_bar_helmet", this);
 	m_Outfit_progress		= UIHelper::CreateProgressBar(uiXml, "progess_bar_outfit", this);
+
+	m_Knife_progress		= UIHelper::CreateProgressBar(uiXml, "progess_bar_knife", this);
 
 	m_trade_buy_button	= UIHelper::Create3tButton(uiXml, "trade_buy_button", this);
 	m_trade_sell_button	= UIHelper::Create3tButton(uiXml, "trade_sell_button", this);
@@ -239,6 +248,9 @@ void CUIActorMenu::Construct()
 	BindDragDropListEvents				(m_pInventoryBeltList);		
 	BindDragDropListEvents				(m_pInventoryPistolList);		
 	BindDragDropListEvents				(m_pInventoryAutomaticList);	
+
+	BindDragDropListEvents				(m_pInventoryKnifeList);
+
 	BindDragDropListEvents				(m_pInventoryOutfitList);	
 	BindDragDropListEvents				(m_pInventoryHelmetList);	
 	BindDragDropListEvents				(m_pInventoryDetectorList);	

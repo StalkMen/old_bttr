@@ -107,6 +107,9 @@ protected:
 	CUIDragDropListEx*			m_pDeadBodyBagList;
 	CUIDragDropListEx*			m_pTrashList;
 
+	CUIDragDropListEx*			m_pInventoryKnifeList;
+	CUIStatic*					m_KnifeSlotHighlight;
+
 	enum						{e_af_count = 5};
 	CUIStatic*					m_belt_list_over[e_af_count];
 	CUIStatic*					m_HelmetOver;
@@ -142,6 +145,9 @@ protected:
 	CUIProgressBar*				m_WeaponSlot2_progress;
 	CUIProgressBar*				m_Helmet_progress;
 	CUIProgressBar*				m_Outfit_progress;
+
+	CUIProgressBar*				m_Knife_progress;
+
 	// bottom ---------------------------------
 	CUIStatic*					m_ActorBottomInfo;
 	CUITextWnd*					m_ActorWeight;

@@ -49,6 +49,9 @@ void CUIActorMenu::InitInventoryMode()
 	m_pInventoryHelmetList->Show		(true);
 	m_pInventoryDetectorList->Show		(true);
 	m_pInventoryPistolList->Show		(true);
+
+	m_pInventoryKnifeList->Show			(true);
+
 	m_pInventoryAutomaticList->Show		(true);
 	m_pQuickSlot->Show					(true);
 	m_pTrashList->Show					(true);
@@ -239,6 +242,9 @@ void CUIActorMenu::OnInventoryAction(PIItem pItem, u16 action_type)
 	{
 		m_pInventoryBeltList,
 		m_pInventoryPistolList,
+
+		m_pInventoryKnifeList,
+
 		m_pInventoryAutomaticList,
 		m_pInventoryOutfitList,
 		m_pInventoryHelmetList,
@@ -426,12 +432,13 @@ void CUIActorMenu::InitInventoryContents(CUIDragDropListEx* pBagList)
 	InitCellForSlot				(DETECTOR_SLOT);
 	InitCellForSlot				(GRENADE_SLOT);
 	InitCellForSlot				(HELMET_SLOT);
+	InitCellForSlot				(KNIFE_SLOT);
 
 	//Alundaio
-	if (!m_pActorInvOwner->inventory().SlotIsPersistent(KNIFE_SLOT))
-		InitCellForSlot(KNIFE_SLOT);
-	if (!m_pActorInvOwner->inventory().SlotIsPersistent(BINOCULAR_SLOT))
-		InitCellForSlot(BINOCULAR_SLOT);
+//	if (!m_pActorInvOwner->inventory().SlotIsPersistent(KNIFE_SLOT))
+//		InitCellForSlot(KNIFE_SLOT);
+//	if (!m_pActorInvOwner->inventory().SlotIsPersistent(BINOCULAR_SLOT))
+//		InitCellForSlot(BINOCULAR_SLOT);
 	if (!m_pActorInvOwner->inventory().SlotIsPersistent(ARTEFACT_SLOT))
 		InitCellForSlot(ARTEFACT_SLOT);
 	if (!m_pActorInvOwner->inventory().SlotIsPersistent(PDA_SLOT))
@@ -612,6 +619,10 @@ bool CUIActorMenu::ToSlot(CUICellItem* itm, bool force_place, u16 slot_id)
 
 		if ( slot_id == INV_SLOT_3 && m_pActorInvOwner->inventory().CanPutInSlot(iitem, INV_SLOT_2))
 			return ToSlot(itm, force_place, INV_SLOT_2);
+
+		if (slot_id == KNIFE_SLOT && m_pActorInvOwner->inventory().CanPutInSlot(iitem, KNIFE_SLOT))
+			return ToSlot(itm, force_place, KNIFE_SLOT);
+
 
 		CUIDragDropListEx* slot_list		= GetSlotList(slot_id);
 		if (!slot_list)
@@ -798,6 +809,10 @@ CUIDragDropListEx* CUIActorMenu::GetSlotList(u16 slot_idx)
 	}
 	switch ( slot_idx )
 	{
+		case KNIFE_SLOT:
+			return m_pInventoryKnifeList;
+			break;
+
 		case INV_SLOT_2:
 			return m_pInventoryPistolList;
 			break;
@@ -872,9 +887,9 @@ bool CUIActorMenu::ToQuickSlot(CUICellItem* itm)
 		return false;
 
 	//Alundaio: Fix deep recursion if placing icon greater then col/row set in actor_menu.xml
-	Ivector2 iWH = iitem->GetInvGridRect().rb;
-	if (iWH.x > 1 || iWH.y > 1)
-		return false;
+//	Ivector2 iWH = iitem->GetInvGridRect().rb;
+//	if (iWH.x > 1 || iWH.y > 1)
+//		return false;
 	//Alundaio: END
 		
 	u8 slot_idx = u8(m_pQuickSlot->PickCell(GetUICursor().GetCursorPosition()).x);
