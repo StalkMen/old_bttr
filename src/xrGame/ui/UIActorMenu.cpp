@@ -13,6 +13,8 @@
 
 #include "../Weapon.h"
 #include "../WeaponKnife.h"
+#include "../ActorBackpack.h"
+#include "../WeaponBinoculars.h"
 #include "../WeaponMagazinedWGrenade.h"
 #include "../WeaponAmmo.h"
 #include "../Silencer.h"
@@ -295,6 +297,8 @@ EDDListType CUIActorMenu::GetListType(CUIDragDropListEx* l)
 	if(l==m_pInventoryAutomaticList)	return iActorSlot;
 	if(l==m_pInventoryPistolList)		return iActorSlot;
 	if(l==m_pInventoryKnifeList)		return iActorSlot;
+	if(l==m_pInventoryBackpackList)		return iActorSlot;
+	if(l==m_pInventoryBinocList)		return iActorSlot;
 	if(l==m_pInventoryOutfitList)		return iActorSlot;
 	if(l==m_pInventoryHelmetList)		return iActorSlot;
 	if(l==m_pInventoryDetectorList)		return iActorSlot;
@@ -466,6 +470,8 @@ void CUIActorMenu::clear_highlight_lists()
 	m_InvSlot2Highlight->Show(false);
 	m_InvSlot3Highlight->Show(false);
 	m_KnifeSlotHighlight->Show(false);
+	m_BinocSlotHighlight->Show(false);
+	m_BackpackSlotHighlight->Show(false);
 	m_HelmetSlotHighlight->Show(false);
 	m_OutfitSlotHighlight->Show(false);
 	m_DetectorSlotHighlight->Show(false);
@@ -512,6 +518,8 @@ void CUIActorMenu::highlight_item_slot(CUICellItem* cell_item)
 	CEatableItem* eatable = smart_cast<CEatableItem*>(item);
 	CArtefact* artefact = smart_cast<CArtefact*>(item);
 	CWeaponKnife* knife = smart_cast<CWeaponKnife*>(item);
+	CWeaponBinoculars* binoc = smart_cast<CWeaponBinoculars*>(item);
+	CBackpack* backpack = smart_cast<CBackpack*>(item);
 
 	u16 slot_id = item->BaseSlot();
 
@@ -539,6 +547,16 @@ void CUIActorMenu::highlight_item_slot(CUICellItem* cell_item)
 	if (knife && slot_id == KNIFE_SLOT)
 	{
 		m_KnifeSlotHighlight->Show(true);
+		return;
+	}
+	if (binoc && slot_id == BINOCULAR_SLOT)
+	{
+		m_BinocSlotHighlight->Show(true);
+		return;
+	}
+	if (backpack && slot_id == BACKPACK_SLOT)
+	{
+		m_BackpackSlotHighlight->Show(true);
 		return;
 	}
 	if(eatable)
@@ -811,6 +829,8 @@ void CUIActorMenu::ClearAllLists()
 	m_pInventoryOutfitList->ClearAll			(true);
 	m_pInventoryHelmetList->ClearAll			(true);
 	m_pInventoryKnifeList->ClearAll				(true);
+	m_pInventoryBackpackList->ClearAll			(true);
+	m_pInventoryBinocList->ClearAll				(true);
 	m_pInventoryDetectorList->ClearAll			(true);
 	m_pInventoryPistolList->ClearAll			(true);
 	m_pInventoryAutomaticList->ClearAll			(true);

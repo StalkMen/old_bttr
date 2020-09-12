@@ -51,6 +51,8 @@ void CUIActorMenu::InitInventoryMode()
 	m_pInventoryPistolList->Show		(true);
 
 	m_pInventoryKnifeList->Show			(true);
+	m_pInventoryBinocList->Show			(true);
+	m_pInventoryBackpackList->Show		(true);
 
 	m_pInventoryAutomaticList->Show		(true);
 	m_pQuickSlot->Show					(true);
@@ -244,6 +246,8 @@ void CUIActorMenu::OnInventoryAction(PIItem pItem, u16 action_type)
 		m_pInventoryPistolList,
 
 		m_pInventoryKnifeList,
+		m_pInventoryBinocList,
+		m_pInventoryBackpackList,
 
 		m_pInventoryAutomaticList,
 		m_pInventoryOutfitList,
@@ -433,6 +437,8 @@ void CUIActorMenu::InitInventoryContents(CUIDragDropListEx* pBagList)
 	InitCellForSlot				(GRENADE_SLOT);
 	InitCellForSlot				(HELMET_SLOT);
 	InitCellForSlot				(KNIFE_SLOT);
+	InitCellForSlot				(BINOCULAR_SLOT);
+	InitCellForSlot				(BACKPACK_SLOT);
 
 	//Alundaio
 //	if (!m_pActorInvOwner->inventory().SlotIsPersistent(KNIFE_SLOT))
@@ -511,10 +517,7 @@ bool CUIActorMenu::TryActiveSlot(CUICellItem* itm)
 		SendEvent_ActivateSlot( slot, m_pActorInvOwner->object_id() );
 		return true;
 	}
-	if ( slot == DETECTOR_SLOT )
-	{
-
-	}
+	if ( slot == DETECTOR_SLOT ) {}
 	return false;
 }
 
@@ -809,8 +812,16 @@ CUIDragDropListEx* CUIActorMenu::GetSlotList(u16 slot_idx)
 	}
 	switch ( slot_idx )
 	{
+		case BACKPACK_SLOT:
+			return m_pInventoryBackpackList;
+			break;
+
 		case KNIFE_SLOT:
 			return m_pInventoryKnifeList;
+			break;
+
+		case BINOCULAR_SLOT:
+			return m_pInventoryBinocList;
 			break;
 
 		case INV_SLOT_2:
