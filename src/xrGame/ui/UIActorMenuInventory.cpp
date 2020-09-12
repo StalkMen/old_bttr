@@ -33,6 +33,7 @@
 #include "../player_hud.h"
 #include "../CustomDetector.h"
 #include "../PDA.h"
+
 #include "../ActorBackpack.h"
 #include "../actor_defs.h"
 
@@ -52,10 +53,7 @@ void CUIActorMenu::InitInventoryMode()
 	m_pQuickSlot->Show					(true);
 	m_pTrashList->Show					(true);
 	m_RightDelimiter->Show				(false);
-	m_pInventoryKnifeList->Show			(true);
-	m_pInventoryBinocList->Show			(true);
-	m_pInventoryBackpackList->Show		(true);
-	
+
 	InitInventoryContents				(m_pInventoryBagList);
 
 	VERIFY( CurrentGameUI() );
@@ -131,6 +129,8 @@ void CUIActorMenu::SendEvent_Item_Eat(PIItem pItem, u16 recipient)
 void CUIActorMenu::SendEvent_Item_Drop(PIItem pItem, u16 recipient)
 {
 	R_ASSERT(pItem->parent_id()==recipient);
+	if (!IsGameTypeSingle())
+		pItem->DenyTrade();
 	//pItem->SetDropManual			(TRUE);
 	NET_Packet					P;
 	pItem->object().u_EventGen	(P,GE_OWNERSHIP_REJECT,pItem->parent_id());
@@ -246,9 +246,6 @@ void CUIActorMenu::OnInventoryAction(PIItem pItem, u16 action_type)
 		m_pInventoryBagList,
 		m_pTradeActorBagList,
 		m_pTradeActorList,
-		m_pInventoryKnifeList,
-		m_pInventoryBinocList,
-		m_pInventoryBackpackList,
 		NULL
 	};
 
@@ -429,11 +426,12 @@ void CUIActorMenu::InitInventoryContents(CUIDragDropListEx* pBagList)
 	InitCellForSlot				(DETECTOR_SLOT);
 	InitCellForSlot				(GRENADE_SLOT);
 	InitCellForSlot				(HELMET_SLOT);
-	InitCellForSlot				(KNIFE_SLOT);
-	InitCellForSlot				(BINOCULAR_SLOT);
-	InitCellForSlot				(BACKPACK_SLOT);
 
 	//Alundaio
+	if (!m_pActorInvOwner->inventory().SlotIsPersistent(KNIFE_SLOT))
+		InitCellForSlot(KNIFE_SLOT);
+	if (!m_pActorInvOwner->inventory().SlotIsPersistent(BINOCULAR_SLOT))
+		InitCellForSlot(BINOCULAR_SLOT);
 	if (!m_pActorInvOwner->inventory().SlotIsPersistent(ARTEFACT_SLOT))
 		InitCellForSlot(ARTEFACT_SLOT);
 	if (!m_pActorInvOwner->inventory().SlotIsPersistent(PDA_SLOT))
@@ -506,6 +504,10 @@ bool CUIActorMenu::TryActiveSlot(CUICellItem* itm)
 		SendEvent_ActivateSlot( slot, m_pActorInvOwner->object_id() );
 		return true;
 	}
+	if ( slot == DETECTOR_SLOT )
+	{
+
+	}
 	return false;
 }
 
@@ -548,11 +550,18 @@ bool CUIActorMenu::ToSlot(CUICellItem* itm, bool force_place, u16 slot_id)
 
 	if(m_pActorInvOwner->inventory().CanPutInSlot(iitem, slot_id))
 	{
-		CUIDragDropListEx* new_owner = GetSlotList(slot_id);
+		CUIDragDropListEx* new_owner		= GetSlotList(slot_id);
+
+		//Alundaio
 		if (!new_owner)
 			return true;
 		
-		if(slot_id==OUTFIT_SLOT)
+		/*
+		if ( slot_id == GRENADE_SLOT || !new_owner )
+		{
+			return true; //fake, sorry (((
+		} 
+		else*/ if(slot_id==OUTFIT_SLOT)
 		{
 			CCustomOutfit* pOutfit = smart_cast<CCustomOutfit*>(iitem);
 			if(pOutfit && !pOutfit->bIsHelmetAvaliable)
@@ -576,10 +585,7 @@ bool CUIActorMenu::ToSlot(CUICellItem* itm, bool force_place, u16 slot_id)
 			CUICellItem* child = i->PopChild(NULL);
 			old_owner->SetItem(child);
 		}
-		
-		if (!new_owner->CanSetItem(i))
-			return ToSlot(i, true, slot_id);
-		
+
 		new_owner->SetItem					(i);
 
 		SendEvent_Item2Slot					(iitem, m_pActorInvOwner->object_id(), slot_id);
@@ -601,48 +607,29 @@ bool CUIActorMenu::ToSlot(CUICellItem* itm, bool force_place, u16 slot_id)
 		if ( m_pActorInvOwner->inventory().SlotIsPersistent(slot_id) && slot_id != DETECTOR_SLOT  )
 			return false;
 
-		if (slot_id == INV_SLOT_2)
-		{
-			if (m_pActorInvOwner->inventory().CanPutInSlot(iitem, INV_SLOT_3))
-				return ToSlot(itm, force_place, INV_SLOT_3);
-			if (m_pActorInvOwner->inventory().CanPutInSlot(iitem, KNIFE_SLOT))
-				return ToSlot(itm, force_place, KNIFE_SLOT);
-		}
-		else if (slot_id == INV_SLOT_3)
-		{
-			if (m_pActorInvOwner->inventory().CanPutInSlot(iitem, INV_SLOT_2))
-				return ToSlot(itm, force_place, INV_SLOT_2);
-		}
-//		else if (slot_id == KNIFE_SLOT)
-//		{
-//			if (m_pActorInvOwner->inventory().CanPutInSlot(iitem, INV_SLOT_2))
-//				return ToSlot(itm, force_place, INV_SLOT_2);
-//		}
+		if ( slot_id == INV_SLOT_2 && m_pActorInvOwner->inventory().CanPutInSlot(iitem, INV_SLOT_3))
+			return ToSlot(itm, force_place, INV_SLOT_3);
 
-		CUIDragDropListEx* slot_list;
-		if (CUIDragDropListEx::m_drag_item && CUIDragDropListEx::m_drag_item->BackList())
-			slot_list = CUIDragDropListEx::m_drag_item->BackList();
-		else 
-			slot_list = GetSlotList(slot_id);
-		
+		if ( slot_id == INV_SLOT_3 && m_pActorInvOwner->inventory().CanPutInSlot(iitem, INV_SLOT_2))
+			return ToSlot(itm, force_place, INV_SLOT_2);
+
+		CUIDragDropListEx* slot_list		= GetSlotList(slot_id);
 		if (!slot_list)
 			return false;
 
 		PIItem	_iitem = m_pActorInvOwner->inventory().ItemFromSlot(slot_id);
 
-		if (slot_list != GetListByType(iActorBag))
+		CUIDragDropListEx* invlist = GetListByType(iActorBag);
+		if (invlist != slot_list)
 		{
 			if (!slot_list->ItemsCount() == 1)
 				return false;
 
 			CUICellItem* slot_cell = slot_list->GetItemIdx(0);
-			if (!slot_cell)
+			if (!(slot_cell && ((PIItem)slot_cell->m_pData) == _iitem))
 				return false;
 
-			if ((PIItem)slot_cell->m_pData != _iitem)
-				return false;
-
-			if (!ToBag(slot_cell, false))
+			if (ToBag(slot_cell, false) == false)
 				return false;
 		}
 		else
@@ -669,19 +656,14 @@ bool CUIActorMenu::ToSlot(CUICellItem* itm, bool force_place, u16 slot_id)
 			return ToSlot(itm, false, slot_id);
 		}
 
-		if(b_own_item && slot_id == DETECTOR_SLOT)
+		bool result	= ToSlot(itm, false, slot_id);
+		if(b_own_item && result && slot_id==DETECTOR_SLOT)
 		{
-			if (ToSlot(itm, false, slot_id))
-			{
-				CCustomDetector* det = smart_cast<CCustomDetector*>(iitem);
-				if (det)
-					det->ToggleDetector(g_player_hud->attached_item(0)!=NULL);
-				return true;
-			}
-			return false;
+			CCustomDetector* det			= smart_cast<CCustomDetector*>(iitem);
+			det->ToggleDetector				(g_player_hud->attached_item(0)!=NULL);
 		}
 
-		return ToSlot(itm, false, slot_id);
+		return result;
 	}
 }
 
@@ -816,18 +798,6 @@ CUIDragDropListEx* CUIActorMenu::GetSlotList(u16 slot_idx)
 	}
 	switch ( slot_idx )
 	{
-		case KNIFE_SLOT:
-			return m_pInventoryKnifeList;
-			break;
-
-		case BINOCULAR_SLOT:
-			return m_pInventoryBinocList;
-			break;
-			
-		case BACKPACK_SLOT:
-			return m_pInventoryBackpackList;
-			break;
-			
 		case INV_SLOT_2:
 			return m_pInventoryPistolList;
 			break;
@@ -900,21 +870,17 @@ bool CUIActorMenu::ToQuickSlot(CUICellItem* itm)
 	CEatableItemObject* eat_item = smart_cast<CEatableItemObject*>(iitem);
 	if(!eat_item)
 		return false;
-	
-	//Update: Should not be necessary now
+
 	//Alundaio: Fix deep recursion if placing icon greater then col/row set in actor_menu.xml
-/*	Ivector2 iWH = iitem->GetInvGridRect().rb;
+	Ivector2 iWH = iitem->GetInvGridRect().rb;
 	if (iWH.x > 1 || iWH.y > 1)
-		return false;*/
+		return false;
 	//Alundaio: END
 		
 	u8 slot_idx = u8(m_pQuickSlot->PickCell(GetUICursor().GetCursorPosition()).x);
 	if(slot_idx==255)
 		return false;
-	
-	if (!m_pQuickSlot->CanSetItem(itm))
-		return false;
-	
+
 	m_pQuickSlot->SetItem(create_cell_item(iitem), GetUICursor().GetCursorPosition());
 	xr_strcpy(ACTOR_DEFS::g_quick_use_slots[slot_idx], iitem->m_section_id.c_str());
 	return true;
@@ -1103,7 +1069,7 @@ void CUIActorMenu::PropertiesBoxForWeapon( CUICellItem* cell_item, PIItem item, 
 		{
 		}
 	}
-	if (smart_cast<CWeaponMagazined*>(pWeapon))
+	if ( smart_cast<CWeaponMagazined*>(pWeapon) && IsGameTypeSingle() )
 	{
 		bool b = ( pWeapon->GetAmmoElapsed() !=0 );
 		if ( !b )
