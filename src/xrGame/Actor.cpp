@@ -813,6 +813,7 @@ void CActor::HitSignal(float perc, Fvector& vLocalDir, CObject* who, s16 element
     }
 }
 void start_tutorial(LPCSTR name);
+extern BOOL actor_death_first_eye;
 void CActor::Die(CObject* who)
 {
 #ifdef DEBUG
@@ -903,7 +904,6 @@ void CActor::Die(CObject* who)
 
 #pragma todo("OldSerpskiStalker: Перевел на консольную команду для отключения этой опции")
 #pragma todo("TEAM Epic: first person death view (Note: It's fixed to position and does not follow corpse)")
-    extern BOOL actor_death_first_eye;
     if (actor_death_first_eye)
     {
         cam_Set(eacFirstEye);

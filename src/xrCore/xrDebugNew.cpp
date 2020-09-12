@@ -17,21 +17,11 @@
 
 extern bool shared_str_initialized;
 
-#ifdef __BORLANDC__
-# include "d3d9.h"
-# include "d3dx9.h"
-# include "D3DX_Wrapper.h"
-# pragma comment(lib,"EToolsB.lib")
-# define DEBUG_INVOKE DebugBreak()
-static BOOL bException = TRUE;
-# define USE_BUG_TRAP
-#else
 #ifndef NO_BUG_TRAP
 # define USE_BUG_TRAP
 #endif //-!NO_BUG_TRAP
 # define DEBUG_INVOKE __asm int 3
 static BOOL bException = FALSE;
-#endif
 
 #ifndef USE_BUG_TRAP
 # include <exception>
@@ -57,12 +47,7 @@ static BOOL bException = FALSE;
 #include <new.h> // for _set_new_mode
 #include <signal.h> // for signals
 
-#ifdef NO_BUG_TRAP //DEBUG
 # define USE_OWN_ERROR_MESSAGE_WINDOW
-#else
-# define USE_OWN_MINI_DUMP
-#endif //-NO_BUG_TRAP //DEBUG
-
 # define USE_OWN_MINI_DUMP
 
 XRCORE_API xrDebug Debug;

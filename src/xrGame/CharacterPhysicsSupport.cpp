@@ -1063,6 +1063,8 @@ void	CCharacterPhysicsSupport::	AddActiveWeaponCollision		()
 	//DBG_ClosedCashedDraw( 50000 );
 }
 
+extern BOOL dead_body_collision;
+
 void	CCharacterPhysicsSupport::	CreateShell						( CObject* who, Fvector& dp, Fvector & velocity  )
 {
 	xr_delete( m_collision_activating_delay );
@@ -1169,7 +1171,6 @@ void	CCharacterPhysicsSupport::	CreateShell						( CObject* who, Fvector& dp, Fv
 
 	m_pPhysicsShell->SetPrefereExactIntegration	();
 
-	extern BOOL dead_body_collision;
 	if (!dead_body_collision)
 		m_pPhysicsShell->SetRemoveCharacterCollLADisable();
 
