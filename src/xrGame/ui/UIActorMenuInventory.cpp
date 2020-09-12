@@ -603,7 +603,7 @@ bool CUIActorMenu::ToSlot(CUICellItem* itm, bool force_place, u16 slot_id)
 
 		if (slot_id == INV_SLOT_2)
 		{
-			if (m_pActorInvOwner->inventory().CanPutInSlot(iitem, INV_SLOT_3) && !iitem->BaseSlot() == KNIFE_SLOT)
+			if (m_pActorInvOwner->inventory().CanPutInSlot(iitem, INV_SLOT_3))
 				return ToSlot(itm, force_place, INV_SLOT_3);
 			if (m_pActorInvOwner->inventory().CanPutInSlot(iitem, KNIFE_SLOT))
 				return ToSlot(itm, force_place, KNIFE_SLOT);
@@ -613,11 +613,11 @@ bool CUIActorMenu::ToSlot(CUICellItem* itm, bool force_place, u16 slot_id)
 			if (m_pActorInvOwner->inventory().CanPutInSlot(iitem, INV_SLOT_2))
 				return ToSlot(itm, force_place, INV_SLOT_2);
 		}
-		else if (slot_id == KNIFE_SLOT)
-		{
-			if (m_pActorInvOwner->inventory().CanPutInSlot(iitem, INV_SLOT_2))
-				return ToSlot(itm, force_place, INV_SLOT_2);
-		}
+//		else if (slot_id == KNIFE_SLOT)
+//		{
+//			if (m_pActorInvOwner->inventory().CanPutInSlot(iitem, INV_SLOT_2))
+//				return ToSlot(itm, force_place, INV_SLOT_2);
+//		}
 
 		CUIDragDropListEx* slot_list;
 		if (CUIDragDropListEx::m_drag_item && CUIDragDropListEx::m_drag_item->BackList())
