@@ -296,9 +296,14 @@ EDDListType CUIActorMenu::GetListType(CUIDragDropListEx* l)
 
 	if(l==m_pInventoryAutomaticList)	return iActorSlot;
 	if(l==m_pInventoryPistolList)		return iActorSlot;
-	if(l==m_pInventoryKnifeList)		return iActorSlot;
-	if(l==m_pInventoryBackpackList)		return iActorSlot;
-	if(l==m_pInventoryBinocList)		return iActorSlot;
+
+	if (!strstr(Core.Params, "-old_ver"))
+	{
+		if (l == m_pInventoryKnifeList)		return iActorSlot;
+		if (l == m_pInventoryBackpackList)	return iActorSlot;
+		if (l == m_pInventoryBinocList)		return iActorSlot;
+	}
+
 	if(l==m_pInventoryOutfitList)		return iActorSlot;
 	if(l==m_pInventoryHelmetList)		return iActorSlot;
 	if(l==m_pInventoryDetectorList)		return iActorSlot;
@@ -469,9 +474,14 @@ void CUIActorMenu::clear_highlight_lists()
 {
 	m_InvSlot2Highlight->Show(false);
 	m_InvSlot3Highlight->Show(false);
-	m_KnifeSlotHighlight->Show(false);
-	m_BinocSlotHighlight->Show(false);
-	m_BackpackSlotHighlight->Show(false);
+
+	if (!strstr(Core.Params, "-old_ver"))
+	{
+		m_KnifeSlotHighlight->Show(false);
+		m_BinocSlotHighlight->Show(false);
+		m_BackpackSlotHighlight->Show(false);
+	}
+
 	m_HelmetSlotHighlight->Show(false);
 	m_OutfitSlotHighlight->Show(false);
 	m_DetectorSlotHighlight->Show(false);
@@ -544,21 +554,26 @@ void CUIActorMenu::highlight_item_slot(CUICellItem* cell_item)
 		m_DetectorSlotHighlight->Show(true);
 		return;
 	}
-	if (knife && slot_id == KNIFE_SLOT)
+
+	if (!strstr(Core.Params, "-old_ver"))
 	{
-		m_KnifeSlotHighlight->Show(true);
-		return;
+		if (knife && slot_id == KNIFE_SLOT)
+		{
+			m_KnifeSlotHighlight->Show(true);
+			return;
+		}
+		if (binoc && slot_id == BINOCULAR_SLOT)
+		{
+			m_BinocSlotHighlight->Show(true);
+			return;
+		}
+		if (backpack && slot_id == BACKPACK_SLOT)
+		{
+			m_BackpackSlotHighlight->Show(true);
+			return;
+		}
 	}
-	if (binoc && slot_id == BINOCULAR_SLOT)
-	{
-		m_BinocSlotHighlight->Show(true);
-		return;
-	}
-	if (backpack && slot_id == BACKPACK_SLOT)
-	{
-		m_BackpackSlotHighlight->Show(true);
-		return;
-	}
+
 	if(eatable)
 	{
 		if(cell_item->OwnerList() && GetListType(cell_item->OwnerList())==iQuickSlot)
@@ -828,9 +843,14 @@ void CUIActorMenu::ClearAllLists()
 	m_pInventoryBeltList->ClearAll				(true);
 	m_pInventoryOutfitList->ClearAll			(true);
 	m_pInventoryHelmetList->ClearAll			(true);
-	m_pInventoryKnifeList->ClearAll				(true);
-	m_pInventoryBackpackList->ClearAll			(true);
-	m_pInventoryBinocList->ClearAll				(true);
+
+	if (!strstr(Core.Params, "-old_ver"))
+	{
+		m_pInventoryKnifeList->ClearAll(true);
+		m_pInventoryBackpackList->ClearAll(true);
+		m_pInventoryBinocList->ClearAll(true);
+	}
+
 	m_pInventoryDetectorList->ClearAll			(true);
 	m_pInventoryPistolList->ClearAll			(true);
 	m_pInventoryAutomaticList->ClearAll			(true);
@@ -905,10 +925,13 @@ bool CUIActorMenu::CanSetItemToList(PIItem item, CUIDragDropListEx* l, u16& ret_
 		return		true;
 	}
 
-	if (item_slot == KNIFE_SLOT && l == m_pInventoryKnifeList)
+	if (!strstr(Core.Params, "-old_ver"))
 	{
-		ret_slot = KNIFE_SLOT;
-		return true;
+		if (item_slot == KNIFE_SLOT && l == m_pInventoryKnifeList)
+		{
+			ret_slot = KNIFE_SLOT;
+			return true;
+		}
 	}
 
 	return false;
@@ -941,11 +964,14 @@ void CUIActorMenu::UpdateConditionProgressBars()
 	else
 		m_Helmet_progress->SetProgressPos(0);
 
-	itm = m_pActorInvOwner->inventory().ItemFromSlot(KNIFE_SLOT);
-	if (itm)
-		m_Knife_progress->SetProgressPos(iCeil(itm->GetCondition() * 15.0f) / 15.0f);
-	else
-		m_Knife_progress->SetProgressPos(0);
+	if (!strstr(Core.Params, "-old_ver"))
+	{
+		itm = m_pActorInvOwner->inventory().ItemFromSlot(KNIFE_SLOT);
+		if (itm)
+			m_Knife_progress->SetProgressPos(iCeil(itm->GetCondition() * 15.0f) / 15.0f);
+		else
+			m_Knife_progress->SetProgressPos(0);
+	}
 
 	//Highlight 'equipped' items in actor bag
 	CUIDragDropListEx* slot_list = m_pInventoryBagList;

@@ -50,9 +50,12 @@ void CUIActorMenu::InitInventoryMode()
 	m_pInventoryDetectorList->Show		(true);
 	m_pInventoryPistolList->Show		(true);
 
-	m_pInventoryKnifeList->Show			(true);
-	m_pInventoryBinocList->Show			(true);
-	m_pInventoryBackpackList->Show		(true);
+	if (!strstr(Core.Params, "-old_ver"))
+	{
+		m_pInventoryKnifeList->Show(true);
+		m_pInventoryBinocList->Show(true);
+		m_pInventoryBackpackList->Show(true);
+	}
 
 	m_pInventoryAutomaticList->Show		(true);
 	m_pQuickSlot->Show					(true);
@@ -240,7 +243,7 @@ bool RemoveItemFromList(CUIDragDropListEx* lst, PIItem pItem)
 
 void CUIActorMenu::OnInventoryAction(PIItem pItem, u16 action_type)
 {
-	CUIDragDropListEx* all_lists[] =
+	CUIDragDropListEx* all_lists_new[] =
 	{
 		m_pInventoryBeltList,
 		m_pInventoryPistolList,
@@ -248,6 +251,21 @@ void CUIActorMenu::OnInventoryAction(PIItem pItem, u16 action_type)
 		m_pInventoryKnifeList,
 		m_pInventoryBinocList,
 		m_pInventoryBackpackList,
+
+		m_pInventoryAutomaticList,
+		m_pInventoryOutfitList,
+		m_pInventoryHelmetList,
+		m_pInventoryDetectorList,
+		m_pInventoryBagList,
+		m_pTradeActorBagList,
+		m_pTradeActorList,
+		NULL
+	};
+
+	CUIDragDropListEx* all_lists_old_slots[] =
+	{
+		m_pInventoryBeltList,
+		m_pInventoryPistolList,
 
 		m_pInventoryAutomaticList,
 		m_pInventoryOutfitList,
@@ -291,9 +309,9 @@ void CUIActorMenu::OnInventoryAction(PIItem pItem, u16 action_type)
 				}
 
 
-				while ( all_lists[i] )
+				while ((!strstr(Core.Params, "-old_ver")) ? all_lists_old_slots[i] : all_lists_new[i])
 				{
-					CUIDragDropListEx*	curr = all_lists[i];
+					CUIDragDropListEx*	curr = ((!strstr(Core.Params, "-old_ver")) ? all_lists_old_slots[i] : all_lists_new[i]);
 					CUICellItem*		ci   = NULL;
 
 					if ( FindItemInList(curr, pItem, ci) )
@@ -340,9 +358,9 @@ void CUIActorMenu::OnInventoryAction(PIItem pItem, u16 action_type)
 				}
 
 				u32 i = 0;
-				while(all_lists[i])
+				while(((!strstr(Core.Params, "-old_ver")) ? all_lists_old_slots[i] : all_lists_new[i]))
 				{
-					CUIDragDropListEx* curr = all_lists[i];
+					CUIDragDropListEx* curr = ((!strstr(Core.Params, "-old_ver")) ? all_lists_old_slots[i] : all_lists_new[i]);
 					if(RemoveItemFromList(curr, pItem))
 					{
 #ifndef MASTER_GOLD
@@ -436,15 +454,22 @@ void CUIActorMenu::InitInventoryContents(CUIDragDropListEx* pBagList)
 	InitCellForSlot				(DETECTOR_SLOT);
 	InitCellForSlot				(GRENADE_SLOT);
 	InitCellForSlot				(HELMET_SLOT);
-	InitCellForSlot				(KNIFE_SLOT);
-	InitCellForSlot				(BINOCULAR_SLOT);
-	InitCellForSlot				(BACKPACK_SLOT);
+
+	if (!strstr(Core.Params, "-old_ver"))
+	{
+		InitCellForSlot(KNIFE_SLOT);
+		InitCellForSlot(BINOCULAR_SLOT);
+		InitCellForSlot(BACKPACK_SLOT);
+	}
 
 	//Alundaio
-//	if (!m_pActorInvOwner->inventory().SlotIsPersistent(KNIFE_SLOT))
-//		InitCellForSlot(KNIFE_SLOT);
-//	if (!m_pActorInvOwner->inventory().SlotIsPersistent(BINOCULAR_SLOT))
-//		InitCellForSlot(BINOCULAR_SLOT);
+	if (strstr(Core.Params, "-old_ver"))
+	{
+		if (!m_pActorInvOwner->inventory().SlotIsPersistent(KNIFE_SLOT))
+			InitCellForSlot(KNIFE_SLOT);
+		if (!m_pActorInvOwner->inventory().SlotIsPersistent(BINOCULAR_SLOT))
+			InitCellForSlot(BINOCULAR_SLOT);
+	}
 	if (!m_pActorInvOwner->inventory().SlotIsPersistent(ARTEFACT_SLOT))
 		InitCellForSlot(ARTEFACT_SLOT);
 	if (!m_pActorInvOwner->inventory().SlotIsPersistent(PDA_SLOT))
@@ -623,8 +648,9 @@ bool CUIActorMenu::ToSlot(CUICellItem* itm, bool force_place, u16 slot_id)
 		if ( slot_id == INV_SLOT_3 && m_pActorInvOwner->inventory().CanPutInSlot(iitem, INV_SLOT_2))
 			return ToSlot(itm, force_place, INV_SLOT_2);
 
-		if (slot_id == KNIFE_SLOT && m_pActorInvOwner->inventory().CanPutInSlot(iitem, KNIFE_SLOT))
-			return ToSlot(itm, force_place, KNIFE_SLOT);
+		if (!strstr(Core.Params, "-old_ver"))
+			if (slot_id == KNIFE_SLOT && m_pActorInvOwner->inventory().CanPutInSlot(iitem, KNIFE_SLOT))
+				return ToSlot(itm, force_place, KNIFE_SLOT);
 
 
 		CUIDragDropListEx* slot_list		= GetSlotList(slot_id);
@@ -813,15 +839,18 @@ CUIDragDropListEx* CUIActorMenu::GetSlotList(u16 slot_idx)
 	switch ( slot_idx )
 	{
 		case BACKPACK_SLOT:
-			return m_pInventoryBackpackList;
+			if (!strstr(Core.Params, "-old_ver"))
+				return m_pInventoryBackpackList;
 			break;
 
 		case KNIFE_SLOT:
-			return m_pInventoryKnifeList;
+			if (!strstr(Core.Params, "-old_ver"))
+				return m_pInventoryKnifeList;
 			break;
 
 		case BINOCULAR_SLOT:
-			return m_pInventoryBinocList;
+			if (!strstr(Core.Params, "-old_ver"))
+				return m_pInventoryBinocList;
 			break;
 
 		case INV_SLOT_2:
