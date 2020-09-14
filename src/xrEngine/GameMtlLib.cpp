@@ -179,13 +179,11 @@ void SGameMtlPair::Load(IReader& fs)
 }
 #endif
 
-#ifdef DEBUG
 LPCSTR SGameMtlPair::dbg_Name()
 {
     static string256 nm;
     SGameMtl* M0 = GMLib.GetMaterialByID(GetMtl0());
     SGameMtl* M1 = GMLib.GetMaterialByID(GetMtl1());
-    xr_sprintf(nm, sizeof(nm), "Pair: %s - %s", *M0->m_Name, *M1->m_Name);
+    xr_sprintf(nm, sizeof(nm), "~Pair: %s - %s", *M0->m_Name, *M1->m_Name);
     return nm;
 }
-#endif

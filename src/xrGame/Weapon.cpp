@@ -551,7 +551,10 @@ BOOL CWeapon::net_Spawn(CSE_Abstract* DC)
     m_ammoType = E->ammo_type;
     SetState(E->wpn_state);
     SetNextState(E->wpn_state);
-
+	
+	if (!m_ammoTypes[m_ammoType])
+		m_ammoType = 0;
+	
     m_DefaultCartridge.Load(m_ammoTypes[m_ammoType].c_str(), m_ammoType);
     if (iAmmoElapsed)
     {

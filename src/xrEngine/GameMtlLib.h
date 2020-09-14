@@ -226,9 +226,7 @@ public:
     void FillProp(PropItemVec& values);
     void TransferFromParent(SGameMtlPair* parent);
 #endif
-#ifdef DEBUG
     LPCSTR dbg_Name();
-#endif
 };
 
 DEFINE_VECTOR(SGameMtlPair*, GameMtlPairVec, GameMtlPairIt);
