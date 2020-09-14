@@ -1951,7 +1951,7 @@ void CCC_RegisterCommands()
 
 	//#ifdef DEBUG
 	CMD4(CCC_Float, "hud_fov", &psHUD_FOV, 0.1f, 1.0f);
-	CMD4(CCC_Float, "fov", &g_fov, 5.0f, 180.0f);
+	CMD4(CCC_Float, "fov", &g_fov, 45.0f, 90.0f);
 	//#endif // DEBUG
 
 	// Demo
@@ -2094,7 +2094,9 @@ void CCC_RegisterCommands()
 	CMD1(CCC_TimeFactor, "time_factor");
 	CMD1(CCC_PHGravity, "ph_gravity");
 
-	CMD3(CCC_Mask, "g_use_tracers", &psActorFlags, AF_USE_TRACERS);
+	if (strstr(Core.Params, "-old_ver"))
+		CMD3(CCC_Mask, "g_use_tracers", &psActorFlags, AF_USE_TRACERS);
+
 	CMD3(CCC_Mask, "g_autopickup", &psActorFlags, AF_AUTOPICKUP);
 	CMD3(CCC_Mask, "g_dynamic_music", &psActorFlags, AF_DYNAMIC_MUSIC);
 	CMD3(CCC_Mask, "g_important_save", &psActorFlags, AF_IMPORTANT_SAVE);
@@ -2178,16 +2180,6 @@ void CCC_RegisterCommands()
 	extern	BOOL dbg_draw_doors;
 	CMD4(CCC_Integer, "dbg_draw_doors", &dbg_draw_doors, FALSE, TRUE);
 
-	/*
-	extern int ik_allign_free_foot;
-	extern int ik_local_blending;
-	extern int ik_blend_free_foot;
-	extern int ik_collide_blend;
-	CMD4(CCC_Integer,	"ik_allign_free_foot"			,&ik_allign_free_foot,	0,	1);
-	CMD4(CCC_Integer,	"ik_local_blending"				,&ik_local_blending,	0,	1);
-	CMD4(CCC_Integer,	"ik_blend_free_foot"			,&ik_blend_free_foot,	0,	1);
-	CMD4(CCC_Integer,	"ik_collide_blend"				,&ik_collide_blend,	0,	1);
-	*/
 	extern 	BOOL dbg_draw_ragdoll_spawn;
 	CMD4(CCC_Integer, "dbg_draw_ragdoll_spawn", &dbg_draw_ragdoll_spawn, FALSE, TRUE);
 	extern BOOL debug_step_info;
@@ -2205,22 +2197,6 @@ void CCC_RegisterCommands()
 	extern BOOL	dbg_draw_animation_movement_controller;
 	CMD4(CCC_Integer, "dbg_draw_animation_movement_controller", &dbg_draw_animation_movement_controller, FALSE, TRUE);
 
-	/*
-	enum
-	{
-	dbg_track_obj_blends_bp_0			= 1<< 0,
-	dbg_track_obj_blends_bp_1			= 1<< 1,
-	dbg_track_obj_blends_bp_2			= 1<< 2,
-	dbg_track_obj_blends_bp_3			= 1<< 3,
-	dbg_track_obj_blends_motion_name	= 1<< 4,
-	dbg_track_obj_blends_time			= 1<< 5,
-	dbg_track_obj_blends_ammount		= 1<< 6,
-	dbg_track_obj_blends_mix_params		= 1<< 7,
-	dbg_track_obj_blends_flags			= 1<< 8,
-	dbg_track_obj_blends_state			= 1<< 9,
-	dbg_track_obj_blends_dump			= 1<< 10
-	};
-	*/
 	extern Flags32	dbg_track_obj_flags;
 	CMD3(CCC_Mask, "dbg_track_obj_blends_bp_0", &dbg_track_obj_flags, dbg_track_obj_blends_bp_0);
 	CMD3(CCC_Mask, "dbg_track_obj_blends_bp_1", &dbg_track_obj_flags, dbg_track_obj_blends_bp_1);
