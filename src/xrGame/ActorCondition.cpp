@@ -266,17 +266,16 @@ void CActorCondition::UpdateCondition()
 					RemoveEffector(m_object,effPsyHealth);
 			}
 		}
-//-		if(fis_zero(GetPsyHealth()))
-//-			SetHealth( 0.0f );
+#pragma todo("OldSerpskiStalker. Включить смерть ГГ если пси-здоровье равно 0")
+		if (!strstr(Core.Params, "-old_ver"))
+			if(fis_zero(GetPsyHealth()))
+				SetHealth( 0.0f );
 	};
 
 	UpdateSatiety();
 	UpdateBoosters();
-
 	inherited::UpdateCondition();
-
-	if( IsGameTypeSingle() )
-		UpdateTutorialThresholds();
+	UpdateTutorialThresholds();
 
 	if(GetHealth()<0.05f && m_death_effector==NULL && IsGameTypeSingle())
 	{
