@@ -546,10 +546,6 @@ BOOL CActor::net_Spawn		(CSE_Abstract* DC)
 	CSE_ALifeTraderAbstract	 *pTA	= smart_cast<CSE_ALifeTraderAbstract*>(e);
 	set_money				(pTA->m_dwMoney, false);
 
-//.	if(	TRUE == E->s_flags.test(M_SPAWN_OBJECT_LOCAL) && TRUE == E->s_flags.is(M_SPAWN_OBJECT_ASPLAYER))
-//.		CurrentGameUI()->UIMainIngameWnd->m_artefactPanel->InitIcons(m_ArtefactsOnBelt);
-		
-
 	ROS()->force_mode	(IRender_ObjectSpecific::TRACE_ALL);
 
 	//mstate_wishful = E->mstate;
@@ -614,37 +610,15 @@ BOOL CActor::net_Spawn		(CSE_Abstract* DC)
 	m_bInInterpolation = false;
 	m_bInterpolate = false;
 
-//	if (GameID() != eGameIDSingle)
-	{
-		processing_activate();
-	}
+
+	processing_activate();
 
 #ifdef DEBUG
 	LastPosS.clear();
 	LastPosH.clear();
 	LastPosL.clear();
 #endif
-//*
-	
-//	if (OnServer())// && E->s_flags.is(M_SPAWN_OBJECT_LOCAL))
-/*	
-	if (OnClient())
-	{
-		if (!pStatGraph)
-		{
-			static g_Y = 0;
-			pStatGraph = xr_new<CStatGraph>();
-			pStatGraph->SetRect(0, g_Y, Device.dwWidth, 100, 0xff000000, 0xff000000);
-			g_Y += 110;
-			if (g_Y > 700) g_Y = 100;
-			pStatGraph->SetGrid(0, 0.0f, 10, 1.0f, 0xff808080, 0xffffffff);
-			pStatGraph->SetMinMax(0, 10, 300);
-			pStatGraph->SetStyle(CStatGraph::stBar);
-			pStatGraph->AppendSubGraph(CStatGraph::stCurve);
-			pStatGraph->AppendSubGraph(CStatGraph::stCurve);
-		}
-	}
-*/	
+
 	SetDefaultVisualOutfit(cNameVisual());
 
 	smart_cast<IKinematics*>(Visual())->CalculateBones();
@@ -654,7 +628,7 @@ BOOL CActor::net_Spawn		(CSE_Abstract* DC)
 
 
 	//-------------------------------------
-	m_States.empty();
+	m_States.clear();
 	//-------------------------------------
 	if (!g_Alive())
 	{
