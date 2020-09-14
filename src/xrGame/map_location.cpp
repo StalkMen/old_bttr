@@ -50,10 +50,7 @@ CMapLocation::CMapLocation(LPCSTR type, u16 object_id, bool is_user_loc)
 	m_complex_spot_border_na = NULL;
 
 	if (is_user_loc)
-	{
-		Msg("qweasdd: CMapLocation user spot init: type = %s", type);
 		m_flags.set(eUserDefined, TRUE);
-	}
 
 	m_objectID				= object_id;
 	m_actual_time			= 0;
@@ -264,7 +261,7 @@ void CMapLocation::InitUserSpot(const shared_str& level_name, const Fvector& pos
 		}
 		if (!ai().game_graph().vertex(m_cached.m_graphID))
 		{
-			Msg("qweasdd! Cannot assign game vertex for CUserDefinedMapLocation [map=%s]", *level_name);
+			Msg("! Error: Cannot assign game vertex for CUserDefinedMapLocation [map=%s]", *level_name);
 			R_ASSERT(ai().game_graph().vertex(m_cached.m_graphID));
 		}
 	}

@@ -53,6 +53,7 @@ CUIMapWnd::CUIMapWnd()
 	m_nav_timing			= Device.dwTimeGlobal;
 	hint_wnd				= NULL;
 	g_map_wnd				= this;
+	m_cur_location			= NULL;
 }
 
 CUIMapWnd::~CUIMapWnd()
@@ -502,7 +503,7 @@ void CUIMapWnd::SendMessage(CUIWindow* pWnd, s16 msg, void* pData)
 	{
 		luabind::functor<void> funct;
 		if (ai().script_engine().functor("pda.property_box_clicked", funct))
-			funct(m_UIPropertiesBox);
+			funct(m_UIPropertiesBox,m_cur_location);
 		
 		//-----------------------
 		switch (m_UIPropertiesBox->GetClickedItem()->GetTAG())
@@ -510,11 +511,13 @@ void CUIMapWnd::SendMessage(CUIWindow* pWnd, s16 msg, void* pData)
 		case MAP_CHANGE_SPOT_HINT_ACT: // Êëèêíóëè ïî êíîïêå èçìåíèòü íàçâàíèå ìåòêè
 			{
 				ShowSettingsWindow(m_cur_location->ObjectID(), m_cur_location->GetLastPosition(), m_cur_location->GetLevelName());
+				m_cur_location = NULL;
 				break;
 			}
 		case MAP_REMOVE_SPOT_ACT: // Êëèêíóëè ïî êíîïêå óäàëèòü ìåòêó
 			{
-				Level().MapManager().RemoveMapLocation(m_cur_location->GetType(), m_cur_location->ObjectID());
+				Level().MapManager().RemoveMapLocation(m_cur_location);
+				m_cur_location = NULL;
 				break;
 			}
 		}
@@ -533,17 +536,18 @@ void CUIMapWnd::ActivatePropertiesBox(CUIWindow* w)
 	}
 
 	m_cur_location = sp->MapLocation();
+	if (!m_cur_location)
+		return;
 	
 	luabind::functor<void> funct;
 	if (ai().script_engine().functor("pda.property_box_add_properties", funct))
 	{
-		funct(m_UIPropertiesBox, m_cur_location->ObjectID(), (LPCSTR)m_cur_location->GetLevelName().c_str(), (LPCSTR)m_cur_location->GetHint());
+		funct(m_UIPropertiesBox, m_cur_location->ObjectID(), (LPCSTR)m_cur_location->GetLevelName().c_str(),m_cur_location);
 	}
 
 	// Òîëüêî äëÿ ìåòîê èãðîêà
-	if (sp->MapLocation()->IsUserDefined())
+	if (m_cur_location->IsUserDefined())
 	{
-		Msg("qweasdd: CUIMapWnd::ActivatePropertiesBox, register prop boxes. ln = %s, type = %s", m_cur_location->GetLevelName().c_str(), m_cur_location->GetType());
 		m_UIPropertiesBox->AddItem("st_pda_change_spot_hint", NULL, MAP_CHANGE_SPOT_HINT_ACT); // Èçìåíÿåì íàçâàíèå ìåòêè
 		m_UIPropertiesBox->AddItem("st_pda_delete_spot", NULL, MAP_REMOVE_SPOT_ACT); // Óäàëÿåì ìåòêó
 	}
@@ -793,62 +797,24 @@ void CUIMapWnd::SpotSelected( CUIWindow* w )
 }
 
 // -------------------------------------------------------------
-// qweasdd: Following functions from Lost Alpha
+// qweasdd: Following functions from Lost Alpha 
+//Alun: Correct now. All you need is relative mouse position to absolute pos of uilevelmap, then remove widescreen scale on X before local-to-world convert
 bool CUIMapWnd::ConvertCursorPosToMap(Fvector* return_position, CUILevelMap* curr_map)
 {
-	if (fsimilar(GlobalMap()->GetMinZoom(), GetZoom(), EPS_L)) return false;
-
-	if (!curr_map)
-	{
-		Msg("qweasdd: CUIMapWnd::ConvertCursorPosToMap, curr_map == NULL!");
+	Fvector2 cursor_pos = GetUICursor().GetCursorPosition();
+	Frect box_rect;
+	curr_map->GetAbsoluteRect(box_rect);
+	if (!box_rect.in(cursor_pos))
 		return false;
-	}
+	cursor_pos.sub(box_rect.lt);
 
-	Frect PosOnMap = curr_map->GlobalRect();															//v1=PosOnMap
+	Frect bound_rect = curr_map->BoundRect();
+	bound_rect.lt.x /= UI().get_current_kx();
+	bound_rect.rb.x /= UI().get_current_kx();
+	return_position->x = bound_rect.lt.x + cursor_pos.x / (box_rect.width() / bound_rect.width());
+	return_position->y = 0.f;
+	return_position->z = bound_rect.height() + bound_rect.lt.y - cursor_pos.y / (box_rect.height() / bound_rect.height());
 
-	Frect PosReal = curr_map->BoundRect();
-	PosReal.x1 /= UI().get_current_kx();
-	PosReal.x2 /= UI().get_current_kx();
-
-	Fvector2 Position = m_GlobalMap->GetWndPos();														//v2=Positioin
-	Fvector2 Position2;
-
-	Position.div(m_GlobalMap->GetCurrentZoom());
-
-	Position.abs(Position);
-	Position.sub(PosOnMap.lt);
-
-	//Ãäå íàõîäèìñÿ îò ëåâîãî âåðõíåãî óãëà
-	//Add cursor position
-	Fvector2 CursorPos = GetUICursor().GetCursorPosition();
-	CursorPos.sub(ActiveMapRect().lt);
-	CursorPos.div(m_GlobalMap->GetCurrentZoom());
-	Position.add(CursorPos);
-
-	//Ratio: Meters to Pixels
-	Fvector2 Ratio;
-	Ratio.x = PosReal.width() / PosOnMap.width();		//Îòíîøåíèå ïèêñåëåé ê ðåàëüíûì ìåòðàì
-	Ratio.y = PosReal.height() / PosOnMap.height();
-
-	//Location center isn't usually in the map location center
-	//Öåíòð ëîêàöèè íå âñåãäà òàì ãäå öåíòð ëîêàöèè íà êàðòå
-	Fvector2 OffsetPosition;
-	OffsetPosition.set(PosReal.rb.x + PosReal.lt.x, PosReal.rb.y + PosReal.lt.y);
-	OffsetPosition.div(2.0f);
-	OffsetPosition.x *= UI().get_current_kx();
-
-	//Center on map. In PDA
-	Fvector2 CenterOnMap;
-	CenterOnMap.set(PosOnMap.rb.x - PosOnMap.lt.x, PosOnMap.rb.y - PosOnMap.lt.y);
-	CenterOnMap.div(2.0f);
-
-
-	Position.set(Position.x - CenterOnMap.x, CenterOnMap.y - Position.y);
-	Position.mul(Ratio);
-	Position.add(OffsetPosition);
-
-	return_position->set(Position.x, 0.0f, Position.y);
-	Msg("qweasdd: CUIMapWnd::ConvertCursorPosToMap, FINISH!");
 	return true;
 }
 // -------------------------------------------------------------

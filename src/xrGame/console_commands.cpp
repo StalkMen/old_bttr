@@ -1871,6 +1871,7 @@ public:
 	}
 };
 
+int g_objects_per_client_update = 20;
 float xrgame_scope_fov = 0.65f;
 float minimap_zoom_factor = 1.0f;
 BOOL int_wallmarks = 1;
@@ -1900,7 +1901,8 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Float, "xrGame_minimap_zoom_factor", &minimap_zoom_factor, 0.5f, 3.5f);
 	CMD4(CCC_Integer, "xrGame_actor_death_first_eye", &actor_death_first_eye, 0, 1);
 	CMD4(CCC_Integer, "xrGame_dead_body_collision", &dead_body_collision, 0, 1);
-
+	CMD4(CCC_Integer, "xrGame_ObjectСlientUpdate", &g_objects_per_client_update, 1, 65535)
+	
 	// options
 	g_OptConCom.Init();
 
