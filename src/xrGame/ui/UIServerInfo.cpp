@@ -10,8 +10,6 @@
 #include "../level.h"
 #include "../game_cl_mp.h"
 #include <dinput.h>
-#include "ximage.h"
-#include "xmemfile.h"
 
 CUIServerInfo::CUIServerInfo()
 {
@@ -98,25 +96,7 @@ void CUIServerInfo::InitCallbacks()
 char const * CUIServerInfo::tmp_logo_file_name = "tmp_sv_logo.dds";
 void CUIServerInfo::SetServerLogo(u8 const * data_ptr, u32 const data_size)
 {
-	CxMemFile	tmp_memfile(const_cast<BYTE*>(data_ptr), data_size);
-	CxImage		tmp_image;
-	if (!tmp_image.Decode(&tmp_memfile, CXIMAGE_FORMAT_JPG))
-	{
-		Msg("! ERROR: Failed to decode server logo image as JPEG formated.");
-		return;
-	}
-	
-	IWriter* tmp_writer = FS.w_open("$game_saves$", tmp_logo_file_name);
-	if (!tmp_writer)
-	{
-		Msg("! ERROR: failed to create temporary dds file");
-		return;
-	}
-	tmp_writer->w			((void*)data_ptr, data_size);	//sorry :(
-	FS.w_close(tmp_writer);
-	m_dds_file_created		= true;
-	m_image->InitTexture	(tmp_logo_file_name);
-	FS.file_delete			("$game_saves$", tmp_logo_file_name);
+
 }
 
 void CUIServerInfo::SetServerRules(u8 const * data_ptr, u32 const data_size)

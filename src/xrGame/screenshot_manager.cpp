@@ -10,10 +10,7 @@
 #endif
 
 #include <ddraw.h>
-#include "ximage.h"
-#include "xmemfile.h"
 
-#pragma comment(lib,"cximage.lib")
 #pragma comment(lib,"libjpeg.lib")
 
 void*	cxalloc(size_t size)
@@ -122,33 +119,6 @@ void screenshot_manager::prepare_image()
 
 void screenshot_manager::make_jpeg_file()
 {
-	u32*	sizes = reinterpret_cast<u32*>(m_result_writer.pointer());
-	u32		width = *sizes;
-	u32		height = *(++sizes);
-	u8* rgb24data = reinterpret_cast<u8*>(m_result_writer.pointer() + 2*sizeof(u32) );
-	
-	CxImage jpg_image;
-	
-	jpg_image.CreateFromArray(
-		rgb24data,
-		width,		//width
-		height,		//height
-		24,
-		width * 3,
-		true);
-	
-	jpg_image.SetJpegQuality	(30);
-
-	realloc_jpeg_buffer			(m_result_writer.size() + screenshots::writer::info_max_size);
-
-	CxMemFile					tmp_mem_file(m_jpeg_buffer, m_jpeg_buffer_capacity);
-	jpg_image.Encode			(&tmp_mem_file, CXIMAGE_FORMAT_JPG);
-	
-	m_jpeg_buffer_size			= static_cast<u32>(tmp_mem_file.Tell());
-
-#ifdef DEBUG
-	Msg("* JPEG encoded to %d bytes", m_jpeg_buffer_size);
-#endif
 }
 
 void screenshot_manager::sign_jpeg_file()
