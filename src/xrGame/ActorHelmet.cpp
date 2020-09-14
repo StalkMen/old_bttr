@@ -230,10 +230,9 @@ float CHelmet::HitThroughArmor(float hit_power, s16 element, float ap, bool& add
 		}
 		else 
 		{
-			float d_hit_power = (ap - BoneArmor) / ap;
-			if (d_hit_power < m_boneProtection->m_fHitFracActor)
-				d_hit_power = m_boneProtection->m_fHitFracActor;
-
+			float d_hit_power = (ap - BoneArmor) / (ap * m_boneProtection->APScale);
+			clamp(d_hit_power, m_boneProtection->m_fHitFracActor, 1.0f);
+			
 			hit_power *= d_hit_power;
 		}
 	}

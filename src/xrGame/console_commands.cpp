@@ -57,6 +57,7 @@
 #	include "game_graph.h"
 #	include "CharacterPhysicsSupport.h"
 #endif // DEBUG
+#include "player_hud.h"
 
 string_path		g_last_saved_game;
 
@@ -2243,7 +2244,9 @@ void CCC_RegisterCommands()
 
 	CMD3(CCC_Mask, "ai_use_torch_dynamic_lights", &g_uCommonFlags, flAiUseTorchDynamicLights);
 	CMD4(CCC_Vector3, "psp_cam_offset", &CCameraLook2::m_cam_offset, Fvector().set(-1000, -1000, -1000), Fvector().set(1000, 1000, 1000));
-
+	CMD4(CCC_Vector3, "hud_offset_pos", &player_hud::m_hud_offset_pos, Fvector().set(-1000, -1000, -1000), Fvector().set(1000, 1000, 1000));
+	CMD4(CCC_Vector3, "hand_offset_pos", &player_hud::m_hand_offset_pos, Fvector().set(-1000, -1000, -1000), Fvector().set(1000, 1000, 1000));
+	
 	CMD1(CCC_GSCheckForUpdates, "check_for_updates");
 #ifdef DEBUG
 	CMD1(CCC_Crash, "crash");

@@ -26,10 +26,6 @@ struct	vertHW
 #pragma pack(pop)
 
 short QC (float v);
-//{
-//	int t=iFloor(v*float(quant)); clamp(t,-32768,32767);
-//	return short(t&0xffff);
-//}
 
 void CDetailManager::hw_Load_Shaders()
 {
@@ -228,10 +224,10 @@ void CDetailManager::hw_Render_dump(const Fvector4 &consts, const Fvector4 &wave
 			}
 			// Clean up
 			// KD: we must not clear vis on r2 since we want details shadows
-			if ((ps_grass_shadow == 0) || ((ps_r2_ls_flags.test(R2FLAG_SUN_DETAILS) && (RImplementation.PHASE_SMAP == RImplementation.phase)) // phase smap with shadows
-				|| (ps_r2_ls_flags.test(R2FLAG_SUN_DETAILS) && (RImplementation.PHASE_NORMAL == RImplementation.phase) && (!RImplementation.is_sun())) // phase normal with shadows without sun
-				|| (!ps_r2_ls_flags.test(R2FLAG_SUN_DETAILS) && (RImplementation.PHASE_NORMAL == RImplementation.phase)))) // phase normal without shadows
-			vis.clear_not_free			();
+			//if ((ps_grass_shadow == 0) || ((ps_r2_ls_flags.test(R2FLAG_SUN_DETAILS) && (RImplementation.PHASE_SMAP == RImplementation.phase)) // phase smap with shadows
+			//	|| (ps_r2_ls_flags.test(R2FLAG_SUN_DETAILS) && (RImplementation.PHASE_NORMAL == RImplementation.phase) && (!RImplementation.is_sun())) // phase normal with shadows without sun
+			//	|| (!ps_r2_ls_flags.test(R2FLAG_SUN_DETAILS) && (RImplementation.PHASE_NORMAL == RImplementation.phase)))) // phase normal without shadows
+			//vis.clear_not_free			();
 		}
 		vOffset		+=	hw_BatchSize * Object.number_vertices;
 		iOffset		+=	hw_BatchSize * Object.number_indices;
