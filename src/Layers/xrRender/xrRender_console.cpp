@@ -84,6 +84,13 @@ xr_token							qminmax_sm_token					[ ]={
 	{ 0,							0												}
 };
 
+u32 ps_sunshafts_mode = 0;
+xr_token sunshafts_mode_token[] = {
+	{ "volumetric", 0 },
+	{ "screen_space", 1 },
+	{ 0, 0 }
+};
+
 //	�Off�
 //	�DX10.0 style [Standard]�
 //	�DX10.1 style [Higher quality]�
@@ -706,6 +713,8 @@ xr_token qsmapsize_token[] =
 };
 
 float ps_r__tf_Mipbias = 0.0f;
+float ps_r2_ss_sunshafts_length	= 1.f;
+float ps_r2_ss_sunshafts_radius	= 1.f;
 
 //-----------------------------------------------------------------------
 void		xrRender_initconsole()
@@ -716,6 +725,9 @@ void		xrRender_initconsole()
 	CMD3(CCC_Mask,  "xrRenderDX10_no_ram",				 &ps_r__common_flags,				RFLAG_NO_RAM_TEXTURES);
 	CMD3(CCC_Token, "xrRenderDX10_shadow_map_size",		 &ps_r2_smapsize,					qsmapsize_token);
 	CMD3(CCC_Mask,  "xrRenderDX10_shader_cache",		 &ps_r__common_flags,				RFLAGDX10_NO_SHADER_CACHE);
+	CMD3(CCC_Token,	"xrRenderDX10_sunshafts_mode",		 &ps_sunshafts_mode, 				sunshafts_mode_token);
+	CMD4(CCC_Float,	"xrRenderDX10_ss_sunshafts_length",	 &ps_r2_ss_sunshafts_length, 		.2f, 1.5f);
+	CMD4(CCC_Float,	"xrRenderDX10_ss_sunshafts_radius",	 &ps_r2_ss_sunshafts_radius, 		.5f, 2.f);
 	CMD3(CCC_Mask,  "xrRenderDX_enable_debug_log",		 &ps_r__common_flags,				RFLAGDX_ENABLE_DEBUG_LOG);
 	CMD3(CCC_Mask,  "xrRenderDX11_shader_cache",		 &ps_r__common_flags,				RFLAGDX11_NO_SHADER_CACHE);
 //////////////////////////////////////////////////////////////////////////////////////////////////
