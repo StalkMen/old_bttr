@@ -712,6 +712,14 @@ xr_token qsmapsize_token[] =
 	{ nullptr, 0 }
 };
 
+u32	ps_r_type_screen = 1;
+xr_token screen_mode_token[] = {
+{ "jpg",	  1},
+{ "png",	  2},
+{ "bmp",	  3},
+{ nullptr,	  0}
+};
+
 float ps_r__tf_Mipbias = 0.0f;
 float ps_r2_ss_sunshafts_length	= 1.f;
 float ps_r2_ss_sunshafts_radius	= 1.f;
@@ -729,6 +737,7 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float,	"xrRenderDX10_ss_sunshafts_length",	 &ps_r2_ss_sunshafts_length, 		.2f, 1.5f);
 	CMD4(CCC_Float,	"xrRenderDX10_ss_sunshafts_radius",	 &ps_r2_ss_sunshafts_radius, 		.5f, 2.f);
 	CMD3(CCC_Mask,  "xrRenderDX_enable_debug_log",		 &ps_r__common_flags,				RFLAGDX_ENABLE_DEBUG_LOG);
+	CMD3(CCC_Token, "xrRenderDX_type_screenshot",		 &ps_r_type_screen,					screen_mode_token);
 	CMD3(CCC_Mask,  "xrRenderDX11_shader_cache",		 &ps_r__common_flags,				RFLAGDX11_NO_SHADER_CACHE);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
