@@ -165,11 +165,11 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 					ID3DBlob* saved = 0;
 
 					if (renderer_value == 0)
-						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10.jpg", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
+						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10.jpg", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx10");
 					else if (renderer_value == 1)
-						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10_1.jpg", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
+						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10_1.jpg", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx10_1");
 					else if (renderer_value == 2)
-						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.jpg", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
+						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.jpg", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx11");
 
 #ifdef USE_DX11
 					CHK_DX(D3DX11SaveTextureToMemory(HW.pContext, pSrcTexture, D3DX11_IFF_JPG, &saved, 0));
@@ -189,11 +189,11 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 					ID3DBlob* saved = 0;
 
 					if (renderer_value == 0)
-						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10.png", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
+						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10.png", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx10");
 					else if (renderer_value == 1)
-						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10_1.png", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
+						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10_1.png", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx10_1");
 					else if (renderer_value == 2)
-						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.png", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
+						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.png", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx11");
 #ifdef USE_DX11
 					CHK_DX(D3DX11SaveTextureToMemory(HW.pContext, pSrcTexture, D3DX11_IFF_PNG, &saved, 0));
 #else
@@ -212,11 +212,11 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 					ID3DBlob* saved = 0;
 
 					if (renderer_value == 0)
-						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10.bmp", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
+						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10.bmp", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx10");
 					else if (renderer_value == 1)
-						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10_1.bmp", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
+						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10_1.bmp", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx10_1");
 					else if (renderer_value == 2)
-						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.bmp", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
+						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.bmp", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx11");
 #ifdef USE_DX11
 					CHK_DX(D3DX11SaveTextureToMemory(HW.pContext, pSrcTexture, D3DX11_IFF_BMP, &saved, 0));
 #else
