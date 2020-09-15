@@ -188,7 +188,7 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 		case IRender_interface::SM_FOR_LEVELMAP:
 		case IRender_interface::SM_FOR_CUBEMAP:
 			{
-				VERIFY(!"CRender::Screenshot. This screenshot type is not supported for DX10.");
+				VERIFY(!"CRender::Screenshot. This screenshot type is not supported for DX11.");
 			}
 			break;
 	}

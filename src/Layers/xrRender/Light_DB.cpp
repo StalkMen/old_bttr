@@ -78,7 +78,7 @@ void CLight_DB::Load			(IReader *fs)
 
 		F->close			();
 	}
-	R_ASSERT2(sun_original && sun_adapted,"Where is sun?");
+	R_ASSERT2(sun_original && sun_adapted,"What the fuck, where sun?");
 
 	// fake spot
 	/*

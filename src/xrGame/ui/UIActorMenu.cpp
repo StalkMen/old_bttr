@@ -494,41 +494,79 @@ void CUIActorMenu::UpdateItemsPlace()
 
 void CUIActorMenu::clear_highlight_lists()
 {
-	m_InvSlot2Highlight->Show(false);
-	m_InvSlot3Highlight->Show(false);
-	m_KnifeSlotHighlight->Show(false);
-	m_BinocSlotHighlight->Show(false);
-	m_BackpackSlotHighlight->Show(false);
-	m_HelmetSlotHighlight->Show(false);
-	m_OutfitSlotHighlight->Show(false);
-	m_DetectorSlotHighlight->Show(false);
-	for(u8 i=0; i<4; i++)
-		m_QuickSlotsHighlight[i]->Show(false);
-	for(u8 i=0; i<e_af_count; i++)
-		m_ArtefactSlotsHighlight[i]->Show(false);
-
-	m_pInventoryBagList->clear_select_armament();
-
-	switch ( m_currMenuMode )
+	if (!strstr(Core.Params, "-old_ver"))
 	{
-	case mmUndefined:
-		break;
-	case mmInventory:
-		break;
-	case mmTrade:
-		m_pTradeActorBagList->clear_select_armament();
-		m_pTradeActorList->clear_select_armament();
-		m_pTradePartnerBagList->clear_select_armament();
-		m_pTradePartnerList->clear_select_armament();
-		break;
-	case mmUpgrade:
-		break;
-	case mmDeadBodySearch:
-		m_pDeadBodyBagList->clear_select_armament();
-		break;
+		m_InvSlot2Highlight->Show(false);
+		m_InvSlot3Highlight->Show(false);
+		m_KnifeSlotHighlight->Show(false);
+		m_BinocSlotHighlight->Show(false);
+		m_BackpackSlotHighlight->Show(false);
+		m_HelmetSlotHighlight->Show(false);
+		m_OutfitSlotHighlight->Show(false);
+		m_DetectorSlotHighlight->Show(false);
+		for (u8 i = 0; i < 4; i++)
+			m_QuickSlotsHighlight[i]->Show(false);
+		for (u8 i = 0; i < e_af_count; i++)
+			m_ArtefactSlotsHighlight[i]->Show(false);
+
+		m_pInventoryBagList->clear_select_armament();
+
+		switch (m_currMenuMode)
+		{
+		case mmUndefined:
+			break;
+		case mmInventory:
+			break;
+		case mmTrade:
+			m_pTradeActorBagList->clear_select_armament();
+			m_pTradeActorList->clear_select_armament();
+			m_pTradePartnerBagList->clear_select_armament();
+			m_pTradePartnerList->clear_select_armament();
+			break;
+		case mmUpgrade:
+			break;
+		case mmDeadBodySearch:
+			m_pDeadBodyBagList->clear_select_armament();
+			break;
+		}
+		m_highlight_clear = true;
 	}
-	m_highlight_clear = true;
+	else
+	{
+		m_InvSlot2Highlight->Show(false);
+		m_InvSlot3Highlight->Show(false);
+		m_HelmetSlotHighlight->Show(false);
+		m_OutfitSlotHighlight->Show(false);
+		m_DetectorSlotHighlight->Show(false);
+		for (u8 i = 0; i < 4; i++)
+			m_QuickSlotsHighlight[i]->Show(false);
+		for (u8 i = 0; i < e_af_count; i++)
+			m_ArtefactSlotsHighlight[i]->Show(false);
+
+		m_pInventoryBagList->clear_select_armament();
+
+		switch (m_currMenuMode)
+		{
+		case mmUndefined:
+			break;
+		case mmInventory:
+			break;
+		case mmTrade:
+			m_pTradeActorBagList->clear_select_armament();
+			m_pTradeActorList->clear_select_armament();
+			m_pTradePartnerBagList->clear_select_armament();
+			m_pTradePartnerList->clear_select_armament();
+			break;
+		case mmUpgrade:
+			break;
+		case mmDeadBodySearch:
+			m_pDeadBodyBagList->clear_select_armament();
+			break;
+		}
+		m_highlight_clear = true;
+	}
 }
+
 void CUIActorMenu::highlight_item_slot(CUICellItem* cell_item)
 {
 	if (!strstr(Core.Params, "-old_ver"))
