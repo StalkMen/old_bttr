@@ -1,7 +1,7 @@
 #include "stdafx.h"
 //#include "../../xrEngine/xr_effgamma.h"
-#include "xr_effgamma.h"
-#include "dxRenderDeviceRender.h"
+#include "../xrRender/xr_effgamma.h"
+#include "../xrRender/dxRenderDeviceRender.h"
 #include "../xrRender/tga.h"
 #include "../../xrEngine/xrImage_Resampler.h"
 #include "d3dx10tex.h"
@@ -69,22 +69,13 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 
 				//	D3DX10_TEXTURE_LOAD_INFO *pLoadInfo
 
-#ifdef USE_DX11
-				CHK_DX(D3DX11LoadTextureFromTexture(HW.pContext, pSrcTexture,
-					NULL, pSrcSmallTexture ));
-#else
 				CHK_DX(D3DX10LoadTextureFromTexture( pSrcTexture,
 					NULL, pSrcSmallTexture ));
-#endif
 
 				// save (logical & physical)
 				ID3DBlob*		saved	= 0;
-#ifdef USE_DX11
-				HRESULT hr = D3DX11SaveTextureToMemory(HW.pContext, pSrcSmallTexture, D3DX11_IFF_DDS, &saved, 0);
-#else
 				HRESULT hr					= D3DX10SaveTextureToMemory( pSrcSmallTexture, D3DX10_IFF_DDS, &saved, 0);
-				//HRESULT hr					= D3DXSaveTextureToFileInMemory (&saved,D3DXIFF_DDS,texture,0);
-#endif
+
 				if(hr==D3D_OK)
 				{
 					IWriter*			fs		= FS.w_open	(name); 
@@ -119,21 +110,13 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 
 				//	D3DX10_TEXTURE_LOAD_INFO *pLoadInfo
 
-#ifdef USE_DX11
-				CHK_DX(D3DX11LoadTextureFromTexture(HW.pContext, pSrcTexture,
-					NULL, pSrcSmallTexture ));
-#else
 				CHK_DX(D3DX10LoadTextureFromTexture( pSrcTexture,
 					NULL, pSrcSmallTexture ));
-#endif
+
 				// save (logical & physical)
 				ID3DBlob*		saved	= 0;
-#ifdef USE_DX11
-				HRESULT hr	= D3DX11SaveTextureToMemory(HW.pContext, pSrcSmallTexture, D3DX11_IFF_DDS, &saved, 0);
-#else
 				HRESULT hr					= D3DX10SaveTextureToMemory( pSrcSmallTexture, D3DX10_IFF_DDS, &saved, 0);
-				//HRESULT hr					= D3DXSaveTextureToFileInMemory (&saved,D3DXIFF_DDS,texture,0);
-#endif
+
 				if(hr==D3D_OK)
 				{
 					if (!memory_writer)
@@ -168,14 +151,8 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10.jpg", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx10");
 					else if (renderer_value == 1)
 						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10_1.jpg", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx10_1");
-					else if (renderer_value == 2)
-						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.jpg", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx11");
-
-#ifdef USE_DX11
-					CHK_DX(D3DX11SaveTextureToMemory(HW.pContext, pSrcTexture, D3DX11_IFF_JPG, &saved, 0));
-#else
+					
 					CHK_DX(D3DX10SaveTextureToMemory(pSrcTexture, D3DX10_IFF_JPG, &saved, 0));
-#endif
 					IWriter* fs = FS.w_open("$screenshots$", buf); R_ASSERT(fs);
 					fs->w(saved->GetBufferPointer(), (u32)saved->GetBufferSize());
 					FS.w_close(fs);
@@ -192,13 +169,8 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10.png", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx10");
 					else if (renderer_value == 1)
 						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10_1.png", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx10_1");
-					else if (renderer_value == 2)
-						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.png", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx11");
-#ifdef USE_DX11
-					CHK_DX(D3DX11SaveTextureToMemory(HW.pContext, pSrcTexture, D3DX11_IFF_PNG, &saved, 0));
-#else
+					
 					CHK_DX(D3DX10SaveTextureToMemory(pSrcTexture, D3DX10_IFF_PNG, &saved, 0));
-#endif
 					IWriter* fs = FS.w_open("$screenshots$", buf); R_ASSERT(fs);
 					fs->w(saved->GetBufferPointer(), (u32)saved->GetBufferSize());
 					FS.w_close(fs);
@@ -215,13 +187,8 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10.bmp", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx10");
 					else if (renderer_value == 1)
 						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10_1.bmp", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx10_1");
-					else if (renderer_value == 2)
-						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.bmp", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu_dx11");
-#ifdef USE_DX11
-					CHK_DX(D3DX11SaveTextureToMemory(HW.pContext, pSrcTexture, D3DX11_IFF_BMP, &saved, 0));
-#else
+					
 					CHK_DX(D3DX10SaveTextureToMemory(pSrcTexture, D3DX10_IFF_BMP, &saved, 0));
-#endif
 					IWriter* fs = FS.w_open("$screenshots$", buf); R_ASSERT(fs);
 					fs->w(saved->GetBufferPointer(), (u32)saved->GetBufferSize());
 					FS.w_close(fs);
@@ -267,14 +234,8 @@ void CRender::ScreenshotAsyncEnd(CMemoryWriter &memory_writer)
 
 	//	Don't own. No need to release.
 	ID3DTexture2D*	pTex = Target->t_ss_async;
-
 	D3D_MAPPED_TEXTURE2D	MappedData;
-
-#ifdef USE_DX11
-	HW.pContext->Map(pTex, 0, D3D_MAP_READ, 0, &MappedData);
-#else
 	pTex->Map(0, D3D_MAP_READ, 0, &MappedData);
-#endif
 
 	{
 
@@ -297,11 +258,7 @@ void CRender::ScreenshotAsyncEnd(CMemoryWriter &memory_writer)
 		memory_writer.w( MappedData.pData, (Device.dwWidth*Device.dwHeight)*4 );
 	}
 
-#ifdef USE_DX11
-	HW.pContext->Unmap(pTex, 0);
-#else
 	pTex->Unmap(0);
-#endif
 }
 
 void DoAsyncScreenshot()
