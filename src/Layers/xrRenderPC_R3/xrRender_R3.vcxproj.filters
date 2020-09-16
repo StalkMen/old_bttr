@@ -106,7 +106,6 @@
     <ClCompile Include="..\xrRender\r__dsgraph_render_lods.cpp" />
     <ClCompile Include="..\xrRender\r__occlusion.cpp" />
     <ClCompile Include="..\xrRender\r__pixel_calculator.cpp" />
-    <ClCompile Include="..\xrRender\r__screenshot.cpp" />
     <ClCompile Include="..\xrRender\r__sector.cpp" />
     <ClCompile Include="..\xrRender\r__sector_traversal.cpp" />
     <ClCompile Include="..\xrRender\Shader.cpp" />
@@ -250,6 +249,12 @@
       <Filter>Blenders_other</Filter>
     </ClCompile>
     <ClCompile Include="blenders_DX10\blender_ssao.cpp">
+      <Filter>Blenders_DX10</Filter>
+    </ClCompile>
+    <ClCompile Include="dx10_shaders.cpp" />
+    <ClCompile Include="..\xrRenderDX10\dx10screenshot.cpp" />
+    <ClCompile Include="dx10_rendertarget_phase_ss_sunshafts.cpp" />
+    <ClCompile Include="blenders_DX10\blender_ss_sunshafts.cpp">
       <Filter>Blenders_DX10</Filter>
     </ClCompile>
   </ItemGroup>
@@ -481,6 +486,9 @@
       <Filter>Blenders_other</Filter>
     </ClInclude>
     <ClInclude Include="blenders_DX10\blender_ssao.h">
+      <Filter>Blenders_DX10</Filter>
+    </ClInclude>
+    <ClInclude Include="blenders_DX10\blender_ss_sunshafts.h">
       <Filter>Blenders_DX10</Filter>
     </ClInclude>
   </ItemGroup>

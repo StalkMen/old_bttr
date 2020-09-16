@@ -10,7 +10,7 @@
 #include "../xrRenderPC_R3/blenders_DX10/blender_bloom_build.h"
 #include "../xrRenderPC_R3/blenders_DX10/blender_luminance.h"
 #include "../xrRenderPC_R3/blenders_DX10/blender_ssao.h"
-#include "blender_ss_sunshafts.h"
+#include "../xrRenderPC_R3/blenders_DX10/blender_ss_sunshafts.h"
 #include "dx10MinMaxSMBlender.h"
 #include "../xrRenderDX10/msaa/dx10MSAABlender.h"
 #include "../xrRenderDX10/DX10 Rain/dx10RainBlender.h"
