@@ -318,22 +318,13 @@ void	CRenderTarget::phase_combine	()
 		}
 	}
 
-/*
-   if( RImplementation.o.dx10_msaa )
-   {
-      // we need to resolve rt_Generic_1 into rt_Generic_1_r
-      if( bDistort )
-         HW.pDevice->ResolveSubresource( rt_Generic_1_r->pTexture->surface_get(), 0, rt_Generic_1->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
-   }
-   */
-	
+	//Clean after forward pass
 	RCache.set_Stencil(FALSE);
 
-	if (!_menu_pp)
-	{
-		if (ps_r_sun_shafts > 0 && ps_sunshafts_mode == R2SS_SCREEN_SPACE)
-			phase_sunshafts();
-	}
+	//Screen space sunshafts
+	if (ps_r_sun_shafts > 0 && ps_sunshafts_mode == R2SS_SCREEN_SPACE)
+		phase_sunshafts();
+
 	
 	// PP enabled ?
 	//	Render to RT texture to be able to copy RT even in windowed mode.
