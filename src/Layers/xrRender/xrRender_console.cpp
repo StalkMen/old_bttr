@@ -86,8 +86,8 @@ xr_token							qminmax_sm_token					[ ]={
 
 u32 ps_sunshafts_mode = 0;
 xr_token sunshafts_mode_token[] = {
-	{ "volumetric", 0 },
-	{ "screen_space", 1 },
+	{ "enable_ss", 0 },
+	{ "disable_ss", 1 },
 	{ 0, 0 }
 };
 

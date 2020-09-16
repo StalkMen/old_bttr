@@ -1083,7 +1083,7 @@ void CRenderTarget::accum_direct_volumetric	(u32 sub_phase, const u32 Offset, co
 {
 	PIX_EVENT(accum_direct_volumetric);
 
-	if (!need_to_render_sunshafts() || ps_sunshafts_mode != R2SS_VOLUMETRIC)
+	if (!need_to_render_sunshafts() || ps_sunshafts_mode != DX_SS_ON)
 		return;
 	
 	//	Test. draw only for near part

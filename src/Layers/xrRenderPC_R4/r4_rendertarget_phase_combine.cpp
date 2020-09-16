@@ -334,10 +334,10 @@ void	CRenderTarget::phase_combine	()
    */
 	
 	RCache.set_Stencil(FALSE);
-
-	if (ps_r_sun_shafts > 0 && ps_sunshafts_mode == R2SS_SCREEN_SPACE)
+/*
+	if (ps_r_sun_shafts > 0 && ps_sunshafts_mode == DX_SS_OFF)
 		phase_sunshafts();
-	
+	*/
 	// PP enabled ?
 	//	Render to RT texture to be able to copy RT even in windowed mode.
 	BOOL	PP_Complex		= u_need_PP	() | (BOOL)RImplementation.m_bMakeAsyncSS;
