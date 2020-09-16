@@ -1872,6 +1872,37 @@ public:
 	}
 };
 
+// Change weather immediately
+class CCC_SetWeather : public IConsole_Command
+{
+public:
+	CCC_SetWeather(LPCSTR N) : IConsole_Command(N) {};
+	virtual void Execute(LPCSTR args)
+	{
+		if (!xr_strlen(args))
+			return;
+
+		if (!g_pGamePersistent)
+			return;
+
+		g_pGamePersistent->Environment().SetWeather(args, true);
+	}
+#pragma todo("OldSerpskiStalker, флаг компилятора с++17")
+#if 0
+	void fill_tips(vecTips& tips, u32 mode) override
+	{
+		if (!g_pGamePersistent)
+			return;
+		
+		const shared_str& name;
+		for (auto& [name, cycle] : g_pGamePersistent->Environment().WeatherCycles)
+		{
+			tips.push_back(name);
+		}
+	}
+#endif
+};
+
 int g_objects_per_client_update = 20;
 float xrgame_scope_fov = 0.65f;
 float minimap_zoom_factor = 1.0f;
@@ -1896,6 +1927,7 @@ xr_token type_hud_token_ext[] = {
 
 void CCC_RegisterCommands()
 {
+	CMD1(CCC_SetWeather, "xrGame_set_weather");
 	CMD3(CCC_Token, "xrGame_type_hud", &type_hud_token, type_hud_token_ext);
 	CMD4(CCC_Float, "xrGame_scope_fov", &xrgame_scope_fov, 0.45f, 0.85f);
 	CMD4(CCC_Integer, "xrGame_wallmarks", &int_wallmarks, 0, 1);
