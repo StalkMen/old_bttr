@@ -13,7 +13,7 @@ extern "C" { typedef bool _declspec(dllexport) SupportsDX10Rendering();  typedef
 extern u32 renderer_value; //con cmd
 
 LPCSTR dx10_name = "xrRender_DX10.dll";
-LPCSTR dx11_name = "xrRender.dll";
+LPCSTR dx11_name = "xrRender_DX11.dll";
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction

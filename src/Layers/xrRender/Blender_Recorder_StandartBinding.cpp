@@ -304,8 +304,7 @@ static class cl_screen_res : public R_constant_setup
 	}
 }	binder_screen_res;
 
-//OldSerpskiStalker
-/*static*/ class cl_screen_params : public R_constant_setup
+static class cl_screen_params : public R_constant_setup
 {
 	Fvector4	result;
 	virtual void setup(R_constant* C)

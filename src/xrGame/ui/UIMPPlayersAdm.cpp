@@ -16,7 +16,6 @@
 
 extern int g_sv_adm_menu_ping_limit;
 xr_token g_ban_times[] = {
-	{ "?", 0},
 	{ "ui_mp_am_10_minutes",	600},
 	{ "ui_mp_am_30_minutes",	1800},
 	{ "ui_mp_am_1_hour",		3600},

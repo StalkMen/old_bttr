@@ -85,6 +85,7 @@ void	MODEL::build			(Fvector* V, int Vcnt, TRI* T, int Tcnt, build_callback* bc,
 	R_ASSERT					(S_INIT == status);
     R_ASSERT					((Vcnt>=4)&&(Tcnt>=2));
 
+	_initialize_cpu_thread		();
 #ifdef _EDITOR    
 	build_internal				(V,Vcnt,T,Tcnt,bc,bcp);
 #else
@@ -96,8 +97,10 @@ void	MODEL::build			(Fvector* V, int Vcnt, TRI* T, int Tcnt, build_callback* bc,
 	{
 		BTHREAD_params				P = { this, V, Vcnt, T, Tcnt, bc, bcp };
 		thread_spawn				(build_thread,"CDB-construction",0,&P);
-		while (status != S_READY)
+		while (S_INIT == status)
 		{
+			if (status != S_INIT)
+				break;
 			Sleep(5);
 		}
 	}

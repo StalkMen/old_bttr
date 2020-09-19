@@ -23,6 +23,7 @@
 #include "UIGameCustom.h"
 #include "../xrphysics/matrix_utils.h"
 #include "clsid_game.h"
+#include "game_cl_base_weapon_usage_statistic.h"
 #include "Grenade.h"
 #include "Torch.h"
 
@@ -40,6 +41,7 @@
 //#include "Physics.h"
 #include "level.h"
 #include "GamePersistent.h"
+#include "game_cl_base.h"
 #include "game_cl_single.h"
 #include "xrmessages.h"
 #include "string_table.h"
@@ -506,10 +508,10 @@ void	CActor::Hit(SHit* pHDS)
 
     }
 #ifdef DEBUG
-    if (ph_dbg_draw_mask.test(phDbgCharacterControl)) {
+    if(ph_dbg_draw_mask.test(phDbgCharacterControl)) {
         DBG_OpenCashedDraw();
-        Fvector to; to.add(Position(), Fvector().mul(HDS.dir, HDS.phys_impulse()));
-        DBG_DrawLine(Position(), to, D3DCOLOR_XRGB(124, 124, 0));
+        Fvector to;to.add(Position(),Fvector().mul(HDS.dir,HDS.phys_impulse()));
+        DBG_DrawLine(Position(),to,D3DCOLOR_XRGB(124,124,0));
         DBG_ClosedCashedDraw(500);
     }
 #endif // DEBUG
@@ -548,7 +550,7 @@ void	CActor::Hit(SHit* pHDS)
         last_hit_frame = Device.dwFrame;
     };
 
-    if (!g_dedicated_server &&
+    if (!g_dedicated_server				&&
         !sndHit[HDS.hit_type].empty() &&
         conditions().PlayHitSound(pHDS))
     {
@@ -563,7 +565,7 @@ void	CActor::Hit(SHit* pHDS)
                 if (!m_sndShockEffector)
                 {
                     m_sndShockEffector = xr_new<SndShockEffector>();
-                    m_sndShockEffector->Start(this, float(S.get_length_sec() * 1000.0f), HDS.damage());
+                    m_sndShockEffector->Start(this, float(S.get_length_sec()*1000.0f), HDS.damage());
                 }
             }
             else
@@ -591,7 +593,7 @@ void	CActor::Hit(SHit* pHDS)
         HitSector(pLastHitter, pLastHittingWeapon);
     }
 
-    if ((mstate_real & mcSprint) && Level().CurrentControlEntity() == this && conditions().DisableSprint(pHDS))
+    if ((mstate_real&mcSprint) && Level().CurrentControlEntity() == this && conditions().DisableSprint(pHDS))
     {
         bool const is_special_burn_hit_2_self = (pHDS->who == this) && (pHDS->boneID == BI_NONE) &&
             ((pHDS->hit_type == ALife::eHitTypeBurn) || (pHDS->hit_type == ALife::eHitTypeLightBurn));
@@ -609,69 +611,111 @@ void	CActor::Hit(SHit* pHDS)
             HitMark(HDS.damage(), HDS.dir, HDS.who, HDS.bone(), HDS.p_in_bone_space, HDS.impulse, HDS.hit_type);
     }
 
-
-    if (GodMode())
+    if (IsGameTypeSingle())
     {
+        if (GodMode())
+        {
+            HDS.power = 0.0f;
+            inherited::Hit(&HDS);
+            return;
+        }
+        else
+        {
+            float hit_power = HitArtefactsOnBelt(HDS.damage(), HDS.hit_type);
+            HDS.power = hit_power;
+            HDS.add_wound = true;
+            if (g_Alive())
+            {
+				CScriptHit tLuaHit;
+
+				tLuaHit.m_fPower = HDS.power;
+				tLuaHit.m_fImpulse = HDS.impulse;
+				tLuaHit.m_tDirection = HDS.direction();
+				tLuaHit.m_tHitType = HDS.hit_type;
+				tLuaHit.m_tpDraftsman = smart_cast<const CGameObject*>(HDS.who)->lua_game_object();
+
+				luabind::functor<bool>	funct;
+				if (ai().script_engine().functor("_G.CActor__BeforeHitCallback", funct))
+				{
+					if ( !funct(this->lua_game_object(), &tLuaHit, HDS.boneID) )
+						return;
+				}
+
+				HDS.power = tLuaHit.m_fPower;
+				HDS.impulse = tLuaHit.m_fImpulse;
+				HDS.dir = tLuaHit.m_tDirection;
+				HDS.hit_type = (ALife::EHitType)(tLuaHit.m_tHitType);
+				//HDS.who = smart_cast<CObject*>(tLuaHit.m_tpDraftsman->object());
+				//HDS.whoID = tLuaHit.m_tpDraftsman->ID();
+				
+                /* AVO: send script callback*/
+                callback(GameObject::eHit)(
+                    this->lua_game_object(),
+                    HDS.damage(),
+                    HDS.direction(),
+                    smart_cast<const CGameObject*>(HDS.who)->lua_game_object(),
+                    HDS.boneID
+                    );
+            }
+            inherited::Hit(&HDS);
+        }
+
+        /* AVO: rewritten above and added hit callback*/
+        /*float hit_power = HitArtefactsOnBelt(HDS.damage(), HDS.hit_type);
+
+        if (GodMode())
+        {
         HDS.power = 0.0f;
         inherited::Hit(&HDS);
         return;
-    }
-    else
-    {
-        float hit_power = HitArtefactsOnBelt(HDS.damage(), HDS.hit_type);
+        }
+        else
+        {
         HDS.power = hit_power;
         HDS.add_wound = true;
-        if (g_Alive())
-        {
-            CScriptHit tLuaHit;
-
-            tLuaHit.m_fPower = HDS.power;
-            tLuaHit.m_fImpulse = HDS.impulse;
-            tLuaHit.m_tDirection = HDS.direction();
-            tLuaHit.m_tHitType = HDS.hit_type;
-            tLuaHit.m_tpDraftsman = smart_cast<const CGameObject*>(HDS.who)->lua_game_object();
-
-            luabind::functor<bool>	funct;
-            if (ai().script_engine().functor("_G.CActor__BeforeHitCallback", funct))
-            {
-                if (!funct(this->lua_game_object(), &tLuaHit, HDS.boneID))
-                    return;
-            }
-
-            HDS.power = tLuaHit.m_fPower;
-            HDS.impulse = tLuaHit.m_fImpulse;
-            HDS.dir = tLuaHit.m_tDirection;
-            HDS.hit_type = (ALife::EHitType)(tLuaHit.m_tHitType);
-            //HDS.who = smart_cast<CObject*>(tLuaHit.m_tpDraftsman->object());
-            //HDS.whoID = tLuaHit.m_tpDraftsman->ID();
-
-            /* AVO: send script callback*/
-            callback(GameObject::eHit)(
-                this->lua_game_object(),
-                HDS.damage(),
-                HDS.direction(),
-                smart_cast<const CGameObject*>(HDS.who)->lua_game_object(),
-                HDS.boneID
-                );
-        }
         inherited::Hit(&HDS);
-    }
-
-    /* AVO: rewritten above and added hit callback*/
-    /*float hit_power = HitArtefactsOnBelt(HDS.damage(), HDS.hit_type);
-
-    if (GodMode())
-    {
-    HDS.power = 0.0f;
-    inherited::Hit(&HDS);
-    return;
+        }*/
     }
     else
     {
-    HDS.power = hit_power;
-    HDS.add_wound = true;
-    inherited::Hit(&HDS);
-    }*/
+        m_bWasBackStabbed = false;
+        if (HDS.hit_type == ALife::eHitTypeWound_2 && Check_for_BackStab_Bone(HDS.bone()))
+        {
+            // convert impulse into local coordinate system
+            Fmatrix					mInvXForm;
+            mInvXForm.invert(XFORM());
+            Fvector					vLocalDir;
+            mInvXForm.transform_dir(vLocalDir, HDS.dir);
+            vLocalDir.invert();
+
+            Fvector a = {0, 0, 1};
+            float res = a.dotproduct(vLocalDir);
+            if (res < -0.707)
+            {
+                game_PlayerState* ps = Game().GetPlayerByGameID(ID());
+
+                if (!ps || !ps->testFlag(GAME_PLAYER_FLAG_INVINCIBLE))
+                    m_bWasBackStabbed = true;
+            }
+        };
+
+        float hit_power = 0.0f;
+
+        if (m_bWasBackStabbed)
+            hit_power = (HDS.damage() == 0) ? 0 : 100000.0f;
+        else
+            hit_power = HitArtefactsOnBelt(HDS.damage(), HDS.hit_type);
+
+        HDS.power = hit_power;
+        HDS.add_wound = true;
+        inherited::Hit(&HDS);
+
+        if (OnServer() && !g_Alive() && HDS.hit_type == ALife::eHitTypeExplosion)
+        {
+            game_PlayerState* ps = Game().GetPlayerByGameID(ID());
+            Game().m_WeaponUsageStatistic->OnExplosionKill(ps, HDS);
+        }
+    }
 }
 
 void CActor::HitMark(float P,

@@ -363,7 +363,7 @@ inline T* CResourceManager::CreateShader(const char* name, const char* filename 
 		if (FAILED(_hr) && fallback)
             goto fallback;
 		
-        CHECK_OR_EXIT(!FAILED(_hr), "An error occurred in the shaders, please write to the developers of the modification.");
+        CHECK_OR_EXIT(!FAILED(_hr), "An error occurred in the shaders, please write to the developers of the modification. The selected renderer: %i", renderer_value);
 
         return sh;
     }

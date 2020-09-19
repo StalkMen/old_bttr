@@ -211,8 +211,8 @@ extern BOOL						xrRender_test_hw		();
 
 enum
 {
-	DX_SS_ON,
-	DX_SS_OFF,
+	R2SS_VOLUMETRIC,
+	R2SS_SCREEN_SPACE,
 };
 
 enum 

@@ -417,21 +417,11 @@ void CSE_ALifeTraderAbstract::set_specific_character	(shared_str new_spec_char)
 		setup_location_types_section	(monster->m_tpaTerrain, pSettings, *(selected_char.terrain_sect()));
 	}
 //----
-	if (NO_RANK == m_rank)
-	{
-		if (selected_char.RankDef().min != selected_char.RankDef().max)
-			m_rank = ::Random.randI(selected_char.RankDef().min, selected_char.RankDef().max);
-		else
-			m_rank = selected_char.RankDef().max;
-	}
+	if(NO_RANK == m_rank)
+		m_rank = selected_char.Rank();
 
-	if (NO_REPUTATION == m_reputation)
-	{
-		if (selected_char.ReputationDef().min != selected_char.ReputationDef().max)
-			m_reputation = ::Random.randI(selected_char.ReputationDef().min, selected_char.ReputationDef().max);
-		else
-			m_reputation = selected_char.ReputationDef().max;
-	}
+	if(NO_REPUTATION == m_reputation)
+		m_reputation = selected_char.Reputation();
 
 	m_icon_name = selected_char.IconName();
 
@@ -963,7 +953,6 @@ CSE_ALifeCreatureAbstract::CSE_ALifeCreatureAbstract(LPCSTR caSection)	: CSE_ALi
 	m_ef_detector_type			= READ_IF_EXISTS(pSettings,r_u32,caSection,"ef_detector_type",u32(-1));
 	m_killer_id					= ALife::_OBJECT_ID(-1);
 	m_game_death_time			= 0;
-	flags						= 0;
 }
 
 CSE_ALifeCreatureAbstract::~CSE_ALifeCreatureAbstract()

@@ -54,7 +54,7 @@ void CWeaponShotEffector::Shot( CWeapon* weapon )
 	angle      += m_cam_recoil.DispersionInc * weapon->cur_silencer_koef.cam_disper_inc * (float)m_shot_numer;
 	m_angle_vert += angle * m_cam_recoil.DispersionFrac;
 
-	clamp(m_angle_vert, 0.f, m_cam_recoil.MaxAngleVert);
+	clamp(m_angle_vert, -m_cam_recoil.MaxAngleVert, m_cam_recoil.MaxAngleVert);
 	if (fis_zero(m_angle_vert - m_cam_recoil.MaxAngleVert))
 	{
 		m_angle_vert *= m_Random.randF(0.96f, 1.04f);
