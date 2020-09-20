@@ -6,210 +6,202 @@
 
 class ENGINE_API CMotionDef;
 
-//размер очереди считается бесконечность
-//заканчиваем стрельбу, только, если кончились патроны
+//СЂР°Р·РјРµСЂ РѕС‡РµСЂРµРґРё СЃС‡РёС‚Р°РµС‚СЃСЏ Р±РµСЃРєРѕРЅРµС‡РЅРѕСЃС‚СЊ
+//Р·Р°РєР°РЅС‡РёРІР°РµРј СЃС‚СЂРµР»СЊР±Сѓ, С‚РѕР»СЊРєРѕ, РµСЃР»Рё РєРѕРЅС‡РёР»РёСЃСЊ РїР°С‚СЂРѕРЅС‹
 #define WEAPON_ININITE_QUEUE -1
 
 class CWeaponMagazined : public CWeapon
 {
 private:
     typedef CWeapon inherited;
+
 protected:
-    //звук текущего выстрела
-    shared_str		m_sSndShotCurrent;
+#ifndef DISABLE_STCOP_3_3
+	int iMagSizeCurrent;
+#endif
+    //Р·РІСѓРє С‚РµРєСѓС‰РµРіРѕ РІС‹СЃС‚СЂРµР»Р°
+    shared_str m_sSndShotCurrent;
 
-    //дополнительная информация о глушителе
-    LPCSTR			m_sSilencerFlameParticles;
-    LPCSTR			m_sSilencerSmokeParticles;
+    //РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РіР»СѓС€РёС‚РµР»Рµ
+    LPCSTR m_sSilencerFlameParticles;
+    LPCSTR m_sSilencerSmokeParticles;
 
-    ESoundTypes		m_eSoundShow;
-    ESoundTypes		m_eSoundHide;
-    ESoundTypes		m_eSoundShot;
-    ESoundTypes		m_eSoundEmptyClick;
-    ESoundTypes		m_eSoundReload;
-#ifdef NEW_SOUNDS //AVO: new sounds go here
-    ESoundTypes		m_eSoundReloadEmpty;
-    ESoundTypes		m_eSoundReloadMisfire;
-#endif //-NEW_SOUNDS
-    bool			m_sounds_enabled;
+    ESoundTypes m_eSoundShow;
+    ESoundTypes m_eSoundHide;
+    ESoundTypes m_eSoundShot;
+    ESoundTypes m_eSoundEmptyClick;
+    ESoundTypes m_eSoundReload;
+
+    ESoundTypes m_eSoundReloadEmpty;
+    ESoundTypes m_eSoundReloadMisfire;
+
+    bool m_sounds_enabled;
     // General
-    //кадр момента пересчета UpdateSounds
-    u32				dwUpdateSounds_Frame;
-protected:
-    virtual void	OnMagazineEmpty();
+    //РєР°РґСЂ РјРѕРјРµРЅС‚Р° РїРµСЂРµСЃС‡РµС‚Р° UpdateSounds
+    u32 dwUpdateSounds_Frame;
 
-    virtual void	switch2_Idle();
-    virtual void	switch2_Fire();
-    virtual void	switch2_Empty();
-    virtual void	switch2_Reload();
-    virtual void	switch2_Hiding();
-    virtual void	switch2_Hidden();
-    virtual void	switch2_Showing();
-
-    virtual void	OnShot();
-
-    virtual void	OnEmptyClick();
-
-    virtual void	OnAnimationEnd(u32 state);
-    virtual void	OnStateSwitch(u32 S, u32 oldState);
-
-    virtual void	UpdateSounds();
-
-    bool			TryReload();
+public:
+	// Mortan: РќРѕРІС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ Р·РґРµСЃСЏ
+	virtual	bool    bMarkCanShow() { return IsZoomed(); }
 
 protected:
-    virtual void	ReloadMagazine();
-    void	ApplySilencerKoeffs();
-    void	ResetSilencerKoeffs();
+    virtual void OnMagazineEmpty();
 
-    virtual void	state_Fire(float dt);
-    virtual void	state_MagEmpty(float dt);
-    virtual void	state_Misfire(float dt);
+    virtual void switch2_Idle();
+    virtual void switch2_Fire();
+    virtual void switch2_Empty();
+    virtual void switch2_Reload();
+    virtual void switch2_Hiding();
+    virtual void switch2_Hidden();
+    virtual void switch2_Showing();
+#ifndef DISABLE_STCOP_3_3
+	virtual void switch2_Unmis();
+#endif
+    virtual void OnShot();
+
+    virtual void OnEmptyClick();
+
+    virtual void OnAnimationEnd(u32 state);
+    virtual void OnStateSwitch(u32 S, u32 oldState);
+
+    virtual void UpdateSounds();
+
+    bool TryReload();
+
+protected:
+    virtual void ReloadMagazine();
+    void ApplySilencerKoeffs();
+	void ApplyScopeKoeffs();
+    void ResetSilencerKoeffs();
+	void ResetScopeKoeffs();
+
+    virtual void state_Fire(float dt);
+    virtual void state_MagEmpty(float dt);
+    virtual void state_Misfire(float dt);
+
 public:
     CWeaponMagazined(ESoundTypes eSoundType = SOUND_TYPE_WEAPON_SUBMACHINEGUN);
-    virtual			~CWeaponMagazined();
+    virtual ~CWeaponMagazined();
 
-    virtual void	Load(LPCSTR section);
-    void	LoadSilencerKoeffs();
-    virtual CWeaponMagazined*cast_weapon_magazined()
-    {
-        return this;
-    }
+    virtual void Load(LPCSTR section);
+    void LoadSilencerKoeffs();
+	void LoadScopeKoeffs();
+    virtual CWeaponMagazined* cast_weapon_magazined() { return this; }
+    virtual void SetDefaults();
+	virtual bool UseScopeTexture ();
+    virtual void FireStart();
+    virtual void FireEnd();
+    virtual void Reload();
 
-    virtual void	SetDefaults();
-    virtual void	FireStart();
-    virtual void	FireEnd();
-    virtual void	Reload();
+    virtual void UpdateCL();
+    virtual void net_Destroy();
+    virtual void net_Export(NET_Packet& P);
+    virtual void net_Import(NET_Packet& P);
 
-    virtual	void	UpdateCL();
-    virtual void	net_Destroy();
-    virtual void	net_Export(NET_Packet& P);
-    virtual void	net_Import(NET_Packet& P);
+    virtual void OnH_A_Chield();
+	void	OnH_B_Independent	(bool) override;
 
-    virtual void	OnH_A_Chield();
+    virtual bool Attach(PIItem pIItem, bool b_send_event);
+    virtual bool Detach(const char* item_section_name, bool b_spawn_item);
+    bool DetachScope(const char* item_section_name, bool b_spawn_item);
+    bool DetachSilencer(const char* item_section_name, bool b_spawn_item);
+    bool DetachGrenadeLauncher(const char* item_section_name, bool b_spawn_item);
+    virtual bool CanAttach(PIItem pIItem);
+    virtual bool CanDetach(const char* item_section_name);
 
-    virtual bool	Attach(PIItem pIItem, bool b_send_event);
-    virtual bool	Detach(const char* item_section_name, bool b_spawn_item);
-    bool	DetachScope(const char* item_section_name, bool b_spawn_item);
-    virtual bool	CanAttach(PIItem pIItem);
-    virtual bool	CanDetach(const char* item_section_name);
+    virtual void InitAddons();
 
-    virtual void	InitAddons();
+    virtual bool Action(u16 cmd, u32 flags);
+    bool IsAmmoAvailable();
+    virtual void UnloadMagazine(bool spawn_ammo = true);
 
-    virtual bool	Action(u16 cmd, u32 flags);
-    bool			IsAmmoAvailable();
-    virtual void	UnloadMagazine(bool spawn_ammo = true);
-
-    virtual bool	GetBriefInfo(II_BriefInfo& info);
+    virtual bool GetBriefInfo(II_BriefInfo& info);
+	virtual void GetBriefInfo_ammo(xr_string& str_name, xr_string& icon_sect_name, xr_string& str_count, string16& fire_mode);
 
 public:
-    virtual bool	SwitchMode();
-    virtual bool	SingleShotMode()
-    {
-        return 1 == m_iQueueSize;
-    }
-    virtual void	SetQueueSize(int size);
-    IC		int		GetQueueSize() const
-    {
-        return m_iQueueSize;
-    };
-    virtual bool	StopedAfterQueueFired()
-    {
-        return m_bStopedAfterQueueFired;
-    }
-    virtual void	StopedAfterQueueFired(bool value)
-    {
-        m_bStopedAfterQueueFired = value;
-    }
-    virtual float	GetFireDispersion(float cartridge_k, bool for_crosshair = false);
+    virtual bool SwitchMode();
+    virtual bool SingleShotMode() { return 1 == m_iQueueSize; }
+    virtual void SetQueueSize(int size);
+    IC int GetQueueSize() const { return m_iQueueSize; };
+    virtual bool StopedAfterQueueFired() { return m_bStopedAfterQueueFired; }
+    virtual void StopedAfterQueueFired(bool value) { m_bStopedAfterQueueFired = value; }
+    virtual float GetFireDispersion(float cartridge_k, bool for_crosshair = false);
 
 protected:
-    //максимальный размер очереди, которой можно стрельнуть
-    int				m_iQueueSize;
-    //количество реально выстреляных патронов
-    int				m_iShotNum;
-    //после какого патрона, при непрерывной стрельбе, начинается отдача (сделано из-за Абакана)
-    int				m_iBaseDispersionedBulletsCount;
-    //скорость вылета патронов, на которые не влияет отдача (сделано из-за Абакана)
-    float			m_fBaseDispersionedBulletsSpeed;
-    //скорость вылета остальных патронов
-    float			m_fOldBulletSpeed;
-    Fvector			m_vStartPos, m_vStartDir;
-    //флаг того, что мы остановились после того как выстреляли
-    //ровно столько патронов, сколько было задано в m_iQueueSize
-    bool			m_bStopedAfterQueueFired;
-    //флаг того, что хотя бы один выстрел мы должны сделать
-    //(даже если очень быстро нажали на курок и вызвалось FireEnd)
-    bool			m_bFireSingleShot;
-    //режимы стрельбы
-    bool			m_bHasDifferentFireModes;
-    xr_vector<s8>	m_aFireModes;
-    int				m_iCurFireMode;
-    int				m_iPrefferedFireMode;
+    //РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РѕС‡РµСЂРµРґРё, РєРѕС‚РѕСЂРѕР№ РјРѕР¶РЅРѕ СЃС‚СЂРµР»СЊРЅСѓС‚СЊ
+    int m_iQueueSize;
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ СЂРµР°Р»СЊРЅРѕ РІС‹СЃС‚СЂРµР»СЏРЅС‹С… РїР°С‚СЂРѕРЅРѕРІ
+    int m_iShotNum;
+    //РїРѕСЃР»Рµ РєР°РєРѕРіРѕ РїР°С‚СЂРѕРЅР°, РїСЂРё РЅРµРїСЂРµСЂС‹РІРЅРѕР№ СЃС‚СЂРµР»СЊР±Рµ, РЅР°С‡РёРЅР°РµС‚СЃСЏ РѕС‚РґР°С‡Р° (СЃРґРµР»Р°РЅРѕ РёР·-Р·Р° РђР±Р°РєР°РЅР°)
+    int m_iBaseDispersionedBulletsCount;
+    //СЃРєРѕСЂРѕСЃС‚СЊ РІС‹Р»РµС‚Р° РїР°С‚СЂРѕРЅРѕРІ, РЅР° РєРѕС‚РѕСЂС‹Рµ РЅРµ РІР»РёСЏРµС‚ РѕС‚РґР°С‡Р° (СЃРґРµР»Р°РЅРѕ РёР·-Р·Р° РђР±Р°РєР°РЅР°)
+    float m_fBaseDispersionedBulletsSpeed;
+    //СЃРєРѕСЂРѕСЃС‚СЊ РІС‹Р»РµС‚Р° РѕСЃС‚Р°Р»СЊРЅС‹С… РїР°С‚СЂРѕРЅРѕРІ
+    float m_fOldBulletSpeed;
+    Fvector m_vStartPos, m_vStartDir;
+    //С„Р»Р°Рі С‚РѕРіРѕ, С‡С‚Рѕ РјС‹ РѕСЃС‚Р°РЅРѕРІРёР»РёСЃСЊ РїРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє РІС‹СЃС‚СЂРµР»СЏР»Рё
+    //СЂРѕРІРЅРѕ СЃС‚РѕР»СЊРєРѕ РїР°С‚СЂРѕРЅРѕРІ, СЃРєРѕР»СЊРєРѕ Р±С‹Р»Рѕ Р·Р°РґР°РЅРѕ РІ m_iQueueSize
+    bool m_bStopedAfterQueueFired;
+    //С„Р»Р°Рі С‚РѕРіРѕ, С‡С‚Рѕ С…РѕС‚СЏ Р±С‹ РѕРґРёРЅ РІС‹СЃС‚СЂРµР» РјС‹ РґРѕР»Р¶РЅС‹ СЃРґРµР»Р°С‚СЊ
+    //(РґР°Р¶Рµ РµСЃР»Рё РѕС‡РµРЅСЊ Р±С‹СЃС‚СЂРѕ РЅР°Р¶Р°Р»Рё РЅР° РєСѓСЂРѕРє Рё РІС‹Р·РІР°Р»РѕСЃСЊ FireEnd)
+    bool m_bFireSingleShot;
+    //СЂРµР¶РёРјС‹ СЃС‚СЂРµР»СЊР±С‹
+    bool m_bHasDifferentFireModes;
+    xr_vector<s8> m_aFireModes;
+    int m_iCurFireMode;
+    int m_iPrefferedFireMode;
 
-    //переменная блокирует использование
-    //только разных типов патронов
+    //РїРµСЂРµРјРµРЅРЅР°СЏ Р±Р»РѕРєРёСЂСѓРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ
+    //С‚РѕР»СЊРєРѕ СЂР°Р·РЅС‹С… С‚РёРїРѕРІ РїР°С‚СЂРѕРЅРѕРІ
     bool m_bLockType;
 
 public:
-    virtual void	OnZoomIn();
-    virtual void	OnZoomOut();
-    void	OnNextFireMode();
-    void	OnPrevFireMode();
-    bool	HasFireModes()
-    {
-        return m_bHasDifferentFireModes;
-    };
-    virtual	int		GetCurrentFireMode()
+    virtual void OnZoomIn();
+    virtual void OnZoomOut();
+    void OnNextFireMode();
+    void OnPrevFireMode();
+    bool HasFireModes() { return m_bHasDifferentFireModes; };
+
+    int GetCurrentFireMode() override
     {
         //AVO: fixed crash due to original GSC assumption that CWeaponMagazined will always have firemodes specified in configs.
-        //return m_aFireModes[m_iCurFireMode];
         if (HasFireModes())
             return m_aFireModes[m_iCurFireMode];
-        else
-            return 1;
-    };
-
-    virtual void	save(NET_Packet &output_packet);
-    virtual void	load(IReader &input_packet);
-
-protected:
-    virtual bool	install_upgrade_impl(LPCSTR section, bool test);
-
-protected:
-    virtual bool	AllowFireWhileWorking()
-    {
-        return false;
+        return 1;
     }
 
-    //виртуальные функции для проигрывания анимации HUD
-    virtual void	PlayAnimShow();
-    virtual void	PlayAnimHide();
-    virtual void	PlayAnimReload();
-    virtual void	PlayAnimIdle();
-    virtual void	PlayAnimShoot();
-    virtual void	PlayReloadSound();
-    virtual void	PlayAnimAim();
+    virtual void save(NET_Packet& output_packet);
+    virtual void load(IReader& input_packet);
 
-    virtual	int		ShotsFired()
-    {
-        return m_iShotNum;
-    }
-    virtual float	GetWeaponDeterioration();
+protected:
+    virtual bool install_upgrade_impl(LPCSTR section, bool test);
 
-    virtual void	FireBullet(const Fvector& pos,
-        const Fvector& dir,
-        float fire_disp,
-        const CCartridge& cartridge,
-        u16 parent_id,
-        u16 weapon_id,
-        bool send_hit);
+	inline	bool TryToGetAmmo(u32);
+
+    virtual bool AllowFireWhileWorking() { return false; }
+    //РІРёСЂС‚СѓР°Р»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё РґР»СЏ РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ Р°РЅРёРјР°С†РёРё HUD
+    virtual void PlayAnimShow();
+    virtual void PlayAnimHide();
+    virtual void PlayAnimReload();
+    virtual void PlayAnimIdle();
+    virtual void PlayAnimShoot();
+    virtual void PlayReloadSound();
+    virtual void PlayAnimAim();
+
+    virtual int ShotsFired() { return m_iShotNum; }
+    virtual float GetWeaponDeterioration();
+	
+	virtual void	RemoveZoomInertionEffector();
+
+    virtual void FireBullet(const Fvector& pos, const Fvector& dir, float fire_disp, const CCartridge& cartridge,
+        u16 parent_id, u16 weapon_id, bool send_hit);
+
     //AVO: for custom added sounds check if sound exists
-    bool WeaponSoundExist(LPCSTR section, LPCSTR sound_name);
+    bool WeaponSoundExist(pcstr section, pcstr sound_name) const;
 
-	//Alundaio: LAYERED_SND_SHOOT
-#ifdef LAYERED_SND_SHOOT
-	HUD_SOUND_COLLECTION_LAYERED m_layered_sounds;
-#endif
-	//-Alundaio
+    //Alundaio: 
+
+    HUD_SOUND_COLLECTION_LAYERED m_layered_sounds;
+
+    //-Alundaio
 };

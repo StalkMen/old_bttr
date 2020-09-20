@@ -44,6 +44,7 @@ public:
     static CInifile* Create(LPCSTR szFileName, BOOL ReadOnly = TRUE);
     static void Destroy(CInifile*);
     static IC BOOL IsBOOL(LPCSTR B) { return (xr_strcmp(B, "on") == 0 || xr_strcmp(B, "yes") == 0 || xr_strcmp(B, "true") == 0 || xr_strcmp(B, "1") == 0); }
+    static bool isBool(pcstr str)   { return xr_strcmp(str, "on") == 0 || xr_strcmp(str, "yes") == 0 || xr_strcmp(str, "true") == 0 || xr_strcmp(str, "1") == 0; }
 private:
     string_path m_file_name;
     Root DATA;
@@ -132,6 +133,10 @@ public:
     Fvector4 r_fvector4(const shared_str& S, LPCSTR L)const { return r_fvector4(*S, L); }
     BOOL r_bool(LPCSTR S, LPCSTR L)const;
     BOOL r_bool(const shared_str& S, LPCSTR L)const { return r_bool(*S, L); }
+
+    bool r_bool_m(pcstr S, pcstr L) const;
+    bool r_bool_m(const shared_str& S, pcstr L) const { return r_bool_m(*S, L); }
+
     int r_token(LPCSTR S, LPCSTR L, const xr_token* token_list)const;
     BOOL r_line(LPCSTR S, int L, LPCSTR* N, LPCSTR* V)const;
     BOOL r_line(const shared_str& S, int L, LPCSTR* N, LPCSTR* V)const;

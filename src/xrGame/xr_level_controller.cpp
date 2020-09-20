@@ -53,7 +53,9 @@ _action  actions[]		= {
 	{ "wpn_func",			kWPN_FUNC				,_both},	
 	{ "wpn_firemode_prev",	kWPN_FIREMODE_PREV		,_both},	
 	{ "wpn_firemode_next",	kWPN_FIREMODE_NEXT		,_both},	
-															
+	
+	{ "night_scopes",		kWPN_NV_CHANGE			,_both},
+	
 	{ "pause",				kPAUSE					,_both},	
 	{ "drop",				kDROP					,_both},	
 	{ "use",				kUSE					,_both},	

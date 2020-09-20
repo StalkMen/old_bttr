@@ -59,6 +59,7 @@ class CActorMemory;
 class CActorStatisticMgr;
 
 class CLocationManager;
+class CNightVisionEffector;
 
 class	CActor: 
     public CEntityAlive, 
@@ -207,11 +208,13 @@ protected:
     ref_sound			m_BloodSnd;
     ref_sound			m_DangerSnd;
 
+public:
+    s8						m_block_sprint_counter;
+
 protected:
     // Death
     float					m_hit_slowmo;
     float					m_hit_probability;
-    s8						m_block_sprint_counter;
 
     // media
     SndShockEffector*		m_sndShockEffector;
@@ -417,7 +420,8 @@ public:
 
     bool					is_jump					();
     u32						MovingState				() const {return mstate_real;}
-protected:
+
+public:
     u32						mstate_wishful;
     u32						mstate_old;
     u32						mstate_real;
@@ -788,7 +792,18 @@ private:
 			{
 				mstate_wishful = state;
 			}
-      
+public:
+	void	SwitchNightVision(bool light_on, bool use_sounds = true, bool send_event = true);
+
+	bool	GetNightVisionStatus() { return m_bNightVisionOn; }
+	void	SetNightVisionAllowed(bool bAllow) { m_bNightVisionAllow = bAllow; }
+	CNightVisionEffector* GetNightVision() { return m_night_vision; }
+protected:
+	bool					m_bNightVisionOn;
+	bool					m_bNightVisionAllow;
+
+	CNightVisionEffector*	m_night_vision;
+	
 DECLARE_SCRIPT_REGISTER_FUNCTION
 };
 add_to_type_list(CActor)

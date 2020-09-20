@@ -71,12 +71,20 @@ void R_dsgraph_structure::r_dsgraph_insert_dynamic	(dxRender_Visual *pVisual, Fv
 	{
 		if (sh->flags.bStrictB2F)	
 		{
-			mapSorted_Node* N		= mapSorted.insertInAnyWay	(distSQ);
-			N->val.ssa				= SSA;
-			N->val.pObject			= RI.val_pObject;
-			N->val.pVisual			= pVisual;
-			N->val.Matrix			= *RI.val_pTransform;
-			N->val.se				= sh;
+			if (sh->flags.bEmissive) {
+				mapSorted_Node* N = mapHUDEmissive.insertInAnyWay(distSQ);
+				N->val.ssa = SSA;
+				N->val.pObject = RI.val_pObject;
+				N->val.pVisual = pVisual;
+				N->val.Matrix = *RI.val_pTransform;
+				N->val.se = &*pVisual->shader->E[4];		// 4=L_special
+			}
+			mapSorted_Node* N = mapHUDSorted.insertInAnyWay(distSQ);
+			N->val.ssa = SSA;
+			N->val.pObject = RI.val_pObject;
+			N->val.pVisual = pVisual;
+			N->val.Matrix = *RI.val_pTransform;
+			N->val.se = sh;
 			return;
 		} 
 		else 

@@ -690,6 +690,17 @@ BOOL CInifile::r_bool(LPCSTR S, LPCSTR L)const
     return IsBOOL(B);
 }
 
+bool CInifile::r_bool_m(pcstr S, pcstr L) const
+{
+    pcstr C = r_string(S, L);
+    VERIFY2(xr_strlen(C) <= 5, make_string("\"%s\" is not a valid bool value, section[%s], line[%s]", C, S, L));
+    char B[8];
+    xr_strcpy(B, 7, C);
+    B[7] = 0;
+    xr_strlwr(B);
+    return isBool(B);
+}
+
 CLASS_ID CInifile::r_clsid(LPCSTR S, LPCSTR L)const
 {
     LPCSTR C = r_string(S, L);
