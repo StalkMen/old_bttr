@@ -541,7 +541,8 @@ void CSE_ALifeItemWeapon::UPDATE_Read(NET_Packet	&tNetPacket)
 	tNetPacket.r_u8				(ammo_type.data);
 	tNetPacket.r_u8				(wpn_state);
 	tNetPacket.r_u8				(m_bZoom);
-	tNetPacket.r_u8             (cur_scope);
+	if (m_wVersion > 128)
+		tNetPacket.r_u8         (cur_scope);
 }
 
 void CSE_ALifeItemWeapon::clone_addons(CSE_ALifeItemWeapon* parent)
