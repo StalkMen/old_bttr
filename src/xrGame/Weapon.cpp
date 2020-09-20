@@ -2554,7 +2554,6 @@ float CWeapon::GetSecondVPFov() const
 
 void CWeapon::UpdateSecondVP(bool bInGrenade)
 {
-
 	bool b_is_active_item = (m_pInventory != NULL) && (m_pInventory->ActiveItem() == this);
 	R_ASSERT(
 		ParentIsActor() && b_is_active_item); 
