@@ -467,7 +467,7 @@ void CCameraManager::ApplyDevice(float _viewport_near)
 	if (Device.m_SecondViewport.IsSVPFrame())
 	{
 		// Äëÿ âòîðîãî âüþïîðòà FOV âûñòàâëÿåì çäåñü
-		Device.fFOV = fFovSecond;
+		Device.fFOV = g_pGamePersistent->m_pGShaderConstants->hud_params.y;
 
 		// Ïðåäóïðåæäàåì ÷òî ìû èçìåíèëè íàñòðîéêè êàìåðû
 		Device.m_SecondViewport.isCamReady = true;

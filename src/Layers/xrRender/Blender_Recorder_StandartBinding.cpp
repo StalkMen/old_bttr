@@ -319,17 +319,26 @@ static class cl_screen_res : public R_constant_setup
 // SM_TODO: RCache.hemi çàìåíèòü íà áîëåå "ëîãè÷íîå" ìåñòî
 static class cl_hud_params : public R_constant_setup //--#SM+#--
 {
-	virtual void setup(R_constant* C) { RCache.set_c(C, g_pGamePersistent->m_pGShaderConstants->hud_params); }
+	virtual void setup(R_constant* C) 
+	{ 
+		RCache.set_c(C, g_pGamePersistent->m_pGShaderConstants->hud_params); 
+	}
 } binder_hud_params;
 
 static class cl_script_params : public R_constant_setup //--#SM+#--
 {
-	virtual void setup(R_constant* C) { RCache.set_c(C, g_pGamePersistent->m_pGShaderConstants->m_script_params); }
+	virtual void setup(R_constant* C) 
+	{ 
+		RCache.set_c(C, g_pGamePersistent->m_pGShaderConstants->m_script_params); 
+	}
 } binder_script_params;
 
 static class cl_blend_mode : public R_constant_setup //--#SM+#--
 {
-	virtual void setup(R_constant* C) { RCache.set_c(C, g_pGamePersistent->m_pGShaderConstants->m_blender_mode); }
+	virtual void setup(R_constant* C) 
+	{ 
+		RCache.set_c(C, g_pGamePersistent->m_pGShaderConstants->m_blender_mode); 
+	}
 } binder_blend_mode;
 
 // Standart constant-binding

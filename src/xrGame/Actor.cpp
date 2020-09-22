@@ -1123,6 +1123,18 @@ void CActor::UpdateCL()
                 S->SetParams(full_fire_disp);
 
             SetZoomAimingMode(true);
+
+            // Iaiiaeyai aaieiie ?aiaa? io i?o?ey [Update SecondVP with weapon data]
+            pWeapon->UpdateSecondVP(); //--#SM+#-- +SecondVP+
+
+            bool bUseMark = !!pWeapon->bMarkCanShow();
+            bool bInZoom = !!pWeapon->bInZoomRightNow() && pWeapon->bIsSecondVPZoomPresent() && psActorFlags.test(AF_3DSCOPE_ENABLE);
+            bool bNVEnbl = !!pWeapon->bNVsecondVPstatus;
+
+            g_pGamePersistent->m_pGShaderConstants->hud_params.x = bInZoom;
+            g_pGamePersistent->m_pGShaderConstants->hud_params.y = pWeapon->GetSecondVPFov();
+            g_pGamePersistent->m_pGShaderConstants->hud_params.z = bUseMark;
+            g_pGamePersistent->m_pGShaderConstants->m_blender_mode.x = bNVEnbl;
         }
 
         if (Level().CurrentEntity() && this->ID() == Level().CurrentEntity()->ID())
@@ -1149,21 +1161,8 @@ void CActor::UpdateCL()
 
             psHUD_Flags.set(HUD_CROSSHAIR_RT2, B);
 
-
-
             psHUD_Flags.set(HUD_DRAW_RT, pWeapon->show_indicators());
 			
-			// Iaiiaeyai aaieiie ?aiaa? io i?o?ey [Update SecondVP with weapon data]
-			pWeapon->UpdateSecondVP(); //--#SM+#-- +SecondVP+
-			
-			bool bUseMark = !!pWeapon->bMarkCanShow();
-			bool bInZoom  = !!pWeapon->bInZoomRightNow() && pWeapon->bIsSecondVPZoomPresent() && psActorFlags.test(AF_3DSCOPE_ENABLE);
-			bool bNVEnbl  = !!pWeapon->bNVsecondVPstatus;
-			
-			g_pGamePersistent->m_pGShaderConstants->hud_params.x = bInZoom;  
-			g_pGamePersistent->m_pGShaderConstants->hud_params.y = pWeapon->GetSecondVPFov();
-			g_pGamePersistent->m_pGShaderConstants->hud_params.z = bUseMark; 
-			g_pGamePersistent->m_pGShaderConstants->m_blender_mode.x = bNVEnbl; 
         }
 
     }

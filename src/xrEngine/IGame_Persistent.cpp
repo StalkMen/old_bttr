@@ -29,7 +29,7 @@ IGame_Persistent::IGame_Persistent()
 
     m_pMainMenu = NULL;
 	
-	m_pGShaderConstants = new ShadersExternalData(); //--#SM+#--
+	m_pGShaderConstants = xr_new<ShadersExternalData>(); //--#SM+#--
 	
 #ifndef INGAME_EDITOR
     pEnvironment = xr_new<CEnvironment>();
@@ -49,7 +49,7 @@ IGame_Persistent::~IGame_Persistent()
     RDEVICE.seqAppActivate.Remove(this);
     RDEVICE.seqAppDeactivate.Remove(this);
     xr_delete(pEnvironment);
-	delete(m_pGShaderConstants); //--#SM+#--
+	xr_delete(m_pGShaderConstants); //--#SM+#--
 }
 
 void IGame_Persistent::OnAppActivate()
