@@ -39,7 +39,7 @@ public:
 			bool            bChangeNVSecondVPStatus();
 
 	virtual	bool			bInZoomRightNow() const { return m_zoom_params.m_fZoomRotationFactor > 0.05; }
-    inline	bool			bIsSecondVPZoomPresent() const { return GetSecondVPZoomFactor() > 0.000f; }
+    inline	bool			bIsSecondVPZoomPresent() const { return GetSecondVPZoomFactor() > 0.005f; } //Just in case - ported from LFO
 			bool			bLoadAltScopesParams(LPCSTR section);
 	virtual	bool            bMarkCanShow() { return IsZoomed(); }
 
