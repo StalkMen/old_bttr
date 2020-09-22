@@ -2549,7 +2549,7 @@ float CWeapon::GetSecondVPFov() const
 	if (m_zoom_params.m_bUseDynamicZoom && bIsSecondVPZoomPresent())
 		return (m_fSecondRTZoomFactor / 100.f) * 55.0f;
 
-	return GetSecondVPZoomFactor() * 55.0f; //g_fov bro.
+	return GetSecondVPZoomFactor() * 55.0f;
 }
 
 void CWeapon::UpdateSecondVP(bool bInGrenade)

@@ -538,7 +538,7 @@ void CRender::AfterWorldRender()
 	if (Device.m_SecondViewport.IsSVPFrame())
 	{
 		// Äåëàåò êîïèþ áýêáóôåðà (òåêóùåãî ýêðàíà) â ðåíäåð-òàðãåò âòîðîãî âüþïîðòà
-		ID3DTexture2D* pBuffer = NULL;
+		ID3D10Texture2D* pBuffer = NULL;
 		HW.m_pSwapChain->GetBuffer(0, __uuidof(ID3D10Texture2D), (LPVOID*)& pBuffer);
 		HW.pDevice->CopyResource(Target->rt_secondVP->pSurface, pBuffer);
 		pBuffer->Release(); // Êîððåêòíî î÷èùàåì ññûëêó íà áýêáóôåð (èíà÷å èãðà çàâèñíåò â îïöèÿõ)

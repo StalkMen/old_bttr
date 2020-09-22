@@ -188,7 +188,7 @@ void CLevel::ClientSend(bool bForce)
 		cur_index++;
 		if (cur_index >= object_count)
 			cur_index = 0;
-#pragma todo("OldSerpskiStalker, поймал тут вылет. Если будет еще раз, вернуть все на оригинал")
+
 		if (pO && !pO->getDestroy() && pO->net_Relevant())
 		{
 			NET_Packet P;
