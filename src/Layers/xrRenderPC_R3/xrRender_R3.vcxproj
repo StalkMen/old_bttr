@@ -359,7 +359,7 @@
     <ClInclude Include="dx10_rendertarget_wallmarks.h" />
     <ClInclude Include="dx10_R_sun_support.h" />
 	<ClCompile Include="dx10_shaders.cpp" />
-    <ClInclude Include="SMAP_Allocator.h" />
+    <ClInclude Include="..\xrRender\DX_SMAP_Allocator.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

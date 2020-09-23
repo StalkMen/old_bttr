@@ -5,15 +5,15 @@
 
 #include "../xrRender/PSLibrary.h"
 
-#include "r2_types.h"
-#include "r4_rendertarget.h"
+#include "dx11_types.h"
+#include "dx11_rendertarget.h"
 
 #include "../xrRender/hom.h"
 #include "../xrRender/detailmanager.h"
 #include "../xrRender/modelpool.h"
 #include "../xrRender/wallmarksengine.h"
 
-#include "smap_allocator.h"
+#include "../xrRender/dx_smap_allocator.h"
 #include "../xrRender/light_db.h"
 #include "..\xrRender\light_render_direct.h"
 #include "../xrRender/LightTrack.h"

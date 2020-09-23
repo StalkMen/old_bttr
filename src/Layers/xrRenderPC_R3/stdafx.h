@@ -23,8 +23,6 @@
 
 #include "../xrRender/Debug/dxPixEventWrapper.h"
 
-#define		R_R1	1
-#define		R_R2	2
 #define		R_R3	3
 #define		R_R4	4
 #define		RENDER	R_R3

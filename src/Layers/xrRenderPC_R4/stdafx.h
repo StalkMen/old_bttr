@@ -22,8 +22,6 @@
 
 #include "../xrRender/Debug/dxPixEventWrapper.h"
 
-#define		R_R1	1
-#define		R_R2	2
 #define		R_R3	3
 #define		R_R4	4
 #define		RENDER	R_R4
@@ -44,7 +42,7 @@
 #include "../xrRender/blenders\blender.h"
 #include "../xrRender/blenders\blender_clsid.h"
 #include "../xrRender/xrRender_console.h"
-#include "r4.h"
+#include "dx11.h"
 #include "../../build_render_config.h"
 
 IC	void	jitter(CBlender_Compile& C)
