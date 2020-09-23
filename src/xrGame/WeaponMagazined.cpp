@@ -22,8 +22,7 @@
 #include "script_game_object.h"
 #include "HudSound.h"
 
-extern int g_sprint_reload_wpn;
-extern int game_value_ammo_belt;
+extern int g_sprint_reload_wpn, game_value_ammo_belt, game_value_auto_reload;
 
 CWeaponMagazined::CWeaponMagazined(ESoundTypes eSoundType) : CWeapon()
 {
@@ -185,8 +184,6 @@ void CWeaponMagazined::FireStart()
         OnEmptyClick();
     }
 }
-
-extern int game_value_auto_reload;
 
 void CWeaponMagazined::FireEnd() 
 { 
