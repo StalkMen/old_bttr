@@ -188,7 +188,7 @@ void CLevel::ClientSend(bool bForce)
 		cur_index++;
 		if (cur_index >= object_count)
 			cur_index = 0;
-
+#pragma TODO("OldSerpskiStalker. Тут вот бывает вылет по 126 ошибке, на найден путь. Если будет снова, вернуть на оригинал.")
 		if (pO && !pO->getDestroy() && pO->net_Relevant())
 		{
 			NET_Packet P;
