@@ -69,7 +69,48 @@ struct ExistDumpPredicate
 typedef	buffer_vector<IAnticheatDumpable const *>	active_objects_t;
 static active_objects_t::size_type get_active_objects(active_objects_t & dest)
 {
-	return 0;
+	CActorMP const* tmp_actor			= smart_cast<CActorMP const*>(
+		Level().CurrentControlEntity());
+
+	if (!tmp_actor)
+		return 0;
+
+	dest.push_back						(tmp_actor);
+
+	for (u16 i = KNIFE_SLOT; i <= GRENADE_SLOT; ++i)
+	{
+		VERIFY(dest.capacity() != dest.size());
+		if (dest.capacity() == dest.size())
+			return dest.size();
+
+		CInventoryItem const * tmp_inv_item	= tmp_actor->inventory().ItemFromSlot(i);
+		if (!tmp_inv_item)
+			continue;
+
+		CWeapon const * tmp_weapon			= smart_cast<CWeapon const*>(tmp_inv_item);
+		if (tmp_weapon)
+		{
+			dest.push_back(tmp_weapon);
+			if (tmp_weapon->m_magazine.size())
+			{
+				VERIFY(dest.capacity() != dest.size());
+				if (dest.capacity() == dest.size())
+					return dest.size();
+				
+				IAnticheatDumpable const * tmp_cartridge = &tmp_weapon->m_magazine[0];
+				if (!tmp_cartridge)
+					continue;
+				
+				ExistDumpPredicate	tmp_predicate;
+				tmp_predicate.section_name = tmp_cartridge->GetAnticheatSectionName();
+				if (std::find_if(dest.begin(), dest.end(), tmp_predicate) == dest.end())
+				{
+					dest.push_back(tmp_cartridge);
+				};
+			}
+		}
+	}
+	return dest.size();
 }
 
 static active_objects_t::size_type const max_active_objects = 16;

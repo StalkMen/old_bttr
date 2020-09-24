@@ -201,6 +201,7 @@ BOOL	CCustomOutfit::BonePassBullet					(int boneID)
 	return m_boneProtection->getBonePassBullet(s16(boneID));
 }
 
+#include "torch.h"
 void	CCustomOutfit::OnMoveToSlot		(const SInvItemPlace& prev)
 {
 	if ( m_pInventory )
@@ -211,8 +212,9 @@ void	CCustomOutfit::OnMoveToSlot		(const SInvItemPlace& prev)
 			ApplySkinModel(pActor, true, false);
 			if (prev.type==eItemPlaceSlot && !bIsHelmetAvaliable)
 			{
-				if(pActor->GetNightVisionStatus())
-					pActor->SwitchNightVision(true, false);
+				CTorch* pTorch = smart_cast<CTorch*>(pActor->inventory().ItemFromSlot(TORCH_SLOT));
+				if(pTorch && pTorch->GetNightVisionStatus())
+					pTorch->SwitchNightVision(true, false);
 			}
 			PIItem pHelmet = pActor->inventory().ItemFromSlot(HELMET_SLOT);
 			if(pHelmet && !bIsHelmetAvaliable)
@@ -276,8 +278,9 @@ void	CCustomOutfit::OnMoveToRuck		(const SInvItemPlace& prev)
 		if (pActor)
 		{
 			ApplySkinModel(pActor, false, false);
-			if(!bIsHelmetAvaliable)
-				pActor->SwitchNightVision(false);
+			CTorch* pTorch = smart_cast<CTorch*>(pActor->inventory().ItemFromSlot(TORCH_SLOT));
+			if(pTorch && !bIsHelmetAvaliable)
+				pTorch->SwitchNightVision(false);
 		}
 	}
 };

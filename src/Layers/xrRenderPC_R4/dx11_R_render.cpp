@@ -528,19 +528,3 @@ void CRender::render_forward				()
 
 	RImplementation.o.distortion				= FALSE;				// disable distorion
 }
-
-// Ïåðåä íà÷àëîì ðåíäåðà ìèðà --#SM+#-- +SecondVP+
-void CRender::BeforeWorldRender() {}
-
-// Ïîñëå ðåíäåðà ìèðà è ïîñò-ýôôåêòîâ --#SM+#-- +SecondVP+
-void CRender::AfterWorldRender()
-{
-	if (Device.m_SecondViewport.IsSVPFrame())
-	{
-		// Äåëàåò êîïèþ áýêáóôåðà (òåêóùåãî ýêðàíà) â ðåíäåð-òàðãåò âòîðîãî âüþïîðòà
-		ID3DTexture2D* pBuffer = NULL;
-		HW.m_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)& pBuffer);
-		HW.pContext->CopyResource(Target->rt_secondVP->pSurface, pBuffer);
-		pBuffer->Release(); // Êîððåêòíî î÷èùàåì ññûëêó íà áýêáóôåð (èíà÷å èãðà çàâèñíåò â îïöèÿõ)
-	}
-}

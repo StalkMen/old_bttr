@@ -106,7 +106,6 @@ public:
 
 protected:
 	u32					m_money;
-	Flags32				m_trader_flags;
 	// торговля
 	CTrade*				m_pTrade;
 	bool				m_bTrading;
