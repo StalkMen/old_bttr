@@ -58,36 +58,6 @@ public:
     {
         return inherited::net_SaveRelevant();
     }
-	
-	/*------------------STCoP Weapon Pack SECTION-----------------------*/
-	bool					UseAltScope;
-	void					UpdateAltScope();
-	bool					ScopeIsHasTexture;
-	shared_str				GetNameWithAttachment();
-	
-	void 					LoadModParams(LPCSTR section);
-
-
-	IC bool bInZoomRightNow() const { return m_zoom_params.m_fZoomRotationFactor > 0.05; }
-	
-	//SWM3.0 Aoi?ie ?aiaa?
-	float CWeapon::GetSecondVPFov() const;
-	IC float GetZRotatingFactor()    const { return m_zoom_params.m_fZoomRotationFactor; }
-	IC float GetSecondVPZoomFactor() const { return m_zoom_params.m_fSecondVPFovFactor; }
-	IC float IsSecondVPZoomPresent() const { return GetSecondVPZoomFactor() > 0.005f; }
-
-	void UpdateSecondVP();
-	
-	// SWM3.0 hud collision
-	float					m_hud_fov_add_mod;
-	float					m_nearwall_dist_max;
-	float					m_nearwall_dist_min;
-	float					m_nearwall_last_hud_fov;
-	float					m_nearwall_target_hud_fov;
-	float					m_nearwall_speed_mod;
-
-	float					GetHudFov();
-	//End
 
     virtual void			UpdateCL();
     virtual void			shedule_Update(u32 dt);
@@ -225,9 +195,14 @@ public:
     virtual void InitAddons();
 
     //для отоброажения иконок апгрейдов в интерфейсе
-    int GetScopeX();
-	int GetScopeY();
-	
+    int	GetScopeX()
+    {
+        return pSettings->r_s32(m_scopes[m_cur_scope], "scope_x");
+    }
+    int	GetScopeY()
+    {
+        return pSettings->r_s32(m_scopes[m_cur_scope], "scope_y");
+    }
     int	GetSilencerX()
     {
         return m_iSilencerX;
@@ -249,9 +224,10 @@ public:
     {
         return m_sGrenadeLauncherName;
     }
-	
-    const shared_str GetScopeName() const;
-	
+    const shared_str GetScopeName() const
+    {
+        return pSettings->r_string(m_scopes[m_cur_scope], "scope_name");
+    }
     const shared_str& GetSilencerName() const
     {
         return m_sSilencerName;
@@ -305,8 +281,7 @@ protected:
         float			m_fScopeZoomFactor;		//коэффициент увеличения прицела
 
         float			m_fZoomRotationFactor;
-		float           m_fSecondVPFovFactor;
-		
+
         Fvector			m_ZoomDof;
         Fvector4		m_ReloadDof;
         Fvector4		m_ReloadEmptyDof; //Swartz: reload when empty mag. DOF
