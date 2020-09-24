@@ -104,7 +104,8 @@ protected:
     EffectorCamVec m_EffectorsCam;
     EffectorCamVec m_EffectorsCam_added_deffered;
     EffectorPPVec m_EffectorsPP;
-
+	
+	float fFovSecond;
     bool m_bAutoApply;
     SPPInfo pp_affected;
     void UpdateDeffered();

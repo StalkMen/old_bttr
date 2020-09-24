@@ -1,12 +1,12 @@
-// EffectorZoomInertion.cpp: инерция(покачивания) оружия в режиме
-//							 приближения
+// EffectorZoomInertion.cpp: РёРЅРµСЂС†РёСЏ(РїРѕРєР°С‡РёРІР°РЅРёСЏ) РѕСЂСѓР¶РёСЏ РІ СЂРµР¶РёРјРµ
+//							 РїСЂРёР±Р»РёР¶РµРЅРёСЏ
 //////////////////////////////////////////////////////////////////////
-
 #include "stdafx.h"
 #include "EffectorZoomInertion.h"
 
 
 #define EFFECTOR_ZOOM_SECTION "zoom_inertion_effector"
+#define CAMERA_MOVE_DELTA_TIME (0.150f)   // delay to react when camera stopped (to compensate for inconsistent camera angular distance between frames on high FPS)
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -16,7 +16,10 @@ CEffectorZoomInertion::CEffectorZoomInertion	() : CEffectorCam(eCEZoom,100000.f)
 {
 	Load();
 	SetRndSeed		(Device.dwTimeContinual);
-	m_dwTimePassed	= 0;
+	m_dwTimePassed	= (u32)-1;
+	m_fTimeCameraMove = 0.f;
+	m_bCameraMoving = false;
+	m_enabled = false;
 }
 
 CEffectorZoomInertion::~CEffectorZoomInertion	()
@@ -24,106 +27,207 @@ CEffectorZoomInertion::~CEffectorZoomInertion	()
 
 }
 
-void CEffectorZoomInertion::LoadParams			(LPCSTR Section, LPCSTR Prefix)
+template <class T>
+IC T LoadParamInternal(LPCSTR section, LPCSTR prefix, LPCSTR param, T (CInifile::*method)(LPCSTR, LPCSTR)const, T defVal)
 {
-	string256 full_name;
-	m_fCameraMoveEpsilon	= READ_IF_EXISTS(pSettings, r_float, Section, strconcat(sizeof(full_name),full_name, Prefix, "camera_move_epsilon"),	pSettings->r_float(EFFECTOR_ZOOM_SECTION, "camera_move_epsilon"));
-	m_fDispMin				= READ_IF_EXISTS(pSettings, r_float, Section, strconcat(sizeof(full_name),full_name, Prefix, "disp_min"),				pSettings->r_float(EFFECTOR_ZOOM_SECTION, "disp_min"));
-	m_fSpeedMin				= READ_IF_EXISTS(pSettings, r_float, Section, strconcat(sizeof(full_name),full_name, Prefix, "speed_min"),			pSettings->r_float(EFFECTOR_ZOOM_SECTION, "speed_min"));
-	m_fZoomAimingDispK		= READ_IF_EXISTS(pSettings, r_float, Section, strconcat(sizeof(full_name),full_name, Prefix, "zoom_aim_disp_k"),		pSettings->r_float(EFFECTOR_ZOOM_SECTION, "zoom_aim_disp_k"));
-	m_fZoomAimingSpeedK		= READ_IF_EXISTS(pSettings, r_float, Section, strconcat(sizeof(full_name),full_name, Prefix, "zoom_aim_speed_k"),		pSettings->r_float(EFFECTOR_ZOOM_SECTION, "zoom_aim_speed_k"));
-	m_dwDeltaTime			= READ_IF_EXISTS(pSettings, r_u32, Section, strconcat(sizeof(full_name),full_name, Prefix, "delta_time"),			pSettings->r_u32(EFFECTOR_ZOOM_SECTION, "delta_time"));
-};
+	static string256 full_name;
+	strconcat(sizeof(full_name), full_name, prefix, param);
+	if (pSettings->line_exist(section, full_name))
+	{
+		return (pSettings->*method)(section, full_name);
+	}
+	else if (pSettings->line_exist(EFFECTOR_ZOOM_SECTION, param))
+	{
+		return (pSettings->*method)(EFFECTOR_ZOOM_SECTION, param);
+	}
+	return defVal;
+}
 
-void CEffectorZoomInertion::Load		()
+void CEffectorZoomInertion::LoadParams(LPCSTR section, LPCSTR prefix)
+{
+	m_fCameraSpeedThreshold	= LoadParam<float>(section, prefix, "camera_speed_threshold",	1.f);
+	m_fDispEpsilon			= LoadParam<float>(section, prefix, "disp_epsilon",				0.1f);
+	m_fDispMin				= LoadParam<float>(section, prefix, "disp_min",					0.0f);
+	m_fZoomAimingDispK		= LoadParam<float>(section, prefix, "zoom_aim_disp_k",			1.f);
+	m_fDispHorzCoef			= LoadParam<float>(section, prefix, "disp_horz_koef",			1.f);
+	m_dwDeltaTime			= LoadParam<u32>  (section, prefix, "delta_time",				1000);
+}
+
+template <>
+float CEffectorZoomInertion::LoadParam(LPCSTR section, LPCSTR prefix, LPCSTR param, float defVal)
+{
+	return LoadParamInternal(section, prefix, param, &CInifile::r_float, defVal);
+}
+
+template <>
+u32 CEffectorZoomInertion::LoadParam(LPCSTR section, LPCSTR prefix, LPCSTR param, u32 defVal)
+{
+	return LoadParamInternal(section, prefix, param, &CInifile::r_u32, defVal);
+}
+
+void CEffectorZoomInertion::Load()
 {
 	LoadParams(EFFECTOR_ZOOM_SECTION, "");
-	
-	m_dwTimePassed		= 0;
 
-	m_fFloatSpeed		= m_fSpeedMin;
-	m_fDispRadius		= m_fDispMin;
+	m_fDispRadius		= m_fOldDispRadius = m_fDispMin;
 
-	m_fEpsilon = 2*m_fFloatSpeed;
-
-
-	m_vTargetVel.set(0.f,0.f,0.f);
 	m_vCurrentPoint.set(0.f,0.f,0.f);
 	m_vTargetPoint.set(0.f,0.f,0.f);
 	m_vLastPoint.set(0.f,0.f,0.f);
+	m_vOldCameraDir.set(0.f,0.f,0.f);
 }
 
-void	CEffectorZoomInertion::Init				(CWeaponMagazined*	pWeapon)
+void	CEffectorZoomInertion::Init(CWeaponMagazined*	pWeapon)
 {
 	if (!pWeapon) return;
 
 	LoadParams(*pWeapon->cNameSect(), "ezi_");
-};
+}
+
+void CEffectorZoomInertion::Enable(bool flag, float rotateTime)
+{
+	if (flag && !m_enabled)
+	{
+		m_enabled = true;
+		if (!IsFirstUpdate())
+		{
+			CalcNextPoint();
+		}
+	}
+	else if (!flag && m_enabled)
+	{
+		m_dwTimePassed = 0;
+		m_vLastPoint = m_vCurrentPoint;
+		m_vTargetPoint.set(0.f, 0.f, 0.f);
+		m_dwCenterDeltaTime = !fis_zero(rotateTime) ? (u32)(rotateTime * 1000) : m_dwDeltaTime;
+		m_enabled = false;
+	}
+}
 
 void CEffectorZoomInertion::SetParams	(float disp)
 {
-	float old_disp = m_fDispRadius;
-
-	m_fDispRadius = disp*m_fZoomAimingDispK;
-	if(m_fDispRadius<m_fDispMin) 
+	m_fDispRadius = disp * m_fZoomAimingDispK;
+	if (m_fDispRadius < m_fDispMin) 
 		m_fDispRadius = m_fDispMin;
 
-	m_fFloatSpeed = disp*m_fZoomAimingSpeedK;
-	if(m_fFloatSpeed<m_fSpeedMin) 
-		m_fFloatSpeed = m_fSpeedMin;
-
-	//для того, чтоб сразу прошел пересчет направления
-	//движения прицела
-	if(!fis_zero(old_disp-m_fDispRadius,EPS))
-		m_fEpsilon = 2*m_fDispRadius;
+	if (IsFirstUpdate())
+	{
+		m_fOldDispRadius = m_fDispRadius;
+	}
+	else if (!fsimilar(m_fOldDispRadius, m_fDispRadius, m_fDispEpsilon) && m_enabled && !IsCameraMoving())
+	{
+		// Msg("EZI: Disp changed. Old: %.2f, new: %.2f, eps: %.5f", m_fOldDispRadius, m_fDispRadius, m_fDispEpsilon);
+		CalcNextPoint();
+		m_fOldDispRadius = m_fDispRadius;
+	}
 }
 
 
-void			CEffectorZoomInertion::CalcNextPoint		()
+void CEffectorZoomInertion::CalcNextPoint		()
 {
-	m_fEpsilon = 2*m_fFloatSpeed;
+	m_dwTimePassed = 0;
+	m_vLastPoint = m_vCurrentPoint;
 
-	float half_disp_radius = m_fDispRadius/2.f;
-	m_vTargetPoint.x = m_Random.randF(-half_disp_radius,half_disp_radius);
-	m_vTargetPoint.y = m_Random.randF(-half_disp_radius,half_disp_radius);
+	float vertMax = m_fDispRadius/2.f;
+	float horzMax = vertMax * m_fDispHorzCoef;
+	m_vTargetPoint.x = m_Random.randF(-horzMax, horzMax);
+	m_vTargetPoint.y = m_Random.randF(-vertMax, vertMax);
 
-	m_vTargetVel.sub(m_vTargetPoint, m_vLastPoint);
-};
+	//Msg("EZI: Next point (%.4f, %.4f)", m_vTargetPoint.x, m_vTargetPoint.y);
+}
 
-BOOL CEffectorZoomInertion::ProcessCam(SCamEffectorInfo& info)
+void CEffectorZoomInertion::ApplyPoint(Fvector& dest, const Fvector& pt)
 {
-	bool camera_moved = false;
+	float h, p;
+	dest.getHP(h, p);
+	dest.setHP(h + pt.x, p + pt.y);
+}
 
-	//определяем двигал ли прицелом актер
-	if(!info.d.similar(m_vOldCameraDir, m_fCameraMoveEpsilon))
-		camera_moved = true;
+static float SmoothStep(float from, float to, float t)
+{
+	clamp(t, 0.f, 1.f);
+	t = -2.f * t * t * t + 3.f * t * t;
+	return to * t + from * (1.f - t);
+}
 
+//Г®ГЇГ°ГҐГ¤ГҐГ«ГїГҐГ¬ Г¤ГўГЁГЈГ Г« Г«ГЁ ГЇГ°ГЁГ¶ГҐГ«Г®Г¬ Г ГЄГІГҐГ°
+bool CEffectorZoomInertion::UpdateCameraMoved(const Fvector& camDir, bool& justStopped)
+{
+	justStopped = false;
 
-	Fvector dir;
-	dir.sub(m_vCurrentPoint,m_vTargetPoint);
-
-	if (m_dwTimePassed == 0)
+	// check camera speed only once in a while
+	if (m_fTimeCameraMove < CAMERA_MOVE_DELTA_TIME)
 	{
-		m_vLastPoint.set(m_vCurrentPoint);
-		CalcNextPoint();
+		m_fTimeCameraMove += Device.fTimeDelta;
 	}
 	else
 	{
-		while (m_dwTimePassed > m_dwDeltaTime)
-		{
-			m_dwTimePassed -= m_dwDeltaTime;
+		Fvector lastDir = m_vOldCameraDir, curDir = camDir;
+		float dist = camDir.distance_to(m_vOldCameraDir);
+		float cameraSpeed = camDir.distance_to(m_vOldCameraDir) / m_fTimeCameraMove;
 
-			m_vLastPoint.set(m_vTargetPoint);
-			CalcNextPoint();
-		};
+		if (cameraSpeed > m_fCameraSpeedThreshold)
+		{
+			// camera moved
+			if (!m_bCameraMoving)
+			{
+				// Msg("EZI: Camera started moving with speed %.3f (max %.3f), dist: %.4f, time: %.4f, dir: (%.4f,%.4f,%.4f)->(%.4f,%.4f,%.4f)",
+				//	cameraSpeed, m_fCameraSpeedThreshold, dist, m_fTimeCameraMove, lastDir.x, lastDir.y, lastDir.z, curDir.x, curDir.y, curDir.z);
+
+				m_bCameraMoving = true;
+			}
+		}
+		else if (m_bCameraMoving)
+		{
+			//Msg("EZI: Camera stopped moving: speed %.3f, dist: %.4f, fDelta: %.4f, dir: (%.4f,%.4f,%.4f)->(%.4f,%.4f,%.4f)",
+			//	cameraSpeed, dist, m_fTimeCameraMove, lastDir.x, lastDir.y, lastDir.z, curDir.x, curDir.y, curDir.z);
+
+			m_bCameraMoving = false;
+			justStopped = true;
+		}
+
+		m_fTimeCameraMove = 0.f;
+		m_vOldCameraDir = camDir;
 	}
 
-	m_vCurrentPoint.lerp(m_vLastPoint, m_vTargetPoint, float(m_dwTimePassed)/m_dwDeltaTime);
+	return m_bCameraMoving;
+}
 
-	m_vOldCameraDir = info.d;
+BOOL CEffectorZoomInertion::ProcessCam(SCamEffectorInfo& info)
+{
+	if (!m_enabled)
+	{
+		// transition to center
+		if (m_dwTimePassed < m_dwCenterDeltaTime)
+		{
+			m_vCurrentPoint.lerp(m_vLastPoint, m_vTargetPoint, SmoothStep(0.f, 1.f, float(m_dwTimePassed)/m_dwCenterDeltaTime));
+			ApplyPoint(info.d, m_vCurrentPoint);
+			m_dwTimePassed += Device.dwTimeDelta;
+		}
+		return TRUE;
+	}
 
-	if(!camera_moved)
-		info.d.add(m_vCurrentPoint);
+	// check if camera is moving
+	bool justStopped;
+	if (UpdateCameraMoved(info.d, justStopped))
+	{
+		ApplyPoint(info.d, m_vCurrentPoint);
+		return TRUE;
+	}
+	else if (justStopped)
+	{
+		// force next point after camera stopped moving
+		m_dwTimePassed = m_dwDeltaTime;
+	}
+
+	if (m_dwTimePassed >= m_dwDeltaTime)
+	{
+		CalcNextPoint();
+	}
+
+	m_vCurrentPoint.lerp(m_vLastPoint, m_vTargetPoint, SmoothStep(0.f, 1.f, float(m_dwTimePassed)/m_dwDeltaTime));
+
+	ApplyPoint(info.d, m_vCurrentPoint);
 
 	m_dwTimePassed += Device.dwTimeDelta;
 

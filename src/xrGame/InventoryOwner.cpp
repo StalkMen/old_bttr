@@ -47,6 +47,8 @@ CInventoryOwner::CInventoryOwner()
     m_deadbody_can_take = true;
     m_deadbody_closed = false;
     m_play_show_hide_reload_sounds = true;
+	
+	m_trader_flags.zero();
 }
 
 DLL_Pure *CInventoryOwner::_construct()
@@ -145,15 +147,9 @@ BOOL CInventoryOwner::net_Spawn(CSE_Abstract* DC)
 
         m_deadbody_can_take = pTrader->m_deadbody_can_take;
         m_deadbody_closed = pTrader->m_deadbody_closed;
+		m_trader_flags.assign(pTrader->m_trader_flags.get());
     }
-    else
-    {
-        CharacterInfo().m_SpecificCharacter.Load("mp_actor");
-        CharacterInfo().InitSpecificCharacter("mp_actor");
-        CharacterInfo().m_SpecificCharacter.data()->m_sGameName = (E->name_replace()[0]) ? E->name_replace() : *pThis->cName();
-        m_game_name = (E->name_replace()[0]) ? E->name_replace() : *pThis->cName();
-    }
-
+    
     if (!pThis->Local())  return TRUE;
 
     return TRUE;

@@ -45,6 +45,8 @@
 #define		r2_material			"$user$material"		// ---
 #define		r2_ds2_fade			"$user$ds2_fade"		// ---
 
+#define		r2_RT_secondVP		"$user$viewport2"		// --#SM+#-- +SecondVP+ Õðàíèò êàðòèíêó ñî âòîðîãî âüþïîðòà
+
 #define		r2_jitter			"$user$jitter_"			// --- dither
 #define		r2_jitter_mipped	"$user$jitter_mipped"			// --- dither
 #define		r2_sunmask			"sunmask"
