@@ -58,7 +58,13 @@ public:
     {
         return inherited::net_SaveRelevant();
     }
-
+	
+	/*------------------STCoP Weapon Pack SECTION-----------------------*/
+	bool					UseAltScope;
+	void					UpdateAltScope();
+	bool					ScopeIsHasTexture;
+	shared_str				GetNameWithAttachment();
+	
     virtual void			UpdateCL();
     virtual void			shedule_Update(u32 dt);
 
@@ -195,14 +201,9 @@ public:
     virtual void InitAddons();
 
     //для отоброажения иконок апгрейдов в интерфейсе
-    int	GetScopeX()
-    {
-        return pSettings->r_s32(m_scopes[m_cur_scope], "scope_x");
-    }
-    int	GetScopeY()
-    {
-        return pSettings->r_s32(m_scopes[m_cur_scope], "scope_y");
-    }
+    int GetScopeX();
+	int GetScopeY();
+	
     int	GetSilencerX()
     {
         return m_iSilencerX;
@@ -224,10 +225,9 @@ public:
     {
         return m_sGrenadeLauncherName;
     }
-    const shared_str GetScopeName() const
-    {
-        return pSettings->r_string(m_scopes[m_cur_scope], "scope_name");
-    }
+	
+    const shared_str GetScopeName() const;
+	
     const shared_str& GetSilencerName() const
     {
         return m_sSilencerName;
