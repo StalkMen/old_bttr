@@ -531,7 +531,7 @@ void	R_dsgraph_structure::r_dsgraph_render_sorted	()
 	Fmatrix Pold = Device.mProject;
 	Fmatrix FTold = Device.mFullTransform;
 	Device.mProject.build_projection(deg2rad(psHUD_FOV * Device.fFOV /* *Device.fASPECT*/), Device.fASPECT,
-		VIEWPORT_NEAR, g_pGamePersistent->Environment().CurrentEnv->far_plane);
+		R_VIEWPORT_NEAR, g_pGamePersistent->Environment().CurrentEnv->far_plane);
 
 	Device.mFullTransform.mul(Device.mProject, Device.mView);
 	RCache.set_xform_project(Device.mProject);
