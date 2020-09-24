@@ -637,8 +637,8 @@ public:
     }
 };
 
-
-ENGINE_API float psHUD_FOV = 0.45f;
+ENGINE_API float psHUD_FOV_def = 0.35f; //--#SM+#--	Äåôîëòíûé HUD FOV (Â % îò Camera FOV) [default hud_fov (perc. of g_fov)]
+ENGINE_API float psHUD_FOV = psHUD_FOV_def; //--#SM+#-- Òåêóùèé HUD FOV (Â % îò Camera FOV) [current hud_fov (perc. of g_fov)]
 
 //extern int psSkeletonUpdate;
 extern int rsDVB_Size;
