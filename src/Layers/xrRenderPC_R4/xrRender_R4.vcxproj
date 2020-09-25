@@ -524,7 +524,7 @@
     <ClCompile Include="blenders_DX11\blender_light_spot.cpp" />
     <ClCompile Include="blenders_DX11\blender_luminance.cpp" />
     <ClCompile Include="blenders_DX11\blender_ssao.cpp" />
-	<ClInclude Include="blenders_DX11\blender_fxaa.cpp" />
+	<ClCompile Include="blenders_DX11\blender_fxaa.cpp" />
     <ClCompile Include="ComputeShader.cpp" />
     <ClCompile Include="CSCompiler.cpp" />
     <ClCompile Include="dx11HDAOCSBlender.cpp" />
