@@ -1882,6 +1882,7 @@ float minimap_zoom_factor = 1.0f;
 BOOL int_wallmarks = 1;
 BOOL actor_death_first_eye = 1;
 BOOL dead_body_collision = 1;
+extern BOOL g_b_COD_PickUpMode;
 
 u32 type_hud_token = 0;
 xr_token type_hud_token_ext[] = {
@@ -1912,6 +1913,7 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Integer, "xrGame_ammo_belt_value", &game_value_ammo_belt, 0, 1);
 	CMD4(CCC_Integer, "xrGame_autoreload_wpn", &game_value_auto_reload, 0, 1);
 	CMD4(CCC_Integer, "xrGame_dof_wpn", &game_value_reload_dof, 0, 1);
+	CMD4(CCC_Integer, "xrGame_soc_pickup_mode", &g_b_COD_PickUpMode, 0, 1);
 
 	// options
 	g_OptConCom.Init();
