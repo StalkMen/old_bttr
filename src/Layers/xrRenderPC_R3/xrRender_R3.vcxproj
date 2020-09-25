@@ -358,7 +358,7 @@
     <ClInclude Include="dx10_rendertarget.h" />
     <ClInclude Include="dx10_rendertarget_wallmarks.h" />
     <ClInclude Include="dx10_R_sun_support.h" />
-	<ClCompile Include="dx10_shaders.cpp" />
+    <ClCompile Include="dx10_shaders.cpp" />
     <ClInclude Include="..\xrRender\DX_SMAP_Allocator.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -563,7 +563,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="xrRender_R3.cpp" />
+    <ClCompile Include="xrRender_DX10.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

@@ -1102,6 +1102,32 @@ void CWeapon::OnH_B_Chield()
 }
 
 extern u32 hud_adj_mode;
+
+bool CWeapon::ZoomHideCrosshair()
+{
+	if (hud_adj_mode != 0)
+		return false;
+
+	return m_zoom_params.m_bHideCrosshairInZoom || ZoomTexture(); 
+}
+
+void CWeapon::debug_draw_firedeps()
+{
+	if(hud_adj_mode==5||hud_adj_mode==6||hud_adj_mode==7)
+	{
+		CDebugRenderer			&render = Level().debug_renderer();
+
+		if(hud_adj_mode==5)
+			render.draw_aabb(get_LastFP(),	0.005f,0.005f,0.005f,D3DCOLOR_XRGB(255,0,0));
+
+		if(hud_adj_mode==6)
+			render.draw_aabb(get_LastFP2(),	0.005f,0.005f,0.005f,D3DCOLOR_XRGB(0,0,255));
+
+		if(hud_adj_mode==7)
+			render.draw_aabb(get_LastSP(),		0.005f,0.005f,0.005f,D3DCOLOR_XRGB(0,255,0));
+	}
+}
+
 bool CWeapon::AllowBore() { return true; }
 void CWeapon::UpdateCL()
 {

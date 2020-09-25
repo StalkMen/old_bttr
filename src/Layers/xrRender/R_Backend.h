@@ -125,7 +125,6 @@ private:
 	ID3D11ComputeShader*			cs;
 #endif
 
-#ifdef DEBUG
 	LPCSTR							ps_name;
 	LPCSTR							vs_name;
 	LPCSTR							gs_name;
@@ -134,7 +133,7 @@ private:
 	LPCSTR							ds_name;
 	LPCSTR							cs_name;
 #endif
-#endif
+
 	u32								stencil_enable;
 	u32								stencil_func;
 	u32								stencil_ref;
@@ -174,7 +173,7 @@ public:
 		u32								calls;
 		u32								vs;
 		u32								ps;
-#ifdef	DEBUG
+
 		u32								decl;
 		u32								vb;
 		u32								ib;
@@ -182,7 +181,7 @@ public:
 		u32								textures;		// Number of times the shader-tex changes
 		u32								matrices;		// Number of times the shader-xform changes
 		u32								constants;		// Number of times the shader-consts changes
-#endif
+
 		u32								xforms;
 		u32								target_rt;
 		u32								target_zb;
@@ -347,7 +346,6 @@ public:
 	IC void	dbg_SetSS				(u32 sampler, D3DSAMPLERSTATETYPE type, u32 value)
 	{ VERIFY(!"Not implemented"); }
 
-#ifdef DEBUG
 	void dbg_Draw					(D3DPRIMITIVETYPE T, FVF::L* pVerts, int vcnt, u16* pIdx, int pcnt);
 	void dbg_Draw					(D3DPRIMITIVETYPE T, FVF::L* pVerts, int pcnt);
 	IC void dbg_DrawAABB			(Fvector& T, float sx, float sy, float sz, u32 C)						{	Fvector half_dim;	half_dim.set(sx,sy,sz); Fmatrix	TM;	TM.translate(T); dbg_DrawOBB(TM,half_dim,C);	}
@@ -356,7 +354,6 @@ public:
 	void dbg_DrawTRI				(Fmatrix& T, Fvector& p1, Fvector& p2, Fvector& p3, u32 C);
 	void dbg_DrawLINE				(Fmatrix& T, Fvector& p1, Fvector& p2, u32 C);
 	void dbg_DrawEllipse			(Fmatrix& T, u32 C);
-#endif
 
 	CBackend()						{	Invalidate(); };
 

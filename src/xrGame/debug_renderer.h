@@ -7,9 +7,6 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #pragma once
-
-#ifdef DEBUG
-
 #include "../Include/xrRender/DebugRender.h"
 
 class CDebugRenderer {
@@ -27,5 +24,3 @@ public:
 };
 
 #include "debug_renderer_inline.h"
-
-#endif // DEBUG

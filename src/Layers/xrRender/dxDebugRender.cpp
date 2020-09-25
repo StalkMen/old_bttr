@@ -1,7 +1,5 @@
 #include "stdafx.h"
 
-#ifdef DEBUG
-
 #include "dxDebugRender.h"
 #include "dxUIShader.h"
 
@@ -103,12 +101,6 @@ void dxDebugRender::CacheSetCullMode(CullMode m)
 
 void dxDebugRender::SetAmbient(u32 colour)
 {
-#if defined(USE_DX10) || defined(USE_DX11)
-	//	TODO: DX10: Check if need this for DX10
-	VERIFY(!"Not implemented for DX10");
-#else	//	USE_DX10
-	CHK_DX(HW.pDevice->SetRenderState (D3DRS_AMBIENT, colour));
-#endif	//	USE_DX10
 }
 
 void dxDebugRender::SetDebugShader(dbgShaderHandle shdHandle)
@@ -180,5 +172,3 @@ virtual void	add_lines			(Fvector const *vertices, u32 const &vertex_count, u16 
 }
 } rdebug_render_impl;
 dxDebugRender *rdebug_render = &rdebug_render_impl; 
-
-#endif	//	DEBUG

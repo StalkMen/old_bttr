@@ -135,7 +135,6 @@
     <ClCompile Include="..\xrRender\light_smapvis.cpp" />
     <ClCompile Include="..\xrRender\light_vis.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="xrRender_R3.cpp" />
     <ClCompile Include="dx10.cpp" />
     <ClCompile Include="dx10_loader.cpp" />
     <ClCompile Include="dx10_R_rain.cpp" />
@@ -252,6 +251,8 @@
     <ClCompile Include="blenders_DX10\blender_ssao.cpp">
       <Filter>Blenders_DX10</Filter>
     </ClCompile>
+    <ClCompile Include="dx10_shaders.cpp" />
+    <ClCompile Include="xrRender_DX10.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\xrRender\ApplicationRender.h" />
@@ -404,7 +405,6 @@
     <ClInclude Include="..\xrRender\light_gi.h" />
     <ClInclude Include="..\xrRender\Light_Render_Direct.h" />
     <ClInclude Include="..\xrRender\light_smapvis.h" />
-    <ClInclude Include="SMAP_Allocator.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="dx10.h" />
     <ClInclude Include="dx10_R_sun_support.h" />
@@ -483,6 +483,7 @@
     <ClInclude Include="blenders_DX10\blender_ssao.h">
       <Filter>Blenders_DX10</Filter>
     </ClInclude>
+    <ClInclude Include="..\xrRender\DX_SMAP_Allocator.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Blenders_DX10">

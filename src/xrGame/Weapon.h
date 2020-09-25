@@ -314,13 +314,8 @@ public:
     inline bool IsZoomed() const { return m_zoom_params.m_bIsZoomModeNow; };
     CUIWindow* ZoomTexture();
 
-    bool ZoomHideCrosshair()
-    {
-        CActor *pA = smart_cast<CActor *>(H_Parent());
-        if (pA && pA->active_cam() == eacLookAt)
-            return false;
-        return m_zoom_params.m_bHideCrosshairInZoom || ZoomTexture();
-    }
+    bool ZoomHideCrosshair();
+	
     inline float GetZoomFactor() const { return m_zoom_params.m_fCurrentZoomFactor; }
     inline void SetZoomFactor(float f) { m_zoom_params.m_fCurrentZoomFactor = f; }
     virtual float CurrentZoomFactor();
@@ -406,7 +401,8 @@ public:
         return m_current_firedeps.m_FireParticlesXForm;
     }
     virtual void ForceUpdateFireParticles();
-
+	virtual void debug_draw_firedeps();
+	
 protected:
     virtual void SetDefaults();
 
