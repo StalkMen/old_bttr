@@ -981,37 +981,26 @@ bool CScriptGameObject::attachable_item_enabled() const
     return									(attachable_item->enabled());
 }
 
-void CScriptGameObject::night_vision_allowed(bool value)
-{
-	CActor* pActor = smart_cast<CActor*>(&object());
-    if (!pActor)
-    {
-        ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CActor : cannot access class member enable_night_vision!");
-        return;
-    }
-    pActor->SetNightVisionAllowed(value);
-}
-
 void CScriptGameObject::enable_night_vision(bool value)
 {
-    CActor* pActor = smart_cast<CActor*>(&object());
-    if (!pActor)
+    CTorch									*torch = smart_cast<CTorch*>(&object());
+    if (!torch)
     {
-        ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CActor : cannot access class member enable_night_vision!");
+        ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CTorch : cannot access class member enable_night_vision!");
         return;
     }
-    pActor->SwitchNightVision(value);
+    torch->SwitchNightVision(value);
 }
 
 bool CScriptGameObject::night_vision_enabled() const
 {
-    CActor* pActor = smart_cast<CActor*>(&object());
-    if (!pActor)
+    CTorch									*torch = smart_cast<CTorch*>(&object());
+    if (!torch)
     {
-        ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CActor : cannot access class member enable_night_vision!");
+        ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CTorch : cannot access class member enable_night_vision!");
         return								(false);
     }
-    return									(pActor->GetNightVisionStatus());
+    return									(torch->GetNightVisionStatus());
 }
 
 void CScriptGameObject::enable_torch(bool value)

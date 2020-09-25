@@ -214,12 +214,8 @@ void dxRenderDeviceRender::End()
     Memory.dbg_check		();
 
     DoAsyncScreenshot();
-
-    if (!Device.m_SecondViewport.IsSVPFrame() && !Device.m_SecondViewport.isCamReady) //--#SM+#-- +SecondVP+ Íå âûâîäèì êàäð èç âòîðîãî ðåíäåðà íà ýêðàí
-	{
-		bool bUseVSync = psDeviceFlags.is(rsFullscreen) && psDeviceFlags.test(rsVSync); // xxx: weird tearing glitches when VSync turned on for windowed mode in DX10\11
-		HW.m_pSwapChain->Present(bUseVSync ? 1 : 0, 0);
-	}
+    //AVO: functional vsync by avbaula
+    HW.m_pSwapChain->Present( psDeviceFlags.test(rsVSync) ? 1 : 0, 0 );
 }
 
 void dxRenderDeviceRender::ResourcesDestroyNecessaryTextures()
