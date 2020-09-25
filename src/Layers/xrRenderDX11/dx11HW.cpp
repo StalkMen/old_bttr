@@ -48,6 +48,7 @@ void CHW::DestroyD3D()
 	_RELEASE(pFactory);
 }
 
+extern int tbufer_renders;
 void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 {
 	m_move_window = move_window;
@@ -86,7 +87,8 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	selectResolution(sd.BufferDesc.Width, sd.BufferDesc.Height, bWindowed);
 
 	sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-	sd.BufferCount = 1;
+	sd.BufferCount = (tbufer_renders == 0) ? 1 : 3;
+	Msg("Test buffer count: %i", tbufer_renders);
 
 	// Multisample
 	sd.SampleDesc.Count = 1;

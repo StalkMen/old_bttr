@@ -754,7 +754,7 @@ xr_token type_aa_token[] = {
 float ps_r__tf_Mipbias = 0.0f;
 float ps_r2_ss_sunshafts_length	= 1.f;
 float ps_r2_ss_sunshafts_radius	= 1.f;
-
+int   tbufer_renders = 1;
 //-----------------------------------------------------------------------
 void		xrRender_initconsole()
 {
@@ -771,6 +771,7 @@ void		xrRender_initconsole()
 	CMD3(CCC_Token, "xrRenderDX_type_screenshot",		 &ps_r_type_screen,					screen_mode_token);
 	CMD3(CCC_Token, "xrRenderDX10_type_aa",				 &ps_r_type_aa,						type_aa_token);
 	CMD3(CCC_Mask,  "xrRenderDX11_shader_cache",		 &ps_r__common_flags,				RFLAGDX11_NO_SHADER_CACHE);
+	CMD4(CCC_Integer, "xrRenderDX10_triple_buffering",	 &tbufer_renders,					0, 1);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);
