@@ -7,6 +7,18 @@
 #include "static_cast_checked.hpp"
 #include "actoreffector.h"
 #include "../xrEngine/IGame_Persistent.h"
+#include "inventory_item.h"
+#include "weapon.h"
+
+//Alun: defined in HudItem.cpp now
+extern const float PITCH_OFFSET_R;		// barrel movement sideways (to the left) with vertical camera turns
+extern const float PITCH_OFFSET_N;		// barrel rise / fall with vertical camera turns
+extern const float PITCH_OFFSET_D;		// barrel toward / away when the camera rotates vertically
+extern const float PITCH_LOW_LIMIT;		// minimum pitch value when used in conjunction with PITCH_OFFSET_N
+extern const float ORIGIN_OFFSET;		// inertia factor influence on position of torso (the smaller, the larger the inertia)
+extern const float ORIGIN_OFFSET_AIM;	// (zoomed inertia factor)
+extern const float TENDTO_SPEED;		// barrel return speed
+extern const float TENDTO_SPEED_AIM;	// (zoomed return speed)
 
 player_hud* g_player_hud = NULL;
 Fvector _ancor_pos;
@@ -14,20 +26,9 @@ Fvector _wpn_root_pos;
 Fvector player_hud::m_hud_offset_pos;
 Fvector player_hud::m_hand_offset_pos;
 
-static const float PITCH_OFFSET_R = 0.017f;   // Насколько сильно ствол смещается вбок (влево) при вертикальных поворотах камеры	--#SM+#--
-static const float PITCH_OFFSET_N = 0.012f;   // Насколько сильно ствол поднимается\опускается при вертикальных поворотах камеры	--#SM+#--
-static const float PITCH_OFFSET_D = 0.02f;    // Насколько сильно ствол приближается\отдаляется при вертикальных поворотах камеры --#SM+#--
-static const float PITCH_LOW_LIMIT = -PI;      // Минимальное значение pitch при использовании совместно с PITCH_OFFSET_N			--#SM+#--
-static const float ORIGIN_OFFSET = -0.05f;   // Фактор влияния инерции на положение ствола (чем меньше, тем маштабней инерция)	--#SM+#--
-static const float ORIGIN_OFFSET_AIM = -0.03f;   // (Для прицеливания) --#SM+#--
-static const float TENDTO_SPEED = 5.f;      // Скорость нормализации положения ствола --#SM+#--
-static const float TENDTO_SPEED_AIM = 8.f;      // (Для прицеливания) --#SM+#--
-
-const float _CalcMotionSpeed = 1.f;
-
 float CalcMotionSpeed(const shared_str& anim_name)
 {
-	return _CalcMotionSpeed;
+	return 1.f;
 }
 
 player_hud_motion* player_hud_motion_container::find_motion(const shared_str& name)
@@ -647,95 +648,98 @@ void player_hud::update_additional	(Fmatrix& trans)
 
 void player_hud::update_inertion(Fmatrix& trans)
 {
-	if ( inertion_allowed() )
+	if (inertion_allowed())
 	{
-		attachable_hud_item* pMainHud 		= m_attached_items[0];
-		
-		Fmatrix								xform;
-		Fvector& origin						= trans.c; 
-		xform								= trans;
+		attachable_hud_item* pMainHud = m_attached_items[0];
 
-		static Fvector						st_last_dir={0,0,0};
-		
+		Fmatrix								xform;
+		Fvector& origin = trans.c;
+		xform = trans;
+
+
+		static Fvector						st_last_dir = { 0, 0, 0 };
+
 		// load params
-		hud_item_measures::inertion_params inertion_data;
-		if (pMainHud != NULL)
-		{ // Загружаем параметры инерции из основного худа
-			inertion_data.m_pitch_offset_r = pMainHud->m_measures.m_inertion_params.m_pitch_offset_r;
-			inertion_data.m_pitch_offset_n = pMainHud->m_measures.m_inertion_params.m_pitch_offset_n;
-			inertion_data.m_pitch_offset_d = pMainHud->m_measures.m_inertion_params.m_pitch_offset_d;
-			inertion_data.m_pitch_low_limit = pMainHud->m_measures.m_inertion_params.m_pitch_low_limit;
-			inertion_data.m_origin_offset = pMainHud->m_measures.m_inertion_params.m_origin_offset;
-			inertion_data.m_origin_offset_aim = pMainHud->m_measures.m_inertion_params.m_origin_offset_aim;
-			inertion_data.m_tendto_speed = pMainHud->m_measures.m_inertion_params.m_tendto_speed;
-			inertion_data.m_tendto_speed_aim = pMainHud->m_measures.m_inertion_params.m_tendto_speed_aim;
+		float m_pitch_offset_r = PITCH_OFFSET_R;
+		float m_pitch_offset_n = PITCH_OFFSET_N;
+		float m_pitch_offset_d = PITCH_OFFSET_D;
+		float m_pitch_low_limit = PITCH_LOW_LIMIT;
+		float m_origin_offset = ORIGIN_OFFSET;
+		float m_origin_offset_aim = ORIGIN_OFFSET_AIM;
+		float m_tendto_speed = TENDTO_SPEED;
+		float m_tendto_speed_aim = TENDTO_SPEED_AIM;
+
+		if (pMainHud)
+		{ // Load the inertia parameters from the main Hud
+			CHudItem* itm = pMainHud->m_parent_hud_item;
+			if (itm)
+			{
+				m_pitch_offset_r = itm->m_inertion_params.m_pitch_offset_r;
+				m_pitch_offset_n = itm->m_inertion_params.m_pitch_offset_n;
+				m_pitch_offset_d = itm->m_inertion_params.m_pitch_offset_d;
+				m_pitch_low_limit = itm->m_inertion_params.m_pitch_low_limit;
+				m_origin_offset = itm->m_inertion_params.m_origin_offset;
+				m_origin_offset_aim = itm->m_inertion_params.m_origin_offset_aim;
+				m_tendto_speed = itm->m_inertion_params.m_tendto_speed;
+				m_tendto_speed_aim = itm->m_inertion_params.m_tendto_speed_aim;
+			}
 		}
-		else
-		{ // Загружаем дефолтные параметры инерции
-			inertion_data.m_pitch_offset_r = PITCH_OFFSET_R;
-			inertion_data.m_pitch_offset_n = PITCH_OFFSET_N;
-			inertion_data.m_pitch_offset_d = PITCH_OFFSET_D;
-			inertion_data.m_pitch_low_limit = PITCH_LOW_LIMIT;
-			inertion_data.m_origin_offset = ORIGIN_OFFSET;
-			inertion_data.m_origin_offset_aim = ORIGIN_OFFSET_AIM;
-			inertion_data.m_tendto_speed = TENDTO_SPEED;
-			inertion_data.m_tendto_speed_aim = TENDTO_SPEED_AIM;
-		}
-		
+
 		// calc difference
 		Fvector								diff_dir;
-		diff_dir.sub						(xform.k, st_last_dir);
+		diff_dir.sub(xform.k, st_last_dir);
 
 		// clamp by PI_DIV_2
-		Fvector last;						last.normalize_safe(st_last_dir);
-		float dot							= last.dotproduct(xform.k);
-		if (dot<EPS){
+		Fvector last;
+		last.normalize_safe(st_last_dir);
+		float dot = last.dotproduct(xform.k);
+		if (dot<EPS)
+		{
 			Fvector v0;
-			v0.crossproduct					(st_last_dir,xform.k);
-			st_last_dir.crossproduct		(xform.k,v0);
-			diff_dir.sub					(xform.k, st_last_dir);
+			v0.crossproduct(st_last_dir, xform.k);
+			st_last_dir.crossproduct(xform.k, v0);
+			diff_dir.sub(xform.k, st_last_dir);
 		}
 
 		// tend to forward
 		float _tendto_speed, _origin_offset;
 		if (pMainHud != NULL && pMainHud->m_parent_hud_item->GetCurrentHudOffsetIdx() > 0)
-		{ // Худ в режиме "Прицеливание"
-			float factor = pMainHud->m_parent_hud_item->GetInertionFactor();
-			_tendto_speed = inertion_data.m_tendto_speed_aim - (inertion_data.m_tendto_speed_aim - inertion_data.m_tendto_speed) * factor;
+		{ // inertia while "aiming"
+			_tendto_speed = m_tendto_speed_aim - (m_tendto_speed_aim - m_tendto_speed) * 1;
 			_origin_offset =
-				inertion_data.m_origin_offset_aim - (inertion_data.m_origin_offset_aim - inertion_data.m_origin_offset) * factor;
+				m_origin_offset_aim - (m_origin_offset_aim - m_origin_offset) * 1;
 		}
 		else
-		{ // Худ в режиме "От бедра"
-			_tendto_speed = inertion_data.m_tendto_speed;
-			_origin_offset = inertion_data.m_origin_offset;
+		{ // inertia while "crouching"
+			_tendto_speed = m_tendto_speed;
+			_origin_offset = m_origin_offset;
 		}
 
-		// Фактор силы инерции
+		// Inertia factor
 		if (pMainHud != NULL)
 		{
-			float power_factor = pMainHud->m_parent_hud_item->GetInertionPowerFactor();
-			_tendto_speed *= power_factor;
-			_origin_offset *= power_factor;
+			_tendto_speed *= 1;
+			_origin_offset *= 1;
 		}
 
 		st_last_dir.mad(diff_dir, _tendto_speed * Device.fTimeDelta);
 		origin.mad(diff_dir, _origin_offset);
 
 		// pitch compensation
-		float pitch							= angle_normalize_signed(xform.k.getP());
+		float pitch = angle_normalize_signed(xform.k.getP());
+
 		if (pMainHud != NULL)
-			pitch *= pMainHud->m_parent_hud_item->GetInertionFactor();
+			pitch *= 1;
 
-		// Отдаление\приближение
-		origin.mad(xform.k, -pitch * inertion_data.m_pitch_offset_d);
+		// movement in/out
+		origin.mad(xform.k, -pitch * m_pitch_offset_d);
 
-		// Сдвиг в противоположную часть экрана
-		origin.mad(xform.i, -pitch * inertion_data.m_pitch_offset_r);
+		// movement left
+		origin.mad(xform.i, -pitch * m_pitch_offset_r);
 
-		// Подьём\опускание
-		clamp(pitch, inertion_data.m_pitch_low_limit, PI);
-		origin.mad(xform.j, -pitch * inertion_data.m_pitch_offset_n);
+		// movement up/down
+		clamp(pitch, m_pitch_low_limit, PI);
+		origin.mad(xform.j, -pitch * m_pitch_offset_n);
 	}
 }
 
