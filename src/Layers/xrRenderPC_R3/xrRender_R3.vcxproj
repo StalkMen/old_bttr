@@ -346,6 +346,7 @@
     <ClInclude Include="blenders_DX10\blender_light_spot.h" />
     <ClInclude Include="blenders_DX10\blender_luminance.h" />
     <ClInclude Include="blenders_DX10\blender_ssao.h" />
+	<ClInclude Include="blenders_DX10\blender_fxaa.h" />
     <ClInclude Include="cl_intersect.h" />
     <ClInclude Include="DetailFormat.h" />
     <ClInclude Include="dx10MinMaxSMBlender.h" />
@@ -517,6 +518,7 @@
     <ClCompile Include="blenders_DX10\blender_light_spot.cpp" />
     <ClCompile Include="blenders_DX10\blender_luminance.cpp" />
     <ClCompile Include="blenders_DX10\blender_ssao.cpp" />
+	<ClCompile Include="blenders_DX10\blender_fxaa.cpp" />
     <ClCompile Include="dx10MinMaxSMBlender.cpp" />
     <ClCompile Include="..\xrRender\light_GI.cpp" />
     <ClCompile Include="..\xrRender\Light_Render_Direct.cpp" />
@@ -540,6 +542,7 @@
     <ClCompile Include="dx10_rendertarget_accum_spot.cpp" />
     <ClCompile Include="dx10_rendertarget_accum_spot_geom.cpp" />
     <ClCompile Include="dx10_rendertarget_create_minmaxSM.cpp" />
+	<ClCompile Include="dx10_rendertarget_phase_fxaa.cpp" />
     <ClCompile Include="dx10_rendertarget_draw_rain.cpp" />
     <ClCompile Include="dx10_rendertarget_draw_volume.cpp" />
     <ClCompile Include="dx10_rendertarget_enable_scissor.cpp" />

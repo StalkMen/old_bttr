@@ -328,15 +328,24 @@ void	CRenderTarget::phase_combine	()
 			if (g_pGamePersistent)	g_pGamePersistent->OnRenderPPUI_PP()	;	// PP-UI
 		}
 	}
-
-/*
-   if( RImplementation.o.dx10_msaa )
-   {
-      // we need to resolve rt_Generic_1 into rt_Generic_1_r
-      if( bDistort )
-         HW.pDevice->ResolveSubresource( rt_Generic_1_r->pTexture->surface_get(), 0, rt_Generic_1->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
-   }
-   */
+	
+	RCache.set_Stencil(FALSE);
+	//FXAA
+	if (ps_r_type_aa == 1)
+	{
+		PIX_EVENT(FXAA);
+		phase_fxaa();
+		RCache.set_Stencil(FALSE);
+	}
+	//DLAA
+	else if (ps_r_type_aa == 2)
+	{
+		
+	}
+	else if (ps_r_type_aa == 3)
+	{
+		
+	}
 
 	// PP enabled ?
 	//	Render to RT texture to be able to copy RT even in windowed mode.

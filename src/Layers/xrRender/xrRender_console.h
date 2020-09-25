@@ -137,7 +137,7 @@ extern ECORE_API int			ps_r3_dyn_wet_surf_sm_res;	// 256
 
 extern ECORE_API float			ps_r2_ss_sunshafts_length;
 extern ECORE_API float			ps_r2_ss_sunshafts_radius;
-extern u32 ps_sunshafts_mode;
+extern u32						ps_sunshafts_mode;
 
 enum
 {
@@ -222,6 +222,10 @@ enum
 
 extern ECORE_API u32 ps_r2_smapsize;
 extern ECORE_API xr_token qsmapsize_token[];
+
+extern ECORE_API u32 ps_r_type_aa;
+extern ECORE_API xr_token type_aa_token[];
+
 extern ECORE_API Flags32 ps_r__common_flags;
 
 #endif
