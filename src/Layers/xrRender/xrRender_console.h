@@ -181,7 +181,6 @@ enum
 	//R3FLAG_MSAA					= (1<<28),
 	R3FLAG_MSAA_HYBRID			= (1<<28),
 	R3FLAG_MSAA_OPT				= (1<<29),
-	R3FLAG_GBUFFER_OPT			= (1<<30),
 };
 
 enum

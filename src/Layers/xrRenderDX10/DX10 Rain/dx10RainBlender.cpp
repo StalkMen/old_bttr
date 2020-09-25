@@ -95,10 +95,7 @@ void CBlender_rain::Compile(CBlender_Compile& C)
 		C.r_dx10Texture		("s_patched_normal",	r2_RT_accum);
 
 		//	Normal can be packed into R and G
-		if (RImplementation.o.dx10_gbuffer_opt)
-			C.r_ColorWriteEnable( true, true, false, false );
-		else
-			C.r_ColorWriteEnable( true, true, true, false );
+		C.r_ColorWriteEnable( true, true, false, false );
 
 		C.r_End				();
 
@@ -216,10 +213,7 @@ void CBlender_rain_msaa::Compile(CBlender_Compile& C)
 		C.r_dx10Texture		("s_patched_normal",	r2_RT_accum);
 
 		//	Normal can be packed into R and G
-		if (RImplementation.o.dx10_gbuffer_opt)
-			C.r_ColorWriteEnable( true, true, false, false );
-		else
-			C.r_ColorWriteEnable( true, true, true, false );
+		C.r_ColorWriteEnable( true, true, false, false );
 
 		C.r_End				();
 

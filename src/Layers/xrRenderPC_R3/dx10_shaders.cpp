@@ -466,14 +466,6 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 		sh_name[len]='0'; ++len;
 	}
 
-	if( o.dx10_gbuffer_opt )
-	{
-		defines[def_it].Name		=	"GBUFFER_OPTIMIZATION";
-		defines[def_it].Definition	=	"1";
-		def_it						++;
-	}
-	sh_name[len]='0'+char(o.dx10_gbuffer_opt); ++len;
-
 	if (o.dx10_minmax_sm)
 	{
 		defines[def_it].Name		=	"USE_MINMAX_SM";
