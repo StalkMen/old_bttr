@@ -100,7 +100,7 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	{
 		//OldSerpskiStalker
 		sd.BufferCount = (tbufer_renders == 0) ? 1 : 3;
-		Msg("# HW DX10. Number of buffers for prepared frames: %i", tbufer_renders);
+		Msg("# HW DX10. Number of buffers for prepared frames: %i", sd.BufferCount);
 	}
 
 	// Multisample
