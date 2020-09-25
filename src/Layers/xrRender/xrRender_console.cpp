@@ -466,12 +466,38 @@ public:
 		string_path		_cfg;
 		string_path		cmd;
 		
-		switch	(*value)	{
-			case 0:		xr_strcpy(_cfg, "rspec_minimum.ltx");	break;
-			case 1:		xr_strcpy(_cfg, "rspec_low.ltx");		break;
-			case 2:		xr_strcpy(_cfg, "rspec_default.ltx");	break;
-			case 3:		xr_strcpy(_cfg, "rspec_high.ltx");		break;
-			case 4:		xr_strcpy(_cfg, "rspec_extreme.ltx");	break;
+		switch	(*value)	
+		{
+			case 0:		
+				if (strstr(Core.Params, "-old_ver"))
+					xr_strcpy(_cfg, "rspec_minimum.ltx");	
+				else
+					xr_strcpy(_cfg, "xrRender_DX_settings\\minimum_dx.ltx");
+				break;
+			case 1:		
+				if (strstr(Core.Params, "-old_ver"))
+					xr_strcpy(_cfg, "rspec_low.ltx");		
+				else
+					xr_strcpy(_cfg, "xrRender_DX_settings\\low_dx.ltx");
+				break;
+			case 2:		
+				if (strstr(Core.Params, "-old_ver"))
+					xr_strcpy(_cfg, "rspec_default.ltx");	
+				else
+					xr_strcpy(_cfg, "xrRender_DX_settings\\default_dx.ltx");
+				break;
+			case 3:		
+				if (strstr(Core.Params, "-old_ver"))
+					xr_strcpy(_cfg, "rspec_high.ltx");	
+				else
+					xr_strcpy(_cfg, "xrRender_DX_settings\\high_dx.ltx");
+				break;
+			case 4:	
+				if (strstr(Core.Params, "-old_ver"))
+					xr_strcpy(_cfg, "rspec_extreme.ltx");	
+				else
+					xr_strcpy(_cfg, "xrRender_DX_settings\\extreme_dx.ltx");
+				break;
 		}
 		FS.update_path			(_cfg,"$game_config$",_cfg);
 		strconcat				(sizeof(cmd),cmd,"cfg_load", " ", _cfg);
