@@ -10,6 +10,7 @@
 #include "blenders_DX11/blender_bloom_build.h"
 #include "blenders_DX11/blender_luminance.h"
 #include "blenders_DX11/blender_ssao.h"
+#include "blenders_DX11/blender_fxaa.h"
 #include "dx11MinMaxSMBlender.h"
 #include "dx11HDAOCSBlender.h"
 #include "../xrRenderDX10/msaa/dx10MSAABlender.h"
@@ -316,7 +317,8 @@ CRenderTarget::CRenderTarget		()
 	b_luminance				= xr_new<CBlender_luminance>		();
 	b_combine				= xr_new<CBlender_combine>			();
 	b_ssao					= xr_new<CBlender_SSAO_noMSAA>		();
-
+	b_fxaa 					= xr_new<CBlender_FXAA>				();
+	
 	// HDAO
 	b_hdao_cs               = xr_new<CBlender_CS_HDAO>			();
 	if( RImplementation.o.dx10_msaa )
@@ -598,7 +600,10 @@ CRenderTarget::CRenderTarget		()
 		}
 		f_bloom_factor				= 0.5f;
 	}
-
+	
+	s_fxaa.create(b_fxaa, "r3\\fxaa");
+	g_fxaa.create(FVF::F_V, RCache.Vertex.Buffer(), RCache.QuadIB);
+	
 	// TONEMAP
 	{
 		rt_LUM_64.create			(r2_RT_luminance_t64,	64, 64,	D3DFMT_A16B16G16R16F	);
@@ -1065,6 +1070,7 @@ CRenderTarget::~CRenderTarget	()
 	xr_delete					(b_accum_mask			);
 	xr_delete					(b_occq					);
 	xr_delete					(b_hdao_cs				);
+	xr_delete					(b_fxaa					);
 	if( RImplementation.o.dx10_msaa )
 	{
         xr_delete( b_hdao_msaa_cs );

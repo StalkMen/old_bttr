@@ -204,6 +204,7 @@
     <ClCompile Include="blenders_DX11\blender_ssao.cpp" />
     <ClCompile Include="..\xrRenderDX11\dx11_R_Backend_LOD.cpp" />
     <ClCompile Include="xrRender_DX11.cpp" />
+    <ClCompile Include="dx11_rendertarget_phase_fxaa.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\xrRender\ApplicationRender.h" />
@@ -393,7 +394,12 @@
     <ClInclude Include="blenders_DX11\blender_ssao.h" />
     <ClInclude Include="..\xrRenderDX11\dx11_R_Backend_LOD.h" />
     <ClInclude Include="..\xrRender\DX_SMAP_Allocator.h" />
+    <ClInclude Include="blenders_DX11\blender_fxaa.h" />
+    <ClInclude Include="blenders_DX11\blender_fxaa.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Blenders_DX11">
+      <UniqueIdentifier>{0034b20d-1f3d-4e2d-aeb8-31220332fe79}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

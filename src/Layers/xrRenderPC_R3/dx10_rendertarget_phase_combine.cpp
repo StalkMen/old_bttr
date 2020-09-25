@@ -342,6 +342,7 @@ void	CRenderTarget::phase_combine	()
 	{
 		
 	}
+	//SMAA
 	else if (ps_r_type_aa == 3)
 	{
 		

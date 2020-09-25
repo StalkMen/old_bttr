@@ -253,6 +253,10 @@
     </ClCompile>
     <ClCompile Include="dx10_shaders.cpp" />
     <ClCompile Include="xrRender_DX10.cpp" />
+    <ClCompile Include="dx10_rendertarget_phase_fxaa.cpp" />
+    <ClCompile Include="blenders_DX10\blender_fxaa.cpp">
+      <Filter>Blenders_DX10</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\xrRender\ApplicationRender.h" />
@@ -484,6 +488,9 @@
       <Filter>Blenders_DX10</Filter>
     </ClInclude>
     <ClInclude Include="..\xrRender\DX_SMAP_Allocator.h" />
+    <ClInclude Include="blenders_DX10\blender_fxaa.h">
+      <Filter>Blenders_DX10</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Blenders_DX10">

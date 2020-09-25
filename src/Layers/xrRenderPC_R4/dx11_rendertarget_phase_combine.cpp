@@ -342,7 +342,26 @@ void	CRenderTarget::phase_combine	()
          HW.pDevice->ResolveSubresource( rt_Generic_1_r->pTexture->surface_get(), 0, rt_Generic_1->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
    }
    */
-
+	
+	RCache.set_Stencil(FALSE);
+	//FXAA
+	if (ps_r_type_aa == 1)
+	{
+		PIX_EVENT(FXAA);
+		phase_fxaa();
+		RCache.set_Stencil(FALSE);
+	}
+	//DLAA
+	else if (ps_r_type_aa == 2)
+	{
+		
+	}
+	//SMAA
+	else if (ps_r_type_aa == 3)
+	{
+		
+	}
+	
 	// PP enabled ?
 	//	Render to RT texture to be able to copy RT even in windowed mode.
 	BOOL	PP_Complex		= u_need_PP	() | (BOOL)RImplementation.m_bMakeAsyncSS;
