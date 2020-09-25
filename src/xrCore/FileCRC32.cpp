@@ -24,7 +24,12 @@ void getFileCrc32(IReader* F, LPCSTR filePath, u32& outCrc, bool parseIncludes)
                     const xr_string inc_path = EFP.ExtractFilePath(fn);
                     IReader* I = FS.r_open(fn);
                     R_ASSERT3(I, "Can't find include file:", inc_name);
+#prgama todo("OldSerpskiStalker. Тут вот происходит вылет при смене рендера, пока оставлю так")
+#if 0
                     addFileCrc32(I, inc_path.c_str(), outCrc, true);
+#else
+                    getFileCrc32(I, inc_path.c_str(), outCrc, true);
+#endif
                     FS.r_close(I);
                 }
             }
