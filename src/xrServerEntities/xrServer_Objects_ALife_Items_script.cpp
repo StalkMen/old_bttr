@@ -78,15 +78,9 @@ void CSE_ALifeItemWeapon::script_register(lua_State *L)
 			CSE_ALifeItem
 		)
 		.def("clone_addons",						&CSE_ALifeItemWeapon::clone_addons)
-		.def("set_ammo_elapsed",					&CSE_ALifeItemWeapon::set_ammo_elapsed)
-		.def("set_ammo_elapsed2",					&CSE_ALifeItemWeapon::set_ammo_elapsed2)
-		.def("get_ammo_elapsed",					&CSE_ALifeItemWeapon::get_ammo_elapsed)
-		.def("get_ammo_elapsed2",					&CSE_ALifeItemWeapon::get_ammo_elapsed2)
-		.def("get_ammo_magsize",					&CSE_ALifeItemWeapon::get_ammo_magsize)
-		.def("get_ammo_type",						&CSE_ALifeItemWeapon::get_ammo_type)
-		.def("get_ammo_type2",						&CSE_ALifeItemWeapon::get_ammo_type2)
-		.def("set_ammo_type",						&CSE_ALifeItemWeapon::set_ammo_type)
-		.def("set_ammo_type2",						&CSE_ALifeItemWeapon::set_ammo_type2)
+		.def("set_ammo_elapsed", &CSE_ALifeItemWeapon::set_ammo_elapsed)
+		.def("get_ammo_elapsed", &CSE_ALifeItemWeapon::get_ammo_elapsed)
+		.def("get_ammo_magsize", &CSE_ALifeItemWeapon::get_ammo_magsize)
 	];
 }
 

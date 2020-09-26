@@ -73,7 +73,7 @@ extern	u64		g_qwStartGameTime;
 extern	u64		g_qwEStartGameTime;
 
 ENGINE_API
-extern	float	psHUD_FOV_def;
+extern	float	psHUD_FOV;
 extern	float	psSqueezeVelocity;
 extern	int		psLUA_GCSTEP;
 
@@ -1873,10 +1873,6 @@ public:
 };
 
 int g_objects_per_client_update = 20;
-int g_sprint_reload_wpn = 0;
-int game_value_ammo_belt = 0;
-int game_value_auto_reload = 0;
-int game_value_reload_dof = 1;
 float xrgame_scope_fov = 0.65f;
 float minimap_zoom_factor = 1.0f;
 BOOL int_wallmarks = 1;
@@ -1901,7 +1897,6 @@ xr_token type_hud_token_ext[] = {
 
 void CCC_RegisterCommands()
 {
-	CMD3(CCC_Mask, "xrGame_3d_scopes", &psActorFlags, AF_3DSCOPE_ENABLE);
 	CMD3(CCC_Token, "xrGame_type_hud", &type_hud_token, type_hud_token_ext);
 	CMD4(CCC_Float, "xrGame_scope_fov", &xrgame_scope_fov, 0.45f, 0.85f);
 	CMD4(CCC_Integer, "xrGame_wallmarks", &int_wallmarks, 0, 1);
@@ -1909,10 +1904,6 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Integer, "xrGame_actor_death_first_eye", &actor_death_first_eye, 0, 1);
 	CMD4(CCC_Integer, "xrGame_dead_body_collision", &dead_body_collision, 0, 1);
 	CMD4(CCC_Integer, "xrGame_ObjectСlientUpdate", &g_objects_per_client_update, 1, 65535)
-	CMD4(CCC_Integer, "xrGame_sprint_reload_wpn", &g_sprint_reload_wpn, 0, 1);
-	CMD4(CCC_Integer, "xrGame_ammo_belt_value", &game_value_ammo_belt, 0, 1);
-	CMD4(CCC_Integer, "xrGame_autoreload_wpn", &game_value_auto_reload, 0, 1);
-	CMD4(CCC_Integer, "xrGame_dof_wpn", &game_value_reload_dof, 0, 1);
 	CMD4(CCC_Integer, "xrGame_soc_pickup_mode", &g_b_COD_PickUpMode, 0, 1);
 
 	// options
@@ -1964,7 +1955,7 @@ void CCC_RegisterCommands()
 	CMD3(CCC_Mask, "hud_crosshair_dist", &psHUD_Flags, HUD_CROSSHAIR_DIST);
 
 	//#ifdef DEBUG
-	CMD4(CCC_Float, "hud_fov", &psHUD_FOV_def, 0.1f, 1.0f);
+	CMD4(CCC_Float, "hud_fov", &psHUD_FOV, 0.1f, 1.0f);
 	CMD4(CCC_Float, "fov", &g_fov, 45.0f, 90.0f);
 	//#endif // DEBUG
 

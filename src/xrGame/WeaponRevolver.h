@@ -1,39 +1,38 @@
 #pragma once
-#include "WeaponCustomPistol.h"
+#include "weaponcustompistol.h"
 
-class CWeaponRevolver : public CWeaponCustomPistol
+class CWeaponRevolver :
+	public CWeaponCustomPistol
 {
-    using inherited = CWeaponCustomPistol;
-
+	typedef CWeaponCustomPistol inherited;
 public:
-    CWeaponRevolver();
-    virtual ~CWeaponRevolver();
+					CWeaponRevolver	();
+	virtual			~CWeaponRevolver	();
 
-    void Load(LPCSTR section) override;
+	virtual void	Load			(LPCSTR section);
+	
+	virtual void	switch2_Reload	();
 
-    void switch2_Reload() override;
+	virtual void	OnShot			();
+	virtual void	OnAnimationEnd	(u32 state);
+	virtual void	net_Destroy		();
+	virtual void	OnH_B_Chield	();
 
-    void OnShot() override;
-    void OnAnimationEnd(u32 state) override;
-    void net_Destroy() override;
-    void OnH_B_Chield() override;
+	//анимации
+	virtual void	PlayAnimShow	();
+	virtual void	PlayAnimIdle	();
+	virtual void	PlayAnimIdleMoving	();
+	virtual void	PlayAnimIdleSprint	();
+	virtual void	PlayAnimHide	();
+	virtual void	PlayAnimReload	();
+	virtual void	PlayAnimShoot	();
+	virtual void	PlayAnimBore	();
+	virtual void	PlayAnimAim		();
+	//virtual void	PlayReloadSound		();
+	virtual void	UpdateSounds	();
+protected:	
+	virtual bool	AllowFireWhileWorking() {return true;}
 
-    //Р°РЅРёРјР°С†РёРё
-    void PlayAnimShow() override;
-    void PlayAnimIdle() override;
-    void PlayAnimIdleMoving() override;
-    void PlayAnimIdleSprint() override;
-    void PlayAnimHide() override;
-    void PlayAnimReload() override;
-    void PlayAnimShoot() override;
-    void PlayAnimBore() override;
-    void PlayAnimAim() override;
-    //virtual void PlayReloadSound();
-    void UpdateSounds() override;
-
-protected:
-    bool AllowFireWhileWorking() override { return true; }
-
-    ESoundTypes m_eSoundClose;
-    //ESoundTypes m_eSoundReloadEmpty;
+	ESoundTypes			m_eSoundClose;
+	//ESoundTypes			m_eSoundReloadEmpty;  
 };

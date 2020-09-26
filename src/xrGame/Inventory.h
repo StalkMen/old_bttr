@@ -80,8 +80,6 @@ public:
 	PIItem					ActiveItem			()const					{return (m_iActiveSlot==NO_ACTIVE_SLOT)?NULL:ItemFromSlot(m_iActiveSlot);}
 	PIItem					ItemFromSlot		(u16 slot) const;
 
-	PIItem					GetAmmoOnBelt		(LPCSTR name) const;
-
 	bool					Action				(u16 cmd, u32 flags);
 	void					ActiveWeapon		(u16 slot);
 	void					Update				();

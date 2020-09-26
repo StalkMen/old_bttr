@@ -76,7 +76,6 @@
 
 #include "build_engine_config.h"
 
-#include "ActorNightVision.h"
 //Alundaio
 #include "ActorBackpack.h"
 #include "script_hit.h"
@@ -102,7 +101,7 @@ static Fbox		bbCrouchBox;
 static Fvector	vFootCenter;
 static Fvector	vFootExt;
 
-Flags32			psActorFlags = {AF_GODMODE_RT | AF_AUTOPICKUP | AF_RUN_BACKWARD | AF_IMPORTANT_SAVE | AF_USE_TRACERS | AF_3DSCOPE_ENABLE };
+Flags32			psActorFlags = {AF_GODMODE_RT | AF_AUTOPICKUP | AF_RUN_BACKWARD | AF_IMPORTANT_SAVE | AF_USE_TRACERS};
 int				psActorSleepTime = 1;
 
 
@@ -232,10 +231,6 @@ CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
 
 	// Alex ADD: for smooth crouch fix
 	CurrentHeight = 0.f;
-	
-	m_night_vision = NULL;
-	m_bNightVisionAllow = true;
-	m_bNightVisionOn = false;
 }
 
 
@@ -264,8 +259,6 @@ CActor::~CActor()
     xr_delete(m_vehicle_anims);
 #endif
 	//-Alundaio
-	
-	xr_delete(m_night_vision);
 }
 
 void CActor::reinit()
@@ -439,11 +432,6 @@ void CActor::Load(LPCSTR section)
             m_BloodSnd.create(pSettings->r_string(section, "heavy_blood_snd"), st_Effect, SOUND_TYPE_MONSTER_INJURING);
             m_DangerSnd.create(pSettings->r_string(section, "heavy_danger_snd"), st_Effect, SOUND_TYPE_MONSTER_INJURING);
         }
-		
-		if (this == Level().CurrentEntity()) //--#SM+#-- Na?anuaaai ?a?ei ?aiaa?eiaa a aaoieoiue [reset some render flags]
-		{
-			g_pGamePersistent->m_pGShaderConstants->m_blender_mode.set(0.f, 0.f, 0.f, 0.f);
-		}
     }
     
 	//Alundaio -psp always
@@ -1132,10 +1120,7 @@ void CActor::UpdateCL()
 
             fire_disp_full = m_fdisp_controller.GetCurrentDispertion();
 
-            //--#SM+#-- +SecondVP+ ?oiau ia?ae?anoea ia neaeaei ec ca niaiu FOV (Sin!) [fix for crosshair shaking while SecondVP]
-			if (!Device.m_SecondViewport.IsSVPFrame())
-				HUD().SetCrosshairDisp(fire_disp_full, 0.02f);
-			
+            HUD().SetCrosshairDisp(fire_disp_full, 0.02f);
             HUD().ShowCrosshair(pWeapon->use_crosshair());
 #ifdef DEBUG
             HUD().SetFirstBulletCrosshairDisp(pWeapon->GetFirstBulletDisp());
@@ -1152,18 +1137,6 @@ void CActor::UpdateCL()
 
 
             psHUD_Flags.set(HUD_DRAW_RT, pWeapon->show_indicators());
-			
-			// Iaiiaeyai aaieiie ?aiaa? io i?o?ey [Update SecondVP with weapon data]
-			pWeapon->UpdateSecondVP(); //--#SM+#-- +SecondVP+
-			
-			bool bUseMark = !!pWeapon->bMarkCanShow();
-			bool bInZoom  = !!pWeapon->bInZoomRightNow() && pWeapon->bIsSecondVPZoomPresent() && psActorFlags.test(AF_3DSCOPE_ENABLE);
-			bool bNVEnbl  = !!pWeapon->bNVsecondVPstatus;
-			
-			g_pGamePersistent->m_pGShaderConstants->hud_params.x = bInZoom;  
-			g_pGamePersistent->m_pGShaderConstants->hud_params.y = pWeapon->GetSecondVPFov();
-			g_pGamePersistent->m_pGShaderConstants->hud_params.z = bUseMark; 
-			g_pGamePersistent->m_pGShaderConstants->m_blender_mode.x = bNVEnbl; 
         }
 
     }
@@ -1173,14 +1146,6 @@ void CActor::UpdateCL()
         {
             HUD().SetCrosshairDisp(0.f);
             HUD().ShowCrosshair(false);
-			
-			// I?euaai eioi?iaoe? ia i?o?ee a oaeaa?ao
-			g_pGamePersistent->m_pGShaderConstants->hud_params.set(0.f, 0.f, 0.f, 0.f); 
-			g_pGamePersistent->m_pGShaderConstants->m_blender_mode.set(0.f, 0.f, 0.f, 0.f);
-			
-			// Ioee??aai aoi?ie au?ii?o [Turn off SecondVP]
-			//CWeapon::UpdateSecondVP();
-			Device.m_SecondViewport.SetSVPActive(false); //--#SM+#-- +SecondVP+
         }
     }
 
@@ -1831,6 +1796,8 @@ void CActor::OnItemDrop(CInventoryItem *inventory_item, bool just_before_destroy
     if (weapon && inventory_item->m_ItemCurrPlace.type == eItemPlaceSlot)
     {
         weapon->OnZoomOut();
+        if (weapon->GetRememberActorNVisnStatus())
+            weapon->EnableActorNVisnAfterZoom();
     }
 
     if (!just_before_destroy &&
@@ -1914,10 +1881,11 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
 
 	if (!outfit && !pHelmet)
 	{
-/*		if (GetNightVisionStatus())
+		CTorch* pTorch = smart_cast<CTorch*>(inventory().ItemFromSlot(TORCH_SLOT));
+		if (pTorch && pTorch->GetNightVisionStatus())
 		{
-			SwitchNightVision(false);
-		}*/
+			pTorch->SwitchNightVision(false);
+		}
 	}
 	else
     {
@@ -2247,78 +2215,4 @@ void CActor::On_SetEntity()
 bool CActor::unlimited_ammo()
 {
     return !!psActorFlags.test(AF_UNLIMITEDAMMO);
-}
-
-void CActor::SwitchNightVision(bool vision_on, bool use_sounds, bool send_event)
-{
-	if (eacFirstEye == cam_active)
-	{
-		CWeapon* pWeapon = smart_cast<CWeapon*>(inventory().ActiveItem());
-		if (pWeapon && pWeapon->IsZoomed())
-		{
-			if (!pWeapon->IsRotatingToZoom() && pWeapon->ZoomTexture())
-				pWeapon->AllowNightVision(!pWeapon->AllowNightVision());
-			return;
-		}
-	}
-	
-	m_bNightVisionOn = vision_on;
-
-	if (!m_night_vision)
-		m_night_vision = xr_new<CNightVisionEffector>(cNameSect());
-
-	bool bIsActiveNow = m_night_vision->IsActive();
-
-	CHelmet* pHelmet = smart_cast<CHelmet*>(inventory().ItemFromSlot(HELMET_SLOT));
-	if (pHelmet && pHelmet->m_NightVisionSect.size())
-	{
-		if (m_bNightVisionAllow)
-		{
-			if (m_bNightVisionOn && !bIsActiveNow)
-			{
-				m_night_vision->Start(pHelmet->m_NightVisionSect, this, use_sounds);
-			}
-		}
-		else
-		{
-			m_night_vision->OnDisabled(this, use_sounds);
-			m_bNightVisionOn = false;
-		}
-	}
-	else
-	{
-		CCustomOutfit* pOutfit = smart_cast<CCustomOutfit*>(inventory().ItemFromSlot(OUTFIT_SLOT));
-		if (pOutfit && pOutfit->m_NightVisionSect.size())
-		{
-			if (m_bNightVisionAllow)
-			{
-				if (m_bNightVisionOn && !bIsActiveNow)
-				{
-					m_night_vision->Start(pOutfit->m_NightVisionSect, this, use_sounds);
-				}
-			}
-			else
-			{
-				m_night_vision->OnDisabled(this, use_sounds);
-				m_bNightVisionOn = false;
-			}
-		}
-	}
-
-	if (!m_bNightVisionOn && bIsActiveNow)
-	{
-		m_night_vision->Stop(100000.0f, use_sounds);
-	}
-
-	//Alun: Update flags and send message they were changed
-	if (send_event)
-	{
-		m_trader_flags.set(CSE_ALifeTraderAbstract::eTraderFlagNightVisionActive, m_bNightVisionOn);
-		CGameObject *object = smart_cast<CGameObject*>(this);
-		NET_Packet packet;
-		object->u_EventGen(packet, GE_TRADER_FLAGS, object->ID());
-		packet.w_u32(m_trader_flags.get());
-		object->u_EventSend(packet);
-		//Msg("GE_TRADER_FLAGS event sent %d", m_trader_flags.get());
-	}
 }

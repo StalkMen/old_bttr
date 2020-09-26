@@ -16,7 +16,6 @@
 #define effControllerAura2		(eStartEffectorID+8)
 #define effBigMonsterHit		(eStartEffectorID+9)
 #define effActorDeath			(eStartEffectorID+10)
-#define effNightvisionScope		(eStartEffectorID+11)
 
 #define effPoltergeistTeleDetectStartEffect 2048
 // warning: ~50 constants after effPoltergeistTeleDetectStartEffect are reserved for poltergeists

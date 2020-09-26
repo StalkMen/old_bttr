@@ -1459,9 +1459,3 @@ bool CInventory::IsSlotBlocked(PIItem const iitem) const
 	VERIFY(iitem);
 	return IsSlotBlocked(iitem->BaseSlot());
 }
-
-PIItem CInventory::GetAmmoOnBelt(LPCSTR name) const
-{
-	PIItem itm = Get(name, false);
-	return itm;
-}
