@@ -178,7 +178,8 @@ SERVER_ENTITY_DECLARE_BEGIN(CSE_ALifeItemWeapon,CSE_ALifeItem)
 		};
 	};
 	ammo_elapsed_t					a_elapsed;
-
+	u8                              cur_scope;
+	
 	struct current_addon_t
 	{
 		union {
