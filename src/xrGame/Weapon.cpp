@@ -20,6 +20,7 @@
 #include "../xrphysics/mathutils.h"
 #include "object_broker.h"
 #include "player_hud.h"
+#include "HUDManager.h"
 #include "gamepersistent.h"
 #include "effectorFall.h"
 #include "debug_renderer.h"
@@ -33,6 +34,7 @@
 #define WEAPON_REMOVE_TIME		60000
 #define ROTATION_TIME			0.25f
 
+ENGINE_API extern float psHUD_FOV_def;
 BOOL	b_toggle_weapon_aim = FALSE;
 extern CUIXml*	pWpnScopeXml;
 
@@ -62,7 +64,8 @@ CWeapon::CWeapon()
     m_zoom_params.m_fZoomRotationFactor = 0.f;
     m_zoom_params.m_pVision = NULL;
     m_zoom_params.m_pNight_vision = NULL;
-
+	m_zoom_params.m_fSecondVPFovFactor = 0.0f;
+	
     m_pCurrentAmmo = NULL;
 
     m_pFlameParticles2 = NULL;
@@ -86,6 +89,7 @@ CWeapon::CWeapon()
 
 	UseAltScope = false;
 	ScopeIsHasTexture = false;
+	m_nearwall_last_hud_fov = psHUD_FOV_def;
 }
 
 const shared_str CWeapon::GetScopeName() const
@@ -150,7 +154,15 @@ void CWeapon::UpdateAltScope()
 shared_str CWeapon::GetNameWithAttachment()
 {
 	string64 str;
-	xr_sprintf(str, "%s_%s", m_section_id.c_str(), GetScopeName().c_str());
+    if (pSettings->line_exist(m_section_id.c_str(), "parent_section"))
+    {
+        shared_str parent = pSettings->r_string(m_section_id.c_str(), "parent_section");
+        xr_sprintf(str, "%s_%s", parent.c_str(), GetScopeName().c_str());
+    }
+    else
+    {
+        xr_sprintf(str, "%s_%s", m_section_id.c_str(), GetScopeName().c_str());
+    }
 	return (shared_str)str;
 }
 
@@ -531,7 +543,12 @@ void CWeapon::Load(LPCSTR section)
     m_zoom_params.m_bZoomEnabled = !!pSettings->r_bool(section, "zoom_enabled");
     m_zoom_params.m_fZoomRotateTime = pSettings->r_float(section, "zoom_rotate_time");
 
-    UseAltScope = pSettings->line_exist(section, "scopes");
+    m_zoom_params.m_bUseDynamicZoom = FALSE;
+    m_zoom_params.m_sUseZoomPostprocess = 0;
+    m_zoom_params.m_sUseBinocularVision = 0;
+	LoadModParams(section);
+	
+    UseAltScope = (bool)pSettings->line_exist(section, "scopes");
 
 	if (UseAltScope)
 	{
@@ -546,7 +563,7 @@ void CWeapon::Load(LPCSTR section)
 
 				if (!xr_strcmp(scope_section, "none"))
 				{
-					UseAltScope = 0;
+					UseAltScope = false;
 				}
 				else
 				{
@@ -675,7 +692,12 @@ void CWeapon::Load(LPCSTR section)
         m_bAutoSpawnAmmo = pSettings->r_bool(section, "auto_spawn_ammo");
     else
         m_bAutoSpawnAmmo = TRUE;
+	
+	bool SWM_3D_SCOPES = true;//READ_IF_EXISTS(pFFSettings, r_bool, "gameplay", "SWM_3D_scopes", false);
 
+	if(SWM_3D_SCOPES)
+		m_zoom_params.m_fSecondVPFovFactor = READ_IF_EXISTS(pSettings, r_float, section, "3d_fov", 0.0f);
+	
     m_zoom_params.m_bHideCrosshairInZoom = true;
 
     if (pSettings->line_exist(hud_sect, "zoom_hide_crosshair"))
@@ -701,10 +723,6 @@ void CWeapon::Load(LPCSTR section)
         strconcat(sizeof(temp), temp, "hit_probability_", get_token_name(difficulty_type_token, i));
         m_hit_probability[i] = READ_IF_EXISTS(pSettings, r_float, section, temp, 1.f);
     }
-
-    m_zoom_params.m_bUseDynamicZoom = READ_IF_EXISTS(pSettings, r_bool, section, "scope_dynamic_zoom", FALSE);
-    m_zoom_params.m_sUseZoomPostprocess = READ_IF_EXISTS(pSettings, r_string, section, "scope_nightvision", 0);
-    m_zoom_params.m_sUseBinocularVision = READ_IF_EXISTS(pSettings, r_string, section, "scope_alive_detector", 0);
 
 	// Added by Axel, to enable optional condition use on any item
 	m_flags.set( FUsingCondition, READ_IF_EXISTS( pSettings, r_bool, section, "use_condition", TRUE ));
@@ -734,6 +752,15 @@ void CWeapon::LoadFireParams(LPCSTR section)
 
     CShootingObject::LoadFireParams(section);
 };
+
+void CWeapon::LoadModParams(LPCTSTR section)
+{
+	m_hud_fov_add_mod = READ_IF_EXISTS(pSettings, r_float, section, "hud_fov_addition_modifier", 0.f);
+	m_nearwall_dist_min = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_dist_min", 0.5f);
+	m_nearwall_dist_max = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_dist_max", 1.f);
+	m_nearwall_target_hud_fov = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_target_hud_fov", 0.27f);
+	m_nearwall_speed_mod = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_speed_mod", 10.f);
+}
 
 BOOL CWeapon::net_Spawn(CSE_Abstract* DC)
 {
@@ -980,6 +1007,7 @@ void CWeapon::OnH_B_Independent(bool just_before_destroy)
     m_strapped_mode = false;
     m_zoom_params.m_bIsZoomModeNow = false;
     UpdateXForm();
+	m_nearwall_last_hud_fov		= psHUD_FOV_def;
 }
 
 void CWeapon::OnH_A_Independent()
@@ -1051,6 +1079,7 @@ void CWeapon::OnH_B_Chield()
 
     OnZoomOut();
     m_set_next_ammoType_on_reload = undefined_ammo_type;
+	m_nearwall_last_hud_fov = psHUD_FOV_def;
 }
 
 extern u32 hud_adj_mode;
@@ -1158,7 +1187,7 @@ void CWeapon::EnableActorNVisnAfterZoom()
 
 bool  CWeapon::need_renderable()
 {
-    return !(IsZoomed() && ZoomTexture() && !IsRotatingToZoom());
+    return !Device.m_SecondViewport.IsSVPFrame() && !(IsZoomed() && ZoomTexture() && !IsRotatingToZoom());
 }
 
 void CWeapon::renderable_Render()
@@ -2387,4 +2416,50 @@ void CWeapon::SyncronizeWeaponToServer()
 	packet.w_u16(m_ammoElapsed.data);
 	packet.w_u8(m_bGrenadeMode?1:0);
 	obj->u_EventSend(packet, net_flags(TRUE, TRUE, FALSE, TRUE));
+}
+
+float CWeapon::GetHudFov()
+{
+	if (ParentIsActor() && Level().CurrentViewEntity() == H_Parent())
+	{
+		collide::rq_result& RQ = HUD().GetCurrentRayQuery();
+		float dist = RQ.range;
+
+		clamp(dist, m_nearwall_dist_min, m_nearwall_dist_max);
+		float fDistanceMod =
+			((dist - m_nearwall_dist_min) / (m_nearwall_dist_max - m_nearwall_dist_min)); // 0.f ... 1.f
+
+		float fBaseFov = psHUD_FOV_def + m_hud_fov_add_mod;
+		clamp(fBaseFov, 0.0f, FLT_MAX);
+
+		float src = m_nearwall_speed_mod * Device.fTimeDelta;
+		clamp(src, 0.f, 1.f);
+
+		float fTrgFov = m_nearwall_target_hud_fov + fDistanceMod * (fBaseFov - m_nearwall_target_hud_fov);
+		m_nearwall_last_hud_fov = m_nearwall_last_hud_fov * (1 - src) + fTrgFov * src;
+	}
+	return m_nearwall_last_hud_fov;
+}
+
+float CWeapon::GetSecondVPFov() const
+{
+	if (m_zoom_params.m_bUseDynamicZoom && IsSecondVPZoomPresent())
+		return (m_fRTZoomFactor / 100.f) * g_fov;
+
+	return GetSecondVPZoomFactor() * g_fov;
+}
+
+void CWeapon::UpdateSecondVP()
+{
+	bool b_is_active_item = (m_pInventory != NULL) && (m_pInventory->ActiveItem() == this);
+	R_ASSERT(
+		ParentIsActor() && b_is_active_item); 
+
+	CActor* pActor = smart_cast<CActor*>(H_Parent());
+
+	bool bCond_1 = m_zoom_params.m_fZoomRotationFactor > 0.05f; 
+	bool bCond_2 = IsSecondVPZoomPresent(); 
+	bool bCond_3 = pActor->cam_Active() == pActor->cam_FirstEye();
+
+	Device.m_SecondViewport.SetSVPActive(bCond_1 && bCond_2 && bCond_3);
 }

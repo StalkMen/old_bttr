@@ -47,6 +47,10 @@ void	CRenderTarget::phase_combine	()
 
 	//*** exposure-pipeline
 	u32			gpu_id	= Device.dwFrame%HW.Caps.iGPUNum;
+	if (Device.m_SecondViewport.IsSVPActive()) //--#SM+#-- +SecondVP+ Fix for tonemapping
+		// clang-format off
+		gpu_id = (Device.dwFrame - 1) % HW.Caps.iGPUNum;	
+		
 	{
 		t_LUM_src->surface_set		(rt_LUM_pool[gpu_id*2+0]->pSurface);
 		t_LUM_dest->surface_set		(rt_LUM_pool[gpu_id*2+1]->pSurface);

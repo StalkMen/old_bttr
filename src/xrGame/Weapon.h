@@ -59,11 +59,31 @@ public:
         return inherited::net_SaveRelevant();
     }
 	
-	/*------------------STCoP Weapon Pack SECTION-----------------------*/
 	bool					UseAltScope;
 	void					UpdateAltScope();
 	bool					ScopeIsHasTexture;
 	shared_str				GetNameWithAttachment();
+	
+	void LoadModParams(LPCSTR section);
+
+	IC bool bInZoomRightNow() const { return m_zoom_params.m_fZoomRotationFactor > 0.05; }
+	
+	float CWeapon::GetSecondVPFov() const;
+	IC float GetZRotatingFactor()    const { return m_zoom_params.m_fZoomRotationFactor; }
+	IC float GetSecondVPZoomFactor() const { return m_zoom_params.m_fSecondVPFovFactor; }
+	IC float IsSecondVPZoomPresent() const { return GetSecondVPZoomFactor() > 0.005f; }
+
+	void UpdateSecondVP();
+
+	float					m_hud_fov_add_mod;
+	float					m_nearwall_dist_max;
+	float					m_nearwall_dist_min;
+	float					m_nearwall_last_hud_fov;
+	float					m_nearwall_target_hud_fov;
+	float					m_nearwall_speed_mod;
+
+	float					GetHudFov();
+	//End
 	
     virtual void			UpdateCL();
     virtual void			shedule_Update(u32 dt);
@@ -302,7 +322,9 @@ protected:
         float			m_fScopeZoomFactor;		//коэффициент увеличения прицела
 
         float			m_fZoomRotationFactor;
-
+		
+		float           m_fSecondVPFovFactor;
+		
         Fvector			m_ZoomDof;
         Fvector4		m_ReloadDof;
         Fvector4		m_ReloadEmptyDof; //Swartz: reload when empty mag. DOF

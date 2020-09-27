@@ -695,12 +695,17 @@ extern void draw_wnds_rects();
 
 void CLevel::OnRender()
 {
+	::Render->BeforeWorldRender();	//--#SM+#-- +SecondVP+
+	
     inherited::OnRender();
     if (!game)
         return;
     Game().OnRender();
     //Device.Statistic->TEST1.Begin();
     BulletManager().Render();
+	
+	::Render->AfterWorldRender(); //--#SM+#-- +SecondVP+
+	
     //Device.Statistic->TEST1.End();
     HUD().RenderUI();
 #ifdef DEBUG

@@ -1120,7 +1120,9 @@ void CActor::UpdateCL()
 
             fire_disp_full = m_fdisp_controller.GetCurrentDispertion();
 
-            HUD().SetCrosshairDisp(fire_disp_full, 0.02f);
+            //--#SM+#-- +SecondVP+
+			if (!Device.m_SecondViewport.IsSVPFrame())
+				HUD().SetCrosshairDisp(fire_disp_full, 0.02f);
             HUD().ShowCrosshair(pWeapon->use_crosshair());
 #ifdef DEBUG
             HUD().SetFirstBulletCrosshairDisp(pWeapon->GetFirstBulletDisp());
@@ -1133,10 +1135,14 @@ void CActor::UpdateCL()
             B = B && pWeapon->show_crosshair();
 
             psHUD_Flags.set(HUD_CROSSHAIR_RT2, B);
-
-
-
             psHUD_Flags.set(HUD_DRAW_RT, pWeapon->show_indicators());
+			
+			pWeapon->UpdateSecondVP(); //--#SM+#-- +SecondVP+
+			
+			bool bUseMark = !!pWeapon->IsZoomed();
+			
+			g_pGamePersistent->m_pGShaderConstants->hud_params.x = bUseMark; //--#SM+#--
+			//g_pGamePersistent->m_pGShaderConstants->hud_params.y = pWeapon->GetSecondVPZoomFactor(); //--#SM+#--
         }
 
     }
@@ -1146,6 +1152,11 @@ void CActor::UpdateCL()
         {
             HUD().SetCrosshairDisp(0.f);
             HUD().ShowCrosshair(false);
+			
+			g_pGamePersistent->m_pGShaderConstants->hud_params.set(0.f, 0.f, 0.f, 0.f); //--#SM+#--
+
+			//CWeapon::UpdateSecondVP();
+			Device.m_SecondViewport.SetSVPActive(false); //--#SM+#-- +SecondVP+
         }
     }
 

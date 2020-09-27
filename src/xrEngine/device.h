@@ -116,6 +116,27 @@ public:
 // refs
 class ENGINE_API CRenderDevice : public CRenderDeviceBase
 {
+public:
+	class ENGINE_API CSecondVPParams //--#SM+#-- +SecondVP+
+	{
+		bool isActive;
+		u8 frameDelay; 
+
+	public:
+		bool isCamReady;
+
+		IC bool IsSVPActive() { return isActive; }
+		IC void SetSVPActive(bool bState) { isActive = bState; }
+		bool    IsSVPFrame();
+
+		IC u8 GetSVPFrameDelay() { return frameDelay; }
+		void  SetSVPFrameDelay(u8 iDelay)
+		{
+			frameDelay = iDelay;
+			clamp<u8>(frameDelay, 2, u8(-1));
+		}
+	};
+	
 private:
     // Main objects used for creating and rendering the 3D scene
     u32 m_dwWindowStyle;
@@ -171,42 +192,14 @@ public:
     void DumpResourcesMemoryUsage() { m_pRender->ResourcesDumpMemoryUsage(); }
 public:
     // Registrators
-    //CRegistrator <pureRender > seqRender;
-    // CRegistrator <pureAppActivate > seqAppActivate;
-    // CRegistrator <pureAppDeactivate > seqAppDeactivate;
-    // CRegistrator <pureAppStart > seqAppStart;
-    // CRegistrator <pureAppEnd > seqAppEnd;
-    //CRegistrator <pureFrame > seqFrame;
     CRegistrator <pureFrame > seqFrameMT;
     CRegistrator <pureDeviceReset > seqDeviceReset;
     xr_vector <fastdelegate::FastDelegate0<> > seqParallel;
-
-    // Dependent classes
-    //CResourceManager* Resources;
-
+	CSecondVPParams m_SecondViewport;	//--#SM+#-- +SecondVP+
+	
     CStats* Statistic;
 
-    // Engine flow-control
-    //float fTimeDelta;
-    //float fTimeGlobal;
-    //u32 dwTimeDelta;
-    //u32 dwTimeGlobal;
-    //u32 dwTimeContinual;
-
-    // Cameras & projection
-    //Fvector vCameraPosition;
-    //Fvector vCameraDirection;
-    //Fvector vCameraTop;
-    //Fvector vCameraRight;
-
-    //Fmatrix mView;
-    //Fmatrix mProject;
-    //Fmatrix mFullTransform;
-
     Fmatrix mInvFullTransform;
-
-    //float fFOV;
-    //float fASPECT;
 
     CRenderDevice()
         :
@@ -224,6 +217,10 @@ public:
         b_is_Ready = FALSE;
         Timer.Start();
         m_bNearer = FALSE;
+		//--#SM+#-- +SecondVP+
+		m_SecondViewport.SetSVPActive(false);
+		m_SecondViewport.SetSVPFrameDelay(2);
+		m_SecondViewport.isCamReady = false;
     };
 
     void Pause(BOOL bOn, BOOL bTimer, BOOL bSound, LPCSTR reason);

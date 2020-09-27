@@ -637,8 +637,8 @@ public:
     }
 };
 
-
-ENGINE_API float psHUD_FOV = 0.45f;
+ENGINE_API float psHUD_FOV_def = 0.35f; //--#SM+#--
+ENGINE_API float psHUD_FOV = psHUD_FOV_def; //--#SM+#--
 
 //extern int psSkeletonUpdate;
 extern int rsDVB_Size;
