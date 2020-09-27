@@ -1835,10 +1835,19 @@ void CWeapon::OnZoomIn()
     if (m_zoom_params.m_sUseBinocularVision.size() && IsScopeAttached() && NULL == m_zoom_params.m_pVision)
         m_zoom_params.m_pVision = xr_new<CBinocularsVision>(m_zoom_params.m_sUseBinocularVision/*"wpn_binoc"*/);
 
-    if (m_zoom_params.m_sUseZoomPostprocess.size() && IsScopeAttached())
+    CActor* pA = smart_cast<CActor*>(H_Parent());
+
+	if (pA && IsScopeAttached())
     {
-        CActor *pA = smart_cast<CActor *>(H_Parent());
-        if (pA)
+        if (bIsSecondVPZoomPresent())
+		{
+			CTorch* pTorch = smart_cast<CTorch*>(pA->inventory().ItemFromSlot(TORCH_SLOT));
+			if (pTorch && pTorch->GetNightVisionStatus())
+			{
+				OnZoomOut();
+			}
+		}
+		else if (m_zoom_params.m_sUseZoomPostprocess.size())
         {
             if (NULL == m_zoom_params.m_pNight_vision)
             {
