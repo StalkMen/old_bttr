@@ -126,7 +126,7 @@ public:
 		bool isCamReady;
 
 		IC bool IsSVPActive() { return isActive; }
-		IC void SetSVPActive(bool bState) { isActive = bState; }
+		IC void SetSVPActive(bool bState);
 		bool    IsSVPFrame();
 
 		IC u8 GetSVPFrameDelay() { return frameDelay; }

@@ -772,6 +772,7 @@ void		xrRender_initconsole()
 	CMD3(CCC_Token, "xrRenderDX10_type_aa",				 &ps_r_type_aa,						type_aa_token);
 	CMD3(CCC_Mask,  "xrRenderDX11_shader_cache",		 &ps_r__common_flags,				RFLAGDX11_NO_SHADER_CACHE);
 	CMD4(CCC_Integer, "xrRenderDX10_triple_buffering",	 &tbufer_renders,					0, 1);
+	CMD3(CCC_Mask,  "xrRenderDX10_animMBlur_move",		 &ps_r__common_flags,				RFLAGDX10_MOTION_BLUR);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);

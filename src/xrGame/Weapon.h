@@ -33,7 +33,58 @@ private:
 public:
     CWeapon();
     virtual					~CWeapon();
+	
+	// [FFT++]: аддоны и управление аддонами
+			bool			bUseAltScope;
+			bool			bScopeIsHasTexture;
+			bool            bNVsecondVPavaible;
+			bool            bNVsecondVPstatus;
+			
+	virtual	bool			bInZoomRightNow() const { return m_zoom_params.m_fZoomRotationFactor > 0.05; }
+			bool			bIsSecondVPZoomPresent() const { return GetSecondVPZoomFactor() > 0.000f; }
+			BOOL			bLoadAltScopesParams(LPCSTR section);
+	virtual	bool            bMarkCanShow() { return IsZoomed(); }
+			bool            bChangeNVSecondVPStatus();
 
+
+	virtual void			UpdateSecondVP(bool bInGrenade = false);
+			void			LoadModParams(LPCSTR section);
+			void			Load3DScopeParams(LPCSTR section);
+			void			LoadOriginalScopesParams(LPCSTR section);
+			void			LoadCurrentScopeParams(LPCSTR section);
+			void			GetZoomData(const float scope_factor, float& delta, float& min_zoom_factor);
+			void			ZoomDynamicMod(bool bIncrement, bool bForceLimit);
+			void			UpdateAltScope();
+
+	virtual float			GetControlInertionFactor() const;
+	IC		float			GetZRotatingFactor()    const { return m_zoom_params.m_fZoomRotationFactor; }
+	IC		float			GetSecondVPZoomFactor() const { return m_zoom_params.m_fSecondVPFovFactor; }
+			float			GetHudFov();
+			float			GetSecondVPFov() const;
+
+			shared_str		GetNameWithAttachment();
+
+
+			float			m_fScopeInertionFactor;
+			float           m_fZoomStepCount;
+			float           m_fZoomMinKoeff;
+	// SWM3.0 hud collision
+			float			m_hud_fov_add_mod;
+			float			m_nearwall_dist_max;
+			float			m_nearwall_dist_min;
+			float			m_nearwall_last_hud_fov;
+			float			m_nearwall_target_hud_fov;
+			float			m_nearwall_speed_mod;
+			
+			float			m_fLR_MovingFactor; // Фактор бокового наклона худа при ходьбе [-1; +1]
+			float			m_fLR_CameraFactor; // Фактор бокового наклона худа при движении камеры [-1; +1]
+			float			m_fLR_InertiaFactor; // Фактор горизонтальной инерции худа при движении камеры [-1; +1]
+			float			m_fUD_InertiaFactor; // Фактор вертикальной инерции худа при движении камеры [-1; +1]
+
+			Fvector			m_strafe_offset[4][2]; //pos,rot,data1,data2/ normal,aim-GL --#SM+#--
+			
+	//End=================================
+	
     // Generic
     virtual void			Load(LPCSTR section);
 
@@ -58,32 +109,6 @@ public:
     {
         return inherited::net_SaveRelevant();
     }
-	
-	bool					UseAltScope;
-	void					UpdateAltScope();
-	bool					ScopeIsHasTexture;
-	shared_str				GetNameWithAttachment();
-	
-	void LoadModParams(LPCSTR section);
-
-	IC bool bInZoomRightNow() const { return m_zoom_params.m_fZoomRotationFactor > 0.05; }
-	
-	float CWeapon::GetSecondVPFov() const;
-	IC float GetZRotatingFactor()    const { return m_zoom_params.m_fZoomRotationFactor; }
-	IC float GetSecondVPZoomFactor() const { return m_zoom_params.m_fSecondVPFovFactor; }
-	IC float IsSecondVPZoomPresent() const { return GetSecondVPZoomFactor() > 0.005f; }
-
-	void UpdateSecondVP();
-
-	float					m_hud_fov_add_mod;
-	float					m_nearwall_dist_max;
-	float					m_nearwall_dist_min;
-	float					m_nearwall_last_hud_fov;
-	float					m_nearwall_target_hud_fov;
-	float					m_nearwall_speed_mod;
-
-	float					GetHudFov();
-	//End
 	
     virtual void			UpdateCL();
     virtual void			shedule_Update(u32 dt);
@@ -114,9 +139,6 @@ public:
     virtual void			OnActiveItem();
     virtual void			OnHiddenItem();
     virtual void			SendHiddenItem();	//same as OnHiddenItem but for client... (sends message to a server)...
-
-    float                   m_fLR_MovingFactor;
-    Fvector                 m_strafe_offset[3][2]; // pos,rot,data/ normal,aim-GL --#SM+#--
 
 public:
     virtual bool			can_kill() const;
@@ -745,7 +767,7 @@ private:
     bool					m_bRememberActorNVisnStatus;
 public:
     virtual void			SetActivationSpeedOverride(Fvector const& speed);
-    bool			GetRememberActorNVisnStatus()
+    bool			        GetRememberActorNVisnStatus()
     {
         return m_bRememberActorNVisnStatus;
     };

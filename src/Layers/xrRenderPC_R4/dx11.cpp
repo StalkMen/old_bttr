@@ -262,13 +262,6 @@ void					CRender::create					()
 	o.nvdbt				= false;
 	if (o.nvdbt)		Msg	("* NV-DBT supported and used");
 
-	// options (smap-pool-size)
-	if (strstr(Core.Params,"-smap1536"))	o.smapsize	= 1536;
-	if (strstr(Core.Params,"-smap2048"))	o.smapsize	= 2048;
-	if (strstr(Core.Params,"-smap2560"))	o.smapsize	= 2560;
-	if (strstr(Core.Params,"-smap3072"))	o.smapsize	= 3072;
-	if (strstr(Core.Params,"-smap4096"))	o.smapsize	= 4096;
-
 	// gloss
 	char*	g			= strstr(Core.Params,"-gloss ");
 	o.forcegloss		= g?	TRUE	:FALSE	;
@@ -287,7 +280,7 @@ void					CRender::create					()
 	o.depth16			= (strstr(Core.Params,"-depth16"))?		TRUE	:FALSE	;
 	o.noshadows			= (strstr(Core.Params,"-noshadows"))?	TRUE	:FALSE	;
 	o.Tshadows			= (strstr(Core.Params,"-tsh"))?			TRUE	:FALSE	;
-	o.mblur				= (strstr(Core.Params,"-mblur"))?		TRUE	:FALSE	;
+	o.mblur				= ps_r__common_flags.test(RFLAGDX10_MOTION_BLUR);
 	o.distortion_enabled= (strstr(Core.Params,"-nodistort"))?	FALSE	:TRUE	;
 	o.distortion		= o.distortion_enabled;
 	o.disasm			= (strstr(Core.Params,"-disasm"))?		TRUE	:FALSE	;

@@ -141,6 +141,10 @@ CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
     fPrevCamPos = 0.0f;
     vPrevCamDir.set(0.f, 0.f, 1.f);
     fCurAVelocity = 0.0f;
+	
+	fFPCamYawMagnitude		= 0.0f; //--#SM+#--
+	fFPCamPitchMagnitude	= 0.0f; //--#SM+#--
+	
     // эффекторы
     pCamBobbing = 0;
 
@@ -432,6 +436,11 @@ void CActor::Load(LPCSTR section)
             m_BloodSnd.create(pSettings->r_string(section, "heavy_blood_snd"), st_Effect, SOUND_TYPE_MONSTER_INJURING);
             m_DangerSnd.create(pSettings->r_string(section, "heavy_danger_snd"), st_Effect, SOUND_TYPE_MONSTER_INJURING);
         }
+		
+		if (this == Level().CurrentEntity()) //--#SM+#--
+		{
+			g_pGamePersistent->m_pGShaderConstants->m_blender_mode.set(0.f, 0.f, 0.f, 0.f);
+		}
     }
     
 	//Alundaio -psp always
@@ -1139,10 +1148,14 @@ void CActor::UpdateCL()
 			
 			pWeapon->UpdateSecondVP(); //--#SM+#-- +SecondVP+
 			
-			bool bUseMark = !!pWeapon->IsZoomed();
+			bool bUseMark = !!pWeapon->bMarkCanShow();
+			bool bInZoom  = !!pWeapon->bInZoomRightNow();
+			bool bNVEnbl  = !!pWeapon->bNVsecondVPstatus;
 			
-			g_pGamePersistent->m_pGShaderConstants->hud_params.x = bUseMark; //--#SM+#--
-			//g_pGamePersistent->m_pGShaderConstants->hud_params.y = pWeapon->GetSecondVPZoomFactor(); //--#SM+#--
+			g_pGamePersistent->m_pGShaderConstants->hud_params.x = bInZoom;  //--#SM+#--
+			g_pGamePersistent->m_pGShaderConstants->hud_params.y = pWeapon->GetSecondVPFov(); //--#SM+#--
+			g_pGamePersistent->m_pGShaderConstants->hud_params.z = bUseMark; //--#SM+#--
+			g_pGamePersistent->m_pGShaderConstants->m_blender_mode.x = bNVEnbl;  //--#SM+#--
         }
 
     }
@@ -1154,7 +1167,8 @@ void CActor::UpdateCL()
             HUD().ShowCrosshair(false);
 			
 			g_pGamePersistent->m_pGShaderConstants->hud_params.set(0.f, 0.f, 0.f, 0.f); //--#SM+#--
-
+			g_pGamePersistent->m_pGShaderConstants->m_blender_mode.set(0.f, 0.f, 0.f, 0.f); //--#SM+#--
+			
 			//CWeapon::UpdateSecondVP();
 			Device.m_SecondViewport.SetSVPActive(false); //--#SM+#-- +SecondVP+
         }

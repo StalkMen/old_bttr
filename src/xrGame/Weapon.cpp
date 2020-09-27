@@ -36,7 +36,7 @@
 
 ENGINE_API extern float psHUD_FOV_def;
 BOOL	b_toggle_weapon_aim = FALSE;
-extern CUIXml*	pWpnScopeXml;
+extern CUIXml*	pWpnScopeXml = NULL;
 
 CWeapon::CWeapon()
 {
@@ -87,14 +87,22 @@ CWeapon::CWeapon()
     m_cur_addon.data = 0;
     m_bRememberActorNVisnStatus = false;
 
-	UseAltScope = false;
-	ScopeIsHasTexture = false;
+	bUseAltScope = false;
+	bScopeIsHasTexture = false;
+	bNVsecondVPavaible = false;
+	bNVsecondVPstatus = false;
 	m_nearwall_last_hud_fov = psHUD_FOV_def;
+	m_fZoomStepCount = 3.0f;
+	m_fZoomMinKoeff = 0.3f;
+	m_fLR_MovingFactor			= 0.f;
+	m_fLR_CameraFactor			= 0.f;
+	m_fLR_InertiaFactor			= 0.f;
+	m_fUD_InertiaFactor			= 0.f;
 }
 
 const shared_str CWeapon::GetScopeName() const
 {
-	if (UseAltScope)
+	if (bUseAltScope)
 	{
 		return m_scopes[m_cur_addon.scope];
 	}
@@ -106,49 +114,38 @@ const shared_str CWeapon::GetScopeName() const
 
 void CWeapon::UpdateAltScope()
 {
-	if (m_eScopeStatus == ALife::eAddonAttachable)
-	{
-		shared_str sectionNeedLoad;
-
-		if (!UseAltScope)
-			return;
-
-		if (IsScopeAttached())
-		{
-			if (pSettings->section_exist(GetNameWithAttachment()))
-			{
-				sectionNeedLoad = GetNameWithAttachment();
-			}
-			else
-			{
-				return;
-			}
-		}
-		else
-		{
-			sectionNeedLoad = m_section_id.c_str();
-		}
-
-		if (!pSettings->section_exist(sectionNeedLoad))
-			return;
-
-		shared_str vis = pSettings->r_string(sectionNeedLoad, "visual");
-
-		if (vis != cNameVisual())
-		{
-			cNameVisual_set(vis);
-		}
-
-		shared_str new_hud = pSettings->r_string(sectionNeedLoad, "hud");
-		if (new_hud != hud_sect)
-		{
-			hud_sect = new_hud;
-		}
-	}
-	else
-	{
+	if (m_eScopeStatus != ALife::eAddonAttachable || !bUseAltScope)
 		return;
+
+	shared_str sectionNeedLoad;
+
+	sectionNeedLoad = IsScopeAttached() ? GetNameWithAttachment() : m_section_id;
+
+	if (!pSettings->section_exist(sectionNeedLoad))
+		return;
+
+	shared_str vis = pSettings->r_string(sectionNeedLoad, "visual");
+
+	if (vis != cNameVisual())
+	{
+		cNameVisual_set(vis);
 	}
+
+	shared_str new_hud = pSettings->r_string(sectionNeedLoad, "hud");
+	if (new_hud != hud_sect)
+	{
+		hud_sect = new_hud;
+	}
+}
+
+bool CWeapon::bChangeNVSecondVPStatus()
+{
+	if (!bNVsecondVPavaible || !IsZoomed())
+		return false;
+
+	bNVsecondVPstatus = !bNVsecondVPstatus;
+	
+	return true;
 }
 
 shared_str CWeapon::GetNameWithAttachment()
@@ -168,7 +165,7 @@ shared_str CWeapon::GetNameWithAttachment()
 
 int CWeapon::GetScopeX()
 {
-	if (UseAltScope)
+	if (bUseAltScope)
 	{
 		if (m_eScopeStatus != ALife::eAddonPermanent && IsScopeAttached())
 		{
@@ -187,7 +184,7 @@ int CWeapon::GetScopeX()
 
 int CWeapon::GetScopeY()
 {
-	if (UseAltScope)
+	if (bUseAltScope)
 	{
 		if (m_eScopeStatus != ALife::eAddonPermanent && IsScopeAttached())
 		{
@@ -548,102 +545,10 @@ void CWeapon::Load(LPCSTR section)
     m_zoom_params.m_sUseBinocularVision = 0;
 	LoadModParams(section);
 	
-    UseAltScope = (bool)pSettings->line_exist(section, "scopes");
+    bUseAltScope = !!bLoadAltScopesParams(section);
 
-	if (UseAltScope)
-	{
-		if (m_eScopeStatus == ALife::eAddonAttachable)
-		{
-
-			LPCSTR str = pSettings->r_string(section, "scopes");
-			for (int i = 0, count = _GetItemCount(str); i < count; ++i)
-			{
-				string128 scope_section;
-				_GetItem(str, i, scope_section);
-
-				if (!xr_strcmp(scope_section, "none"))
-				{
-					UseAltScope = false;
-				}
-				else
-				{
-					m_scopes.push_back(scope_section);
-				}
-			}
-		}
-		else if (m_eScopeStatus == ALife::eAddonPermanent)
-		{
-			shared_str scope_tex_name = "none";
-			ScopeIsHasTexture = false;
-			if (pSettings->line_exist(cNameSect(), "scope_texture"))
-			{
-				scope_tex_name = pSettings->r_string(cNameSect(), "scope_texture");
-				if (xr_strcmp(scope_tex_name, "none") != 0)
-					ScopeIsHasTexture = true;
-			}
-			m_zoom_params.m_fScopeZoomFactor = pSettings->r_float(cNameSect(), "scope_zoom_factor");
-			if (ScopeIsHasTexture)
-			{
-				m_zoom_params.m_sUseZoomPostprocess = READ_IF_EXISTS(pSettings, r_string, cNameSect(), "scope_nightvision", 0);
-				m_zoom_params.m_bUseDynamicZoom = READ_IF_EXISTS(pSettings, r_bool, cNameSect(), "scope_dynamic_zoom", FALSE);
-				m_zoom_params.m_sUseBinocularVision = READ_IF_EXISTS(pSettings, r_string, cNameSect(), "scope_alive_detector", 0);
-				m_UIScope = xr_new<CUIWindow>();
-				if (!pWpnScopeXml)
-				{
-					pWpnScopeXml = xr_new<CUIXml>();
-					pWpnScopeXml->Load(CONFIG_PATH, UI_PATH, "scopes.xml");
-				}
-				CUIXmlInit::InitWindow(*pWpnScopeXml, scope_tex_name.c_str(), 0, m_UIScope);
-			}
-
-		}
-	}
-
-	if (!UseAltScope)
-	{
-		if (m_eScopeStatus == ALife::eAddonAttachable)
-		{
-			if (pSettings->line_exist(section, "scopes_sect"))
-			{
-				LPCSTR str = pSettings->r_string(section, "scopes_sect");
-				for (int i = 0, count = _GetItemCount(str); i < count; ++i)
-				{
-					string128						scope_section;
-					_GetItem(str, i, scope_section);
-					m_scopes.push_back(scope_section);
-				}
-			}
-			else
-			{
-				m_scopes.push_back(section);
-			}
-		}
-		else if (m_eScopeStatus == ALife::eAddonPermanent)
-		{
-			shared_str scope_tex_name = "none";
-			ScopeIsHasTexture = false;
-			if (pSettings->line_exist(cNameSect(), "scope_texture"))
-			{
-				scope_tex_name = pSettings->r_string(cNameSect(), "scope_texture");
-				if (xr_strcmp(scope_tex_name, "none") != 0)
-					ScopeIsHasTexture = true;
-			}
-			m_zoom_params.m_fScopeZoomFactor = pSettings->r_float(cNameSect(), "scope_zoom_factor");
-			if (ScopeIsHasTexture)
-			{
-				m_zoom_params.m_sUseZoomPostprocess = READ_IF_EXISTS(pSettings, r_string, cNameSect(), "scope_nightvision", 0);
-				m_zoom_params.m_bUseDynamicZoom = READ_IF_EXISTS(pSettings, r_bool, cNameSect(), "scope_dynamic_zoom", FALSE);
-				m_zoom_params.m_sUseBinocularVision = READ_IF_EXISTS(pSettings, r_string, cNameSect(), "scope_alive_detector", 0);
-				m_UIScope = xr_new<CUIWindow>();
-				if (!pWpnScopeXml)
-				{
-					pWpnScopeXml = xr_new<CUIXml>();
-					pWpnScopeXml->Load(CONFIG_PATH, UI_PATH, "scopes.xml");
-				}
-				CUIXmlInit::InitWindow(*pWpnScopeXml, scope_tex_name.c_str(), 0, m_UIScope);
-			}
-		}
-	}
+	if (!bUseAltScope)
+		LoadOriginalScopesParams(section);
 
     if (m_eSilencerStatus == ALife::eAddonAttachable)
     {
@@ -692,11 +597,6 @@ void CWeapon::Load(LPCSTR section)
         m_bAutoSpawnAmmo = pSettings->r_bool(section, "auto_spawn_ammo");
     else
         m_bAutoSpawnAmmo = TRUE;
-	
-	bool SWM_3D_SCOPES = true;//READ_IF_EXISTS(pFFSettings, r_bool, "gameplay", "SWM_3D_scopes", false);
-
-	if(SWM_3D_SCOPES)
-		m_zoom_params.m_fSecondVPFovFactor = READ_IF_EXISTS(pSettings, r_float, section, "3d_fov", 0.0f);
 	
     m_zoom_params.m_bHideCrosshairInZoom = true;
 
@@ -753,13 +653,176 @@ void CWeapon::LoadFireParams(LPCSTR section)
     CShootingObject::LoadFireParams(section);
 };
 
-void CWeapon::LoadModParams(LPCTSTR section)
+void CWeapon::LoadModParams(LPCSTR section)
 {
 	m_hud_fov_add_mod = READ_IF_EXISTS(pSettings, r_float, section, "hud_fov_addition_modifier", 0.f);
 	m_nearwall_dist_min = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_dist_min", 0.5f);
 	m_nearwall_dist_max = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_dist_max", 1.f);
 	m_nearwall_target_hud_fov = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_target_hud_fov", 0.27f);
 	m_nearwall_speed_mod = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_speed_mod", 10.f);
+	
+	// Настройки стрейфа (боковая ходьба)
+	const Fvector vZero = { 0.f, 0.f, 0.f };
+	Fvector vDefStrafeValue;
+	vDefStrafeValue.set(vZero);
+
+	//--> Смещение в стрейфе
+	m_strafe_offset[0][0]		= READ_IF_EXISTS(pSettings, r_fvector3, section, "strafe_hud_offset_pos",		vDefStrafeValue);
+	m_strafe_offset[1][0]		= READ_IF_EXISTS(pSettings, r_fvector3, section, "strafe_hud_offset_rot",		vDefStrafeValue);
+
+	//--> Поворот в стрейфе
+	m_strafe_offset[0][1]		= READ_IF_EXISTS(pSettings, r_fvector3, section, "strafe_aim_hud_offset_pos",	vDefStrafeValue);
+	m_strafe_offset[1][1]		= READ_IF_EXISTS(pSettings, r_fvector3, section, "strafe_aim_hud_offset_rot",	vDefStrafeValue);
+
+	// Параметры стрейфа
+	bool  bStrafeEnabled		= READ_IF_EXISTS(pSettings, r_bool, section, "strafe_enabled", false);
+	bool  bStrafeEnabled_aim	= READ_IF_EXISTS(pSettings, r_bool, section, "strafe_aim_enabled", false);
+	float fFullStrafeTime		= READ_IF_EXISTS(pSettings, r_float, section, "strafe_transition_time", 0.01f);
+	float fFullStrafeTime_aim	= READ_IF_EXISTS(pSettings, r_float, section, "strafe_aim_transition_time", 0.01f);
+	float fStrafeCamLFactor		= READ_IF_EXISTS(pSettings, r_float, section, "strafe_cam_limit_factor", 0.5f);
+	float fStrafeCamLFactor_aim = READ_IF_EXISTS(pSettings, r_float, section, "strafe_cam_limit_aim_factor", 1.0f);
+	float fStrafeMinAngle		= READ_IF_EXISTS(pSettings, r_float, section, "strafe_cam_min_angle", 0.0f);
+	float fStrafeMinAngle_aim	= READ_IF_EXISTS(pSettings, r_float, section, "strafe_cam_aim_min_angle", 7.0f);
+
+	//--> (Data 1)
+	m_strafe_offset[2][0].set((bStrafeEnabled ? 1.0f : 0.0f), fFullStrafeTime, NULL);         // normal
+	m_strafe_offset[2][1].set((bStrafeEnabled_aim ? 1.0f : 0.0f), fFullStrafeTime_aim, NULL); // aim-GL
+
+	//--> (Data 2)
+	m_strafe_offset[3][0].set(fStrafeCamLFactor, fStrafeMinAngle, NULL); // normal
+	m_strafe_offset[3][1].set(fStrafeCamLFactor_aim, fStrafeMinAngle_aim, NULL); // aim-GL
+}
+
+BOOL CWeapon::bLoadAltScopesParams(LPCSTR section)
+{
+	if (!pSettings->line_exist(section, "scopes"))
+		return FALSE;
+
+	if(!xr_strcmp(pSettings->r_string(section, "scopes"), "none"))
+		return FALSE;
+
+	if (m_eScopeStatus == ALife::eAddonAttachable)
+	{
+		LPCSTR str = pSettings->r_string(section, "scopes");
+		for (int i = 0, count = _GetItemCount(str); i < count; ++i)
+		{
+			string128 scope_section;
+			_GetItem(str, i, scope_section);
+			m_scopes.push_back(scope_section);
+		}
+	}
+	else if (m_eScopeStatus == ALife::eAddonPermanent)
+	{
+		LoadCurrentScopeParams(section);
+	}
+
+	return TRUE;
+}
+
+void CWeapon::LoadOriginalScopesParams(LPCSTR section)
+{
+	if (m_eScopeStatus == ALife::eAddonAttachable)
+	{
+		if (pSettings->line_exist(section, "scopes_sect"))
+		{
+			LPCSTR str = pSettings->r_string(section, "scopes_sect");
+			for (int i = 0, count = _GetItemCount(str); i < count; ++i)
+			{
+				string128						scope_section;
+				_GetItem(str, i, scope_section);
+				m_scopes.push_back(scope_section);
+			}
+		}
+		else
+		{
+			m_scopes.push_back(section);
+		}
+	}
+	else if (m_eScopeStatus == ALife::eAddonPermanent)
+	{
+		LoadCurrentScopeParams(section);
+	}
+}
+
+void createWpnScopeXML()
+{
+	if (!pWpnScopeXml)
+	{
+		pWpnScopeXml = xr_new<CUIXml>();
+		pWpnScopeXml->Load(CONFIG_PATH, UI_PATH, "scopes.xml");
+	}
+}
+
+void CWeapon::LoadCurrentScopeParams(LPCSTR section)
+{
+	shared_str scope_tex_name = "none";
+	bScopeIsHasTexture = false;
+	if (pSettings->line_exist(section, "scope_texture"))
+	{
+		scope_tex_name = pSettings->r_string(section, "scope_texture");
+		if (xr_strcmp(scope_tex_name, "none") != 0)
+			bScopeIsHasTexture = true;
+	}
+
+	Load3DScopeParams(section);
+
+	if (bIsSecondVPZoomPresent())
+	{
+		bScopeIsHasTexture = false;
+		m_zoom_params.m_fScopeZoomFactor = pSettings->r_float(section, "3d_zoom_factor");
+	}
+	else
+	{
+		m_zoom_params.m_fScopeZoomFactor = pSettings->r_float(section, "scope_zoom_factor");
+	}
+	
+	if (bScopeIsHasTexture || bIsSecondVPZoomPresent())
+	{
+		if (bIsSecondVPZoomPresent())
+			bNVsecondVPavaible = !!pSettings->line_exist(section, "scope_nightvision");
+		else m_zoom_params.m_sUseZoomPostprocess = READ_IF_EXISTS(pSettings, r_string, section, "scope_nightvision", 0);
+
+		m_zoom_params.m_bUseDynamicZoom = READ_IF_EXISTS(pSettings, r_bool, section, "scope_dynamic_zoom", FALSE);
+		
+		if (m_zoom_params.m_bUseDynamicZoom)
+		{
+			m_fZoomStepCount = READ_IF_EXISTS(pSettings, r_u8, section, "scope_zoom_steps", 3.0f);
+			m_fZoomMinKoeff  = READ_IF_EXISTS(pSettings, r_u8, section, "min_zoom_k",		0.3f);
+		}
+		
+		m_zoom_params.m_sUseBinocularVision = READ_IF_EXISTS(pSettings, r_string, section, "scope_alive_detector", 0);
+	}
+	else
+	{
+		bNVsecondVPavaible = false;
+		bNVsecondVPstatus  = false;
+	}
+	
+	m_fScopeInertionFactor = READ_IF_EXISTS(pSettings, r_float, section, "scope_inertion_factor", m_fControlInertionFactor);
+	m_fRTZoomFactor = m_zoom_params.m_fScopeZoomFactor;
+
+	if (m_UIScope)
+	{
+		xr_delete(m_UIScope);
+	}
+
+	if (bScopeIsHasTexture)
+	{
+		m_UIScope = xr_new<CUIWindow>();
+		createWpnScopeXML();
+		CUIXmlInit::InitWindow(*pWpnScopeXml, scope_tex_name.c_str(), 0, m_UIScope);
+	}
+}
+
+void CWeapon::Load3DScopeParams(LPCSTR section)
+{
+	bool SWM_3D_SCOPES = !!READ_IF_EXISTS(pFFSettings, r_bool, "gameplay", "SWM_3D_scopes", true);
+
+	if (SWM_3D_SCOPES)
+		m_zoom_params.m_fSecondVPFovFactor = READ_IF_EXISTS(pSettings, r_float, section, "3d_fov", 0.0f);
+	else
+		m_zoom_params.m_fSecondVPFovFactor = 0.0f;
+
 }
 
 BOOL CWeapon::net_Spawn(CSE_Abstract* DC)
@@ -928,6 +991,7 @@ void CWeapon::save(NET_Packet &output_packet)
     save_data(m_ammoType.data, output_packet);
     save_data(m_zoom_params.m_bIsZoomModeNow, output_packet);
     save_data(m_bRememberActorNVisnStatus, output_packet);
+	save_data(bNVsecondVPstatus, output_packet);
 }
 
 void CWeapon::load(IReader &input_packet)
@@ -946,6 +1010,7 @@ void CWeapon::load(IReader &input_packet)
         OnZoomOut();
 
     load_data(m_bRememberActorNVisnStatus, input_packet);
+	load_data(bNVsecondVPstatus,input_packet);
 }
 
 void CWeapon::OnEvent(NET_Packet& P, u16 type)
@@ -1013,6 +1078,12 @@ void CWeapon::OnH_B_Independent(bool just_before_destroy)
 void CWeapon::OnH_A_Independent()
 {
     m_dwWeaponIndependencyTime = Level().timeServer();
+	
+	m_fLR_MovingFactor		   = 0.f;
+	m_fLR_CameraFactor		   = 0.f;
+	m_fLR_InertiaFactor		   = 0.f;
+	m_fUD_InertiaFactor		   = 0.f;
+	
     inherited::OnH_A_Independent();
     Light_Destroy();
     UpdateAddonsVisibility();
@@ -1212,6 +1283,11 @@ void CWeapon::signal_HideComplete()
     if (H_Parent())
         setVisible(FALSE);
     SetPending(FALSE);
+	
+	m_fLR_MovingFactor  = 0.f;
+	m_fLR_CameraFactor  = 0.f;
+	m_fLR_InertiaFactor = 0.f;
+	m_fUD_InertiaFactor = 0.f;
 }
 
 void CWeapon::SetDefaults()
@@ -1237,6 +1313,10 @@ bool CWeapon::Action(u16 cmd, u32 flags)
 
     switch (cmd)
     {
+	case kWPN_NV_CHANGE:
+	{
+		return bChangeNVSecondVPStatus();
+	}
     case kWPN_FIRE:
     {
         //если оружие чем-то занято, то ничего не делать
@@ -1717,16 +1797,34 @@ float CWeapon::CurrentZoomFactor()
 {
     return IsScopeAttached() ? m_zoom_params.m_fScopeZoomFactor : m_zoom_params.m_fIronSightZoomFactor;
 };
-void GetZoomData(const float scope_factor, float& delta, float& min_zoom_factor);
+
+float CWeapon::GetControlInertionFactor() const
+{
+	float fInertionFactor = inherited::GetControlInertionFactor();
+	if (IsScopeAttached() && IsZoomed())
+		return m_fScopeInertionFactor;
+
+	return fInertionFactor;
+}
+
+void CWeapon::GetZoomData(const float scope_factor, float& delta, float& min_zoom_factor)
+{
+	float def_fov = bIsSecondVPZoomPresent() ? 75.0f : g_fov;//float(g_fov);
+	float delta_factor_total = def_fov - scope_factor;
+	VERIFY(delta_factor_total > 0);
+	min_zoom_factor = def_fov - delta_factor_total * m_fZoomMinKoeff;
+	delta = (delta_factor_total * (1 - m_fZoomMinKoeff)) / m_fZoomStepCount;
+}
+
 void CWeapon::OnZoomIn()
 {
     m_zoom_params.m_bIsZoomModeNow = true;
-    if (m_zoom_params.m_bUseDynamicZoom)
-        SetZoomFactor(m_fRTZoomFactor);
+    if (bIsSecondVPZoomPresent() && m_zoom_params.m_bUseDynamicZoom)
+		SetZoomFactor(CurrentZoomFactor());
     else
-        m_zoom_params.m_fCurrentZoomFactor = CurrentZoomFactor();
+        SetZoomFactor(m_zoom_params.m_bUseDynamicZoom ? m_fRTZoomFactor : CurrentZoomFactor());
 
-    EnableHudInertion(FALSE);
+ //   EnableHudInertion(FALSE);
 
     if (m_zoom_params.m_bZoomDofEnabled && !IsScopeAttached())
         GamePersistent().SetEffectorDOF(m_zoom_params.m_ZoomDof);
@@ -1752,10 +1850,12 @@ void CWeapon::OnZoomIn()
 
 void CWeapon::OnZoomOut()
 {
+	if(!bIsSecondVPZoomPresent())
+		m_fRTZoomFactor = GetZoomFactor();
+	
     m_zoom_params.m_bIsZoomModeNow = false;
-    m_fRTZoomFactor = GetZoomFactor();//store current
-    m_zoom_params.m_fCurrentZoomFactor = g_fov;
-    EnableHudInertion(TRUE);
+    SetZoomFactor(g_fov);
+//    EnableHudInertion(TRUE);
 
     GamePersistent().RestoreEffectorDOF();
 
@@ -2004,133 +2104,313 @@ bool CWeapon::ready_to_kill() const
         );
 }
 
+void _inertion(float& _val_cur, const float& _val_trgt, const float& _friction)
+{
+	float friction_i = 1.f - _friction;
+	_val_cur = _val_cur * _friction + _val_trgt * friction_i;
+}
+
+float _lerp(const float& _val_a, const float& _val_b, const float& _factor)
+{
+	return (_val_a * (1.0 - _factor)) + (_val_b * _factor);
+}
+
 void CWeapon::UpdateHudAdditonal(Fmatrix& trans)
 {
-    CActor* pActor = smart_cast<CActor*>(H_Parent());
-    if (!pActor)		return;
+	CActor* pActor = smart_cast<CActor*>(H_Parent());
+	if (!pActor)
+		return;
 
-    u8 idx = GetCurrentHudOffsetIdx();
+	attachable_hud_item* hi = HudItemData();
+	R_ASSERT(hi);
 
-    if ((IsZoomed() && m_zoom_params.m_fZoomRotationFactor <= 1.f) ||
-        (!IsZoomed() && m_zoom_params.m_fZoomRotationFactor > 0.f))
-    {
+	u8 idx = GetCurrentHudOffsetIdx();
 
-        attachable_hud_item* hi = HudItemData();
-        R_ASSERT(hi);
-        Fvector curr_offs, curr_rot;
-        curr_offs = hi->m_measures.m_hands_offset[0][idx]; // pos,aim
-        curr_rot = hi->m_measures.m_hands_offset[1][idx]; // rot,aim
-        curr_offs.mul(m_zoom_params.m_fZoomRotationFactor);
-        curr_rot.mul(m_zoom_params.m_fZoomRotationFactor);
+	//============= Поворот ствола во время аима =============//
+	if ((IsZoomed() && m_zoom_params.m_fZoomRotationFactor <= 1.f) || (!IsZoomed() && m_zoom_params.m_fZoomRotationFactor > 0.f))
+	{
+		Fvector curr_offs, curr_rot;
+		curr_offs = hi->m_measures.m_hands_offset[0][idx]; //pos,aim
+		curr_rot = hi->m_measures.m_hands_offset[1][idx]; //rot,aim
 
-        Fmatrix hud_rotation;
-        hud_rotation.identity();
-        hud_rotation.rotateX(curr_rot.x);
+		curr_offs.mul(m_zoom_params.m_fZoomRotationFactor);
+		curr_rot.mul(m_zoom_params.m_fZoomRotationFactor);
 
-        Fmatrix hud_rotation_y;
-        hud_rotation_y.identity();
-        hud_rotation_y.rotateY(curr_rot.y);
-        hud_rotation.mulA_43(hud_rotation_y);
+		Fmatrix hud_rotation;
+		hud_rotation.identity();
+		hud_rotation.rotateX(curr_rot.x);
 
-        hud_rotation_y.identity();
-        hud_rotation_y.rotateZ(curr_rot.z);
-        hud_rotation.mulA_43(hud_rotation_y);
+		Fmatrix hud_rotation_y;
+		hud_rotation_y.identity();
+		hud_rotation_y.rotateY(curr_rot.y);
+		hud_rotation.mulA_43(hud_rotation_y);
 
-        hud_rotation.translate_over(curr_offs);
-        trans.mulB_43(hud_rotation);
+		hud_rotation_y.identity();
+		hud_rotation_y.rotateZ(curr_rot.z);
+		hud_rotation.mulA_43(hud_rotation_y);
 
-        if (pActor->IsZoomAimingMode())
-            m_zoom_params.m_fZoomRotationFactor += Device.fTimeDelta / m_zoom_params.m_fZoomRotateTime;
-        else
-            m_zoom_params.m_fZoomRotationFactor -= Device.fTimeDelta / m_zoom_params.m_fZoomRotateTime;
+		hud_rotation.translate_over(curr_offs);
+		trans.mulB_43(hud_rotation);
 
-        clamp(m_zoom_params.m_fZoomRotationFactor, 0.f, 1.f);
-    }
+		if (pActor->IsZoomAimingMode())
+			m_zoom_params.m_fZoomRotationFactor += Device.fTimeDelta / m_zoom_params.m_fZoomRotateTime;
+		else
+			m_zoom_params.m_fZoomRotationFactor -= Device.fTimeDelta / m_zoom_params.m_fZoomRotateTime;
 
-    // Боковой стрейф с оружием
-    clamp(idx, 0ui8, 1ui8);
+		clamp(m_zoom_params.m_fZoomRotationFactor, 0.f, 1.f);
+	}
 
-    // Рассчитываем фактор боковой ходьбы
-    float fStrafeMaxTime = /*hi->m_measures.*/m_strafe_offset[2][idx].y; // Макс. время в секундах, за которое мы наклонимся из центрального положения
-    if (fStrafeMaxTime <= EPS)
-        fStrafeMaxTime = 0.01f;
+	//============= Подготавливаем общие переменные =============//
 
-    float fStepPerUpd = Device.fTimeDelta / fStrafeMaxTime; // Величина изменение фактора поворота
+	clamp(idx, u8(0), u8(1));
+	bool bForAim = (idx == 1);
 
-    u32 iMovingState = pActor->MovingState();
-    if ((iMovingState & mcLStrafe) != 0)
-    { // Движемся влево
-        float fVal = (m_fLR_MovingFactor > 0.f ? fStepPerUpd * 3 : fStepPerUpd);
-        m_fLR_MovingFactor -= fVal;
-    }
-    else if ((iMovingState & mcRStrafe) != 0)
-    { // Движемся вправо
-        float fVal = (m_fLR_MovingFactor < 0.f ? fStepPerUpd * 3 : fStepPerUpd);
-        m_fLR_MovingFactor += fVal;
-    }
-    else
-    { // Двигаемся в любом другом направлении
-        if (m_fLR_MovingFactor < 0.0f)
-        {
-            m_fLR_MovingFactor += fStepPerUpd;
-            clamp(m_fLR_MovingFactor, -1.0f, 0.0f);
-        }
-        else
-        {
-            m_fLR_MovingFactor -= fStepPerUpd;
-            clamp(m_fLR_MovingFactor, 0.0f, 1.0f);
-        }
-    }
+	float fInertiaPower = GetInertionPowerFactor();
 
-    clamp(m_fLR_MovingFactor, -1.0f, 1.0f); // Фактор боковой ходьбы не должен превышать эти лимиты
+	float fYMag = pActor->fFPCamYawMagnitude;
+	float fPMag = pActor->fFPCamPitchMagnitude;
 
-    // Производим наклон ствола для нормального режима и аима
-    for (int _idx = 0; _idx <= 1; _idx++)
-    {
-        bool bEnabled = /*hi->m_measures.*/m_strafe_offset[2][_idx].x;
-        if (!bEnabled)
-            continue;
+	static float fAvgTimeDelta = Device.fTimeDelta;
+	_inertion(fAvgTimeDelta, Device.fTimeDelta, 0.8f);
 
-        Fvector curr_offs, curr_rot;
+	//======== Проверяем доступность инерции и стрейфа ========//
+	if (!g_player_hud->inertion_allowed())
+		return;
 
-        // Смещение позиции худа в стрейфе
-        curr_offs = /*hi->m_measures.*/m_strafe_offset[0][_idx]; //pos
-        curr_offs.mul(m_fLR_MovingFactor); // Умножаем на фактор стрейфа
+	//============= Боковой стрейф с оружием =============//
+	float fStrafeMaxTime = m_strafe_offset[2][idx].y; // Макс. время в секундах, за которое мы наклонимся из центрального положения
+	if (fStrafeMaxTime <= EPS)
+		fStrafeMaxTime = 0.01f;
 
-        // Поворот худа в стрейфе
-        curr_rot = /*hi->m_measures.*/m_strafe_offset[1][_idx]; //rot
-        curr_rot.mul(-PI / 180.f); // Преобразуем углы в радианы
-        curr_rot.mul(m_fLR_MovingFactor); // Умножаем на фактор стрейфа
+	float fStepPerUpd = fAvgTimeDelta / fStrafeMaxTime; // Величина изменение фактора поворота
 
-        if (_idx == 0)
-        { // От бедра
-            curr_offs.mul(1.f - /*m_zoom_params.*/m_zoom_params.m_fZoomRotationFactor);
-            curr_rot.mul(1.f - /*m_zoom_params.*/m_zoom_params.m_fZoomRotationFactor);
-        }
-        else
-        { // Во время аима
-            curr_offs.mul(/*m_zoom_params.*/m_zoom_params.m_fZoomRotationFactor);
-            curr_rot.mul(/*m_zoom_params.*/m_zoom_params.m_fZoomRotationFactor);
-        }
+	// Добавляем боковой наклон от движения камеры
+	float fCamReturnSpeedMod = 1.5f; // Восколько ускоряем нормализацию наклона, полученного от движения камеры (только от бедра)
+	// Высчитываем минимальную скорость поворота камеры для начала инерции
+	float fStrafeMinAngle = _lerp(
+		m_strafe_offset[3][0].y,
+		m_strafe_offset[3][1].y,
+		m_zoom_params.m_fZoomRotationFactor);
 
-        Fmatrix hud_rotation;
-        Fmatrix hud_rotation_y;
+	// Высчитываем мксимальный наклон от поворота камеры
+	float fCamLimitBlend = _lerp(
+		m_strafe_offset[3][0].x,
+		m_strafe_offset[3][1].x,
+		m_zoom_params.m_fZoomRotationFactor);
 
-        hud_rotation.identity();
-        hud_rotation.rotateX(curr_rot.x);
+	// Считаем стрейф от поворота камеры
+	if (abs(fYMag) > (m_fLR_CameraFactor == 0.0f ? fStrafeMinAngle : 0.0f))
+	{ //--> Камера крутится по оси Y
+		m_fLR_CameraFactor -= (fYMag * 0.025f);
 
-        hud_rotation_y.identity();
-        hud_rotation_y.rotateY(curr_rot.y);
-        hud_rotation.mulA_43(hud_rotation_y);
+		clamp(m_fLR_CameraFactor, -fCamLimitBlend, fCamLimitBlend);
+	}
+	else
+	{ //--> Камера не поворачивается - убираем наклон
+		if (m_fLR_CameraFactor < 0.0f)
+		{
+			m_fLR_CameraFactor += fStepPerUpd * (bForAim ? 1.0f : fCamReturnSpeedMod);
+			clamp(m_fLR_CameraFactor, -fCamLimitBlend, 0.0f);
+		}
+		else
+		{
+			m_fLR_CameraFactor -= fStepPerUpd * (bForAim ? 1.0f : fCamReturnSpeedMod);
+			clamp(m_fLR_CameraFactor, 0.0f, fCamLimitBlend);
+		}
+	}
+	// Добавляем боковой наклон от ходьбы вбок
+	float fChangeDirSpeedMod = 3; // Восколько быстро меняем направление направление наклона, если оно в другую сторону от текущего
 
-        hud_rotation_y.identity();
-        hud_rotation_y.rotateZ(curr_rot.z);
-        hud_rotation.mulA_43(hud_rotation_y);
+	u32 iMovingState = pActor->MovingState();
+	if ((iMovingState & mcLStrafe) != 0)
+	{ // Движемся влево
+		float fVal = (m_fLR_MovingFactor > 0.f ? fStepPerUpd * fChangeDirSpeedMod : fStepPerUpd);
+		m_fLR_MovingFactor -= fVal;
+	}
+	else if ((iMovingState & mcRStrafe) != 0)
+	{ // Движемся вправо
+		float fVal = (m_fLR_MovingFactor < 0.f ? fStepPerUpd * fChangeDirSpeedMod : fStepPerUpd);
+		m_fLR_MovingFactor += fVal;
+	}
+	else
+	{ // Двигаемся в любом другом направлении - плавно убираем наклон
+		if (m_fLR_MovingFactor < 0.0f)
+		{
+			m_fLR_MovingFactor += fStepPerUpd;
+			clamp(m_fLR_MovingFactor, -1.0f, 0.0f);
+		}
+		else
+		{
+			m_fLR_MovingFactor -= fStepPerUpd;
+			clamp(m_fLR_MovingFactor, 0.0f, 1.0f);
+		}
+	}
 
-        hud_rotation.translate_over(curr_offs);
-        trans.mulB_43(hud_rotation);
-    }
+	clamp(m_fLR_MovingFactor, -1.0f, 1.0f); // Фактор боковой ходьбы не должен превышать эти лимиты
 
+	// Вычисляем и нормализируем итоговый фактор наклона
+	float fLR_Factor = m_fLR_MovingFactor + (m_fLR_CameraFactor * fInertiaPower);
+	clamp(fLR_Factor, -1.0f, 1.0f); // Фактор боковой ходьбы не должен превышать эти лимиты
+
+	// Производим наклон ствола для нормального режима и аима
+	for (int _idx = 0; _idx <= 1; _idx++)//<-- Для плавного перехода
+	{
+		bool bEnabled = (m_strafe_offset[2][_idx].x != 0.0f);
+		if (!bEnabled)
+			continue;
+
+		Fvector curr_offs, curr_rot;
+
+		// Смещение позиции худа в стрейфе
+		curr_offs = m_strafe_offset[0][_idx]; //pos
+		curr_offs.mul(fLR_Factor);                   // Умножаем на фактор стрейфа
+
+		// Поворот худа в стрейфе
+		curr_rot = m_strafe_offset[1][_idx]; //rot
+		curr_rot.mul(-PI / 180.f);                          // Преобразуем углы в радианы
+		curr_rot.mul(fLR_Factor);                   // Умножаем на фактор стрейфа
+
+		// Мягкий переход между бедром \ прицелом
+		if (_idx == 0)
+		{ // От бедра
+			curr_offs.mul(1.f - m_zoom_params.m_fZoomRotationFactor);
+			curr_rot.mul(1.f - m_zoom_params.m_fZoomRotationFactor);
+		}
+		else
+		{ // Во время аима
+			curr_offs.mul(m_zoom_params.m_fZoomRotationFactor);
+			curr_rot.mul(m_zoom_params.m_fZoomRotationFactor);
+		}
+
+		Fmatrix hud_rotation;
+		Fmatrix hud_rotation_y;
+
+		hud_rotation.identity();
+		hud_rotation.rotateX(curr_rot.x);
+
+		hud_rotation_y.identity();
+		hud_rotation_y.rotateY(curr_rot.y);
+		hud_rotation.mulA_43(hud_rotation_y);
+
+		hud_rotation_y.identity();
+		hud_rotation_y.rotateZ(curr_rot.z);
+		hud_rotation.mulA_43(hud_rotation_y);
+
+		hud_rotation.translate_over(curr_offs);
+		trans.mulB_43(hud_rotation);
+	}
+
+	//============= Инерция оружия =============//
+   // Параметры инерции
+	float fInertiaSpeedMod = _lerp(
+		hi->m_measures.m_inertion_params.m_tendto_speed,
+		hi->m_measures.m_inertion_params.m_tendto_speed_aim,
+		m_zoom_params.m_fZoomRotationFactor);
+
+	float fInertiaReturnSpeedMod = _lerp(
+		hi->m_measures.m_inertion_params.m_tendto_ret_speed,
+		hi->m_measures.m_inertion_params.m_tendto_ret_speed_aim,
+		m_zoom_params.m_fZoomRotationFactor);
+
+	float fInertiaMinAngle = _lerp(
+		hi->m_measures.m_inertion_params.m_min_angle,
+		hi->m_measures.m_inertion_params.m_min_angle_aim,
+		m_zoom_params.m_fZoomRotationFactor);
+
+	Fvector4 vIOffsets; // x = L, y = R, z = U, w = D
+	vIOffsets.x = _lerp(
+		hi->m_measures.m_inertion_params.m_offset_LRUD.x,
+		hi->m_measures.m_inertion_params.m_offset_LRUD_aim.x,
+		m_zoom_params.m_fZoomRotationFactor) * fInertiaPower;
+	vIOffsets.y = _lerp(
+		hi->m_measures.m_inertion_params.m_offset_LRUD.y,
+		hi->m_measures.m_inertion_params.m_offset_LRUD_aim.y,
+		m_zoom_params.m_fZoomRotationFactor) * fInertiaPower;
+	vIOffsets.z = _lerp(
+		hi->m_measures.m_inertion_params.m_offset_LRUD.z,
+		hi->m_measures.m_inertion_params.m_offset_LRUD_aim.z,
+		m_zoom_params.m_fZoomRotationFactor) * fInertiaPower;
+	vIOffsets.w = _lerp(
+		hi->m_measures.m_inertion_params.m_offset_LRUD.w,
+		hi->m_measures.m_inertion_params.m_offset_LRUD_aim.w,
+		m_zoom_params.m_fZoomRotationFactor) * fInertiaPower;
+
+	// Высчитываем инерцию из поворотов камеры
+	bool bIsInertionPresent = m_fLR_InertiaFactor != 0.0f || m_fUD_InertiaFactor != 0.0f;
+	if (abs(fYMag) > fInertiaMinAngle || bIsInertionPresent)
+	{
+		float fSpeed = fInertiaSpeedMod;
+		if (fYMag > 0.0f && m_fLR_InertiaFactor > 0.0f ||
+			fYMag < 0.0f && m_fLR_InertiaFactor < 0.0f)
+		{
+			fSpeed *= 2.f; //--> Ускоряем инерцию при движении в противоположную сторону
+		}
+
+		m_fLR_InertiaFactor -= (fYMag * fAvgTimeDelta * fSpeed); // Горизонталь (м.б. > |1.0|)
+	}
+
+	if (abs(fPMag) > fInertiaMinAngle || bIsInertionPresent)
+	{
+		float fSpeed = fInertiaSpeedMod;
+		if (fPMag > 0.0f && m_fUD_InertiaFactor > 0.0f ||
+			fPMag < 0.0f && m_fUD_InertiaFactor < 0.0f)
+		{
+			fSpeed *= 2.f; //--> Ускоряем инерцию при движении в противоположную сторону
+		}
+
+		m_fUD_InertiaFactor -= (fPMag * fAvgTimeDelta * fSpeed); // Вертикаль (м.б. > |1.0|)
+	}
+
+	clamp(m_fLR_InertiaFactor, -1.0f, 1.0f);
+	clamp(m_fUD_InertiaFactor, -1.0f, 1.0f);
+
+	// Плавное затухание инерции (основное, но без линейной никогда не опустит инерцию до полного 0.0f)
+	m_fLR_InertiaFactor *= clampr(1.f - fAvgTimeDelta * fInertiaReturnSpeedMod, 0.0f, 1.0f);
+	m_fUD_InertiaFactor *= clampr(1.f - fAvgTimeDelta * fInertiaReturnSpeedMod, 0.0f, 1.0f);
+
+	// Минимальное линейное затухание инерции при покое (горизонталь)
+	if (fYMag == 0.0f)
+	{
+		float fRetSpeedMod = (fYMag == 0.0f ? 1.0f : 0.75f) * (fInertiaReturnSpeedMod * 0.075f);
+		if (m_fLR_InertiaFactor < 0.0f)
+		{
+			m_fLR_InertiaFactor += fAvgTimeDelta * fRetSpeedMod;
+			clamp(m_fLR_InertiaFactor, -1.0f, 0.0f);
+		}
+		else
+		{
+			m_fLR_InertiaFactor -= fAvgTimeDelta * fRetSpeedMod;
+			clamp(m_fLR_InertiaFactor, 0.0f, 1.0f);
+		}
+	}
+
+	// Минимальное линейное затухание инерции при покое (вертикаль)
+	if (fPMag == 0.0f)
+	{
+		float fRetSpeedMod = (fPMag == 0.0f ? 1.0f : 0.75f) * (fInertiaReturnSpeedMod * 0.075f);
+		if (m_fUD_InertiaFactor < 0.0f)
+		{
+			m_fUD_InertiaFactor += fAvgTimeDelta * fRetSpeedMod;
+			clamp(m_fUD_InertiaFactor, -1.0f, 0.0f);
+		}
+		else
+		{
+			m_fUD_InertiaFactor -= fAvgTimeDelta * fRetSpeedMod;
+			clamp(m_fUD_InertiaFactor, 0.0f, 1.0f);
+		}
+	}
+
+	// Применяем инерцию к худу
+	float fLR_lim = (m_fLR_InertiaFactor < 0.0f ? vIOffsets.x : vIOffsets.y);
+	float fUD_lim = (m_fUD_InertiaFactor < 0.0f ? vIOffsets.z : vIOffsets.w);
+
+	Fvector curr_offs;
+	curr_offs = { fLR_lim * -1.f * m_fLR_InertiaFactor, fUD_lim * m_fUD_InertiaFactor, 0.0f };
+
+	Fmatrix hud_rotation;
+	hud_rotation.identity();
+	hud_rotation.translate_over(curr_offs);
+	trans.mulB_43(hud_rotation);
 }
 
 void CWeapon::SetAmmoElapsed(int ammo_count)
@@ -2357,29 +2637,49 @@ bool CWeapon::IsHudModeNow()
     return (HudItemData() != NULL);
 }
 
+void CWeapon::ZoomDynamicMod(bool bIncrement, bool bForceLimit)
+{
+	if (!IsScopeAttached())
+		return;
+
+	if (!m_zoom_params.m_bUseDynamicZoom)
+		return;
+
+	float delta, min_zoom_factor, max_zoom_factor;
+
+	max_zoom_factor = ( bIsSecondVPZoomPresent() ? GetSecondVPZoomFactor() * 100.0f : m_zoom_params.m_fScopeZoomFactor);
+
+	GetZoomData(max_zoom_factor, delta, min_zoom_factor);
+
+	if (bForceLimit)
+	{
+		m_fRTZoomFactor = (bIncrement ? max_zoom_factor : min_zoom_factor);
+	}
+	else
+	{
+		float f = (bIsSecondVPZoomPresent() ? m_fRTZoomFactor : GetZoomFactor());
+
+		f -= delta * (bIncrement ? 1.f : -1.f);
+
+		clamp(f, max_zoom_factor, min_zoom_factor);
+
+		if (bIsSecondVPZoomPresent())
+			m_fRTZoomFactor = f;
+		else
+			SetZoomFactor(f);
+	}
+}
+
 void CWeapon::ZoomInc()
 {
-    if (!IsScopeAttached())					return;
-    if (!m_zoom_params.m_bUseDynamicZoom)	return;
-    float delta, min_zoom_factor;
-    GetZoomData(m_zoom_params.m_fScopeZoomFactor, delta, min_zoom_factor);
-
-    float f = GetZoomFactor() - delta;
-    clamp(f, m_zoom_params.m_fScopeZoomFactor, min_zoom_factor);
-    SetZoomFactor(f);
+	ZoomDynamicMod(true, false);
 }
 
 void CWeapon::ZoomDec()
 {
-    if (!IsScopeAttached())					return;
-    if (!m_zoom_params.m_bUseDynamicZoom)	return;
-    float delta, min_zoom_factor;
-    GetZoomData(m_zoom_params.m_fScopeZoomFactor, delta, min_zoom_factor);
-
-    float f = GetZoomFactor() + delta;
-    clamp(f, m_zoom_params.m_fScopeZoomFactor, min_zoom_factor);
-    SetZoomFactor(f);
+	ZoomDynamicMod(false, false);
 }
+
 u32 CWeapon::Cost() const
 {
     u32 res = CInventoryItem::Cost();
@@ -2443,13 +2743,13 @@ float CWeapon::GetHudFov()
 
 float CWeapon::GetSecondVPFov() const
 {
-	if (m_zoom_params.m_bUseDynamicZoom && IsSecondVPZoomPresent())
+	if (m_zoom_params.m_bUseDynamicZoom && bIsSecondVPZoomPresent())
 		return (m_fRTZoomFactor / 100.f) * g_fov;
 
 	return GetSecondVPZoomFactor() * g_fov;
 }
 
-void CWeapon::UpdateSecondVP()
+void CWeapon::UpdateSecondVP(bool bInGrenade)
 {
 	bool b_is_active_item = (m_pInventory != NULL) && (m_pInventory->ActiveItem() == this);
 	R_ASSERT(
@@ -2457,9 +2757,9 @@ void CWeapon::UpdateSecondVP()
 
 	CActor* pActor = smart_cast<CActor*>(H_Parent());
 
-	bool bCond_1 = m_zoom_params.m_fZoomRotationFactor > 0.05f; 
-	bool bCond_2 = IsSecondVPZoomPresent(); 
+	bool bCond_1 = bInZoomRightNow();		
+	bool bCond_2 = bIsSecondVPZoomPresent();							
 	bool bCond_3 = pActor->cam_Active() == pActor->cam_FirstEye();
-
-	Device.m_SecondViewport.SetSVPActive(bCond_1 && bCond_2 && bCond_3);
+	
+	Device.m_SecondViewport.SetSVPActive(bCond_1 && bCond_2 && bCond_3 && !bInGrenade);
 }

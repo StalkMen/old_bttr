@@ -217,6 +217,7 @@ enum
 	RFLAGDX10_NO_SHADER_CACHE	= (1 << 1),
 	RFLAGDX_ENABLE_DEBUG_LOG    = (1 << 2),
 	RFLAGDX11_NO_SHADER_CACHE	= (1 << 3),
+	RFLAGDX10_MOTION_BLUR		= (1 << 4),
 };
 
 extern ECORE_API u32 ps_r2_smapsize;
