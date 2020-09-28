@@ -49,6 +49,8 @@ public:
 	IBlender*					b_ssao;
 	IBlender*					b_ssao_msaa[8];
 	IBlender*					b_fxaa;
+	IBlender*					b_smaa;
+
 #ifdef DEBUG
 	struct		dbg_line_t		{
 		Fvector	P0,P1;
@@ -187,17 +189,22 @@ private:
 	ref_geom					g_combine_cuboid;
 	ref_geom					g_aa_blur;
 	ref_geom					g_aa_AA;
-	ref_shader				s_combine_dbg_0;
-	ref_shader				s_combine_dbg_1;
-	ref_shader				s_combine_dbg_Accumulator;
-	ref_shader				s_combine;
-   ref_shader				s_combine_msaa[8];
-	ref_shader				s_combine_volumetric;
+	ref_shader					s_combine_dbg_0;
+	ref_shader					s_combine_dbg_1;
+	ref_shader					s_combine_dbg_Accumulator;
+	ref_shader					s_combine;
+	ref_shader					s_combine_msaa[8];
+	ref_shader					s_combine_volumetric;
+	
+	ref_shader 					s_smaa;
+	ref_rt 						rt_smaa_edgetex;
+	ref_rt 						rt_smaa_blendtex;
+
 public:
-	ref_shader				s_postprocess;
-   ref_shader           s_postprocess_msaa;
+	ref_shader					s_postprocess;
+   ref_shader           		s_postprocess_msaa;
 	ref_geom					g_postprocess;
-	ref_shader				s_menu;
+	ref_shader					s_menu;
 	ref_geom					g_menu;
 private:
 	float						im_noise_time;
@@ -248,6 +255,7 @@ public:
 	BOOL						u_DBT_enable			(float zMin, float zMax);
 	void						u_DBT_disable			();
 	
+	void						phase_smaa				();
 	void						phase_fxaa				();
 	void						phase_scene_prepare		();
 	void						phase_scene_begin		();

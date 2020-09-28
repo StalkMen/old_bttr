@@ -11,6 +11,7 @@
 #include "../xrRenderPC_R3/blenders_DX10/blender_luminance.h"
 #include "../xrRenderPC_R3/blenders_DX10/blender_ssao.h"
 #include "../xrRenderPC_R3/blenders_DX10/blender_fxaa.h"
+#include "../xrRenderPC_R3/blenders_DX10/blender_smaa.h"
 #include "dx10MinMaxSMBlender.h"
 #include "../xrRenderDX10/msaa/dx10MSAABlender.h"
 #include "../xrRenderDX10/DX10 Rain/dx10RainBlender.h"
@@ -314,6 +315,7 @@ CRenderTarget::CRenderTarget		()
 	b_combine				= xr_new<CBlender_combine>				();
 	b_ssao					= xr_new<CBlender_SSAO_noMSAA>			();
 	b_fxaa 					= xr_new<CBlender_FXAA>					();
+	b_smaa 					= xr_new<CBlender_SMAA>					();
 	
 	if( RImplementation.o.dx10_msaa )
 	{
@@ -385,6 +387,8 @@ CRenderTarget::CRenderTarget		()
 		rt_Generic_1.create		(r2_RT_generic1,w,h,D3DFMT_A8R8G8B8, 1		);
 		rt_Generic.create		(r2_RT_generic, w, h, D3DFMT_A8R8G8B8, 1);
 		rt_secondVP.create		(r2_RT_secondVP,w,h,D3DFMT_A8R8G8B8, 1		); //--#SM+#-- +SecondVP+
+		rt_smaa_edgetex.create(r2_RT_smaa_edgetex, w, h, D3DFMT_A8R8G8B8);
+		rt_smaa_blendtex.create(r2_RT_smaa_blendtex, w, h, D3DFMT_A8R8G8B8);
 		
 		if( RImplementation.o.dx10_msaa )
 		{
@@ -397,7 +401,9 @@ CRenderTarget::CRenderTarget		()
 		if (RImplementation.o.advancedpp)
 			rt_Generic_2.create			(r2_RT_generic2,w,h,D3DFMT_A16B16G16R16F, SampleCount );
 	}
-
+	
+	s_smaa.create(b_smaa, "r3\\smaa");
+	
 	// OCCLUSION
 	s_occq.create					(b_occq,		"r2\\occq");
 
@@ -1037,6 +1043,7 @@ CRenderTarget::~CRenderTarget	()
 	xr_delete					(b_accum_mask			);
 	xr_delete					(b_occq					);
 	xr_delete					(b_fxaa					);
+	xr_delete					(b_smaa					);
 }
 
 void CRenderTarget::reset_light_marker( bool bResetStencil)
