@@ -50,7 +50,6 @@ CWeaponMagazined::CWeaponMagazined(ESoundTypes eSoundType) : CWeapon()
 	m_bHasDifferentFireModes = false;
 	m_iCurFireMode = -1;
 	m_iPrefferedFireMode = -1;
-	iMagSizeCurrent				= 0;
 }
 
 CWeaponMagazined::~CWeaponMagazined()
@@ -423,16 +422,14 @@ void CWeaponMagazined::ReloadMagazine()
     if (!m_bLockType && !m_magazine.empty() &&
         (!m_pCurrentAmmo || xr_strcmp(m_pCurrentAmmo->cNameSect(),
         *m_magazine.back().m_ammoSect)))
-	{
-		iMagSizeCurrent = iMagazineSize;
-        UnloadMagazine();
-	}
+    UnloadMagazine();
+
     VERIFY((u32) m_ammoElapsed.type1 == m_magazine.size());
 
     if (m_DefaultCartridge.m_LocalAmmoType != m_ammoType.type1)
         m_DefaultCartridge.Load(m_ammoTypes[m_ammoType.type1].c_str(), m_ammoType.type1);
     CCartridge l_cartridge = m_DefaultCartridge;
-    while (m_ammoElapsed.type1 < iMagSizeCurrent)
+    while (m_ammoElapsed.type1 < iMagazineSize)
     {
         if (!unlimited_ammo())
         {
@@ -853,11 +850,7 @@ void CWeaponMagazined::PlayReloadSound()
 void CWeaponMagazined::switch2_Reload()
 {
     CWeapon::FireEnd();
-	{
-		#pragma todo("OldSerpskiStalker. Пофиксил тут ошибку с гранатаметом")
-		bool bEmptyEnable = m_ammoElapsed.type1 > 0 && HudAnimationExist("anm_reload_empty") && !m_bGrenadeMode;
-		iMagSizeCurrent = bEmptyEnable ? iMagazineSize + 1 : iMagazineSize;
-	}
+
     PlayReloadSound();
     PlayAnimReload();
     SetPending(TRUE);
