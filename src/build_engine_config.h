@@ -39,7 +39,6 @@
 
 // TWEAKS:
 	//#define ACTOR_FEEL_GRENADE							// When undefined it disables the grenade HUD indicator for thrown grenades
-	#define NEW_ANIMS										// use new animations. Please enclose any new animation addions with this define
 	//#define DYNAMIC_SUN_MOVEMENT							// use dynamic sun movement. If this is not defined sun will move as configured in weather ltx files
 //-TWEAKS
 

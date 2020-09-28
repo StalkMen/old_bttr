@@ -645,39 +645,10 @@ void CWeaponMagazinedWGrenade::PlayAnimReload()
 {
     VERIFY(GetState() == eReload);
 
-#ifdef NEW_ANIMS //AVO: use new animations
-    if (IsGrenadeLauncherAttached())
-    {
-        if (bMisfire)
-        {
-            if (HudAnimationExist("anm_reload_misfire_w_gl"))
-                PlayHUDMotion("anm_reload_misfire_w_gl", TRUE, this, GetState());
-            else
-                PlayHUDMotion("anm_reload_w_gl", TRUE, this, GetState());
-        }
-        else
-        {
-            if (m_ammoElapsed.type1 == 0)
-            {
-                if (HudAnimationExist("anm_reload_empty_w_gl"))
-                    PlayHUDMotion("anm_reload_empty_w_gl", TRUE, this, GetState());
-                else
-                    PlayHUDMotion("anm_reload_w_gl", TRUE, this, GetState());
-            }
-            else
-            {
-                PlayHUDMotion("anm_reload_w_gl", TRUE, this, GetState());
-            }
-        }
-    }
-    else
-        inherited::PlayAnimReload();
-#else
     if (IsGrenadeLauncherAttached())
         PlayHUDMotion("anm_reload_w_gl", TRUE, this, GetState());
     else
         inherited::PlayAnimReload();
-#endif //-NEW_ANIMS
 }
 
 void CWeaponMagazinedWGrenade::PlayAnimIdle()
@@ -728,10 +699,8 @@ void CWeaponMagazinedWGrenade::PlayAnimIdle()
                         else
                             if (act_state == 3)
                             {
-#ifdef NEW_ANIMS //AVO: custom move animation
                                 if (HudAnimationExist("anm_idle_moving_crouch_g")) 
                                     PlayHUDMotion("anm_idle_moving_crouch_g", TRUE, NULL, GetState());
-#endif //-NEW_ANIMS
                             }
             }
             else
@@ -747,10 +716,8 @@ void CWeaponMagazinedWGrenade::PlayAnimIdle()
                         else
                             if (act_state == 3)
                             {
-#ifdef NEW_ANIMS //AVO: custom move animation
                                 if (HudAnimationExist("anm_idle_moving_crouch_w_gl"))
                                     PlayHUDMotion("anm_idle_moving_crouch_w_gl", TRUE, NULL, GetState());
-#endif //-NEW_ANIMS
                             }
             }
         }

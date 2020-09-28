@@ -6,9 +6,6 @@
 
 extern ENGINE_API u32 renderer_value;
 
-static const GUID guidShaderReflection =
-{0x0a233719, 0x3960, 0x4578, {0x9d, 0x7c, 0x20, 0x3b, 0x8b, 0x1d, 0x9c, 0xc1}};
-
 template <typename T>
 static HRESULT create_shader				(
 		LPCSTR const	pTarget,
@@ -65,7 +62,7 @@ static HRESULT create_shader				(
 		}
 
 		ID3DShaderReflection *pReflection = 0;
-        _result			= D3DReflect( buffer, buffer_size, guidShaderReflection, (void**)&pReflection);
+        _result			= D3DReflect( buffer, buffer_size, IID_ID3D11ShaderReflection, (void**)&pReflection);
 
 		//	Parse constant, texture, sampler binding
 		//	Store input signature blob

@@ -746,8 +746,8 @@ u32	ps_r_type_aa = 0;
 xr_token type_aa_token[] = {
 { "disable_aa",	  0},
 { "FXAA",		  1},
-{ "DLAA",		  2},
-{ "SMAA",		  3},
+{ (!strstr(Core.Params, "-old_ver")) ? "DLAA" : "not_supported_by_shaders_DLAA",		  (!strstr(Core.Params, "-old_ver")) ? 2 : 0},
+{ (!strstr(Core.Params, "-old_ver")) ? "SMAA" : "not_supported_by_shaders_SMAA",		  (!strstr(Core.Params, "-old_ver")) ? 3 : 0},
 { nullptr,		  0}
 };
 

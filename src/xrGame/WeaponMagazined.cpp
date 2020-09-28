@@ -1231,14 +1231,15 @@ void CWeaponMagazined::InitAddons()
     else
     {
         if (m_UIScope)
-        {
             xr_delete(m_UIScope);
-        }
+		
+		if(bIsSecondVPZoomPresent())
+			m_zoom_params.m_fSecondVPFovFactor = 0.0f;
+		
+		m_fSecondRTZoomFactor = -1.0f;
 
         if (IsZoomEnabled())
-        {
             m_zoom_params.m_fIronSightZoomFactor = pSettings->r_float(cNameSect(), "scope_zoom_factor");
-        }
     }
 
     if (IsSilencerAttached()/* && SilencerAttachable() */)
@@ -1312,32 +1313,7 @@ void CWeaponMagazined::PlayAnimHide()
 void CWeaponMagazined::PlayAnimReload()
 {
     VERIFY(GetState() == eReload);
-#ifdef NEW_ANIMS //AVO: use new animations
-    if (bMisfire)
-    {
-        //Msg("AVO: ------ MISFIRE");
-        if (HudAnimationExist("anm_reload_misfire"))
-            PlayHUDMotion("anm_reload_misfire", TRUE, this, GetState());
-        else
-            PlayHUDMotion("anm_reload", TRUE, this, GetState());
-    }
-    else
-    {
-        if (m_ammoElapsed.type1 == 0)
-        {
-            if (HudAnimationExist("anm_reload_empty"))
-                PlayHUDMotion("anm_reload_empty", TRUE, this, GetState());
-            else
-                PlayHUDMotion("anm_reload", TRUE, this, GetState());
-        }
-        else
-        {
-            PlayHUDMotion("anm_reload", TRUE, this, GetState());
-        }
-    }
-#else
     PlayHUDMotion("anm_reload", TRUE, this, GetState());
-#endif //-NEW_ANIM
 }
 
 void CWeaponMagazined::PlayAnimAim()

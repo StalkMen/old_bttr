@@ -383,15 +383,13 @@ bool CHudItem::TryPlayAnimIdle()
                 {
                     PlayAnimIdleMoving();
                     return true;
-                }
-            
-#ifdef NEW_ANIMS //AVO: new crouch idle animation
+                }      
+//AVO: new crouch idle animation
                 else if (st.bCrouch && pActor->AnyMove()) 
                 {
                     PlayAnimCrouchIdleMoving();
                     return true;
                 }
-#endif //-NEW_ANIMS
         }
     }
     return false;

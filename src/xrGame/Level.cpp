@@ -125,7 +125,9 @@ IPureClient(Device.GetTimerGlobal())
         m_client_spawn_manager = xr_new<CClientSpawnManager>();
         m_autosave_manager = xr_new<CAutosaveManager>();
         m_debug_renderer = xr_new<CDebugRenderer>();
-  //      m_level_debug = xr_new<CLevelDebug>();
+#ifdef DEBUG
+        m_level_debug = xr_new<CLevelDebug>();
+#endif
     }
     m_ph_commander = xr_new<CPHCommander>();
     m_ph_commander_scripts = xr_new<CPHCommander>();
@@ -708,6 +710,7 @@ void CLevel::OnRender()
 	
     //Device.Statistic->TEST1.End();
     HUD().RenderUI();
+	debug_renderer().render();
 #ifdef DEBUG
     draw_wnds_rects();
     physics_world()->OnRender();
