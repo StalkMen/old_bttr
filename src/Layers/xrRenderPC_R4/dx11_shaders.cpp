@@ -332,11 +332,13 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 		sh_name[len]='0'; ++len;
 		sh_name[len]='0'; ++len;
     }
-	else {
+	else 
+	{
 		sh_name[len]='0'; ++len;
 		sh_name[len]='0'+char(o.ssao_hbao); ++len;
 		sh_name[len]='0'+char(o.ssao_half_data); ++len;
-		if (o.ssao_hbao) {
+		if (o.ssao_hbao) 
+		{
 			defines[def_it].Name		=	"SSAO_OPT_DATA";
 			if (o.ssao_half_data)
 			{
@@ -358,6 +360,14 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 			defines[def_it].Name		=	"USE_HBAO";
 			defines[def_it].Definition	=	"1";
 			def_it						++;
+		}
+
+		if (o.ssao_ssdo)
+		{
+			defines[def_it].Name = "USE_SSDO";
+			defines[def_it].Definition = "1";
+
+			def_it++;
 		}
 	}
 

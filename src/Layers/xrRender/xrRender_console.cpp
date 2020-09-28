@@ -18,13 +18,15 @@ xr_token							qpreset_token							[ ]={
 	{ 0,							0											}
 };
 
-u32			ps_r_ssao_mode			=	2;
-xr_token							qssao_mode_token						[ ]={
-	{ "disabled",					0											},
-	{ "default",					1											},
-	{ "hdao",						2											},
-	{ "hbao",						3											},
-	{ 0,							0											}
+u32	ps_r_ssao_mode = 2;
+xr_token qssao_mode_token[] = 
+{
+	{ (strstr(Core.Params, "-old_ver")) ? "disabled" : "ssao_disabled",			0},
+	{ (strstr(Core.Params, "-old_ver")) ? "default"	 : "SSAO",					1},
+	{ (strstr(Core.Params, "-old_ver")) ? "hdao"     : "HDAO",					2},
+	{ (strstr(Core.Params, "-old_ver")) ? "hbao"     : "HBAO",					3},
+	{ (strstr(Core.Params, "-old_ver")) ? "not_supported_by_shaders_ssdo" : "SSDO",	(strstr(Core.Params, "-old_ver")) ? 0 : 4},
+	{ nullptr, 0 }
 };
 
 u32			ps_r_sun_shafts				=	2;
@@ -412,6 +414,7 @@ public:
 			case 0:
 			{
 				ps_r_ssao = 0;
+				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_SSDO, 0);
 				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HBAO, 0);
 				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HDAO, 0);
 				break;
@@ -422,6 +425,7 @@ public:
 				{
 					ps_r_ssao = 1;
 				}
+				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_SSDO, 0);
 				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HBAO, 0);
 				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HDAO, 0);
 				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HALF_DATA, 0);
@@ -433,6 +437,7 @@ public:
 				{
 					ps_r_ssao = 1;
 				}
+				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_SSDO, 0);
 				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HBAO, 0);
 				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HDAO, 1);
 				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_OPT_DATA, 0);
@@ -445,7 +450,20 @@ public:
 				{
 					ps_r_ssao = 1;
 				}
+				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_SSDO, 0);
 				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HBAO, 1);
+				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HDAO, 0);
+				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_OPT_DATA, 1);
+				break;
+			}
+			case 4:
+			{
+				if (ps_r_ssao == 0)
+				{
+					ps_r_ssao = 1;
+				}
+				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_SSDO, 1);
+				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HBAO, 0);
 				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HDAO, 0);
 				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_OPT_DATA, 1);
 				break;
