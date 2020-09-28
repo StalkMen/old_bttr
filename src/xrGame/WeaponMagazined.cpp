@@ -1313,7 +1313,28 @@ void CWeaponMagazined::PlayAnimHide()
 void CWeaponMagazined::PlayAnimReload()
 {
     VERIFY(GetState() == eReload);
-    PlayHUDMotion("anm_reload", TRUE, this, GetState());
+    if (bMisfire)
+    {
+        //Msg("AVO: ------ MISFIRE");
+        if (HudAnimationExist("anm_reload_misfire"))
+            PlayHUDMotion("anm_reload_misfire", TRUE, this, GetState());
+        else
+            PlayHUDMotion("anm_reload", TRUE, this, GetState());
+    }
+    else
+    {
+        if (m_ammoElapsed.type1 == 0)
+        {
+            if (HudAnimationExist("anm_reload_empty"))
+                PlayHUDMotion("anm_reload_empty", TRUE, this, GetState());
+            else
+                PlayHUDMotion("anm_reload", TRUE, this, GetState());
+        }
+        else
+        {
+            PlayHUDMotion("anm_reload", TRUE, this, GetState());
+        }
+    }
 }
 
 void CWeaponMagazined::PlayAnimAim()
