@@ -201,6 +201,27 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	}
 	sh_name[len] = '0' + char(DX11); ++len;
 
+	const bool NVIDIA = HW.Caps.id_vendor == 0x10DE;
+	const bool AMD = HW.Caps.id_vendor == 0x1002;
+
+	if (NVIDIA)
+	{
+		defines[def_it].Name = "NVIDIA";
+		defines[def_it].Definition = "1";
+		def_it++;
+	}
+	sh_name[len] = '0' + char(NVIDIA);
+	++len;
+
+	if (AMD)
+	{
+		defines[def_it].Name = "AMD";
+		defines[def_it].Definition = "1";
+		def_it++;
+	}
+	sh_name[len] = '0' + char(AMD);
+	++len;
+
 /////////////////////////////////////////////////////////////////////////////////////////
 
 	if (o.fp16_filter)		{
