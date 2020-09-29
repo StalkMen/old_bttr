@@ -8,7 +8,12 @@
 #include "ExplosiveRocket.h"
 #include "physicsshellholder.h"
 #include "../xrphysics/physicsshell.h"
-
+#include "xrserver_objects_alife_items.h"
+#include "level.h"
+#include "ai_object_location.h"
+#include "actor.h"
+#include "level_graph.h"
+#include "ai_space.h"
 
 CExplosiveRocket::CExplosiveRocket() 
 {
@@ -30,6 +35,7 @@ void CExplosiveRocket::Load(LPCSTR section)
 	inherited::Load(section);
 	CInventoryItem::Load(section);
 	CExplosive::Load(section);
+	m_safe_dist_to_explode = READ_IF_EXISTS(pSettings, r_float, section, "safe_dist_to_explode", 0.f);
 }
 
 BOOL CExplosiveRocket::net_Spawn(CSE_Abstract* DC) 
@@ -48,8 +54,33 @@ void CExplosiveRocket::Contact(const Fvector &pos, const Fvector &normal)
 {
 	if(eCollide == m_eState) return;
 
-	if(m_bLaunched)
-		CExplosive::GenExplodeEvent(pos,normal);
+	bool safe_to_explode = true;
+	if (m_bLaunched) 
+	{
+		if (m_pOwner)
+		{
+			float dist = m_pOwner->Position().distance_to(pos);
+			if (dist < m_safe_dist_to_explode) 
+			{
+				safe_to_explode = false;
+				CActor* pActor = smart_cast<CActor*>(m_pOwner);
+				if (pActor) 
+				{
+					u32 lvid = UsedAI_Locations() ? ai_location().level_vertex_id() : ai().level_graph().vertex(pos);
+					CSE_Abstract* object = Level().spawn_item(real_grenade_name.c_str(), pos, lvid, 0xffff, true);
+					CSE_ALifeItemAmmo* ammo = smart_cast<CSE_ALifeItemAmmo*>(object);
+					ammo->m_boxSize = 1;
+					NET_Packet P;
+					object->Spawn_Write(P, TRUE);
+					Level().Send(P, net_flags(TRUE));
+					F_entity_Destroy(object);
+				}
+				DestroyObject();
+			}
+		}
+		if (safe_to_explode)
+			CExplosive::GenExplodeEvent(pos, normal);
+	}
 
 	inherited::Contact(pos, normal);
 }

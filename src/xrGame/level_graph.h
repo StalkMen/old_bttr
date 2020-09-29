@@ -59,8 +59,9 @@ private:
 	u32						m_max_x;
 	u32						m_max_z;
 
-private:
+public:
 			u32		vertex						(const Fvector &position) const;
+private:
 			u32		guess_vertex_id				(u32 const &current_vertex_id, Fvector const &position) const;
 
 public:

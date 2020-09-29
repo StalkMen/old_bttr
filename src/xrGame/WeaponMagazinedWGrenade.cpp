@@ -370,7 +370,8 @@ void  CWeaponMagazinedWGrenade::LaunchGrenade()
         CExplosiveRocket* pGrenade = smart_cast<CExplosiveRocket*>(getCurrentRocket());
         VERIFY(pGrenade);
         pGrenade->SetInitiator(H_Parent()->ID());
-
+		pGrenade->SetRealGrenadeName(m_ammoTypes[m_ammoType.type1]);
+		
         if (Local() && OnServer())
         {
             VERIFY(m_magazine.size());
@@ -762,7 +763,19 @@ void CWeaponMagazinedWGrenade::PlayAnimShoot()
     {
         VERIFY(GetState() == eFire);
         if (IsGrenadeLauncherAttached())
-            PlayHUDMotion("anm_shots_w_gl", FALSE, this, GetState());
+        {
+            if (IsZoomed())
+            {
+                if (HudAnimationExist("anm_shots_w_gl_when_aim"))
+                    PlayHUDMotion("anm_shots_w_gl_when_aim", FALSE, this, GetState());
+                else
+                    PlayHUDMotion("anm_shots_w_gl", FALSE, this, GetState());
+            }
+            else
+            {
+                PlayHUDMotion("anm_shots_w_gl", FALSE, this, GetState());
+            }
+        }
         else
             inherited::PlayAnimShoot();
     }
