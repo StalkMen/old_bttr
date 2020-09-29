@@ -86,7 +86,7 @@ void STextureParams::Load(IReader& F)
     }
 
     if (F.find_chunk(THM_CHUNK_MATERIAL)){
-    	material		= (ETMaterial)F.r_u32		();
+    	material		= F.r_u32();
 	    material_weight = F.r_float	();
     }
 

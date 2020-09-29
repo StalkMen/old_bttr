@@ -98,7 +98,7 @@ struct ECORE_API STextureParams{
     float		        detail_scale;
     ETType		        type;
     // material
-    ETMaterial			material;
+	u32					material;
     float				material_weight;
     // bump	
 	float 				bump_virtual_height;
