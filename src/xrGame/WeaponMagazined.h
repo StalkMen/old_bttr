@@ -38,6 +38,12 @@ protected:
 public:
 	// Mortan: Новые параметры здеся
 	virtual	bool    bMarkCanShow() { return IsZoomed(); }
+
+    //Kondr48
+    bool			m_bChamberStatus;
+    bool			m_chamber;
+    virtual void	Chamber();
+
 protected:
     virtual void	OnMagazineEmpty();
 

@@ -58,6 +58,10 @@ void CWeaponMagazinedWGrenade::Load(LPCSTR section)
     {
         CRocketLauncher::m_fLaunchSpeed = pSettings->r_float(section, "grenade_vel");
     }
+
+    //Kondr48
+    magMaxSize1 = iMagazineSize;
+    magMaxSize2 = iMagazineSize2;
 }
 
 void CWeaponMagazinedWGrenade::net_Destroy()
@@ -250,27 +254,7 @@ void CWeaponMagazinedWGrenade::state_Fire(float dt)
     //режим стрельбы подствольника
     if (m_bGrenadeMode)
     {
-        /*
-        fTime					-=dt;
-        while (fTime<=0 && (iAmmoElapsed>0) && (IsWorking() || m_bFireSingleShot))
-        {
-        ++m_iShotNum;
-        OnShot			();
 
-        // Ammo
-        if(Local())
-        {
-        VERIFY				(m_magazine.size());
-        m_magazine.pop_back	();
-        --iAmmoElapsed;
-
-        VERIFY((u32)iAmmoElapsed == m_magazine.size());
-        }
-        }
-        UpdateSounds				();
-        if(m_iShotNum == m_iQueueSize)
-        FireEnd();
-        */
     }
     //режим стрельбы очередями
     else
@@ -477,6 +461,26 @@ void CWeaponMagazinedWGrenade::OnH_B_Independent(bool just_before_destroy)
     {
         SetState(eIdle);
         SetPending(FALSE);
+    }
+}
+
+//Kondr48
+void CWeaponMagazinedWGrenade::Chamber()
+{
+    if (!m_bGrenadeMode)
+    {
+        if (m_bChamberStatus == true && m_ammoElapsed.type1 >= 1 && m_chamber == false)
+        {
+            m_chamber = true;
+            iMagazineSize++;
+            magMaxSize1++;
+        }
+        else if (m_bChamberStatus == true && m_ammoElapsed.type1 == 0 && m_chamber == true)
+        {
+            m_chamber = false;
+            iMagazineSize--;
+            magMaxSize1--;
+        }
     }
 }
 

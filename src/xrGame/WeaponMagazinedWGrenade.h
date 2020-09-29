@@ -93,4 +93,9 @@ public:
 	CCartridge				m_DefaultCartridge2;
 
 	virtual void UpdateGrenadeVisibility(bool visibility);
+
+	//Kondr48
+	virtual void			Chamber();
+	int						magMaxSize1; // OldSerpskiStalker присваиваем размер магазина с type1 (ѕатроны)
+	int						magMaxSize2; // OldSerpskiStalker присваиваем размер магазина с type2 (ѕодствольник)
 };

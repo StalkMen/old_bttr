@@ -50,6 +50,8 @@ CWeaponMagazined::CWeaponMagazined(ESoundTypes eSoundType) : CWeapon()
 	m_bHasDifferentFireModes = false;
 	m_iCurFireMode = -1;
 	m_iPrefferedFireMode = -1;
+    //Kondr48
+    m_chamber = false;
 }
 
 CWeaponMagazined::~CWeaponMagazined()
@@ -158,6 +160,9 @@ void CWeaponMagazined::Load(LPCSTR section)
         m_bHasDifferentFireModes = false;
     }
     LoadSilencerKoeffs();
+
+    //Kondr48
+    m_bChamberStatus = !!READ_IF_EXISTS(pSettings, r_bool, section, "use_31_cartridge", TRUE);
 }
 
 bool CWeaponMagazined::UseScopeTexture()
@@ -742,7 +747,7 @@ void CWeaponMagazined::OnAnimationEnd(u32 state)
 {
     switch (state)
     {
-    case eReload:	ReloadMagazine();	SwitchState(eIdle);	break;	// End of reload animation
+    case eReload:	Chamber(); ReloadMagazine();	SwitchState(eIdle);	break;	// End of reload animation
     case eHiding:	SwitchState(eHidden);   break;	// End of Hide
     case eShowing:	SwitchState(eIdle);		break;	// End of Show
     case eIdle:		switch2_Idle();			break;  // Keep showing idle
@@ -907,6 +912,21 @@ void CWeaponMagazined::switch2_Showing()
     PlayAnimShow();
 }
 
+//Kondr48
+void CWeaponMagazined::Chamber()
+{
+    if (m_bChamberStatus == true && m_ammoElapsed.type1 >= 1 && m_chamber == false)
+    {
+        m_chamber = true;
+        iMagazineSize = iMagazineSize + 1;
+    }
+    else if (m_bChamberStatus == true && m_ammoElapsed.type1 == 0 && m_chamber == true)
+    {
+        m_chamber = false;
+        iMagazineSize = iMagazineSize - 1;
+    }
+}
+
 #include "CustomDetector.h"
 bool CWeaponMagazined::Action(u16 cmd, u32 flags)
 {
@@ -920,7 +940,11 @@ bool CWeaponMagazined::Action(u16 cmd, u32 flags)
     case kWPN_RELOAD:
     {
         if (flags&CMD_START)
-			if (m_ammoElapsed.type1 < iMagazineSize || IsMisfire())
+			if (m_ammoElapsed.type1 < iMagazineSize || IsMisfire() 
+                //Kondr48
+                || (m_bChamberStatus && !m_chamber && m_ammoElapsed.type1 == iMagazineSize)
+
+                )
 				{
 					if (GetState() == eUnMisfire) // Rietmon: Запрещаем перезарядку, если играет анима передергивания затвора
 						return false;
