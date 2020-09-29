@@ -162,14 +162,14 @@ void CUIWpnParams::SetInfo( CInventoryItem* slot_wpn, CInventoryItem& cur_wpn )
 		if(!weapon)
 			return;
 
-		int ammo_count = weapon->GetAmmoMagSize();
+		int ammo_count = weapon->GetAmmoMagSize_ui();
 		int ammo_count2 = ammo_count;
 
 		if(slot_wpn)
 		{
 			CWeapon* slot_weapon = slot_wpn->cast_weapon();
 			if(slot_weapon)
-				ammo_count2 = slot_weapon->GetAmmoMagSize(); 
+				ammo_count2 = slot_weapon->GetAmmoMagSize_ui();
 		}
 
 		if(ammo_count==ammo_count2)
@@ -230,7 +230,12 @@ bool CUIWpnParams::Check(const shared_str& wpn_section)
 		if (pSettings->line_exist(wpn_section, "ammo_mag_size"))
 			if (pSettings->r_u32(wpn_section, "ammo_mag_size") == 0)
 				return false;
-
+			
+		//OldSerpskiStalker
+		if (pSettings->line_exist(wpn_section, "ammo_mag_size_ui"))
+			if (pSettings->r_u32(wpn_section, "ammo_mag_size_ui") == 0)
+				return false;
+			
 		if (0==xr_strcmp(pSettings->r_string(wpn_section,"class"),"WP_KNIFE"))
 			return false;
         if (0==xr_strcmp(wpn_section, "wpn_addon_silencer"))

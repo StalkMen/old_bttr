@@ -747,7 +747,32 @@ void CWeaponMagazined::OnAnimationEnd(u32 state)
 {
     switch (state)
     {
-    case eReload:	Chamber(); ReloadMagazine();	SwitchState(eIdle);	break;	// End of reload animation
+//    case eReload:	Chamber(); ReloadMagazine();	SwitchState(eIdle);	break;	// End of reload animation
+    case eReload:
+    {
+        Chamber();
+
+        u32 ammo_in_chamber_pos = u32(-1);
+        CCartridge ammo_in_chamber;
+
+        if (m_ammoElapsed.type1 > 0) // store chambered bullet
+        {
+            ammo_in_chamber_pos = m_magazine.size() - 1;
+            ammo_in_chamber = m_magazine.back();
+        }
+
+        ReloadMagazine();
+
+        if (m_chamber && ammo_in_chamber_pos != u32(-1)) // move chambered bullet at front
+        {
+            m_magazine.erase(m_magazine.begin() + ammo_in_chamber_pos);
+            m_magazine.push_back(ammo_in_chamber);
+        }
+
+        SwitchState(eIdle);
+
+    } break;	// End of reload animation
+
     case eHiding:	SwitchState(eHidden);   break;	// End of Hide
     case eShowing:	SwitchState(eIdle);		break;	// End of Show
     case eIdle:		switch2_Idle();			break;  // Keep showing idle

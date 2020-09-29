@@ -38,6 +38,7 @@ bool CWeapon::install_upgrade_ammo_class( LPCSTR section, bool test )
 	LPCSTR str;
 
 	bool result = process_if_exists( section, "ammo_mag_size", &CInifile::r_s32, iMagazineSize, test );
+	bool result_ui = process_if_exists(section, "ammo_mag_size_ui", &CInifile::r_s32, iMagazineSize_ui, test);
 
 	//	ammo_class = ammo_5.45x39_fmj, ammo_5.45x39_ap  // name of the ltx-section of used ammo
 	bool result2 = process_if_exists_set( section, "ammo_class", &CInifile::r_string, str, test );
@@ -54,6 +55,7 @@ bool CWeapon::install_upgrade_ammo_class( LPCSTR section, bool test )
 		m_ammoType.data = 0;
 	}
 	result |= result2;
+	result |= result_ui;
 
 	return result;
 }

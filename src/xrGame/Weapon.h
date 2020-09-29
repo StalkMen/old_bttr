@@ -612,6 +612,12 @@ public:
     {
         return iMagazineSize;
     }
+
+    IC int					GetAmmoMagSize_ui()	const
+    {
+        return iMagazineSize_ui;
+    }
+
     int						GetSuitableAmmoTotal(bool use_item_to_spawn = false) const;
 
     void					SetAmmoElapsed(int ammo_count);
@@ -686,7 +692,9 @@ public:
 	ammo_elapsed_t m_ammoElapsed;
 
 	int						iMagazineSize;		// size (in bullets) of magazine
-	int						iMagazineSize2;
+	int						iMagazineSize2;     // size (in grenade) of magazine
+
+    int						iMagazineSize_ui;
 
 	bool					m_bGrenadeMode;
     xr_vector<shared_str>	m_ammoTypes;

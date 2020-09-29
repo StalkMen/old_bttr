@@ -390,6 +390,7 @@ void CWeapon::Load(LPCSTR section)
     iMagazineSize = pSettings->r_s32(section, "ammo_mag_size");
 	iMagazineSize2 = 1;
 	
+	iMagazineSize_ui = pSettings->r_s32(section, "ammo_mag_size_ui");
     ////////////////////////////////////////////////////
     // дисперсия стрельбы
 
