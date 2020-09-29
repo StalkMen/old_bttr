@@ -170,7 +170,8 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 
 /////////////////////////////////////////////////////////////////////////////////////////
 #pragma todo("OldSerpskiStalker. Новые дефайны для шейдеров")
-	u32 DX10, DX10_1 = renderer_value;
+	u32 DX10 = renderer_value;
+	u32	DX10_1 = renderer_value;
 
 	if (DX10 == 0)
 	{
