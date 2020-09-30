@@ -50,6 +50,7 @@ public:
 	IBlender*					b_ssao_msaa[8];
 	IBlender*					b_fxaa;
 	IBlender*					b_smaa;
+	IBlender*					b_sunshafts;
 	
     // compute shader for hdao
     IBlender*                   b_hdao_cs;
@@ -70,6 +71,8 @@ public:
 	ref_rt						rt_MSAADepth;     // z-buffer for MSAA deferred shading
 	ref_rt						rt_Generic_0_r;   // MRT generic 0
 	ref_rt						rt_Generic_1_r;   // MRT generic 1
+	ref_rt						rt_sunshafts_0;		// ss0
+	ref_rt						rt_sunshafts_1;		// ss1
 	ref_rt						rt_Generic;
 	ref_rt						rt_Position;		// 64bit,	fat	(x,y,z,?)				(eye-space)
 	ref_rt						rt_Normal;			// 64bit,	fat	(x,y,z,hemi)			(eye-space)
@@ -121,7 +124,8 @@ private:
 	// OCCq
 
 	ref_shader					s_occq;
-
+	ref_shader					s_sunshafts;
+	
 	// SSAO
 	ref_rt						rt_ssao_temp;
 	ref_rt						rt_half_depth;
@@ -193,6 +197,7 @@ private:
 	float						f_luminance_adapt;
 
 	// Combine
+	ref_geom					g_KD;
 	ref_geom					g_combine;
 	ref_geom					g_combine_VP;		// xy=p,zw=tc
 	ref_geom					g_combine_2UV;
@@ -260,6 +265,7 @@ public:
 	BOOL						u_DBT_enable			(float zMin, float zMax);
 	void						u_DBT_disable			();
 	
+	void						phase_sunshafts			();
 	void						phase_smaa				();
 	void						phase_fxaa				();
 	void						phase_scene_prepare		();
