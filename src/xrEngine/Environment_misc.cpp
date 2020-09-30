@@ -308,16 +308,16 @@ void CEnvDescriptor::load(CEnvironment& environment, CInifile& config)
     if (config.line_exist(m_identifier.c_str(), "water_intensity"))
         m_fWaterIntensity = config.r_float(m_identifier.c_str(), "water_intensity");
 	
-	if (config.line_exist(m_identifier.c_str(), "FogS_height"))
+	if (config.line_exist(m_identifier.c_str(), "fog_height"))
         m_fFogShaders_height = config.r_float(m_identifier.c_str(), "fog_height");
 	
-	if (config.line_exist(m_identifier.c_str(), "FogS_density"))
-        m_fFogShaders_density = config.r_float(m_identifier.c_str(), "fog_density");
+	if (config.line_exist(m_identifier.c_str(), "fog_ground_density"))
+        m_fFogShaders_density = config.r_float(m_identifier.c_str(), "fog_ground_density");
 	
-	if (config.line_exist(m_identifier.c_str(), "FogS_max_dist"))
+	if (config.line_exist(m_identifier.c_str(), "fog_max_dist"))
         m_fFogShaders_max_dist = config.r_float(m_identifier.c_str(), "fog_max_dist");
 	
-	if (config.line_exist(m_identifier.c_str(), "FogS_min_dist"))
+	if (config.line_exist(m_identifier.c_str(), "fog_min_dist"))
         m_fFogShaders_min_dist = config.r_float(m_identifier.c_str(), "fog_min_dist");
 	
 #ifdef TREE_WIND_EFFECT

@@ -137,6 +137,14 @@ static class cl_fog_shaders : public R_constant_setup
 	}
 } binder_fog_shaders;
 
+static class cl_volumetric_fog_param : public R_constant_setup
+{
+	virtual void setup(R_constant* C)
+	{
+		RCache.set_c(C, ps_render_volumetric_fog, 0, 0, 0);
+	}
+}	binder_volumetric_fog;
+
 extern ENGINE_API BOOL r2_sun_static;
 extern ENGINE_API BOOL r2_advanced_pp;	//	advanced post process and effects
 extern ENGINE_API BOOL render_dx10_1;
@@ -385,6 +393,7 @@ void					CRender::create					()
 	RM->RegisterConstantSetup("pos_decompression_params", &binder_pos_decompress_params);
 	RM->RegisterConstantSetup("pos_decompression_params2", &binder_pos_decompress_params2);
 	RM->RegisterConstantSetup("fog_shaders_values", &binder_fog_shaders);
+	RM->RegisterConstantSetup("volumetric_fog", &binder_volumetric_fog);
 
 	c_lmaterial					= "L_material";
 	c_sbase						= "s_base";

@@ -779,6 +779,7 @@ float debug_fog_max_dist = 0.f;
 float debug_fog_min_dist = 0.f;
 
 int   tbufer_renders = 1;
+int	  ps_render_volumetric_fog = 1;
 //-----------------------------------------------------------------------
 void		xrRender_initconsole()
 {
@@ -805,6 +806,7 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "fog_density",						 &debug_fog_density,				0.f, 1.f);
 	CMD4(CCC_Float, "fog_max_dist",						 &debug_fog_max_dist,				0.f, 100.f);
 	CMD4(CCC_Float, "fog_min_dist",						 &debug_fog_min_dist,				0.f, 90.f);
+	CMD4(CCC_Integer, "xrRenderDX10_volumetric_fog",	 &ps_render_volumetric_fog,			0, 1);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);
