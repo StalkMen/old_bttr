@@ -22,6 +22,8 @@
 
 #include <D3DX10Tex.h>
 
+extern u32 RenderThemeShaders;
+
 void	CRenderTarget::u_setrt			(const ref_rt& _1, const ref_rt& _2, const ref_rt& _3, ID3DDepthStencilView* zb)
 {
 	VERIFY									(_1||zb);

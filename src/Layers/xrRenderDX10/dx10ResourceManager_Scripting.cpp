@@ -17,6 +17,7 @@
 #include	"../xrRender/dxRenderDeviceRender.h"
 
 using namespace				luabind;
+extern u32 RenderThemeShaders;
 
 #ifdef	DEBUG
 #define MDB	Memory.dbg_check()
@@ -337,7 +338,7 @@ void	CResourceManager::LS_Load			()
 	for (u32 it=0; it<folder->size(); it++)	{
 		string_path						namesp,fn;
 		xr_strcpy							(namesp,(*folder)[it]);
-		if	(0==strext(namesp) || 0!=xr_strcmp(strext(namesp), (strstr(Core.Params, "-old_shaders")) ? ".s" : ".lua"))
+		if	(0==strext(namesp) || 0!=xr_strcmp(strext(namesp), (RenderThemeShaders == 0) ? ".s" : ".lua"))
 			continue;
 		*strext	(namesp)=0;
 		if		(0==namesp[0])			xr_strcpy	(namesp,"_G");

@@ -5,6 +5,7 @@
 #include "../xrRender/dxEnvironmentRender.h"
 
 #define STENCIL_CULL 0
+extern u32 RenderThemeShaders;
 
 void CRenderTarget::DoAsyncScreenshot()
 {
@@ -354,12 +355,12 @@ void	CRenderTarget::phase_combine	()
 		RCache.set_Stencil(FALSE);
 	}
 	//DLAA
-	else if (ps_r_type_aa == 2)
+	else if (ps_r_type_aa == 2 && RenderThemeShaders == 1 || RenderThemeShaders == 2)
 	{
 		
 	}
 	//SMAA
-	else if (ps_r_type_aa == 3)
+	else if (ps_r_type_aa == 3 && RenderThemeShaders == 1 || RenderThemeShaders == 2)
 	{
 		PIX_EVENT(SMAA);
 		//RainbowZerg

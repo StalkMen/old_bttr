@@ -275,12 +275,20 @@ public:
     virtual void					Statistics					(CGameFont* F);
     virtual LPCSTR					getShaderPath				()									
     { 
-        if (RenderThemeShaders == 0)
-            return "DX11_COP_SHADERS\\";
-        else if (RenderThemeShaders == 1)
-            return "DX11_OLD_THEME\\";
-        else if (RenderThemeShaders == 2)
-            return "DX11_895_PBR\\";
+        switch (RenderThemeShaders)
+        {
+            case 0:
+                return "DX11_COP_SHADERS\\";
+                break;
+            case 1: 
+                return "DX11_OLD_THEME\\";
+                break;
+            case 2:
+                return "DX11_895_PBR\\";
+                break;
+            default:
+                break;
+        }
     }
     virtual ref_shader				getShader					(int id);
     virtual IRender_Sector*			getSector					(int id);

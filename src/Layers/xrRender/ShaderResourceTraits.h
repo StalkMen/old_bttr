@@ -2,6 +2,8 @@
 
 #include "ResourceManager.h"
 
+extern u32 RenderThemeShaders;
+
 template <typename T>
 struct ShaderTypeTraits;
 
@@ -11,7 +13,7 @@ struct ShaderTypeTraits<SVS>
     typedef CResourceManager::map_VS MapType;
     using HWShaderType = ID3DVertexShader*;
 
-    static inline const char* GetShaderExt() { return (strstr(Core.Params, "-old_shaders")) ? ".vs" : "vs_"; }
+    static inline const char* GetShaderExt() { return RenderThemeShaders == 0 ? ".vs" : "vs_"; }
     static inline const char* GetCompilationTarget()
     {
         return "vs_2_0";
@@ -57,7 +59,7 @@ struct ShaderTypeTraits<SPS>
     typedef CResourceManager::map_PS MapType;
     using HWShaderType = ID3DPixelShader*;
 
-    static inline const char* GetShaderExt() { return (strstr(Core.Params, "-old_shaders")) ? ".ps" : "ps_"; }
+    static inline const char* GetShaderExt() { return RenderThemeShaders == 0 ? ".ps" : "ps_"; }
     static inline const char* GetCompilationTarget()
     {
         return "ps_2_0";
@@ -112,7 +114,7 @@ struct ShaderTypeTraits<SGS>
     typedef CResourceManager::map_GS MapType;
     using HWShaderType = ID3DGeometryShader*;
 
-    static inline const char* GetShaderExt() { return (strstr(Core.Params, "-old_shaders")) ? ".gs" : "gs_"; }
+    static inline const char* GetShaderExt() { return RenderThemeShaders == 0 ? ".gs" : "gs_"; }
     static inline const char* GetCompilationTarget()
     {
 #ifdef USE_DX10
@@ -160,7 +162,7 @@ struct ShaderTypeTraits<SHS>
     typedef CResourceManager::map_HS MapType;
     using HWShaderType = ID3D11HullShader*;
 
-    static inline const char* GetShaderExt() { return (strstr(Core.Params, "-old_shaders")) ? ".hs" : "hs_"; }
+    static inline const char* GetShaderExt() { return RenderThemeShaders == 0 ? ".hs" : "hs_"; }
     static inline const char* GetCompilationTarget() { return "hs_5_0"; }
 	
 	static void GetCompilationTarget(const char*& target, const char*& entry, const char* /*data*/)
@@ -186,7 +188,7 @@ struct ShaderTypeTraits<SDS>
     typedef CResourceManager::map_DS MapType;
     using HWShaderType = ID3D11DomainShader*;
 
-    static inline const char* GetShaderExt() { return (strstr(Core.Params, "-old_shaders")) ? ".ds" : "ds_"; }
+    static inline const char* GetShaderExt() { return RenderThemeShaders == 0 ? ".ds" : "ds_"; }
     static inline const char* GetCompilationTarget() { return "ds_5_0"; }
 	
 	static void GetCompilationTarget(const char*& target, const char*& entry, const char* /*data*/)
@@ -212,7 +214,7 @@ struct ShaderTypeTraits<SCS>
     typedef CResourceManager::map_CS MapType;
     using HWShaderType = ID3D11ComputeShader*;
 
-    static inline const char* GetShaderExt() { return (strstr(Core.Params, "-old_shaders")) ? ".cs" : "cs_"; }
+    static inline const char* GetShaderExt() { return RenderThemeShaders == 0 ? ".cs" : "cs_"; }
     static inline const char* GetCompilationTarget() { return "cs_5_0"; }
 	
 	static void GetCompilationTarget(const char*& target, const char*& entry, const char* /*data*/)
@@ -308,7 +310,7 @@ inline T* CResourceManager::CreateShader(const char* name, const char* filename 
         string_path cname;
         pcstr shaderExt = ShaderTypeTraits<T>::GetShaderExt();
 
-        if (strstr(Core.Params, "-old_shaders"))
+        if (RenderThemeShaders == 0)
             strconcat(sizeof(cname), cname, ::Render->getShaderPath(), shName, shaderExt);
         else 
             strconcat(sizeof(cname), cname, ::Render->getShaderPath(), shaderExt, shName, ".hlsl");
@@ -324,7 +326,7 @@ inline T* CResourceManager::CreateShader(const char* name, const char* filename 
 				fallback = false;
             string1024 tmp;
 
-            if (strstr(Core.Params, "-old_shaders"))
+            if (RenderThemeShaders == 0)
                 xr_sprintf(tmp, "CreateShader: %s is missing. Replacing it with stub_default%s", cname, shaderExt);
             else
                 xr_sprintf(tmp, "CreateShader: %s is missing. Replacing it with stub_default%s", shaderExt, cname, ".hlsl");
