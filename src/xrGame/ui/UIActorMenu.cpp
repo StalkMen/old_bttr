@@ -291,30 +291,57 @@ void CUIActorMenu::CheckDistance()
 
 EDDListType CUIActorMenu::GetListType(CUIDragDropListEx* l)
 {
-	if(l==m_pInventoryBagList)			return iActorBag;
-	if(l==m_pInventoryBeltList)			return iActorBelt;
+	if (!strstr(Core.Params, "-old_ver"))
+	{
+		if(l==m_pInventoryBagList)			return iActorBag;
+		if(l==m_pInventoryBeltList)			return iActorBelt;
 
-	if(l==m_pInventoryAutomaticList)	return iActorSlot;
-	if(l==m_pInventoryPistolList)		return iActorSlot;
-	if(l==m_pInventoryKnifeList)		return iActorSlot;
-	if(l==m_pInventoryBackpackList)		return iActorSlot;
-	if(l==m_pInventoryBinocList)		return iActorSlot;
-	if(l==m_pInventoryOutfitList)		return iActorSlot;
-	if(l==m_pInventoryHelmetList)		return iActorSlot;
-	if(l==m_pInventoryDetectorList)		return iActorSlot;
-	
-	if(l==m_pTradeActorBagList)			return iActorBag;
-	if(l==m_pTradeActorList)			return iActorTrade;
-	if(l==m_pTradePartnerBagList)		return iPartnerTradeBag;
-	if(l==m_pTradePartnerList)			return iPartnerTrade;
-	if(l==m_pDeadBodyBagList)			return iDeadBodyBag;
+		if(l==m_pInventoryAutomaticList)	return iActorSlot;
+		if(l==m_pInventoryPistolList)		return iActorSlot;
+		if(l==m_pInventoryKnifeList)		return iActorSlot;
+		if(l==m_pInventoryBackpackList)		return iActorSlot;
+		if(l==m_pInventoryBinocList)		return iActorSlot;
+		if(l==m_pInventoryOutfitList)		return iActorSlot;
+		if(l==m_pInventoryHelmetList)		return iActorSlot;
+		if(l==m_pInventoryDetectorList)		return iActorSlot;
+		
+		if(l==m_pTradeActorBagList)			return iActorBag;
+		if(l==m_pTradeActorList)			return iActorTrade;
+		if(l==m_pTradePartnerBagList)		return iPartnerTradeBag;
+		if(l==m_pTradePartnerList)			return iPartnerTrade;
+		if(l==m_pDeadBodyBagList)			return iDeadBodyBag;
 
-	if(l==m_pQuickSlot)					return iQuickSlot;
-	if(l==m_pTrashList)					return iTrashSlot;
+		if(l==m_pQuickSlot)					return iQuickSlot;
+		if(l==m_pTrashList)					return iTrashSlot;
 
-	R_ASSERT(0);
-	
-	return iInvalid;
+		R_ASSERT(0);
+		
+		return iInvalid;
+	}
+	else
+	{
+		if(l==m_pInventoryBagList)			return iActorBag;
+		if(l==m_pInventoryBeltList)			return iActorBelt;
+
+		if(l==m_pInventoryAutomaticList)	return iActorSlot;
+		if(l==m_pInventoryPistolList)		return iActorSlot;
+		if(l==m_pInventoryOutfitList)		return iActorSlot;
+		if(l==m_pInventoryHelmetList)		return iActorSlot;
+		if(l==m_pInventoryDetectorList)		return iActorSlot;
+		
+		if(l==m_pTradeActorBagList)			return iActorBag;
+		if(l==m_pTradeActorList)			return iActorTrade;
+		if(l==m_pTradePartnerBagList)		return iPartnerTradeBag;
+		if(l==m_pTradePartnerList)			return iPartnerTrade;
+		if(l==m_pDeadBodyBagList)			return iDeadBodyBag;
+
+		if(l==m_pQuickSlot)					return iQuickSlot;
+		if(l==m_pTrashList)					return iTrashSlot;
+
+		R_ASSERT(0);
+		
+		return iInvalid;
+	}
 }
 
 CUIDragDropListEx* CUIActorMenu::GetListByType(EDDListType t)
@@ -467,116 +494,216 @@ void CUIActorMenu::UpdateItemsPlace()
 
 void CUIActorMenu::clear_highlight_lists()
 {
-	m_InvSlot2Highlight->Show(false);
-	m_InvSlot3Highlight->Show(false);
-	m_KnifeSlotHighlight->Show(false);
-	m_BinocSlotHighlight->Show(false);
-	m_BackpackSlotHighlight->Show(false);
-	m_HelmetSlotHighlight->Show(false);
-	m_OutfitSlotHighlight->Show(false);
-	m_DetectorSlotHighlight->Show(false);
-	for(u8 i=0; i<4; i++)
-		m_QuickSlotsHighlight[i]->Show(false);
-	for(u8 i=0; i<e_af_count; i++)
-		m_ArtefactSlotsHighlight[i]->Show(false);
-
-	m_pInventoryBagList->clear_select_armament();
-
-	switch ( m_currMenuMode )
+	if (!strstr(Core.Params, "-old_ver"))
 	{
-	case mmUndefined:
-		break;
-	case mmInventory:
-		break;
-	case mmTrade:
-		m_pTradeActorBagList->clear_select_armament();
-		m_pTradeActorList->clear_select_armament();
-		m_pTradePartnerBagList->clear_select_armament();
-		m_pTradePartnerList->clear_select_armament();
-		break;
-	case mmUpgrade:
-		break;
-	case mmDeadBodySearch:
-		m_pDeadBodyBagList->clear_select_armament();
-		break;
+		m_InvSlot2Highlight->Show(false);
+		m_InvSlot3Highlight->Show(false);
+		m_KnifeSlotHighlight->Show(false);
+		m_BinocSlotHighlight->Show(false);
+		m_BackpackSlotHighlight->Show(false);
+		m_HelmetSlotHighlight->Show(false);
+		m_OutfitSlotHighlight->Show(false);
+		m_DetectorSlotHighlight->Show(false);
+		for (u8 i = 0; i < 4; i++)
+			m_QuickSlotsHighlight[i]->Show(false);
+		for (u8 i = 0; i < e_af_count; i++)
+			m_ArtefactSlotsHighlight[i]->Show(false);
+
+		m_pInventoryBagList->clear_select_armament();
+
+		switch (m_currMenuMode)
+		{
+		case mmUndefined:
+			break;
+		case mmInventory:
+			break;
+		case mmTrade:
+			m_pTradeActorBagList->clear_select_armament();
+			m_pTradeActorList->clear_select_armament();
+			m_pTradePartnerBagList->clear_select_armament();
+			m_pTradePartnerList->clear_select_armament();
+			break;
+		case mmUpgrade:
+			break;
+		case mmDeadBodySearch:
+			m_pDeadBodyBagList->clear_select_armament();
+			break;
+		}
+		m_highlight_clear = true;
 	}
-	m_highlight_clear = true;
+	else
+	{
+		m_InvSlot2Highlight->Show(false);
+		m_InvSlot3Highlight->Show(false);
+		m_HelmetSlotHighlight->Show(false);
+		m_OutfitSlotHighlight->Show(false);
+		m_DetectorSlotHighlight->Show(false);
+		for (u8 i = 0; i < 4; i++)
+			m_QuickSlotsHighlight[i]->Show(false);
+		for (u8 i = 0; i < e_af_count; i++)
+			m_ArtefactSlotsHighlight[i]->Show(false);
+
+		m_pInventoryBagList->clear_select_armament();
+
+		switch (m_currMenuMode)
+		{
+		case mmUndefined:
+			break;
+		case mmInventory:
+			break;
+		case mmTrade:
+			m_pTradeActorBagList->clear_select_armament();
+			m_pTradeActorList->clear_select_armament();
+			m_pTradePartnerBagList->clear_select_armament();
+			m_pTradePartnerList->clear_select_armament();
+			break;
+		case mmUpgrade:
+			break;
+		case mmDeadBodySearch:
+			m_pDeadBodyBagList->clear_select_armament();
+			break;
+		}
+		m_highlight_clear = true;
+	}
 }
+
 void CUIActorMenu::highlight_item_slot(CUICellItem* cell_item)
 {
-	PIItem item = (PIItem)cell_item->m_pData;
-	if(!item)
-		return;
-
-	if(CUIDragDropListEx::m_drag_item)
-		return;
-
-	CWeapon* weapon = smart_cast<CWeapon*>(item);
-	CHelmet* helmet = smart_cast<CHelmet*>(item);
-	CCustomOutfit* outfit = smart_cast<CCustomOutfit*>(item);
-	CCustomDetector* detector = smart_cast<CCustomDetector*>(item);
-	CEatableItem* eatable = smart_cast<CEatableItem*>(item);
-	CArtefact* artefact = smart_cast<CArtefact*>(item);
-	CWeaponKnife* knife = smart_cast<CWeaponKnife*>(item);
-	CWeaponBinoculars* binoc = smart_cast<CWeaponBinoculars*>(item);
-	CBackpack* backpack = smart_cast<CBackpack*>(item);
-
-	u16 slot_id = item->BaseSlot();
-
-	if (weapon && (slot_id == INV_SLOT_2 || slot_id == INV_SLOT_3))
+	if (!strstr(Core.Params, "-old_ver"))
 	{
-		m_InvSlot2Highlight->Show(true);
-		m_InvSlot3Highlight->Show(true);
-		return;
-	}
-	if(helmet && slot_id == HELMET_SLOT)
-	{
-		m_HelmetSlotHighlight->Show(true);
-		return;
-	}
-	if(outfit && slot_id == OUTFIT_SLOT)
-	{
-		m_OutfitSlotHighlight->Show(true);
-		return;
-	}
-	if(detector && slot_id == DETECTOR_SLOT)
-	{
-		m_DetectorSlotHighlight->Show(true);
-		return;
-	}
-	if (knife && slot_id == KNIFE_SLOT)
-	{
-		m_KnifeSlotHighlight->Show(true);
-		return;
-	}
-	if (binoc && slot_id == BINOCULAR_SLOT)
-	{
-		m_BinocSlotHighlight->Show(true);
-		return;
-	}
-	if (backpack && slot_id == BACKPACK_SLOT)
-	{
-		m_BackpackSlotHighlight->Show(true);
-		return;
-	}
-	if(eatable)
-	{
-		if(cell_item->OwnerList() && GetListType(cell_item->OwnerList())==iQuickSlot)
+		PIItem item = (PIItem)cell_item->m_pData;
+		if(!item)
 			return;
 
-		for(u8 i=0; i<4; i++)
-			m_QuickSlotsHighlight[i]->Show(true);
-		return;
-	}
-	if(artefact)
-	{
-		if(cell_item->OwnerList() && GetListType(cell_item->OwnerList())==iActorBelt)
+		if(CUIDragDropListEx::m_drag_item)
 			return;
 
-		Ivector2 cap = m_pInventoryBeltList->CellsCapacity();
-		for(u8 i=0; i<cap.x; i++)
-			m_ArtefactSlotsHighlight[i]->Show(true);
-		return;
+		CWeapon* weapon = smart_cast<CWeapon*>(item);
+		CHelmet* helmet = smart_cast<CHelmet*>(item);
+		CCustomOutfit* outfit = smart_cast<CCustomOutfit*>(item);
+		CCustomDetector* detector = smart_cast<CCustomDetector*>(item);
+		CEatableItem* eatable = smart_cast<CEatableItem*>(item);
+		CArtefact* artefact = smart_cast<CArtefact*>(item);
+		CWeaponKnife* knife = smart_cast<CWeaponKnife*>(item);
+		CWeaponBinoculars* binoc = smart_cast<CWeaponBinoculars*>(item);
+		CBackpack* backpack = smart_cast<CBackpack*>(item);
+
+		u16 slot_id = item->BaseSlot();
+
+		if (weapon && (slot_id == INV_SLOT_2 || slot_id == INV_SLOT_3))
+		{
+			m_InvSlot2Highlight->Show(true);
+			m_InvSlot3Highlight->Show(true);
+			return;
+		}
+		if(helmet && slot_id == HELMET_SLOT)
+		{
+			m_HelmetSlotHighlight->Show(true);
+			return;
+		}
+		if(outfit && slot_id == OUTFIT_SLOT)
+		{
+			m_OutfitSlotHighlight->Show(true);
+			return;
+		}
+		if(detector && slot_id == DETECTOR_SLOT)
+		{
+			m_DetectorSlotHighlight->Show(true);
+			return;
+		}
+		if (knife && slot_id == KNIFE_SLOT)
+		{
+			m_KnifeSlotHighlight->Show(true);
+			return;
+		}
+		if (binoc && slot_id == BINOCULAR_SLOT)
+		{
+			m_BinocSlotHighlight->Show(true);
+			return;
+		}
+		if (backpack && slot_id == BACKPACK_SLOT)
+		{
+			m_BackpackSlotHighlight->Show(true);
+			return;
+		}
+		if(eatable)
+		{
+			if(cell_item->OwnerList() && GetListType(cell_item->OwnerList())==iQuickSlot)
+				return;
+
+			for(u8 i=0; i<4; i++)
+				m_QuickSlotsHighlight[i]->Show(true);
+			return;
+		}
+		if(artefact)
+		{
+			if(cell_item->OwnerList() && GetListType(cell_item->OwnerList())==iActorBelt)
+				return;
+
+			Ivector2 cap = m_pInventoryBeltList->CellsCapacity();
+			for(u8 i=0; i<cap.x; i++)
+				m_ArtefactSlotsHighlight[i]->Show(true);
+			return;
+		}
+	}
+	else
+	{
+		PIItem item = (PIItem)cell_item->m_pData;
+		if(!item)
+			return;
+
+		if(CUIDragDropListEx::m_drag_item)
+			return;
+
+		CWeapon* weapon = smart_cast<CWeapon*>(item);
+		CHelmet* helmet = smart_cast<CHelmet*>(item);
+		CCustomOutfit* outfit = smart_cast<CCustomOutfit*>(item);
+		CCustomDetector* detector = smart_cast<CCustomDetector*>(item);
+		CEatableItem* eatable = smart_cast<CEatableItem*>(item);
+		CArtefact* artefact = smart_cast<CArtefact*>(item);
+
+		u16 slot_id = item->BaseSlot();
+
+		if (weapon && (slot_id == INV_SLOT_2 || slot_id == INV_SLOT_3))
+		{
+			m_InvSlot2Highlight->Show(true);
+			m_InvSlot3Highlight->Show(true);
+			return;
+		}
+		if(helmet && slot_id == HELMET_SLOT)
+		{
+			m_HelmetSlotHighlight->Show(true);
+			return;
+		}
+		if(outfit && slot_id == OUTFIT_SLOT)
+		{
+			m_OutfitSlotHighlight->Show(true);
+			return;
+		}
+		if(detector && slot_id == DETECTOR_SLOT)
+		{
+			m_DetectorSlotHighlight->Show(true);
+			return;
+		}
+		if(eatable)
+		{
+			if(cell_item->OwnerList() && GetListType(cell_item->OwnerList())==iQuickSlot)
+				return;
+
+			for(u8 i=0; i<4; i++)
+				m_QuickSlotsHighlight[i]->Show(true);
+			return;
+		}
+		if(artefact)
+		{
+			if(cell_item->OwnerList() && GetListType(cell_item->OwnerList())==iActorBelt)
+				return;
+
+			Ivector2 cap = m_pInventoryBeltList->CellsCapacity();
+			for(u8 i=0; i<cap.x; i++)
+				m_ArtefactSlotsHighlight[i]->Show(true);
+			return;
+		}
 	}
 }
 void CUIActorMenu::set_highlight_item( CUICellItem* cell_item )
@@ -823,24 +950,45 @@ void CUIActorMenu::highlight_weapons_for_addon( PIItem addon_item, CUIDragDropLi
 
 void CUIActorMenu::ClearAllLists()
 {
-	m_pInventoryBagList->ClearAll				(true);
-	
-	m_pInventoryBeltList->ClearAll				(true);
-	m_pInventoryOutfitList->ClearAll			(true);
-	m_pInventoryHelmetList->ClearAll			(true);
-	m_pInventoryKnifeList->ClearAll				(true);
-	m_pInventoryBackpackList->ClearAll			(true);
-	m_pInventoryBinocList->ClearAll				(true);
-	m_pInventoryDetectorList->ClearAll			(true);
-	m_pInventoryPistolList->ClearAll			(true);
-	m_pInventoryAutomaticList->ClearAll			(true);
-	m_pQuickSlot->ClearAll						(true);
+	if (!strstr(Core.Params, "-old_ver"))
+	{
+		m_pInventoryBagList->ClearAll				(true);
+		
+		m_pInventoryBeltList->ClearAll				(true);
+		m_pInventoryOutfitList->ClearAll			(true);
+		m_pInventoryHelmetList->ClearAll			(true);
+		m_pInventoryKnifeList->ClearAll				(true);
+		m_pInventoryBackpackList->ClearAll			(true);
+		m_pInventoryBinocList->ClearAll				(true);
+		m_pInventoryDetectorList->ClearAll			(true);
+		m_pInventoryPistolList->ClearAll			(true);
+		m_pInventoryAutomaticList->ClearAll			(true);
+		m_pQuickSlot->ClearAll						(true);
 
-	m_pTradeActorBagList->ClearAll				(true);
-	m_pTradeActorList->ClearAll					(true);
-	m_pTradePartnerBagList->ClearAll			(true);
-	m_pTradePartnerList->ClearAll				(true);
-	m_pDeadBodyBagList->ClearAll				(true);
+		m_pTradeActorBagList->ClearAll				(true);
+		m_pTradeActorList->ClearAll					(true);
+		m_pTradePartnerBagList->ClearAll			(true);
+		m_pTradePartnerList->ClearAll				(true);
+		m_pDeadBodyBagList->ClearAll				(true);
+	}
+	else
+	{
+		m_pInventoryBagList->ClearAll				(true);
+	
+		m_pInventoryBeltList->ClearAll				(true);
+		m_pInventoryOutfitList->ClearAll			(true);
+		m_pInventoryHelmetList->ClearAll			(true);
+		m_pInventoryDetectorList->ClearAll			(true);
+		m_pInventoryPistolList->ClearAll			(true);
+		m_pInventoryAutomaticList->ClearAll			(true);
+		m_pQuickSlot->ClearAll						(true);
+
+		m_pTradeActorBagList->ClearAll				(true);
+		m_pTradeActorList->ClearAll					(true);
+		m_pTradePartnerBagList->ClearAll			(true);
+		m_pTradePartnerList->ClearAll				(true);
+		m_pDeadBodyBagList->ClearAll				(true);
+	}
 }
 
 void CUIActorMenu::CallMessageBoxYesNo( LPCSTR text )
@@ -886,81 +1034,151 @@ void CUIActorMenu::UpdateActorMP()
 
 bool CUIActorMenu::CanSetItemToList(PIItem item, CUIDragDropListEx* l, u16& ret_slot)
 {
-	u16 item_slot = item->BaseSlot();
-	if( GetSlotList(item_slot)==l )
+	if (!strstr(Core.Params, "-old_ver"))
 	{
-		ret_slot	= item_slot;
-		return		true;
-	}
+		u16 item_slot = item->BaseSlot();
+		if( GetSlotList(item_slot)==l )
+		{
+			ret_slot	= item_slot;
+			return		true;
+		}
 
-	if(item_slot==INV_SLOT_3 && l==m_pInventoryPistolList)
+		if(item_slot==INV_SLOT_3 && l==m_pInventoryPistolList)
+		{
+			ret_slot	= INV_SLOT_2;
+			return		true;
+		}
+
+		if(item_slot==INV_SLOT_2 && l==m_pInventoryAutomaticList)
+		{
+			ret_slot	= INV_SLOT_3;
+			return		true;
+		}
+
+		if (item_slot == KNIFE_SLOT && l == m_pInventoryKnifeList)
+		{
+			ret_slot = KNIFE_SLOT;
+			return true;
+		}
+	}
+	else
 	{
-		ret_slot	= INV_SLOT_2;
-		return		true;
-	}
+		u16 item_slot = item->BaseSlot();
+		if( GetSlotList(item_slot)==l )
+		{
+			ret_slot	= item_slot;
+			return		true;
+		}
 
-	if(item_slot==INV_SLOT_2 && l==m_pInventoryAutomaticList)
-	{
-		ret_slot	= INV_SLOT_3;
-		return		true;
-	}
+		if(item_slot==INV_SLOT_3 && l==m_pInventoryPistolList)
+		{
+			ret_slot	= INV_SLOT_2;
+			return		true;
+		}
 
-	if (item_slot == KNIFE_SLOT && l == m_pInventoryKnifeList)
-	{
-		ret_slot = KNIFE_SLOT;
-		return true;
+		if(item_slot==INV_SLOT_2 && l==m_pInventoryAutomaticList)
+		{
+			ret_slot	= INV_SLOT_3;
+			return		true;
+		}
 	}
-
+	
 	return false;
 }
 void CUIActorMenu::UpdateConditionProgressBars()
 {
-	PIItem itm = m_pActorInvOwner->inventory().ItemFromSlot(INV_SLOT_2);
-	if(itm)
+	if (!strstr(Core.Params, "-old_ver"))
 	{
-		m_WeaponSlot1_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
-	}
-	else
-		m_WeaponSlot1_progress->SetProgressPos(0);
-
-	itm = m_pActorInvOwner->inventory().ItemFromSlot(INV_SLOT_3);
-	if(itm)
-		m_WeaponSlot2_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
-	else
-		m_WeaponSlot2_progress->SetProgressPos(0);
-
-	itm = m_pActorInvOwner->inventory().ItemFromSlot(OUTFIT_SLOT);
-	if(itm)
-		m_Outfit_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
-	else
-		m_Outfit_progress->SetProgressPos(0);
-
-	itm = m_pActorInvOwner->inventory().ItemFromSlot(HELMET_SLOT);
-	if(itm)
-		m_Helmet_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
-	else
-		m_Helmet_progress->SetProgressPos(0);
-
-	itm = m_pActorInvOwner->inventory().ItemFromSlot(KNIFE_SLOT);
-	if (itm)
-		m_Knife_progress->SetProgressPos(iCeil(itm->GetCondition() * 15.0f) / 15.0f);
-	else
-		m_Knife_progress->SetProgressPos(0);
-
-	//Highlight 'equipped' items in actor bag
-	CUIDragDropListEx* slot_list = m_pInventoryBagList;
-	u32 const cnt = slot_list->ItemsCount();
-	for (u32 i = 0; i < cnt; ++i)
-	{
-		CUICellItem* ci = slot_list->GetItemIdx(i);
-		PIItem item = (PIItem)ci->m_pData;
-		if (!item)
-			continue;
-		
-		if (item->m_highlight_equipped && item->m_pInventory && item->m_pInventory->ItemFromSlot(item->BaseSlot()) == item)
-			ci->m_select_equipped = true;
+		PIItem itm = m_pActorInvOwner->inventory().ItemFromSlot(INV_SLOT_2);
+		if(itm)
+		{
+			m_WeaponSlot1_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
+		}
 		else
-			ci->m_select_equipped = false;
-	}
+			m_WeaponSlot1_progress->SetProgressPos(0);
 
+		itm = m_pActorInvOwner->inventory().ItemFromSlot(INV_SLOT_3);
+		if(itm)
+			m_WeaponSlot2_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
+		else
+			m_WeaponSlot2_progress->SetProgressPos(0);
+
+		itm = m_pActorInvOwner->inventory().ItemFromSlot(OUTFIT_SLOT);
+		if(itm)
+			m_Outfit_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
+		else
+			m_Outfit_progress->SetProgressPos(0);
+
+		itm = m_pActorInvOwner->inventory().ItemFromSlot(HELMET_SLOT);
+		if(itm)
+			m_Helmet_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
+		else
+			m_Helmet_progress->SetProgressPos(0);
+
+		itm = m_pActorInvOwner->inventory().ItemFromSlot(KNIFE_SLOT);
+		if (itm)
+			m_Knife_progress->SetProgressPos(iCeil(itm->GetCondition() * 15.0f) / 15.0f);
+		else
+			m_Knife_progress->SetProgressPos(0);
+
+		//Highlight 'equipped' items in actor bag
+		CUIDragDropListEx* slot_list = m_pInventoryBagList;
+		u32 const cnt = slot_list->ItemsCount();
+		for (u32 i = 0; i < cnt; ++i)
+		{
+			CUICellItem* ci = slot_list->GetItemIdx(i);
+			PIItem item = (PIItem)ci->m_pData;
+			if (!item)
+				continue;
+			
+			if (item->m_highlight_equipped && item->m_pInventory && item->m_pInventory->ItemFromSlot(item->BaseSlot()) == item)
+				ci->m_select_equipped = true;
+			else
+				ci->m_select_equipped = false;
+		}
+	}
+	else
+	{
+		PIItem itm = m_pActorInvOwner->inventory().ItemFromSlot(INV_SLOT_2);
+		if(itm)
+		{
+			m_WeaponSlot1_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
+		}
+		else
+			m_WeaponSlot1_progress->SetProgressPos(0);
+
+		itm = m_pActorInvOwner->inventory().ItemFromSlot(INV_SLOT_3);
+		if(itm)
+			m_WeaponSlot2_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
+		else
+			m_WeaponSlot2_progress->SetProgressPos(0);
+
+		itm = m_pActorInvOwner->inventory().ItemFromSlot(OUTFIT_SLOT);
+		if(itm)
+			m_Outfit_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
+		else
+			m_Outfit_progress->SetProgressPos(0);
+
+		itm = m_pActorInvOwner->inventory().ItemFromSlot(HELMET_SLOT);
+		if(itm)
+			m_Helmet_progress->SetProgressPos(iCeil(itm->GetCondition()*15.0f)/15.0f);
+		else
+			m_Helmet_progress->SetProgressPos(0);
+
+		//Highlight 'equipped' items in actor bag
+		CUIDragDropListEx* slot_list = m_pInventoryBagList;
+		u32 const cnt = slot_list->ItemsCount();
+		for (u32 i = 0; i < cnt; ++i)
+		{
+			CUICellItem* ci = slot_list->GetItemIdx(i);
+			PIItem item = (PIItem)ci->m_pData;
+			if (!item)
+				continue;
+			
+			if (item->m_highlight_equipped && item->m_pInventory && item->m_pInventory->ItemFromSlot(item->BaseSlot()) == item)
+				ci->m_select_equipped = true;
+			else
+				ci->m_select_equipped = false;
+		}
+	}
 }
