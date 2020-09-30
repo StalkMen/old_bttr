@@ -783,8 +783,11 @@ void		xrRender_initconsole()
 	CMD3(CCC_Token, "xrRenderDX10_shadow_map_size",		 &ps_r2_smapsize,					qsmapsize_token);
 	CMD3(CCC_Mask,  "xrRenderDX10_shader_cache",		 &ps_r__common_flags,				RFLAGDX10_NO_SHADER_CACHE);
 	CMD3(CCC_Token,	"xrRenderDX10_sunshafts_mode",		 &ps_sunshafts_mode, 				sunshafts_mode_token);
+#pragma todo("OldSerpskiStalker. Disabled.")
+#if 0
 	CMD4(CCC_Float,	"xrRenderDX10_ss_sunshafts_length",	 &ps_r2_ss_sunshafts_length, 		.2f, 1.5f);
 	CMD4(CCC_Float,	"xrRenderDX10_ss_sunshafts_radius",	 &ps_r2_ss_sunshafts_radius, 		.5f, 2.f);
+#endif
 	CMD3(CCC_Mask,  "xrRenderDX_enable_debug_log",		 &ps_r__common_flags,				RFLAGDX_ENABLE_DEBUG_LOG);
 	CMD3(CCC_Token, "xrRenderDX_type_screenshot",		 &ps_r_type_screen,					screen_mode_token);
 	CMD3(CCC_Token, "xrRenderDX10_type_aa",				 &ps_r_type_aa,						type_aa_token);
