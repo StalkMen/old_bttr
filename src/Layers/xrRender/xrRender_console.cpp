@@ -772,6 +772,12 @@ xr_token type_aa_token[] = {
 float ps_r__tf_Mipbias = 0.0f;
 float ps_r2_ss_sunshafts_length	= 1.f;
 float ps_r2_ss_sunshafts_radius	= 1.f;
+
+float debug_fog_height = 0.f;
+float debug_fog_density = 0.f;
+float debug_fog_max_dist = 0.f;
+float debug_fog_min_dist = 0.f;
+
 int   tbufer_renders = 1;
 //-----------------------------------------------------------------------
 void		xrRender_initconsole()
@@ -794,6 +800,11 @@ void		xrRender_initconsole()
 	CMD3(CCC_Mask,  "xrRenderDX11_shader_cache",		 &ps_r__common_flags,				RFLAGDX11_NO_SHADER_CACHE);
 	CMD4(CCC_Integer, "xrRenderDX10_triple_buffering",	 &tbufer_renders,					0, 1);
 	CMD3(CCC_Mask,  "xrRenderDX10_animMBlur_move",		 &ps_r__common_flags,				RFLAGDX10_MOTION_BLUR);
+
+	CMD4(CCC_Float, "fog_height",						 &debug_fog_height,					0.f, 10.f);
+	CMD4(CCC_Float, "fog_density",						 &debug_fog_density,				0.f, 1.f);
+	CMD4(CCC_Float, "fog_max_dist",						 &debug_fog_max_dist,				0.f, 100.f);
+	CMD4(CCC_Float, "fog_min_dist",						 &debug_fog_min_dist,				0.f, 90.f);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);

@@ -167,7 +167,12 @@ public:
 #ifdef TREE_WIND_EFFECT
     float m_fTreeAmplitudeIntensity;
 #endif
-
+	
+	float m_fFogShaders_height;
+	float m_fFogShaders_density;
+	float m_fFogShaders_max_dist;
+	float m_fFogShaders_min_dist;
+	
     // int lens_flare_id;
     // int tb_id;
     shared_str lens_flare_id;

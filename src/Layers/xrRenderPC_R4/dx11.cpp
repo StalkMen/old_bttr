@@ -131,6 +131,20 @@ static class cl_alpha_ref	: public R_constant_setup
 	}
 } binder_alpha_ref;
 
+extern float debug_fog_height; extern float debug_fog_density; extern float debug_fog_max_dist; extern float debug_fog_min_dist;
+static class cl_fog_shaders : public R_constant_setup
+{
+	virtual void setup(R_constant* C)
+	{
+		CEnvDescriptor& E = *g_pGamePersistent->Environment().CurrentEnv;
+		float fValue1 = E.m_fFogShaders_height;
+		float fValue2 = E.m_fFogShaders_density;
+		float fValue3 = E.m_fFogShaders_max_dist;
+		float fValue4 = E.m_fFogShaders_min_dist;
+		RCache.set_c(C, fValue1 + debug_fog_height, fValue2 + debug_fog_density, fValue3 + debug_fog_max_dist, fValue4 + debug_fog_min_dist);
+	}
+} binder_fog_shaders;
+
 extern ENGINE_API BOOL r2_sun_static;
 extern ENGINE_API BOOL r2_advanced_pp;	//	advanced post process and effects
 extern ENGINE_API BOOL render_dx10_1;
@@ -392,6 +406,7 @@ void					CRender::create					()
 	RM->RegisterConstantSetup("pos_decompression_params", &binder_pos_decompress_params);
 	RM->RegisterConstantSetup("pos_decompression_params2", &binder_pos_decompress_params2);
 	RM->RegisterConstantSetup("triLOD", &binder_LOD);
+	RM->RegisterConstantSetup("fog_shaders_values", &binder_fog_shaders);
 
 	c_lmaterial					= "L_material";
 	c_sbase						= "s_base";

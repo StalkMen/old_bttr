@@ -241,7 +241,12 @@ m_identifier(identifier)
 #ifdef TREE_WIND_EFFECT
     m_fTreeAmplitudeIntensity = 0.01;
 #endif
-
+	
+	m_fFogShaders_height = 0;   
+	m_fFogShaders_density = 0;
+	m_fFogShaders_max_dist = 0;
+	m_fFogShaders_min_dist = 0;
+	
     lens_flare_id = "";
     tb_id = "";
 
@@ -302,7 +307,19 @@ void CEnvDescriptor::load(CEnvironment& environment, CInifile& config)
 
     if (config.line_exist(m_identifier.c_str(), "water_intensity"))
         m_fWaterIntensity = config.r_float(m_identifier.c_str(), "water_intensity");
-
+	
+	if (config.line_exist(m_identifier.c_str(), "FogS_height"))
+        m_fFogShaders_height = config.r_float(m_identifier.c_str(), "fog_height");
+	
+	if (config.line_exist(m_identifier.c_str(), "FogS_density"))
+        m_fFogShaders_density = config.r_float(m_identifier.c_str(), "fog_density");
+	
+	if (config.line_exist(m_identifier.c_str(), "FogS_max_dist"))
+        m_fFogShaders_max_dist = config.r_float(m_identifier.c_str(), "fog_max_dist");
+	
+	if (config.line_exist(m_identifier.c_str(), "FogS_min_dist"))
+        m_fFogShaders_min_dist = config.r_float(m_identifier.c_str(), "fog_min_dist");
+	
 #ifdef TREE_WIND_EFFECT
     if (config.line_exist(m_identifier.c_str(), "tree_amplitude_intensity"))
         m_fTreeAmplitudeIntensity = config.r_float(m_identifier.c_str(), "tree_amplitude_intensity");
@@ -401,7 +418,12 @@ void CEnvDescriptorMixer::lerp(CEnvironment*, CEnvDescriptor& A, CEnvDescriptor&
     m_fSunShaftsIntensity += ps_r2_sun_shafts_min;
     m_fSunShaftsIntensity *= ps_r2_sun_shafts_value;
     clamp(m_fSunShaftsIntensity, 0.0f, 1.0f);
-
+	
+	m_fFogShaders_height = fi * A.m_fFogShaders_height + f * B.m_fFogShaders_height;
+	m_fFogShaders_density = fi * A.m_fFogShaders_density + f * B.m_fFogShaders_density;
+	m_fFogShaders_max_dist = fi * A.m_fFogShaders_max_dist + f * B.m_fFogShaders_max_dist;
+	m_fFogShaders_min_dist = fi * A.m_fFogShaders_min_dist + f * B.m_fFogShaders_min_dist;
+	
 #ifdef TREE_WIND_EFFECT
     m_fTreeAmplitudeIntensity = fi*A.m_fTreeAmplitudeIntensity + f*B.m_fTreeAmplitudeIntensity;
 #endif
