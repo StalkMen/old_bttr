@@ -53,6 +53,9 @@
 #define		r2_RT_smaa_edgetex	"$user$edgetex"
 #define		r2_RT_smaa_blendtex	"$user$blendtex"
 
+#define		r2_RT_sunshafts0	"$user$sun_shafts0"		// first rt
+#define		r2_RT_sunshafts1	"$user$sun_shafts1"		// second rt
+
 #define		JITTER(a) r2_jitter #a
 
 const		float				SMAP_near_plane		= .1f	;
