@@ -50,6 +50,9 @@
 #define		r2_sunmask			"sunmask"
 #define		r2_RT_secondVP		"$user$viewport2"		// --#SM+#-- +SecondVP+
 
+#define		r2_RT_smaa_edgetex	"$user$edgetex"
+#define		r2_RT_smaa_blendtex	"$user$blendtex"
+
 #define		JITTER(a) r2_jitter #a
 
 const		float				SMAP_near_plane		= .1f	;

@@ -354,7 +354,10 @@ void	CRenderTarget::phase_combine	()
 	//SMAA
 	else if (ps_r_type_aa == 3)
 	{
-		
+		PIX_EVENT(SMAA);
+		//RainbowZerg
+		phase_smaa();
+		RCache.set_Stencil(FALSE);
 	}
 	
 	// PP enabled ?
