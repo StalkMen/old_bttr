@@ -93,10 +93,6 @@ xr_token sunshafts_mode_token[] = {
 	{ 0, 0 }
 };
 
-//	�Off�
-//	�DX10.0 style [Standard]�
-//	�DX10.1 style [Higher quality]�
-
 // Common
 extern int			psSkeletonUpdate;
 extern float		r__dtex_range;
@@ -760,6 +756,14 @@ xr_token screen_mode_token[] = {
 { nullptr,	  0}
 };
 
+u32	RenderThemeShaders = (strstr(Core.Params, "-old_ver")) ? 0 : 1;
+xr_token RenderThemeShaders_token[] = {
+{ (!strstr(Core.Params, "-old_ver")) ? "cop_shaders_1_6_02" : "default_cop_shaders",																			   0},
+{ (!strstr(Core.Params, "-old_ver")) ? "old_shaders_theme892" : "Not_support_It_will_reset_to_the_original_shaders",	  (!strstr(Core.Params, "-old_ver")) ? 1 : 0},
+{ (!strstr(Core.Params, "-old_ver")) ? "new_shaders_theme895" : "Not_support_It_will_reset_to_the_original_shaders",	  (!strstr(Core.Params, "-old_ver")) ? 2 : 0},
+{ nullptr,	  0}
+};
+
 u32	ps_r_type_aa = 0;
 xr_token type_aa_token[] = {
 { "disable_aa",	  0},
@@ -807,6 +811,8 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "fog_max_dist",						 &debug_fog_max_dist,				0.f, 100.f);
 	CMD4(CCC_Float, "fog_min_dist",						 &debug_fog_min_dist,				0.f, 90.f);
 	CMD4(CCC_Integer, "xrRenderDX10_volumetric_fog",	 &ps_render_volumetric_fog,			0, 1);
+
+	CMD3(CCC_Token, "xrRenderThemeShaderRender",		 &RenderThemeShaders,			    RenderThemeShaders_token);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);
