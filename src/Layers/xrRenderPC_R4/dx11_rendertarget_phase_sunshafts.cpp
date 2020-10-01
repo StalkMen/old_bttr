@@ -157,5 +157,5 @@ void CRenderTarget::phase_sunshafts()
 
     RCache.set_Stencil(FALSE);
 
-    HW.pContext->CopyResource(rt_Generic_0->pTexture->surface_get(), rt_Generic->pTexture->surface_get());
+    HW.pContext->CopyResource(rt_Generic_0->pTexture->surface_get(), dest_rt->pTexture->surface_get());
 };

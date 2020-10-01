@@ -22,5 +22,5 @@ void CRenderTarget::phase_fxaa()
 	RCache.set_Geometry(g_fxaa);
 	RCache.Render(D3DPT_TRIANGLELIST, Offset, 0, 4, 0, 2);
 
-	HW.pContext->CopyResource(rt_Generic_0->pTexture->surface_get(), rt_Generic->pTexture->surface_get());
+	HW.pContext->CopyResource(rt_Generic_0->pTexture->surface_get(), dest_rt->pTexture->surface_get());
 }
