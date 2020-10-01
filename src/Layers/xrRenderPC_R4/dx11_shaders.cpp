@@ -668,16 +668,36 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	if (ps_use_precompiled_shaders == 0 || !match_shader_id(name, sh_name, m_file_set, temp_file_name)) {
 		string_path file;
 
-		if (RenderThemeShaders == 0)
-			strconcat(sizeof(file), file, "shaders_cache_theme_0\\DX11\\", name, ".", extension, "\\", sh_name);
-		else if (RenderThemeShaders == 1)
-			strconcat(sizeof(file), file, "shaders_cache_theme_1\\DX11\\", name, ".", extension, "\\", sh_name);
-		else if (RenderThemeShaders == 2)
-			strconcat(sizeof(file), file, "shaders_cache_theme_2\\DX11\\", name, ".", extension, "\\", sh_name);
+		switch (RenderThemeShaders)
+		{
+			case 0:
+			{
+				strconcat(sizeof(file), file, "shaders_cache_theme_0\\DX11\\", name, ".", extension, "\\", sh_name);
+				FS.update_path(file_name, "$app_data_root$", file);
+			}
+			break;
 
-		FS.update_path	( file_name, "$app_data_root$", file);
+			case 1:
+			{
+				strconcat(sizeof(file), file, "shaders_cache_theme_1\\DX11\\", name, ".", extension, "\\", sh_name);
+				FS.update_path(file_name, "$app_data_root$", file);
+			}
+			break;
+
+			case 2:
+			{
+				strconcat(sizeof(file), file, "shaders_cache_theme_2\\DX11\\", name, ".", extension, "\\", sh_name);
+				FS.update_path(file_name, "$app_data_root$", file);
+			}
+			break;
+
+			default:
+				Debug.fatal(DEBUG_INFO, "Error in selecting the theme id!");
+			break;
+		}
 	}
-	else {
+	else
+	{
 		xr_strcpy		( file_name, folder_name );
 		xr_strcat		( file_name, temp_file_name );
 	}
