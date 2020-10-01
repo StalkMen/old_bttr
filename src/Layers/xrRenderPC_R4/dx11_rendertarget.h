@@ -4,12 +4,7 @@
 
 class light;
 
-//#define DU_SPHERE_NUMVERTEX 92
-//#define DU_SPHERE_NUMFACES	180
-//#define DU_CONE_NUMVERTEX	18
-//#define DU_CONE_NUMFACES	32
-//	no less than 2
-#define	VOLUMETRIC_SLICES	100
+#define	VOLUMETRIC_SLICES	50
 
 class CRenderTarget		: public IRender_Target
 {

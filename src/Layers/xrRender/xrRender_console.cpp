@@ -782,6 +782,10 @@ float debug_fog_density = 0.f;
 float debug_fog_max_dist = 0.f;
 float debug_fog_min_dist = 0.f;
 
+float ps_volumetric_intensity = 0.1f;
+float ps_volumetric_distance = 1.f;
+float ps_volumetric_quality = 0.35f;
+
 int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
 //-----------------------------------------------------------------------
@@ -811,6 +815,10 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "fog_max_dist",						 &debug_fog_max_dist,				0.f, 100.f);
 	CMD4(CCC_Float, "fog_min_dist",						 &debug_fog_min_dist,				0.f, 90.f);
 	CMD4(CCC_Integer, "xrRenderDX10_volumetric_fog",	 &ps_render_volumetric_fog,			0, 1);
+
+	CMD4(CCC_Float, "xrRenderDX_volum_intensity",		 &ps_volumetric_intensity,			-1.f, 1.f);
+	CMD4(CCC_Float, "xrRenderDX_volum_distance",		 &ps_volumetric_distance,			0.f, 2.f);
+	CMD4(CCC_Float, "xrRenderDX_volum_quality",		     &ps_volumetric_quality,			0.f, 1.f);
 
 	CMD3(CCC_Token, "xrRenderThemeShaderRender",		 &RenderThemeShaders,			    RenderThemeShaders_token);
 //////////////////////////////////////////////////////////////////////////////////////////////////

@@ -230,4 +230,8 @@ extern ECORE_API xr_token type_aa_token[];
 extern ECORE_API Flags32 ps_r__common_flags;
 extern ECORE_API int ps_render_volumetric_fog;
 
+extern ECORE_API float ps_volumetric_intensity;
+extern ECORE_API float ps_volumetric_distance;
+extern ECORE_API float ps_volumetric_quality;
+
 #endif
