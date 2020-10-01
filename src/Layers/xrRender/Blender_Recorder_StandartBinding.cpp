@@ -300,6 +300,20 @@ static class cl_blend_mode : public R_constant_setup //--#SM+#--
 	virtual void setup(R_constant* C) { RCache.set_c(C, g_pGamePersistent->m_pGShaderConstants->m_blender_mode); }
 } binder_blend_mode;
 
+class cl_inv_v : public R_constant_setup
+{
+	u32			marker;
+	Fmatrix		result;
+
+	virtual void setup(R_constant* C)
+	{
+		result.invert(Device.mView);
+		RCache.set_c(C, result);
+	}
+};
+static cl_inv_v	binder_inv_v;
+
+
 // Standart constant-binding
 void	CBlender_Compile::SetMapping	()
 {
@@ -361,7 +375,7 @@ void	CBlender_Compile::SetMapping	()
 	r_Constant				("L_ambient",		&binder_amb_color);
 #endif
 	r_Constant				("screen_res",		&binder_screen_res);
-
+	r_Constant				("m_inv_V", 		&binder_inv_v);
 	// detail
 	//if (bDetail	&& detail_scaler)
 	//	Igor: bDetail can be overridden by no_detail_texture option.
