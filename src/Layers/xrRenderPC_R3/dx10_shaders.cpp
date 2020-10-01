@@ -661,7 +661,8 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 
 			default:
 				Debug.fatal(DEBUG_INFO, "Error in selecting the theme id!");
-				break;
+
+			break;
 		}
 	}
 	else 
