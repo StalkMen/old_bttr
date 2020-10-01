@@ -27,7 +27,7 @@ static const Fvector	OMNI_OFFSET					= {-0.2f,+0.1f,-0.1f};
 static const float		OPTIMIZATION_DISTANCE		= 100.f;
 static bool				stalker_use_dynamic_lights	= false;
 
-CTorch::CTorch(void) 
+CTorch::CTorch(void): m_current_battery_state(0)
 {
 	light_render				= ::Render->light_create();
 	light_render->set_type		(IRender_Light::SPOT);
@@ -40,9 +40,16 @@ CTorch::CTorch(void)
 	glow_render					= ::Render->glow_create();
 	lanim						= 0;
 	fBrightness					= 1.f;
-
+	
+	m_RangeMax 					= 20.f;
+	m_RangeCurve 				= 20.f;
+	
 	m_prev_hp.set				(0,0);
 	m_delta_h					= 0;
+	
+	m_battery_state 			= 0.f;
+	fUnchanreRate 				= 0.f;
+	
 	m_night_vision				= NULL;
 }
 
@@ -52,6 +59,9 @@ CTorch::~CTorch()
 	light_omni.destroy		();
 	glow_render.destroy		();
 	xr_delete				(m_night_vision);
+
+	HUD_SOUND_ITEM::DestroySound(m_FlashlightSwitchSnd);
+	sound_breaking.destroy	();
 }
 
 inline bool CTorch::can_use_dynamic_lights	()
@@ -70,8 +80,16 @@ void CTorch::Load(LPCSTR section)
 {
 	inherited::Load			(section);
 	light_trace_bone		= pSettings->r_string(section,"light_trace_bone");
-
-
+	
+	m_battery_duration = pSettings->r_u32(section, "battery_duration");
+	fUnchanreRate = READ_IF_EXISTS(pSettings, r_float, section, "uncharge_rate", 20.f);
+	if (pSettings->line_exist(section, "sound_activate"))
+        m_sounds.LoadSound(section, "sound_activate", "sound_torch", false, SOUND_TYPE_ITEM_USING);
+    
+	//lets give some more realistics to batteries. Now found tourches will have 70 to 100 precent battery status 
+	float rondo = ::Random.randF(0.7f, 1.0f);
+	m_battery_state = m_battery_duration * rondo;
+	
 	m_bNightVisionEnabled = !!pSettings->r_bool(section,"night_vision");
 }
 
@@ -158,8 +176,48 @@ void CTorch::Switch()
 	Switch					(bActive);
 }
 
+void CTorch::Broke()
+{
+	if (OnClient()) return;
+	if (m_switched_on)
+		Switch(false);
+}
+
+void CTorch::SetBatteryStatus(u32 val)
+{
+	Msg("SetBatteryStatus = [%d], [%d], [%d], [%d], [%d], [%f]", m_current_battery_state, val, m_battery_duration, m_current_battery_state - val, (m_current_battery_state - val)/m_battery_duration*100, (m_current_battery_state - val)/m_battery_duration);
+	m_battery_state = val;
+	float condition = 1.f * m_battery_state / m_battery_duration;
+	SetCondition(condition);
+}
+
 void CTorch::Switch(bool light_on)
 {
+	CActor* pA = smart_cast<CActor*>(H_Parent());
+	m_actor_item = (pA) ? true : false;
+	if (light_on && m_battery_state < 0 && m_actor_item)
+	{
+		light_on = false;
+
+        StaticDrawableWrapper* _s = CurrentGameUI()->AddCustomStatic("torch_battery_low", true);
+		_s->m_endTime = Device.fTimeGlobal + 3.0f;// 3sec
+
+	}
+	
+    if (pA)
+    {
+        if (light_on && !m_switched_on)
+        {
+            if (m_sounds.FindSoundItem("sound_torch", false))
+                m_sounds.PlaySound("sound_torch", pA->Position(), NULL, !!pA->HUDview());
+        }
+        else if (!light_on && m_switched_on)
+        {
+            if (m_sounds.FindSoundItem("sound_torch", false))
+                m_sounds.PlaySound("sound_torch", pA->Position(), NULL, !!pA->HUDview());
+        }
+    }
+	
 	m_switched_on			= light_on;
 	if (can_use_dynamic_lights())
 	{
@@ -179,7 +237,11 @@ void CTorch::Switch(bool light_on)
 		pVisual->LL_SetBoneVisible			(bi,	light_on,	TRUE);
 		pVisual->CalculateBones				(TRUE);
 	}
+
+	if (m_switched_on && m_actor_item)
+		HUD_SOUND_ITEM::PlaySound(m_FlashlightSwitchSnd, pA->Position(), pA, true, false);
 }
+
 bool CTorch::torch_active					() const
 {
 	return (m_switched_on);
@@ -199,24 +261,24 @@ BOOL CTorch::net_Spawn(CSE_Abstract* DC)
 	if (!inherited::net_Spawn(DC))
 		return				(FALSE);
 	
-	bool b_r2				= !!psDeviceFlags.test(rsR2);
-	b_r2					|= !!psDeviceFlags.test(rsR3);
-	b_r2					|= !!psDeviceFlags.test(rsR4); //Alundaio
-
 	IKinematics* K			= smart_cast<IKinematics*>(Visual());
 	CInifile* pUserData		= K->LL_UserData(); 
 	R_ASSERT3				(pUserData,"Empty Torch user data!",torch->get_visual());
 	lanim					= LALib.FindItem(pUserData->r_string("torch_definition","color_animator"));
 	guid_bone				= K->LL_BoneID	(pUserData->r_string("torch_definition","guide_bone"));	VERIFY(guid_bone!=BI_NONE);
 
-	Fcolor clr				= pUserData->r_fcolor				("torch_definition",(b_r2)?"color_r2":"color");
+	Fcolor clr				= pUserData->r_fcolor				("torch_definition","color_dx10");
 	fBrightness				= clr.intensity();
-	float range				= pUserData->r_float				("torch_definition",(b_r2)?"range_r2":"range");
+	
+	m_RangeMax 				= pUserData->r_float				("torch_definition", "range");
+	m_RangeCurve 			= pUserData->r_float				("torch_definition", "range_curve");
+	
 	light_render->set_color	(clr);
-	light_render->set_range	(range);
+	
+	light_render->set_range	(m_RangeMax);
 
-	Fcolor clr_o			= pUserData->r_fcolor				("torch_definition",(b_r2)?"omni_color_r2":"omni_color");
-	float range_o			= pUserData->r_float				("torch_definition",(b_r2)?"omni_range_r2":"omni_range");
+	Fcolor clr_o			= pUserData->r_fcolor				("torch_definition","omni_color_dx10");
+	float range_o			= pUserData->r_float				("torch_definition","omni_range_dx10");
 	light_omni->set_color	(clr_o);
 	light_omni->set_range	(range_o);
 
@@ -227,6 +289,11 @@ BOOL CTorch::net_Spawn(CSE_Abstract* DC)
 	glow_render->set_color	(clr);
 	glow_render->set_radius	(pUserData->r_float					("torch_definition","glow_radius"));
 
+	light_render->set_volumetric(pUserData->r_bool				("torch_definition", "volumetric"));
+	light_render->set_volumetric_distance(pUserData->r_float	("torch_definition", "volumetric_distance"));
+	light_render->set_volumetric_intensity(pUserData->r_float	("torch_definition", "volumetric_intensity"));
+	light_render->set_volumetric_quality(pUserData->r_float		("torch_definition", "volumetric_quality"));
+
 	//включить/выключить фонарик
 	Switch					(torch->m_active);
 	VERIFY					(!torch->m_active || (torch->ID_Parent != 0xffff));
@@ -236,7 +303,8 @@ BOOL CTorch::net_Spawn(CSE_Abstract* DC)
 	//else
 	//	SwitchNightVision	(false, false);
 
-	m_delta_h				= PI_DIV_2-atan((range*0.5f)/_abs(TORCH_OFFSET.x));
+	m_delta_h 				= PI_DIV_2 - atan((m_RangeMax * 0.5f) / _abs(TORCH_OFFSET.x));
+	m_current_battery_state = torch->m_battery_state;
 
 	return					(TRUE);
 }
@@ -253,6 +321,41 @@ void CTorch::OnH_A_Chield()
 {
 	inherited::OnH_A_Chield			();
 	m_focus.set						(Position());
+}
+
+void CTorch::Recharge(void)
+{
+	m_battery_state = m_battery_duration;
+	SetCondition(1.f);
+}
+
+void CTorch::UpdateBattery(void)
+{
+	if (m_switched_on)
+	{
+
+		float minus = fUnchanreRate * Device.fTimeDelta;
+		Msg("UpdateBattery %f %f", m_battery_state, minus);
+		m_battery_state -= minus;
+		Msg("UpdateBattery %f", m_battery_state);
+
+		float condition = 1.f * m_battery_state / m_battery_duration;
+		SetCondition(condition);
+		Msg("UpdateBattery condition %f", condition);
+
+		float rangeCoef = atan(m_RangeCurve * m_battery_state / m_battery_duration) / PI_DIV_2;
+		clamp(rangeCoef, 0.f, 1.f);
+		float range = m_RangeMax * rangeCoef;
+	    Msg("set_range [%f]", range);
+		light_render->set_range(range);
+		m_delta_h = PI_DIV_2 - atan((range * 0.5f) / _abs(TORCH_OFFSET.x));
+
+		if (m_battery_state < 0)
+		{
+			Switch(false);
+			return;
+		}
+	}
 }
 
 void CTorch::OnH_B_Independent(bool just_before_destroy) 
@@ -307,6 +410,7 @@ void CTorch::UpdateCL()
 				offset.mad					(M.j,TORCH_OFFSET.y);
 				offset.mad					(M.k,TORCH_OFFSET.z);
 				light_render->set_position	(offset);
+				light_render->set_volumetric(false);
 
 				if(true /*false*/)
 				{
@@ -415,6 +519,7 @@ void CTorch::net_Export			(NET_Packet& P)
 			F |= eAttached;
 	}
 	P.w_u8(F);
+	P.w_u16(m_current_battery_state);
 //	Msg("CTorch::net_export - NV[%d]", m_bNightVisionOn);
 }
 
@@ -437,7 +542,21 @@ void CTorch::net_Import			(NET_Packet& P)
 			SwitchNightVision			(new_m_bNightVisionOn);
 		}
 	}
+	m_current_battery_state = P.r_u16();
 }
+
+void CTorch::save(NET_Packet& output_packet)
+{
+	inherited::save(output_packet);
+	save_data(m_battery_state, output_packet);
+}
+
+void CTorch::load(IReader& input_packet)
+{
+	inherited::load(input_packet);
+	load_data(m_battery_state, input_packet);
+}
+
 bool  CTorch::can_be_attached		() const
 {
 	const CActor *pA = smart_cast<const CActor *>(H_Parent());
@@ -464,6 +583,16 @@ void CTorch::enable(bool value)
 	if(!enabled() && m_switched_on)
 		Switch				(false);
 
+}
+
+u32 CTorch::GetBatteryLifetime() const
+{
+	return m_battery_duration;
+}
+
+u32 CTorch::GetBatteryStatus() const
+{
+	return m_battery_state;
 }
 
 CNightVisionEffector::CNightVisionEffector(const shared_str& section)

@@ -3,9 +3,10 @@
 
 #include "fs_internal.h"
 
-XRCORE_API CInifile const* pSettings = NULL;
-XRCORE_API CInifile const* pSettingsAuth = NULL;
-XRCORE_API CInifile const* pFFSettings = NULL;
+XRCORE_API CInifile const* pSettings            = NULL;
+XRCORE_API CInifile const* pSettingsAuth        = NULL;
+XRCORE_API CInifile const* pFFSettings          = NULL;
+XRCORE_API CInifile      * pSettings_not_const  = NULL;
 
 CInifile* CInifile::Create(const char* szFileName, BOOL ReadOnly)
 {

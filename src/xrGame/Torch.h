@@ -25,6 +25,15 @@ protected:
 	ref_light		light_omni;
 	ref_glow		glow_render;
 	Fvector			m_focus;
+
+	bool			m_actor_item;
+
+	float			m_battery_state;
+	float			fUnchanreRate;
+
+	u32				m_battery_duration;
+	u16				m_current_battery_state;
+
 private:
 	inline	bool	can_use_dynamic_lights	();
 
@@ -42,6 +51,18 @@ public:
 	virtual void	OnH_B_Independent		(bool just_before_destroy);
 
 	virtual void	UpdateCL				();
+
+			void	UpdateBattery			(void);
+			void	Broke					();
+
+			void	Recharge				(void);
+			void	SetBatteryStatus		(u32 val);
+
+			u32		GetBatteryStatus		(void) const;
+			u32		GetBatteryLifetime		(void) const;
+
+	virtual void	save					(NET_Packet& output_packet);
+	virtual void	load					(IReader& input_packet);
 
 			void	Switch					();
 			void	Switch					(bool light_on);
@@ -64,6 +85,12 @@ protected:
 
 	CNightVisionEffector*	m_night_vision;
 	HUD_SOUND_COLLECTION	m_sounds;
+
+	ref_sound				sound_breaking;
+	HUD_SOUND_ITEM			m_FlashlightSwitchSnd;
+
+	float					m_RangeMax;
+	float					m_RangeCurve;
 
 	enum EStats{
 		eTorchActive				= (1<<0),

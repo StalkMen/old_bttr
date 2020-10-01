@@ -170,4 +170,5 @@ extern XRCORE_API CInifile const* pSettingsAuth;
 //Mortan
 extern XRCORE_API CInifile const* pFFSettings;
 
+extern XRCORE_API CInifile      * pSettings_not_const;
 #endif //__XR_INI_H__

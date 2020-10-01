@@ -323,6 +323,29 @@ void CAI_Stalker::Hit(SHit* pHDS)
 			}
 		}
 	}
+	else
+	{
+		IKinematics* tpKinematics = smart_cast<IKinematics*>(Visual());
+		tpKinematics->LL_GetBoneInstance(pHDS->bone());
+		if (pHDS->bone() != BI_NONE && pHDS->bone() <= tpKinematics->LL_BoneCount())
+		{
+			if (pHDS->bone() == tpKinematics->LL_BoneID("bip01_head")) {
+				const xr_vector<CAttachableItem*>& all = CAttachmentOwner::attached_objects();
+				xr_vector<CAttachableItem*>::const_iterator it = all.begin();
+				xr_vector<CAttachableItem*>::const_iterator it_e = all.end();
+				for (; it != it_e; ++it) {
+					CTorch* torch = smart_cast<CTorch*>(*it);
+					if (torch)
+					{
+						torch->Broke();
+						torch->SetBatteryStatus(0);
+						break;
+					}
+				}
+			}
+
+		}
+	}
 
 	if ( g_Alive() && ( !m_hit_callback || m_hit_callback( &HDS ) ) )
 	{

@@ -17,6 +17,8 @@
 #include "UIGameCustom.h"
 #include "eatable_item_object.h"
 
+#include "../battery.h"
+
 #include "../silencer.h"
 #include "../scope.h"
 #include "../grenadelauncher.h"
@@ -1262,8 +1264,9 @@ bool CUIActorMenu::TryUseItem( CUICellItem* cell_itm )
 	CMedkit*		pMedkit			= smart_cast<CMedkit*>		(item);
 	CAntirad*		pAntirad		= smart_cast<CAntirad*>		(item);
 	CEatableItem*	pEatableItem	= smart_cast<CEatableItem*>	(item);
-
-	if ( !(pMedkit || pAntirad || pEatableItem || pBottleItem) )
+	CBattery* 		pBattery 		= smart_cast<CBattery*>		(CurrentIItem());
+	
+	if ( !(pMedkit || pAntirad || pEatableItem || pBottleItem || pBattery) )
 	{
 		return false;
 	}
@@ -1608,7 +1611,8 @@ void CUIActorMenu::PropertiesBoxForUsing( PIItem item, bool& b_show )
 		CAntirad*		pAntirad = smart_cast<CAntirad*>		(item);
 		CEatableItem*	pEatableItem = smart_cast<CEatableItem*>	(item);
 		CBottleItem*	pBottleItem = smart_cast<CBottleItem*>	(item);
-
+		CBattery* 		pBattery = smart_cast<CBattery*>(item);
+		
 		if (pMedkit || pAntirad)
 		{
 			act_str = "st_use";
@@ -1617,6 +1621,8 @@ void CUIActorMenu::PropertiesBoxForUsing( PIItem item, bool& b_show )
 		{
 			act_str = "st_drink";
 		}
+		else if (pBattery)
+            act_str = "st_battery";
 		else if (pEatableItem)
 		{
 

@@ -14,6 +14,7 @@
 #include "../xrEngine/StatGraph.h"
 #include "PhraseDialogManager.h"
 #include "ui_defs.h"
+#include "torch.h"
 
 #include "step_manager.h"
 #include "script_export_space.h"
@@ -41,6 +42,8 @@ struct SShootingEffector;
 struct SSleepEffector;
 class  CSleepEffectorPP;
 class CInventoryBox;
+
+class CTorch;
 
 class	CHudItem;
 class   CArtefact;
@@ -93,6 +96,12 @@ public:
             CHolderCustom*				Holder						()						{return m_holder;}
 public:
 
+            CTorch*                     GetCurrentTorch             ();
+            void                        RechargeTorchBattery        ();
+private:
+            CTorch*                     m_current_torch;
+
+public:
     virtual void						Load				( LPCSTR section );
 
     virtual void						shedule_Update		( u32 T ); 

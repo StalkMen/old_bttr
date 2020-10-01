@@ -28,6 +28,7 @@ class CGameObject;
 class CFoodItem;
 class CMissile;
 class CHudItem;
+class CBattery;
 class CWeaponAmmo;
 class CWeapon;
 class CPhysicsShellHolder;

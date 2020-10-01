@@ -173,6 +173,11 @@ class_<CScriptGameObject> &script_register_game_object1(class_<CScriptGameObject
 		//.def("set_hear_callback",			(void (CScriptGameObject::*)(const luabind::functor<void> &))(&CScriptGameObject::SetSoundCallback))
 		//.def("clear_hear_callback",		&CScriptGameObject::ClearSoundCallback)
 		
+		.def("get_torch_battery_status",	&CScriptGameObject::GetTorchBatteryStatus)
+		.def("set_torch_battery_status",	&CScriptGameObject::SetTorchBatteryStatus)
+		.def("set_torch_state",				&CScriptGameObject::SetTorchState)
+		.def("get_torch_state",				&CScriptGameObject::GetTorchState)
+
 		.def("memory_time",					&CScriptGameObject::memory_time)
 		.def("memory_position",				&CScriptGameObject::memory_position)
 		.def("best_weapon",					&CScriptGameObject::best_weapon)

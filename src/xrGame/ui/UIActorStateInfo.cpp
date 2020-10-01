@@ -19,6 +19,8 @@
 #include "ui_arrow.h"
 #include "UIHudStatesWnd.h"
 
+#include "../Torch.h"
+
 #include "../Level.h"
 #include "../location_manager.h"
 #include "../player_hud.h"
@@ -277,6 +279,10 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 		//?oiau auiieiyeinu oneiaea a ?an?aoa iiaie eieau
 		PIItem itm = actor->inventory().ItemFromSlot(HELMET_SLOT);
 		CHelmet* helmet = smart_cast<CHelmet*>(itm);
+
+		PIItem _slot = actor->inventory().ItemFromSlot(TORCH_SLOT);
+		CTorch* torch = smart_cast<CTorch*>(_slot);
+
 		/*
 			PIItem _slot = actor->inventory().ItemFromSlot(TORCH_SLOT);
 			CTorch* torch = smart_cast<CTorch*>(_slot);
@@ -326,8 +332,8 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 			value = actor->conditions().GetHealth();
 			m_state[stt_healh]->set_progress(value);
 		}
-		/*
-		//Ca?ya aaoa?aae oiia?eea
+
+		//Заряд батареек фонарика
 		if (torch)
 		{
 			if (torch)
@@ -336,8 +342,8 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 		}
 		else
 			m_state[stt_battery]->set_progress(0.f);
-			*/
-			// Oaeouee iieacaoaeu a?iie + oeai n auaiaii oeo?u ?yaii n i?ia?ann-aa?ii
+
+		// Oaeouee iieacaoaeu a?iie + oeai n auaiaii oeo?u ?yaii n i?ia?ann-aa?ii
 		if (outfit)
 		{
 			value = outfit->GetCondition();

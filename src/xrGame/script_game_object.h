@@ -679,7 +679,12 @@ public:
 
             bool				can_throw_grenades					() const;
             void				can_throw_grenades					(bool can_throw_grenades);
-
+			
+			u16	 				GetTorchBatteryStatus				();
+			void	 			SetTorchBatteryStatus				(u16 value);
+			void 				SetTorchState						(bool state);
+			bool 				GetTorchState						(void);
+	
             u32					throw_time_interval					() const;
             void				throw_time_interval					(u32 throw_time_interval);
 

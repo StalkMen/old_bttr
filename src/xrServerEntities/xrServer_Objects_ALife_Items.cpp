@@ -434,6 +434,7 @@ CSE_ALifeItemTorch::CSE_ALifeItemTorch		(LPCSTR caSection) : CSE_ALifeItem(caSec
 	m_active					= false;
 	m_nightvision_active		= false;
 	m_attached					= false;
+	m_battery_state 			= pSettings->r_u16(caSection, "battery_duration");
 }
 
 CSE_ALifeItemTorch::~CSE_ALifeItemTorch		()
@@ -467,6 +468,7 @@ void CSE_ALifeItemTorch::UPDATE_Read		(NET_Packet	&tNetPacket)
 	m_active					= !!(F & eTorchActive);
 	m_nightvision_active		= !!(F & eNightVisionActive);
 	m_attached					= !!(F & eAttached);
+	m_battery_state 			= tNetPacket.r_u16();
 }
 
 void CSE_ALifeItemTorch::UPDATE_Write		(NET_Packet	&tNetPacket)
@@ -478,6 +480,7 @@ void CSE_ALifeItemTorch::UPDATE_Write		(NET_Packet	&tNetPacket)
 	F |= (m_nightvision_active ? eNightVisionActive : 0);
 	F |= (m_attached ? eAttached : 0);
 	tNetPacket.w_u8(F);
+	tNetPacket.w_u16(m_battery_state);
 }
 
 #ifndef XRGAME_EXPORTS

@@ -1243,6 +1243,64 @@ bool CScriptGameObject::movement_enabled()
     return								(monster->movement().enabled());
 }
 
+void CScriptGameObject::SetTorchBatteryStatus(u16 value)
+{
+    CTorch* torch = smart_cast<CTorch*>(&object());
+    if (torch)
+    {
+        torch->SetBatteryStatus(value);
+    }
+    else
+    {
+        ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "This method works only for torch, check your code!");
+        return;
+    }
+}
+
+u16 CScriptGameObject::GetTorchBatteryStatus()
+{
+    CTorch* torch = smart_cast<CTorch*>(&object());
+    if (torch)
+        return (torch->GetBatteryStatus());
+    else
+    {
+        ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "This method works only for torch, check your code!");
+        return -1;
+    }
+}
+
+void CScriptGameObject::SetTorchState(bool state)
+{
+    CActor* actor = smart_cast<CActor*>(&object());
+    CTorch* flashlight = 0;
+    if (actor)
+    {
+        flashlight = actor->GetCurrentTorch();
+        if (!flashlight)
+        {
+            ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "Actor flashlight does not exist!");
+            return;
+        }
+        flashlight->Switch(state);
+    }
+    else
+    {
+        ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "This method works only for actor, check your code!");
+        return;
+    }
+}
+
+bool CScriptGameObject::GetTorchState(void)
+{
+    CTorch* torch = smart_cast<CTorch*>(&object());
+    if (!torch)
+    {
+        ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CTorch : cannot access class member torch_enabled!");
+        return (false);
+    }
+    return (torch->torch_active());
+}
+
 bool CScriptGameObject::can_throw_grenades() const
 {
     CAI_Stalker							*stalker = smart_cast<CAI_Stalker*>(&object());

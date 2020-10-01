@@ -128,7 +128,15 @@ void CUIMainIngameWnd::Init()
 	m_iPickUpItemIconX			= UIPickUpItemIcon->GetWndRect().left;
 	m_iPickUpItemIconY			= UIPickUpItemIcon->GetWndRect().top;
 	//---------------------------------------------------------
+/*
+	AttachChild					(&UIStaticTorch);
+	xml_init.InitStatic			(uiXml, "static_flashlight", 0, &UIStaticTorch);
 
+	UIStaticTorch.AttachChild	(&UIFlashlightBar);
+	xml_init.InitProgressBar	(uiXml, "progress_bar_flashlight", 0, &UIFlashlightBar);
+	UIFlashlightBar.Show		(false);
+	UIStaticTorch.Show			(false);
+	*/
 	//индикаторы 
 	UIZoneMap->Init				();
 
@@ -355,45 +363,33 @@ void CUIMainIngameWnd::Update()
 	}
 	
 	UpdateMainIndicators();
-	if (IsGameTypeSingle())
-		return;
-
-	// ewiArtefact
-	if ( GameID() == eGameIDArtefactHunt )
+/*
+	CTorch* flashlight = pActor->GetCurrentTorch();
+	if (flashlight)
 	{
-		bool b_Artefact = !!( pActor->inventory().ItemFromSlot(ARTEFACT_SLOT) );
-		if ( b_Artefact )
+		if (flashlight->IsSwitchedOn())
 		{
-			SetWarningIconColor( ewiArtefact, 0xffffff00 );
+			if (!UIStaticTorch.IsShown())
+				UIStaticTorch.Show(true);
+			if (!UIFlashlightBar.IsShown())
+				UIFlashlightBar.Show(true);
+			UIFlashlightBar.SetProgressPos(100.0f * (((float)flashlight->GetBatteryStatus()) / ((float)flashlight->GetBatteryLifetime())));
 		}
 		else
 		{
-			SetWarningIconColor( ewiArtefact, 0x00ffffff );
+			if (UIStaticTorch.IsShown())
+				UIStaticTorch.Show(false);
+			if (UIFlashlightBar.IsShown())
+				UIFlashlightBar.Show(false);
 		}
 	}
-	else if ( GameID() == eGameIDCaptureTheArtefact )
-	{
-		//this is a bad style... It left for backward compatibility
-		//need to move this logic into UIGameCTA class
-		//bool b_Artefact = (NULL != m_pActor->inventory().ItemFromSlot(ARTEFACT_SLOT));
-		game_cl_CaptureTheArtefact* cta_game = static_cast_checked<game_cl_CaptureTheArtefact*>(&Game());
-		R_ASSERT(cta_game);
-		R_ASSERT(lookat_player);
-		
-		if ( ( pActor->ID() == cta_game->GetGreenArtefactOwnerID() ) ||
-			 ( pActor->ID() == cta_game->GetBlueArtefactOwnerID()  ) )
-		{
-			SetWarningIconColor( ewiArtefact, 0xffff0000 );
-		}
-		else if ( pActor->inventory().ItemFromSlot(ARTEFACT_SLOT) ) //own artefact
-		{
-			SetWarningIconColor( ewiArtefact, 0xff00ff00 );
-		}
-		else
-		{
-			SetWarningIconColor(ewiArtefact, 0x00ffffff );
-		}
+	else {
+		if (UIStaticTorch.IsShown())
+			UIStaticTorch.Show(false);
+		if (UIFlashlightBar.IsShown())
+			UIFlashlightBar.Show(false);
 	}
+	*/
 }//update
 
 

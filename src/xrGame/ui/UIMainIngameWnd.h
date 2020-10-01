@@ -35,6 +35,9 @@ protected:
 
 	CUIHudStatesWnd*	m_ui_hud_states;
 
+//	CUIStatic			UIStaticTorch;
+//	CUIProgressBar		UIFlashlightBar;
+
 	CUIStatic*			m_ind_bleeding;
 	CUIStatic*			m_ind_radiation;
 	CUIStatic*			m_ind_starvation;
