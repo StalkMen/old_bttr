@@ -1879,6 +1879,7 @@ BOOL int_wallmarks = 1;
 BOOL actor_death_first_eye = 1;
 BOOL dead_body_collision = 1;
 extern BOOL g_b_COD_PickUpMode;
+BOOL _fake_start = 0;
 
 u32 type_hud_token = 0;
 xr_token type_hud_token_ext[] = {
@@ -1895,8 +1896,17 @@ xr_token type_hud_token_ext[] = {
     {nullptr, 0}
 };
 
+Flags32 p__new_flags = { /*ALIFE_FULL_ACTIVE*/ };
+#define ALIFE_FULL_ACTIVE (1<<0)
+
 void CCC_RegisterCommands()
 {
+	//OldSerpskiStalker, alife control
+	{
+		p__new_flags.set(ALIFE_FULL_ACTIVE, false);
+		CMD3(CCC_Mask, "__alife_full_active", &p__new_flags, ALIFE_FULL_ACTIVE);
+	}
+
 	CMD3(CCC_Mask,    "xrGame_3d_scopes", &psActorFlags, AF_3DSCOPE_ENABLE);
 	CMD3(CCC_Token, "xrGame_type_hud", &type_hud_token, type_hud_token_ext);
 	CMD4(CCC_Float, "xrGame_scope_fov", &xrgame_scope_fov, 0.45f, 0.85f);
@@ -1906,7 +1916,8 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Integer, "xrGame_dead_body_collision", &dead_body_collision, 0, 1);
 	CMD4(CCC_Integer, "xrGame_ObjectСlientUpdate", &g_objects_per_client_update, 1, 65535)
 	CMD4(CCC_Integer, "xrGame_cop_pickup_mode", &g_b_COD_PickUpMode, 0, 1);
-	
+	CMD4(CCC_Integer, "xrGame_fake_start", &_fake_start, 0, 1);
+
 	// options
 	g_OptConCom.Init();
 
