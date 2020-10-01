@@ -19,6 +19,7 @@
 #include "../WeaponAmmo.h"
 #include "../Silencer.h"
 #include "../Scope.h"
+#include "../Torch.h"
 #include "../GrenadeLauncher.h"
 #include "../trade_parameters.h"
 #include "../ActorHelmet.h"
@@ -301,6 +302,7 @@ EDDListType CUIActorMenu::GetListType(CUIDragDropListEx* l)
 		if(l==m_pInventoryKnifeList)		return iActorSlot;
 		if(l==m_pInventoryBackpackList)		return iActorSlot;
 		if(l==m_pInventoryBinocList)		return iActorSlot;
+		if(l==m_pInventoryTorchList)		return iActorSlot;
 		if(l==m_pInventoryOutfitList)		return iActorSlot;
 		if(l==m_pInventoryHelmetList)		return iActorSlot;
 		if(l==m_pInventoryDetectorList)		return iActorSlot;
@@ -501,6 +503,7 @@ void CUIActorMenu::clear_highlight_lists()
 		m_KnifeSlotHighlight->Show(false);
 		m_BinocSlotHighlight->Show(false);
 		m_BackpackSlotHighlight->Show(false);
+		m_TorchSlotHighlight->Show(false);
 		m_HelmetSlotHighlight->Show(false);
 		m_OutfitSlotHighlight->Show(false);
 		m_DetectorSlotHighlight->Show(false);
@@ -587,7 +590,8 @@ void CUIActorMenu::highlight_item_slot(CUICellItem* cell_item)
 		CWeaponKnife* knife = smart_cast<CWeaponKnife*>(item);
 		CWeaponBinoculars* binoc = smart_cast<CWeaponBinoculars*>(item);
 		CBackpack* backpack = smart_cast<CBackpack*>(item);
-
+		CTorch* torch = smart_cast<CTorch*>(item);
+		
 		u16 slot_id = item->BaseSlot();
 
 		if (weapon && (slot_id == INV_SLOT_2 || slot_id == INV_SLOT_3))
@@ -624,6 +628,11 @@ void CUIActorMenu::highlight_item_slot(CUICellItem* cell_item)
 		if (backpack && slot_id == BACKPACK_SLOT)
 		{
 			m_BackpackSlotHighlight->Show(true);
+			return;
+		}
+		if (torch && slot_id == TORCH_SLOT)
+		{
+			m_TorchSlotHighlight->Show(true);
 			return;
 		}
 		if(eatable)
@@ -960,6 +969,9 @@ void CUIActorMenu::ClearAllLists()
 		m_pInventoryKnifeList->ClearAll				(true);
 		m_pInventoryBackpackList->ClearAll			(true);
 		m_pInventoryBinocList->ClearAll				(true);
+		
+		m_pInventoryTorchList->ClearAll				(true);
+		
 		m_pInventoryDetectorList->ClearAll			(true);
 		m_pInventoryPistolList->ClearAll			(true);
 		m_pInventoryAutomaticList->ClearAll			(true);

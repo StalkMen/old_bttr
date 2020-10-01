@@ -110,7 +110,10 @@ protected:
 	CUIDragDropListEx*			m_pInventoryKnifeList;
 	CUIDragDropListEx*			m_pInventoryBinocList;
 	CUIDragDropListEx*			m_pInventoryBackpackList;
-
+	
+	CUIDragDropListEx*			m_pInventoryTorchList;
+	CUIStatic*					m_TorchSlotHighlight;
+	
 	CUIStatic*					m_KnifeSlotHighlight;
 	CUIStatic*				    m_BinocSlotHighlight;
 	CUIStatic*					m_BackpackSlotHighlight;
