@@ -15,6 +15,7 @@
 // Зрение, слух, вероятность победы, выгодность противника
 void CBaseMonster::UpdateMemory()
 {
+#pragma todo("OldSerpskiStalker. Тут вот происходит иногда вылет, если еще раз будет, поставить условие проверки что у нас открыто меню")
 	// Обновить память
 	EnemyMemory.update			();
 	SoundMemory.UpdateHearing	();	
