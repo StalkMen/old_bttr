@@ -25,6 +25,7 @@
 #include "../UIGameSP.h"
 #include "UITalkWnd.h"
 
+#include "../InventoryBox.h"
 // -------------------------------------------------
 
 void CUIActorMenu::InitTradeMode()
