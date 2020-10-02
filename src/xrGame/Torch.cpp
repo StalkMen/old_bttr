@@ -185,7 +185,7 @@ void CTorch::Broke()
 
 void CTorch::SetBatteryStatus(u32 val)
 {
-	Msg("SetBatteryStatus = [%d], [%d], [%d], [%d], [%d], [%f]", m_current_battery_state, val, m_battery_duration, m_current_battery_state - val, (m_current_battery_state - val)/m_battery_duration*100, (m_current_battery_state - val)/m_battery_duration);
+//	Msg("SetBatteryStatus = [%d], [%d], [%d], [%d], [%d], [%f]", m_current_battery_state, val, m_battery_duration, m_current_battery_state - val, (m_current_battery_state - val)/m_battery_duration*100, (m_current_battery_state - val)/m_battery_duration);
 	m_battery_state = val;
 	float condition = 1.f * m_battery_state / m_battery_duration;
 	SetCondition(condition);
@@ -335,18 +335,18 @@ void CTorch::UpdateBattery(void)
 	{
 
 		float minus = fUnchanreRate * Device.fTimeDelta;
-		Msg("UpdateBattery %f %f", m_battery_state, minus);
+//		Msg("UpdateBattery %f %f", m_battery_state, minus);
 		m_battery_state -= minus;
-		Msg("UpdateBattery %f", m_battery_state);
+//		Msg("UpdateBattery %f", m_battery_state);
 
 		float condition = 1.f * m_battery_state / m_battery_duration;
 		SetCondition(condition);
-		Msg("UpdateBattery condition %f", condition);
+//		Msg("UpdateBattery condition %f", condition);
 
 		float rangeCoef = atan(m_RangeCurve * m_battery_state / m_battery_duration) / PI_DIV_2;
 		clamp(rangeCoef, 0.f, 1.f);
 		float range = m_RangeMax * rangeCoef;
-	    Msg("set_range [%f]", range);
+//	    Msg("set_range [%f]", range);
 		light_render->set_range(range);
 		m_delta_h = PI_DIV_2 - atan((range * 0.5f) / _abs(TORCH_OFFSET.x));
 
