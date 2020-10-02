@@ -134,7 +134,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>dxguid.lib;d3dcompiler.lib;d3d10.lib;d3dx10.lib;dxgi.lib;nvapi.lib;$(SolutionDir)..\lib\$(Platform)\$(Configuration)\oalib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)3rd party\luajit-2\src\;$(xrSdkDir)libraries\x64;$(xrLibDir);$(DXSDK_DIR)Lib\x86;$(XRAY_16X_LIBS)OpenAutomate\libraries;$(SolutionDir)x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(xrGameDir)Win64_Release;$(SolutionDir)3rd party\luajit-2\src\;$(xrSdkDir)libraries\x64;$(xrLibDir);$(DXSDK_DIR)Lib\x86;$(XRAY_16X_LIBS)OpenAutomate\libraries;$(SolutionDir)x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>NotSet</SubSystem>
       <LargeAddressAware>true</LargeAddressAware>
       <OptimizeReferences>true</OptimizeReferences>
@@ -346,9 +346,9 @@
     <ClInclude Include="blenders_DX10\blender_light_spot.h" />
     <ClInclude Include="blenders_DX10\blender_luminance.h" />
     <ClInclude Include="blenders_DX10\blender_ssao.h" />
-	<ClInclude Include="blenders_DX10\blender_fxaa.h" />
-	<ClInclude Include="blenders_DX10\blender_smaa.h" />
-	<ClInclude Include="blenders_DX10\blender_sunshafts.h" />
+    <ClInclude Include="blenders_DX10\blender_fxaa.h" />
+    <ClInclude Include="blenders_DX10\blender_smaa.h" />
+    <ClInclude Include="blenders_DX10\blender_sunshafts.h" />
     <ClInclude Include="cl_intersect.h" />
     <ClInclude Include="DetailFormat.h" />
     <ClInclude Include="dx10MinMaxSMBlender.h" />
@@ -520,9 +520,9 @@
     <ClCompile Include="blenders_DX10\blender_light_spot.cpp" />
     <ClCompile Include="blenders_DX10\blender_luminance.cpp" />
     <ClCompile Include="blenders_DX10\blender_ssao.cpp" />
-	<ClCompile Include="blenders_DX10\blender_fxaa.cpp" />
-	<ClCompile Include="blenders_DX10\blender_smaa.cpp" />
-	<ClCompile Include="blenders_DX10\blender_sunshafts.cpp" />
+    <ClCompile Include="blenders_DX10\blender_fxaa.cpp" />
+    <ClCompile Include="blenders_DX10\blender_smaa.cpp" />
+    <ClCompile Include="blenders_DX10\blender_sunshafts.cpp" />
     <ClCompile Include="dx10MinMaxSMBlender.cpp" />
     <ClCompile Include="..\xrRender\light_GI.cpp" />
     <ClCompile Include="..\xrRender\Light_Render_Direct.cpp" />
@@ -546,9 +546,9 @@
     <ClCompile Include="dx10_rendertarget_accum_spot.cpp" />
     <ClCompile Include="dx10_rendertarget_accum_spot_geom.cpp" />
     <ClCompile Include="dx10_rendertarget_create_minmaxSM.cpp" />
-	<ClCompile Include="dx10_rendertarget_phase_fxaa.cpp" />
-	<ClCompile Include="dx10_rendertarget_phase_smaa.cpp" />
-	<ClCompile Include="dx10_rendertarget_phase_sunshafts.cpp" />
+    <ClCompile Include="dx10_rendertarget_phase_fxaa.cpp" />
+    <ClCompile Include="dx10_rendertarget_phase_smaa.cpp" />
+    <ClCompile Include="dx10_rendertarget_phase_sunshafts.cpp" />
     <ClCompile Include="dx10_rendertarget_draw_rain.cpp" />
     <ClCompile Include="dx10_rendertarget_draw_volume.cpp" />
     <ClCompile Include="dx10_rendertarget_enable_scissor.cpp" />

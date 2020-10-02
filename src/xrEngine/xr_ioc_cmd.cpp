@@ -639,6 +639,7 @@ public:
 
 ENGINE_API float psHUD_FOV_def = 0.35f; //--#SM+#--
 ENGINE_API float psHUD_FOV = psHUD_FOV_def; //--#SM+#--
+ENGINE_API BOOL game_value_discord_status = 1;
 
 //extern int psSkeletonUpdate;
 extern int rsDVB_Size;
@@ -651,6 +652,7 @@ extern int psNET_DedicatedSleep;
 extern char psNET_Name[32];
 extern Flags32 psEnvFlags;
 BOOL xrengint_noprefetch = 0;
+BOOL ps_rs_loading_stages = /*(!strstr(Core.Params, "-old_ver")) ? 1 :*/ 0;
 
 extern int g_ErrorLineCount;
 
@@ -660,6 +662,10 @@ ENGINE_API float ps_r2_sun_shafts_value = 1.f;
 void CCC_Register()
 {
     CMD4(CCC_Integer, "xrEngine_noprefetch", &xrengint_noprefetch, 0, 1);
+    CMD4(CCC_Integer, "xrEngine_discord", &game_value_discord_status, 0, 1);
+
+    if (!strstr(Core.Params, "-old_ver"))
+        CMD4(CCC_Integer, "xrEngine_loadingstages", &ps_rs_loading_stages, 0, 1);
 
     // General
     CMD1(CCC_Help, "help");

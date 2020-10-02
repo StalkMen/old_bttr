@@ -205,6 +205,11 @@
     <ClCompile Include="..\xrRenderDX11\dx11_R_Backend_LOD.cpp" />
     <ClCompile Include="xrRender_DX11.cpp" />
     <ClCompile Include="dx11_rendertarget_phase_fxaa.cpp" />
+    <ClCompile Include="blenders_DX11\blender_fxaa.cpp" />
+    <ClCompile Include="blenders_DX11\blender_smaa.cpp" />
+    <ClCompile Include="blenders_DX11\blender_sunshafts.cpp" />
+    <ClCompile Include="dx11_rendertarget_phase_smaa.cpp" />
+    <ClCompile Include="dx11_rendertarget_phase_sunshafts.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\xrRender\ApplicationRender.h" />
@@ -395,7 +400,8 @@
     <ClInclude Include="..\xrRenderDX11\dx11_R_Backend_LOD.h" />
     <ClInclude Include="..\xrRender\DX_SMAP_Allocator.h" />
     <ClInclude Include="blenders_DX11\blender_fxaa.h" />
-    <ClInclude Include="blenders_DX11\blender_fxaa.cpp" />
+    <ClInclude Include="blenders_DX11\blender_smaa.h" />
+    <ClInclude Include="blenders_DX11\blender_sunshafts.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Blenders_DX11">

@@ -119,6 +119,7 @@ public:
 #else
     {}
 #endif
+	virtual void SetLoadStageTitle(pcstr /*ls_title*/) {}
     virtual void LoadTitle(bool change_tip = false, shared_str map_name = "") {}
     virtual bool CanBePaused() { return true; }
 };

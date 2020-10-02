@@ -16,6 +16,7 @@
 
 #include "phcommander.h"
 #include "physics_game.h"
+#include "../xrEngine/Discord.h"
 extern	pureFrame*				g_pNetProcessor;
 
 bool CLevel::net_Start_client	( const char* options )
@@ -28,20 +29,18 @@ bool	CLevel::net_start_client1				()
 	pApp->LoadBegin	();
 	// name_of_server
 	string64					name_of_server = "";
-//	xr_strcpy						(name_of_server,*m_caClientOptions);
 	if (strchr(*m_caClientOptions, '/'))
 		strncpy_s(name_of_server,*m_caClientOptions, strchr(*m_caClientOptions, '/')-*m_caClientOptions);
 
 	if (strchr(name_of_server,'/'))	*strchr(name_of_server,'/') = 0;
 
-	// Startup client
-/*
-	string256					temp;
-	xr_sprintf						(temp,"%s %s",
-								CStringTable().translate("st_client_connecting_to").c_str(), name_of_server);
+	string256 temp;
+//	xr_sprintf(temp, "%s %s",
+//		CStringTable().translate("st_client_connecting_to").c_str(),
+//		name_of_server);
 
-	g_pGamePersistent->LoadTitle				(temp);
-*/
+//	g_pGamePersistent->SetLoadStageTitle(temp);
+
 	g_pGamePersistent->LoadTitle();
 	return true;
 }
@@ -129,9 +128,13 @@ bool	CLevel::net_start_client3				()
 
 bool	CLevel::net_start_client4				()
 {
-	if(connected_to_server){
+	if(connected_to_server)
+	{
 		// Begin spawn
-//		g_pGamePersistent->LoadTitle		("st_client_spawning");
+		{
+			g_pGamePersistent->SetLoadStageTitle(STAGE_7);
+			g_discord.SetStatus(xrDiscordPresense::StatusId::Client_spawning);
+		}
 		g_pGamePersistent->LoadTitle		();
 
 		// Send physics to single or multithreaded mode
@@ -209,7 +212,10 @@ bool	CLevel::net_start_client5				()
 		// Textures
 		if	(!g_dedicated_server)
 		{
-//			g_pGamePersistent->LoadTitle		("st_loading_textures");
+			{
+				g_pGamePersistent->SetLoadStageTitle(STAGE_8);
+				g_discord.SetStatus(xrDiscordPresense::StatusId::Loading_textures);
+			}
 			g_pGamePersistent->LoadTitle		();
 			//Device.Resources->DeferredLoad	(FALSE);
 			Device.m_pRender->DeferredLoad		(FALSE);
@@ -254,7 +260,10 @@ bool	CLevel::net_start_client6				()
 			}
 		}
 
-//		g_pGamePersistent->LoadTitle		("st_client_synchronising");
+		{
+			g_pGamePersistent->SetLoadStageTitle(STAGE_9);
+			g_discord.SetStatus(xrDiscordPresense::StatusId::Client_synchronising);
+		}
 		g_pGamePersistent->LoadTitle		();
 		Device.PreCache						(60, true, true);
 		net_start_result_total				= TRUE;

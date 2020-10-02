@@ -13,6 +13,7 @@
 #include "string_table.h"
 #include "UIGameCustom.h"
 #include "ui/UICDkey.h"
+#include "../xrEngine/Discord.h"
 
 int		g_cl_save_demo = 0;
 extern XRCORE_API bool g_allow_heap_min;
@@ -107,7 +108,10 @@ bool CLevel::net_start1				()
 	// Start client and server if need it
 	if (m_caServerOptions.size())
 	{
-//		g_pGamePersistent->LoadTitle("st_server_starting");
+		{
+			g_pGamePersistent->SetLoadStageTitle(STAGE_10);
+			g_discord.SetStatus(xrDiscordPresense::StatusId::Server_starting);
+		}
 
 		typedef IGame_Persistent::params params;
 		params							&p = g_pGamePersistent->m_game_params;

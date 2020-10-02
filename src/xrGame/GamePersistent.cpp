@@ -38,6 +38,7 @@
 #	include "ai_debug.h"
 #endif // _EDITOR
 #include "gametype_chooser.h"
+#include "../xrEngine/Discord.h"
 
 //#ifdef DEBUG_MEMORY_MANAGER
 //	static	void *	ode_alloc	(size_t size)								{ return Memory.mem_alloc(size,"ODE");			}
@@ -327,24 +328,7 @@ void CGamePersistent::WeathersUpdate()
                     //					Msg("- Playing ambient sound channel [%s] file[%s]",ch.m_load_section.c_str(),snd._handle()->file_name());
                 }
             }
-            /*
-                        if (Device.dwTimeGlobal > ambient_sound_next_time)
-                        {
-                        ref_sound* snd			= env_amb->get_rnd_sound();
-                        ambient_sound_next_time	= Device.dwTimeGlobal + env_amb->get_rnd_sound_time();
-                        if (snd)
-                        {
-                        Fvector	pos;
-                        float	angle		= ::Random.randF(PI_MUL_2);
-                        pos.x				= _cos(angle);
-                        pos.y				= 0;
-                        pos.z				= _sin(angle);
-                        pos.normalize		().mul(env_amb->get_rnd_sound_dist()).add(Device.vCameraPosition);
-                        pos.y				+= 10.f;
-                        snd->play_at_pos	(0,pos);
-                        }
-                        }
-                        */
+
             // start effect
             if ((FALSE == bIndoor) && (0 == ambient_particles) && Device.dwTimeGlobal > ambient_effect_next_time)
             {
@@ -482,6 +466,7 @@ void CGamePersistent::start_logo_intro()
             {
                 m_intro->Start("intro_logo");
                 Msg("# intro_start intro_logo");
+                g_discord.SetStatus(xrDiscordPresense::StatusId::Initialization);
             }
             Console->Hide();
         }
@@ -529,6 +514,7 @@ void CGamePersistent::update_game_loaded()
 {
     xr_delete(m_intro);
     Msg("~ intro_delete ::update_game_loaded");
+    g_discord.SetStatus(xrDiscordPresense::StatusId::In_Game);
     start_game_intro();
 }
 
@@ -575,6 +561,7 @@ void CGamePersistent::OnFrame()
 {
     if (Device.dwPrecacheFrame == 5 && m_intro_event.empty())
     {
+        SetLoadStageTitle("");
         m_intro_event.bind(this, &CGamePersistent::game_loaded);
     }
 
@@ -843,8 +830,17 @@ void CGamePersistent::OnRenderPPUI_PP()
 {
     MainMenu()->OnRenderPPUI_PP();
 }
+
 #include "string_table.h"
 #include "../xrEngine/x_ray.h"
+void CGamePersistent::SetLoadStageTitle(pcstr ls_title)
+{
+    string512 buff;
+    constexpr pcstr dots = ""; // if title is empty don't insert dots
+    sprintf_s(buff, "%s%s", CStringTable().translate(ls_title).c_str(), ls_title ? dots : "");
+    pApp->SetLoadStageTitle(buff);
+}
+
 void CGamePersistent::LoadTitle(bool change_tip, shared_str map_name)
 {
     pApp->LoadStage();

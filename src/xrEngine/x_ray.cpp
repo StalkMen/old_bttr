@@ -26,6 +26,7 @@
 #include <locale.h>
 
 #include "xrSash.h"
+#include "Discord.h"
 
 //#include "securom_api.h"
 
@@ -60,6 +61,7 @@ static int start_day = 24;
 static int start_month = 9; 
 static int start_year = 2020; 
 
+extern BOOL ps_rs_loading_stages;
 // binary hash, mainly for copy-protection
 
 #ifndef DEDICATED_SERVER
@@ -379,6 +381,8 @@ void Startup()
     g_SpatialSpace = xr_new<ISpatial_DB>();
     g_SpatialSpacePhysic = xr_new<ISpatial_DB>();
 
+    g_discord.Initialize();
+
     // Destroy LOGO
     DestroyWindow(logoWindow);
     logoWindow = NULL;
@@ -388,6 +392,7 @@ void Startup()
     Device.Run();
 
     // Destroy APP
+    g_discord.Shutdown();
     xr_delete(g_SpatialSpacePhysic);
     xr_delete(g_SpatialSpace);
     DEL_INSTANCE(g_pGamePersistent);
@@ -1259,6 +1264,12 @@ PROTECT_API void CApplication::LoadDraw()
     Device.End();
 }
 
+void CApplication::SetLoadStageTitle(pcstr _ls_title)
+{
+    if (ps_rs_loading_stages)
+        xr_strcpy(ls_title, _ls_title);
+}
+
 void CApplication::LoadTitleInt(LPCSTR str1, LPCSTR str2, LPCSTR str3)
 {
     xr_strcpy(ls_header, str1);
@@ -1270,6 +1281,7 @@ void CApplication::LoadStage()
 {
     load_stage++;
     VERIFY(ll_dwReference);
+    Msg("# LoadStage is [%d]", load_stage);
     Msg("# phase time: %d ms", phase_timer.GetElapsed_ms());
     phase_timer.Start();
     Msg("# phase cmem: %lld K", Memory.mem_usage() / 1024);
@@ -1388,6 +1400,7 @@ void CApplication::Level_Set(u32 L)
     if (path[0])
         m_pRender->setLevelLogo(path);
 
+    g_discord.SetStatus(xrDiscordPresense::StatusId::In_Game);
     //SECUROM_MARKER_PERFORMANCE_OFF(9)
 }
 
@@ -1425,6 +1438,9 @@ int CApplication::Level_ID(LPCSTR name, LPCSTR ver, bool bSet)
     {
         if (0 == stricmp(buffer, Levels[I].folder))
         {
+            if (!Levels[I].name)
+                Levels[I].name = xr_strdup(name);
+
             result = int(I);
             break;
         }

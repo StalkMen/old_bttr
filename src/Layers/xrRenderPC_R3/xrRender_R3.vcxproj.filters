@@ -257,6 +257,10 @@
     <ClCompile Include="blenders_DX10\blender_fxaa.cpp">
       <Filter>Blenders_DX10</Filter>
     </ClCompile>
+    <ClCompile Include="blenders_DX10\blender_smaa.cpp" />
+    <ClCompile Include="blenders_DX10\blender_sunshafts.cpp" />
+    <ClCompile Include="dx10_rendertarget_phase_smaa.cpp" />
+    <ClCompile Include="dx10_rendertarget_phase_sunshafts.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\xrRender\ApplicationRender.h" />
@@ -491,6 +495,8 @@
     <ClInclude Include="blenders_DX10\blender_fxaa.h">
       <Filter>Blenders_DX10</Filter>
     </ClInclude>
+    <ClInclude Include="blenders_DX10\blender_smaa.h" />
+    <ClInclude Include="blenders_DX10\blender_sunshafts.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Blenders_DX10">

@@ -11,6 +11,7 @@
 #include "CameraManager.h"
 #include "xr_object.h"
 #include "feel_sound.h"
+#include "Discord.h"
 
 //#include "securom_api.h"
 
@@ -107,7 +108,11 @@ bool IGame_Level::Load(u32 dwNum)
     R_ASSERT2(XRCL_PRODUCTION_VERSION == H.XRLC_version, "Incompatible level version.");
 
     // CForms
-    // g_pGamePersistent->LoadTitle ("st_loading_cform");
+    {
+        g_pGamePersistent->SetLoadStageTitle(STAGE_18);
+        g_discord.SetStatus(xrDiscordPresense::StatusId::Loading_cform);
+    }
+
     g_pGamePersistent->LoadTitle();
     ObjectSpace.Load(build_callback);
     //Sound->set_geometry_occ ( &Static );

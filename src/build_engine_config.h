@@ -6,6 +6,26 @@
 	#define LUA_EXPORT					luabind::functor<LPCSTR>								// Для экспорта С++ в LUA вызовы
 	#define NEW_AI_POLTER																		// Новая логика полтергейста ЧН
 //	#define ACTIVE_VERIFY																	    // Активировать режим точности ошибок в релизе
+	//-' Миниреворк загрузочных сообщений
+	#define STAGE_1					"st_loading_saved_game_solyanka"			  // xrGame	+
+	#define STAGE_2					"st_creating_new_game_solyanka"				  // xrGame +
+	#define STAGE_3					"st_loading_alife_simulator_solyanka"		  // xrGame +
+	//#define STAGE_4				"st_server_connecting_solyanka"				  // xrGame -
+	#define STAGE_5					"st_client_synchronising_solyanka"			  // xrGame +
+	#define STAGE_6					"st_loading_ai_objects_solyanka"			  // xrGame +
+	#define STAGE_7					"st_client_spawning_solyanka"				  // xrGame +
+	#define STAGE_8					"st_loading_textures_solyanka"				  // xrGame + 
+	#define STAGE_9					"st_client_synchronising_solyanka"			  // xrGame (?) +
+	#define STAGE_10				"st_server_starting_solyanka"				  // xrGame +
+	#define STAGE_11				"st_loading_shaders_solyanka"				  // xrRender + 
+	#define STAGE_12				"st_loading_geometry_solyanka"				  // xrRender +
+	#define STAGE_13				"st_loading_spatial_db_solyanka"			  // xrRender +
+	#define STAGE_14				"st_loading_details_solyanka"				  // xrRender +
+	//#define STAGE_15				"st_loading_sectors_portals_solyanka"         // xrRender -
+	#define STAGE_16				"st_loading_lights_solyanka"				  // xrRender +
+	//#define STAGE_17				"st_prefetching_objects_solyanka"			  // xrEngine -
+	#define STAGE_18				"st_loading_cform_solyanka"				      // xrEngine +
+//-' ...
 
 // CALLBACKS
 	#define EXTENDED_ITEM_CALLBACKS							// (eItemToBelt, eItemToSlot, eItemToRuck)

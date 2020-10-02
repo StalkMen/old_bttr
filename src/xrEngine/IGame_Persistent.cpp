@@ -10,6 +10,7 @@
 # include "Render.h"
 # include "ps_instance.h"
 # include "CustomHUD.h"
+# include "Discord.h"
 
 #ifdef INGAME_EDITOR
 # include "editor_environment_manager.hpp"
@@ -121,7 +122,10 @@ void IGame_Persistent::Disconnect()
 extern BOOL xrengint_noprefetch;
 void IGame_Persistent::OnGameStart()
 {
-    // LoadTitle("st_prefetching_objects");
+    //	{
+    //		SetLoadStageTitle(STAGE_17);
+    //		g_discord.SetStatus(xrDiscordPresense::StatusId::Prefetching_objects);
+    //	}
     LoadTitle();
     if (xrengint_noprefetch)
         Prefetch();

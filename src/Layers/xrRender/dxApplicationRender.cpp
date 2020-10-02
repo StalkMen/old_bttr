@@ -242,6 +242,9 @@ void dxApplicationRender::load_draw_internal(CApplication &owner)
 
 		draw_face					(hLevelLogo, r, logo_tex_coords, Fvector2().set(1,1));
 	}
+
+	owner.pFontSystem->OutI(0.f, 0.385f, owner.ls_title);
+	owner.pFontSystem->OnRender();
 }
 
 void dxApplicationRender::draw_face(ref_shader& sh, Frect& coords, Frect& tex_coords, const Fvector2& tsz)

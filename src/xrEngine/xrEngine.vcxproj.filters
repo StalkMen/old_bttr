@@ -618,6 +618,8 @@
     <ClInclude Include="xr_ioc_cmd.h">
       <Filter>Console</Filter>
     </ClInclude>
+    <ClInclude Include="Discord.h" />
+    <ClInclude Include="ShadersExternalData.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="defines.cpp">
@@ -962,6 +964,7 @@
     <ClCompile Include="xr_ioc_cmd.cpp">
       <Filter>Console</Filter>
     </ClCompile>
+    <ClCompile Include="Discord.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">

@@ -57,6 +57,8 @@ string128	ErrMsgBoxTemplate	[]	= {
 		"message_box_download_level"
 };
 
+#include "../xrEngine/Discord.h"
+
 extern bool b_shniaganeed_pp;
 
 CMainMenu*	MainMenu()	{return (CMainMenu*)g_pGamePersistent->m_pMainMenu; };
@@ -189,6 +191,8 @@ void CMainMenu::Activate	(bool bActivate)
 
 		if(!ReloadUI())				return;
 
+		g_discord.SetStatus			(xrDiscordPresense::StatusId::Menu);
+
 		m_Flags.set					(flRestoreConsole,Console->bVisible);
 
 		if(b_is_single)	m_Flags.set	(flRestorePause,Device.Paused());
@@ -215,7 +219,9 @@ void CMainMenu::Activate	(bool bActivate)
 		Device.seqRender.Add				(this, 4); // 1-console 2-cursor 3-tutorial
 
 		Console->Execute					("stat_memory");
-	}else{
+	}
+	else
+	{
 		m_deactivated_frame					= Device.dwFrame;
 		m_Flags.set							(flActive,				FALSE);
 		m_Flags.set							(flNeedChangeCapture,	TRUE);
@@ -238,9 +244,10 @@ void CMainMenu::Activate	(bool bActivate)
 		CleanInternals						();
 		if(g_pGameLevel)
 		{
-			if(b_is_single){
+			if(b_is_single)
+			{
 				Device.seqFrame.Add			(g_pGameLevel);
-
+				g_discord.SetStatus(xrDiscordPresense::StatusId::In_Game);
 			}
 			Device.seqRender.Add			(g_pGameLevel);
 		};

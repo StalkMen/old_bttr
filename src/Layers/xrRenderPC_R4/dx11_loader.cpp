@@ -14,6 +14,7 @@
 #include "../xrRenderDX10/3DFluid/dx103DFluidVolume.h"
 
 #include "../xrRender/FHierrarhyVisual.h"
+#include "../xrEngine/Discord.h"
 
 #pragma warning(push)
 #pragma warning(disable:4995)
@@ -31,7 +32,11 @@ void CRender::level_Load(IReader* fs)
 	IReader*						chunk;
 
 	// Shaders
-//	g_pGamePersistent->LoadTitle		("st_loading_shaders");
+	{
+		//		#pragma todo("OldSerpskiStalker. Load for discord")
+		g_pGamePersistent->SetLoadStageTitle(STAGE_11);
+		g_discord.SetStatus(xrDiscordPresense::StatusId::Loading_shaders);
+	}
 	g_pGamePersistent->LoadTitle		();
 	{
 		chunk = fs->open_chunk		(fsL_SHADERS);
@@ -59,7 +64,11 @@ void CRender::level_Load(IReader* fs)
 
 	if	(!g_dedicated_server)	{
 		// VB,IB,SWI
-//		g_pGamePersistent->LoadTitle("st_loading_geometry");
+		{
+			//			#pragma todo("OldSerpskiStalker. Load for discord")
+			g_pGamePersistent->SetLoadStageTitle(STAGE_12);
+			g_discord.SetStatus(xrDiscordPresense::StatusId::Loading_geometry);
+		}
 		g_pGamePersistent->LoadTitle();
 		{
 			CStreamReader			*geom = FS.rs_open("$level$","level.geom");
@@ -78,20 +87,32 @@ void CRender::level_Load(IReader* fs)
 		}
 
 		// Visuals
-//		g_pGamePersistent->LoadTitle("st_loading_spatial_db");
+		{
+			//			#pragma todo("OldSerpskiStalker. Load for discord")
+			g_pGamePersistent->SetLoadStageTitle(STAGE_13);
+			g_discord.SetStatus(xrDiscordPresense::StatusId::Loading_spatial_db);
+		}
 		g_pGamePersistent->LoadTitle();
 		chunk						= fs->open_chunk(fsL_VISUALS);
 		LoadVisuals					(chunk);
 		chunk->close				();
 
 		// Details
-//		g_pGamePersistent->LoadTitle("st_loading_details");
+		{
+			//			#pragma todo("OldSerpskiStalker. Load for discord")
+			g_pGamePersistent->SetLoadStageTitle(STAGE_14);
+			g_discord.SetStatus(xrDiscordPresense::StatusId::Loading_details);
+		}
 		g_pGamePersistent->LoadTitle();
 		Details->Load				();
 	}
 
 	// Sectors
-//	g_pGamePersistent->LoadTitle("st_loading_sectors_portals");
+//	{
+//		#pragma todo("OldSerpskiStalker. Load for discord")
+//		g_pGamePersistent->SetLoadStageTitle(STAGE_15);
+//		g_discord.SetStatus(xrDiscordPresense::StatusId::Loading_sectors_portals);
+//	}
 	g_pGamePersistent->LoadTitle();
 	LoadSectors					(fs);
 
@@ -102,7 +123,11 @@ void CRender::level_Load(IReader* fs)
 	HOM.Load					();
 
 	// Lights
-	// pApp->LoadTitle			("Loading lights...");
+	{
+		//		#pragma todo("OldSerpskiStalker. Load for discord")
+		g_pGamePersistent->SetLoadStageTitle(STAGE_16);
+		g_discord.SetStatus(xrDiscordPresense::StatusId::Loading_lights);
+	}
 	LoadLights					(fs);
 
 	// End
