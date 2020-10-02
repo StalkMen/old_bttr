@@ -358,6 +358,23 @@ void CTorch::UpdateBattery(void)
 	}
 }
 
+void CTorch::OnMoveToSlot(const SInvItemPlace& prev)
+{
+	CInventoryOwner* owner = smart_cast<CInventoryOwner*>(H_Parent());
+	if (owner && !owner->attached(this))
+	{
+		owner->attach(this->cast_inventory_item());
+	}
+}
+
+void CTorch::OnMoveToRuck(const SInvItemPlace& prev)
+{
+	if (prev.type == eItemPlaceSlot)
+	{
+		Switch(false);
+	}
+}
+
 void CTorch::OnH_B_Independent(bool just_before_destroy) 
 {
 	inherited::OnH_B_Independent(just_before_destroy);

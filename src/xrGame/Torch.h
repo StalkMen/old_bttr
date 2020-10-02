@@ -64,6 +64,9 @@ public:
 	virtual void	save					(NET_Packet& output_packet);
 	virtual void	load					(IReader& input_packet);
 
+	virtual void	OnMoveToSlot			(const SInvItemPlace& prev);
+	virtual void	OnMoveToRuck			(const SInvItemPlace& prev);
+
 			void	Switch					();
 			void	Switch					(bool light_on);
 			bool	torch_active			() const;

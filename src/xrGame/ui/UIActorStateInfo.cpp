@@ -279,14 +279,9 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 		//?oiau auiieiyeinu oneiaea a ?an?aoa iiaie eieau
 		PIItem itm = actor->inventory().ItemFromSlot(HELMET_SLOT);
 		CHelmet* helmet = smart_cast<CHelmet*>(itm);
-
 		PIItem _slot = actor->inventory().ItemFromSlot(TORCH_SLOT);
 		CTorch* torch = smart_cast<CTorch*>(_slot);
 
-		/*
-			PIItem _slot = actor->inventory().ItemFromSlot(TORCH_SLOT);
-			CTorch* torch = smart_cast<CTorch*>(_slot);
-			*/
 		float value = 0.0f;
 		value = floor(value * 55) / 55;
 		/*
