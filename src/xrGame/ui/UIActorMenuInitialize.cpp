@@ -183,6 +183,9 @@ void CUIActorMenu::Construct()
 
 		m_ActorMoney	= UIHelper::CreateTextWnd(uiXml, "actor_money_static", this);
 		m_PartnerMoney	= UIHelper::CreateTextWnd(uiXml, "partner_money_static", this);
+		
+		m_clock_value 	= UIHelper::CreateStatic(uiXml, "clock_value", this);
+		
 		m_QuickSlot1	= UIHelper::CreateTextWnd(uiXml, "quick_slot1_text", this);
 		m_QuickSlot2	= UIHelper::CreateTextWnd(uiXml, "quick_slot2_text", this);
 		m_QuickSlot3	= UIHelper::CreateTextWnd(uiXml, "quick_slot3_text", this);

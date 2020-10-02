@@ -42,7 +42,9 @@ void CUIActorMenu::InitTradeMode()
 	m_RightDelimiter->Show			(true);
 	m_LeftDelimiter->Show			(true);
 	m_LeftBackground->Show			(true);
-
+	
+	m_clock_value->Show				(true);
+	
 	m_PartnerBottomInfo->Show		(true);
 	m_PartnerWeight->Show			(true);
 	m_trade_buy_button->Show		(true);
@@ -78,6 +80,33 @@ bool is_item_in_list(CUIDragDropListEx* pList, PIItem item)
 			return true;
 	}
 	return false;
+}
+
+void CUIActorMenu::RefreshDeadBodyInventoryContents()
+{
+	m_pDeadBodyBagList->ClearAll(true);
+
+	TIItemContainer items_list;
+	if (m_pPartnerInvOwner)
+	{
+		m_pPartnerInvOwner->inventory().AddAvailableItems(items_list, false, m_pPartnerInvOwner->is_alive()); // true
+		UpdatePartnerBag();
+	}
+	else
+	{
+		VERIFY(m_pInvBox);
+		m_pInvBox->set_in_use(true);
+		m_pInvBox->AddAvailableItems(items_list);
+	}
+
+	std::sort(items_list.begin(), items_list.end(), InventoryUtilities::GreaterRoomInRuck);
+	for (const auto& item : items_list)
+	{
+		CUICellItem* itm = create_cell_item(item);
+		m_pDeadBodyBagList->SetItem(itm);
+	}
+
+	m_trade_partner_inventory_state = m_pPartnerInvOwner->inventory().ModifyFrame();
 }
 
 void CUIActorMenu::InitPartnerInventoryContents()
@@ -140,7 +169,9 @@ void CUIActorMenu::DeInitTradeMode()
 	m_RightDelimiter->Show			(false);
 	m_LeftDelimiter->Show			(false);
 	m_LeftBackground->Show			(false);
-
+	
+	m_clock_value->Show				(false);
+	
 	m_PartnerBottomInfo->Show		(false);
 	m_PartnerWeight->Show			(false);
 	m_trade_buy_button->Show		(false);

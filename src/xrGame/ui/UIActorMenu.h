@@ -184,7 +184,7 @@ protected:
 	CUI3tButton*				m_trade_sell_button;
 	CUI3tButton*				m_takeall_button;
 	CUI3tButton*				m_exit_button;
-//	CUIStatic*					m_clock_value;
+	CUIStatic*					m_clock_value;
 
 	u32							m_last_time;
 	bool						m_repair_mode;
@@ -322,6 +322,8 @@ protected:
 	void						UpdatePrices				();
 	bool						CanMoveToPartner			(PIItem pItem);
 	void						TransferItems				(CUIDragDropListEx* pSellList, CUIDragDropListEx* pBuyList, CTrade* pTrade, bool bBuying);
+
+	void						RefreshDeadBodyInventoryContents();
 
 public:
 								CUIActorMenu				();

@@ -68,7 +68,8 @@ void CUIActorMenu::InitInventoryMode()
 
 		VERIFY( CurrentGameUI() );
 		CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(true);
-	//	m_clock_value->Show					(true);
+		
+		m_clock_value->Show					(true); 
 	}
 	else
 	{
@@ -94,7 +95,7 @@ void CUIActorMenu::InitInventoryMode()
 void CUIActorMenu::DeInitInventoryMode()
 {
 	m_pTrashList->Show				(false);
-//	m_clock_value->Show					(false);
+	m_clock_value->Show				(false); 
 }
 
 void CUIActorMenu::SendEvent_ActivateSlot(u16 slot, u16 recipient)

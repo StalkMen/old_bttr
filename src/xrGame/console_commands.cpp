@@ -1880,6 +1880,7 @@ BOOL actor_death_first_eye = 1;
 BOOL dead_body_collision = 1;
 extern BOOL g_b_COD_PickUpMode;
 BOOL _fake_start = 0;
+BOOL update_loot_pick_soc = 1;
 
 u32 type_hud_token = 0;
 xr_token type_hud_token_ext[] = {
@@ -1917,6 +1918,7 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Integer, "xrGame_ObjectСlientUpdate", &g_objects_per_client_update, 1, 65535)
 	CMD4(CCC_Integer, "xrGame_cop_pickup_mode", &g_b_COD_PickUpMode, 0, 1);
 	CMD4(CCC_Integer, "xrGame_fake_start", &_fake_start, 0, 1);
+	CMD4(CCC_Integer, "xrGame_update_loot_pick_soc", &update_loot_pick_soc, 0, 1);
 
 	// options
 	g_OptConCom.Init();
