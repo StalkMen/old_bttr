@@ -70,7 +70,7 @@ PROTECT_API void CRenderDevice::Initialize()
 
         // Create the render window
         m_hWnd = CreateWindowEx(WS_EX_TOPMOST, wndclass, "S.T.A.L.K.E.R.: Call of Chernobyl (TouchOfRay Engine x64)", m_dwWindowStyle, 0, 0, screen_width, screen_height, 0L, 0, hInstance, 0L);
-}
+    }
 
     // Save window properties
     m_dwWindowStyle = GetWindowLong(m_hWnd, GWL_STYLE);
