@@ -944,8 +944,13 @@ void xrDiscordPresense::SetStatus(StatusId status)
 
     presenseInfo.smallImageKey = "ico_bttr";
     presenseInfo.startTimestamp = time(0);
-    presenseInfo.smallImageText = "S.T.A.L.K.E.R.: Back to the Roots";
-    presenseInfo.largeImageText = "TouchOfRay x64";
+
+    if (!strstr(Core.Params, "-old_ver"))
+        presenseInfo.smallImageText = "S.T.A.L.K.E.R.: Back to the Roots";
+    else
+        presenseInfo.smallImageText = "S.T.A.L.K.E.R.: Call of Chernobyl";
+
+    presenseInfo.largeImageText = "TouchOfRay Engine x64";
 
     Discord_UpdatePresence(&presenseInfo);
 }
