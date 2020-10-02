@@ -1958,7 +1958,7 @@ void CCC_RegisterCommands()
 	CMD3(CCC_Mask, "hud_draw", &psHUD_Flags, HUD_DRAW);
 
 	// hud
-	psHUD_Flags.set(HUD_CROSSHAIR, true);
+	psHUD_Flags.set(HUD_CROSSHAIR, false);
 	psHUD_Flags.set(HUD_WEAPON, true);
 	psHUD_Flags.set(HUD_DRAW, true);
 	psHUD_Flags.set(HUD_INFO, true);
