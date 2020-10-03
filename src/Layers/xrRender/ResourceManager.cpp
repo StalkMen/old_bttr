@@ -9,6 +9,8 @@
 #include <d3dx9.h>
 #pragma warning(default:4995)
 
+#include <tbb/parallel_for_each.h>
+
 #include "ResourceManager.h"
 #include "tss.h"
 #include "blenders\blender.h"
@@ -16,18 +18,7 @@
 
 //	Already defined in Texture.cpp
 void fix_texture_name(LPSTR fn);
-/*
-void fix_texture_name(LPSTR fn)
-{
-	LPSTR _ext = strext(fn);
-	if(  _ext					&&
-	  (0==stricmp(_ext,".tga")	||
-		0==stricmp(_ext,".dds")	||
-		0==stricmp(_ext,".bmp")	||
-		0==stricmp(_ext,".ogm")	) )
-		*_ext = 0;
-}
-*/
+
 //--------------------------------------------------------------------------------------------------------------
 template <class T>
 BOOL	reclaim		(xr_vector<T*>& vec, const T* ptr)
@@ -337,8 +328,7 @@ void CResourceManager::Delete(const Shader* S)
 void CResourceManager::DeferredUpload()
 {
 	if (!RDEVICE.b_is_Ready) return;
-	for (map_TextureIt t = m_textures.begin(); t != m_textures.end(); t++)
-		t->second->Load();
+	tbb::parallel_for_each(m_textures, [&](struct std::pair<const char*, CTexture*> m_tex) { m_tex.second->Load(); });
 }
 
 #ifdef _EDITOR
@@ -410,22 +400,4 @@ void	CResourceManager::_DumpMemoryUsage		()
 
 void	CResourceManager::Evict()
 {
-	//	TODO: DX10: check if we really need this method
-#if !defined(USE_DX10) && !defined(USE_DX11)
-	CHK_DX	(HW.pDevice->EvictManagedResources());
-#endif	//	USE_DX10
 }
-/*
-BOOL	CResourceManager::_GetDetailTexture(LPCSTR Name,LPCSTR& T, R_constant_setup* &CS)
-{
-	LPSTR N = LPSTR(Name);
-	map_TD::iterator I = m_td.find	(N);
-	if (I!=m_td.end())
-	{
-		T	= I->second.T;
-		CS	= I->second.cs;
-		return TRUE;
-	} else {
-		return FALSE;
-	}
-}*/
