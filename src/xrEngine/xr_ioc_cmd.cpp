@@ -307,7 +307,13 @@ class CCC_Start : public IConsole_Command
     {
         dest[0] = 0;
         if (strstr(args, name))
-            sscanf(strstr(args, name) + xr_strlen(name), "(%[^)])", dest);
+        {
+            std::string str = strstr(args, name) + xr_strlen(name);
+            std::regex Reg("\\(([^)]+)\\)");
+            std::smatch results;
+            if (std::regex_search(str, results, Reg))
+                strcpy(dest, results[1].str().c_str());
+        }
     }
 
     void protect_Name_strlwr(LPSTR str)

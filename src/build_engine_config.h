@@ -25,6 +25,9 @@
 	#define STAGE_16				"st_loading_lights_solyanka"				  // xrRender +
 	//#define STAGE_17				"st_prefetching_objects_solyanka"			  // xrEngine -
 	#define STAGE_18				"st_loading_cform_solyanka"				      // xrEngine +
+
+	#include <regex>
+	#include <string>
 //-' ...
 
 // CALLBACKS
