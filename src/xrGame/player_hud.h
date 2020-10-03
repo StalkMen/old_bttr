@@ -97,7 +97,7 @@ struct attachable_hud_item
 	void render_item_ui				();
 	bool render_item_ui_query		();
 	bool need_renderable			();
-	void set_bone_visible			(const shared_str& bone_name, BOOL bVisibility, BOOL bSilent=FALSE);
+	bool set_bone_visible			(const shared_str& bone_name, BOOL bVisibility, BOOL bSilent=FALSE);
 	void debug_draw_firedeps		();
 
 	//hands bind position
@@ -118,8 +118,6 @@ struct attachable_hud_item
 class player_hud
 {
 public: 
-	static Fvector	m_hud_offset_pos;
-	static Fvector	m_hand_offset_pos;
 					player_hud			();
 					~player_hud			();
 	void			load				(const shared_str& model_name);
