@@ -641,9 +641,6 @@ ENGINE_API float psHUD_FOV_def = 0.35f; //--#SM+#--
 ENGINE_API float psHUD_FOV = psHUD_FOV_def; //--#SM+#--
 ENGINE_API BOOL game_value_discord_status = 1;
 
-//extern int psSkeletonUpdate;
-extern int rsDVB_Size;
-extern int rsDIB_Size;
 extern int psNET_ClientUpdate;
 extern int psNET_ClientPending;
 extern int psNET_ServerUpdate;

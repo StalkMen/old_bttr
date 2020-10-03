@@ -9,7 +9,9 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-int		rsDVB_Size			= 512+1024;
+extern  u32	__render_video_size;
+
+int		rsDVB_Size			= __render_video_size;
 int		rsDIB_Size			= 512;
 
 void _VertexStream::Create	()
