@@ -185,7 +185,7 @@ BOOL CTorch::net_Spawn(CSE_Abstract* DC)
 	lanim					= LALib.FindItem(pUserData->r_string("torch_definition","color_animator"));
 	guid_bone				= K->LL_BoneID	(pUserData->r_string("torch_definition","guide_bone"));	VERIFY(guid_bone!=BI_NONE);
 
-	Fcolor clr				= pUserData->r_fcolor				("torch_definition","color_dx10");
+	Fcolor clr				= pUserData->r_fcolor				("torch_definition","color_DX10");
 	fBrightness				= clr.intensity();
 	
 	m_RangeMax 				= pUserData->r_float				("torch_definition", "range");
@@ -195,8 +195,8 @@ BOOL CTorch::net_Spawn(CSE_Abstract* DC)
 	
 	light_render->set_range	(m_RangeMax);
 
-	Fcolor clr_o			= pUserData->r_fcolor				("torch_definition","omni_color_dx10");
-	float range_o			= pUserData->r_float				("torch_definition","omni_range_dx10");
+	Fcolor clr_o			= pUserData->r_fcolor				("torch_definition","omni_color_DX10");
+	float range_o			= pUserData->r_float				("torch_definition","omni_range_DX10");
 	light_omni->set_color	(clr_o);
 	light_omni->set_range	(range_o);
 
@@ -207,10 +207,15 @@ BOOL CTorch::net_Spawn(CSE_Abstract* DC)
 	glow_render->set_color	(clr);
 	glow_render->set_radius	(pUserData->r_float					("torch_definition","glow_radius"));
 
-	light_render->set_volumetric(pUserData->r_bool				("torch_definition", "volumetric"));
-	light_render->set_volumetric_distance(pUserData->r_float	("torch_definition", "volumetric_distance"));
-	light_render->set_volumetric_intensity(pUserData->r_float	("torch_definition", "volumetric_intensity"));
-	light_render->set_volumetric_quality(pUserData->r_float		("torch_definition", "volumetric_quality"));
+//	light_render->set_volumetric(pUserData->r_bool				("torch_definition", "volumetric"));
+//	light_render->set_volumetric_distance(pUserData->r_float	("torch_definition", "volumetric_distance"));
+//	light_render->set_volumetric_intensity(pUserData->r_float	("torch_definition", "volumetric_intensity"));
+//	light_render->set_volumetric_quality(pUserData->r_float		("torch_definition", "volumetric_quality"));
+
+	light_render->set_volumetric								(READ_IF_EXISTS(pSettings, r_bool, "torch_definition", "volumetric", true));
+	light_render->set_volumetric_distance						(READ_IF_EXISTS(pSettings, r_float, "torch_definition", "volumetric_distance", 1.f));
+	light_render->set_volumetric_intensity						(READ_IF_EXISTS(pSettings, r_float, "torch_definition", "volumetric_intensity", 0.1f));
+	light_render->set_volumetric_quality						(READ_IF_EXISTS(pSettings, r_float, "torch_definition", "volumetric_quality", 0.15f));
 
 	//включить/выключить фонарик
 	Switch					(torch->m_active);
