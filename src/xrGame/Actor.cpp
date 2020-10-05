@@ -1072,7 +1072,6 @@ void CActor::UpdateCL()
             else
                 g_pGamePersistent->m_pGShaderConstants->m_blender_mode.x = bNVUniq;
         }
-
     }
     else
     {
