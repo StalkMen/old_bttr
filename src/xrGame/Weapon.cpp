@@ -397,7 +397,7 @@ void CWeapon::Load(LPCSTR section)
 	
 	iMagazineSize_ui = pSettings->r_s32(section, "ammo_mag_size_ui");
     UniqueOptionNV = READ_IF_EXISTS(pSettings, r_u8, section, "UniqueOptionNV", 0);
-    UniqueOptionNV_enable = READ_IF_EXISTS(pSettings, r_bool, section, "UniqueOptionNV", false);
+    UniqueOptionNV_enable = READ_IF_EXISTS(pSettings, r_bool, section, "UniqueOptionNV_enable", false);
     ////////////////////////////////////////////////////
     // дисперсия стрельбы
     //подбрасывание камеры во время отдачи
