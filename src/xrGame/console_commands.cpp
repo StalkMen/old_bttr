@@ -1901,6 +1901,9 @@ xr_token type_hud_token_ext[] = {
 Flags32 p__new_flags = { /*ALIFE_FULL_ACTIVE*/ };
 #define ALIFE_FULL_ACTIVE (1<<0)
 
+float hud_adj_delta_pos = 0.005f;
+float hud_adj_delta_rot = 0.005f;
+
 void CCC_RegisterCommands()
 {
 	//OldSerpskiStalker, alife control
@@ -1920,6 +1923,9 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Integer, "xrGame_cop_pickup_mode", &g_b_COD_PickUpMode, 0, 1);
 	CMD4(CCC_Integer, "xrGame_fake_start", &_fake_start, 0, 1);
 	CMD4(CCC_Integer, "xrGame_update_loot_pick_soc", &update_loot_pick_soc, 0, 1);
+
+	CMD4(CCC_Float, "hud_adj_delta_pos", &hud_adj_delta_pos, 0.0001f, 1.0f);
+	CMD4(CCC_Float, "hud_adj_delta_rot", &hud_adj_delta_rot, 0.0001f, 1.0f);
 
 	// options
 	g_OptConCom.Init();

@@ -15,8 +15,10 @@ u32 hud_adj_mode		= 0;
 u32 hud_adj_item_idx	= 0;
 // "press SHIFT+NUM 0-return 1-hud_pos 2-hud_rot 3-itm_pos 4-itm_rot 5-fire_point 6-fire_2_point 7-shell_point";
 
-float _delta_pos			= READ_IF_EXISTS(pSettings, r_float, "hud_adj", "_delta_pos", 0.000125f);
-float _delta_rot			= READ_IF_EXISTS(pSettings, r_float, "hud_adj", "_delta_rot", 0.00125f);
+extern float hud_adj_delta_pos;
+extern float hud_adj_delta_rot;
+float _delta_pos = hud_adj_delta_pos;
+float _delta_rot = hud_adj_delta_rot;
 
 bool is_attachable_item_tuning_mode()
 {
