@@ -287,8 +287,10 @@ public:
                 return "DX11_895_PBR\\";
                 break;
             default:
+                Debug.fatal(DEBUG_INFO, "An unexpected error occurred when selecting the Shader theme ID!");
                 break;
         }
+        return "DX11_COP_SHADERS\\";
     }
 
     virtual ref_shader				getShader					(int id);
