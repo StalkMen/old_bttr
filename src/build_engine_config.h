@@ -6,6 +6,7 @@
 	#define LUA_EXPORT					luabind::functor<LPCSTR>								// Для экспорта С++ в LUA вызовы
 	#define NEW_AI_POLTER																		// Новая логика полтергейста ЧН
 //	#define ACTIVE_VERIFY																	    // Активировать режим точности ошибок в релизе
+	#define NEW_CPU_LOAD												  		  // Mini-rework choice of processor cores
 	//-' Миниреворк загрузочных сообщений
 	#define STAGE_1					"st_loading_saved_game_solyanka"			  // xrGame	+
 	#define STAGE_2					"st_creating_new_game_solyanka"				  // xrGame +
@@ -28,6 +29,7 @@
 
 	#include <regex>
 	#include <string>
+//	#include <bitset>
 //-' ...
 
 // CALLBACKS

@@ -664,6 +664,7 @@ ENGINE_API float ps_r2_sun_shafts_value = 1.f;
 
 void CCC_Register()
 {
+    CMD3(CCC_Mask, "xrEngine_xrRender_stats", &psDeviceFlags, rsRenderInfo);
     CMD4(CCC_Integer, "xrEngine_noprefetch", &xrengint_noprefetch, 0, 1);
     CMD4(CCC_Integer, "xrEngine_discord", &game_value_discord_status, 0, 1);
 

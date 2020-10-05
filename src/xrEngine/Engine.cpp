@@ -4,6 +4,7 @@
 
 #include "stdafx.h"
 #include "Engine.h"
+#include "../xrCore/cpuid.h"
 #include "dedicated_server_only.h"
 
 CEngine Engine;
@@ -32,7 +33,7 @@ PROTECT_API void CEngine::Initialize(void)
     R_ASSERT(hPSGP);
     xrBinder* bindCPU = (xrBinder*)GetProcAddress(hPSGP, "xrBind_PSGP");
     R_ASSERT(bindCPU);
-    bindCPU(&PSGP, &CPU::ID);
+    bindCPU(&PSGP);
 
     // Other stuff
     Engine.Sheduler.Initialize();

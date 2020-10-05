@@ -27,6 +27,7 @@ class ENGINE_API CStats :
 {
 public:
     CGameFont* pFont;
+    CGameFont* pFontHW;
 
     float fFPS, fRFPS, fTPS; // FPS, RenderFPS, TPS
     float fMem_calls;
@@ -104,12 +105,23 @@ public:
     shared_str eval_line_3;
 
     void Show(void);
+    void Show_HW_Stats(void);
     virtual void OnRender();
     void OnDeviceCreate(void);
     void OnDeviceDestroy(void);
+
+    float AvailableMem;
+    float AvailablePageFileMem;
+    float PageFileMemUsedByApp;
+    float PhysMemoryUsedPercent;
+
+    double cpuBefore;
+    double cpuLoad = cpuBefore;
+
 public:
     xr_vector <shared_str> errors;
     CRegistrator <pureStats> seqStats;
+
 public:
     CStats();
     ~CStats();

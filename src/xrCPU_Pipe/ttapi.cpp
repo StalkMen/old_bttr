@@ -1,4 +1,6 @@
 #include "stdafx.h"
+#include "../xrCore/cpuid.h"
+#include "../build_engine_config.h"
 #pragma hdrstop
 
 typedef struct TTAPI_WORKER_PARAMS {
@@ -104,7 +106,11 @@ DWORD ttapi_Init( _processor_info* ID )
 		return ttapi_workers_count;
 
 	// System Info
-	ttapi_workers_count = ID->n_cores;
+#ifdef NEW_CPU_LOAD
+	ttapi_workers_count = ID->coresCount > 1 ? CPU::ID.CPUCoreSum() : ID->coresCount;
+#else
+	ttapi_workers_count = ID->coresCount;
+#endif
 
 	SetPriorityClass( GetCurrentProcess() , REALTIME_PRIORITY_CLASS );
 
@@ -154,7 +160,11 @@ DWORD ttapi_Init( _processor_info* ID )
 	DWORD dwOverride = 0;
 	if ( pszTemp )
 		if ( sscanf_s( pszTemp + strlen( szSearchFor ) , "%u" , &dwOverride ) )
-			if ( ( dwOverride >= 1 ) && ( dwOverride < ttapi_workers_count ) )
+#ifdef NEW_CPU_LOAD
+			if ((dwOverride >= 1) && (dwOverride <= ID->threadCount))
+#else
+			if ((dwOverride >= 1) && (dwOverride < ttapi_workers_count))
+#endif
 				ttapi_workers_count = dwOverride;
 
 	// Number of helper threads

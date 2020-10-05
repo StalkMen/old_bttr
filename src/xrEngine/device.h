@@ -16,6 +16,9 @@
 //#include "shader.h"
 //#include "R_Backend.h"
 
+#include <psapi.h>
+#include <mmsystem.h>
+
 #define VIEWPORT_NEAR 0.2f		//Main viewport near
 #define R_VIEWPORT_NEAR 0.05f	//Second viewport near (to avoid z-fighting)
 
