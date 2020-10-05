@@ -12,7 +12,7 @@ void CRenderTarget::phase_fxaa()
 	
 	//////////////////////////////////////////////////////////////////////////
 	//Set MSAA/NonMSAA rendertarget
-	u_setrt(rt_fxaa_luma, nullptr, nullptr, nullptr); //No ZB
+	u_setrt(rt_Generic_0, nullptr, nullptr, nullptr); //No ZB
 
 	RCache.set_CullMode(CULL_NONE);
 	RCache.set_Stencil(FALSE);
