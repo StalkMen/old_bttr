@@ -21,7 +21,6 @@ struct player_hud_motion
 	shared_str				m_base_name;
 	shared_str				m_additional_name;
 	xr_vector<motion_descr>	m_animations;
-	float					m_anim_speed;
 };
 
 struct player_hud_motion_container
@@ -97,7 +96,7 @@ struct attachable_hud_item
 	void render_item_ui				();
 	bool render_item_ui_query		();
 	bool need_renderable			();
-	bool set_bone_visible			(const shared_str& bone_name, BOOL bVisibility, BOOL bSilent=FALSE);
+	void set_bone_visible			(const shared_str& bone_name, BOOL bVisibility, BOOL bSilent=FALSE);
 	void debug_draw_firedeps		();
 
 	//hands bind position

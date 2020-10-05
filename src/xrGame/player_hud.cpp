@@ -11,8 +11,6 @@
 player_hud* g_player_hud = NULL;
 Fvector _ancor_pos;
 Fvector _wpn_root_pos;
-Fvector m_hud_offset_pos = { 0.f, 0.f, 0.f }; //only in hud adj mode
-Fvector m_hand_offset_pos = { 0.f, 0.f, 0.f };
 
 #define PITCH_OFFSET_R		   0.0f//0.017f    Насколько сильно ствол смещается вбок (влево) при вертикальных поворотах камеры	--#SM+#--
 #define PITCH_OFFSET_N		   0.0f//0.012f    Насколько сильно ствол поднимается\опускается при вертикальных поворотах камеры	--#SM+#--
@@ -79,19 +77,15 @@ void player_hud_motion_container::load(IKinematicsAnimated* model, const shared_
 			{
 				pm->m_base_name			= anm;
 				pm->m_additional_name	= anm;
-				pm->m_anim_speed = 1.f;
 			}else
 			{
-				R_ASSERT2(_GetItemCount(anm.c_str())<=3, anm.c_str());
+				R_ASSERT2(_GetItemCount(anm.c_str())==2, anm.c_str());
 				string512				str_item;
 				_GetItem(anm.c_str(),0,str_item);
 				pm->m_base_name			= str_item;
 
 				_GetItem(anm.c_str(),1,str_item);
-				pm->m_additional_name = (strlen(str_item) > 0) ? pm->m_additional_name = str_item : pm->m_base_name;
-
-				_GetItem(anm.c_str(), 2, str_item);
-				pm->m_anim_speed = strlen(str_item) > 0	 ? atof(str_item) : 1.f;
+				pm->m_additional_name	= str_item;
 			}
 
 			//and load all motions for it
@@ -127,8 +121,7 @@ void player_hud_motion_container::load(IKinematicsAnimated* model, const shared_
 
 Fvector& attachable_hud_item::hands_attach_pos()
 {
-	Fvector v; v.set(m_measures.m_hands_attach[0]).add(m_hand_offset_pos);
-	return v;
+	return m_measures.m_hands_attach[0];
 }
 
 Fvector& attachable_hud_item::hands_attach_rot()
@@ -139,8 +132,7 @@ Fvector& attachable_hud_item::hands_attach_rot()
 Fvector& attachable_hud_item::hands_offset_pos()
 {
 	u8 idx	= m_parent_hud_item->GetCurrentHudOffsetIdx();
-	Fvector v; v.set(m_measures.m_hands_offset[0][idx]).add(m_hud_offset_pos);
-	return v;
+	return m_measures.m_hands_offset[0][idx];
 }
 
 Fvector& attachable_hud_item::hands_offset_rot()
@@ -149,22 +141,20 @@ Fvector& attachable_hud_item::hands_offset_rot()
 	return m_measures.m_hands_offset[1][idx];
 }
 
-bool attachable_hud_item::set_bone_visible(const shared_str& bone_name, BOOL bVisibility, BOOL bSilent)
+void attachable_hud_item::set_bone_visible(const shared_str& bone_name, BOOL bVisibility, BOOL bSilent)
 {
 	u16  bone_id;
 	BOOL bVisibleNow;
 	bone_id			= m_model->LL_BoneID			(bone_name);
 	if(bone_id==BI_NONE)
 	{
-		if(bSilent)	
-			return false;
+		if (bSilent)	
+			return;
 		R_ASSERT2	(0,			make_string("model [%s] has no bone [%s]",pSettings->r_string(m_sect_name, "item_visual"), bone_name.c_str()).c_str());
 	}
 	bVisibleNow		= m_model->LL_GetBoneVisible	(bone_id);
 	if(bVisibleNow!=bVisibility)
 		m_model->LL_SetBoneVisible	(bone_id,bVisibility, TRUE);
-	
-	return true;
 }
 
 void attachable_hud_item::update(bool bForce)
@@ -370,6 +360,8 @@ void attachable_hud_item::load(const shared_str& sect_name)
 
 u32 attachable_hud_item::anim_play(const shared_str& anm_name_b, BOOL bMixIn, const CMotionDef*& md, u8& rnd_idx)
 {
+	float speed				= CalcMotionSpeed(anm_name_b);
+	
 	R_ASSERT				(strstr(anm_name_b.c_str(),"anm_")==anm_name_b.c_str());
 	string256				anim_name_r;
 	bool is_16x9			= UI().is_widescreen();
@@ -378,8 +370,6 @@ u32 attachable_hud_item::anim_play(const shared_str& anm_name_b, BOOL bMixIn, co
 	player_hud_motion* anm	= m_hand_motions.find_motion(anim_name_r);
 	R_ASSERT2				(anm, make_string("model [%s] has no motion alias defined [%s]", m_sect_name.c_str(), anim_name_r).c_str());
 	VERIFY2					(anm->m_animations.size(), make_string("model [%s] has no motion defined in motion_alias [%s]", pSettings->r_string(m_sect_name, "item_visual"), anim_name_r).c_str());
-	
-	float speed = anm->m_anim_speed;
 	
 	rnd_idx					= (u8)Random.randI(anm->m_animations.size()) ;
 	const motion_descr& M	= anm->m_animations[ rnd_idx ];
@@ -458,8 +448,7 @@ player_hud::player_hud()
 	m_model					= NULL;
 	m_attached_items[0]		= NULL;
 	m_attached_items[1]		= NULL;
-	m_transform.identity();
-	m_attach_offset.identity();
+	m_transform.identity	();
 }
 
 
