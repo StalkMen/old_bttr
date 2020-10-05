@@ -253,7 +253,7 @@ void CSnork::HitEntityInJump(const CEntity *pEntity)
 	SAAParam &params	= anim().AA_GetParams("stand_attack_2_1");
 	HitEntity			(pEntity, params.hit_power, params.impulse, params.impulse_dir);
 
-	if (Actor()) // Если это актер, а не НПС
+	if (pEntity == Actor()) // Если это актер, а не НПС
 	{
 		LPCSTR _execute;
 		LUA_EXPORT m_function;

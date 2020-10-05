@@ -821,14 +821,19 @@ void CWeaponMagazinedWGrenade::save(NET_Packet &output_packet)
 {
     inherited::save(output_packet);
     save_data(m_bGrenadeMode, output_packet);
-    save_data(0, output_packet);
+#pragma todo("OldSerpskiStalker. Удалить это сохранение пакетов!")
+    save_data((u32)0, output_packet);
+//////////////////////////////////////////////////////////////////
 }
 
 void CWeaponMagazinedWGrenade::load(IReader &input_packet)
 {
     inherited::load(input_packet);
     load_data(m_bGrenadeMode, input_packet);
-	load_data(0, input_packet);
+#pragma todo("OldSerpskiStalker. Удалить это сохранение пакетов!")
+	u32 dummy;
+	load_data(dummy, input_packet);
+/////////////////////////////////////////////////////////////////
 }
 
 void CWeaponMagazinedWGrenade::net_Export(NET_Packet& P)
@@ -997,7 +1002,7 @@ int CWeaponMagazinedWGrenade::GetAmmoCount2(u8 ammo2_type) const
 void CWeaponMagazinedWGrenade::switch2_Unmis()
 {
 	VERIFY(GetState() == eUnMisfire);
-	if (m_bGrenadeMode)
+    if (m_bGrenadeMode)
 	{
 		if (m_sounds_enabled)
 		{

@@ -789,64 +789,27 @@ void CActor::Die(CObject* who)
             {
                 if (item_in_slot)
                 {
-                    if (IsGameTypeSingle())
-                    {
-                        CGrenade* grenade = smart_cast<CGrenade*>(item_in_slot);
-                        if (grenade)
-                            grenade->DropGrenade();
-                        else
-                            item_in_slot->SetDropManual(TRUE);
-                    }
+                    CGrenade* grenade = smart_cast<CGrenade*>(item_in_slot);
+                    if (grenade)
+                        grenade->DropGrenade();
                     else
-                    {
-                        //This logic we do on a server site
-                        /*
-                        if ((*I).m_pIItem->object().CLS_ID != CLSID_OBJECT_W_KNIFE)
-                        {
-                        (*I).m_pIItem->SetDropManual(TRUE);
-                        }*/
-                    }
+                        item_in_slot->SetDropManual(TRUE);
                 };
                 continue;
             }
             else
             {
-                CCustomOutfit *pOutfit = smart_cast<CCustomOutfit *> (item_in_slot);
+                CCustomOutfit* pOutfit = smart_cast<CCustomOutfit*> (item_in_slot);
                 if (pOutfit) continue;
             };
             if (item_in_slot)
                 inventory().Ruck(item_in_slot);
         };
 
-
         ///!!! чистка пояса
-        TIItemContainer &l_blist = inventory().m_belt;
+        TIItemContainer& l_blist = inventory().m_belt;
         while (!l_blist.empty())
             inventory().Ruck(l_blist.front());
-
-        if (!IsGameTypeSingle())
-        {
-            //if we are on server and actor has PDA - destroy PDA
-            TIItemContainer &l_rlist = inventory().m_ruck;
-            for (TIItemContainer::iterator l_it = l_rlist.begin(); l_rlist.end() != l_it; ++l_it)
-            {
-                if (GameID() == eGameIDArtefactHunt)
-                {
-                    CArtefact* pArtefact = smart_cast<CArtefact*> (*l_it);
-                    if (pArtefact)
-                    {
-                        (*l_it)->SetDropManual(TRUE);
-                        continue;
-                    };
-                };
-
-                if ((*l_it)->object().CLS_ID == CLSID_OBJECT_PLAYERS_BAG)
-                {
-                    (*l_it)->SetDropManual(TRUE);
-                    continue;
-                };
-            };
-        };
     };
 
     if (!g_dedicated_server)
@@ -866,7 +829,7 @@ void CActor::Die(CObject* who)
         {
             LPCSTR game_over1;
             LUA_EXPORT m_functor1;
-            R_ASSERT(ai().script_engine().functor("_G_Back_to_the_Roots.game_over_script", m_functor1));
+            R_ASSERT(ai().script_engine().functor("_export_touch_of_ray.game_over_script", m_functor1));
             game_over1 = m_functor1();
         }
     }
@@ -1094,14 +1057,20 @@ void CActor::UpdateCL()
 			
 			pWeapon->UpdateSecondVP(); //--#SM+#-- +SecondVP+
 			
-			bool bUseMark = !!pWeapon->bMarkCanShow();
-			bool bInZoom  = !!(pWeapon->bInZoomRightNow() && pWeapon->bIsSecondVPZoomPresent() && psActorFlags.test(AF_3DSCOPE_ENABLE));
-			bool bNVEnbl  = !!pWeapon->bNVsecondVPstatus;
-			
+			bool bUseMark    = !!pWeapon->bMarkCanShow();
+			bool bInZoom     = !!(pWeapon->bInZoomRightNow() && pWeapon->bIsSecondVPZoomPresent() && psActorFlags.test(AF_3DSCOPE_ENABLE));
+			bool bNVEnbl     = !!pWeapon->bNVsecondVPstatus;
+            u8   bNVUniq     = pWeapon->UniqueOptionNV;
+            bool UONV_enable = pWeapon->UniqueOptionNV_enable;
+
 			g_pGamePersistent->m_pGShaderConstants->hud_params.x = bInZoom;  //--#SM+#--
 			g_pGamePersistent->m_pGShaderConstants->hud_params.y = pWeapon->GetSecondVPFov(); //--#SM+#--
 			g_pGamePersistent->m_pGShaderConstants->hud_params.z = bUseMark; //--#SM+#--
-			g_pGamePersistent->m_pGShaderConstants->m_blender_mode.x = bNVEnbl;  //--#SM+#--
+
+            if (!UONV_enable)
+			    g_pGamePersistent->m_pGShaderConstants->m_blender_mode.x = bNVEnbl;  //--#SM+#--
+            else
+                g_pGamePersistent->m_pGShaderConstants->m_blender_mode.x = bNVUniq;
         }
 
     }
@@ -1793,8 +1762,6 @@ void CActor::OnItemDrop(CInventoryItem *inventory_item, bool just_before_destroy
     if (weapon && inventory_item->m_ItemCurrPlace.type == eItemPlaceSlot)
     {
         weapon->OnZoomOut();
-        if (weapon->GetRememberActorNVisnStatus())
-            weapon->EnableActorNVisnAfterZoom();
     }
 
     if (!just_before_destroy &&
@@ -2215,6 +2182,17 @@ bool CActor::unlimited_ammo()
 
 void CActor::SwitchNightVision(bool vision_on, bool use_sounds, bool send_event)
 {
+	if (eacFirstEye == cam_active)
+	{
+		CWeapon* pWeapon = smart_cast<CWeapon*>(inventory().ActiveItem());
+		if (pWeapon && pWeapon->IsZoomed())
+		{
+			if (!pWeapon->IsRotatingToZoom() && pWeapon->ZoomTexture())
+				pWeapon->AllowNightVision(!pWeapon->AllowNightVision());
+			return;
+		}
+	}
+	
 	m_bNightVisionOn = vision_on;
 
 	if (!m_night_vision)

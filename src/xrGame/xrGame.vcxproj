@@ -220,7 +220,7 @@
     <Link>
       <AdditionalOptions>/ignore:4099</AdditionalOptions>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>$(SolutionDir)3rd party\luajit-2\src\;$(xrSdkDir)libraries;$(xrLibDir);$(XRAY_16X_LIBS)OpenAutomate\libraries;$(XRAY_16X_LIBS)jpeg\libraries\Release;$(xrGameDir)Win64_Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rd party\luajit-2\src\;$(xrSdkDir)libraries\x64\;$(xrLibDir);$(XRAY_16X_LIBS)OpenAutomate\libraries;$(XRAY_16X_LIBS)jpeg\libraries\Release;$(xrGameDir)Win64_Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>NotSet</SubSystem>
       <LargeAddressAware>true</LargeAddressAware>
       <OptimizeReferences>true</OptimizeReferences>
@@ -360,11 +360,11 @@
     <ClInclude Include="ActivatingCharCollisionDelay.h" />
     <ClInclude Include="Actor.h" />
     <ClInclude Include="ActorAnimation.h" />
-	<ClInclude Include="ActorBackpack.h" />
+    <ClInclude Include="ActorBackpack.h" />
     <ClInclude Include="ActorCondition.h" />
     <ClInclude Include="ActorEffector.h" />
     <ClInclude Include="ActorHelmet.h" />
-	<ClInclude Include="ActorNightVision.h" />
+    <ClInclude Include="ActorNightVision.h" />
     <ClInclude Include="actor_anim_defs.h" />
     <ClInclude Include="actor_defs.h" />
     <ClInclude Include="Actor_Flags.h" />
@@ -1273,7 +1273,7 @@
     <ClInclude Include="material_manager.h" />
     <ClInclude Include="material_manager_inline.h" />
     <ClInclude Include="medkit.h" />
-	<ClInclude Include="battery.h" />
+    <ClInclude Include="battery.h" />
     <ClInclude Include="member_corpse.h" />
     <ClInclude Include="member_corpse_inline.h" />
     <ClInclude Include="member_enemy.h" />
@@ -1625,7 +1625,7 @@
     <ClInclude Include="sprinter_stopper.h" />
     <ClInclude Include="squad_hierarchy_holder.h" />
     <ClInclude Include="squad_hierarchy_holder_inline.h" />
-	<ClInclude Include="StalkerOutfit.h" />
+    <ClInclude Include="StalkerOutfit.h" />
     <ClInclude Include="stalker_alife_actions.h" />
     <ClInclude Include="stalker_alife_planner.h" />
     <ClInclude Include="stalker_alife_task_actions.h" />
@@ -2162,7 +2162,7 @@
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="ActorAnimation.cpp" />
-	<ClCompile Include="ActorBackpack.cpp" />
+    <ClCompile Include="ActorBackpack.cpp" />
     <ClCompile Include="ActorCameras.cpp" />
     <ClCompile Include="ActorCondition.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
@@ -2174,7 +2174,7 @@
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="ActorHelmet.cpp" />
-	<ClCompile Include="ActorNightVision.cpp" />
+    <ClCompile Include="ActorNightVision.cpp" />
     <ClCompile Include="ActorInput.cpp" />
     <ClCompile Include="ActorMountedWeapon.cpp" />
     <ClCompile Include="ActorVehicle.cpp" />
@@ -3118,14 +3118,14 @@
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-	<ClCompile Include="map_manager_script.cpp">
+    <ClCompile Include="map_manager_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="map_spot.cpp" />
     <ClCompile Include="material_manager.cpp" />
     <ClCompile Include="medkit.cpp" />
-	<ClCompile Include="battery.cpp" />
+    <ClCompile Include="battery.cpp" />
     <ClCompile Include="memory_manager.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
@@ -3658,7 +3658,7 @@
     <ClCompile Include="spectator_camera_first_eye.cpp" />
     <ClCompile Include="sprinter_stopper.cpp" />
     <ClCompile Include="squad_hierarchy_holder.cpp" />
-	<ClCompile Include="StalkerOutfit.cpp">
+    <ClCompile Include="StalkerOutfit.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>

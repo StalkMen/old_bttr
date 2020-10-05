@@ -5787,15 +5787,6 @@
     <ClInclude Include="CustomOutfit.h">
       <Filter>Core\Client\Objects\items &amp; weapons\Outfit</Filter>
     </ClInclude>
-    <ClInclude Include="ExoOutfit.h">
-      <Filter>Core\Client\Objects\items &amp; weapons\Outfit</Filter>
-    </ClInclude>
-    <ClInclude Include="MilitaryOutfit.h">
-      <Filter>Core\Client\Objects\items &amp; weapons\Outfit</Filter>
-    </ClInclude>
-    <ClInclude Include="ScientificOutfit.h">
-      <Filter>Core\Client\Objects\items &amp; weapons\Outfit</Filter>
-    </ClInclude>
     <ClInclude Include="StalkerOutfit.h">
       <Filter>Core\Client\Objects\items &amp; weapons\Outfit</Filter>
     </ClInclude>
@@ -7610,6 +7601,9 @@
       <Filter>xrGame_monsters\Poltergeist</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIPdaSpot.h" />
+    <ClInclude Include="ActorBackpack.h" />
+    <ClInclude Include="ActorNightVision.h" />
+    <ClInclude Include="battery.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -9715,15 +9709,6 @@
     <ClCompile Include="CustomOutfit.cpp">
       <Filter>Core\Client\Objects\items &amp; weapons\Outfit</Filter>
     </ClCompile>
-    <ClCompile Include="ExoOutfit.cpp">
-      <Filter>Core\Client\Objects\items &amp; weapons\Outfit</Filter>
-    </ClCompile>
-    <ClCompile Include="MilitaryOutfit.cpp">
-      <Filter>Core\Client\Objects\items &amp; weapons\Outfit</Filter>
-    </ClCompile>
-    <ClCompile Include="ScientificOutfit.cpp">
-      <Filter>Core\Client\Objects\items &amp; weapons\Outfit</Filter>
-    </ClCompile>
     <ClCompile Include="StalkerOutfit.cpp">
       <Filter>Core\Client\Objects\items &amp; weapons\Outfit</Filter>
     </ClCompile>
@@ -11364,6 +11349,10 @@
     <ClCompile Include="console_commands_mp.cpp">
       <Filter>xrGame_console</Filter>
     </ClCompile>
+    <ClCompile Include="ActorBackpack.cpp" />
+    <ClCompile Include="ActorNightVision.cpp" />
+    <ClCompile Include="map_manager_script.cpp" />
+    <ClCompile Include="battery.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="ai\monsters\chimera\chimera_attack_state.h">

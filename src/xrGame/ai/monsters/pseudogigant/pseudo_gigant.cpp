@@ -306,7 +306,7 @@ void CPseudoGigant::on_threaten_execute()
 	HS.Write_Packet		(l_P);
 	u_EventSend			(l_P);	
 
-	if (Actor()) // Если это актер, а не НПС
+	if (pA)
 	{
 		LPCSTR _execute;
 		LUA_EXPORT m_function;
