@@ -291,13 +291,12 @@ CRenderTarget::CRenderTarget		()
 	param_noise_fps		= 25.f;
 	param_noise_scale	= 1.f;
 
-	im_noise_time		= 1.0f/100.0f; //Alundaio should be float?
+	im_noise_time		= 0.01f; //Alundaio should be float?
 	im_noise_shift_w	= 0;
 	im_noise_shift_h	= 0;
 
 	param_color_base	= color_rgba(127,127,127,	0);
 	param_color_gray	= color_rgba(85,85,85,		0);
-	//param_color_add		= color_rgba(0,0,0,			0);
 	param_color_add.set( 0.0f, 0.0f, 0.0f );
 
 	dwAccumulatorClearMark			= 0;
