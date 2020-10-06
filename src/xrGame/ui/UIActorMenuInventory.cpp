@@ -94,7 +94,8 @@ void CUIActorMenu::InitInventoryMode()
 void CUIActorMenu::DeInitInventoryMode()
 {
 	m_pTrashList->Show				(false);
-	m_clock_value->Show				(false); 
+	if (!strstr(Core.Params, "-old_ver"))
+		m_clock_value->Show				(false); 
 }
 
 void CUIActorMenu::SendEvent_ActivateSlot(u16 slot, u16 recipient)
