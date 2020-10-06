@@ -13,6 +13,14 @@ enum DebugTextColor : DWORD
     DTC_GREEN = 0xFF67F92E,
 };
 
+static const int stat_1 = 10;
+static const int stat_2 = 25;
+static const int stat_3 = 40;
+static const int stat_4 = 55;
+static const int stat_5 = 70;
+static const int stat_6 = 85;
+static const int stat_7 = 100;
+
 static const int GetMainInfoStats = 10;
 
 void CStats::Show_HW_Stats()
@@ -58,6 +66,11 @@ void CStats::Show_HW_Stats()
 
         pFontHW->SetHeightI(0.018f);
 
+        pFontHW->SetColor(DebugTextColor::DTC_GREEN);
+
+        pFontHW->Out(GetMainInfoStats, stat_1, "-- [Information about rendering the current scene] --");
+        pFontHW->Out(GetMainInfoStats, stat_2, "-- [Information about your computer configuration] --");
+
         if (AvailableMem < 512 || AvailablePageFileMem < 1596)
             pFontHW->SetColor(DebugTextColor::DTC_RED);
         else if (AvailableMem < 768 || AvailablePageFileMem < 2048)
@@ -66,9 +79,9 @@ void CStats::Show_HW_Stats()
             pFontHW->SetColor(DebugTextColor::DTC_GREEN);
 
         // Draw all your stuff
-        pFontHW->Out(GetMainInfoStats, 25, "MEM AVAILABLE: %0.0fMB", AvailableMem); // Physical memory available
-        pFontHW->Out(GetMainInfoStats, 40, "PAGE AVAILABLE: %0.0fMB", AvailablePageFileMem); // Pagefile memory available
-        pFontHW->Out(GetMainInfoStats, 55, "PAGE APPUSED: %0.0fMB", PageFileMemUsedByApp); // Physical memory used by app
+        pFontHW->Out(GetMainInfoStats, stat_3, "Physical memory available: %0.0fMB", AvailableMem); // Physical memory available
+        pFontHW->Out(GetMainInfoStats, stat_4, "Pagefile memory available: %0.0fMB", AvailablePageFileMem); // Pagefile memory available
+        pFontHW->Out(GetMainInfoStats, stat_5, "Physical memory used by app: %0.0fMB", PageFileMemUsedByApp); // Physical memory used by app
 
         if (PhysMemoryUsedPercent > 80.0)
             pFontHW->SetColor(DebugTextColor::DTC_RED);
@@ -77,7 +90,7 @@ void CStats::Show_HW_Stats()
         else
             pFontHW->SetColor(DebugTextColor::DTC_GREEN);
 
-        pFontHW->Out(GetMainInfoStats, 70, "MEM USED: %0.0f%%", PhysMemoryUsedPercent); // Total Phys. memory load (%)
+        pFontHW->Out(GetMainInfoStats, stat_6, "Physical memory load: %0.0f%%", PhysMemoryUsedPercent); // Total Phys. memory load (%)
 
         if (cpuLoad > 80.0)
             pFontHW->SetColor(DebugTextColor::DTC_RED);
@@ -86,14 +99,15 @@ void CStats::Show_HW_Stats()
         else
             pFontHW->SetColor(DebugTextColor::DTC_GREEN);
 
-        pFontHW->Out(GetMainInfoStats, 85, "CPU LOAD: %0.0f%%", cpuLoad); // CPU load
+        pFontHW->Out(GetMainInfoStats, stat_7, "CPU load: %0.0f%%", cpuLoad); // CPU load
 
         // get MT Load
-        float dwScale = 100;
+        static const int stat_8 = 115;
+        int GetInfoScale = stat_8;
         for (size_t i = 0; i < CPU::ID.m_dwNumberOfProcessors; i++)
         {
-            pFontHW->Out(GetMainInfoStats, dwScale, "CPU %u: %0.0f%%", i, CPU::ID.fUsage[i]);
-            dwScale += 15;
+            pFontHW->Out(GetMainInfoStats, GetInfoScale, "CPU %u: %0.0f%%", i, CPU::ID.fUsage[i]);
+            GetInfoScale += 15;
         }
 
         if (GpuLoad != u32(-1))
@@ -105,7 +119,7 @@ void CStats::Show_HW_Stats()
             else
                 pFontHW->SetColor(DebugTextColor::DTC_GREEN);
 
-            pFontHW->Out(GetMainInfoStats, dwScale, "GPU LOAD: %u%%", GpuLoad);
+            pFontHW->Out(GetMainInfoStats, GetInfoScale, "GPU load: %u%%", GpuLoad);
         }
 
         pFontHW->OnRender();
