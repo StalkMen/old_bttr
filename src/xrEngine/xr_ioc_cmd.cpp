@@ -685,13 +685,13 @@ xr_token FpsLockToken[] = {
 #include "device.h"
 void CCC_Register()
 {
-    CMD3(CCC_Token, "xrEngine_fps_lock", &g_dwFPSlimit, FpsLockToken);
-    CMD3(CCC_Mask, "xrEngine_xrRender_stats", &psDeviceFlags, rsRenderInfo);
-    CMD4(CCC_Integer, "xrEngine_noprefetch", &xrengint_noprefetch, 0, 1);
-    CMD4(CCC_Integer, "xrEngine_discord", &game_value_discord_status, 0, 1);
+    CMD3(CCC_Token,     "xrEngine_fps_lock", &g_dwFPSlimit, FpsLockToken);
+    CMD3(CCC_Mask,      "xrEngine_xrRender_stats", &psDeviceFlags, rsRenderInfo);
+    CMD4(CCC_Integer,   "xrEngine_noprefetch", &xrengint_noprefetch, 0, 1);
+    CMD4(CCC_Integer,   "xrEngine_discord", &game_value_discord_status, 0, 1);
 
 #if 0
-    CMD4(CCC_Integer, "xrEngine_rs_fps_test", &show_FPS_only, 0, 1);
+    CMD4(CCC_Integer,   "xrEngine_rs_fps_test", &show_FPS_only, 0, 1);
 #endif
 
     if (!strstr(Core.Params, "-old_ver"))
