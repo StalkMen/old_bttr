@@ -47,6 +47,14 @@
 #include "dx10.h"
 #include "../../build_render_config.h"
 
+/*
+#ifdef RENDER_DX10_BUILD
+#define RENDER_API __declspec(dllexport)
+#else
+#define RENDER_API __declspec(dllimport)
+#endif
+*/
+
 IC	void	jitter(CBlender_Compile& C)
 {
 	C.r_dx10Texture	("jitter0",	JITTER(0));
@@ -57,4 +65,3 @@ IC	void	jitter(CBlender_Compile& C)
 	C.r_dx10Texture	("jitterMipped",	r2_jitter_mipped);
 	C.r_dx10Sampler	("smp_jitter");
 }
-//#pragma comment( lib, "dxguid.lib" )

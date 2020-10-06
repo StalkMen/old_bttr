@@ -121,6 +121,8 @@ public:
     void OnDeviceDestroy(void);
     
     u32   GpuLoad;
+    bool  GPUType;
+    int   _CARD;
     float AvailableMem;
     float AvailablePageFileMem;
     float PageFileMemUsedByApp;
