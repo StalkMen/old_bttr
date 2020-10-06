@@ -109,7 +109,8 @@ public:
     virtual void OnRender();
     void OnDeviceCreate(void);
     void OnDeviceDestroy(void);
-
+    
+    u32   GpuLoad;
     float AvailableMem;
     float AvailablePageFileMem;
     float PageFileMemUsedByApp;

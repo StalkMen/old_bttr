@@ -42,6 +42,7 @@ public:
 	BOOL			SceneMode;
 
 	u32				iGPUNum;
+	u32				iGPUStats;
 
 	// device format
 	D3DFORMAT		fTarget;

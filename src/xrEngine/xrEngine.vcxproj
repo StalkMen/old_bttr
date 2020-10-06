@@ -230,6 +230,8 @@
     <ClInclude Include="ai_script_lua_extension.h" />
     <ClInclude Include="ai_script_lua_space.h" />
     <ClInclude Include="ai_script_space.h" />
+	<ClInclude Include="AMD.h" />
+	<ClInclude Include="NVIDIA.h" />
     <ClInclude Include="bone.h" />
     <ClInclude Include="CameraBase.h" />
     <ClInclude Include="CameraDefs.h" />
@@ -355,6 +357,8 @@
   <ItemGroup>
     <ClCompile Include="ai_script_lua_debug.cpp" />
     <ClCompile Include="ai_script_lua_extension.cpp" />
+	<ClCompile Include="AMD.cpp" />
+	<ClCompile Include="NVIDIA.cpp" />
     <ClCompile Include="bone.cpp" />
     <ClCompile Include="CameraBase.cpp" />
     <ClCompile Include="CameraManager.cpp" />
