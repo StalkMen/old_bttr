@@ -436,73 +436,9 @@ static INT_PTR CALLBACK logDlgProc(HWND hw, UINT msg, WPARAM wp, LPARAM lp)
     }
     return TRUE;
 }
-/*
-void test_rtc ()
-{
-CStatTimer tMc,tM,tC,tD;
-u32 bytes=0;
-tMc.FrameStart ();
-tM.FrameStart ();
-tC.FrameStart ();
-tD.FrameStart ();
-::Random.seed (0x12071980);
-for (u32 test=0; test<10000; test++)
-{
-u32 in_size = ::Random.randI(1024,256*1024);
-u32 out_size_max = rtc_csize (in_size);
-u8* p_in = xr_alloc<u8> (in_size);
-u8* p_in_tst = xr_alloc<u8> (in_size);
-u8* p_out = xr_alloc<u8> (out_size_max);
-for (u32 git=0; git<in_size; git++) p_in[git] = (u8)::Random.randI (8); // garbage
-bytes += in_size;
 
-tMc.Begin ();
-memcpy (p_in_tst,p_in,in_size);
-tMc.End ();
-
-tM.Begin ();
-CopyMemory(p_in_tst,p_in,in_size);
-tM.End ();
-
-tC.Begin ();
-u32 out_size = rtc_compress (p_out,out_size_max,p_in,in_size);
-tC.End ();
-
-tD.Begin ();
-u32 in_size_tst = rtc_decompress(p_in_tst,in_size,p_out,out_size);
-tD.End ();
-
-// sanity check
-R_ASSERT (in_size == in_size_tst);
-for (u32 tit=0; tit<in_size; tit++) R_ASSERT(p_in[tit] == p_in_tst[tit]); // garbage
-
-xr_free (p_out);
-xr_free (p_in_tst);
-xr_free (p_in);
-}
-tMc.FrameEnd (); float rMc = 1000.f*(float(bytes)/tMc.result)/(1024.f*1024.f);
-tM.FrameEnd (); float rM = 1000.f*(float(bytes)/tM.result)/(1024.f*1024.f);
-tC.FrameEnd (); float rC = 1000.f*(float(bytes)/tC.result)/(1024.f*1024.f);
-tD.FrameEnd (); float rD = 1000.f*(float(bytes)/tD.result)/(1024.f*1024.f);
-Msg ("* memcpy: %5.2f M/s (%3.1f%%)",rMc,100.f*rMc/rMc);
-Msg ("* mm-memcpy: %5.2f M/s (%3.1f%%)",rM,100.f*rM/rMc);
-Msg ("* compression: %5.2f M/s (%3.1f%%)",rC,100.f*rC/rMc);
-Msg ("* decompression: %5.2f M/s (%3.1f%%)",rD,100.f*rD/rMc);
-}
-*/
 extern void testbed(void);
 
-// video
-/*
-static HINSTANCE g_hInstance ;
-static HINSTANCE g_hPrevInstance ;
-static int g_nCmdShow ;
-void __cdecl intro_dshow_x (void*)
-{
-IntroDSHOW_wnd (g_hInstance,g_hPrevInstance,"GameData\\Stalker_Intro.avi",g_nCmdShow);
-g_bIntroFinished = TRUE ;
-}
-*/
 #define dwStickyKeysStructSize sizeof( STICKYKEYS )
 #define dwFilterKeysStructSize sizeof( FILTERKEYS )
 #define dwToggleKeysStructSize sizeof( TOGGLEKEYS )
@@ -656,48 +592,6 @@ BOOL IsOutOfVirtualMemory()
 
 #include "xr_ioc_cmd.h"
 
-//typedef void DUMMY_STUFF (const void*,const u32&,void*);
-//XRCORE_API DUMMY_STUFF *g_temporary_stuff;
-
-//#define TRIVIAL_ENCRYPTOR_DECODER
-//#include "trivial_encryptor.h"
-
-//#define RUSSIAN_BUILD
-
-#if 0
-void foo()
-{
-    typedef std::map<int, int> TEST_MAP;
-    TEST_MAP temp;
-    temp.insert(std::make_pair(0, 0));
-    TEST_MAP::const_iterator I = temp.upper_bound(2);
-    if (I == temp.end())
-        OutputDebugString("end() returned\r\n");
-    else
-        OutputDebugString("last element returned\r\n");
-
-    typedef void* pvoid;
-
-    LPCSTR path = "d:\\network\\stalker_net2";
-    FILE* f = fopen(path, "rb");
-    int file_handle = _fileno(f);
-    u32 buffer_size = _filelength(file_handle);
-    pvoid buffer = xr_malloc(buffer_size);
-    size_t result = fread(buffer, buffer_size, 1, f);
-    R_ASSERT3(!buffer_size || (result && (buffer_size >= result)), "Cannot read from file", path);
-    fclose(f);
-
-    u32 compressed_buffer_size = rtc_csize(buffer_size);
-    pvoid compressed_buffer = xr_malloc(compressed_buffer_size);
-    u32 compressed_size = rtc_compress(compressed_buffer, compressed_buffer_size, buffer, buffer_size);
-
-    LPCSTR compressed_path = "d:\\network\\stalker_net2.rtc";
-    FILE* f1 = fopen(compressed_path, "wb");
-    fwrite(compressed_buffer, compressed_size, 1, f1);
-    fclose(f1);
-}
-#endif // 0
-
 ENGINE_API bool g_dedicated_server = false;
 
 #ifndef DEDICATED_SERVER
@@ -709,11 +603,7 @@ int APIENTRY WinMain_impl(HINSTANCE hInstance,
                           char* lpCmdLine,
                           int nCmdShow)
 {
-#ifdef DEDICATED_SERVER
-    Debug._initialize(true);
-#else // DEDICATED_SERVER
     Debug._initialize(false);
-#endif // DEDICATED_SERVER
 
     if (!IsDebuggerPresent())
     {
@@ -740,8 +630,6 @@ int APIENTRY WinMain_impl(HINSTANCE hInstance,
         }
     }
 
-    // foo();
-#ifndef DEDICATED_SERVER
 
     // Check for virtual memory
     if ((strstr(lpCmdLine, "--skipmemcheck") == NULL) && IsOutOfVirtualMemory())
@@ -768,11 +656,10 @@ int APIENTRY WinMain_impl(HINSTANCE hInstance,
         return 1;
     }
 #endif
-#else // DEDICATED_SERVER
-    g_dedicated_server = true;
-#endif // DEDICATED_SERVER
 
+#ifndef MULTICORE_ENGINE
     SetThreadAffinityMask(GetCurrentThread(), 1);
+#endif
 
     // Title window
     logoWindow = CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_STARTUP), 0, logDlgProc);

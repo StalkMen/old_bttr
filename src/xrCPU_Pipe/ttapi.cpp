@@ -189,8 +189,10 @@ DWORD ttapi_Init( _processor_info* ID )
 	while ( ! ( dwAffinitiMask & dwCurrentMask ) )
 		dwCurrentMask <<= 1;
 
+#ifndef MULTICORE_ENGINE
 	SetThreadAffinityMask( GetCurrentThread() , dwCurrentMask );
-	//Msg("Master Thread Affinity Mask : 0x%8.8X" , dwCurrentMask );
+	Msg("Master Thread Affinity Mask : 0x%8.8X" , dwCurrentMask );
+#endif
 
 	// Creating threads
 	for ( DWORD i = 0 ; i < ttapi_threads_count ; i++ ) {
@@ -205,9 +207,11 @@ DWORD ttapi_Init( _processor_info* ID )
 		do
 			dwCurrentMask <<= 1;
 		while ( ! ( dwAffinitiMask & dwCurrentMask ) );
-			
+
+#ifndef		MULTICORE_ENGINE
 		SetThreadAffinityMask( ttapi_threads_handles[ i ] , dwCurrentMask );
-		//Msg("Helper Thread #%u Affinity Mask : 0x%8.8X" , i + 1 , dwCurrentMask );
+		Msg("Helper Thread #%u Affinity Mask : 0x%8.8X" , i + 1 , dwCurrentMask );
+#endif
 
 		// Setting thread name
 		sprintf_s( szThreadName , "Helper Thread #%u" , i );
