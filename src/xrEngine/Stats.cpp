@@ -53,21 +53,29 @@ static optimizer vtune;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 BOOL   g_bDisableRedText = FALSE;
+extern int show_FPS_only;
 CStats::CStats()
 {
-    fFPS = 30.f;
-    fRFPS = 30.f;
-    fTPS = 0;
     pFont = 0;
     fMem_calls = 0;
     RenderDUMP_DT_Count = 0;
+    fDeviceMeasuredFPS = -1.f;
     Device.seqRender.Add(this, REG_PRIORITY_LOW - 1000);
+
+    UpdateFPSCounterSkip = 0.f;
+    UpdateFPSMinute = 0.f;
+    fCounterTotalMinute = 0.f;
+    iTotalMinute = -1;
+    iAvrageMinute = -1;
+    iFPS = -1;
+    pFPSFont = 0;
 }
 
 CStats::~CStats()
 {
     Device.seqRender.Remove(this);
     xr_delete(pFont);
+    xr_delete(pFPSFont);
 }
 
 void _draw_cam_pos(CGameFont* pFont)
@@ -143,22 +151,7 @@ void CStats::Show()
     }
 
     // calc FPS & TPS
-    if (Device.fTimeDelta > EPS_S)
-    {
-        float fps = 1.f / Device.fTimeDelta;
-        //if (Engine.External.tune_enabled) vtune.update (fps);
-        float fOne = 0.3f;
-        float fInv = 1.f - fOne;
-        fFPS = fInv*fFPS + fOne*fps;
-
-        if (RenderTOTAL.result > EPS_S)
-        {
-            u32 rendered_polies = Device.m_pRender->GetCacheStatPolys();
-            fTPS = fInv*fTPS + fOne*float(rendered_polies) / (RenderTOTAL.result*1000.f);
-            //fTPS = fInv*fTPS + fOne*float(RCache.stat.polys)/(RenderTOTAL.result*1000.f);
-            fRFPS = fInv*fRFPS + fOne*1000.f / RenderTOTAL.result;
-        }
-    }
+    if (Device.fTimeDelta <= EPS_S)
     {
         float mem_count = float(Memory.stat_calls);
         if (mem_count > fMem_calls) fMem_calls = mem_count;
@@ -166,9 +159,6 @@ void CStats::Show()
         Memory.stat_calls = 0;
     }
 
-    ////////////////////////////////////////////////
-    if (g_dedicated_server) return;
-    ////////////////////////////////////////////////
     int frm = 2000;
     div_t ddd = div(Device.dwFrame, frm);
     if (ddd.rem < frm / 2.0f)
@@ -185,161 +175,178 @@ void CStats::Show()
     float  f_base_size = 0.01f;
     F.SetHeightI(f_base_size);
 
-    if (vtune.enabled())
-    {
-        float sz = pFont->GetHeight();
-        pFont->SetHeightI(0.02f);
-        pFont->SetColor(0xFFFF0000);
-        pFont->OutSet(Device.dwWidth / 2.0f + (pFont->SizeOf_("--= tune =--") / 2.0f), Device.dwHeight / 2.0f);
-        pFont->OutNext("--= tune =--");
-        pFont->OnRender();
-        pFont->SetHeight(sz);
-    };
-
     // Show them
-    if (psDeviceFlags.test(rsStatistic))
+    if (psDeviceFlags.test(rsStatistic) || show_FPS_only == 1)
     {
-        static float r_ps = 0;
-        static float b_ps = 0;
-        r_ps = .99f*r_ps + .01f*(clRAY.count / clRAY.result);
-        b_ps = .99f*b_ps + .01f*(clBOX.count / clBOX.result);
+        if (psDeviceFlags.test(rsStatistic))
+        {
+            static float r_ps = 0;
+            static float b_ps = 0;
+            r_ps = .99f * r_ps + .01f * (clRAY.count / clRAY.result);
+            b_ps = .99f * b_ps + .01f * (clBOX.count / clBOX.result);
 
-        CSound_stats snd_stat;
-        ::Sound->statistic(&snd_stat, 0);
-        F.SetColor(0xFFFFFFFF);
+            CSound_stats snd_stat;
+            ::Sound->statistic(&snd_stat, 0);
+            F.SetColor(0xFFFFFFFF);
 
-        F.OutSet(0, 0);
-        F.OutNext("FPS/RFPS:    %3.1f/%3.1f", fFPS, fRFPS);
-        F.OutNext("TPS:         %2.2f M", fTPS);
-        m_pRender->OutData1(F);
-        //F.OutNext ("VERT:        %d/%d", RCache.stat.verts,RCache.stat.calls?RCache.stat.verts/RCache.stat.calls:0);
-        //F.OutNext ("POLY:        %d/%d", RCache.stat.polys,RCache.stat.calls?RCache.stat.polys/RCache.stat.calls:0);
-        //F.OutNext ("DIP/DP:      %d", RCache.stat.calls);
+            m_pRender->OutData1(F);
 #ifdef DEBUG
-        F.OutSkip();
+            F.OutSkip();
 #ifdef FS_DEBUG
-        F.OutNext("mapped:      %d", g_file_mapped_memory);
-        F.OutSkip();
+            F.OutNext("mapped:      %d", g_file_mapped_memory);
+            F.OutSkip();
 #endif
-        m_pRender->OutData2(F);
-        //F.OutNext ("SH/T/M/C:    %d/%d/%d/%d",RCache.stat.states,RCache.stat.textures,RCache.stat.matrices,RCache.stat.constants);
-        //F.OutNext ("RT/PS/VS:    %d/%d/%d", RCache.stat.target_rt,RCache.stat.ps,RCache.stat.vs);
-        //F.OutNext ("DCL/VB/IB:   %d/%d/%d", RCache.stat.decl,RCache.stat.vb,RCache.stat.ib);
+            m_pRender->OutData2(F);
 #endif
-        m_pRender->OutData3(F);
-        //F.OutNext ("xforms:      %d", RCache.stat.xforms);
-        F.OutSkip();
+            m_pRender->OutData3(F);
+            //F.OutNext ("xforms:      %d", RCache.stat.xforms);
+            F.OutSkip();
 
 #define PPP(a) (100.f*float(a)/float(EngineTOTAL.result))
-        F.OutNext("*** ENGINE:  %2.2fms", EngineTOTAL.result);
-        F.OutNext("Memory:      %2.2fa", fMem_calls);
-        F.OutNext("uClients:    %2.2fms, %2.1f%%, crow(%d)/active(%d)/total(%d)", UpdateClient.result, PPP(UpdateClient.result), UpdateClient_crows, UpdateClient_active, UpdateClient_total);
-        F.OutNext("uSheduler:   %2.2fms, %2.1f%%", Sheduler.result, PPP(Sheduler.result));
-        F.OutNext("uSheduler_L: %2.2fms", fShedulerLoad);
-        F.OutNext("uParticles:  Qstart[%d] Qactive[%d] Qdestroy[%d]", Particles_starting, Particles_active, Particles_destroy);
-        F.OutNext("spInsert:    o[%.2fms, %2.1f%%], p[%.2fms, %2.1f%%]", g_SpatialSpace->stat_insert.result, PPP(g_SpatialSpace->stat_insert.result), g_SpatialSpacePhysic->stat_insert.result, PPP(g_SpatialSpacePhysic->stat_insert.result));
-        F.OutNext("spRemove:    o[%.2fms, %2.1f%%], p[%.2fms, %2.1f%%]", g_SpatialSpace->stat_remove.result, PPP(g_SpatialSpace->stat_remove.result), g_SpatialSpacePhysic->stat_remove.result, PPP(g_SpatialSpacePhysic->stat_remove.result));
-        F.OutNext("Physics:     %2.2fms, %2.1f%%", Physics.result, PPP(Physics.result));
-        F.OutNext("  collider:  %2.2fms", ph_collision.result);
-        F.OutNext("  solver:    %2.2fms, %d", ph_core.result, ph_core.count);
-        F.OutNext("aiThink:     %2.2fms, %d", AI_Think.result, AI_Think.count);
-        F.OutNext("  aiRange:   %2.2fms, %d", AI_Range.result, AI_Range.count);
-        F.OutNext("  aiPath:    %2.2fms, %d", AI_Path.result, AI_Path.count);
-        F.OutNext("  aiNode:    %2.2fms, %d", AI_Node.result, AI_Node.count);
-        F.OutNext("aiVision:    %2.2fms, %d", AI_Vis.result, AI_Vis.count);
-        F.OutNext("  Query:     %2.2fms", AI_Vis_Query.result);
-        F.OutNext("  RayCast:   %2.2fms", AI_Vis_RayTests.result);
-        F.OutSkip();
+            F.OutNext("*** ENGINE:  %2.2fms", EngineTOTAL.result);
+            F.OutNext("Memory:      %2.2fa", fMem_calls);
+            F.OutNext("uClients:    %2.2fms, %2.1f%%, crow(%d)/active(%d)/total(%d)", UpdateClient.result, PPP(UpdateClient.result), UpdateClient_crows, UpdateClient_active, UpdateClient_total);
+            F.OutNext("uSheduler:   %2.2fms, %2.1f%%", Sheduler.result, PPP(Sheduler.result));
+            F.OutNext("uSheduler_L: %2.2fms", fShedulerLoad);
+            F.OutNext("uParticles:  Qstart[%d] Qactive[%d] Qdestroy[%d]", Particles_starting, Particles_active, Particles_destroy);
+            F.OutNext("spInsert:    o[%.2fms, %2.1f%%], p[%.2fms, %2.1f%%]", g_SpatialSpace->stat_insert.result, PPP(g_SpatialSpace->stat_insert.result), g_SpatialSpacePhysic->stat_insert.result, PPP(g_SpatialSpacePhysic->stat_insert.result));
+            F.OutNext("spRemove:    o[%.2fms, %2.1f%%], p[%.2fms, %2.1f%%]", g_SpatialSpace->stat_remove.result, PPP(g_SpatialSpace->stat_remove.result), g_SpatialSpacePhysic->stat_remove.result, PPP(g_SpatialSpacePhysic->stat_remove.result));
+            F.OutNext("Physics:     %2.2fms, %2.1f%%", Physics.result, PPP(Physics.result));
+            F.OutNext("  collider:  %2.2fms", ph_collision.result);
+            F.OutNext("  solver:    %2.2fms, %d", ph_core.result, ph_core.count);
+            F.OutNext("aiThink:     %2.2fms, %d", AI_Think.result, AI_Think.count);
+            F.OutNext("  aiRange:   %2.2fms, %d", AI_Range.result, AI_Range.count);
+            F.OutNext("  aiPath:    %2.2fms, %d", AI_Path.result, AI_Path.count);
+            F.OutNext("  aiNode:    %2.2fms, %d", AI_Node.result, AI_Node.count);
+            F.OutNext("aiVision:    %2.2fms, %d", AI_Vis.result, AI_Vis.count);
+            F.OutNext("  Query:     %2.2fms", AI_Vis_Query.result);
+            F.OutNext("  RayCast:   %2.2fms", AI_Vis_RayTests.result);
+            F.OutSkip();
 
 #undef  PPP
 #define PPP(a) (100.f*float(a)/float(RenderTOTAL.result))
-        F.OutNext("*** RENDER:  %2.2fms", RenderTOTAL.result);
-        F.OutNext("R_CALC:      %2.2fms, %2.1f%%", RenderCALC.result, PPP(RenderCALC.result));
-        F.OutNext("  HOM:       %2.2fms, %d", RenderCALC_HOM.result, RenderCALC_HOM.count);
-        F.OutNext("  Skeletons: %2.2fms, %d", Animation.result, Animation.count);
-        F.OutNext("R_DUMP:      %2.2fms, %2.1f%%", RenderDUMP.result, PPP(RenderDUMP.result));
-        F.OutNext("  Wait-L:    %2.2fms", RenderDUMP_Wait.result);
-        F.OutNext("  Wait-S:    %2.2fms", RenderDUMP_Wait_S.result);
-        F.OutNext("  Skinning:  %2.2fms", RenderDUMP_SKIN.result);
-        F.OutNext("  DT_Vis/Cnt:%2.2fms/%d", RenderDUMP_DT_VIS.result, RenderDUMP_DT_Count);
-        F.OutNext("  DT_Render: %2.2fms", RenderDUMP_DT_Render.result);
-        F.OutNext("  DT_Cache:  %2.2fms", RenderDUMP_DT_Cache.result);
-        F.OutNext("  Wallmarks: %2.2fms, %d/%d - %d", RenderDUMP_WM.result, RenderDUMP_WMS_Count, RenderDUMP_WMD_Count, RenderDUMP_WMT_Count);
-        F.OutNext("  Glows:     %2.2fms", RenderDUMP_Glows.result);
-        F.OutNext("  Lights:    %2.2fms, %d", RenderDUMP_Lights.result, RenderDUMP_Lights.count);
-        F.OutNext("  RT:        %2.2fms, %d", RenderDUMP_RT.result, RenderDUMP_RT.count);
-        F.OutNext("  HUD:       %2.2fms", RenderDUMP_HUD.result);
-        F.OutNext("  P_calc:    %2.2fms", RenderDUMP_Pcalc.result);
-        F.OutNext("  S_calc:    %2.2fms", RenderDUMP_Scalc.result);
-        F.OutNext("  S_render:  %2.2fms, %d", RenderDUMP_Srender.result, RenderDUMP_Srender.count);
-        F.OutSkip();
-        F.OutNext("*** SOUND:   %2.2fms", Sound.result);
-        F.OutNext("  TGT/SIM/E: %d/%d/%d", snd_stat._rendered, snd_stat._simulated, snd_stat._events);
-        F.OutNext("  HIT/MISS:  %d/%d", snd_stat._cache_hits, snd_stat._cache_misses);
-        F.OutSkip();
-        F.OutNext("Input:       %2.2fms", Input.result);
-        F.OutNext("clRAY:       %2.2fms, %d, %2.0fK", clRAY.result, clRAY.count, r_ps);
-        F.OutNext("clBOX:       %2.2fms, %d, %2.0fK", clBOX.result, clBOX.count, b_ps);
-        F.OutNext("clFRUSTUM:   %2.2fms, %d", clFRUSTUM.result, clFRUSTUM.count);
-        F.OutSkip();
-        F.OutNext("netClientRecv:   %2.2fms, %d", netClient1.result, netClient1.count);
-        F.OutNext("netClientSend:   %2.2fms, %d", netClient2.result, netClient2.count);
-        F.OutNext("netServer:   %2.2fms, %d", netServer.result, netServer.count);
-        F.OutNext("netClientCompressor:   %2.2fms", netClientCompressor.result);
-        F.OutNext("netServerCompressor:   %2.2fms", netServerCompressor.result);
+            F.OutNext("*** RENDER:  %2.2fms", RenderTOTAL.result);
+            F.OutNext("R_CALC:      %2.2fms, %2.1f%%", RenderCALC.result, PPP(RenderCALC.result));
+            F.OutNext("  HOM:       %2.2fms, %d", RenderCALC_HOM.result, RenderCALC_HOM.count);
+            F.OutNext("  Skeletons: %2.2fms, %d", Animation.result, Animation.count);
+            F.OutNext("R_DUMP:      %2.2fms, %2.1f%%", RenderDUMP.result, PPP(RenderDUMP.result));
+            F.OutNext("  Wait-L:    %2.2fms", RenderDUMP_Wait.result);
+            F.OutNext("  Wait-S:    %2.2fms", RenderDUMP_Wait_S.result);
+            F.OutNext("  Skinning:  %2.2fms", RenderDUMP_SKIN.result);
+            F.OutNext("  DT_Vis/Cnt:%2.2fms/%d", RenderDUMP_DT_VIS.result, RenderDUMP_DT_Count);
+            F.OutNext("  DT_Render: %2.2fms", RenderDUMP_DT_Render.result);
+            F.OutNext("  DT_Cache:  %2.2fms", RenderDUMP_DT_Cache.result);
+            F.OutNext("  Wallmarks: %2.2fms, %d/%d - %d", RenderDUMP_WM.result, RenderDUMP_WMS_Count, RenderDUMP_WMD_Count, RenderDUMP_WMT_Count);
+            F.OutNext("  Glows:     %2.2fms", RenderDUMP_Glows.result);
+            F.OutNext("  Lights:    %2.2fms, %d", RenderDUMP_Lights.result, RenderDUMP_Lights.count);
+            F.OutNext("  RT:        %2.2fms, %d", RenderDUMP_RT.result, RenderDUMP_RT.count);
+            F.OutNext("  HUD:       %2.2fms", RenderDUMP_HUD.result);
+            F.OutNext("  P_calc:    %2.2fms", RenderDUMP_Pcalc.result);
+            F.OutNext("  S_calc:    %2.2fms", RenderDUMP_Scalc.result);
+            F.OutNext("  S_render:  %2.2fms, %d", RenderDUMP_Srender.result, RenderDUMP_Srender.count);
+            F.OutSkip();
+            F.OutNext("*** SOUND:   %2.2fms", Sound.result);
+            F.OutNext("  TGT/SIM/E: %d/%d/%d", snd_stat._rendered, snd_stat._simulated, snd_stat._events);
+            F.OutNext("  HIT/MISS:  %d/%d", snd_stat._cache_hits, snd_stat._cache_misses);
+            F.OutSkip();
+            F.OutNext("Input:       %2.2fms", Input.result);
+            F.OutNext("clRAY:       %2.2fms, %d, %2.0fK", clRAY.result, clRAY.count, r_ps);
+            F.OutNext("clBOX:       %2.2fms, %d, %2.0fK", clBOX.result, clBOX.count, b_ps);
+            F.OutNext("clFRUSTUM:   %2.2fms, %d", clFRUSTUM.result, clFRUSTUM.count);
+            F.OutSkip();
+            F.OutNext("netClientRecv:   %2.2fms, %d", netClient1.result, netClient1.count);
+            F.OutNext("netClientSend:   %2.2fms, %d", netClient2.result, netClient2.count);
+            F.OutNext("netServer:   %2.2fms, %d", netServer.result, netServer.count);
+            F.OutNext("netClientCompressor:   %2.2fms", netClientCompressor.result);
+            F.OutNext("netServerCompressor:   %2.2fms", netServerCompressor.result);
 
-        F.OutSkip();
+            F.OutSkip();
 
-        F.OutSkip();
-        F.OutNext("TEST 0:      %2.2fms, %d", TEST0.result, TEST0.count);
-        F.OutNext("TEST 1:      %2.2fms, %d", TEST1.result, TEST1.count);
-        F.OutNext("TEST 2:      %2.2fms, %d", TEST2.result, TEST2.count);
-        F.OutNext("TEST 3:      %2.2fms, %d", TEST3.result, TEST3.count);
+            F.OutSkip();
+            F.OutNext("TEST 0:      %2.2fms, %d", TEST0.result, TEST0.count);
+            F.OutNext("TEST 1:      %2.2fms, %d", TEST1.result, TEST1.count);
+            F.OutNext("TEST 2:      %2.2fms, %d", TEST2.result, TEST2.count);
+            F.OutNext("TEST 3:      %2.2fms, %d", TEST3.result, TEST3.count);
 #ifdef DEBUG_MEMORY_MANAGER
-        F.OutSkip();
-        F.OutNext("str: cmp[%3d], dock[%3d], qpc[%3d]", Memory.stat_strcmp, Memory.stat_strdock, CPU::qpc_counter);
-        Memory.stat_strcmp = 0;
-        Memory.stat_strdock = 0;
-        CPU::qpc_counter = 0;
+            F.OutSkip();
+            F.OutNext("str: cmp[%3d], dock[%3d], qpc[%3d]", Memory.stat_strcmp, Memory.stat_strdock, CPU::qpc_counter);
+            Memory.stat_strcmp = 0;
+            Memory.stat_strdock = 0;
+            CPU::qpc_counter = 0;
 #else // DEBUG_MEMORY_MANAGER
-        F.OutSkip();
-        F.OutNext("qpc[%3d]", CPU::qpc_counter);
-        CPU::qpc_counter = 0;
+            F.OutSkip();
+            F.OutNext("qpc[%3d]", CPU::qpc_counter);
+            CPU::qpc_counter = 0;
 #endif // DEBUG_MEMORY_MANAGER
-        //  F.OutSet (640,0);
-        F.OutSkip();
-        m_pRender->OutData4(F);
-        /*
-        F.OutNext ("static:        %3.1f/%d", RCache.stat.r.s_static.verts/1024.f, RCache.stat.r.s_static.dips );
-        F.OutNext ("flora:         %3.1f/%d", RCache.stat.r.s_flora.verts/1024.f, RCache.stat.r.s_flora.dips );
-        F.OutNext ("  flora_lods:  %3.1f/%d", RCache.stat.r.s_flora_lods.verts/1024.f, RCache.stat.r.s_flora_lods.dips );
-        F.OutNext ("dynamic:       %3.1f/%d", RCache.stat.r.s_dynamic.verts/1024.f, RCache.stat.r.s_dynamic.dips );
-        F.OutNext ("  dynamic_sw:  %3.1f/%d", RCache.stat.r.s_dynamic_sw.verts/1024.f, RCache.stat.r.s_dynamic_sw.dips );
-        F.OutNext ("  dynamic_inst:%3.1f/%d", RCache.stat.r.s_dynamic_inst.verts/1024.f, RCache.stat.r.s_dynamic_inst.dips );
-        F.OutNext ("  dynamic_1B:  %3.1f/%d", RCache.stat.r.s_dynamic_1B.verts/1024.f, RCache.stat.r.s_dynamic_1B.dips );
-        F.OutNext ("  dynamic_2B:  %3.1f/%d", RCache.stat.r.s_dynamic_2B.verts/1024.f, RCache.stat.r.s_dynamic_2B.dips );
-        F.OutNext ("details:       %3.1f/%d", RCache.stat.r.s_details.verts/1024.f, RCache.stat.r.s_details.dips );
-        */
-        //////////////////////////////////////////////////////////////////////////
-        // Renderer specific
-        F.SetHeightI(f_base_size);
-        F.OutSet(200, 0);
-        Render->Statistics(&F);
+            //  F.OutSet (640,0);
+            F.OutSkip();
+            m_pRender->OutData4(F);
 
-        //////////////////////////////////////////////////////////////////////////
-        // Game specific
-        F.SetHeightI(f_base_size);
-        F.OutSet(400, 0);
-        g_pGamePersistent->Statistics(&F);
+            //////////////////////////////////////////////////////////////////////////
+            // Renderer specific
+            F.SetHeightI(f_base_size);
+            F.OutSet(200, 0);
+            Render->Statistics(&F);
 
-        //////////////////////////////////////////////////////////////////////////
-        // process PURE STATS
-        F.SetHeightI(f_base_size);
-        seqStats.Process(rp_Stats);
-        pFont->OnRender();
-    };
+            //////////////////////////////////////////////////////////////////////////
+            // Game specific
+            F.SetHeightI(f_base_size);
+            F.OutSet(400, 0);
+            g_pGamePersistent->Statistics(&F);
 
-    if ( /*psDeviceFlags.test(rsStatistic) ||*/ psDeviceFlags.test(rsCameraPos))
+            //////////////////////////////////////////////////////////////////////////
+            // process PURE STATS
+            F.SetHeightI(f_base_size);
+            seqStats.Process(rp_Stats);
+            pFont->OnRender();
+        };
+
+        if (show_FPS_only == 1)
+        {
+            CGameFont& fpsFont = *pFPSFont;
+
+            fpsFont.SetColor(0xFF8772A8);
+            fpsFont.SetHeightI(0.02);
+            fpsFont.SetAligment(CGameFont::alRight);
+            float posx, posy;
+            if (Device.dwWidth / Device.dwHeight < 1.5f) {			//posx = 1200.f * (Device.dwWidth / 1280.f);
+                posx = 1180.f * (Device.dwWidth / 1280.f);
+                posy = 10.f * (Device.dwHeight / 720.f);
+            }
+            else {
+                //posx = 940.f * (Device.dwWidth / 1024.f);
+                posx = 890.f * (Device.dwWidth / 1024.f);
+                posy = 15.f * (Device.dwHeight / 768.f);
+                fpsFont.SetHeightI(0.030);
+            }
+            fpsFont.OutSet(posx, posy);
+
+            if (Device.RateControlingTimer.GetElapsed_sec() * 1000.f - UpdateFPSCounterSkip > 100.f)
+            {
+                UpdateFPSCounterSkip = Device.RateControlingTimer.GetElapsed_sec() * 1000.f;
+                iFPS = (int)fDeviceMeasuredFPS;
+                fCounterTotalMinute += fDeviceMeasuredFPS / 10.f;
+            }
+
+            //Update Total/Minute and Avrege
+            if (Device.RateControlingTimer.GetElapsed_sec() * 1000.f - UpdateFPSMinute > 60000.f)
+            {
+                UpdateFPSMinute = Device.RateControlingTimer.GetElapsed_sec() * 1000.f;
+                iTotalMinute = (int)fCounterTotalMinute;
+                iAvrageMinute = (int)fCounterTotalMinute / 60;
+                fCounterTotalMinute = 0;
+
+            }
+            fpsFont.OutNext("      %i", iFPS);
+            fpsFont.OutSkip();
+            fpsFont.OutNext("A/MIN %i", iAvrageMinute);
+            fpsFont.OutNext("T/MIN %i", iTotalMinute);
+
+            pFPSFont->OnRender();
+        }
+
+    }
+    if (psDeviceFlags.test(rsCameraPos))
     {
         _draw_cam_pos(pFont);
         pFont->OnRender();
@@ -464,6 +471,7 @@ void CStats::OnDeviceCreate()
 
     pFont = xr_new<CGameFont>("stat_font", CGameFont::fsDeviceIndependent);
     pFontHW = xr_new<CGameFont>("hud_font_di", CGameFont::fsDeviceIndependent);
+    pFPSFont = xr_new<CGameFont>("hud_font_di2", CGameFont::fsDeviceIndependent);
 
     if (!pSettings->section_exist("evaluation")
             || !pSettings->line_exist("evaluation", "line1")
@@ -486,6 +494,7 @@ void CStats::OnDeviceDestroy()
     SetLogCB(0);
     xr_delete(pFont);
     xr_delete(pFontHW);
+    xr_delete(pFPSFont);
 }
 
 void CStats::OnRender()

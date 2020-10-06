@@ -34,12 +34,11 @@
 
 ENGINE_API CRenderDevice Device;
 ENGINE_API CLoadScreenRenderer load_screen_renderer;
-
-
 ENGINE_API BOOL g_bRendering = FALSE;
 
 BOOL g_bLoaded = FALSE;
 ref_light precache_light = 0;
+extern int show_FPS_only;
 
 BOOL CRenderDevice::Begin()
 {
@@ -232,6 +231,11 @@ void CRenderDevice::on_idle()
 
     FrameMove();
 
+    // Measure FPS
+    float f_framesTimeDifference = RateControlingTimer.GetElapsed_sec() * 1000.f - fPreviousFrameTime;
+    Statistic->fDeviceMeasuredFPS = 1000.f / f_framesTimeDifference;
+    fPreviousFrameTime = RateControlingTimer.GetElapsed_sec() * 1000.f;
+
     // Precache
     if (dwPrecacheFrame)
     {
@@ -284,7 +288,7 @@ void CRenderDevice::on_idle()
     if (b_is_Active && Begin())
     {
 		seqRender.Process(rp_Render);
-		if (psDeviceFlags.test(rsCameraPos) || psDeviceFlags.test(rsStatistic) || Statistic->errors.size())
+		if (psDeviceFlags.test(rsCameraPos) || psDeviceFlags.test(rsStatistic) || Statistic->errors.size() || show_FPS_only == 1)
 			Statistic->Show();
 
         Statistic->Show_HW_Stats();
@@ -355,6 +359,10 @@ void CRenderDevice::Run()
     // Startup timers and calculate timer delta
     dwTimeGlobal = 0;
     Timer_MM_Delta = 0;
+
+    fPreviousFrameTime = 0.f;
+    RateControlingTimer.Start();
+
     {
         u32 time_mm = timeGetTime();
         while (timeGetTime() == time_mm); // wait for next tick

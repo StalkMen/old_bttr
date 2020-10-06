@@ -658,6 +658,7 @@ BOOL xrengint_noprefetch = 0;
 BOOL ps_rs_loading_stages = /*(!strstr(Core.Params, "-old_ver")) ? 1 :*/ 0;
 
 extern int g_ErrorLineCount;
+extern int	show_FPS_only = 0;
 
 ENGINE_API float ps_r2_sun_shafts_min = 0.f;
 ENGINE_API float ps_r2_sun_shafts_value = 1.f;
@@ -667,6 +668,10 @@ void CCC_Register()
     CMD3(CCC_Mask, "xrEngine_xrRender_stats", &psDeviceFlags, rsRenderInfo);
     CMD4(CCC_Integer, "xrEngine_noprefetch", &xrengint_noprefetch, 0, 1);
     CMD4(CCC_Integer, "xrEngine_discord", &game_value_discord_status, 0, 1);
+
+#if 0
+    CMD4(CCC_Integer, "xrEngine_rs_fps_test", &show_FPS_only, 0, 1);
+#endif
 
     if (!strstr(Core.Params, "-old_ver"))
         CMD4(CCC_Integer, "xrEngine_loadingstages", &ps_rs_loading_stages, 0, 1);
