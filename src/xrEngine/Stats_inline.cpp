@@ -90,6 +90,7 @@ void CStats::Show_HW_Stats()
         pFontHW->SetColor(DebugTextColor::DTC_BLUE);
         pFontHW->Out(GetMainInfoStats, stat_1, "-- [Information about rendering the current scene] --");
 
+        pFontHW->SetColor(DebugTextColor::DTC_GREEN);
         if (fDeviceMeasuredFPS > 80)
             pFontHW->SetColor(DebugTextColor::DTC_GREEN);
         else if (fDeviceMeasuredFPS < 60)
