@@ -663,8 +663,29 @@ extern int	show_FPS_only = 0;
 ENGINE_API float ps_r2_sun_shafts_min = 0.f;
 ENGINE_API float ps_r2_sun_shafts_value = 1.f;
 
+xr_token FpsLockToken[] = {
+  { "50 fps",  50 },
+  { "59 fps",  59 },
+  { "60 fps",  60 },
+  { "74 fps",  74 },
+  { "75 fps",  75 },
+  { "80 fps",  80 },
+  { "90 fps",  90 },
+  { "100 fps", 100 },
+  { "120 fps", 120 },
+  { "121 fps", 121 },
+  { "144 fps", 144 },
+  { "165 fps", 165 },
+  { "180 fps", 180 },
+  { "240 fps", 240 },
+  { "244 fps", 244 },
+  { nullptr, 0 }
+};
+
+#include "device.h"
 void CCC_Register()
 {
+    CMD3(CCC_Token, "xrEngine_fps_lock", &g_dwFPSlimit, FpsLockToken);
     CMD3(CCC_Mask, "xrEngine_xrRender_stats", &psDeviceFlags, rsRenderInfo);
     CMD4(CCC_Integer, "xrEngine_noprefetch", &xrengint_noprefetch, 0, 1);
     CMD4(CCC_Integer, "xrEngine_discord", &game_value_discord_status, 0, 1);

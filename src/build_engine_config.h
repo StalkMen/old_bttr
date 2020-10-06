@@ -8,6 +8,8 @@
 //	#define ACTIVE_VERIFY																	    // Активировать режим точности ошибок в релизе
 	#define NEW_CPU_LOAD												  					    // Mini-rework choice of processor cores
 	#define MULTICORE_ENGINE													  		        // Многоядерность процессора, снятие ограничения привязки на 1 ядро
+	#define FPS_LIMIT																			// Новый лимит FPS
+
 	//-' Миниреворк загрузочных сообщений
 	#define STAGE_1					"st_loading_saved_game_solyanka"			  // xrGame	+
 	#define STAGE_2					"st_creating_new_game_solyanka"				  // xrGame +
@@ -59,7 +61,6 @@
 //-CORE
 
 // VISUAL:
-	#define ECO_RENDER										// limit FPS in menu to prevent video card overheat (by alpet)
 	#define TREE_WIND_EFFECT								// configurable tree sway, can be used to have trees sway more during storms or lightly on clear days.
 //-VISUAL
 

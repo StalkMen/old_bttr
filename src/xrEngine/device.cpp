@@ -29,6 +29,9 @@
 #include "igame_persistent.h"
 
 #include "../build_engine_config.h"
+u32 g_dwFPSlimit = 60;
+std::chrono::high_resolution_clock::time_point tlastf = std::chrono::high_resolution_clock::now(), tcurrentf = std::chrono::high_resolution_clock::now();
+std::chrono::duration<float> time_span;
 
 #pragma comment( lib, "d3dx9.lib" )
 
@@ -202,7 +205,7 @@ int g_svDedicateServerUpdateReate = 100;
 
 ENGINE_API xr_list<LOADING_EVENT> g_loading_events;
 
-extern bool IsMainMenuActive(); //ECO_RENDER add
+extern bool IsMainMenuActive();
 
 void CRenderDevice::on_idle()
 {
@@ -267,19 +270,26 @@ void CRenderDevice::on_idle()
     mt_csLeave.Enter();
     mt_csEnter.Leave();
 
-#ifdef ECO_RENDER // ECO_RENDER START
-	static u32 time_frame = 0;
-	u32 time_curr = timeGetTime();
-	u32 time_diff = time_curr - time_frame;
-	time_frame = time_curr;
-	u32 optimal = 10;
-	if (Device.Paused() || IsMainMenuActive())
-		optimal = 32;
-	if (time_diff < optimal)
-		Sleep(optimal - time_diff);
-#else
-	Sleep(0);
-#endif // ECO_RENDER END
+#ifdef FPS_LIMIT
+    // Base code from Anomaly 
+    // Mini-Edit: OldSerpskiStalker
+    float optimal = 1.f / 60.f;
+    if (Device.Paused() || IsMainMenuActive())
+    {
+        if (psDeviceFlags.is(rsRefresh60hz))
+            optimal = 1.f / 60.f;
+        else
+            optimal = 1.f / g_dwFPSlimit; // OGSR
+    }
+    time_span = std::chrono::duration_cast<std::chrono::duration<float>>(tcurrentf - tlastf);
+    while (time_span.count() < optimal)
+    {
+        tcurrentf = std::chrono::high_resolution_clock::now();
+        time_span = std::chrono::duration_cast<std::chrono::duration<float>>(tcurrentf - tlastf);
+    }
+
+    tlastf = std::chrono::high_resolution_clock::now();
+#endif
 
 #ifndef DEDICATED_SERVER
     Statistic->RenderTOTAL_Real.FrameStart();

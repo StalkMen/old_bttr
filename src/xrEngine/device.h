@@ -31,6 +31,8 @@
 # include "../Include/editor/interfaces.hpp"
 #endif // #ifdef INGAME_EDITOR
 
+extern u32 g_dwFPSlimit;
+
 class engine_impl;
 
 #pragma pack(push,4)
