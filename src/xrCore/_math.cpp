@@ -239,9 +239,6 @@ void _initialize_cpu()
 	
     Msg("# Detected CPU: %s [%s], F%d/M%d/S%d, %.2f mhz, %u-clk 'rdtsc'",CPU::ID.brand, CPU::ID.vendor,CPU::ID.family, CPU::ID.model, CPU::ID.stepping,float(CPU::clk_per_second / u64(1000000)),u32(CPU::clk_overhead));
 
-    if (strstr(Core.Params, "-x86"))
-        CPU::ID.clearFeatures();
-
     string256 features;
     strcpy_s(features, sizeof(features), "RDTSC");
     if (CPU::ID.hasMMX()) strcat(features, ", MMX");
