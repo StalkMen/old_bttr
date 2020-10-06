@@ -68,8 +68,8 @@ void CUIActorMenu::InitInventoryMode()
 
 		VERIFY( CurrentGameUI() );
 		CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(true);
-		
-		m_clock_value->Show					(true); 
+		if (!strstr(Core.Params, "-old_ver"))
+			m_clock_value->Show				(true); 
 	}
 	else
 	{
@@ -88,7 +88,6 @@ void CUIActorMenu::InitInventoryMode()
 
 		VERIFY( CurrentGameUI() );
 		CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(true);
-	//	m_clock_value->Show					(true);
 	}
 }
 

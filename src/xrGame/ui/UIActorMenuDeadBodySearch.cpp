@@ -57,7 +57,8 @@ void CUIActorMenu::InitDeadBodySearchMode()
 	m_PartnerWeight->Show			(true);
 	m_takeall_button->Show			(true);
 	
-	m_clock_value->Show				(true);
+	if (!strstr(Core.Params, "-old_ver"))
+		m_clock_value->Show				(true);
 	
 	if ( m_pPartnerInvOwner )
 	{
@@ -126,7 +127,8 @@ void CUIActorMenu::DeInitDeadBodySearchMode()
 	m_PartnerWeight->Show			(false);
 	m_takeall_button->Show			(false);
 	
-	m_clock_value->Show				(false);
+	if (!strstr(Core.Params, "-old_ver"))
+		m_clock_value->Show				(false);
 
 	if ( m_pInvBox )
 	{

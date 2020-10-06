@@ -434,7 +434,11 @@ CSE_ALifeItemTorch::CSE_ALifeItemTorch		(LPCSTR caSection) : CSE_ALifeItem(caSec
 	m_active					= false;
 	m_nightvision_active		= false;
 	m_attached					= false;
-	m_battery_state 			= pSettings->r_u16(caSection, "battery_duration");
+
+	if (!strstr(Core.Params, "-old_ver"))
+		m_battery_state			= pSettings->r_u16(caSection, "battery_duration");
+	else
+		m_battery_state			= READ_IF_EXISTS(pSettings, r_u16, caSection, "battery_duration", 999999999);
 }
 
 CSE_ALifeItemTorch::~CSE_ALifeItemTorch		()

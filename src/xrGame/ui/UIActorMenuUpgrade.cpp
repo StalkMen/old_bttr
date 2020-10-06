@@ -25,7 +25,9 @@ void CUIActorMenu::InitUpgradeMode()
 	m_PartnerMoney->Show( false );
 	m_pUpgradeWnd->Show( true );
 	m_pQuickSlot->Show(true);
-	m_clock_value->Show(true);
+	
+	if (!strstr(Core.Params, "-old_ver"))
+		m_clock_value->Show(true);
 	
 	InitInventoryContents( m_pInventoryBagList );
 	VERIFY( m_pPartnerInvOwner );
@@ -40,7 +42,8 @@ void CUIActorMenu::DeInitUpgradeMode()
 	m_pUpgradeWnd->set_info_cur_upgrade( NULL );
 	m_pUpgradeWnd->m_btn_repair->Enable( false );
 	
-	m_clock_value->Show(false);
+	if (!strstr(Core.Params, "-old_ver"))
+		m_clock_value->Show(false);
 	
 	if ( m_upgrade_selected )
 	{

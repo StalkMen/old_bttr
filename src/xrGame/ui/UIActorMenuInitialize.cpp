@@ -184,7 +184,8 @@ void CUIActorMenu::Construct()
 		m_ActorMoney	= UIHelper::CreateTextWnd(uiXml, "actor_money_static", this);
 		m_PartnerMoney	= UIHelper::CreateTextWnd(uiXml, "partner_money_static", this);
 		
-		m_clock_value 	= UIHelper::CreateStatic(uiXml, "clock_value", this);
+		if (!strstr(Core.Params, "-old_ver"))
+			m_clock_value 	= UIHelper::CreateStatic(uiXml, "clock_value", this);
 		
 		m_QuickSlot1	= UIHelper::CreateTextWnd(uiXml, "quick_slot1_text", this);
 		m_QuickSlot2	= UIHelper::CreateTextWnd(uiXml, "quick_slot2_text", this);
@@ -203,14 +204,6 @@ void CUIActorMenu::Construct()
 		m_takeall_button	= UIHelper::Create3tButton(uiXml, "takeall_button", this);
 		m_exit_button		= UIHelper::Create3tButton(uiXml, "exit_button", this);
 
-	//	m_clock_value						= UIHelper::CreateStatic(uiXml, "clock_value", this);
-
-	/*
-		m_pDeadBodyBagList					= xr_new<CUIDragDropListEx>(); 
-		AttachChild							(m_pDeadBodyBagList);
-		m_pDeadBodyBagList->SetAutoDelete	(true);
-		xml_init.InitDragDropListEx			(uiXml, "dragdrop_deadbody_bag", 0, m_pDeadBodyBagList);
-	*/
 		m_ActorStateInfo					= xr_new<ui_actor_state_wnd>();
 		m_ActorStateInfo->init_from_xml		(uiXml, "actor_state_info");
 		m_ActorStateInfo->SetAutoDelete		(true);
@@ -476,14 +469,6 @@ void CUIActorMenu::Construct()
 		m_takeall_button	= UIHelper::Create3tButton(uiXml, "takeall_button", this);
 		m_exit_button		= UIHelper::Create3tButton(uiXml, "exit_button", this);
 
-	//	m_clock_value						= UIHelper::CreateStatic(uiXml, "clock_value", this);
-
-	/*
-		m_pDeadBodyBagList					= xr_new<CUIDragDropListEx>(); 
-		AttachChild							(m_pDeadBodyBagList);
-		m_pDeadBodyBagList->SetAutoDelete	(true);
-		xml_init.InitDragDropListEx			(uiXml, "dragdrop_deadbody_bag", 0, m_pDeadBodyBagList);
-	*/
 		m_ActorStateInfo					= xr_new<ui_actor_state_wnd>();
 		m_ActorStateInfo->init_from_xml		(uiXml, "actor_state_info");
 		m_ActorStateInfo->SetAutoDelete		(true);

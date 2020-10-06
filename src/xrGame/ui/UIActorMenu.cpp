@@ -218,15 +218,17 @@ void CUIActorMenu::Update()
 		break;
 	case mmInventory:
 		{
-			m_clock_value->TextItemControl()->SetText(InventoryUtilities::GetGameTimeAsString(
-                InventoryUtilities::etpTimeToMinutes).c_str());
+			if (!strstr(Core.Params, "-old_ver"))
+				m_clock_value->TextItemControl()->SetText(InventoryUtilities::GetGameTimeAsString(
+					InventoryUtilities::etpTimeToMinutes).c_str());
 			CurrentGameUI()->UIMainIngameWnd->UpdateZoneMap();
 			break;
 		}
 	case mmTrade:
 		{
-			m_clock_value->TextItemControl()->SetText(InventoryUtilities::GetGameTimeAsString(
-                InventoryUtilities::etpTimeToMinutes).c_str());
+			if (!strstr(Core.Params, "-old_ver"))
+				m_clock_value->TextItemControl()->SetText(InventoryUtilities::GetGameTimeAsString(
+					InventoryUtilities::etpTimeToMinutes).c_str());
 			if(m_pPartnerInvOwner->inventory().ModifyFrame() != m_trade_partner_inventory_state)
 				InitPartnerInventoryContents	();
 			CheckDistance					();
@@ -234,8 +236,9 @@ void CUIActorMenu::Update()
 		}
 	case mmUpgrade:
 		{
-			m_clock_value->TextItemControl()->SetText(InventoryUtilities::GetGameTimeAsString(
-                InventoryUtilities::etpTimeToMinutes).c_str());
+			if (!strstr(Core.Params, "-old_ver"))
+				m_clock_value->TextItemControl()->SetText(InventoryUtilities::GetGameTimeAsString(
+					InventoryUtilities::etpTimeToMinutes).c_str());
 			UpdateUpgradeItem();
 			CheckDistance();
 			break;
@@ -244,9 +247,10 @@ void CUIActorMenu::Update()
 		{
 			if ((m_pPartnerInvOwner && m_pPartnerInvOwner->inventory().ModifyFrame() != m_trade_partner_inventory_state) && update_loot_pick_soc == 1)
 				RefreshDeadBodyInventoryContents();
-
-			m_clock_value->TextItemControl()->SetText(InventoryUtilities::GetGameTimeAsString(
-                InventoryUtilities::etpTimeToMinutes).c_str());
+			
+			if (!strstr(Core.Params, "-old_ver"))
+				m_clock_value->TextItemControl()->SetText(InventoryUtilities::GetGameTimeAsString(
+					InventoryUtilities::etpTimeToMinutes).c_str());
 			break;
 		}
 	default: R_ASSERT(0); break;

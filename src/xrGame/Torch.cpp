@@ -77,7 +77,11 @@ void CTorch::Load(LPCSTR section)
 	inherited::Load			(section);
 	light_trace_bone		= pSettings->r_string(section,"light_trace_bone");
 	
-	m_battery_duration = pSettings->r_u32(section, "battery_duration");
+	if (!strstr(Core.Params, "-old_ver"))
+		m_battery_duration = pSettings->r_u32(section, "battery_duration");
+	else
+		m_battery_duration = READ_IF_EXISTS(pSettings, r_u32, section, "battery_duration", 999999999);
+
 	fUnchanreRate = READ_IF_EXISTS(pSettings, r_float, section, "uncharge_rate", 20.f);
 	if (pSettings->line_exist(section, "sound_activate"))
         m_sounds.LoadSound(section, "sound_activate", "sound_torch", false, SOUND_TYPE_ITEM_USING);
