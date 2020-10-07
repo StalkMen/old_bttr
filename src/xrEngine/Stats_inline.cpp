@@ -10,8 +10,8 @@
 
 using namespace std;
 extern u32 renderer_value;
-//ENGINE_API extern u32 ps_r3_msaa;
-//ENGINE_API extern u32 ps_r3_msaa_atest;
+extern u32 ps_r3_msaa;
+extern u32 ps_r3_msaa_atest;
 
 #define CONST_HEIGHT_FONT pFontHW->SetHeightI(0.018f)
 
@@ -108,13 +108,13 @@ void CStats::Show_HW_Stats()
                         InfoScale += 15;
                 
                 case 4:
-                    //    pFontHW->SetColor(DebugTextColor::DTC_MSAA);
-                   //     pFontHW->Out(GetMainInfoStats, InfoScale, ps_r3_msaa == 0 ? "MSAA Disabled" : ps_r3_msaa == 1 ? "MSAA x2" : ps_r3_msaa == 2 ? "MSAA x4" : ps_r3_msaa == 3 ? renderer_value == 2 ? "MSAA x8" : "MSAA Disabled" : "MSAA ???");
+                        pFontHW->SetColor(DebugTextColor::DTC_MSAA);
+                        pFontHW->Out(GetMainInfoStats, InfoScale, ps_r3_msaa == 0 ? "MSAA Disabled" : ps_r3_msaa == 1 ? "MSAA x2" : ps_r3_msaa == 2 ? "MSAA x4" : ps_r3_msaa == 3 ? "MSAA x8" : "MSAA ???");
                         InfoScale += 15;
 
                 case 5:
-                    //    pFontHW->SetColor(DebugTextColor::DTC_MSAA_AT);
-                    //    pFontHW->Out(GetMainInfoStats, InfoScale, ps_r3_msaa_atest == 0 ? "MSAA A-Test Disabled" : ps_r3_msaa_atest == 1 ? "MSAA A-Test quality DX10 (Standart)" : ps_r3_msaa_atest == 2 ? renderer_value >= 1 ? "MSAA A-Test quality DX10.1 (High)" : "MSAA A-Test Disabled" : "MSAA A-test ???");
+                        pFontHW->SetColor(DebugTextColor::DTC_MSAA_AT);
+                        pFontHW->Out(GetMainInfoStats, InfoScale, ps_r3_msaa_atest == 0 ? "MSAA A-Test Disabled" : ps_r3_msaa_atest == 1 ? "MSAA A-Test quality DX10 (Standart)" : ps_r3_msaa_atest == 2 ? "MSAA A-Test quality DX10.1 (High)" : "MSAA A-Test quality ???");
                         InfoScale += 15;
 
                 case 6:

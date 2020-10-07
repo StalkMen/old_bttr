@@ -682,9 +682,29 @@ xr_token FpsLockToken[] = {
   { nullptr, 0 }
 };
 
+ENGINE_API u32 ps_r3_msaa = 0;
+xr_token qmsaa_token[] = {
+    { "mode_off",	0},
+    { "mode_2x",	1},
+    { "mode_4x",	2},
+    { "mode_8x",	3},
+    { nullptr, 0}
+};
+
+ENGINE_API u32	ps_r3_msaa_atest = 0;
+xr_token qmsaa__atest_token[] = {
+    { "mode_msaa_atest_off", 0},
+    { "mode_msaa_atest_dx10_0", 1},
+    { "mode_msaa_atest_dx10_1", 2},
+    { nullptr, 0}
+};
+
 #include "device.h"
 void CCC_Register()
 {
+    CMD3(CCC_Token, "r3_msaa", &ps_r3_msaa, qmsaa_token);
+    CMD3(CCC_Token, "r3_msaa_alphatest", &ps_r3_msaa_atest, qmsaa__atest_token);
+
     CMD3(CCC_Token,     "xrEngine_fps_lock", &g_dwFPSlimit, FpsLockToken);
     CMD3(CCC_Mask,      "xrEngine_xrRender_stats", &psDeviceFlags, rsRenderInfo);
     CMD4(CCC_Integer,   "xrEngine_noprefetch", &xrengint_noprefetch, 0, 1);

@@ -150,6 +150,9 @@ extern ENGINE_API BOOL r2_advanced_pp;	//	advanced post process and effects
 extern ENGINE_API BOOL render_dx10_1;
 extern ENGINE_API u32  renderer_value;
 
+extern ENGINE_API u32  ps_r3_msaa;
+extern ENGINE_API u32  ps_r3_msaa_atest;
+
 //////////////////////////////////////////////////////////////////////////
 // Just two static storage
 void					CRender::create					()
@@ -309,6 +312,9 @@ void					CRender::create					()
 	o.ssao_hdao			= ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_HDAO) && (ps_r_ssao != 0);
 	o.ssao_hbao			= !o.ssao_hdao && ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_HBAO) && (ps_r_ssao != 0);
 	o.ssao_ssdo			= !o.ssao_hdao && !o.ssao_hbao && ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_SSDO) && (ps_r_ssao != 0);
+
+	Msg("~ Information about MSAA with xrEngine, selected token: %i", ps_r3_msaa);
+	Msg("~ Information about MSAA A-Test with xrEngine, selected token: %i", ps_r3_msaa_atest);
 
 	//	TODO: fix hbao shader to allow to perform per-subsample effect!
 	o.hbao_vectorized = false;
