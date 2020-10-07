@@ -48,16 +48,6 @@ xr_token							qssao_token									[ ]={
 	{ 0,							0												}
 };
 
-u32			ps_r_sun_quality		=	1;			//	=	0;
-xr_token							qsun_quality_token							[ ]={
-	{ "st_opt_low",					0												},
-	{ "st_opt_medium",				1												},
-	{ "st_opt_high",				2												},
-	{ "st_opt_ultra",				3												},
-	{ "st_opt_extreme",				4												},
-	{ 0,							0												}
-};
-
 u32			ps_r3_minmax_sm			=	3;			//	=	0;
 xr_token							qminmax_sm_token					[ ]={
 	{ "off",						0												},
@@ -1009,8 +999,6 @@ void		xrRender_initconsole()
 	CMD3(CCC_Mask, "r4_wireframe", &ps_r2_ls_flags_ext, R2FLAGEXT_WIREFRAME);//Need restart
 	CMD3(CCC_Mask, "r2_steep_parallax", &ps_r2_ls_flags, R2FLAG_STEEP_PARALLAX);
 	CMD3(CCC_Mask, "r2_detail_bump", &ps_r2_ls_flags, R2FLAG_DETAIL_BUMP);
-
-	CMD3(CCC_Token, "r2_sun_quality", &ps_r_sun_quality, qsun_quality_token);
 
 	//	Igor: need restart
 	CMD3(CCC_Mask, "r2_soft_water", &ps_r2_ls_flags, R2FLAG_SOFT_WATER);

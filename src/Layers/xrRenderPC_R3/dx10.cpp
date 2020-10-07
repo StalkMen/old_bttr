@@ -313,8 +313,10 @@ void					CRender::create					()
 	o.ssao_hbao			= !o.ssao_hdao && ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_HBAO) && (ps_r_ssao != 0);
 	o.ssao_ssdo			= !o.ssao_hdao && !o.ssao_hbao && ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_SSDO) && (ps_r_ssao != 0);
 
-	Msg("~ Information about MSAA with xrEngine, selected token: %i", ps_r3_msaa);
-	Msg("~ Information about MSAA A-Test with xrEngine, selected token: %i", ps_r3_msaa_atest);
+	Msg("~ DX10: Information about MSAA with xrEngine, selected token: %i", ps_r3_msaa);
+	Msg("~ DX10: Information about MSAA A-Test with xrEngine, selected token: %i", ps_r3_msaa_atest);
+
+	Msg("~ DX10: Information about 'Sun Quality' with xrEngine, selected token: %i", ps_r_sun_quality);
 
 	//	TODO: fix hbao shader to allow to perform per-subsample effect!
 	o.hbao_vectorized = false;

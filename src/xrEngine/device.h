@@ -348,5 +348,5 @@ public:
     bool b_need_user_input;
 };
 extern ENGINE_API CLoadScreenRenderer load_screen_renderer;
-
+#define ITS_CLEAR_1_4_22 (1<<0)
 #endif

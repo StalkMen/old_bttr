@@ -692,23 +692,46 @@ xr_token qmsaa_token[] = {
 };
 
 ENGINE_API u32	ps_r3_msaa_atest = 0;
-xr_token qmsaa__atest_token[] = {
+xr_token qmsaa_atest_token[] = {
     { "mode_msaa_atest_off", 0},
     { "mode_msaa_atest_dx10_0", 1},
     { "mode_msaa_atest_dx10_1", 2},
     { nullptr, 0}
 };
 
+ENGINE_API u32 ps_r_sun_quality = 1;
+xr_token qsun_quality_token[] = {
+    { "st_opt_low",	0},
+    { "st_opt_medium", 1},
+    { "st_opt_high", 2},
+    { "st_opt_ultra", 3},
+    { "st_opt_extreme",	4},
+    { nullptr, 0}
+};
+
+ENGINE_API Flags32 p_engine_flags32 = { /*ITS_CLEAR_1_4_22*/ };
+
 #include "device.h"
 void CCC_Register()
 {
-    CMD3(CCC_Token,     "r3_msaa", &ps_r3_msaa, qmsaa_token);
-    CMD3(CCC_Token,     "r3_msaa_alphatest", &ps_r3_msaa_atest, qmsaa__atest_token);
+    //OldSerpskiStalker, переключение версий между BttR и 1.4.22
+    {
+        if (!strstr(Core.Params, "-old_ver"))
+            p_engine_flags32.set(ITS_CLEAR_1_4_22, false);
+        else
+            p_engine_flags32.set(ITS_CLEAR_1_4_22, true);
 
-    CMD3(CCC_Token,     "xrEngine_fps_lock", &g_dwFPSlimit, FpsLockToken);
+        CMD3(CCC_Mask, "_game_preset_clear_version_call_of_chernobyl", &p_engine_flags32, ITS_CLEAR_1_4_22);
+    }
+
+    CMD3(CCC_Token,     "r2_sun_quality",       &ps_r_sun_quality, qsun_quality_token);
+    CMD3(CCC_Token,     "r3_msaa",              &ps_r3_msaa, qmsaa_token);
+    CMD3(CCC_Token,     "r3_msaa_alphatest",    &ps_r3_msaa_atest, qmsaa_atest_token);
+
+    CMD3(CCC_Token,     "xrEngine_fps_lock",    &g_dwFPSlimit, FpsLockToken);
     CMD3(CCC_Mask,      "xrEngine_xrRender_stats", &psDeviceFlags, rsRenderInfo);
-    CMD4(CCC_Integer,   "xrEngine_noprefetch", &xrengint_noprefetch, 0, 1);
-    CMD4(CCC_Integer,   "xrEngine_discord", &game_value_discord_status, 0, 1);
+    CMD4(CCC_Integer,   "xrEngine_noprefetch",  &xrengint_noprefetch, 0, 1);
+    CMD4(CCC_Integer,   "xrEngine_discord",     &game_value_discord_status, 0, 1);
 
 #if 0
     CMD4(CCC_Integer,   "xrEngine_rs_fps_test", &show_FPS_only, 0, 1);

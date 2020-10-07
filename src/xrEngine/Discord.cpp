@@ -7,6 +7,7 @@
 
 extern u32 renderer_value;
 extern BOOL game_value_discord_status;
+extern Flags32 p_engine_flags32;
 ENGINE_API xrDiscordPresense g_discord;
 
 void xrDiscordPresense::Initialize()
@@ -945,7 +946,7 @@ void xrDiscordPresense::SetStatus(StatusId status)
     presenseInfo.smallImageKey = "ico_bttr";
     presenseInfo.startTimestamp = time(0);
 
-    if (!strstr(Core.Params, "-old_ver"))
+    if (!p_engine_flags32.test(ITS_CLEAR_1_4_22))
         presenseInfo.smallImageText = "S.T.A.L.K.E.R.: Back to the Roots";
     else
         presenseInfo.smallImageText = "S.T.A.L.K.E.R.: Call of Chernobyl";

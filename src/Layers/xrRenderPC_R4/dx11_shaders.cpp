@@ -6,6 +6,7 @@
 
 extern u32 RenderThemeShaders;
 extern ENGINE_API u32 renderer_value;
+extern ENGINE_API u32 ps_r_sun_quality;
 
 template <typename T>
 static HRESULT create_shader				(

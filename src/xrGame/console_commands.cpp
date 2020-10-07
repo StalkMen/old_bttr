@@ -1896,7 +1896,7 @@ xr_token type_hud_token_ext[] = {
     {nullptr, 0}
 };
 
-Flags32 p__new_flags = { /*ALIFE_FULL_ACTIVE*/ };
+Flags32 p_game_flags32 = { /*ALIFE_FULL_ACTIVE*/ };
 #define ALIFE_FULL_ACTIVE (1<<0)
 
 float hud_adj_delta_pos = 0.005f;
@@ -1906,8 +1906,8 @@ void CCC_RegisterCommands()
 {
 	//OldSerpskiStalker, alife control
 	{
-		p__new_flags.set(ALIFE_FULL_ACTIVE, false);
-		CMD3(CCC_Mask, "__alife_full_active", &p__new_flags, ALIFE_FULL_ACTIVE);
+		p_game_flags32.set(ALIFE_FULL_ACTIVE, false);
+		CMD3(CCC_Mask, "__alife_full_active", &p_game_flags32, ALIFE_FULL_ACTIVE);
 	}
 
 	CMD3(CCC_Mask,    "xrGame_3d_scopes", &psActorFlags, AF_3DSCOPE_ENABLE);

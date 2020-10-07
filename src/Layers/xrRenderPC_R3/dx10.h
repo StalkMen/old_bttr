@@ -370,4 +370,5 @@ private:
     FS_FileSet						m_file_set;
 };
 
+extern ENGINE_API u32               ps_r_sun_quality;
 extern CRender						RImplementation;
