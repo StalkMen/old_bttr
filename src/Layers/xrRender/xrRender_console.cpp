@@ -714,7 +714,7 @@ public:
 #endif	//	DEBUG
 
 //OldSerpskiStalker, технические флаги
-Flags32 ps_r__common_flags = { RFLAGDX_ENABLE_DEBUG_LOG };
+Flags32 ps_r__common_flags = { RFLAGDX_ENABLE_DEBUG_LOG /*| RFLAGDX_NEW_LOAD_DDS*/ };
 
 u32 ps_r2_smapsize = 2048;
 xr_token qsmapsize_token[] =
@@ -801,6 +801,10 @@ void		xrRender_initconsole()
 	CMD4(CCC_Integer, "xrRenderDX10_triple_buffering",	 &tbufer_renders,					0, 1);
 	CMD3(CCC_Mask,  "xrRenderDX10_animMBlur_move",		 &ps_r__common_flags,				RFLAGDX10_MOTION_BLUR);
 
+	const bool diable_this_command = true;
+	if (diable_this_command)
+		CMD3(CCC_Mask, "xrRenderDX_new_load_dds",		 &ps_r__common_flags,				RFLAGDX_NEW_LOAD_DDS);
+
 	CMD4(CCC_Float, "fog_height",						 &debug_fog_height,					0.f, 10.f);
 	CMD4(CCC_Float, "fog_density",						 &debug_fog_density,				0.f, 1.f);
 	CMD4(CCC_Float, "fog_max_dist",						 &debug_fog_max_dist,				0.f, 100.f);
@@ -811,7 +815,7 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "xrRenderDX_volum_distance",		 &ps_volumetric_distance,			0.f, 2.f);
 	CMD4(CCC_Float, "xrRenderDX_volum_quality",		     &ps_volumetric_quality,			0.f, 1.f);
 
-	CMD3(CCC_Token, "xrRenderDX_video_size",			&__render_video_size,				__render_video_size_token);
+	CMD3(CCC_Token, "xrRenderDX_video_size",			 &__render_video_size,				__render_video_size_token);
 
 	CMD3(CCC_Token, "xrRenderThemeShaderRender",		 &RenderThemeShaders,			    RenderThemeShaders_token);
 //////////////////////////////////////////////////////////////////////////////////////////////////
