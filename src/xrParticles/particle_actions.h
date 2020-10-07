@@ -31,6 +31,7 @@ namespace PAPI{
 		IC void			clear			()
         {
 			R_ASSERT(!m_bLocked);
+#pragma TODO("OldSerpskiStaler. Тут пойман вылет по партиклам, исправить. Вернуть как было. fckkkk")
 			while (!actions.empty())
 			{
 				ParticleAction* pa = actions.back();
