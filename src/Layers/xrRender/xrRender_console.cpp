@@ -801,8 +801,8 @@ void		xrRender_initconsole()
 	CMD4(CCC_Integer, "xrRenderDX10_triple_buffering",	 &tbufer_renders,					0, 1);
 	CMD3(CCC_Mask,  "xrRenderDX10_animMBlur_move",		 &ps_r__common_flags,				RFLAGDX10_MOTION_BLUR);
 
-	const bool diable_this_command = false;
-	if (diable_this_command)
+	const bool disable_this_command = false;
+	if (disable_this_command)
 		CMD3(CCC_Mask, "xrRenderDX_new_load_dds",		 &ps_r__common_flags,				RFLAGDX_NEW_LOAD_DDS);
 
 	CMD4(CCC_Float, "fog_height",						 &debug_fog_height,					0.f, 10.f);

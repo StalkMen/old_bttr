@@ -31,13 +31,9 @@ namespace PAPI{
 		IC void			clear			()
         {
 			R_ASSERT(!m_bLocked);
-#pragma TODO("OldSerpskiStaler. Тут пойман вылет по партиклам, исправить. Вернуть как было. fckkkk")
-			while (!actions.empty())
-			{
-				ParticleAction* pa = actions.back();
-				actions.pop_back();
-				xr_delete(pa);
-			}
+			for (PAVecIt it = actions.begin(); it != actions.end(); it++)
+				xr_delete(*it);
+
 			actions.clear();
 		}
 		IC void			append			(ParticleAction* pa)	{R_ASSERT(!m_bLocked);actions.push_back(pa);	}
