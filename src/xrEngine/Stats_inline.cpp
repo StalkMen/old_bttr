@@ -17,13 +17,16 @@ extern u32 ps_r3_msaa_atest;
 
 enum DebugTextColor : DWORD
 {
+    // Системные цвета
     DTC_RED = 0xFFF0672B,
     DTC_YELLOW = 0xFFF6D434,
     DTC_GREEN = 0xFF67F92E,
     DTC_GREEN_DX = 0xFF00FF7F,
     DTC_GREEN_NV = 0xFF00FF00,
     DTC_BLUE = 0xFF00FFFF,
+    //Сглаживание MSAA на DX11
     DTC_MSAA = 0xFF7FFFD4,
+    //Альфа-Тест прозрачных объектов, тоже MSAA
     DTC_MSAA_AT = 0xFF40E0D0,
 };
 
