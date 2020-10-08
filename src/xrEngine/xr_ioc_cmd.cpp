@@ -409,6 +409,8 @@ public:
         }
     }
 };
+
+
 class CCC_VidMode : public CCC_Token
 {
     u32 _dummy;

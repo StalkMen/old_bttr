@@ -13,6 +13,7 @@ extern u32 renderer_value;
 extern u32 ps_r3_msaa;
 extern u32 ps_r3_msaa_atest;
 extern u32 ps_r_sun_quality;
+extern u32 render_video_size;
 #define CONST_HEIGHT_FONT pFontHW->SetHeightI(0.018f)
 
 enum DebugTextColor : DWORD
@@ -32,6 +33,7 @@ enum DebugTextColor : DWORD
     DTC_SUN_OPT = 0xFFFFFF00,
     // Размер видеобуфера
     DTC_VIDEOSIZE = 0xFFE6E6FA,
+    DTC_VIDEOSIZE_SCREEN = 0xFFFFFFFF,
 };
 
 //OldSerpskiStalker
@@ -131,15 +133,20 @@ void CStats::Show_HW_Stats()
 
                 case 7:
                         pFontHW->SetColor(DebugTextColor::DTC_VIDEOSIZE);
-                    
+                        pFontHW->Out(GetMainInfoStats, InfoScale, "Size video buffer: %i", render_video_size);
                         InfoScale += 15;
 
                 case 8:
+                        pFontHW->SetColor(DebugTextColor::DTC_VIDEOSIZE_SCREEN);
+                        pFontHW->Out(GetMainInfoStats, InfoScale, "Video mode: %dx%d", psCurrentVidMode[0], psCurrentVidMode[1]);
+                        InfoScale += 15;
+
+                case 9:
                         pFontHW->SetColor(DebugTextColor::DTC_BLUE);
                         pFontHW->Out(GetMainInfoStats, InfoScale, "-- [Information about your computer configuration] --");
                         InfoScale += 15;
 
-                case 9:
+                case 10:
                         if (GPUType == 1)
                         {
                             pFontHW->SetColor(DebugTextColor::DTC_RED);
@@ -152,7 +159,7 @@ void CStats::Show_HW_Stats()
                             pFontHW->Out(GetMainInfoStats, InfoScale, "Video card model: %s", dd.DeviceString);
                             InfoScale += 15;
                         }
-                case 10: 
+                case 11: 
                         if (GpuLoad != u32(-1))
                         {
                             if (GpuLoad > 80)
@@ -165,16 +172,16 @@ void CStats::Show_HW_Stats()
                             pFontHW->Out(GetMainInfoStats, InfoScale, "GPU load: %u%%", GpuLoad);
                             InfoScale += 15;
                         }
-                case 11:
+                case 12:
                         pFontHW->SetColor(DebugTextColor::DTC_GREEN);
                         pFontHW->Out(GetMainInfoStats, InfoScale, "Processor model: CPU: %s [%s], F%d/M%d/S%d, %.2f mhz, %u-clk 'rdtsc'", CPU::ID.brand, CPU::ID.vendor, CPU::ID.family, CPU::ID.model, CPU::ID.stepping, float(CPU::clk_per_second / u64(1000000)), u32(CPU::clk_overhead));
                         InfoScale += 15;
 
-                case 12:
+                case 13:
                         pFontHW->Out(GetMainInfoStats, InfoScale, "CPU cores: %u, threads: %u", CPU::ID.coresCount, CPU::ID.threadCount);
                         InfoScale += 15;
 
-                case 13:
+                case 14:
                         if (AvailableMem < 512 || AvailablePageFileMem < 1596)
                             pFontHW->SetColor(DebugTextColor::DTC_RED);
                         else if (AvailableMem < 768 || AvailablePageFileMem < 2048)
@@ -185,15 +192,15 @@ void CStats::Show_HW_Stats()
                         pFontHW->Out(GetMainInfoStats, InfoScale, "Physical memory available: %0.0fMB", AvailableMem); // Physical memory available
                         InfoScale += 15;
 
-                case 14:
+                case 15:
                         pFontHW->Out(GetMainInfoStats, InfoScale, "Pagefile memory available: %0.0fMB", AvailablePageFileMem); // Pagefile memory available
                         InfoScale += 15;
 
-                case 15:
+                case 16:
                         pFontHW->Out(GetMainInfoStats, InfoScale, "Physical memory used by app: %0.0fMB", PageFileMemUsedByApp); // Physical memory used by app
                         InfoScale += 15;
 
-                case 16:
+                case 17:
                         if (PhysMemoryUsedPercent > 80.0)
                             pFontHW->SetColor(DebugTextColor::DTC_RED);
                         else if (PhysMemoryUsedPercent > 60.0)
@@ -204,7 +211,7 @@ void CStats::Show_HW_Stats()
                         pFontHW->Out(GetMainInfoStats, InfoScale, "Physical memory load: %0.0f%%", PhysMemoryUsedPercent); // Total Phys. memory load (%)
                         InfoScale += 15;
 
-                case 17: 
+                case 18: 
                         if (cpuLoad > 80.0)
                             pFontHW->SetColor(DebugTextColor::DTC_RED);
                         else if (cpuLoad > 60.0)
@@ -215,7 +222,7 @@ void CStats::Show_HW_Stats()
                         pFontHW->Out(GetMainInfoStats, InfoScale, "CPU load: %0.0f%%", cpuLoad); // CPU load
                         InfoScale += 15;
 
-                case 18: // Всегда должен быть последним параметром
+                case 19: // Всегда должен быть последним параметром
                         int GetInfoScale = InfoScale;
                         for (size_t i = 0; i < CPU::ID.m_dwNumberOfProcessors; i++)
                         {
