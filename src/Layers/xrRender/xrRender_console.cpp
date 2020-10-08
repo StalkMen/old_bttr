@@ -704,7 +704,7 @@ public:
 #endif	//	DEBUG
 
 //OldSerpskiStalker, технические флаги
-Flags32 ps_r__common_flags = { RFLAGDX_ENABLE_DEBUG_LOG /*| RFLAGDX_NEW_LOAD_DDS*/ };
+Flags32 ps_r__common_flags = { RFLAGDX_ENABLE_DEBUG_LOG | RFLAGDX_OLD_LOAD_DDS };
 
 u32 ps_r2_smapsize = 2048;
 xr_token qsmapsize_token[] =
@@ -784,7 +784,7 @@ void		xrRender_initconsole()
 
 	const bool disable_this_command = false;
 	if (disable_this_command)
-		CMD3(CCC_Mask, "xrRenderDX_new_load_dds",		 &ps_r__common_flags,				RFLAGDX_NEW_LOAD_DDS);
+		CMD3(CCC_Mask, "xrRenderDX_old_load_dds",		 &ps_r__common_flags,				RFLAGDX_OLD_LOAD_DDS);
 
 	CMD4(CCC_Float, "fog_height",						 &debug_fog_height,					0.f, 10.f);
 	CMD4(CCC_Float, "fog_density",						 &debug_fog_density,				0.f, 1.f);
