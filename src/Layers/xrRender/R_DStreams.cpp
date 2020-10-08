@@ -9,9 +9,9 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-extern  u32	__render_video_size;
+extern ENGINE_API u32	render_video_size;
 
-int		rsDVB_Size			= __render_video_size;
+int		rsDVB_Size			= render_video_size;
 int		rsDIB_Size			= 512;
 
 void _VertexStream::Create	()
@@ -20,7 +20,6 @@ void _VertexStream::Create	()
 	DEV->Evict();
 
 	mSize					= rsDVB_Size*1024;
-#if defined(USE_DX10) || defined(USE_DX11)
 	D3D_BUFFER_DESC bufferDesc;
 	bufferDesc.ByteWidth        = mSize;
 	bufferDesc.Usage            = D3D_USAGE_DYNAMIC;	
@@ -30,10 +29,6 @@ void _VertexStream::Create	()
 
 	R_CHK					(HW.pDevice->CreateBuffer	( &bufferDesc, 0, &pVB ));
 	HW.stats_manager.increment_stats_vb						( pVB );
-#else	//	USE_DX10
-	R_CHK					(HW.pDevice->CreateVertexBuffer	( mSize, D3DUSAGE_WRITEONLY|D3DUSAGE_DYNAMIC, 0, D3DPOOL_DEFAULT, &pVB, NULL));
-	HW.stats_manager.increment_stats_vb						( pVB );
-#endif	//	USE_DX10
 
 	R_ASSERT				(pVB);
 
@@ -86,14 +81,10 @@ void* _VertexStream::Lock	( u32 vl_Count, u32 Stride, u32& vOffset )
 #elif defined(USE_DX10)
 		pVB->Map(D3D_MAP_WRITE_DISCARD, 0, (void**)&pData);
 		pData += vOffset;
-#else	//	USE_DX10
-		HRESULT res = pVB->Lock( mPosition, bytes_need, (void**)&pData, LOCKFLAGS_FLUSH);
-
-		if( res != D3D_OK )
-			Msg( " pVB->Lock - failed: res = %d,mPosition = %d, bytes_need = %d, &pData = %x, LOCKFLAGS_FLUSH", res, mPosition, bytes_need, (void**)&pData );
-
 #endif	//	USE_DX10
-	} else {
+	} 
+	else 
+	{
 		// APPEND-LOCK
 		mPosition			= vl_mPosition*Stride;
 		vOffset				= vl_mPosition;
@@ -105,12 +96,6 @@ void* _VertexStream::Lock	( u32 vl_Count, u32 Stride, u32& vOffset )
 #elif defined(USE_DX10)
 		pVB->Map(D3D_MAP_WRITE_NO_OVERWRITE, 0, (void**)&pData);
 		pData += vOffset*Stride;
-#else	//	USE_DX10
-		HRESULT res = pVB->Lock			( mPosition, bytes_need, (void**)&pData, LOCKFLAGS_APPEND);
-		
-		if( res != D3D_OK )
-			Msg( " pVB->Lock - failed: res = %d,mPosition = %d, bytes_need = %d, &pData = %x, LOCKFLAGS_APPEND", res, mPosition, bytes_need, (void**)&pData );
-
 #endif	//	USE_DX10
 	}
 	VERIFY				( pData );
@@ -133,8 +118,6 @@ void	_VertexStream::Unlock		( u32 Count, u32 Stride)
 	HW.pContext->Unmap(pVB, 0);
 #elif defined(USE_DX10)
 	pVB->Unmap();
-#else	//	USE_DX10
-	pVB->Unlock();
 #endif	//	USE_DX10
 }
 
@@ -173,7 +156,6 @@ void	_IndexStream::Create	()
 
 	mSize					= rsDIB_Size*1024;
 
-#if defined(USE_DX10) || defined(USE_DX11)
 	D3D_BUFFER_DESC bufferDesc;
 	bufferDesc.ByteWidth        = mSize;
 	bufferDesc.Usage            = D3D_USAGE_DYNAMIC;	
@@ -183,10 +165,7 @@ void	_IndexStream::Create	()
 
 	R_CHK					(HW.pDevice->CreateBuffer( &bufferDesc, 0, &pIB ));
 	HW.stats_manager.increment_stats_ib		(pIB);
-#else	//	USE_DX10
-	R_CHK					(HW.pDevice->CreateIndexBuffer( mSize, D3DUSAGE_WRITEONLY|D3DUSAGE_DYNAMIC, D3DFMT_INDEX16, D3DPOOL_DEFAULT, &pIB, NULL));
-	HW.stats_manager.increment_stats_ib		(pIB);
-#endif	//	USE_DX10
+
 	R_ASSERT				(pIB);
 
 	mPosition				= 0;
@@ -235,10 +214,8 @@ u16*	_IndexStream::Lock	( u32 Count, u32& vOffset )
 		D3D_MAP_WRITE_NO_OVERWRITE : D3D_MAP_WRITE_DISCARD;
 	pIB->Map( MapMode, 0, (void**)&pLockedData);
 	pLockedData += mPosition * 2;
-
-#else	//	USE_DX10
-	pIB->Lock				( mPosition * 2, Count * 2, (void**) &pLockedData, dwFlags);
 #endif	//	USE_DX10
+
 	VERIFY					(pLockedData);
 
 	vOffset					=	mPosition;
@@ -255,8 +232,6 @@ void	_IndexStream::Unlock(u32 RealCount)
 	HW.pContext->Unmap(pIB, 0);
 #elif defined(USE_DX10)
 	pIB->Unmap();
-#else	//	USE_DX10
-	pIB->Unlock();
 #endif	//	USE_DX10
 }
 

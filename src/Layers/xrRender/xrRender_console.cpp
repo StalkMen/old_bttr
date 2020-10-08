@@ -760,15 +760,6 @@ float ps_volumetric_quality = 0.35f;
 int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
 
-u32	__render_video_size = 512 + 1024;
-xr_token __render_video_size_token[] = {
-{ "video_standart",			512 + 1024},
-{ "video_average",			1024 + 1024},
-{ "video_above_average",	2048 + 1024},
-{ "video_high",				4096 + 2048},
-{ "video_maximum",			8192},
-{ nullptr,					0}
-};
 //-----------------------------------------------------------------------
 void		xrRender_initconsole()
 {
@@ -803,9 +794,7 @@ void		xrRender_initconsole()
 
 	CMD4(CCC_Float, "xrRenderDX_volum_intensity",		 &ps_volumetric_intensity,			-1.f, 1.f);
 	CMD4(CCC_Float, "xrRenderDX_volum_distance",		 &ps_volumetric_distance,			0.f, 2.f);
-	CMD4(CCC_Float, "xrRenderDX_volum_quality",		     &ps_volumetric_quality,			0.f, 1.f);
-
-	CMD3(CCC_Token, "xrRenderDX_video_size",			 &__render_video_size,				__render_video_size_token);
+	CMD4(CCC_Float, "xrRenderDX_volum_quality",			 &ps_volumetric_quality,			0.f, 1.f);
 
 	CMD3(CCC_Token, "xrRenderThemeShaderRender",		 &RenderThemeShaders,			    RenderThemeShaders_token);
 //////////////////////////////////////////////////////////////////////////////////////////////////

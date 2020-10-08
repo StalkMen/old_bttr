@@ -709,6 +709,16 @@ xr_token qsun_quality_token[] = {
     { nullptr, 0}
 };
 
+ENGINE_API u32 render_video_size = 512 + 1024;
+xr_token render_video_size_token[] = {
+{ "video_standart",			512 + 1024},
+{ "video_average",			1024 + 1024},
+{ "video_above_average",	2048 + 1024},
+{ "video_high",				4096 + 2048},
+{ "video_maximum",			8192},
+{ nullptr,					0}
+};
+
 ENGINE_API Flags32 p_engine_flags32 = { /*ITS_CLEAR_1_4_22*/ };
 
 #include "device.h"
@@ -723,10 +733,15 @@ void CCC_Register()
 
         CMD3(CCC_Mask, "_game_preset_clear_version_call_of_chernobyl", &p_engine_flags32, ITS_CLEAR_1_4_22);
     }
-
-    CMD3(CCC_Token,     "r2_sun_quality",       &ps_r_sun_quality, qsun_quality_token);
-    CMD3(CCC_Token,     "r3_msaa",              &ps_r3_msaa, qmsaa_token);
-    CMD3(CCC_Token,     "r3_msaa_alphatest",    &ps_r3_msaa_atest, qmsaa_atest_token);
+    //Опции которые относятся к рендеру
+    const static bool xrRender_options = true;
+    if (xrRender_options)
+    {
+        CMD3(CCC_Token, "xrRenderDX_video_size", &render_video_size, render_video_size_token);
+        CMD3(CCC_Token, "r2_sun_quality", &ps_r_sun_quality, qsun_quality_token);
+        CMD3(CCC_Token, "r3_msaa", &ps_r3_msaa, qmsaa_token);
+        CMD3(CCC_Token, "r3_msaa_alphatest", &ps_r3_msaa_atest, qmsaa_atest_token);
+    }
 
     CMD3(CCC_Token,     "xrEngine_fps_lock",    &g_dwFPSlimit, FpsLockToken);
     CMD3(CCC_Mask,      "xrEngine_xrRender_stats", &psDeviceFlags, rsRenderInfo);
