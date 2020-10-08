@@ -76,16 +76,14 @@ LPCSTR CFontManager::GetFontTexName(LPCSTR section)
     int idx     = def_idx;
     u32 h       = Device.dwHeight;
 
-/*
     if (h <= 600)		
         idx = 0;
     else if (h < 1024)	
         idx = 1;
-    else if (h < 1440)
+    else if (h == 1440 || h == 1536 || h == 1600 || h == 2160)
         idx = 4;
     else 			
         idx = 2;
-*/
 
     while (idx >= 0)
     {
