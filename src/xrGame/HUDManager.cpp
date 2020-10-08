@@ -48,38 +48,42 @@ CFontManager::CFontManager()
 
 void CFontManager::InitializeFonts()
 {
-    InitializeFont(pFontMedium, "hud_font_medium");
-    InitializeFont(pFontDI, "hud_font_di", CGameFont::fsGradient | CGameFont::fsDeviceIndependent);
-    InitializeFont(pFontArial14, "ui_font_arial_14");
-    InitializeFont(pFontGraffiti19Russian, "ui_font_graffiti19_russian");
-    InitializeFont(pFontGraffiti22Russian, "ui_font_graffiti22_russian");
-    InitializeFont(pFontLetterica16Russian, "ui_font_letterica16_russian");
-    InitializeFont(pFontLetterica18Russian, "ui_font_letterica18_russian");
-    InitializeFont(pFontGraffiti32Russian, "ui_font_graff_32");
-    InitializeFont(pFontGraffiti50Russian, "ui_font_graff_50");
-    InitializeFont(pFontLetterica25, "ui_font_letter_25");
-    InitializeFont(pFontStat, "stat_font", CGameFont::fsDeviceIndependent);
-    pFontStat->SetInterval(0.75f, 1.0f);
+    InitializeFont(pFontMedium,                 "hud_font_medium");
+    InitializeFont(pFontDI,                     "hud_font_di", CGameFont::fsGradient | CGameFont::fsDeviceIndependent);
+    InitializeFont(pFontArial14,                "ui_font_arial_14");
+    InitializeFont(pFontGraffiti19Russian,      "ui_font_graffiti19_russian");
+    InitializeFont(pFontGraffiti22Russian,      "ui_font_graffiti22_russian");
+    InitializeFont(pFontLetterica16Russian,     "ui_font_letterica16_russian");
+    InitializeFont(pFontLetterica18Russian,     "ui_font_letterica18_russian");
+    InitializeFont(pFontGraffiti32Russian,      "ui_font_graff_32");
+    InitializeFont(pFontGraffiti50Russian,      "ui_font_graff_50");
+    InitializeFont(pFontLetterica25,            "ui_font_letter_25");
+    InitializeFont(pFontStat,                   "stat_font", CGameFont::fsDeviceIndependent);
+    pFontStat->SetInterval                      (0.75f, 1.0f);
 }
 
 LPCSTR CFontManager::GetFontTexName(LPCSTR section)
 {
-    static char* tex_names[] = {"texture800", "texture", "texture1600"};
-    int def_idx = 1;//default 1024x768
-    int idx = def_idx;
-#if 0
-    u32 w = Device.dwWidth;
+    static char* tex_names[] = 
+    {
+        "texture800", 
+        "texture", 
+        "texture1600",
+        "texture4k" // 3840x2160
+    };
 
-    if(w<=800)		idx = 0;
-    else if(w<=1280)idx = 1;
-    else 			idx = 2;
-#else
-    u32 h = Device.dwHeight;
+    int def_idx = 1; //default 1024x768
+    int idx     = def_idx;
+    u32 h       = Device.dwHeight;
 
-    if (h <= 600)		idx = 0;
-    else if (h < 1024)	idx = 1;
-    else 			idx = 2;
-#endif
+    if (h <= 600)		
+        idx = 0;
+    else if (h < 1024)	
+        idx = 1;
+    else if (h < 1440)
+        idx = 4;
+    else 			
+        idx = 2;
 
     while (idx >= 0)
     {

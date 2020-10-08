@@ -249,18 +249,7 @@ PROTECT_API void InitSettings()
 
 PROTECT_API void InitConsole()
 {
-    ////SECUROM_MARKER_SECURITY_ON(5)
-
-#ifdef DEDICATED_SERVER
-    {
-        Console = xr_new<CTextConsole>();
-    }
-#else
-    // else
-    {
-        Console = xr_new<CConsole>();
-    }
-#endif
+    Console = xr_new<CConsole>();
     Console->Initialize();
 
     xr_strcpy(Console->ConfigFile, "user.ltx");
@@ -270,8 +259,6 @@ PROTECT_API void InitConsole()
         sscanf(strstr(Core.Params, "-ltx ") + 5, "%[^ ] ", c_name);
         xr_strcpy(Console->ConfigFile, c_name);
     }
-
-    ////SECUROM_MARKER_SECURITY_OFF(5)
 }
 
 PROTECT_API void InitInput()
@@ -827,22 +814,6 @@ int APIENTRY WinMain(HINSTANCE hInstance,
                      char* lpCmdLine,
                      int nCmdShow)
 {
-    //FILE* file = 0;
-    //fopen_s ( &file, "z:\\development\\call_of_prypiat\\resources\\gamedata\\shaders\\r3\\objects\\r4\\accum_sun_near_msaa_minmax.ps\\2048__1___________4_11141_", "rb" );
-    //u32 const file_size = 29544;
-    //char* buffer = (char*)malloc(file_size);
-    //fread ( buffer, file_size, 1, file );
-    //fclose ( file );
-
-    //u32 const& crc = *(u32*)buffer;
-
-    //boost::crc_32_type processor;
-    //processor.process_block ( buffer + 4, buffer + file_size );
-    //u32 const new_crc = processor.checksum( );
-    //VERIFY ( new_crc == crc );
-
-    //free (buffer);
-
     __try
     {
         WinMain_impl(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
@@ -858,23 +829,27 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 LPCSTR _GetFontTexName(LPCSTR section)
 {
-    static char* tex_names[] = {"texture800", "texture", "texture1600"};
-    int def_idx = 1;//default 1024x768
+    static char* tex_names[] =
+    {
+        "texture800",
+        "texture",
+        "texture1600",
+        "texture4k" // 3840x2160
+    };
+
+    int def_idx = 1; //default 1024x768
     int idx = def_idx;
 
-#if 0
-    u32 w = Device.dwWidth;
-
-    if (w <= 800) idx = 0;
-    else if (w <= 1280)idx = 1;
-    else idx = 2;
-#else
     u32 h = Device.dwHeight;
 
-    if (h <= 600) idx = 0;
-    else if (h < 1024) idx = 1;
-    else idx = 2;
-#endif
+    if (h <= 600)
+        idx = 0;
+    else if (h < 1024)
+        idx = 1;
+    else if (h < 1440)
+        idx = 4;
+    else
+        idx = 2;
 
     while (idx >= 0)
     {
