@@ -1141,7 +1141,7 @@ void CApplication::LoadTitleInt(LPCSTR str1, LPCSTR str2, LPCSTR str3)
 }
 void CApplication::LoadStage()
 {
-//    load_stage++;
+    load_stage++;
     VERIFY(ll_dwReference);
 //    Msg("# LoadStage is [%d]", load_stage);
     Msg("# phase time: %d ms", phase_timer.GetElapsed_ms());
