@@ -76,6 +76,7 @@ LPCSTR CFontManager::GetFontTexName(LPCSTR section)
     int idx     = def_idx;
     u32 h       = Device.dwHeight;
 
+/*
     if (h <= 600)		
         idx = 0;
     else if (h < 1024)	
@@ -84,6 +85,7 @@ LPCSTR CFontManager::GetFontTexName(LPCSTR section)
         idx = 4;
     else 			
         idx = 2;
+*/
 
     while (idx >= 0)
     {
