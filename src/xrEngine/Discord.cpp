@@ -16,7 +16,10 @@ void xrDiscordPresense::Initialize()
 	{
 		DiscordEventHandlers nullHandlers;
 		ZeroMemory(&nullHandlers, sizeof(nullHandlers));
-		Discord_Initialize("722224673408024587", &nullHandlers, TRUE, nullptr);
+        if (!p_engine_flags32.test(ITS_CLEAR_1_4_22))
+		    Discord_Initialize("722224673408024587", &nullHandlers, TRUE, nullptr);
+        else
+            Discord_Initialize("763691093849407508", &nullHandlers, TRUE, nullptr);
 		bInitialize = true;
 	}
 }
@@ -564,7 +567,7 @@ void xrDiscordPresense::SetStatus(StatusId status)
             break;
 
         case StatusId::l12_stancia:
-            presenseInfo.largeImageKey = "stancia2";
+            presenseInfo.largeImageKey = "stancia";
             switch (renderer_value)
             {
                 case 0:
@@ -939,7 +942,7 @@ void xrDiscordPresense::SetStatus(StatusId status)
 
         default:
             presenseInfo.details = "В главном меню";
-            presenseInfo.largeImageKey = "menuimagekey";
+            presenseInfo.largeImageKey = "bttr_logo";
             break;
     }
 
