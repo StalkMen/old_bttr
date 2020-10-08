@@ -1166,17 +1166,13 @@ void CApplication::LoadTitleInt(LPCSTR str1, LPCSTR str2, LPCSTR str3)
 }
 void CApplication::LoadStage()
 {
-    load_stage++;
+//    load_stage++;
     VERIFY(ll_dwReference);
-    Msg("# LoadStage is [%d]", load_stage);
+//    Msg("# LoadStage is [%d]", load_stage);
     Msg("# phase time: %d ms", phase_timer.GetElapsed_ms());
     phase_timer.Start();
     Msg("# phase cmem: %lld K", Memory.mem_usage() / 1024);
-
-    if (g_pGamePersistent->GameType() == 1 && strstr(Core.Params, "alife"))
-        max_load_stage = 17;
-    else
-        max_load_stage = 14;
+    max_load_stage = 17;
     LoadDraw();
 }
 
