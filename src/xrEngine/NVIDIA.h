@@ -35,6 +35,8 @@ public:
 
 	u32		GetPercentActive();
 	u32		GetGPUCount();
+	//OldSerpskiStalker
+	DWORD   GetTemperature();
 
 public:
 	static bool bSupport;

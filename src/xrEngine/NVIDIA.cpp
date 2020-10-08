@@ -77,3 +77,10 @@ u32 CNvReader::GetGPUCount()
 {
 	return u32(AdapterFinal ? AdapterFinal : 1);
 }
+
+typedef BOOL(__cdecl* NvCplGetThermalSettings)(IN UINT nWindowsMonitorNumber, OUT DWORD* pdwCoreTemp, OUT DWORD* pdwAmbientTemp, OUT DWORD* pdwUpperLimit);
+DWORD CNvReader::GetTemperature()
+{
+	return 0;
+}
+

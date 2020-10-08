@@ -120,13 +120,15 @@ public:
     void OnDeviceCreate(void);
     void OnDeviceDestroy(void);
     
-    u32   GpuLoad;
-    bool  GPUType;
-    int   _CARD;
-    float AvailableMem;
-    float AvailablePageFileMem;
-    float PageFileMemUsedByApp;
-    float PhysMemoryUsedPercent;
+    u32     GPULoad;
+    u32     GPUTemperature_AMD;
+    DWORD   GPUTemperature_NVIDIA;
+    bool    GPUType;
+    int     _CARD;
+    float   AvailableMem;
+    float   AvailablePageFileMem;
+    float   PageFileMemUsedByApp;
+    float   PhysMemoryUsedPercent;
 
     double cpuBefore;
     double cpuLoad = cpuBefore;
