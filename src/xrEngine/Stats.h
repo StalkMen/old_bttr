@@ -122,7 +122,7 @@ public:
     
     u32     GPULoad;
     u32     GPUTemperature_AMD;
-    DWORD   GPUTemperature_NVIDIA;
+    u32     GPUTemperature_NVIDIA;
     bool    GPUType;
     int     _CARD;
     float   AvailableMem;

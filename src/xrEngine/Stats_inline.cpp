@@ -14,10 +14,9 @@ extern u32 ps_r3_msaa;
 extern u32 ps_r3_msaa_atest;
 extern u32 ps_r_sun_quality;
 extern u32 render_video_size;
-#define CONST_HEIGHT_FONT pFontHW->SetHeightI(0.018f)
 
+#define CONST_HEIGHT_FONT pFontHW->SetHeightI(0.018f)
 #define U32_NULL     u32(-1)
-#define DWORD_NULL DWORD(-1)
 
 enum DebugTextColor : DWORD
 {
@@ -203,7 +202,7 @@ void CStats::Show_HW_Stats()
                         }
                         else
                         {
-                            if (GPUTemperature_AMD != DWORD_NULL)
+                            if (GPUTemperature_NVIDIA != U32_NULL)
                             {
                                 if (GPUTemperature_NVIDIA < 75)
                                     pFontHW->SetColor(DebugTextColor::DTC_RED);
@@ -212,7 +211,7 @@ void CStats::Show_HW_Stats()
                                 else
                                     pFontHW->SetColor(DebugTextColor::DTC_GREEN);
 
-                                pFontHW->Out(GetMainInfoStats, InfoScale, "GPU Temperature: %d°", GPUTemperature_NVIDIA);
+                                pFontHW->Out(GetMainInfoStats, InfoScale, "GPU Temperature: %i°", GPUTemperature_NVIDIA);
                             }
                         }
                         InfoScale += 15;

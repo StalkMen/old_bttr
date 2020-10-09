@@ -25,6 +25,8 @@ CNvReader::CNvReader() : AdapterID(0), AdapterFinal(0), gpuHandlesPh{}, gpuHandl
 		NvAPI_EnumLogicalGPUs = (NvAPI_EnumLogicalGPUs_t)(*NvAPI_QueryInterface)(0x48B3EA59);
 		NvAPI_GPU_GetUsages = (NvAPI_GPU_GetUsages_t)(*NvAPI_QueryInterface)(0x189A1FDF);
 		NvAPI_GPU_PhysicalFromLogical = (NvAPI_PhysicalFromLogical)(*NvAPI_QueryInterface)(0x0AEA3FA32);
+		//OldSerpskiStalker
+		NvAPI_GPU_GetThermalSettings = (NvAPI_GPU_GetThermalSettings_t)(*NvAPI_QueryInterface)(0xE3640A56);
 
 		InitDeviceInfo();
 	}
@@ -78,9 +80,29 @@ u32 CNvReader::GetGPUCount()
 	return u32(AdapterFinal ? AdapterFinal : 1);
 }
 
-typedef BOOL(__cdecl* NvCplGetThermalSettings)(IN UINT nWindowsMonitorNumber, OUT DWORD* pdwCoreTemp, OUT DWORD* pdwAmbientTemp, OUT DWORD* pdwUpperLimit);
-DWORD CNvReader::GetTemperature()
+//-' OldSerpskiStalker
+//-' https://stackoverflow.com/questions/25376080/nvcplgetthermalsettings-call-to-nvcpl-dll-returns-false-c
+u32 CNvReader::GetTemperature()
 {
-	return 0;
+	// Получить данные с драйверов
+	NvU32 logicalGPUCount;
+	NV_GPU_THERMAL_SETTINGS nvgts;
+
+	// Задать термальные настройки
+	(*NvAPI_EnumPhysicalGPUs)(gpuHandlesPh, &logicalGPUCount);
+	nvgts.version = sizeof(NV_GPU_THERMAL_SETTINGS) | (1 << 16);
+	nvgts.count = 0;
+	nvgts.sensor[0].controller = NVAPI_THERMAL_CONTROLLER_GPU_INTERNAL;
+	nvgts.sensor[0].target = NVAPI_THERMAL_TARGET_GPU;
+
+	// Обновление раз в 100 миллисекунд
+	for (size_t i = 0; i < 100; i++)
+	{
+		(*NvAPI_GPU_GetThermalSettings)(gpuHandlesPh[0], 0, &nvgts);
+		return (u32)(nvgts.sensor[0].currentTemp);
+	}
+
+	// По каким то причинам не найдены тепловые параметры, вернем u32
+	return u32(-1);
 }
 
