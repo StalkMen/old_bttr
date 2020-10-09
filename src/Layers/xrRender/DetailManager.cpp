@@ -406,11 +406,14 @@ void CDetailManager::Render	()
 #endif
 	swing_current.lerp		(swing_desc[0],swing_desc[1],factor);
 
-	RCache.set_CullMode		(CULL_NONE);
+	RCache.set_CullMode		(CULL_CCW); //LV: Set cull mode only once
 	RCache.set_xform_world	(Fidentity);
-	if (UseVS())			hw_Render	();
-	else					soft_Render	();
-	RCache.set_CullMode		(CULL_CCW);
+	
+	if (UseVS())			
+		hw_Render	();
+	else					
+		soft_Render	();
+
 	g_pGamePersistent->m_pGShaderConstants->m_blender_mode.w = 0.0f; //--#SM+#--
 	RDEVICE.Statistic->RenderDUMP_DT_Render.End	();
 	m_frame_rendered		= RDEVICE.dwFrame;
