@@ -43,6 +43,30 @@ BOOL g_bLoaded = FALSE;
 ref_light precache_light = 0;
 extern int show_FPS_only;
 
+CRenderDevice::CRenderDevice()
+    :
+    m_pRender(0)
+#ifdef INGAME_EDITOR
+    , m_editor_module(0),
+    m_editor_initialize(0),
+    m_editor_finalize(0),
+    m_editor(0),
+    m_engine(0)
+#endif // #ifdef INGAME_EDITOR
+{
+    m_hWnd = NULL;
+    b_is_Active = FALSE;
+    b_is_Ready = FALSE;
+    Timer.Start();
+    m_bNearer = FALSE;
+    //--#SM+#-- +SecondVP+
+    m_SecondViewport.SetSVPActive(false);
+    m_SecondViewport.SetSVPFrameDelay(2);
+    m_SecondViewport.isCamReady = false;
+};
+
+CRenderDevice::~CRenderDevice() {}
+
 BOOL CRenderDevice::Begin()
 {
 #ifndef DEDICATED_SERVER

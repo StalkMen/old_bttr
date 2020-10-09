@@ -212,27 +212,8 @@ public:
 
     Fmatrix mInvFullTransform;
 
-    CRenderDevice()
-        :
-        m_pRender(0)
-#ifdef INGAME_EDITOR
-        , m_editor_module(0),
-        m_editor_initialize(0),
-        m_editor_finalize(0),
-        m_editor(0),
-        m_engine(0)
-#endif // #ifdef INGAME_EDITOR
-    {
-        m_hWnd = NULL;
-        b_is_Active = FALSE;
-        b_is_Ready = FALSE;
-        Timer.Start();
-        m_bNearer = FALSE;
-		//--#SM+#-- +SecondVP+
-		m_SecondViewport.SetSVPActive(false);
-		m_SecondViewport.SetSVPFrameDelay(2);
-		m_SecondViewport.isCamReady = false;
-    };
+    CRenderDevice();
+    ~CRenderDevice();
 
     void Pause(BOOL bOn, BOOL bTimer, BOOL bSound, LPCSTR reason);
     BOOL Paused();
