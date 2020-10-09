@@ -343,7 +343,7 @@ void	CRenderTarget::phase_combine	()
 	
 #pragma TODO("OldSerpskiStalker. Disabled. Because the rays pass through the materials of the location to the direction of the sun.")
 #if 0	
-	if (ps_r_sun_shafts > 0 && ps_sunshafts_mode == R2SS_SCREEN_SPACE)
+	if (ps_r_sun_shafts > 0 && ps_sunshafts_mode == SS_RENDER_OFF)
 			phase_sunshafts();
 #endif
 
