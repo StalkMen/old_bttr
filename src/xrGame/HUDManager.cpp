@@ -81,7 +81,7 @@ LPCSTR CFontManager::GetFontTexName(LPCSTR section)
     else if (h < 1024)	
         idx = 1;
     else if (h == 1440 || h == 1536 || h == 1600 || h == 2160)
-        idx = 4;
+        idx = 3;
     else 			
         idx = 2;
 
