@@ -191,9 +191,11 @@ void dxRenderDeviceRender::Begin()
 }
 
 void dxRenderDeviceRender::Clear()
-{
-    HW.pContext->ClearDepthStencilView(RCache.get_ZB(), 
-        D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
+{	//Cleans stencil-depth buffer
+    
+	//LV: We don't use depth buffer on R3/R4 to get depth, so there's no need to clean it
+	//HW.pContext->ClearDepthStencilView(RCache.get_ZB(), 
+    //    D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
 
     if (psDeviceFlags.test(rsClearBB))
     {
@@ -227,7 +229,7 @@ void dxRenderDeviceRender::ResourcesDestroyNecessaryTextures()
 }
 
 void dxRenderDeviceRender::ClearTarget()
-{
+{	//Cleans backbuffer
     FLOAT ColorRGBA[4] = {0.0f,0.0f,0.0f,0.0f};
     HW.pContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
 }
