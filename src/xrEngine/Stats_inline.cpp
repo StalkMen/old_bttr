@@ -190,9 +190,9 @@ void CStats::Show_HW_Stats()
                         {
                             if (GPUTemperature_AMD != U32_NULL)
                             {
-                                if (GPUTemperature_AMD < 75)
+                                if (GPUTemperature_AMD > 75)
                                     pFontHW->SetColor(DebugTextColor::DTC_RED);
-                                else if (GPUTemperature_AMD < 55)
+                                else if (GPUTemperature_AMD > 55)
                                     pFontHW->SetColor(DebugTextColor::DTC_YELLOW);
                                 else
                                     pFontHW->SetColor(DebugTextColor::DTC_GREEN);
