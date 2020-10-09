@@ -22,6 +22,8 @@ float	psSoundVFactor			= 1.0f;
 float	psSoundVMusic			= 1.f;
 int		psSoundCacheSizeMB		= 32;
 
+float   psSpeedOfSound			= 1.0f;
+
 CSoundRender_Core*				SoundRender = 0;
 CSound_manager_interface*		Sound		= 0;
 
@@ -381,7 +383,7 @@ void CSoundRender_Core::_create_data( ref_sound_data& S, LPCSTR fName, esound_ty
     S.g_object			= 0; 
     S.g_userdata		= 0;
 	S.dwBytesTotal		= S.handle->bytes_total();
-	S.fTimeTotal		= S.handle->length_sec();
+	S.fTimeTotal		= S.handle->length_sec() / psSpeedOfSound * 3.2f;
 }
 void CSoundRender_Core::_destroy_data( ref_sound_data& S)
 {

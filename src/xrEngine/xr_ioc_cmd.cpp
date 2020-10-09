@@ -754,6 +754,8 @@ void CCC_Register()
     CMD4(CCC_Integer,   "xrEngine_rs_fps_test", &show_FPS_only, 0, 1);
 #endif
 
+    CMD4(CCC_Float,     "xrSound_snd_speed",    &psSpeedOfSound, 0.2f, 2.0f);
+
     if (!strstr(Core.Params, "-old_ver"))
         CMD4(CCC_Integer, "xrEngine_loadingstages", &ps_rs_loading_stages, 0, 1);
 

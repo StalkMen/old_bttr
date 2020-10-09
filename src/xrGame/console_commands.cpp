@@ -1909,6 +1909,7 @@ void CCC_RegisterCommands()
 		p_game_flags32.set(ALIFE_FULL_ACTIVE, false);
 		CMD3(CCC_Mask, "__alife_full_active", &p_game_flags32, ALIFE_FULL_ACTIVE);
 	}
+	CMD1(CCC_TimeFactor, "xrGame_time_factor");
 
 	CMD3(CCC_Mask,    "xrGame_3d_scopes", &psActorFlags, AF_3DSCOPE_ENABLE);
 	CMD3(CCC_Token, "xrGame_type_hud", &type_hud_token, type_hud_token_ext);
@@ -2116,7 +2117,6 @@ void CCC_RegisterCommands()
 	CMD3(CCC_Mask, "g_unlimitedammo", &psActorFlags, AF_UNLIMITEDAMMO);
 	CMD1(CCC_Script, "run_script");
 	CMD1(CCC_ScriptCommand, "run_string");
-	CMD1(CCC_TimeFactor, "time_factor");
 	CMD1(CCC_PHGravity, "ph_gravity");
 
 	if (strstr(Core.Params, "-old_ver"))
