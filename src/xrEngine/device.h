@@ -12,6 +12,7 @@
 #include "pure.h"
 //#include "hw.h"
 #include "../xrcore/ftimer.h"
+#include "../xrCore/Event.hpp"
 #include "stats.h"
 //#include "shader.h"
 //#include "R_Backend.h"
