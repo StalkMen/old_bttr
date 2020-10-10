@@ -370,7 +370,7 @@ BOOL CHW::support(D3DFORMAT fmt, DWORD type, DWORD usage)
 
 void CHW::updateWindowProps(HWND m_hWnd)
 {
-	BOOL	bWindowed = !psDeviceFlags.is(rsFullscreen);
+	BOOL	bWindowed = (g_screenmode != 2);
 
 	u32		dwWindowStyle = 0;
 	// Set window properties depending on what mode were in.

@@ -50,7 +50,7 @@ void CRenderDevice::Destroy(void)
     //xr_delete (Resources);
     //HW.DestroyDevice ();
 
-    ChangeDisplaySettings(NULL, 0);
+//    ChangeDisplaySettings(NULL, 0);
 
     seqRender.R.clear();
     seqAppActivate.R.clear();
@@ -103,13 +103,6 @@ void CRenderDevice::Reset(bool precache)
     // TODO: Remove this! It may hide crash
     Memory.mem_compact();
 
-#ifndef DEDICATED_SERVER
-    ShowCursor(FALSE);
-    RECT winRect;
-    GetWindowRect(m_hWnd, &winRect);
-    ClipCursor(&winRect);
-#endif
-
     seqDeviceReset.Process(rp_DeviceReset);
 
     if (dwWidth_before != dwWidth || dwHeight_before != dwHeight)
@@ -124,4 +117,9 @@ void CRenderDevice::Reset(bool precache)
 		SetWindowLongPtr(Device.m_hWnd, GWL_STYLE, WS_VISIBLE | WS_POPUP);
 		SetWindowPos(Device.m_hWnd, HWND_TOP, 0, 0, w, h, SWP_FRAMECHANGED);
 	}
+
+    ShowCursor(FALSE);
+    RECT winRect;
+    GetWindowRect(m_hWnd, &winRect);
+    ClipCursor(&winRect);
 }

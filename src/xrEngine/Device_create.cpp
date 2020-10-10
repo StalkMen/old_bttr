@@ -207,9 +207,12 @@ PROTECT_API void CRenderDevice::Create()
 		GetMonitorResolution(w, h);
 		SetWindowLongPtr(Device.m_hWnd, GWL_STYLE, WS_VISIBLE | WS_POPUP);
 		SetWindowPos(Device.m_hWnd, HWND_TOP, 0, 0, w, h, SWP_FRAMECHANGED);
+        DisableProcessWindowsGhosting();
 	}
 
-	DisableProcessWindowsGhosting();
+    RECT winRect;
+    GetWindowRect(m_hWnd, &winRect);
+    ClipCursor(&winRect);
 
     string_path fname;
     FS.update_path(fname, "$game_data$", "shaders.xr");

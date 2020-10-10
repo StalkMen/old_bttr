@@ -351,7 +351,7 @@ void CHW::OnAppActivate()
 	if ( m_pSwapChain && !m_ChainDesc.Windowed )
 	{
 		ShowWindow( m_ChainDesc.OutputWindow, SW_RESTORE );
-		m_pSwapChain->SetFullscreenState(psDeviceFlags.is(rsFullscreen), nullptr);
+		m_pSwapChain->SetFullscreenState(g_screenmode == 2, nullptr);
 	}
 }
 
@@ -373,8 +373,7 @@ BOOL CHW::support( D3DFORMAT fmt, DWORD type, DWORD usage)
 
 void CHW::updateWindowProps(HWND m_hWnd)
 {
-	//	BOOL	bWindowed				= strstr(Core.Params,"-dedicated") ? TRUE : !psDeviceFlags.is	(rsFullscreen);
-	BOOL	bWindowed				= !psDeviceFlags.is	(rsFullscreen);
+	BOOL	bWindowed				= g_screenmode != 2;
 
 	u32		dwWindowStyle			= 0;
 	// Set window properties depending on what mode were in.
