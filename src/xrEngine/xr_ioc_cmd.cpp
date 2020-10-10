@@ -15,7 +15,7 @@
 
 #include "xr_object.h"
 
-u32 g_screenmode = 1;
+ENGINE_API u32 g_screenmode = 1;
 xr_token screen_mode_tokens[] = 
 {
 	{"fullscreen", 2},
@@ -779,6 +779,7 @@ void CCC_Register()
 
         CMD3(CCC_Mask, "_game_preset_clear_version_call_of_chernobyl", &p_engine_flags32, ITS_CLEAR_1_4_22);
     }
+    CMD1(CCC_Screenmode, "rs_screenmode");
     //Опции которые относятся к рендеру
     const static bool xrRender_options = true;
     if (xrRender_options)

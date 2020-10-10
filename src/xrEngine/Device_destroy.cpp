@@ -87,10 +87,10 @@ void CRenderDevice::Reset(bool precache)
     }
 
     m_pRender->Reset(m_hWnd, dwWidth, dwHeight, fWidth_2, fHeight_2);
-mePersistent)
+
+    if (g_pGamePersistent)
     {
-        //. g_
-    if (g_pGapGamePersistent->Environment().OnDeviceCreate();
+    //. g_pGamePersistent->Environment().OnDeviceCreate();
         //bNeed_re_create_env = TRUE;
         g_pGamePersistent->Environment().bNeed_re_create_env = TRUE;
     }

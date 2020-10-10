@@ -232,7 +232,7 @@ ENGINE_API xr_list<LOADING_EVENT> g_loading_events;
 extern bool IsMainMenuActive();
 extern u32 g_screenmode;
 
-void GetMonitorResolution(u32& horizontal, u32& vertical)
+ENGINE_API void GetMonitorResolution(u32& horizontal, u32& vertical)
 {
 	HMONITOR hMonitor = MonitorFromWindow(
 		Device.m_hWnd, MONITOR_DEFAULTTOPRIMARY);

@@ -50,6 +50,7 @@ void CHW::DestroyD3D()
 
 extern int tbufer_renders;
 extern u32 RenderThemeShaders;
+extern ENGINE_API u32 g_screenmode;
 
 void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 {
@@ -59,7 +60,7 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	// TODO: DX10: Create appropriate initialization
 
 	// General - select adapter and device
-	BOOL  bWindowed = !psDeviceFlags.is(rsFullscreen);
+	BOOL  bWindowed = (g_screenmode != 2);
 
 	m_DriverType = Caps.bForceGPU_REF ?
 		D3D_DRIVER_TYPE_REFERENCE : D3D_DRIVER_TYPE_HARDWARE;
@@ -215,7 +216,7 @@ void CHW::Reset (HWND hwnd)
 {
 	DXGI_SWAP_CHAIN_DESC &cd = m_ChainDesc;
 
-	BOOL	bWindowed		= !psDeviceFlags.is	(rsFullscreen);
+	BOOL	bWindowed = (g_screenmode != 2);
 
 	cd.Windowed = bWindowed;
 
@@ -259,7 +260,7 @@ D3DFORMAT CHW::selectDepthStencil	(D3DFORMAT fTarget)
 	return D3DFMT_D24S8;
 }
 
-extern void GetMonitorResolution(u32& horizontal, u32& vertical);
+extern ENGINE_API void GetMonitorResolution(u32& horizontal, u32& vertical);
 
 void CHW::selectResolution( u32 &dwWidth, u32 &dwHeight, BOOL bWindowed )
 {

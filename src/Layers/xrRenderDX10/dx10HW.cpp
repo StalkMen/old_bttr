@@ -57,7 +57,7 @@ void CHW::DestroyD3D()
 
 extern int tbufer_renders;
 extern u32 RenderThemeShaders;
-extern u32 g_screenmode;
+extern ENGINE_API u32 g_screenmode;
 
 void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 {
@@ -256,7 +256,7 @@ D3DFORMAT CHW::selectDepthStencil(D3DFORMAT fTarget)
 	return D3DFMT_D24S8;
 }
 
-extern void GetMonitorResolution(u32& horizontal, u32& vertical);
+extern ENGINE_API void GetMonitorResolution(u32& horizontal, u32& vertical);
 
 void CHW::selectResolution(u32& dwWidth, u32& dwHeight, BOOL bWindowed)
 {
