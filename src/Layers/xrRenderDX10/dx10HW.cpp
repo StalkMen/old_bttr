@@ -363,7 +363,6 @@ BOOL CHW::support(D3DFORMAT fmt, DWORD type, DWORD usage)
 
 void CHW::updateWindowProps(HWND m_hWnd)
 {
-	//	BOOL	bWindowed				= strstr(Core.Params,"-dedicated") ? TRUE : !psDeviceFlags.is	(rsFullscreen);
 	BOOL	bWindowed = !psDeviceFlags.is(rsFullscreen);
 
 	u32		dwWindowStyle = 0;
@@ -439,7 +438,6 @@ void fill_vid_mode_list(CHW* _hw)
 	xr_vector<DXGI_MODE_DESC>	modes;
 
 	IDXGIOutput* pOutput;
-	//_hw->m_pSwapChain->GetContainingOutput(&pOutput);
 	_hw->m_pAdapter->EnumOutputs(0, &pOutput);
 	VERIFY(pOutput);
 
@@ -473,11 +471,6 @@ void fill_vid_mode_list(CHW* _hw)
 		_tmp.back() = xr_strdup(str);
 	}
 
-
-
-	//	_tmp.push_back				(NULL);
-	//	_tmp.back()					= xr_strdup("1024x768");
-
 	u32 _cnt = _tmp.size() + 1;
 
 	vid_mode_token = xr_alloc<xr_token>(_cnt);
@@ -504,7 +497,6 @@ void CHW::UpdateViews()
 	HRESULT R;
 
 	// Create a render target view
-	//R_CHK	(pDevice->GetRenderTarget			(0,&pBaseRT));
 	ID3DTexture2D* pBuffer;
 	R = m_pSwapChain->GetBuffer(0, __uuidof(ID3DTexture2D), (LPVOID*)&pBuffer);
 	R_CHK(R);
@@ -515,7 +507,6 @@ void CHW::UpdateViews()
 
 	//	Create Depth/stencil buffer
 	//	HACK: DX10: hard depth buffer format
-	//R_CHK	(pDevice->GetDepthStencilSurface	(&pBaseZB));
 	ID3DTexture2D* pDepthStencil = NULL;
 	D3D_TEXTURE2D_DESC descDepth;
 	descDepth.Width = sd.BufferDesc.Width;

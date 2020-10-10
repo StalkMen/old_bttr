@@ -239,9 +239,6 @@ void CRenderDevice::on_idle()
         return;
     }
 
-#ifdef DEDICATED_SERVER
-    u32 FrameStartTime = TimerGlobal.GetElapsed_ms();
-#endif
     if (psDeviceFlags.test(rsStatistic)) 
 		g_bEnableStatGather = TRUE;
     else g_bEnableStatGather = FALSE;
@@ -279,8 +276,6 @@ void CRenderDevice::on_idle()
     // Matrices
     mFullTransform.mul(mProject, mView);
     m_pRender->SetCacheXform(mView, mProject);
-    //RCache.set_xform_view ( mView );
-    //RCache.set_xform_project ( mProject );
     D3DXMatrixInverse((D3DXMATRIX*)&mInvFullTransform, 0, (D3DXMATRIX*)&mFullTransform);
 
     vCameraPosition_saved = vCameraPosition;
