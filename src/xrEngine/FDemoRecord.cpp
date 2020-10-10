@@ -14,7 +14,6 @@
 extern BOOL g_bDisableRedText;
 static Flags32 s_hud_flag = {0};
 static Flags32 s_dev_flags = {0};
-static bool old_screenmode;
 
 BOOL stored_weapon;
 BOOL stored_cross;
@@ -193,7 +192,6 @@ void GetLM_BBox(Fbox& bb, INT Step)
     }
 };
 
-extern u32 g_screenmode;
 void CDemoRecord::MakeLevelMapProcess()
 {
     switch (m_Stage)
@@ -201,15 +199,12 @@ void CDemoRecord::MakeLevelMapProcess()
     case 0:
     {
         s_dev_flags = psDeviceFlags;
-        old_screenmode = g_screenmode;
         s_hud_flag.assign(psHUD_Flags);
         psDeviceFlags.zero();
-        psDeviceFlags.set(rsClearBB /*| rsFullscreen*/ | rsDrawStatic, TRUE);
-        if (old_screenmode != 2)
-        {
+        psDeviceFlags.set(rsClearBB | rsFullscreen | rsDrawStatic, TRUE);
+        if (!psDeviceFlags.equal(s_dev_flags, rsFullscreen))
             Device.Reset();
-            old_screenmode = 2;
-        }
+
     }
         break;
 
@@ -241,13 +236,9 @@ void CDemoRecord::MakeLevelMapProcess()
         {
             psHUD_Flags.assign(s_hud_flag);
 
-//            BOOL bDevReset = !psDeviceFlags.equal(s_dev_flags, rsFullscreen);
+            BOOL bDevReset = !psDeviceFlags.equal(s_dev_flags, rsFullscreen);
             psDeviceFlags = s_dev_flags;
-            if (old_screenmode != 2)
-            {
-                g_screenmode = old_screenmode;
-                Device.Reset();
-            }
+            if (bDevReset) Device.Reset();
             m_bMakeLevelMap = FALSE;
             m_iLMScreenshotFragment = -1;
         }

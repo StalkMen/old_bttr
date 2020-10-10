@@ -50,7 +50,6 @@ void CHW::DestroyD3D()
 
 extern int tbufer_renders;
 extern u32 RenderThemeShaders;
-extern ENGINE_API u32 g_screenmode;
 
 void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 {
@@ -60,7 +59,7 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	// TODO: DX10: Create appropriate initialization
 
 	// General - select adapter and device
-	BOOL  bWindowed = (g_screenmode != 2);
+	BOOL  bWindowed = !psDeviceFlags.is(rsFullscreen);
 
 	m_DriverType = Caps.bForceGPU_REF ?
 		D3D_DRIVER_TYPE_REFERENCE : D3D_DRIVER_TYPE_HARDWARE;
@@ -216,7 +215,7 @@ void CHW::Reset (HWND hwnd)
 {
 	DXGI_SWAP_CHAIN_DESC &cd = m_ChainDesc;
 
-	BOOL	bWindowed = (g_screenmode != 2);
+	BOOL	bWindowed		= !psDeviceFlags.is	(rsFullscreen);
 
 	cd.Windowed = bWindowed;
 
@@ -260,14 +259,9 @@ D3DFORMAT CHW::selectDepthStencil	(D3DFORMAT fTarget)
 	return D3DFMT_D24S8;
 }
 
-extern ENGINE_API void GetMonitorResolution(u32& horizontal, u32& vertical);
-
 void CHW::selectResolution( u32 &dwWidth, u32 &dwHeight, BOOL bWindowed )
 {
 	fill_vid_mode_list			(this);
-
-	if (psCurrentVidMode[0] == 0 || psCurrentVidMode[1] == 0)
-		GetMonitorResolution(psCurrentVidMode[0], psCurrentVidMode[1]);
 
 	if(bWindowed)
 	{
@@ -351,7 +345,7 @@ void CHW::OnAppActivate()
 	if ( m_pSwapChain && !m_ChainDesc.Windowed )
 	{
 		ShowWindow( m_ChainDesc.OutputWindow, SW_RESTORE );
-		m_pSwapChain->SetFullscreenState(g_screenmode == 2, nullptr);
+		m_pSwapChain->SetFullscreenState(psDeviceFlags.is(rsFullscreen), nullptr);
 	}
 }
 
@@ -373,7 +367,8 @@ BOOL CHW::support( D3DFORMAT fmt, DWORD type, DWORD usage)
 
 void CHW::updateWindowProps(HWND m_hWnd)
 {
-	BOOL	bWindowed				= g_screenmode != 2;
+	//	BOOL	bWindowed				= strstr(Core.Params,"-dedicated") ? TRUE : !psDeviceFlags.is	(rsFullscreen);
+	BOOL	bWindowed				= !psDeviceFlags.is	(rsFullscreen);
 
 	u32		dwWindowStyle			= 0;
 	// Set window properties depending on what mode were in.

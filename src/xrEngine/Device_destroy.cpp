@@ -6,9 +6,6 @@
 #include "xr_IOConsole.h"
 #include "Discord.h"
 
-extern u32 g_screenmode;
-
-
 void CRenderDevice::_Destroy(BOOL bKeepTextures)
 {
     DU->OnDeviceDestroy();
@@ -50,7 +47,7 @@ void CRenderDevice::Destroy(void)
     //xr_delete (Resources);
     //HW.DestroyDevice ();
 
-//    ChangeDisplaySettings(NULL, 0);
+    ChangeDisplaySettings(NULL, 0);
 
     seqRender.R.clear();
     seqAppActivate.R.clear();
@@ -70,9 +67,6 @@ void CRenderDevice::Destroy(void)
 #include "IGame_Level.h"
 #include "CustomHUD.h"
 extern BOOL bNeed_re_create_env;
-extern u32 g_screenmode;
-extern void GetMonitorResolution(u32& horizontal, u32& vertical);
-
 void CRenderDevice::Reset(bool precache)
 {
     u32 dwWidth_before = dwWidth;
@@ -90,7 +84,7 @@ void CRenderDevice::Reset(bool precache)
 
     if (g_pGamePersistent)
     {
-    //. g_pGamePersistent->Environment().OnDeviceCreate();
+        //. g_pGamePersistent->Environment().OnDeviceCreate();
         //bNeed_re_create_env = TRUE;
         g_pGamePersistent->Environment().bNeed_re_create_env = TRUE;
     }
@@ -103,23 +97,17 @@ void CRenderDevice::Reset(bool precache)
     // TODO: Remove this! It may hide crash
     Memory.mem_compact();
 
+#ifndef DEDICATED_SERVER
+    ShowCursor(FALSE);
+    RECT winRect;
+    GetWindowRect(m_hWnd, &winRect);
+    ClipCursor(&winRect);
+#endif
+
     seqDeviceReset.Process(rp_DeviceReset);
 
     if (dwWidth_before != dwWidth || dwHeight_before != dwHeight)
     {
         seqResolutionChanged.Process(rp_ScreenResolutionChanged);
     }
-
-	if (g_screenmode == 1)
-	{
-		u32 w, h;
-		GetMonitorResolution(w, h);
-		SetWindowLongPtr(Device.m_hWnd, GWL_STYLE, WS_VISIBLE | WS_POPUP);
-		SetWindowPos(Device.m_hWnd, HWND_TOP, 0, 0, w, h, SWP_FRAMECHANGED);
-	}
-
-    ShowCursor(FALSE);
-    RECT winRect;
-    GetWindowRect(m_hWnd, &winRect);
-    ClipCursor(&winRect);
 }

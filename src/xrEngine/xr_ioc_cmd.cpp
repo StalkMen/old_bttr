@@ -15,15 +15,6 @@
 
 #include "xr_object.h"
 
-ENGINE_API u32 g_screenmode = 1;
-xr_token screen_mode_tokens[] = 
-{
-	{"fullscreen", 2},
-	{"borderless", 1},
-	{"windowed", 0},
-	{0, 0}
-};
-
 xr_token* vid_quality_token = NULL;
 
 xr_token vid_bpp_token[] =
@@ -480,49 +471,6 @@ public:
     }
 
 };
-
-extern void GetMonitorResolution(u32& horizontal, u32& vertical);
-
-class CCC_Screenmode : public CCC_Token
-{
-public:
-	CCC_Screenmode(LPCSTR N) : CCC_Token(N, &g_screenmode, screen_mode_tokens){};
-
-	virtual void Execute(LPCSTR args)
-	{
-		u32 prev_mode = g_screenmode;
-		CCC_Token::Execute(args);
-
-        static bool bStarted;
-        
-        if (!bStarted)
-        {
-            bStarted = true;
-            return;
-        }
-
-		if ((prev_mode != g_screenmode))
-		{
-			if (Device.b_is_Ready && (prev_mode == 2 || g_screenmode == 2))
-				Device.Reset();
-
-			if (g_screenmode == 0 || g_screenmode == 1)
-			{
-				u32 w, h;
-				GetMonitorResolution(w, h);
-				SetWindowLongPtr(Device.m_hWnd, GWL_STYLE, WS_VISIBLE | WS_POPUP);
-				SetWindowPos(Device.m_hWnd, HWND_TOP, 0, 0, w, h, SWP_FRAMECHANGED);
-
-				if (g_screenmode == 0)
-					SetWindowLongPtr(Device.m_hWnd, GWL_STYLE, WS_VISIBLE | WS_OVERLAPPEDWINDOW);
-			}
-		}
-
-		RECT winRect;
-		GetWindowRect(Device.m_hWnd, &winRect);
-		ClipCursor(&winRect);
-	}
-};
 //-----------------------------------------------------------------------
 class CCC_SND_Restart : public IConsole_Command
 {
@@ -787,7 +735,6 @@ void CCC_Register()
 
         CMD3(CCC_Mask, "_game_preset_clear_version_call_of_chernobyl", &p_engine_flags32, ITS_CLEAR_1_4_22);
     }
-    CMD1(CCC_Screenmode, "rs_screenmode");
     //Опции которые относятся к рендеру
     const static bool xrRender_options = true;
     if (xrRender_options)
@@ -861,7 +808,7 @@ void CCC_Register()
 
     CMD3(CCC_Mask, "rs_v_sync", &psDeviceFlags, rsVSync);
     // CMD3(CCC_Mask, "rs_disable_objects_as_crows",&psDeviceFlags, rsDisableObjectsAsCrows );
-//    CMD3(CCC_Mask, "rs_fullscreen", &psDeviceFlags, rsFullscreen);
+    CMD3(CCC_Mask, "rs_fullscreen", &psDeviceFlags, rsFullscreen);
     CMD3(CCC_Mask, "rs_refresh_60hz", &psDeviceFlags, rsRefresh60hz);
     CMD3(CCC_Mask, "rs_stats", &psDeviceFlags, rsStatistic);
     CMD4(CCC_Float, "rs_vis_distance", &psVisDistance, 0.4f, 1.5f);

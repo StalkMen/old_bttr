@@ -38,7 +38,7 @@ std::chrono::duration<float> time_span;
 ENGINE_API CRenderDevice Device;
 ENGINE_API CLoadScreenRenderer load_screen_renderer;
 ENGINE_API BOOL g_bRendering = FALSE;
-ENGINE_API int psBorderless = 0;
+
 BOOL g_bLoaded = FALSE;
 ref_light precache_light = 0;
 extern int show_FPS_only;
@@ -230,38 +230,14 @@ int g_svDedicateServerUpdateReate = 100;
 ENGINE_API xr_list<LOADING_EVENT> g_loading_events;
 
 extern bool IsMainMenuActive();
-extern u32 g_screenmode;
-
-ENGINE_API void GetMonitorResolution(u32& horizontal, u32& vertical)
-{
-	HMONITOR hMonitor = MonitorFromWindow(
-		Device.m_hWnd, MONITOR_DEFAULTTOPRIMARY);
-
-	MONITORINFO mi;
-	mi.cbSize = sizeof(mi);
-	if (GetMonitorInfoA(hMonitor, &mi))
-	{
-		horizontal = mi.rcMonitor.right - mi.rcMonitor.left;
-		vertical = mi.rcMonitor.bottom - mi.rcMonitor.top;
-	}
-	else
-	{
-		RECT desktop;
-		const HWND hDesktop = GetDesktopWindow();
-		GetWindowRect(hDesktop, &desktop);
-		horizontal = desktop.right - desktop.left;
-		vertical = desktop.bottom - desktop.top;
-	}
-}
 
 void CRenderDevice::on_idle()
 {
-
-	if (!b_is_Ready)
-	{
-		Sleep(100);
-		return;
-	}
+    if (!b_is_Ready)
+    {
+        Sleep(100);
+        return;
+    }
 
 #ifdef DEDICATED_SERVER
     u32 FrameStartTime = TimerGlobal.GetElapsed_ms();
