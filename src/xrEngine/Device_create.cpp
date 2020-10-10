@@ -209,6 +209,8 @@ PROTECT_API void CRenderDevice::Create()
 		SetWindowPos(Device.m_hWnd, HWND_TOP, 0, 0, w, h, SWP_FRAMECHANGED);
 	}
 
+	DisableProcessWindowsGhosting();
+
     string_path fname;
     FS.update_path(fname, "$game_data$", "shaders.xr");
 
