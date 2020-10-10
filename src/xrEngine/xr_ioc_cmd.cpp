@@ -15,6 +15,15 @@
 
 #include "xr_object.h"
 
+u32 g_screenmode = 1;
+xr_token screen_mode_tokens[] = 
+{
+	{"fullscreen", 2},
+	{"borderless", 1},
+	{"windowed", 0},
+	{0, 0}
+};
+
 xr_token* vid_quality_token = NULL;
 
 xr_token vid_bpp_token[] =
@@ -470,6 +479,41 @@ public:
         }
     }
 
+};
+
+extern void GetMonitorResolution(u32& horizontal, u32& vertical);
+
+class CCC_Screenmode : public CCC_Token
+{
+public:
+	CCC_Screenmode(LPCSTR N) : CCC_Token(N, &g_screenmode, screen_mode_tokens){};
+
+	virtual void Execute(LPCSTR args)
+	{
+		u32 prev_mode = g_screenmode;
+		CCC_Token::Execute(args);
+
+		if ((prev_mode != g_screenmode))
+		{
+			if (Device.b_is_Ready && (prev_mode == 2 || g_screenmode == 2))
+				Device.Reset();
+
+			if (g_screenmode == 0 || g_screenmode == 1)
+			{
+				u32 w, h;
+				GetMonitorResolution(w, h);
+				SetWindowLongPtr(Device.m_hWnd, GWL_STYLE, WS_VISIBLE | WS_POPUP);
+				SetWindowPos(Device.m_hWnd, HWND_TOP, 0, 0, w, h, SWP_FRAMECHANGED);
+
+				if (g_screenmode == 0)
+					SetWindowLongPtr(Device.m_hWnd, GWL_STYLE, WS_VISIBLE | WS_OVERLAPPEDWINDOW);
+			}
+		}
+
+		RECT winRect;
+		GetWindowRect(Device.m_hWnd, &winRect);
+		ClipCursor(&winRect);
+	}
 };
 //-----------------------------------------------------------------------
 class CCC_SND_Restart : public IConsole_Command

@@ -6,6 +6,9 @@
 #include "xr_IOConsole.h"
 #include "Discord.h"
 
+extern u32 g_screenmode;
+
+
 void CRenderDevice::_Destroy(BOOL bKeepTextures)
 {
     DU->OnDeviceDestroy();
@@ -67,6 +70,9 @@ void CRenderDevice::Destroy(void)
 #include "IGame_Level.h"
 #include "CustomHUD.h"
 extern BOOL bNeed_re_create_env;
+extern u32 g_screenmode;
+extern void GetMonitorResolution(u32& horizontal, u32& vertical);
+
 void CRenderDevice::Reset(bool precache)
 {
     u32 dwWidth_before = dwWidth;
@@ -81,10 +87,10 @@ void CRenderDevice::Reset(bool precache)
     }
 
     m_pRender->Reset(m_hWnd, dwWidth, dwHeight, fWidth_2, fHeight_2);
-
-    if (g_pGamePersistent)
+mePersistent)
     {
-        //. g_pGamePersistent->Environment().OnDeviceCreate();
+        //. g_
+    if (g_pGapGamePersistent->Environment().OnDeviceCreate();
         //bNeed_re_create_env = TRUE;
         g_pGamePersistent->Environment().bNeed_re_create_env = TRUE;
     }
@@ -110,4 +116,12 @@ void CRenderDevice::Reset(bool precache)
     {
         seqResolutionChanged.Process(rp_ScreenResolutionChanged);
     }
+
+	if (g_screenmode == 1)
+	{
+		u32 w, h;
+		GetMonitorResolution(w, h);
+		SetWindowLongPtr(Device.m_hWnd, GWL_STYLE, WS_VISIBLE | WS_POPUP);
+		SetWindowPos(Device.m_hWnd, HWND_TOP, 0, 0, w, h, SWP_FRAMECHANGED);
+	}
 }

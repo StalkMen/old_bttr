@@ -57,6 +57,7 @@ void CHW::DestroyD3D()
 
 extern int tbufer_renders;
 extern u32 RenderThemeShaders;
+extern u32 g_screenmode;
 
 void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 {
@@ -66,7 +67,7 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	// TODO: DX10: Create appropriate initialization
 
 	// General - select adapter and device
-	BOOL  bWindowed = !psDeviceFlags.is(rsFullscreen);
+	BOOL bWindowed = (g_screenmode != 2);
 
 	m_DriverType = Caps.bForceGPU_REF ?
 		D3D_DRIVER_TYPE_REFERENCE : D3D_DRIVER_TYPE_HARDWARE;
@@ -211,7 +212,7 @@ void CHW::Reset(HWND hwnd)
 {
 	DXGI_SWAP_CHAIN_DESC& cd = m_ChainDesc;
 
-	BOOL	bWindowed = !psDeviceFlags.is(rsFullscreen);
+	BOOL bWindowed = (g_screenmode != 2);
 
 	cd.Windowed = bWindowed;
 
