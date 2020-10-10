@@ -256,9 +256,14 @@ D3DFORMAT CHW::selectDepthStencil(D3DFORMAT fTarget)
 	return D3DFMT_D24S8;
 }
 
+extern void GetMonitorResolution(u32& horizontal, u32& vertical);
+
 void CHW::selectResolution(u32& dwWidth, u32& dwHeight, BOOL bWindowed)
 {
 	fill_vid_mode_list(this);
+
+	if (psCurrentVidMode[0] == 0 || psCurrentVidMode[1] == 0)
+		GetMonitorResolution(psCurrentVidMode[0], psCurrentVidMode[1]);
 
 	if (bWindowed)
 	{
@@ -267,11 +272,12 @@ void CHW::selectResolution(u32& dwWidth, u32& dwHeight, BOOL bWindowed)
 	}
 	else //check
 	{
-		string64					buff;
+		string64 buff;
 		xr_sprintf(buff, sizeof(buff), "%dx%d", psCurrentVidMode[0], psCurrentVidMode[1]);
 
 		if (_ParseItem(buff, vid_mode_token) == u32(-1)) //not found
-		{ //select safe
+		{
+			//select safe
 			xr_sprintf(buff, sizeof(buff), "vid_mode %s", vid_mode_token[0].name);
 			Console->Execute(buff);
 		}
