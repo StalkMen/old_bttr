@@ -16,7 +16,7 @@ float	psSoundOcclusionScale	= 0.5f;
 float	psSoundCull				= 0.01f;
 float	psSoundRolloff			= 0.75f;
 u32		psSoundModel			= 0;
-float	psSoundVEffects			= 0.45f;
+float	psSoundVEffects			= 0.2f;
 float	psSoundVFactor			= 1.0f;
 
 float	psSoundVMusic			= 0.1f;
