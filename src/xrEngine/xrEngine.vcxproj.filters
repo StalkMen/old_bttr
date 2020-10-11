@@ -250,6 +250,24 @@
     <Filter Include="Console">
       <UniqueIdentifier>{89099b03-c80b-434f-aae3-e20eab144875}</UniqueIdentifier>
     </Filter>
+    <Filter Include="AMD">
+      <UniqueIdentifier>{a78bc5c5-8c2f-49e9-8207-f7f42ee77de4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVIDIA">
+      <UniqueIdentifier>{18724102-7fc2-4af3-817d-491c6c30d402}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Discord">
+      <UniqueIdentifier>{0c0ad77e-3dfb-45e8-b2ac-0935fd4cb817}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Stats_Inline">
+      <UniqueIdentifier>{f609ceb4-0dd3-45e7-82f8-c9b15dc9f089}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{1e065617-7798-421a-a20a-ad4080ec7c11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Info">
+      <UniqueIdentifier>{847f137f-9c7d-41bf-b75c-fa0382250a71}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="_d3d_extensions.h">
@@ -618,8 +636,18 @@
     <ClInclude Include="xr_ioc_cmd.h">
       <Filter>Console</Filter>
     </ClInclude>
-    <ClInclude Include="Discord.h" />
-    <ClInclude Include="ShadersExternalData.h" />
+    <ClInclude Include="AMD.h">
+      <Filter>AMD</Filter>
+    </ClInclude>
+    <ClInclude Include="NVIDIA.h">
+      <Filter>NVIDIA</Filter>
+    </ClInclude>
+    <ClInclude Include="Discord.h">
+      <Filter>Discord</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadersExternalData.h">
+      <Filter>Shaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="defines.cpp">
@@ -964,7 +992,18 @@
     <ClCompile Include="xr_ioc_cmd.cpp">
       <Filter>Console</Filter>
     </ClCompile>
-    <ClCompile Include="Discord.cpp" />
+    <ClCompile Include="AMD.cpp">
+      <Filter>AMD</Filter>
+    </ClCompile>
+    <ClCompile Include="NVIDIA.cpp">
+      <Filter>NVIDIA</Filter>
+    </ClCompile>
+    <ClCompile Include="Discord.cpp">
+      <Filter>Discord</Filter>
+    </ClCompile>
+    <ClCompile Include="Stats_inline.cpp">
+      <Filter>Stats_Inline</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -991,9 +1030,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ClientServer.txt" />
-    <Text Include="Effects description.txt" />
-    <Text Include="features.txt" />
-    <Text Include="TODO.txt" />
+    <Text Include="ClientServer.txt">
+      <Filter>Info</Filter>
+    </Text>
+    <Text Include="Effects description.txt">
+      <Filter>Info</Filter>
+    </Text>
+    <Text Include="features.txt">
+      <Filter>Info</Filter>
+    </Text>
+    <Text Include="TODO.txt">
+      <Filter>Info</Filter>
+    </Text>
   </ItemGroup>
 </Project>
