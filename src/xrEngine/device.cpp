@@ -231,6 +231,28 @@ ENGINE_API xr_list<LOADING_EVENT> g_loading_events;
 
 extern bool IsMainMenuActive();
 
+ENGINE_API void GetMonitorResolution(u32& horizontal, u32& vertical)
+{
+    HMONITOR hMonitor = MonitorFromWindow(
+        Device.m_hWnd, MONITOR_DEFAULTTOPRIMARY);
+
+    MONITORINFO mi;
+    mi.cbSize = sizeof(mi);
+    if (GetMonitorInfoA(hMonitor, &mi))
+    {
+        horizontal = mi.rcMonitor.right - mi.rcMonitor.left;
+        vertical = mi.rcMonitor.bottom - mi.rcMonitor.top;
+    }
+    else
+    {
+        RECT desktop;
+        const HWND hDesktop = GetDesktopWindow();
+        GetWindowRect(hDesktop, &desktop);
+        horizontal = desktop.right - desktop.left;
+        vertical = desktop.bottom - desktop.top;
+    }
+}
+
 void CRenderDevice::on_idle()
 {
     if (!b_is_Ready)
