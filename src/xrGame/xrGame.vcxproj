@@ -2484,7 +2484,6 @@
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="ai\Monsters\Snork\snork.cpp" />
-    <ClCompile Include="ai\Monsters\Snork\snork_jump.cpp" />
     <ClCompile Include="ai\Monsters\Snork\snork_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>

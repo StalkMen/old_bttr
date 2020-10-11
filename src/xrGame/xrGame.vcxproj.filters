@@ -11306,9 +11306,6 @@
     <ClCompile Include="ai\Monsters\Snork\snork_script.cpp">
       <Filter>xrGame_monsters\Snork</Filter>
     </ClCompile>
-    <ClCompile Include="ai\Monsters\Snork\snork_jump.cpp">
-      <Filter>xrGame_monsters\Snork</Filter>
-    </ClCompile>
     <ClCompile Include="ai\Monsters\Poltergeist_cs\poltergeist_cs.cpp">
       <Filter>xrGame_monsters\Poltergeist_CS</Filter>
     </ClCompile>
