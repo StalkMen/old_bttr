@@ -43,6 +43,7 @@ void xrDiscordPresense::SetStatus(StatusId status)
     memset(&presenseInfo, 0, sizeof(presenseInfo));
 
     StatusId realStatus = status;
+    ShadersLevelId = 0;
 
     if (status == StatusId::In_Game)
     {
@@ -52,97 +53,221 @@ void xrDiscordPresense::SetStatus(StatusId status)
             if (LevelInfo.name == nullptr) return;
 
             if (xr_strcmp(LevelInfo.name, "zaton") == 0)
+            {
+                ShadersLevelId = 1;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::zaton;
+            }
 
             if (xr_strcmp(LevelInfo.name, "jupiter") == 0)
+            {
+                ShadersLevelId = 2;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::jupiter;
+            }
 
             if (xr_strcmp(LevelInfo.name, "pripyat") == 0)
+            {
+                ShadersLevelId = 3;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::pripyat;
+            }
 
             if (xr_strcmp(LevelInfo.name, "k00_marsh") == 0)
+            {
+                ShadersLevelId = 4;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::k00_marsh;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l01_escape") == 0)
-                realStatus = StatusId::l01_escape;   
+            {
+                ShadersLevelId = 5;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
+                realStatus = StatusId::l01_escape;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l02_garbage") == 0)
+            {
+                ShadersLevelId = 6;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l02_garbage;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l03_agroprom") == 0)
+            {
+                ShadersLevelId = 7;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l03_agroprom;
+            }
 
             if (xr_strcmp(LevelInfo.name, "k01_darkscape") == 0)
+            {
+                ShadersLevelId = 8;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::k01_darkscape;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l04_darkvalley") == 0)
+            {
+                ShadersLevelId = 9;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l04_darkvalley;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l05_bar") == 0)
+            {
+                ShadersLevelId = 10;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l05_bar;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l06_rostok") == 0)
+            {
+                ShadersLevelId = 11;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l06_rostok;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l07_military") == 0)
+            {
+                ShadersLevelId = 12;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l07_military;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l08_yantar") == 0)
+            {
+                ShadersLevelId = 13;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l08_yantar;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l09_deadcity") == 0)
+            {
+                ShadersLevelId = 14;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l09_deadcity;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l10_limansk") == 0)
+            {
+                ShadersLevelId = 15;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l10_limansk;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l10_radar") == 0)
+            {
+                ShadersLevelId = 16;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l10_radar;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l10_red_forest") == 0)
+            {
+                ShadersLevelId = 17;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l10_red_forest;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l11_pripyat") == 0)
+            {
+                ShadersLevelId = 18;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l11_pripyat;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l12_stancia") == 0)
+            {
+                ShadersLevelId = 19;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l12_stancia;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l12_stancia_2") == 0)
+            {
+                ShadersLevelId = 20;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l12_stancia_2;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l13_generators") == 0)
+            {
+                ShadersLevelId = 21;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l13_generators;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l03u_agr_underground") == 0)
+            {
+                ShadersLevelId = 22;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l03u_agr_underground;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l04u_labx18") == 0)
+            {
+                ShadersLevelId = 23;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l04u_labx18;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l08u_brainlab") == 0)
+            {
+                ShadersLevelId = 24;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l08u_brainlab;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l12u_sarcofag") == 0)
+            {
+                ShadersLevelId = 25;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l12u_sarcofag;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l12u_control_monolith") == 0)
+            {
+                ShadersLevelId = 26;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l12u_control_monolith;
+            }
 
             if (xr_strcmp(LevelInfo.name, "l13u_warlab") == 0)
+            {
+                ShadersLevelId = 27;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::l13u_warlab;
+            }
 
             if (xr_strcmp(LevelInfo.name, "jupiter_underground") == 0)
+            {
+                ShadersLevelId = 28;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::jupiter_underground;
+            }
 
             if (xr_strcmp(LevelInfo.name, "labx8") == 0)
+            {
+                ShadersLevelId = 29;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::labx8;
+            }
 
             if (xr_strcmp(LevelInfo.name, "k02_trucks_cemetery") == 0)
+            {
+                ShadersLevelId = 30;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::k02_trucks_cemetery;
+            }
 
             if (xr_strcmp(LevelInfo.name, "fake_start") == 0)
+            {
+                ShadersLevelId = 31;
+                Msg("# [Discord]: Level ID: %i", ShadersLevelId);
                 realStatus = StatusId::fake_start;
+            }
         }
     }
 

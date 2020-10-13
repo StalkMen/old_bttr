@@ -14,7 +14,7 @@
 #include "../../xrEngine/environment.h"
 
 #include "dxRenderDeviceRender.h"
-
+#include "../xrEngine/Discord.h"
 // matrices
 #define	BIND_DECLARE(xf)	\
 class cl_xform_##xf	: public R_constant_setup {	virtual void setup (R_constant* C) { RCache.xforms.set_c_##xf (C); } }; \
@@ -300,6 +300,11 @@ static class cl_blend_mode : public R_constant_setup //--#SM+#--
 	virtual void setup(R_constant* C) { RCache.set_c(C, g_pGamePersistent->m_pGShaderConstants->m_blender_mode); }
 } binder_blend_mode;
 
+static class cl_level_id_params : public R_constant_setup
+{
+	virtual void setup(R_constant* C) { RCache.set_c(C, g_discord.ShadersLevelId); }
+} binder_level_id_params;
+
 class cl_inv_v : public R_constant_setup
 {
 	u32			marker;
@@ -317,6 +322,8 @@ static cl_inv_v	binder_inv_v;
 // Standart constant-binding
 void	CBlender_Compile::SetMapping	()
 {
+	r_Constant				("m_levelID",		&binder_level_id_params);
+
 	// misc
 	r_Constant				("m_hud_params",	&binder_hud_params);	//--#SM+#--
 	r_Constant				("m_script_params", &binder_script_params); //--#SM+#--

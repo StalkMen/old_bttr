@@ -67,6 +67,8 @@ public:
 
 	void SetStatus(StatusId status);
 
+    int  ShadersLevelId;
+
 	~xrDiscordPresense();
 
 private:
