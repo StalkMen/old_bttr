@@ -154,7 +154,7 @@ private:
     u32 m_dwWindowStyle;
     RECT m_rcWindowBounds;
     RECT m_rcWindowClient;
-
+    BOOL b_hide_cursor;
     //u32 Timer_MM_Delta;
     //CTimer_paused Timer;
     //CTimer_paused TimerGlobal;

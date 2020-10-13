@@ -192,6 +192,8 @@ void GetLM_BBox(Fbox& bb, INT Step)
     }
 };
 
+extern u32 g_screenmode;
+static bool old_screenmode;
 void CDemoRecord::MakeLevelMapProcess()
 {
     switch (m_Stage)
@@ -199,14 +201,17 @@ void CDemoRecord::MakeLevelMapProcess()
     case 0:
     {
         s_dev_flags = psDeviceFlags;
+        old_screenmode = g_screenmode;
         s_hud_flag.assign(psHUD_Flags);
         psDeviceFlags.zero();
-        psDeviceFlags.set(rsClearBB | rsFullscreen | rsDrawStatic, TRUE);
-        if (!psDeviceFlags.equal(s_dev_flags, rsFullscreen))
+        psDeviceFlags.set(rsClearBB | rsDrawStatic, TRUE);
+        if (old_screenmode != 2)
+        {
+            g_screenmode = 2;
             Device.Reset();
-
+        }
     }
-        break;
+    break;
 
     case DEVICE_RESET_PRECACHE_FRAME_COUNT + 30:
     {
@@ -236,19 +241,22 @@ void CDemoRecord::MakeLevelMapProcess()
         {
             psHUD_Flags.assign(s_hud_flag);
 
-            BOOL bDevReset = !psDeviceFlags.equal(s_dev_flags, rsFullscreen);
             psDeviceFlags = s_dev_flags;
-            if (bDevReset) Device.Reset();
+            if (old_screenmode != 2)
+            {
+                g_screenmode = old_screenmode;
+                Device.Reset();
+            }
             m_bMakeLevelMap = FALSE;
             m_iLMScreenshotFragment = -1;
         }
     }
-        break;
+    break;
     default:
     {
         setup_lm_screenshot_matrices();
     }
-        break;
+    break;
     }
     m_Stage++;
 }

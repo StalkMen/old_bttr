@@ -229,7 +229,25 @@ int g_svDedicateServerUpdateReate = 100;
 
 ENGINE_API xr_list<LOADING_EVENT> g_loading_events;
 
+extern u32 g_screenmode;
 extern bool IsMainMenuActive();
+
+/*
+float GetMonitorRefresh()
+{
+    DEVMODE lpDevMode;
+    memset(&lpDevMode, 0, sizeof(DEVMODE));
+    lpDevMode.dmSize = sizeof(DEVMODE);
+    lpDevMode.dmDriverExtra = 0;
+
+    if (EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &lpDevMode) == 0)
+    {
+        return 1.f / 60.f;
+    }
+    else
+        return 1.f / lpDevMode.dmDisplayFrequency;
+}
+*/
 
 ENGINE_API void GetMonitorResolution(u32& horizontal, u32& vertical)
 {
@@ -565,7 +583,34 @@ void CRenderDevice::OnWM_Activate(WPARAM wParam, LPARAM lParam)
     BOOL fMinimized = (BOOL)HIWORD(wParam);
     BOOL bActive = ((fActive != WA_INACTIVE) && (!fMinimized)) ? TRUE : FALSE;
 
-    if (bActive != Device.b_is_Active)
+    if (Device.b_hide_cursor != bActive && g_screenmode != 2)
+    {
+        Device.b_hide_cursor = bActive;
+
+        if (Device.b_is_Active == FALSE)
+        {
+            Device.b_is_Active = TRUE;
+            Device.seqAppActivate.Process(rp_AppActivate);
+            app_inactive_time += TimerMM.GetElapsed_ms() - app_inactive_time_start;
+        }
+
+        if (Device.b_hide_cursor)
+        {
+            ShowCursor(FALSE);
+            if (m_hWnd)
+            {
+                RECT winRect;
+                GetWindowRect(m_hWnd, &winRect);
+                ClipCursor(&winRect);
+            }
+        }
+        else
+        {
+            ShowCursor(TRUE);
+            ClipCursor(NULL);
+        }
+        }
+    else if (bActive != Device.b_is_Active)
     {
         Device.b_is_Active = bActive;
 
@@ -574,16 +619,18 @@ void CRenderDevice::OnWM_Activate(WPARAM wParam, LPARAM lParam)
             Device.seqAppActivate.Process(rp_AppActivate);
             app_inactive_time += TimerMM.GetElapsed_ms() - app_inactive_time_start;
 
+#ifndef DEDICATED_SERVER
 # ifdef INGAME_EDITOR
             if (!editor())
 # endif // #ifdef INGAME_EDITOR
                 ShowCursor(FALSE);
-                if (m_hWnd)
-                {
-                    RECT winRect;
-                    GetWindowRect(m_hWnd, &winRect);
-                    ClipCursor(&winRect);
-                }
+            if (m_hWnd)
+            {
+                RECT winRect;
+                GetWindowRect(m_hWnd, &winRect);
+                ClipCursor(&winRect);
+            }
+#endif // #ifndef DEDICATED_SERVER
         }
         else
         {
@@ -593,7 +640,7 @@ void CRenderDevice::OnWM_Activate(WPARAM wParam, LPARAM lParam)
             ClipCursor(NULL);
         }
     }
-}
+    }
 
 void CRenderDevice::AddSeqFrame(pureFrame* f, bool mt)
 {

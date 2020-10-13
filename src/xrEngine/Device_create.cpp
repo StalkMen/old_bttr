@@ -58,6 +58,9 @@ void CRenderDevice::ConnectToRender()
         m_pRender = RenderFactory->CreateRenderDeviceRender();
 }
 
+extern u32 g_screenmode;
+extern void GetMonitorResolution(u32& horizontal, u32& vertical);
+
 PROTECT_API void CRenderDevice::Create()
 {
     //SECUROM_MARKER_SECURITY_ON(4)
@@ -95,6 +98,20 @@ PROTECT_API void CRenderDevice::Create()
 #endif // #ifdef INGAME_EDITOR
         true
     );
+
+    if (g_screenmode == 1)
+    {
+        u32 w, h;
+        GetMonitorResolution(w, h);
+        SetWindowLongPtr(Device.m_hWnd, GWL_STYLE, WS_VISIBLE | WS_POPUP);
+        SetWindowPos(Device.m_hWnd, HWND_TOP, 0, 0, w, h, SWP_FRAMECHANGED);
+    }
+
+    DisableProcessWindowsGhosting();
+
+    RECT winRect;
+    GetWindowRect(m_hWnd, &winRect);
+    ClipCursor(&winRect);
 
     string_path fname;
     FS.update_path(fname, "$game_data$", "shaders.xr");

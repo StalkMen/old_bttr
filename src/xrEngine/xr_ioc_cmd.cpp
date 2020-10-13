@@ -645,10 +645,6 @@ public:
     }
 };
 
-ENGINE_API float psHUD_FOV_def = 0.35f; //--#SM+#--
-ENGINE_API float psHUD_FOV = psHUD_FOV_def; //--#SM+#--
-ENGINE_API BOOL game_value_discord_status = 1;
-
 extern int psNET_ClientUpdate;
 extern int psNET_ClientPending;
 extern int psNET_ServerUpdate;
@@ -656,6 +652,12 @@ extern int psNET_ServerPending;
 extern int psNET_DedicatedSleep;
 extern char psNET_Name[32];
 extern Flags32 psEnvFlags;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+ENGINE_API float psHUD_FOV_def = 0.35f; //--#SM+#--
+ENGINE_API float psHUD_FOV = psHUD_FOV_def; //--#SM+#--
+ENGINE_API BOOL game_value_discord_status = 1;
+
 BOOL xrengint_noprefetch = 0;
 BOOL ps_rs_loading_stages = /*(!strstr(Core.Params, "-old_ver")) ? 1 :*/ 0;
 
@@ -664,6 +666,50 @@ extern int	show_FPS_only = 0;
 
 ENGINE_API float ps_r2_sun_shafts_min = 0.f;
 ENGINE_API float ps_r2_sun_shafts_value = 1.f;
+
+ENGINE_API u32 g_screenmode = 1;
+xr_token screen_mode_tokens[] =
+{
+    {"Monitor_2k",      2},
+    {"Monitor_4k",      1},
+    {"Window_mode_1k",  0},
+    {nullptr, 0}
+};
+
+extern void GetMonitorResolution(u32& horizontal, u32& vertical);
+
+class CCC_Screenmode : public CCC_Token
+{
+public:
+    CCC_Screenmode(LPCSTR N) : CCC_Token(N, &g_screenmode, screen_mode_tokens) {};
+
+    virtual void Execute(LPCSTR args)
+    {
+        u32 prev_mode = g_screenmode;
+        CCC_Token::Execute(args);
+
+        if ((prev_mode != g_screenmode))
+        {
+            if (Device.b_is_Ready && (prev_mode == 2 || g_screenmode == 2))
+                Device.Reset();
+
+            if (g_screenmode == 0 || g_screenmode == 1)
+            {
+                u32 w, h;
+                GetMonitorResolution(w, h);
+                SetWindowLongPtr(Device.m_hWnd, GWL_STYLE, WS_VISIBLE | WS_POPUP);
+                SetWindowPos(Device.m_hWnd, HWND_TOP, 0, 0, w, h, SWP_FRAMECHANGED);
+
+                if (g_screenmode == 0)
+                    SetWindowLongPtr(Device.m_hWnd, GWL_STYLE, WS_VISIBLE | WS_OVERLAPPEDWINDOW);
+            }
+        }
+
+        RECT winRect;
+        GetWindowRect(Device.m_hWnd, &winRect);
+        ClipCursor(&winRect);
+    }
+};
 
 xr_token FpsLockToken[] = {
   { "50 fps",  50 },
@@ -726,12 +772,16 @@ ENGINE_API Flags32 p_engine_flags32 = { /*ITS_CLEAR_1_4_22*/ };
 #include "device.h"
 void CCC_Register()
 {
+#pragma TODO("OldSerpskiStalker. Новый команды тут")
+    CMD1(CCC_Screenmode, "monitor_mode");
     //OldSerpskiStalker, переключение версий между BttR и 1.4.22
     {
         if (!strstr(Core.Params, "-old_ver"))
             p_engine_flags32.set(ITS_CLEAR_1_4_22, false);
         else
+        {
             p_engine_flags32.set(ITS_CLEAR_1_4_22, true);
+        }
 
         CMD3(CCC_Mask, "_game_preset_clear_version_call_of_chernobyl", &p_engine_flags32, ITS_CLEAR_1_4_22);
     }
@@ -758,6 +808,7 @@ void CCC_Register()
 
     if (!strstr(Core.Params, "-old_ver"))
         CMD4(CCC_Integer, "xrEngine_loadingstages", &ps_rs_loading_stages, 0, 1);
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // General
     CMD1(CCC_Help, "help");
@@ -808,7 +859,6 @@ void CCC_Register()
 
     CMD3(CCC_Mask, "rs_v_sync", &psDeviceFlags, rsVSync);
     // CMD3(CCC_Mask, "rs_disable_objects_as_crows",&psDeviceFlags, rsDisableObjectsAsCrows );
-    CMD3(CCC_Mask, "rs_fullscreen", &psDeviceFlags, rsFullscreen);
     CMD3(CCC_Mask, "rs_refresh_60hz", &psDeviceFlags, rsRefresh60hz);
     CMD3(CCC_Mask, "rs_stats", &psDeviceFlags, rsStatistic);
     CMD4(CCC_Float, "rs_vis_distance", &psVisDistance, 0.4f, 1.5f);

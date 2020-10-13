@@ -17,7 +17,11 @@
 void	fill_vid_mode_list(CHW* _hw);
 void	free_vid_mode_list();
 
+extern int tbufer_renders;
+extern u32 RenderThemeShaders;
 extern ENGINE_API u32 renderer_value;
+extern ENGINE_API u32 g_screenmode;
+extern ENGINE_API void GetMonitorResolution(u32& horizontal, u32& vertical);
 
 CHW			HW;
 
@@ -55,9 +59,6 @@ void CHW::DestroyD3D()
 	_RELEASE(m_pAdapter);
 }
 
-extern int tbufer_renders;
-extern u32 RenderThemeShaders;
-
 void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 {
 	m_move_window = move_window;
@@ -66,7 +67,7 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	// TODO: DX10: Create appropriate initialization
 
 	// General - select adapter and device
-	BOOL  bWindowed = !psDeviceFlags.is(rsFullscreen);
+	BOOL  bWindowed = (g_screenmode != 2);
 
 	m_DriverType = Caps.bForceGPU_REF ?
 		D3D_DRIVER_TYPE_REFERENCE : D3D_DRIVER_TYPE_HARDWARE;
@@ -211,7 +212,7 @@ void CHW::Reset(HWND hwnd)
 {
 	DXGI_SWAP_CHAIN_DESC& cd = m_ChainDesc;
 
-	BOOL	bWindowed = !psDeviceFlags.is(rsFullscreen);
+	BOOL	bWindowed = (g_screenmode != 2);
 
 	cd.Windowed = bWindowed;
 
@@ -254,8 +255,6 @@ D3DFORMAT CHW::selectDepthStencil(D3DFORMAT fTarget)
 #pragma todo("R3 need to specify depth format")
 	return D3DFMT_D24S8;
 }
-
-extern ENGINE_API void GetMonitorResolution(u32& horizontal, u32& vertical);
 
 void CHW::selectResolution(u32& dwWidth, u32& dwHeight, BOOL bWindowed)
 {
@@ -368,7 +367,7 @@ BOOL CHW::support(D3DFORMAT fmt, DWORD type, DWORD usage)
 
 void CHW::updateWindowProps(HWND m_hWnd)
 {
-	BOOL	bWindowed = !psDeviceFlags.is(rsFullscreen);
+	BOOL	bWindowed = (g_screenmode != 2);
 
 	u32		dwWindowStyle = 0;
 	// Set window properties depending on what mode were in.
