@@ -26,7 +26,9 @@ CGameFont::CGameFont(LPCSTR section, u32 flags)
     uFlags = flags;
     nNumChars = 0x100;
     TCMap = NULL;
-    Initialize(pSettings->r_string(section, "shader"), pSettings->r_string(section, "texture"));
+    //OldSerpskiStalker, пробное переключение на 4к шрифт в консоли при перезаходе в игру
+    u32 h = Device.dwHeight;
+    Initialize(pSettings->r_string(section, "shader"), pSettings->r_string(section, (h == 1440 || h == 1536 || h == 1600 || h == 2160) ? "texture4k": "texture"));
     if (pSettings->line_exist(section, "size"))
     {
         float sz = pSettings->r_float(section, "size");
