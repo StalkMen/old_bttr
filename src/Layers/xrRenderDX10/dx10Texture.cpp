@@ -310,6 +310,8 @@ else
 #pragma TODO("OldSerpskiStalker, исправление вылета с текстурами на х64")
 				LoadInfo.FirstMipLevel = img_loaded_lod;
 
+#pragma TODO("OldSerpskiStalker, по совету Zagolski")
+				LoadInfo.MipLevels = IMG.MipLevels;
 				if (bStaging)
 				{
 					LoadInfo.Usage = D3D_USAGE_STAGING;
