@@ -72,7 +72,8 @@ public:
 	ref_rt						rt_Accumulator_temp;// only for HW which doesn't feature fp16 blend
 	ref_rt						rt_Generic_0;		// 32bit		(r,g,b,a)				// post-process, intermidiate results, etc.
 	ref_rt						rt_Generic_1;		// 32bit		(r,g,b,a)				// post-process, intermidiate results, etc.
-	
+	resptr_core<CRT, resptrcode_crt> rt_Generic_temp;
+		
 	ref_rt						rt_sunshafts_0;		// ss0
 	ref_rt						rt_sunshafts_1;		// ss1
 	
