@@ -491,6 +491,9 @@
     <ClCompile Include="..\xrRender\r__dsgraph_render_lods.cpp" />
     <ClCompile Include="..\xrRender\r__occlusion.cpp" />
     <ClCompile Include="..\xrRender\r__pixel_calculator.cpp" />
+    <ClCompile Include="..\xrRender\r__rendertarget_phase_fxaa.cpp" />
+    <ClCompile Include="..\xrRender\r__rendertarget_phase_smaa.cpp" />
+    <ClCompile Include="..\xrRender\r__rendertarget_phase_sunshafts.cpp" />
     <ClCompile Include="..\xrRender\r__screenshot.cpp" />
     <ClCompile Include="..\xrRender\r__sector.cpp" />
     <ClCompile Include="..\xrRender\r__sector_traversal.cpp" />
@@ -556,9 +559,6 @@
     <ClCompile Include="dx11_rendertarget_accum_spot_geom.cpp" />
     <ClCompile Include="dx11_rendertarget_create_minmaxSM.cpp" />
     <ClCompile Include="dx11_rendertarget_draw_rain.cpp" />
-    <ClCompile Include="dx11_rendertarget_phase_fxaa.cpp" />
-    <ClCompile Include="dx11_rendertarget_phase_smaa.cpp" />
-    <ClCompile Include="dx11_rendertarget_phase_sunshafts.cpp" />
     <ClCompile Include="dx11_rendertarget_draw_volume.cpp" />
     <ClCompile Include="dx11_rendertarget_enable_scissor.cpp" />
     <ClCompile Include="dx11_rendertarget_mark_msaa_edges.cpp" />

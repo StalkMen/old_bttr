@@ -316,10 +316,7 @@ CRenderTarget::CRenderTarget		()
 	b_luminance				= xr_new<CBlender_luminance>			();
 	b_combine				= xr_new<CBlender_combine>				();
 	b_ssao					= xr_new<CBlender_SSAO_noMSAA>			();
-	b_fxaa 					= xr_new<CBlender_FXAA>					();
-	b_smaa 					= xr_new<CBlender_SMAA>					();
-	b_sunshafts				= xr_new<CBlender_sunshafts>			();
-	
+
 	if( RImplementation.o.dx10_msaa )
 	{
 		int bound = RImplementation.o.dx10_msaa_samples;
@@ -409,8 +406,29 @@ CRenderTarget::CRenderTarget		()
 			rt_Generic_2.create			(r2_RT_generic2,w,h,D3DFMT_A16B16G16R16F, SampleCount );
 	}
 	
-	s_sunshafts.create(b_sunshafts, "r2\\sunshafts");
-	s_smaa.create(b_smaa, "r3\\smaa");
+	//FXAA
+	{
+		b_fxaa = xr_new<CBlender_FXAA>();
+		s_fxaa.create(b_fxaa, "r3\\fxaa");
+	}
+
+	//SMAA
+	{
+		b_smaa = xr_new<CBlender_SMAA>();
+		s_smaa.create(b_smaa, "r3\\smaa");		
+		
+		rt_smaa_edgetex.create(r2_RT_smaa_edgetex, w, h, D3DFMT_A8R8G8B8);
+		rt_smaa_blendtex.create(r2_RT_smaa_blendtex, w, h, D3DFMT_A8R8G8B8);
+	}	
+	
+	//SSSS
+	{
+		b_sunshafts = xr_new<CBlender_sunshafts>();
+		s_sunshafts.create(b_sunshafts, "r2\\sunshafts");
+		
+		rt_sunshafts_0.create(r2_RT_sunshafts0, w, h, D3DFMT_A8R8G8B8);
+		rt_sunshafts_1.create(r2_RT_sunshafts1, w, h, D3DFMT_A8R8G8B8);
+	}
 	
 	// OCCLUSION
 	s_occq.create					(b_occq,		"r2\\occq");
@@ -593,9 +611,6 @@ CRenderTarget::CRenderTarget		()
       }
 		f_bloom_factor				= 0.5f;
 	}
-	
-	s_fxaa.create(b_fxaa, "r3\\fxaa");
-	g_fxaa.create(FVF::F_V, RCache.Vertex.Buffer(), RCache.QuadIB);
 	
 	// TONEMAP
 	{

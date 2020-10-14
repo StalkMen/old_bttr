@@ -134,7 +134,6 @@ private:
 	ref_shader					s_accum_reflected;
 	ref_shader					s_accum_volume;
 	ref_shader					s_fxaa;
-	ref_geom					g_fxaa;
 	
 	//	generate min/max
 	ref_shader					s_create_minmax_sm;

@@ -361,6 +361,9 @@
     <ClInclude Include="dx10_rendertarget.h" />
     <ClInclude Include="dx10_rendertarget_wallmarks.h" />
     <ClInclude Include="dx10_R_sun_support.h" />
+    <ClCompile Include="..\xrRender\r__rendertarget_phase_fxaa.cpp" />
+    <ClCompile Include="..\xrRender\r__rendertarget_phase_smaa.cpp" />
+    <ClCompile Include="..\xrRender\r__rendertarget_phase_sunshafts.cpp" />
     <ClCompile Include="dx10_shaders.cpp" />
     <ClInclude Include="..\xrRender\DX_SMAP_Allocator.h" />
     <ClInclude Include="stdafx.h" />
@@ -546,9 +549,6 @@
     <ClCompile Include="dx10_rendertarget_accum_spot.cpp" />
     <ClCompile Include="dx10_rendertarget_accum_spot_geom.cpp" />
     <ClCompile Include="dx10_rendertarget_create_minmaxSM.cpp" />
-    <ClCompile Include="dx10_rendertarget_phase_fxaa.cpp" />
-    <ClCompile Include="dx10_rendertarget_phase_smaa.cpp" />
-    <ClCompile Include="dx10_rendertarget_phase_sunshafts.cpp" />
     <ClCompile Include="dx10_rendertarget_draw_rain.cpp" />
     <ClCompile Include="dx10_rendertarget_draw_volume.cpp" />
     <ClCompile Include="dx10_rendertarget_enable_scissor.cpp" />

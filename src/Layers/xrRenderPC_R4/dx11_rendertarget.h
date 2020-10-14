@@ -139,8 +139,7 @@ private:
 	ref_shader					s_accum_reflected;
 	ref_shader					s_accum_volume;
 	ref_shader					s_fxaa;
-	ref_geom					g_fxaa;
-	
+
 	ref_shader 					s_smaa;
 	ref_rt 						rt_smaa_edgetex;
 	ref_rt 						rt_smaa_blendtex;
