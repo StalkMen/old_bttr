@@ -351,7 +351,7 @@ public:
     virtual void					Screenshot					(ScreenshotMode mode, CMemoryWriter& memory_writer);
     virtual void					ScreenshotAsyncBegin		();
     virtual void					ScreenshotAsyncEnd			(CMemoryWriter& memory_writer);
-    virtual void		_BCL		OnFrame						();
+    virtual void					OnFrame						();
 	
 	virtual void 					BeforeWorldRender			(); //--#SM+#-- +SecondVP+
 	virtual void 					AfterWorldRender			();  //--#SM+#-- +SecondVP+

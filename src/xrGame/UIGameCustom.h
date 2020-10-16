@@ -100,7 +100,7 @@ public:
     virtual void OnInventoryAction(PIItem item, u16 actionType);
     virtual	void Init(int stage) {}
     virtual void Render();
-    virtual void _BCL OnFrame() override;
+    virtual void  OnFrame() override;
     IC CUIActorMenu& GetActorMenu() const { return *ActorMenu; }
     IC CUIPdaWnd& GetPdaMenu() const { return *PdaMenu; }
     bool ShowActorMenu();

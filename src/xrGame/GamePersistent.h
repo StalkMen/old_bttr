@@ -70,7 +70,7 @@ public:
 	virtual	void		OnGameStart				();
 	virtual void		OnGameEnd				();
 
-	virtual void	_BCL	OnFrame					();
+	virtual void			OnFrame					();
 	virtual void			OnEvent					(EVENT E, u64 P1, u64 P2);
 
 	virtual void		UpdateGameType			();

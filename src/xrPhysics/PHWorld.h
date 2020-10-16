@@ -130,7 +130,7 @@ ContactCallbackFun				*default_character_contact_shotmark()						{ return m_defa
 #ifdef DEBUG
 	virtual void 				OnRender						()							;
 #endif
-	virtual void	_BCL		OnFrame							()							;
+	virtual void				OnFrame							()							;
 private:
 	void						StepNumIterations				( int num_it )				;
 	iphysics_scripted			&get_scripted					()							{ return *this; }
