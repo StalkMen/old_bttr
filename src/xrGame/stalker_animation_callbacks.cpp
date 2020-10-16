@@ -24,6 +24,11 @@ static void	_BCL callback_rotation		(CBoneInstance* bone)
 	VERIFY							(parameter->m_rotation);
 	VERIFY							(parameter->m_object);
 
+	if (!parameter || !_valid(*parameter->m_rotation))
+	{
+		return;
+	}
+
 	CAI_Stalker const*				object = parameter->m_object;
 	if (!object->sight().enabled())
 		return;
