@@ -424,6 +424,9 @@ CRenderTarget::CRenderTarget		()
 
 	//SMAA
 	{
+		u32	w = Device.dwWidth;
+		u32 h = Device.dwHeight;	
+			
 		b_smaa = xr_new<CBlender_SMAA>();
 		s_smaa.create(b_smaa, "r3\\smaa");		
 		
@@ -433,6 +436,9 @@ CRenderTarget::CRenderTarget		()
 	
 	//SSSS
 	{
+		u32	w = Device.dwWidth;
+		u32 h = Device.dwHeight;	
+		
 		b_sunshafts = xr_new<CBlender_sunshafts>();
 		s_sunshafts.create(b_sunshafts, "r2\\sunshafts");
 		
