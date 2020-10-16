@@ -757,6 +757,8 @@ float ps_volumetric_intensity = 0.1f;
 float ps_volumetric_distance = 1.f;
 float ps_volumetric_quality = 0.35f;
 
+float xrRenderFilteringSaturationImage = 0.f;
+
 int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
 
@@ -764,7 +766,7 @@ int	  ps_render_volumetric_fog = 1;
 void		xrRender_initconsole()
 {
 //////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma todo("OldSerpskiStalker. Новые консольные команды:")
+#pragma todo("OldSerpskiStalker. Новые консольные команды")
 	CMD2(CCC_MipT,  "xrRenderDX10_mipTextures", 	 	 &ps_r__tf_Mipbias);
 	CMD3(CCC_Mask,  "xrRenderDX10_no_ram",				 &ps_r__common_flags,				RFLAG_NO_RAM_TEXTURES);
 	CMD3(CCC_Token, "xrRenderDX10_shadow_map_size",		 &ps_r2_smapsize,					qsmapsize_token);
@@ -797,6 +799,8 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "xrRenderDX_volum_quality",			 &ps_volumetric_quality,			0.f, 1.f);
 
 	CMD3(CCC_Token, "xrRenderThemeShaderRender",		 &RenderThemeShaders,			    RenderThemeShaders_token);
+
+	CMD4(CCC_Float, "xrRenderFilteringSaturationImage",  &xrRenderFilteringSaturationImage,	-3.f, 3.f);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);
