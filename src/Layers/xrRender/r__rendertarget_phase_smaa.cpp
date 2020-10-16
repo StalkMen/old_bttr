@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include "dx11_rendertarget.h"
 
 void CRenderTarget::phase_smaa()
 {
