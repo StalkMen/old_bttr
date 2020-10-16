@@ -413,7 +413,7 @@ CRenderTarget::CRenderTarget		()
 		//rt_Generic_2.create			(r2_RT_generic2,w,h,D3DFMT_A8R8G8B8		);
 		//	temp: for higher quality blends
 		if (RImplementation.o.advancedpp)
-			rt_Generic_2.create			(r2_RT_generic2,w,h,D3DFMT_A16B16G16R16F, SampleCount );
+			rt_Generic_2.create			(r2_RT_generic2, w, h, D3DFMT_A8R8G8B8, SampleCount );
 	}
 	
 	//FXAA
@@ -942,7 +942,7 @@ CRenderTarget::CRenderTarget		()
 			descHBAO.ArraySize = 1;
 			descHBAO.SampleDesc.Count = 1;
 			descHBAO.SampleDesc.Quality = 0;
-			descHBAO.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
+			descHBAO.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 			//desc.Usage = D3D_USAGE_IMMUTABLE;
 			descHBAO.Usage = D3D_USAGE_DEFAULT;
 			descHBAO.BindFlags = D3D_BIND_SHADER_RESOURCE;
