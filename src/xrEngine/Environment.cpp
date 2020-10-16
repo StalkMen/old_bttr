@@ -334,8 +334,17 @@ void CEnvironment::StopWFX()
     VERIFY(CurrentCycleName.size());
     bWFX = false;
     SetWeather(CurrentCycleName, false);
-    Current[0] = WFX_end_desc[0];
-    Current[1] = WFX_end_desc[1];
+
+	//Pure magic.
+    Current[0]->on_device_destroy();
+    Current[1]->on_device_destroy();	
+
+	Current[0] = WFX_end_desc[0];
+	Current[1] = WFX_end_desc[1];
+
+    Current[0]->on_device_create();
+    Current[1]->on_device_create(); 
+
 #ifdef WEATHER_LOGGING
     Msg("WFX - end. Weather: '%s' Desc: '%s'/'%s' GameTime: %3.2f", CurrentWeatherName.c_str(), Current[0]->m_identifier.c_str(), Current[1]->m_identifier.c_str(), fGameTime);
 #endif
@@ -383,6 +392,9 @@ void CEnvironment::SelectEnvs(float gt)
         VERIFY(!bWFX);
         // first or forced start
         SelectEnvs(CurrentWeather, Current[0], Current[1], gt);
+		
+        Current[0]->on_device_create();
+        Current[1]->on_device_create();			
     }
     else
     {
@@ -398,8 +410,10 @@ void CEnvironment::SelectEnvs(float gt)
         }
         if (bSelect)
         {
+			Current[0]->on_device_destroy(); 
             Current[0] = Current[1];
             SelectEnv(CurrentWeather, Current[1], gt);
+			Current[1]->on_device_create();
 #ifdef WEATHER_LOGGING
             Msg("Weather: '%s' Desc: '%s' Time: %3.2f/%3.2f", CurrentWeatherName.c_str(), Current[1]->m_identifier.c_str(), Current[1]->exec_time, fGameTime);
 #endif
