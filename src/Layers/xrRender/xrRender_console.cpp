@@ -800,7 +800,7 @@ void		xrRender_initconsole()
 
 	CMD3(CCC_Token, "xrRenderThemeShaderRender",		 &RenderThemeShaders,			    RenderThemeShaders_token);
 
-	CMD4(CCC_Float, "xrRenderFilteringSaturationImage",  &xrRenderFilteringSaturationImage,	-3.f, 3.f);
+	CMD4(CCC_Float, "xrRenderFilteringSaturationImage",  &xrRenderFilteringSaturationImage,	-1.f, 3.f);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);
