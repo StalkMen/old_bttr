@@ -556,6 +556,7 @@
 	<ClCompile Include="..\xrRender_DXTargets\DX_R_sun.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_R_lights.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_R_calculate.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX.cpp" />
 	
     <ClCompile Include="dx11_blenders.cpp" />
 
@@ -563,7 +564,7 @@
 
     <ClCompile Include="dx11_sector_detect.cpp" />
     
-    <ClCompile Include="dx11.cpp" />
+
     <ClCompile Include="dx11_loader.cpp" />
     <ClCompile Include="dx11_rendertarget.cpp" />
 

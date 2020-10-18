@@ -11,8 +11,8 @@
 #include "../xrRender/dxWallMarkArray.h"
 #include "../xrRender/dxUIShader.h"
 
-#include "..\xrRenderDX10\3DFluid\dx103DFluidManager.h"
-#include "..\xrRender\ShaderResourceTraits.h"
+#include "../xrRenderDX10/3DFluid/dx103DFluidManager.h"
+#include "../xrRender/ShaderResourceTraits.h"
 
 #include "D3DX10Core.h"
 
@@ -67,6 +67,16 @@ static class cl_parallax		: public R_constant_setup		{	virtual void setup	(R_con
 	float			h			=	ps_r2_df_parallax_h;
 	RCache.set_c	(C,h,-h/2.f,1.f/r_dtex_range,1.f/r_dtex_range);
 }}	binder_parallax;
+
+#ifdef USE_DX11
+static class cl_LOD		: public R_constant_setup
+{
+	virtual void setup	(R_constant* C)
+	{
+		RCache.LOD.set_LOD(C);
+	}
+} binder_LOD;
+#endif
 
 static class cl_pos_decompress_params		: public R_constant_setup		{	virtual void setup	(R_constant* C)
 {
@@ -238,7 +248,6 @@ void					CRender::create					()
 	}
 
 	//	DX10 disabled
-	
 	o.fp16_filter		= true;
 	o.fp16_blend		= true;
 
@@ -313,12 +322,28 @@ void					CRender::create					()
 	o.ssao_hbao			= !o.ssao_hdao && ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_HBAO) && (ps_r_ssao != 0);
 	o.ssao_ssdo			= !o.ssao_hdao && !o.ssao_hbao && ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_SSDO) && (ps_r_ssao != 0);
 
-	Msg("~ DX10: Information about MSAA with xrEngine, selected token: %i", ps_r3_msaa);
-	Msg("~ DX10: Information about MSAA A-Test with xrEngine, selected token: %i", ps_r3_msaa_atest);
+	Msg("~ DX: Information about MSAA with xrEngine, selected token: %i", ps_r3_msaa);
+	Msg("~ DX: Information about MSAA A-Test with xrEngine, selected token: %i", ps_r3_msaa_atest);
 
-	Msg("~ DX10: Information about 'Sun Quality' with xrEngine, selected token: %i", ps_r_sun_quality);
+	Msg("~ DX: Information about 'Sun Quality' with xrEngine, selected token: %i", ps_r_sun_quality);
 
 	//	TODO: fix hbao shader to allow to perform per-subsample effect!
+#ifdef USE_DX11
+	o.hbao_vectorized = false;
+	if (o.ssao_hbao )
+	{
+		if (HW.Caps.id_vendor==0x1002)
+			o.hbao_vectorized = true;
+		o.ssao_opt_data = true;
+	}
+
+    if( o.ssao_hdao )
+        o.ssao_opt_data = false;
+
+	//OldSerpskiStalker
+	o.dx11		= (renderer_value >= 2);
+	o.dx11		= o.dx11 && ( HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 );
+#else
 	o.hbao_vectorized = false;
 	if (o.ssao_hdao )
 		o.ssao_opt_data = false;
@@ -331,18 +356,25 @@ void					CRender::create					()
 
 	o.dx10_1 = render_dx10_1;
 	o.dx10_1 = o.dx10_1 && ( HW.pDevice1 != 0 );
-
+#endif
 	//	MSAA option dependencies
 
 	o.dx10_msaa			= !!ps_r3_msaa;
 	o.dx10_msaa_samples = (1 << ps_r3_msaa);
 
 	o.dx10_msaa_opt		= ps_r2_ls_flags.test(R3FLAG_MSAA_OPT);
+#ifdef USE_DX11	
+	o.dx10_msaa_opt		= o.dx10_msaa_opt && o.dx10_msaa && ( HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 )
+			|| o.dx10_msaa && (HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0);
+
+	o.dx10_msaa_hybrid	= o.dx11;
+	o.dx10_msaa_hybrid	&= !o.dx10_msaa_opt && o.dx10_msaa && ( HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 ) ;
+#else
 	o.dx10_msaa_opt		= o.dx10_msaa_opt && o.dx10_msaa && ( HW.pDevice1 != 0 );
 
 	o.dx10_msaa_hybrid	= render_dx10_1;
 	o.dx10_msaa_hybrid	&= !o.dx10_msaa_opt && o.dx10_msaa && ( HW.pDevice1 != 0) ;
-
+#endif
 	o.dx10_msaa_alphatest = 0;
 	if (o.dx10_msaa)
 	{
@@ -362,7 +394,9 @@ void					CRender::create					()
 
 	o.dx10_minmax_sm = ps_r3_minmax_sm;
 	o.dx10_minmax_sm_screenarea_threshold = 1600*1200;
-
+#ifdef USE_DX11
+	o.dx11_enable_tessellation = HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && ps_r2_ls_flags_ext.test(R2FLAGEXT_ENABLE_TESSELLATION);
+#endif
 	if (o.dx10_minmax_sm==MMSM_AUTODETECT)
 	{
 		o.dx10_minmax_sm = MMSM_OFF;
@@ -394,12 +428,15 @@ void					CRender::create					()
 
 	// constants
 	CResourceManager* RM = dxRenderDeviceRender::Instance().Resources;
-	RM->RegisterConstantSetup("parallax",	&binder_parallax);
+	RM->RegisterConstantSetup("parallax", &binder_parallax);
 	RM->RegisterConstantSetup("water_intensity", &binder_water_intensity);
 	RM->RegisterConstantSetup("sun_shafts_intensity", &binder_sun_shafts_intensity);
 	RM->RegisterConstantSetup("m_AlphaRef", &binder_alpha_ref);
 	RM->RegisterConstantSetup("pos_decompression_params", &binder_pos_decompress_params);
 	RM->RegisterConstantSetup("pos_decompression_params2", &binder_pos_decompress_params2);
+#ifdef USE_DX11
+	RM->RegisterConstantSetup("triLOD", &binder_LOD);
+#endif
 	RM->RegisterConstantSetup("fog_shaders_values", &binder_fog_shaders);
 	RM->RegisterConstantSetup("volumetric_fog", &binder_volumetric_fog);
 
@@ -416,9 +453,9 @@ void					CRender::create					()
 
 	rmNormal					();
 	marker						= 0;
-	D3D10_QUERY_DESC			qdesc;
+	D3D_QUERY_DESC			qdesc;
 	qdesc.MiscFlags				= 0;
-	qdesc.Query					= D3D10_QUERY_EVENT;
+	qdesc.Query					= D3D_QUERY_EVENT;
 	ZeroMemory(q_sync_point, sizeof(q_sync_point));
 	//R_CHK						(HW.pDevice->CreateQuery(&qdesc,&q_sync_point[0]));
 	//R_CHK						(HW.pDevice->CreateQuery(&qdesc,&q_sync_point[1]));
@@ -429,8 +466,11 @@ void					CRender::create					()
 	//R_CHK						(HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[1]));
 	for (u32 i=0; i<HW.Caps.iGPUNum; ++i)
 		R_CHK(HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
+#ifdef USE_DX11
+	HW.pRenderContext->End(q_sync_point[0]);
+#else
 	q_sync_point[0]->End();
-
+#endif
 	::PortalTraverser.initialize();
 	FluidManager.Initialize( 70, 70, 70 );
 //	FluidManager.Initialize( 100, 100, 100 );
@@ -491,15 +531,19 @@ void CRender::reset_begin()
 
 void CRender::reset_end()
 {
-	D3D10_QUERY_DESC			qdesc;
+	D3D_QUERY_DESC			qdesc;
 	qdesc.MiscFlags				= 0;
-	qdesc.Query					= D3D10_QUERY_EVENT;
+	qdesc.Query					= D3D_QUERY_EVENT;
 	//R_CHK						(HW.pDevice->CreateQuery(&qdesc,&q_sync_point[0]));
 	//R_CHK						(HW.pDevice->CreateQuery(&qdesc,&q_sync_point[1]));
 	for (u32 i=0; i<HW.Caps.iGPUNum; ++i)
 		R_CHK(HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
 	//	Prevent error on first get data
+#ifdef USE_DX11
+	HW.pRenderContext->End(q_sync_point[0]);
+#else
 	q_sync_point[0]->End();
+#endif
 	//q_sync_point[1]->End();
 	//R_CHK						(HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[0]));
 	//R_CHK						(HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[1]));
@@ -535,7 +579,6 @@ void CRender::OnFrame()
 	Models->DeleteQueue			();
 	if (ps_r2_ls_flags.test(R2FLAG_EXP_MT_CALC))	{
 		// MT-details (@front)
-
 		Device.seqParallel.insert	(Device.seqParallel.begin(),
 			fastdelegate::FastDelegate0<>(Details,&CDetailManager::MT_CALC));
 
@@ -672,25 +715,43 @@ void					CRender::set_Object				(IRenderable*	O )
 void					CRender::rmNear				()
 {
 	IRender_Target* T	=	getTarget	();
+#ifdef USE_DX11
+	D3D_VIEWPORT VP		=	{0,0,(float)T->get_width(),(float)T->get_height(),0,0.02f };
+	
+	HW.pRenderContext->RSSetViewports(1, &VP);
+#else
 	D3D_VIEWPORT VP		=	{0,0,T->get_width(),T->get_height(),0,0.02f };
 
 	HW.pRenderDevice->RSSetViewports(1, &VP);
+#endif
 	//CHK_DX				(HW.pDevice->SetViewport(&VP));
 }
 void					CRender::rmFar				()
 {
 	IRender_Target* T	=	getTarget	();
+#ifdef USE_DX11
+	D3D_VIEWPORT VP		=	{0,0,(float)T->get_width(),(float)T->get_height(),0.99999f,1.f };
+
+	HW.pRenderContext->RSSetViewports(1, &VP);
+#else
 	D3D_VIEWPORT VP		=	{0,0,T->get_width(),T->get_height(),0.99999f,1.f };
 
 	HW.pRenderDevice->RSSetViewports(1, &VP);
+#endif
 	//CHK_DX				(HW.pDevice->SetViewport(&VP));
 }
 void					CRender::rmNormal			()
 {
 	IRender_Target* T	=	getTarget	();
+#ifdef USE_DX11
+	D3D_VIEWPORT VP		= {0,0,(float)T->get_width(),(float)T->get_height(),0,1.f };
+
+	HW.pRenderContext->RSSetViewports(1, &VP);
+#else
 	D3D_VIEWPORT VP		= {0,0,T->get_width(),T->get_height(),0,1.f };
 
 	HW.pRenderDevice->RSSetViewports(1, &VP);
+#endif
 	//CHK_DX				(HW.pDevice->SetViewport(&VP));
 }
 
@@ -728,3 +789,11 @@ void	CRender::Statistics	(CGameFont* _F)
 	HOM.stats	();
 #endif
 }
+
+#ifdef USE_DX11
+void CRender::addShaderOption(const char* name, const char* value)
+{
+	D3D_SHADER_MACRO macro = {name, value};
+	m_ShaderOptions.push_back(macro);
+}
+#endif
