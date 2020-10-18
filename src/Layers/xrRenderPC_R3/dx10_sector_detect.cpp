@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "dx10.h"
+#include "..\xrRender_DXTargets\DX.h"
 
 int CRender::translateSector(IRender_Sector* pSector)
 {

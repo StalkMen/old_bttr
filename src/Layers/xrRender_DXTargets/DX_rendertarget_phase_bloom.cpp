@@ -325,7 +325,11 @@ void CRenderTarget::phase_bloom	()
 	{
 		//CHK_DX				(HW.pDevice->Clear( 0L, NULL, D3DCLEAR_TARGET,	0,	1.0f, 0L));
 		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+#ifdef USE_DX11
+		HW.pRenderContext->ClearRenderTargetView( RCache.get_RT(), ColorRGBA);
+#else
 		HW.pRenderDevice->ClearRenderTargetView( RCache.get_RT(), ColorRGBA);
+#endif
 	};
 
 	// re-enable z-buffer

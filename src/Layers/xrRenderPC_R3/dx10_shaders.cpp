@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "dx10.h"
+#include "..\xrRender_DXTargets\DX.h"
 #include "../xrRender/ShaderResourceTraits.h"
 #include "../xrRender/dxRenderDeviceRender.h"
 #include "../../xrCore/FileCRC32.h"

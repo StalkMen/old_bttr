@@ -1,8 +1,9 @@
 #include "stdafx.h"
 
-LRESULT CALLBACK WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam )
+#ifdef USE_DX11
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	return DefWindowProc( hWnd, message, wParam, lParam );
+	return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
 typedef HRESULT (__stdcall *FuncPtrD3D11CreateDeviceAndSwapChain)(
@@ -29,7 +30,7 @@ bool TestDX11Present()
 		return false;
 	}
 
-	FuncPtrD3D11CreateDeviceAndSwapChain pD3D11CreateDeviceAndSwapChain = 
+	FuncPtrD3D11CreateDeviceAndSwapChain pD3D11CreateDeviceAndSwapChain =
 		(FuncPtrD3D11CreateDeviceAndSwapChain)GetProcAddress(hD3D11, "D3D11CreateDeviceAndSwapChain");
 
 	if (!pD3D11CreateDeviceAndSwapChain)
@@ -41,22 +42,22 @@ bool TestDX11Present()
 	// Register class
 	WNDCLASSEX wcex;
 	ZeroMemory(&wcex, sizeof(wcex));
-	wcex.cbSize = sizeof( WNDCLASSEX );
+	wcex.cbSize = sizeof(WNDCLASSEX);
 	wcex.lpfnWndProc = WndProc;
 	wcex.hInstance = GetModuleHandle(NULL);
 	wcex.lpszClassName = "TestDX11WindowClass";
-	if( !RegisterClassEx( &wcex ) )
+	if (!RegisterClassEx(&wcex))
 	{
 		Msg("* DX11: failed to register window class");
 		return false;
 	}
 
 	// Create window
-	HWND hWnd = CreateWindow( "TestDX11WindowClass", "",
+	HWND hWnd = CreateWindow("TestDX11WindowClass", "",
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT,
 		CW_USEDEFAULT, CW_USEDEFAULT,
-		NULL, NULL, NULL, NULL );
+		NULL, NULL, NULL, NULL);
 
 	DXGI_SWAP_CHAIN_DESC sd;
 
@@ -68,7 +69,7 @@ bool TestDX11Present()
 
 	HRESULT hr = E_FAIL;
 
-	ZeroMemory( &sd, sizeof( sd ) );
+	ZeroMemory(&sd, sizeof(sd));
 	sd.BufferCount = 1;
 	sd.BufferDesc.Width = 800;
 	sd.BufferDesc.Height = 600;
@@ -81,15 +82,15 @@ bool TestDX11Present()
 	sd.SampleDesc.Quality = 0;
 	sd.Windowed = TRUE;
 
-	D3D_FEATURE_LEVEL pFeatureLevels[] = {D3D_FEATURE_LEVEL_11_0};
+	D3D_FEATURE_LEVEL pFeatureLevels[] = { D3D_FEATURE_LEVEL_11_0 };
 	D3D_FEATURE_LEVEL FeatureLevel;
 
-	ID3D11Device*           pd3dDevice = NULL;
-	ID3D11DeviceContext*    pContext = NULL;
-	IDXGISwapChain*         pSwapChain = NULL;
+	ID3D11Device* pd3dDevice = NULL;
+	ID3D11DeviceContext* pContext = NULL;
+	IDXGISwapChain* pSwapChain = NULL;
 
-	hr = pD3D11CreateDeviceAndSwapChain( NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, 0, pFeatureLevels, 1,
-		D3D11_SDK_VERSION, &sd, &pSwapChain, &pd3dDevice, &FeatureLevel, &pContext );
+	hr = pD3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, 0, pFeatureLevels, 1,
+		D3D11_SDK_VERSION, &sd, &pSwapChain, &pd3dDevice, &FeatureLevel, &pContext);
 
 	if (FAILED(hr))
 		Msg("* D3D11: device creation failed with hr=0x%08x", hr);
@@ -97,21 +98,26 @@ bool TestDX11Present()
 	if (pContext) pContext->Release();
 	if (pSwapChain) pSwapChain->Release();
 	if (pd3dDevice) pd3dDevice->Release();
-	
+
 	FreeLibrary(hD3D11);
-	
+
 	DestroyWindow(hWnd);
 
 	return SUCCEEDED(hr);
 }
+#endif
 
-BOOL	xrRender_test_hw		()
+BOOL xrRender_test_hw()
 {
-	//CHW							_HW;
-	//HRESULT						hr;
-	//_HW.CreateD3D				()		;
-	//hr = _HW.m_pAdapter->CheckInterfaceSupport(__uuidof(ID3DDevice), 0);
-	//_HW.DestroyD3D				()		;
+#ifdef USE_DX10
+	CHW	_HW;
+	HRESULT	hr;
+	_HW.CreateD3D();
+	hr = _HW.m_pAdapter->CheckInterfaceSupport(__uuidof(ID3D10Device), 0);
+	_HW.DestroyD3D();
 
-	return	TestDX11Present();//SUCCEEDED(hr);
+	return	SUCCEEDED(hr);
+#else
+	return	TestDX11Present();
+#endif
 }

@@ -355,6 +355,8 @@
 	
 	<ClInclude Include="..\xrRender_DXTargets\DX_R_sun_support.h" />
 	<ClInclude Include="..\xrRender_DXTargets\DX_rendertarget.h" />
+	<ClInclude Include="..\xrRender_DXTargets\DX_types.h" />
+	<ClInclude Include="..\xrRender_DXTargets\DX.h" />
 	
     <ClInclude Include="cl_intersect.h" />
     <ClInclude Include="ComputeShader.h" />
@@ -366,8 +368,8 @@
     <ClInclude Include="..\xrRender\light_gi.h" />
     <ClInclude Include="..\xrRender\Light_Render_Direct.h" />
     <ClInclude Include="..\xrRender\light_smapvis.h" />
-    <ClInclude Include="dx11_types.h" />
-    <ClInclude Include="dx11.h" />
+    
+    
 
     <ClInclude Include="dx11_rendertarget_wallmarks.h" />
 
@@ -549,13 +551,18 @@
 	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_accum_direct.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_draw_rain.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_PP.cpp" />
-
+	<ClCompile Include="..\xrRender_DXTargets\DX_hw.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_bloom.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_R_sun.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_R_lights.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_R_calculate.cpp" />
+	
     <ClCompile Include="dx11_blenders.cpp" />
-    <ClCompile Include="dx11_R_calculate.cpp" />
-    <ClCompile Include="dx11_R_lights.cpp" />
-    <ClCompile Include="dx11_R_sun.cpp" />
+
+
+
     <ClCompile Include="dx11_sector_detect.cpp" />
-    <ClCompile Include="dx11_test_hw.cpp" />
+    
     <ClCompile Include="dx11.cpp" />
     <ClCompile Include="dx11_loader.cpp" />
     <ClCompile Include="dx11_rendertarget.cpp" />
@@ -572,7 +579,7 @@
     <ClCompile Include="dx11_rendertarget_enable_scissor.cpp" />
     <ClCompile Include="dx11_rendertarget_mark_msaa_edges.cpp" />
     <ClCompile Include="dx11_rendertarget_phase_accumulator.cpp" />
-    <ClCompile Include="dx11_rendertarget_phase_bloom.cpp" />
+
 
     <ClCompile Include="dx11_rendertarget_phase_hdao.cpp" />
     <ClCompile Include="dx11_rendertarget_phase_luminance.cpp" />

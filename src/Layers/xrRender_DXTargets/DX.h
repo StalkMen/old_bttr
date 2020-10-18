@@ -1,11 +1,11 @@
 #pragma once
-
+#include "stdafx.h"
 #include "../xrRender/r__dsgraph_structure.h"
 #include "../xrRender/r__occlusion.h"
 
 #include "../xrRender/PSLibrary.h"
 
-#include "dx10_types.h"
+#include "..\xrRender_DXTargets\DX_types.h"
 #include "..\xrRender_DXTargets\DX_rendertarget.h"
 
 #include "../xrRender/hom.h"
@@ -25,7 +25,7 @@
 #include "../../build_render_config.h"
 
 class dxRender_Visual;
-extern ENGINE_API u32 renderer_value;
+extern ENGINE_API u32 renderer_value;									 
 extern u32 RenderThemeShaders;
 
 // definition
@@ -63,6 +63,7 @@ public:
         u32		ssao_half_data		: 1;
         u32		ssao_hbao			: 1;
         u32		ssao_hdao			: 1;
+        u32		ssao_ultra			: 1;
         u32		hbao_vectorized		: 1;
         u32		ssao_ssdo           : 1;
 
@@ -102,13 +103,15 @@ public:
       u32		dx10_msaa			: 1;	//	DX10.0 path
       u32		dx10_msaa_hybrid	: 1;	//	DX10.0 main path with DX10.1 A-test msaa allowed
       u32		dx10_msaa_opt	    : 1;	//	DX10.1 path
-
-      u32		dx10_1			    : 1;	//	DX10.1 path
+	  u32		dx10_1			    : 1;	//	DX10.1 path
       u32		dx10_msaa_alphatest	: 2;	//	A-test mode
       u32		dx10_msaa_samples	: 4;
 
       u32		dx10_minmax_sm		: 2;
       u32		dx10_minmax_sm_screenarea_threshold;
+        
+      u32		dx11_enable_tessellation : 1;
+      u32		dx11                : 1;	//	DX11 path
 
         u32		forcegloss			: 1;
         u32		forceskinw			: 1;
@@ -170,7 +173,6 @@ public:
     bool														m_bMakeAsyncSS;
     bool														m_bFirstFrameAfterReset;	// Determines weather the frame is the first after resetting device.
     xr_vector<sun::cascade>										m_sun_cascades;
-
 
 private:
     // Loading / Unloading
@@ -256,7 +258,14 @@ public:
     virtual	GenerationLevel			get_generation			()	{ return IRender_interface::GENERATION_R2; }
 
     virtual bool					is_sun_static			()	{ return o.sunstatic;}
-    virtual DWORD					get_dx_level			()	{ return renderer_value == 0 ? 10 : 10.1; }
+    virtual DWORD					get_dx_level			()	
+	{ 
+#ifdef USE_DX11
+		return 11; 
+#else
+		return renderer_value == 0 ? 10 : 10.1;
+#endif
+	}
 
     // Loading / Unloading
     virtual void					create						();
@@ -270,7 +279,7 @@ public:
             ID3DBaseTexture*		texture_load				(LPCSTR	fname, u32& msize, bool bStaging = false);
     virtual HRESULT shader_compile(
         LPCSTR name, IReader* fs, LPCSTR pFunctionName, LPCSTR pTarget, DWORD Flags, void*& result);
-		
+
     // Information
     virtual void					Statistics					(CGameFont* F);
     virtual LPCSTR					getShaderPath				()									
@@ -280,7 +289,7 @@ public:
             case 0:
                 return "DX11_COP_SHADERS\\";
                 break;
-            case 1: 
+            case 1:
                 return "DX11_OLD_THEME\\";
                 break;
             case 2:
@@ -292,6 +301,7 @@ public:
         }
         return "DX11_COP_SHADERS\\";
     }
+
     virtual ref_shader				getShader					(int id);
     virtual IRender_Sector*			getSector					(int id);
     virtual IRenderVisual*			getVisual					(int id);
@@ -353,16 +363,24 @@ public:
     virtual void					OnFrame						();
 	
 	virtual void 					BeforeWorldRender			(); //--#SM+#-- +SecondVP+
-	virtual void 					AfterWorldRender			();  //--#SM+#-- +SecondVP+ 
+	virtual void 					AfterWorldRender			();  //--#SM+#-- +SecondVP+
 	
     // Render mode
     virtual void					rmNear						();
     virtual void					rmFar						();
     virtual void					rmNormal					();
-    virtual u32 active_phase() {return phase;}; //Swatz: actor shadow
+    virtual u32 active_phase() {return phase;}; //Swartz: actor shadow
     // Constructor/destructor/loader
     CRender							();
     virtual ~CRender				();
+
+#ifdef USE_DX11
+    void addShaderOption(const char* name, const char* value);
+    void clearAllShaderOptions() {m_ShaderOptions.clear();}
+
+private:
+    xr_vector<D3D_SHADER_MACRO>									m_ShaderOptions;
+#endif
 protected:
     virtual	void					ScreenshotImpl				(ScreenshotMode mode, LPCSTR name, CMemoryWriter* memory_writer);
 
