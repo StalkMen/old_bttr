@@ -791,8 +791,11 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 		// For sun-filter - clear to zero
 		//CHK_DX	(HW.pDevice->Clear	( 0L, NULL, D3DCLEAR_TARGET, 0, 1.0f, 0L));
 		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+#ifdef USE_DX11
 		HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
-
+#else
+		HW.pRenderDevice->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
+#endif
 		// Fill vertex buffer
 		FVF::TL* pv					= (FVF::TL*)	RCache.Vertex.Lock	(4,g_combine->vb_stride,Offset);
 		pv->set						(EPS,			float(_h+EPS),	d_Z,	d_W, C, p0.x, p1.y);	pv++;

@@ -27,10 +27,13 @@ void CRenderTarget::DoAsyncScreenshot()
 
 
 		//HW.pDevice->CopyResource( t_ss_async, pTex );
-		ID3D10Texture2D*	pBuffer;
-		hr = HW.m_pSwapChain->GetBuffer( 0, __uuidof( ID3D10Texture2D ), (LPVOID*)&pBuffer );
+		ID3DTexture2D*	pBuffer;
+		hr = HW.m_pSwapChain->GetBuffer( 0, __uuidof( ID3DTexture2D ), (LPVOID*)&pBuffer );
+#ifdef USE_DX11
+		HW.pRenderContext->CopyResource( t_ss_async, pBuffer );
+#else
 		HW.pRenderDevice->CopyResource( t_ss_async, pBuffer );
-		
+#endif
 
 		RImplementation.m_bMakeAsyncSS = false;
 	}
@@ -49,39 +52,58 @@ void	CRenderTarget::phase_combine	()
 
 	//*** exposure-pipeline
 	u32			gpu_id	= Device.dwFrame%HW.Caps.iGPUNum;
-	if (Device.m_SecondViewport.IsSVPActive()) //--#SM+#-- +SecondVP+ Fix for tonemapping
+	if (Device.m_SecondViewport.IsSVPActive()) //--#SM+#-- +SecondVP+
 		// clang-format off
-		gpu_id = (Device.dwFrame - 1) % HW.Caps.iGPUNum;	
+		gpu_id = (Device.dwFrame - 1) % HW.Caps.iGPUNum;
 		
 	{
 		t_LUM_src->surface_set		(rt_LUM_pool[gpu_id*2+0]->pSurface);
 		t_LUM_dest->surface_set		(rt_LUM_pool[gpu_id*2+1]->pSurface);
 	}
 
-    if (RImplementation.o.ssao_hdao )
+    if (RImplementation.o.ssao_hdao 
+#ifdef USE_DX11	
+	&& RImplementation.o.ssao_ultra
+#endif	
+	)
     {
-	    //phase_downsamp();
-	    //phase_ssao();
-    } 
-    else 
+#ifdef USE_DX11	
+        if( ps_r_ssao > 0 )
+        {
+		    phase_hdao();
+        }
+#endif
+    }
+    else
     {
-	    if (RImplementation.o.ssao_opt_data)
-	    {
-		    phase_downsamp();
-		    //phase_ssao();
-	    } 
-	    else if (RImplementation.o.ssao_blur_on)
-		    phase_ssao();
-    }	
+        if (RImplementation.o.ssao_opt_data)
+        {
+            phase_downsamp();
+            //phase_ssao();
+        } 
+        else if (RImplementation.o.ssao_blur_on)
+            phase_ssao();
+    }
 
+	FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 	// low/hi RTs
 	if( !RImplementation.o.dx10_msaa )
+	{
+#ifdef USE_DX11
+		HW.pRenderContext->ClearRenderTargetView(rt_Generic_0->pRT, ColorRGBA);
+		HW.pRenderContext->ClearRenderTargetView(rt_Generic_1->pRT, ColorRGBA);
+#endif
 		u_setrt				( rt_Generic_0,rt_Generic_1,0,HW.pBaseZB );
+	}
 	else
 	{
-		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+#ifdef USE_DX11
+		HW.pRenderContext->ClearRenderTargetView(rt_Generic_0_r->pRT, ColorRGBA);
+		HW.pRenderContext->ClearRenderTargetView(rt_Generic_1_r->pRT, ColorRGBA);
+#else
 		HW.pRenderDevice->ClearRenderTargetView(rt_Generic_0_r->pRT, ColorRGBA);
 		HW.pRenderDevice->ClearRenderTargetView(rt_Generic_1_r->pRT, ColorRGBA);
+#endif
 		u_setrt				( rt_Generic_0_r,rt_Generic_1_r,0,RImplementation.Target->rt_MSAADepth->pZRT );
 	}
 	RCache.set_CullMode	( CULL_NONE );
@@ -292,8 +314,13 @@ void	CRenderTarget::phase_combine	()
    if( RImplementation.o.dx10_msaa )
    {
       // we need to resolve rt_Generic_1 into rt_Generic_1_r
-      HW.pRenderDevice->ResolveSubresource( rt_Generic_1->pTexture->surface_get(), 0, rt_Generic_1_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
-      HW.pRenderDevice->ResolveSubresource( rt_Generic_0->pTexture->surface_get(), 0, rt_Generic_0_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
+#ifdef USE_DX11	  
+      HW.pRenderContext->ResolveSubresource( rt_Generic_1->pTexture->surface_get(), 0, rt_Generic_1_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
+      HW.pRenderContext->ResolveSubresource( rt_Generic_0->pTexture->surface_get(), 0, rt_Generic_0_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
+#else
+	  HW.pRenderDevice->ResolveSubresource( rt_Generic_1->pTexture->surface_get(), 0, rt_Generic_1_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
+      HW.pRenderDevice->ResolveSubresource( rt_Generic_0->pTexture->surface_get(), 0, rt_Generic_0_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );	
+#endif
    }
 
    // for msaa we need a resolved color buffer - Holger
@@ -314,12 +341,20 @@ void	CRenderTarget::phase_combine	()
 			if( !RImplementation.o.dx10_msaa )
 			{
 				u_setrt(rt_Generic_1,0,0,HW.pBaseZB);		// Now RT is a distortion mask
+#ifdef USE_DX11				
+				HW.pRenderContext->ClearRenderTargetView( rt_Generic_1->pRT, ColorRGBA);
+#else
 				HW.pRenderDevice->ClearRenderTargetView( rt_Generic_1->pRT, ColorRGBA);
+#endif
 			}
 			else
 			{
 				u_setrt(rt_Generic_1_r,0,0,RImplementation.Target->rt_MSAADepth->pZRT);		// Now RT is a distortion mask
+#ifdef USE_DX11
+				HW.pRenderContext->ClearRenderTargetView( rt_Generic_1_r->pRT, ColorRGBA);
+#else
 				HW.pRenderDevice->ClearRenderTargetView( rt_Generic_1_r->pRT, ColorRGBA);
+#endif
 			}
 			RCache.set_CullMode			(CULL_CCW);
 			RCache.set_Stencil			(FALSE);
@@ -330,12 +365,14 @@ void	CRenderTarget::phase_combine	()
 		}
 	}
 	
+	
 	RCache.set_Stencil(FALSE);
+	
 #pragma TODO("OldSerpskiStalker. Disabled. Because the rays pass through the materials of the location to the direction of the sun.")
 #if 0	
 	if (ps_r_sun_shafts > 0 && ps_sunshafts_mode == SS_RENDER_OFF)
 			phase_sunshafts();
-#endif	
+#endif
 
 	//FXAA
 	if (ps_r_type_aa == 1)
@@ -356,8 +393,7 @@ void	CRenderTarget::phase_combine	()
 		//RainbowZerg
 		phase_smaa();
 		RCache.set_Stencil(FALSE);
-	}
-
+	}	
 	// PP enabled ?
 	//	Render to RT texture to be able to copy RT even in windowed mode.
 	BOOL	PP_Complex		= u_need_PP	() | (BOOL)RImplementation.m_bMakeAsyncSS;

@@ -6,7 +6,7 @@
 #include "../xrRender/PSLibrary.h"
 
 #include "dx10_types.h"
-#include "dx10_rendertarget.h"
+#include "..\xrRender_DXTargets\DX_rendertarget.h"
 
 #include "../xrRender/hom.h"
 #include "../xrRender/detailmanager.h"

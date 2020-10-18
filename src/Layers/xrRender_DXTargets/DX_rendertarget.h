@@ -47,6 +47,12 @@ public:
 	IBlender*					b_smaa;
 	IBlender*					b_sunshafts;
 	
+#ifdef USE_DX11	
+    // compute shader for hdao
+    IBlender*                   b_hdao_cs;
+    IBlender*                   b_hdao_msaa_cs;
+#endif
+
 #ifdef DEBUG
 	struct		dbg_line_t		{
 		Fvector	P0,P1;
@@ -62,6 +68,8 @@ public:
 	ref_rt						rt_MSAADepth;     // z-buffer for MSAA deferred shading
 	ref_rt						rt_Generic_0_r;   // MRT generic 0
 	ref_rt						rt_Generic_1_r;   // MRT generic 1
+	ref_rt						rt_sunshafts_0;		// ss0
+	ref_rt						rt_sunshafts_1;		// ss1
 	ref_rt						rt_Generic;
 	ref_rt						rt_Position;		// 64bit,	fat	(x,y,z,?)				(eye-space)
 	ref_rt						rt_Normal;			// 64bit,	fat	(x,y,z,hemi)			(eye-space)
@@ -74,9 +82,6 @@ public:
 	ref_rt						rt_Generic_1;		// 32bit		(r,g,b,a)				// post-process, intermidiate results, etc.
 	resptr_core<CRT, resptrcode_crt> rt_Generic_temp;
 		
-	ref_rt						rt_sunshafts_0;		// ss0
-	ref_rt						rt_sunshafts_1;		// ss1
-	
 	//  Second viewport
 	ref_rt						rt_secondVP;		// 32bit		(r,g,b,a) --//#SM+#-- +SecondVP+
 	
@@ -124,7 +129,10 @@ private:
 	ref_rt						rt_half_depth;
 	ref_shader					s_ssao;
 	ref_shader					s_ssao_msaa[8];
-
+#ifdef USE_DX11
+	ref_shader					s_hdao_cs;
+	ref_shader					s_hdao_cs_msaa;
+#endif
 	// Accum
 	ref_shader					s_accum_mask	;
 	ref_shader					s_accum_direct	;
@@ -135,6 +143,10 @@ private:
 	ref_shader					s_accum_reflected;
 	ref_shader					s_accum_volume;
 	ref_shader					s_fxaa;
+
+	ref_shader 					s_smaa;
+	ref_rt 						rt_smaa_edgetex;
+	ref_rt 						rt_smaa_blendtex;
 	
 	//	generate min/max
 	ref_shader					s_create_minmax_sm;
@@ -190,22 +202,17 @@ private:
 	ref_geom					g_combine_cuboid;
 	ref_geom					g_aa_blur;
 	ref_geom					g_aa_AA;
-	ref_shader					s_combine_dbg_0;
-	ref_shader					s_combine_dbg_1;
-	ref_shader					s_combine_dbg_Accumulator;
-	ref_shader					s_combine;
-	ref_shader					s_combine_msaa[8];
-	ref_shader					s_combine_volumetric;
-	
-	ref_shader 					s_smaa;
-	ref_rt 						rt_smaa_edgetex;
-	ref_rt 						rt_smaa_blendtex;
-
+	ref_shader				s_combine_dbg_0;
+	ref_shader				s_combine_dbg_1;
+	ref_shader				s_combine_dbg_Accumulator;
+	ref_shader				s_combine;
+   ref_shader				s_combine_msaa[8];
+	ref_shader				s_combine_volumetric;
 public:
-	ref_shader					s_postprocess;
-   ref_shader           		s_postprocess_msaa;
+	ref_shader				s_postprocess;
+   ref_shader           s_postprocess_msaa;
 	ref_geom					g_postprocess;
-	ref_shader					s_menu;
+	ref_shader				s_menu;
 	ref_geom					g_menu;
 private:
 	float						im_noise_time;
@@ -264,6 +271,9 @@ public:
 	void						phase_scene_end			();
 	void						phase_occq				();
 	void						phase_ssao				();
+#ifdef USE_DX11
+	void						phase_hdao				();
+#endif
 	void						phase_downsamp			();
 	void						phase_wallmarks			();
 	void						phase_smap_direct		(light* L,	u32 sub_phase);
