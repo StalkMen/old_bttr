@@ -194,7 +194,7 @@ void dx103DFluidRenderer::CreateJitterTexture()
 
     ID3DTexture2D* NoiseTexture = nullptr;
 
-    CHK_DX(HW.pDevice->CreateTexture2D(&desc, &dataDesc, &NoiseTexture));
+    CHK_DX(HW.pRenderDevice->CreateTexture2D(&desc, &dataDesc, &NoiseTexture));
 
     m_JitterTexture = dxRenderDeviceRender::Instance().Resources->_CreateTexture("$user$NVjitterTex");
     m_JitterTexture->surface_set(NoiseTexture);
@@ -250,7 +250,7 @@ void dx103DFluidRenderer::CreateHHGGTexture()
 
     ID3DTexture1D* HHGGTexture = nullptr;
 
-    CHK_DX(HW.pDevice->CreateTexture1D(&desc, &dataDesc, &HHGGTexture));
+    CHK_DX(HW.pRenderDevice->CreateTexture1D(&desc, &dataDesc, &HHGGTexture));
 
     m_HHGGTexture = dxRenderDeviceRender::Instance().Resources->_CreateTexture("$user$NVHHGGTex");
     m_HHGGTexture->surface_set(HHGGTexture);
@@ -334,7 +334,7 @@ void dx103DFluidRenderer::Draw(const dx103DFluidData& FluidData)
     // Raycast into the temporary render target:
     //  raycasting is done at the smaller resolution, using a fullscreen quad
     FLOAT ColorRGBA[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
-    HW.pContext->ClearRenderTargetView(RT[RRT_RayCastTex]->pRT, ColorRGBA);
+    HW.pRenderContext->ClearRenderTargetView(RT[RRT_RayCastTex]->pRT, ColorRGBA);
 
     pTarget->u_setrt(RT[RRT_RayCastTex], nullptr, nullptr, nullptr); // LDR RT
 
@@ -374,7 +374,7 @@ void dx103DFluidRenderer::ComputeRayData(const dx103DFluidData& FluidData)
 {
     // Clear the color buffer to 0
     FLOAT ColorRGBA[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
-    HW.pContext->ClearRenderTargetView(RT[RRT_RayDataTex]->pRT, ColorRGBA);
+    HW.pRenderContext->ClearRenderTargetView(RT[RRT_RayDataTex]->pRT, ColorRGBA);
 
     CRenderTarget* pTarget = RImplementation.Target;
     pTarget->u_setrt(RT[RRT_RayDataTex], nullptr, nullptr, nullptr); // LDR RT

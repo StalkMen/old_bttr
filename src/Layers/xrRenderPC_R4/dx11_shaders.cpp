@@ -55,7 +55,7 @@ static HRESULT create_shader				(
 	else if (pTarget[0] == 'v') 
 	{
 		SVS* svs_result = (SVS*)result;
-		_result			= HW.pDevice->CreateVertexShader(buffer, buffer_size, 0, &svs_result->sh);
+		_result			= HW.pRenderDevice->CreateVertexShader(buffer, buffer_size, 0, &svs_result->sh);
 
 		if ( !SUCCEEDED(_result) ) {
 			Log			("! VS: ", file_name);

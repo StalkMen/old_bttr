@@ -25,7 +25,7 @@ extern ENGINE_API void GetMonitorResolution(u32& horizontal, u32& vertical);
 
 CHW			HW;
 
-CHW::CHW() :m_pAdapter(0), pDevice(NULL), m_move_window(true)
+CHW::CHW() :m_pAdapter(0), pRenderDevice(NULL), m_move_window(true)
 {
 	Device.seqAppActivate.Add(this);
 	Device.seqAppDeactivate.Add(this);
@@ -141,14 +141,14 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 
 #pragma todo("OldSerpskiStalker. Этот механизм лучше не трогать, пусть DX10 создается как приписали ему GSC.")
 	{
-		HRESULT R = D3DX10CreateDeviceAndSwapChain(m_pAdapter, m_DriverType, NULL, createDeviceFlags, &sd, &m_pSwapChain, &pDevice);
+		HRESULT R = D3DX10CreateDeviceAndSwapChain(m_pAdapter, m_DriverType, NULL, createDeviceFlags, &sd, &m_pSwapChain, &pRenderDevice);
 
-		pContext = pDevice;
+		pRenderContext = pRenderDevice;
 		FeatureLevel = D3D_FEATURE_LEVEL_10_0;
 
 		if (!FAILED(R) && renderer_value == 1)
 		{
-			D3DX10GetFeatureLevel1(pDevice, &pDevice1);
+			D3DX10GetFeatureLevel1(pRenderDevice, &pDevice1);
 			FeatureLevel = D3D_FEATURE_LEVEL_10_1;
 		}
 
@@ -165,7 +165,7 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 
 		R_CHK(R);
 	}
-	_SHOW_REF("* CREATE: DeviceREF:", HW.pDevice);
+	_SHOW_REF("* CREATE: DeviceREF:", HW.pRenderDevice);
 
 	//	Create render target and depth-stencil views here
 	UpdateViews();
@@ -198,8 +198,8 @@ void CHW::DestroyDevice()
 	_RELEASE(m_pSwapChain);
 	_RELEASE(HW.pDevice1);
 
-	_SHOW_REF("# DeviceREF:", HW.pDevice);
-	_RELEASE(HW.pDevice);
+	_SHOW_REF("# DeviceREF:", HW.pRenderDevice);
+	_RELEASE(HW.pRenderDevice);
 
 	DestroyD3D();
 	free_vid_mode_list();
@@ -505,7 +505,7 @@ void CHW::UpdateViews()
 	R = m_pSwapChain->GetBuffer(0, __uuidof(ID3DTexture2D), (LPVOID*)&pBuffer);
 	R_CHK(R);
 
-	R = pDevice->CreateRenderTargetView(pBuffer, NULL, &pBaseRT);
+	R = pRenderDevice->CreateRenderTargetView(pBuffer, NULL, &pBaseRT);
 	pBuffer->Release();
 	R_CHK(R);
 
@@ -524,13 +524,13 @@ void CHW::UpdateViews()
 	descDepth.BindFlags = D3D_BIND_DEPTH_STENCIL;
 	descDepth.CPUAccessFlags = 0;
 	descDepth.MiscFlags = 0;
-	R = pDevice->CreateTexture2D(&descDepth,       // Texture desc
+	R = pRenderDevice->CreateTexture2D(&descDepth,       // Texture desc
 		NULL,                  // Initial data
 		&pDepthStencil); // [out] Texture
 	R_CHK(R);
 
 	//	Create Depth/stencil view
-	R = pDevice->CreateDepthStencilView(pDepthStencil, NULL, &pBaseZB);
+	R = pRenderDevice->CreateDepthStencilView(pDepthStencil, NULL, &pBaseZB);
 	R_CHK(R);
 
 	pDepthStencil->Release();

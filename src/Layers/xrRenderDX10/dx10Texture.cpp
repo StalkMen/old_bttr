@@ -275,7 +275,7 @@ else
 				}
 
 				LoadInfo.pSrcInfo = &IMG;
-				R_CHK(D3DX10CreateTextureFromMemory(HW.pDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0));
+				R_CHK(D3DX10CreateTextureFromMemory(HW.pRenderDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0));
 				FS.r_close(S);
 
 				// OK
@@ -325,7 +325,7 @@ else
 				}
 				LoadInfo.pSrcInfo = &IMG;
 
-				R_CHK2(D3DX10CreateTextureFromMemory(HW.pDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0), fn);
+				R_CHK2(D3DX10CreateTextureFromMemory(HW.pRenderDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0), fn);
 				FS.r_close(S);
 				mip_cnt = IMG.MipLevels;
 				// OK

@@ -30,12 +30,12 @@ void	CRenderTarget::phase_accumulator()
 		//	Need for MSAA to work correctly.
 		if( RImplementation.o.dx10_msaa )
 		{
-			HW.pContext->OMSetRenderTargets(1, &(rt_Accumulator->pRT), 0);
+			HW.pRenderContext->OMSetRenderTargets(1, &(rt_Accumulator->pRT), 0);
 		}
 //		u32		clr4clear					= color_rgba(0,0,0,0);	// 0x00
 		//CHK_DX	(HW.pDevice->Clear			( 0L, NULL, D3DCLEAR_TARGET, clr4clear, 1.0f, 0L));
 		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
-		HW.pContext->ClearRenderTargetView( rt_Accumulator->pRT, ColorRGBA);
+		HW.pRenderContext->ClearRenderTargetView( rt_Accumulator->pRT, ColorRGBA);
 
 		//	render this after sun to avoid troubles with sun
 		/*
@@ -72,7 +72,7 @@ void	CRenderTarget::phase_vol_accumulator()
 		//u32		clr4clearVol				= color_rgba(0,0,0,0);	// 0x00
 		//CHK_DX	(HW.pDevice->Clear			( 0L, NULL, D3DCLEAR_TARGET, clr4clearVol, 1.0f, 0L));
 		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
-		HW.pContext->ClearRenderTargetView( rt_Generic_2->pRT, ColorRGBA);
+		HW.pRenderContext->ClearRenderTargetView( rt_Generic_2->pRT, ColorRGBA);
 	}
 	else
 	{

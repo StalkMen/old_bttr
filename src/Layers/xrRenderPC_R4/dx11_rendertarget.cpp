@@ -646,7 +646,7 @@ CRenderTarget::CRenderTarget		()
 			//u_setrt						(rt_LUM_pool[it],	0,	0,	0			);
 			//CHK_DX						(HW.pDevice->Clear( 0L, NULL, D3DCLEAR_TARGET,	0x7f7f7f7f,	1.0f, 0L));
 			FLOAT ColorRGBA[4] = { 127.0f/255.0f, 127.0f/255.0f, 127.0f/255.0f, 127.0f/255.0f};
-			HW.pContext->ClearRenderTargetView(rt_LUM_pool[it]->pRT, ColorRGBA);
+			HW.pRenderContext->ClearRenderTargetView(rt_LUM_pool[it]->pRT, ColorRGBA);
 		}
 		u_setrt						( Device.dwWidth,Device.dwHeight,HW.pBaseRT,NULL,NULL,HW.pBaseZB);
 	}
@@ -767,7 +767,7 @@ CRenderTarget::CRenderTarget		()
 			desc.CPUAccessFlags = D3D_CPU_ACCESS_READ;
 			desc.MiscFlags = 0;
 
-			R_CHK( HW.pDevice->CreateTexture2D(&desc, 0, &t_ss_async) );
+			R_CHK( HW.pRenderDevice->CreateTexture2D(&desc, 0, &t_ss_async) );
 		}
 		// Build material(s)
 		{
@@ -850,7 +850,7 @@ CRenderTarget::CRenderTarget		()
 			}
 			//R_CHK		(t_material_surf->UnlockBox	(0));
 
-			R_CHK(HW.pDevice->CreateTexture3D(&desc, &subData, &t_material_surf));
+			R_CHK(HW.pRenderDevice->CreateTexture3D(&desc, &subData, &t_material_surf));
 			t_material					= dxRenderDeviceRender::Instance().Resources->_CreateTexture(r2_material);
 			t_material->surface_set		(t_material_surf);
 			//R_CHK						(D3DXCreateVolumeTexture(HW.pDevice,TEX_material_LdotN,TEX_material_LdotH,4,1,0,D3DFMT_A8L8,D3DPOOL_MANAGED,&t_material_surf));
@@ -932,7 +932,7 @@ CRenderTarget::CRenderTarget		()
 				string_path					name;
 				xr_sprintf						(name,"%s%d",r2_jitter,it);
 				//R_CHK	(D3DXCreateTexture	(HW.pDevice,TEX_jitter,TEX_jitter,1,0,D3DFMT_Q8W8V8U8,D3DPOOL_MANAGED,&t_noise_surf[it]));
-				R_CHK( HW.pDevice->CreateTexture2D(&desc, &subData[it], &t_noise_surf[it]) );
+				R_CHK( HW.pRenderDevice->CreateTexture2D(&desc, &subData[it], &t_noise_surf[it]) );
 				t_noise[it]					= dxRenderDeviceRender::Instance().Resources->_CreateTexture	(name);
 				t_noise[it]->surface_set	(t_noise_surf[it]);
 				//R_CHK						(t_noise_surf[it]->LockRect	(0,&R[it],0,0));
@@ -989,7 +989,7 @@ CRenderTarget::CRenderTarget		()
 			string_path					name;
 			xr_sprintf						(name,"%s%d",r2_jitter,it);
 			//R_CHK	(D3DXCreateTexture	(HW.pDevice,TEX_jitter,TEX_jitter,1,0,D3DFMT_Q8W8V8U8,D3DPOOL_MANAGED,&t_noise_surf[it]));
-			R_CHK( HW.pDevice->CreateTexture2D(&descHBAO, &subData[it], &t_noise_surf[it]) );
+			R_CHK( HW.pRenderDevice->CreateTexture2D(&descHBAO, &subData[it], &t_noise_surf[it]) );
 			t_noise[it]					= dxRenderDeviceRender::Instance().Resources->_CreateTexture	(name);
 			t_noise[it]->surface_set	(t_noise_surf[it]);
 
@@ -998,15 +998,15 @@ CRenderTarget::CRenderTarget		()
 			{
 				//	Autogen mipmaps
 				desc.MipLevels = 0;
-				R_CHK( HW.pDevice->CreateTexture2D(&desc, 0, &t_noise_surf_mipped) );
+				R_CHK( HW.pRenderDevice->CreateTexture2D(&desc, 0, &t_noise_surf_mipped) );
 				t_noise_mipped = dxRenderDeviceRender::Instance().Resources->_CreateTexture(r2_jitter_mipped);
 				t_noise_mipped->surface_set(t_noise_surf_mipped);
 
 				//	Update texture. Generate mips.
 
-				HW.pContext->CopySubresourceRegion( t_noise_surf_mipped, 0, 0, 0, 0, t_noise_surf[0], 0, 0 );
+				HW.pRenderContext->CopySubresourceRegion( t_noise_surf_mipped, 0, 0, 0, 0, t_noise_surf[0], 0, 0 );
 
-				D3DX11FilterTexture(HW.pContext, t_noise_surf_mipped, 0, D3DX10_FILTER_POINT);
+				D3DX11FilterTexture(HW.pRenderContext, t_noise_surf_mipped, 0, D3DX10_FILTER_POINT);
 			}
 		}
 	}

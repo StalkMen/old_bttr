@@ -52,7 +52,7 @@ static HRESULT create_shader				(
 	else if (pTarget[0] == 'v') 
 	{
 		SVS* svs_result = (SVS*)result;
-		_result			= HW.pDevice->CreateVertexShader(buffer, buffer_size, &svs_result->sh);
+		_result			= HW.pRenderDevice->CreateVertexShader(buffer, buffer_size, &svs_result->sh);
 
 		if ( !SUCCEEDED(_result) ) 
 		{
@@ -598,21 +598,21 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 		if ('v'==pTarget[0])
       {
          if( HW.pDevice1 == 0 )
-            pTarget = D3D10GetVertexShaderProfile(HW.pDevice);	// vertex	"vs_4_0"; //
+            pTarget = D3D10GetVertexShaderProfile(HW.pRenderDevice);	// vertex	"vs_4_0"; //
          else
             pTarget = "vs_4_1";	// pixel	"ps_4_0"; //
       }
 		else if ('p'==pTarget[0])
       {
          if( HW.pDevice1 == 0 )
-            pTarget = D3D10GetPixelShaderProfile(HW.pDevice);	// pixel	"ps_4_0"; //
+            pTarget = D3D10GetPixelShaderProfile(HW.pRenderDevice);	// pixel	"ps_4_0"; //
          else
             pTarget = "ps_4_1";	// pixel	"ps_4_0"; //
       }
 		else if ('g'==pTarget[0])		
       {
          if( HW.pDevice1 == 0 )
-            pTarget = D3D10GetGeometryShaderProfile(HW.pDevice);	// geometry	"gs_4_0"; //
+            pTarget = D3D10GetGeometryShaderProfile(HW.pRenderDevice);	// geometry	"gs_4_0"; //
          else
             pTarget = "gs_4_1";	// pixel	"ps_4_0"; //
       }

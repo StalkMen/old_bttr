@@ -140,7 +140,7 @@ void				TW_Save(ID3DTexture2D* T, LPCSTR name, LPCSTR prefix, LPCSTR postfix)
 		if ('\\' == fn[it])	fn[it] = '_';
 	string256		fn2;	strconcat(sizeof(fn2), fn2, "debug\\", fn, ".dds");
 	Log("! DX11 debug texture save: ", fn2);
-	R_CHK(D3DX11SaveTextureToFile(HW.pContext, T, D3DX11_IFF_DDS, fn2));
+	R_CHK(D3DX11SaveTextureToFile(HW.pRenderContext, T, D3DX11_IFF_DDS, fn2));
 }
 
 ID3DBaseTexture*	CRender::texture_load(LPCSTR fRName, u32& ret_msize, bool bStaging)
@@ -275,7 +275,7 @@ else
 
 				LoadInfo.pSrcInfo = &IMG;
 
-				R_CHK(D3DX11CreateTextureFromMemory(HW.pDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0));
+				R_CHK(D3DX11CreateTextureFromMemory(HW.pRenderDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0));
 
 				FS.r_close(S);
 
@@ -327,7 +327,7 @@ else
 				}
 				LoadInfo.pSrcInfo = &IMG;
 
-				R_CHK2(D3DX11CreateTextureFromMemory(HW.pDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0), fn);
+				R_CHK2(D3DX11CreateTextureFromMemory(HW.pRenderDevice, S->pointer(), S->length(), &LoadInfo, 0, &pTexture2D, 0), fn);
 
 				FS.r_close(S);
 				mip_cnt = IMG.MipLevels;

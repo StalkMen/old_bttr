@@ -21,7 +21,7 @@ void CBackend::OnFrameEnd	()
 #endif    
 	{
 #if defined(USE_DX10) || defined(USE_DX11)
-		HW.pContext->ClearState();
+		HW.pRenderContext->ClearState();
 		Invalidate			();
 #else	//	USE_DX10
 

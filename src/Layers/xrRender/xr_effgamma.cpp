@@ -6,7 +6,7 @@
 
 void CGammaControl::Update() 
 {
-	if (HW.pDevice) 
+	if (HW.pRenderDevice)
 	{
 		DXGI_GAMMA_CONTROL_CAPABILITIES GC;
 		DXGI_GAMMA_CONTROL				G;

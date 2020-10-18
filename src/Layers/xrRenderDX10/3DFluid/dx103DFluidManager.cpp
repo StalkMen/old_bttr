@@ -230,7 +230,7 @@ void dx103DFluidManager::CreateRTTextureAndViews(int rtIndex, D3D_TEXTURE3D_DESC
 	ID3DTexture3D	*pRT;
 
 	// Create the texture
-	CHK_DX( HW.pDevice->CreateTexture3D(&TexDesc,NULL,&pRT));
+	CHK_DX( HW.pRenderDevice->CreateTexture3D(&TexDesc,NULL,&pRT));
 	// Create the render target view
 	D3D_RENDER_TARGET_VIEW_DESC DescRT;
 	DescRT.Format = TexDesc.Format;
@@ -239,7 +239,7 @@ void dx103DFluidManager::CreateRTTextureAndViews(int rtIndex, D3D_TEXTURE3D_DESC
 	DescRT.Texture3D.MipSlice = 0;
 	DescRT.Texture3D.WSize = TexDesc.Depth;
 
-	CHK_DX( HW.pDevice->CreateRenderTargetView( pRT, &DescRT, &pRenderTargetViews[rtIndex]) );
+	CHK_DX( HW.pRenderDevice->CreateRenderTargetView( pRT, &DescRT, &pRenderTargetViews[rtIndex]) );
 
 	pRTTextures[rtIndex]->surface_set(pRT);
 
@@ -259,7 +259,7 @@ void dx103DFluidManager::Reset()
 
 	for(int rtIndex=0; rtIndex<NUM_OWN_RENDER_TARGETS; rtIndex++)
 	{
-		HW.pContext->ClearRenderTargetView( pRenderTargetViews[rtIndex], color );
+		HW.pRenderContext->ClearRenderTargetView( pRenderTargetViews[rtIndex], color );
 	}
 }
 
@@ -285,7 +285,7 @@ void dx103DFluidManager::Update( dx103DFluidData &FluidData, float timestep )
 	rtViewport.Width =  m_iTextureWidth;
 	rtViewport.Height = m_iTextureHeight;
 #endif // #ifdef USE_DX11
-	HW.pContext->RSSetViewports(1,&rtViewport);
+	HW.pRenderContext->RSSetViewports(1,&rtViewport);
 
 	RCache.set_ZB(0);
 
@@ -408,8 +408,8 @@ void dx103DFluidManager::AdvectColorBFECC( float timestep, bool bTeperature )
 
 	float color[4] = {0, 0, 0, 0 };
 
-	HW.pContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_TEMPVECTOR], color );
-	HW.pContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_TEMPSCALAR], color );
+	HW.pRenderContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_TEMPVECTOR], color );
+	HW.pRenderContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_TEMPSCALAR], color );
 
 	RCache.set_RT(pRenderTargetViews[RENDER_TARGET_TEMPVECTOR]);
 	if (bTeperature)
@@ -569,7 +569,7 @@ void dx103DFluidManager::ApplyVorticityConfinement( float timestep )
 
 	// Compute vorticity
 	float color[4] = {0, 0, 0, 0 };
-	HW.pContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_TEMPVECTOR], color );
+	HW.pRenderContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_TEMPVECTOR], color );
 
 	//pShaderResourceVariables[RENDER_TARGET_TEMPVECTOR]->SetResource( NULL );
 	//SetRenderTarget( RENDER_TARGET_TEMPVECTOR );
@@ -613,7 +613,7 @@ void dx103DFluidManager::ComputeVelocityDivergence( float timestep )
 	PIX_EVENT(ComputeVelocityDivergence);
 
 	float color[4] = {0, 0, 0, 0 };
-	HW.pContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_TEMPVECTOR], color );
+	HW.pRenderContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_TEMPVECTOR], color );
 
 	RCache.set_RT(pRenderTargetViews[RENDER_TARGET_TEMPVECTOR]);
 	RCache.set_Element(m_SimulationTechnique[SS_Divergence]);
@@ -631,7 +631,7 @@ void dx103DFluidManager::ComputePressure( float timestep )
 	PIX_EVENT(ComputePressure);
 
 	float color[4] = {0, 0, 0, 0 };
-	HW.pContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_TEMPSCALAR], color );
+	HW.pRenderContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_TEMPSCALAR], color );
 
 	//ID3DxxTexture3D	*pTemp = (ID3DxxTexture3D*) pRTTextures[RENDER_TARGET_TEMPSCALAR]->surface_get();
 	//ID3DxxTexture3D	*pPressure = (ID3DxxTexture3D*) pRTTextures[RENDER_TARGET_PRESSURE]->surface_get();
@@ -744,8 +744,8 @@ void dx103DFluidManager::UpdateObstacles( const dx103DFluidData &FluidData, floa
 	PIX_EVENT(Fluid_update_obstacles);
 	//	Reset data
 	float color[4] = {0, 0, 0, 0 };
-	HW.pContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_OBSTACLES], color );
-	HW.pContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_OBSTVELOCITY], color );
+	HW.pRenderContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_OBSTACLES], color );
+	HW.pRenderContext->ClearRenderTargetView( pRenderTargetViews[RENDER_TARGET_OBSTVELOCITY], color );
 
 	RCache.set_RT(pRenderTargetViews[RENDER_TARGET_OBSTACLES], 0);
 	RCache.set_RT(pRenderTargetViews[RENDER_TARGET_OBSTVELOCITY], 1);

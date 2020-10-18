@@ -43,9 +43,9 @@ struct ShaderTypeTraits<SVS>
     {
          HWShaderType sh = 0;
 #ifdef USE_DX11
-        R_CHK(HW.pDevice->CreateVertexShader(buffer, size, 0, &sh));
+        R_CHK(HW.pRenderDevice->CreateVertexShader(buffer, size, 0, &sh));
 #else
-        R_CHK(HW.pDevice->CreateVertexShader(buffer, size, &sh));
+        R_CHK(HW.pRenderDevice->CreateVertexShader(buffer, size, &sh));
 #endif
         return sh;
     }
@@ -98,9 +98,9 @@ struct ShaderTypeTraits<SPS>
     {
         HWShaderType sh = 0;
 #ifdef USE_DX11
-        R_CHK(HW.pDevice->CreatePixelShader(buffer, size, 0, &sh));
+        R_CHK(HW.pRenderDevice->CreatePixelShader(buffer, size, 0, &sh));
 #else
-        R_CHK(HW.pDevice->CreatePixelShader(buffer, size, &sh));
+        R_CHK(HW.pRenderDevice->CreatePixelShader(buffer, size, &sh));
 #endif
         return sh;
     }
@@ -119,7 +119,7 @@ struct ShaderTypeTraits<SGS>
     {
 #ifdef USE_DX10
         if (HW.pDevice1 == nullptr)
-            return D3D10GetGeometryShaderProfile(HW.pDevice);
+            return D3D10GetGeometryShaderProfile(HW.pRenderDevice);
         else
             return "gs_4_1";
 #endif
@@ -145,9 +145,9 @@ struct ShaderTypeTraits<SGS>
     {
         HWShaderType sh = 0;
 #ifdef USE_DX11
-        R_CHK(HW.pDevice->CreateGeometryShader(buffer, size, 0, &sh));
+        R_CHK(HW.pRenderDevice->CreateGeometryShader(buffer, size, 0, &sh));
 #else
-        R_CHK(HW.pDevice->CreateGeometryShader(buffer, size, &sh));
+        R_CHK(HW.pRenderDevice->CreateGeometryShader(buffer, size, &sh));
 #endif
         return sh;
     }
@@ -174,7 +174,7 @@ struct ShaderTypeTraits<SHS>
     static inline HWShaderType CreateHWShader(DWORD const* buffer, size_t size)
     {
         HWShaderType sh = 0;
-        R_CHK(HW.pDevice->CreateHullShader(buffer, size, NULL, &sh));
+        R_CHK(HW.pRenderDevice->CreateHullShader(buffer, size, NULL, &sh));
 
         return sh;
     }
@@ -200,7 +200,7 @@ struct ShaderTypeTraits<SDS>
     static inline HWShaderType CreateHWShader(DWORD const* buffer, size_t size)
     {
 		HWShaderType sh = 0;
-        R_CHK(HW.pDevice->CreateDomainShader(buffer, size, NULL, &sh));
+        R_CHK(HW.pRenderDevice->CreateDomainShader(buffer, size, NULL, &sh));
 
         return sh;
     }
@@ -226,7 +226,7 @@ struct ShaderTypeTraits<SCS>
     static inline HWShaderType CreateHWShader(DWORD const* buffer, size_t size)
     {
 		HWShaderType sh = 0;
-        R_CHK(HW.pDevice->CreateComputeShader(buffer, size, NULL, &sh));
+        R_CHK(HW.pRenderDevice->CreateComputeShader(buffer, size, NULL, &sh));
 
         return sh;
     }

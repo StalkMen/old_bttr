@@ -35,7 +35,7 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 {
 	if (pSurface)	return;
 
-	R_ASSERT	(HW.pDevice && Name && Name[0] && w && h);
+	R_ASSERT	(HW.pRenderDevice && Name && Name[0] && w && h);
 	_order		= CPU::GetCLK()	;	//Device.GetTimerGlobal()->GetElapsed_clk();
 
 	//HRESULT		_hr;
@@ -132,7 +132,7 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 		desc.BindFlags |= D3D11_BIND_UNORDERED_ACCESS;
 #endif
 
-	CHK_DX( HW.pDevice->CreateTexture2D( &desc, NULL, &pSurface ) );
+	CHK_DX( HW.pRenderDevice->CreateTexture2D( &desc, NULL, &pSurface ) );
 	HW.stats_manager.increment_stats_rtarget( pSurface );
 	// OK
 #ifdef DEBUG
@@ -166,10 +166,10 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 			break;
 		}
 
-		CHK_DX( HW.pDevice->CreateDepthStencilView( pSurface, &ViewDesc, &pZRT) );
+		CHK_DX( HW.pRenderDevice->CreateDepthStencilView( pSurface, &ViewDesc, &pZRT) );
 	}
 	else
-		CHK_DX( HW.pDevice->CreateRenderTargetView( pSurface, 0, &pRT ) );
+		CHK_DX( HW.pRenderDevice->CreateRenderTargetView( pSurface, 0, &pRT ) );
 
 #ifdef USE_DX11
 	if (HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && !bUseAsDepth &&  SampleCount == 1 && useUAV)
@@ -180,7 +180,7 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 		UAVDesc.ViewDimension = D3D11_UAV_DIMENSION_TEXTURE2D;
 		UAVDesc.Buffer.FirstElement = 0;
 		UAVDesc.Buffer.NumElements = dwWidth * dwHeight;
-		CHK_DX( HW.pDevice->CreateUnorderedAccessView( pSurface, &UAVDesc, &pUAView ) );
+		CHK_DX( HW.pRenderDevice->CreateUnorderedAccessView( pSurface, &UAVDesc, &pUAView ) );
     }
 #endif
 

@@ -200,7 +200,7 @@ void dxRenderDeviceRender::Clear()
     if (psDeviceFlags.test(rsClearBB))
     {
         FLOAT ColorRGBA[4] = {0.0f,0.0f,0.0f,0.0f};
-        HW.pContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
+        HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
     }
 }
 
@@ -230,7 +230,7 @@ void dxRenderDeviceRender::ResourcesDestroyNecessaryTextures()
 void dxRenderDeviceRender::ClearTarget()
 {	//Cleans backbuffer
     FLOAT ColorRGBA[4] = {0.0f,0.0f,0.0f,0.0f};
-    HW.pContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
+    HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
 }
 
 void dxRenderDeviceRender::SetCacheXform(Fmatrix &mView, Fmatrix &mProject)

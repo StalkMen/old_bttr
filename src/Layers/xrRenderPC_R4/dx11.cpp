@@ -450,8 +450,8 @@ void					CRender::create					()
 	//R_CHK						(HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[0]));
 	//R_CHK						(HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[1]));
 	for (u32 i=0; i<HW.Caps.iGPUNum; ++i)
-		R_CHK(HW.pDevice->CreateQuery(&qdesc,&q_sync_point[i]));
-	HW.pContext->End(q_sync_point[0]);
+		R_CHK(HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
+	HW.pRenderContext->End(q_sync_point[0]);
 
 	::PortalTraverser.initialize();
 	FluidManager.Initialize( 70, 70, 70 );
@@ -519,9 +519,9 @@ void CRender::reset_end()
 	//R_CHK						(HW.pDevice->CreateQuery(&qdesc,&q_sync_point[0]));
 	//R_CHK						(HW.pDevice->CreateQuery(&qdesc,&q_sync_point[1]));
 	for (u32 i=0; i<HW.Caps.iGPUNum; ++i)
-		R_CHK(HW.pDevice->CreateQuery(&qdesc,&q_sync_point[i]));
+		R_CHK(HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
 	//	Prevent error on first get data
-	HW.pContext->End(q_sync_point[0]);
+	HW.pRenderContext->End(q_sync_point[0]);
 	//q_sync_point[1]->End();
 	//R_CHK						(HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[0]));
 	//R_CHK						(HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[1]));
@@ -695,7 +695,7 @@ void					CRender::rmNear				()
 	IRender_Target* T	=	getTarget	();
 	D3D_VIEWPORT VP		=	{0,0,(float)T->get_width(),(float)T->get_height(),0,0.02f };
 
-	HW.pContext->RSSetViewports(1, &VP);
+	HW.pRenderContext->RSSetViewports(1, &VP);
 	//CHK_DX				(HW.pDevice->SetViewport(&VP));
 }
 void					CRender::rmFar				()
@@ -703,7 +703,7 @@ void					CRender::rmFar				()
 	IRender_Target* T	=	getTarget	();
 	D3D_VIEWPORT VP		=	{0,0,(float)T->get_width(),(float)T->get_height(),0.99999f,1.f };
 
-	HW.pContext->RSSetViewports(1, &VP);
+	HW.pRenderContext->RSSetViewports(1, &VP);
 	//CHK_DX				(HW.pDevice->SetViewport(&VP));
 }
 void					CRender::rmNormal			()
@@ -711,7 +711,7 @@ void					CRender::rmNormal			()
 	IRender_Target* T	=	getTarget	();
 	D3D_VIEWPORT VP		= {0,0,(float)T->get_width(),(float)T->get_height(),0,1.f };
 
-	HW.pContext->RSSetViewports(1, &VP);
+	HW.pRenderContext->RSSetViewports(1, &VP);
 	//CHK_DX				(HW.pDevice->SetViewport(&VP));
 }
 

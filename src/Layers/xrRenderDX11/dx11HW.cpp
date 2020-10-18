@@ -145,14 +145,14 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	{
 		return D3D11CreateDevice(m_pAdapter, D3D_DRIVER_TYPE_UNKNOWN, // Если мы выбираем конкретный адаптер, то мы обязаны использовать D3D_DRIVER_TYPE_UNKNOWN.
 			nullptr, createDeviceFlags, level, levels,
-			D3D11_SDK_VERSION, &pDevice, &FeatureLevel, &pContext);
+			D3D11_SDK_VERSION, &pRenderDevice, &FeatureLevel, &pRenderContext);
 	};
 
 	HRESULT R = createDevice(featureLevels, count);
 	if (FAILED(R))
 		R_CHK(createDevice(&featureLevels[1], count - 1));
 
-	R_CHK(pFactory->CreateSwapChain(pDevice, &sd, &m_pSwapChain));
+	R_CHK(pFactory->CreateSwapChain(pRenderDevice, &sd, &m_pSwapChain));
 
 	if (FeatureLevel != D3D_FEATURE_LEVEL_11_1)
 	{
@@ -169,7 +169,7 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 		TerminateProcess(GetCurrentProcess(), 0);
 	};
 
-	_SHOW_REF("* CREATE: DeviceREF:", HW.pDevice);
+	_SHOW_REF("* CREATE: DeviceREF:", HW.pRenderDevice);
 
 	//	Create render target and depth-stencil views here
 	UpdateViews();
@@ -200,10 +200,10 @@ void CHW::DestroyDevice()
 	if (!m_ChainDesc.Windowed) m_pSwapChain->SetFullscreenState( FALSE, NULL);
 	_SHOW_REF				("# refCount:m_pSwapChain",m_pSwapChain);
 	_RELEASE				(m_pSwapChain);
-	_RELEASE				(pContext);
+	_RELEASE				(pRenderContext);
 
-	_SHOW_REF				("# DeviceREF:",HW.pDevice);
-	_RELEASE				(HW.pDevice);
+	_SHOW_REF				("# DeviceREF:",HW.pRenderDevice);
+	_RELEASE				(HW.pRenderDevice);
 
 	DestroyD3D				();
 
@@ -513,7 +513,7 @@ void CHW::UpdateViews()
 	R = m_pSwapChain->GetBuffer( 0, __uuidof( ID3DTexture2D ), (LPVOID*)&pBuffer );
 	R_CHK(R);
 
-	R = pDevice->CreateRenderTargetView( pBuffer, NULL, &pBaseRT);
+	R = pRenderDevice->CreateRenderTargetView( pBuffer, NULL, &pBaseRT);
 	pBuffer->Release();
 	R_CHK(R);
 
@@ -532,13 +532,13 @@ void CHW::UpdateViews()
 	descDepth.BindFlags = D3D_BIND_DEPTH_STENCIL;
 	descDepth.CPUAccessFlags = 0;
 	descDepth.MiscFlags = 0;
-	R = pDevice->CreateTexture2D( &descDepth,       // Texture desc
+	R = pRenderDevice->CreateTexture2D( &descDepth,       // Texture desc
 		NULL,                  // Initial data
 		&pDepthStencil ); // [out] Texture
 	R_CHK(R);
 
 	//	Create Depth/stencil view
-	R = pDevice->CreateDepthStencilView( pDepthStencil, NULL, &pBaseZB );
+	R = pRenderDevice->CreateDepthStencilView( pDepthStencil, NULL, &pBaseZB );
 	R_CHK(R);
 
 	pDepthStencil->Release();

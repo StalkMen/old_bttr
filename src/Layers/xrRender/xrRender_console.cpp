@@ -270,7 +270,7 @@ class CCC_tf_Aniso : public CCC_Integer
 {
 public:
 	void	apply() {
-		if (0 == HW.pDevice)	return;
+		if (0 == HW.pRenderDevice)	return;
 		int	val = *value;	clamp(val, 1, 16);
 
 		SSManager.SetMaxAnisotropy(val);
@@ -294,7 +294,7 @@ class CCC_MipT : public CCC_Float
 public:
 	void	apply()
 	{
-		if (0 == HW.pDevice)
+		if (0 == HW.pRenderDevice)
 			return;
 		SSManager.SetMipLODBias(*value);
 	}

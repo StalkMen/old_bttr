@@ -107,12 +107,12 @@ void					CTexture::surface_set	(ID3DBaseTexture* surf )
          // this would be supported by DX10.1 but is not needed for stalker
         // if( ViewDesc.Format != DXGI_FORMAT_R24_UNORM_X8_TYPELESS )
 				if( (desc.SampleDesc.Count <= 1) || (ViewDesc.Format != DXGI_FORMAT_R24_UNORM_X8_TYPELESS) )         
-					CHK_DX(HW.pDevice->CreateShaderResourceView(pSurface, &ViewDesc, &m_pSRView));
+					CHK_DX(HW.pRenderDevice->CreateShaderResourceView(pSurface, &ViewDesc, &m_pSRView));
         else
            m_pSRView = 0;
 		}
 		else
-			CHK_DX(HW.pDevice->CreateShaderResourceView(pSurface, NULL, &m_pSRView));
+			CHK_DX(HW.pRenderDevice->CreateShaderResourceView(pSurface, NULL, &m_pSRView));
 	}	
 }
 
@@ -162,7 +162,7 @@ void CTexture::ProcessStaging()
 
 			T = 0;
 
-			CHK_DX(HW.pDevice->CreateTexture2D( &TexDesc,       // Texture desc
+			CHK_DX(HW.pRenderDevice->CreateTexture2D( &TexDesc,       // Texture desc
 				NULL,                  // Initial data
 				&T )); // [out] Texture
 
@@ -180,7 +180,7 @@ void CTexture::ProcessStaging()
 
 			T = 0;
 
-			CHK_DX(HW.pDevice->CreateTexture3D( &TexDesc,       // Texture desc
+			CHK_DX(HW.pRenderDevice->CreateTexture3D( &TexDesc,       // Texture desc
 				NULL,                  // Initial data
 				&T )); // [out] Texture
 
@@ -191,7 +191,7 @@ void CTexture::ProcessStaging()
 		VERIFY(!"CTexture::ProcessStaging unsupported dimensions.");
 	}
 
-	HW.pContext->CopyResource(pTargetSurface, pSurface);
+	HW.pRenderContext->CopyResource(pTargetSurface, pSurface);
 	/*
 	for( int i=0; i<iNumSubresources; ++i)
 	{
@@ -287,7 +287,7 @@ void CTexture::apply_theora(u32 dwStage)
 
 		//R_CHK				(T2D->LockRect(0,&R,&rect,0));
 #ifdef USE_DX11
-		R_CHK				(HW.pContext->Map(T2D, 0, D3D_MAP_WRITE_DISCARD, 0, &mapData));
+		R_CHK				(HW.pRenderContext->Map(T2D, 0, D3D_MAP_WRITE_DISCARD, 0, &mapData));
 #else
 		R_CHK				(T2D->Map(0,D3D_MAP_WRITE_DISCARD,0,&mapData));
 #endif
@@ -298,7 +298,7 @@ void CTexture::apply_theora(u32 dwStage)
 		VERIFY				(u32(_pos) == rect.bottom*_w);
 		//R_CHK				(T2D->UnlockRect(0));
 #ifdef USE_DX11
-		HW.pContext->Unmap(T2D, 0);
+		HW.pRenderContext->Unmap(T2D, 0);
 #else
 		T2D->Unmap(0);
 #endif
@@ -318,7 +318,7 @@ void CTexture::apply_avi	(u32 dwStage)
 		// AVI
 		//R_CHK	(T2D->LockRect(0,&R,NULL,0));
 #ifdef USE_DX11
-		R_CHK(HW.pContext->Map(T2D, 0, D3D_MAP_WRITE_DISCARD, 0, &mapData));
+		R_CHK(HW.pRenderContext->Map(T2D, 0, D3D_MAP_WRITE_DISCARD, 0, &mapData));
 #else
 		R_CHK	(T2D->Map(0,D3D_MAP_WRITE_DISCARD,0,&mapData));
 #endif
@@ -327,7 +327,7 @@ void CTexture::apply_avi	(u32 dwStage)
 		CopyMemory(mapData.pData,ptr,pAVI->m_dwWidth*pAVI->m_dwHeight*4);
 		//R_CHK	(T2D->UnlockRect(0));
 #ifdef USE_DX11
-		HW.pContext->Unmap(T2D, 0);
+		HW.pRenderContext->Unmap(T2D, 0);
 #else
 		T2D->Unmap(0);
 #endif
@@ -414,7 +414,7 @@ void CTexture::Load		()
 			desc.BindFlags = D3D_BIND_SHADER_RESOURCE;
 			desc.CPUAccessFlags = D3D_CPU_ACCESS_WRITE;
 			desc.MiscFlags = 0;
-			HRESULT hrr = HW.pDevice->CreateTexture2D(&desc, 0, &pTexture);
+			HRESULT hrr = HW.pRenderDevice->CreateTexture2D(&desc, 0, &pTexture);
 
 			pSurface = pTexture;
 			if (FAILED(hrr))
@@ -427,7 +427,7 @@ void CTexture::Load		()
 			}
 			else
 			{
-				CHK_DX(HW.pDevice->CreateShaderResourceView(pSurface, 0, &m_pSRView));
+				CHK_DX(HW.pRenderDevice->CreateShaderResourceView(pSurface, 0, &m_pSRView));
 			}
 
 		}
@@ -460,7 +460,7 @@ void CTexture::Load		()
 				desc.BindFlags = D3D_BIND_SHADER_RESOURCE;
 				desc.CPUAccessFlags = D3D_CPU_ACCESS_WRITE;
 				desc.MiscFlags = 0;
-				HRESULT hrr = HW.pDevice->CreateTexture2D(&desc, 0, &pTexture);
+				HRESULT hrr = HW.pRenderDevice->CreateTexture2D(&desc, 0, &pTexture);
 
 				pSurface	= pTexture;
 				if (FAILED(hrr))
@@ -473,7 +473,7 @@ void CTexture::Load		()
 				}
 				else
 				{
-					CHK_DX(HW.pDevice->CreateShaderResourceView(pSurface, 0, &m_pSRView));
+					CHK_DX(HW.pRenderDevice->CreateShaderResourceView(pSurface, 0, &m_pSRView));
 				}
 
 			}
@@ -508,7 +508,7 @@ void CTexture::Load		()
 							// pSurface->SetPriority	(PRIORITY_LOW);
 							seqDATA.push_back(pSurface);
 							m_seqSRView.push_back(0);
-							HW.pDevice->CreateShaderResourceView(seqDATA.back(), NULL, & m_seqSRView.back());
+							HW.pRenderDevice->CreateShaderResourceView(seqDATA.back(), NULL, & m_seqSRView.back());
 							flags.MemoryUsage		+= mem;
 						}
 					}
@@ -538,7 +538,7 @@ void CTexture::Load		()
 			}
 
 			if (pSurface && bCreateView)
-				CHK_DX(HW.pDevice->CreateShaderResourceView(pSurface, NULL, &m_pSRView));
+				CHK_DX(HW.pRenderDevice->CreateShaderResourceView(pSurface, NULL, &m_pSRView));
 			PostLoad	()		;
 }
 

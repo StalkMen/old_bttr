@@ -29,7 +29,7 @@ void CRenderTarget::DoAsyncScreenshot()
 		//HW.pDevice->CopyResource( t_ss_async, pTex );
 		ID3DTexture2D*	pBuffer;
 		hr = HW.m_pSwapChain->GetBuffer( 0, __uuidof( ID3D10Texture2D ), (LPVOID*)&pBuffer );
-		HW.pContext->CopyResource( t_ss_async, pBuffer );
+		HW.pRenderContext->CopyResource( t_ss_async, pBuffer );
 		
 
 		RImplementation.m_bMakeAsyncSS = false;
@@ -81,14 +81,14 @@ void	CRenderTarget::phase_combine	()
 	// low/hi RTs
 	if( !RImplementation.o.dx10_msaa )
 	{
-		HW.pContext->ClearRenderTargetView(rt_Generic_0->pRT, ColorRGBA);
-		HW.pContext->ClearRenderTargetView(rt_Generic_1->pRT, ColorRGBA);
+		HW.pRenderContext->ClearRenderTargetView(rt_Generic_0->pRT, ColorRGBA);
+		HW.pRenderContext->ClearRenderTargetView(rt_Generic_1->pRT, ColorRGBA);
 		u_setrt				( rt_Generic_0,rt_Generic_1,0,HW.pBaseZB );
 	}
 	else
 	{
-		HW.pContext->ClearRenderTargetView(rt_Generic_0_r->pRT, ColorRGBA);
-		HW.pContext->ClearRenderTargetView(rt_Generic_1_r->pRT, ColorRGBA);
+		HW.pRenderContext->ClearRenderTargetView(rt_Generic_0_r->pRT, ColorRGBA);
+		HW.pRenderContext->ClearRenderTargetView(rt_Generic_1_r->pRT, ColorRGBA);
 		u_setrt				( rt_Generic_0_r,rt_Generic_1_r,0,RImplementation.Target->rt_MSAADepth->pZRT );
 	}
 	RCache.set_CullMode	( CULL_NONE );
@@ -268,9 +268,9 @@ void	CRenderTarget::phase_combine	()
 
 	//Copy previous rt
 	if (!RImplementation.o.dx10_msaa)
-		HW.pContext->CopyResource(rt_Generic_temp->pTexture->surface_get(), rt_Generic_0->pTexture->surface_get());
+		HW.pRenderContext->CopyResource(rt_Generic_temp->pTexture->surface_get(), rt_Generic_0->pTexture->surface_get());
     else
-        HW.pContext->CopyResource(rt_Generic_temp->pTexture->surface_get(), rt_Generic_0_r->pTexture->surface_get());
+        HW.pRenderContext->CopyResource(rt_Generic_temp->pTexture->surface_get(), rt_Generic_0_r->pTexture->surface_get());
 
 	// Forward rendering
 	{
@@ -299,8 +299,8 @@ void	CRenderTarget::phase_combine	()
    if( RImplementation.o.dx10_msaa )
    {
       // we need to resolve rt_Generic_1 into rt_Generic_1_r
-      HW.pContext->ResolveSubresource( rt_Generic_1->pTexture->surface_get(), 0, rt_Generic_1_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
-      HW.pContext->ResolveSubresource( rt_Generic_0->pTexture->surface_get(), 0, rt_Generic_0_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
+      HW.pRenderContext->ResolveSubresource( rt_Generic_1->pTexture->surface_get(), 0, rt_Generic_1_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
+      HW.pRenderContext->ResolveSubresource( rt_Generic_0->pTexture->surface_get(), 0, rt_Generic_0_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
    }
 
    // for msaa we need a resolved color buffer - Holger
@@ -321,12 +321,12 @@ void	CRenderTarget::phase_combine	()
 			if( !RImplementation.o.dx10_msaa )
 			{
 				u_setrt(rt_Generic_1,0,0,HW.pBaseZB);		// Now RT is a distortion mask
-				HW.pContext->ClearRenderTargetView( rt_Generic_1->pRT, ColorRGBA);
+				HW.pRenderContext->ClearRenderTargetView( rt_Generic_1->pRT, ColorRGBA);
 			}
 			else
 			{
 				u_setrt(rt_Generic_1_r,0,0,RImplementation.Target->rt_MSAADepth->pZRT);		// Now RT is a distortion mask
-				HW.pContext->ClearRenderTargetView( rt_Generic_1_r->pRT, ColorRGBA);
+				HW.pRenderContext->ClearRenderTargetView( rt_Generic_1_r->pRT, ColorRGBA);
 			}
 			RCache.set_CullMode			(CULL_CCW);
 			RCache.set_Stencil			(FALSE);
@@ -336,15 +336,7 @@ void	CRenderTarget::phase_combine	()
 			if (g_pGamePersistent)	g_pGamePersistent->OnRenderPPUI_PP()	;	// PP-UI
 		}
 	}
-
-/*
-   if( RImplementation.o.dx10_msaa )
-   {
-      // we need to resolve rt_Generic_1 into rt_Generic_1_r
-      if( bDistort )
-         HW.pDevice->ResolveSubresource( rt_Generic_1_r->pTexture->surface_get(), 0, rt_Generic_1->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
-   }
-   */
+	
 	
 	RCache.set_Stencil(FALSE);
 	
@@ -373,8 +365,7 @@ void	CRenderTarget::phase_combine	()
 		//RainbowZerg
 		phase_smaa();
 		RCache.set_Stencil(FALSE);
-	}
-	
+	}	
 	// PP enabled ?
 	//	Render to RT texture to be able to copy RT even in windowed mode.
 	BOOL	PP_Complex		= u_need_PP	() | (BOOL)RImplementation.m_bMakeAsyncSS;
@@ -625,7 +616,6 @@ void CRenderTarget::phase_combine_volumetric()
 
 		// Draw
 		RCache.set_Element			(s_combine_volumetric->E[0]	);
-		//RCache.set_Geometry			(g_combine_VP		);
 		RCache.set_Geometry			(g_combine		);
 		RCache.Render				(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
 	}

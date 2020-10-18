@@ -30,42 +30,43 @@ public:
 
 	void	Validate(void)	{};
 
+#if defined(USE_DX10)
+	ID3D10Device* pRenderDevice			= nullptr; // Устройство DX (Одинаковая функция, разные структуры, между DX10-11)
+	ID3D10Device* pRenderContext		= nullptr;
+#else
+	ID3D11Device* pRenderDevice			= nullptr; // Устройство DX (Одинаковая функция, разные структуры, между DX10-11)
+	ID3D11DeviceContext* pRenderContext = nullptr;
+#endif
+
 //	Variables section
 #if defined(USE_DX11)
 public:
-	ID3D11Device* pDevice 				= nullptr; // render device
 	ID3D11RenderTargetView*	pBaseRT 	= nullptr; // base render target
 	ID3D11DepthStencilView*	pBaseZB 	= nullptr; // base depth-stencil buffer
 
 	IDXGIFactory1* pFactory 			= nullptr;
 	IDXGIAdapter1* m_pAdapter 			= nullptr;
-	ID3D11DeviceContext* pContext 		= nullptr;
 	IDXGISwapChain* m_pSwapChain 		= nullptr;
-
-	CHWCaps					Caps;
 
 	D3D_DRIVER_TYPE		m_DriverType;	//	DevT equivalent
 	DXGI_SWAP_CHAIN_DESC	m_ChainDesc;	//	DevPP equivalent
-	D3D_FEATURE_LEVEL		FeatureLevel;
 #elif defined(USE_DX10)
 public:
 	IDXGIFactory* pFactory 				= nullptr;
 	IDXGIAdapter* m_pAdapter 			= nullptr;
 	ID3D10Device1* pDevice1 			= nullptr;
-	ID3D10Device* pDevice 				= nullptr; // render device
 	ID3D10Device1* pContext1 			= nullptr;
-	ID3D10Device* pContext 				= nullptr;
 	IDXGISwapChain* m_pSwapChain 		= nullptr;
 	ID3D10RenderTargetView* pBaseRT 	= nullptr; // base render target
 	ID3D10DepthStencilView* pBaseZB 	= nullptr; // base depth-stencil buffer
 
-	CHWCaps					Caps;
 	bool					m_bUsePerfhud;
 	D3D10_DRIVER_TYPE		m_DriverType;	//	DevT equivalent
 	DXGI_SWAP_CHAIN_DESC	m_ChainDesc;	//	DevPP equivalent
-	D3D_FEATURE_LEVEL		FeatureLevel;
 #endif
 
+	CHWCaps					Caps;
+	D3D_FEATURE_LEVEL		FeatureLevel;
 	stats_manager			stats_manager;
 
 	void			UpdateViews();

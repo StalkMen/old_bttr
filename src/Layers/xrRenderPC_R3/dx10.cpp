@@ -428,7 +428,7 @@ void					CRender::create					()
 	//R_CHK						(HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[0]));
 	//R_CHK						(HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[1]));
 	for (u32 i=0; i<HW.Caps.iGPUNum; ++i)
-		R_CHK(HW.pDevice->CreateQuery(&qdesc,&q_sync_point[i]));
+		R_CHK(HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
 	q_sync_point[0]->End();
 
 	::PortalTraverser.initialize();
@@ -497,7 +497,7 @@ void CRender::reset_end()
 	//R_CHK						(HW.pDevice->CreateQuery(&qdesc,&q_sync_point[0]));
 	//R_CHK						(HW.pDevice->CreateQuery(&qdesc,&q_sync_point[1]));
 	for (u32 i=0; i<HW.Caps.iGPUNum; ++i)
-		R_CHK(HW.pDevice->CreateQuery(&qdesc,&q_sync_point[i]));
+		R_CHK(HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
 	//	Prevent error on first get data
 	q_sync_point[0]->End();
 	//q_sync_point[1]->End();
@@ -674,7 +674,7 @@ void					CRender::rmNear				()
 	IRender_Target* T	=	getTarget	();
 	D3D_VIEWPORT VP		=	{0,0,T->get_width(),T->get_height(),0,0.02f };
 
-	HW.pDevice->RSSetViewports(1, &VP);
+	HW.pRenderDevice->RSSetViewports(1, &VP);
 	//CHK_DX				(HW.pDevice->SetViewport(&VP));
 }
 void					CRender::rmFar				()
@@ -682,7 +682,7 @@ void					CRender::rmFar				()
 	IRender_Target* T	=	getTarget	();
 	D3D_VIEWPORT VP		=	{0,0,T->get_width(),T->get_height(),0.99999f,1.f };
 
-	HW.pDevice->RSSetViewports(1, &VP);
+	HW.pRenderDevice->RSSetViewports(1, &VP);
 	//CHK_DX				(HW.pDevice->SetViewport(&VP));
 }
 void					CRender::rmNormal			()
@@ -690,7 +690,7 @@ void					CRender::rmNormal			()
 	IRender_Target* T	=	getTarget	();
 	D3D_VIEWPORT VP		= {0,0,T->get_width(),T->get_height(),0,1.f };
 
-	HW.pDevice->RSSetViewports(1, &VP);
+	HW.pRenderDevice->RSSetViewports(1, &VP);
 	//CHK_DX				(HW.pDevice->SetViewport(&VP));
 }
 
