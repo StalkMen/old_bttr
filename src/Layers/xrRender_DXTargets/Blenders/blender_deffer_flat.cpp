@@ -11,6 +11,7 @@ CBlender_deffer_flat::CBlender_deffer_flat	()
 	oTessellation.Count         = 4;
 	oTessellation.IDselected	= 0;
 }
+
 CBlender_deffer_flat::~CBlender_deffer_flat	()	{	}
 
 void	CBlender_deffer_flat::Save	(	IWriter& fs )
@@ -35,7 +36,9 @@ void	CBlender_deffer_flat::Load	(	IReader& fs, u16 version )
 void	CBlender_deffer_flat::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile		(C);
-
+#ifdef USE_DX11	
+	C.TessMethod = oTessellation.IDselected;
+#endif
 	// codepath is the same, only the shaders differ
 	switch(C.iElement) 
 	{
@@ -56,7 +59,11 @@ void	CBlender_deffer_flat::Compile(CBlender_Compile& C)
 	case SE_R2_SHADOW:			// smap-direct
 		//if (RImplementation.o.HW_smap)	C.r_Pass	("shadow_direct_base","dumb",	FALSE,TRUE,TRUE,FALSE);
 		//else							C.r_Pass	("shadow_direct_base","shadow_direct_base",FALSE);
+#ifdef USE_DX11		
+		uber_shadow(C, "base");
+#else
 		C.r_Pass	("shadow_direct_base","dumb",	FALSE,TRUE,TRUE,FALSE);
+#endif
 		//C.r_Sampler		("s_base",C.L_textures[0]);
 		C.r_dx10Texture		("s_base",C.L_textures[0]);
 		C.r_dx10Sampler		("smp_base");

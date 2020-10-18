@@ -24,6 +24,9 @@ void CRenderTarget::accum_omnip_geom_create		()
 //		g_accum_omnip_vb->Unlock	();
 
 		R_CHK(dx10BufferUtils::CreateVertexBuffer( &g_accum_omnip_vb, du_sphere_part_vertices, vCount*vSize ));
+#ifdef USE_DX10
+		HW.stats_manager.increment_stats_vb			( g_accum_omnip_vb );
+#endif															 
 	}
 
 	// Indices
@@ -37,6 +40,9 @@ void CRenderTarget::accum_omnip_geom_create		()
 //		g_accum_omnip_ib->Unlock	();
 
 		R_CHK( dx10BufferUtils::CreateIndexBuffer( &g_accum_omnip_ib, du_sphere_part_faces, iCount*2 ));
+#ifdef USE_DX10
+		HW.stats_manager.increment_stats_ib			(g_accum_omnip_ib);
+#endif
 	}
 }
 
@@ -45,9 +51,15 @@ void CRenderTarget::accum_omnip_geom_destroy()
 #ifdef DEBUG
 	_SHOW_REF("g_accum_omnip_ib",g_accum_omnip_ib);
 #endif // DEBUG
+#ifdef USE_DX10
+	HW.stats_manager.decrement_stats_ib( g_accum_omnip_ib );
+#endif			   
 	_RELEASE(g_accum_omnip_ib);
 #ifdef DEBUG
 	_SHOW_REF("g_accum_omnip_vb",g_accum_omnip_vb);
 #endif // DEBUG
+#ifdef USE_DX10
+	HW.stats_manager.decrement_stats_vb( g_accum_omnip_vb );
+#endif	
 	_RELEASE(g_accum_omnip_vb);
 }

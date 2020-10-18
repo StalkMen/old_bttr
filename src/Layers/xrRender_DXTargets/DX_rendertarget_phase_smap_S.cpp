@@ -7,8 +7,11 @@ void	CRenderTarget::phase_smap_spot_clear()
 	else								u_setrt	(rt_smap_surf, NULL, NULL, rt_smap_d_ZB);
 	CHK_DX								(HW.pDevice->Clear( 0L, NULL, D3DCLEAR_ZBUFFER,	0xffffffff,	1.0f, 0L));
 	*/
-
+#ifdef USE_DX11
 	HW.pRenderContext->ClearDepthStencilView( rt_smap_depth->pZRT, D3D_CLEAR_DEPTH, 1.0f, 0L);
+#else
+	HW.pRenderDevice->ClearDepthStencilView( rt_smap_depth->pZRT, D3D10_CLEAR_DEPTH, 1.0f, 0L);
+#endif
 }
 
 void	CRenderTarget::phase_smap_spot		(light* L)
@@ -18,10 +21,15 @@ void	CRenderTarget::phase_smap_spot		(light* L)
 	if (RImplementation.o.HW_smap)		u_setrt	(rt_smap_surf, NULL, NULL, rt_smap_depth->pZRT);
 	//else								u_setrt	(rt_smap_surf, NULL, NULL, rt_smap_ZB);
 	else								VERIFY(!"Use HW SMap only for DX10!");
+#ifdef USE_DX11
 	D3D_VIEWPORT VP					=	{(float)L->X.S.posX, (float)L->X.S.posY, (float)L->X.S.size, (float)L->X.S.size, 0, 1};
 	//CHK_DX								(HW.pDevice->SetViewport(&VP));
 	HW.pRenderContext->RSSetViewports(1, &VP);
-
+#else
+	D3D_VIEWPORT VP					=	{L->X.S.posX,L->X.S.posY,L->X.S.size,L->X.S.size,0,1 };
+	//CHK_DX								(HW.pDevice->SetViewport(&VP));
+	HW.pRenderDevice->RSSetViewports(1, &VP);
+#endif
 	// Misc		- draw only front-faces //back-faces
 	RCache.set_CullMode					( CULL_CCW	);
 	RCache.set_Stencil					( FALSE		);
@@ -30,7 +38,11 @@ void	CRenderTarget::phase_smap_spot		(light* L)
 	if (RImplementation.o.HW_smap)		RCache.set_ColorWriteEnable	(FALSE);
 	//CHK_DX								(HW.pDevice->Clear( 0L, NULL, D3DCLEAR_ZBUFFER,	0xffffffff,	1.0f, 0L));
 	//	Do it once per smap generation pass in phase_smap_spot_clear
+#ifdef USE_DX11
 	//HW.pContext->ClearDepthStencilView( rt_smap_depth->pZRT, D3D_CLEAR_DEPTH, 1.0f, 0L);
+#else
+	//HW.pDevice->ClearDepthStencilView( rt_smap_depth->pZRT, D3D10_CLEAR_DEPTH, 1.0f, 0L);
+#endif
 }
 
 void	CRenderTarget::phase_smap_spot_tsh	(light* L)
@@ -42,7 +54,11 @@ void	CRenderTarget::phase_smap_spot_tsh	(light* L)
 		// omni-part
 		//CHK_DX							(HW.pDevice->Clear( 0L, NULL, D3DCLEAR_TARGET,	0xffffffff,	1.0f, 0L));
 		FLOAT ColorRGBA[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+#ifdef USE_DX11
 		HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
+#else
+		HW.pRenderDevice->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
+#endif
 	} else {
 		// real-spot
 		// Select color-mask

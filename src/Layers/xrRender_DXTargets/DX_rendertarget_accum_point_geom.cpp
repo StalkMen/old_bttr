@@ -305,6 +305,9 @@ void CRenderTarget::accum_point_geom_create()
 //		g_accum_point_vb->Unlock	();
 
 		R_CHK( dx10BufferUtils::CreateVertexBuffer( &g_accum_point_vb, du_sphere_vertices, vCount*vSize ) );
+#ifdef USE_DX10
+		HW.stats_manager.increment_stats_vb			( g_accum_point_vb );
+#endif		
 	}
 
 	// Indices
@@ -318,6 +321,9 @@ void CRenderTarget::accum_point_geom_create()
 		//g_accum_point_ib->Unlock	();
 
 		R_CHK( dx10BufferUtils::CreateIndexBuffer( &g_accum_point_ib, du_sphere_faces, iCount*2) );
+#ifdef USE_DX10
+		HW.stats_manager.increment_stats_ib			( g_accum_point_ib );
+#endif
 	}
 }
 
@@ -326,9 +332,15 @@ void CRenderTarget::accum_point_geom_destroy()
 #ifdef DEBUG
 	_SHOW_REF("g_accum_point_ib",g_accum_point_ib);
 #endif // DEBUG
+#ifdef USE_DX10
+	HW.stats_manager.decrement_stats_ib(g_accum_point_ib);
+#endif	
 	_RELEASE(g_accum_point_ib);
 #ifdef DEBUG
 	_SHOW_REF("g_accum_point_vb",g_accum_point_vb);
 #endif // DEBUG
+#ifdef USE_DX10
+	HW.stats_manager.decrement_stats_vb(g_accum_point_vb);
+#endif	
 	_RELEASE(g_accum_point_vb);
 }

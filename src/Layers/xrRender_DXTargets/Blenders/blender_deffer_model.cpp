@@ -83,8 +83,9 @@ void	CBlender_deffer_model::Compile(CBlender_Compile& C)
 		// codepath is the same, only the shaders differ
 
 		bool bUseATOC = (bAref && (RImplementation.o.dx10_msaa_alphatest==CRender::MSAA_ATEST_DX10_0_ATOC));
-
+#ifdef USE_DX11
 		C.TessMethod = oTessellation.IDselected;
+#endif
 		switch(C.iElement) 
 		{
 		case SE_R2_NORMAL_HQ: 			// deffer

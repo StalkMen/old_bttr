@@ -333,31 +333,32 @@
     <ClInclude Include="..\xrRender\xrRender_console.h" />
     <ClInclude Include="..\xrRender\xrStripify.h" />
     <ClInclude Include="..\xrRender\xr_effgamma.h" />
-    <ClInclude Include="blenders_DX10\blender_bloom_build.h" />
-    <ClInclude Include="blenders_DX10\blender_combine.h" />
-    <ClInclude Include="blenders_DX10\blender_deffer_aref.h" />
-    <ClInclude Include="blenders_DX10\blender_deffer_flat.h" />
-    <ClInclude Include="blenders_DX10\blender_deffer_model.h" />
-    <ClInclude Include="blenders_DX10\blender_light_direct.h" />
-    <ClInclude Include="blenders_DX10\blender_light_mask.h" />
-    <ClInclude Include="blenders_DX10\blender_light_occq.h" />
-    <ClInclude Include="blenders_DX10\blender_light_point.h" />
-    <ClInclude Include="blenders_DX10\blender_light_reflected.h" />
-    <ClInclude Include="blenders_DX10\blender_light_spot.h" />
-    <ClInclude Include="blenders_DX10\blender_luminance.h" />
-    <ClInclude Include="blenders_DX10\blender_ssao.h" />
-    <ClInclude Include="blenders_DX10\blender_fxaa.h" />
-    <ClInclude Include="blenders_DX10\blender_smaa.h" />
-    <ClInclude Include="blenders_DX10\blender_sunshafts.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_bloom_build.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_combine.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_deffer_aref.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_deffer_flat.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_deffer_model.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_direct.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_mask.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_occq.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_point.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_reflected.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_spot.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_luminance.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_ssao.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_fxaa.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_smaa.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_sunshafts.h" />
 	
 	<ClInclude Include="..\xrRender_DXTargets\DX_R_sun_support.h" />
 	<ClInclude Include="..\xrRender_DXTargets\DX_rendertarget.h" />
 	<ClInclude Include="..\xrRender_DXTargets\DX_types.h" />
 	<ClInclude Include="..\xrRender_DXTargets\DX.h" />
+	<ClInclude Include="..\xrRender_DXTargets\DXMinMaxSMBlender.h" />
 	
     <ClInclude Include="cl_intersect.h" />
     <ClInclude Include="DetailFormat.h" />
-    <ClInclude Include="dx10MinMaxSMBlender.h" />
+
     <ClInclude Include="light.h" />
     <ClInclude Include="..\xrRender\light_gi.h" />
     <ClInclude Include="..\xrRender\Light_Render_Direct.h" />
@@ -514,23 +515,23 @@
     <ClCompile Include="..\xrRender\xrRender_console.cpp" />
     <ClCompile Include="..\xrRender\xrStripify.cpp" />
     <ClCompile Include="..\xrRender\xr_effgamma.cpp" />
-    <ClCompile Include="blenders_DX10\blender_bloom_build.cpp" />
-    <ClCompile Include="blenders_DX10\blender_combine.cpp" />
-    <ClCompile Include="blenders_DX10\blender_deffer_aref.cpp" />
-    <ClCompile Include="blenders_DX10\blender_deffer_flat.cpp" />
-    <ClCompile Include="blenders_DX10\blender_deffer_model.cpp" />
-    <ClCompile Include="blenders_DX10\blender_light_direct.cpp" />
-    <ClCompile Include="blenders_DX10\blender_light_mask.cpp" />
-    <ClCompile Include="blenders_DX10\blender_light_occq.cpp" />
-    <ClCompile Include="blenders_DX10\blender_light_point.cpp" />
-    <ClCompile Include="blenders_DX10\blender_light_reflected.cpp" />
-    <ClCompile Include="blenders_DX10\blender_light_spot.cpp" />
-    <ClCompile Include="blenders_DX10\blender_luminance.cpp" />
-    <ClCompile Include="blenders_DX10\blender_ssao.cpp" />
-    <ClCompile Include="blenders_DX10\blender_fxaa.cpp" />
-    <ClCompile Include="blenders_DX10\blender_smaa.cpp" />
-    <ClCompile Include="blenders_DX10\blender_sunshafts.cpp" />
-    <ClCompile Include="dx10MinMaxSMBlender.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_bloom_build.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_combine.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_deffer_aref.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_deffer_flat.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_deffer_model.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_light_direct.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_light_mask.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_light_occq.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_light_point.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_light_reflected.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_light_spot.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_luminance.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_ssao.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_fxaa.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_smaa.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_sunshafts.cpp" />
+
     <ClCompile Include="..\xrRender\light_GI.cpp" />
     <ClCompile Include="..\xrRender\Light_Render_Direct.cpp" />
     <ClCompile Include="..\xrRender\Light_Render_Direct_ComputeXFS.cpp" />
@@ -549,6 +550,15 @@
 	<ClCompile Include="..\xrRender_DXTargets\DX_R_render.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_sector_detect.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_R_rain.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_smap_D.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_smap_S.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DXMinMaxSMBlender.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_accum_point.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_accum_point_geom.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_accum_omnipart_geom.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_accum_reflected.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_accum_spot_geom.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_accum_spot.cpp" />
 	
     <ClCompile Include="dx10_blenders.cpp" />
 
@@ -559,12 +569,10 @@
     <ClCompile Include="dx10_loader.cpp" />
     <ClCompile Include="dx10_rendertarget.cpp" />
 
-    <ClCompile Include="dx10_rendertarget_accum_omnipart_geom.cpp" />
-    <ClCompile Include="dx10_rendertarget_accum_point.cpp" />
-    <ClCompile Include="dx10_rendertarget_accum_point_geom.cpp" />
-    <ClCompile Include="dx10_rendertarget_accum_reflected.cpp" />
-    <ClCompile Include="dx10_rendertarget_accum_spot.cpp" />
-    <ClCompile Include="dx10_rendertarget_accum_spot_geom.cpp" />
+
+
+
+
     <ClCompile Include="dx10_rendertarget_create_minmaxSM.cpp" />
 
     <ClCompile Include="dx10_rendertarget_draw_volume.cpp" />
@@ -578,8 +586,7 @@
 
     <ClCompile Include="dx10_rendertarget_phase_rain.cpp" />
     <ClCompile Include="dx10_rendertarget_phase_scene.cpp" />
-    <ClCompile Include="dx10_rendertarget_phase_smap_D.cpp" />
-    <ClCompile Include="dx10_rendertarget_phase_smap_S.cpp" />
+
     <ClCompile Include="dx10_rendertarget_phase_ssao.cpp" />
 
 
