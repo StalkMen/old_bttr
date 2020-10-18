@@ -32,17 +32,34 @@ void	CRenderTarget::phase_scene_prepare	()
       
 		//CHK_DX	( HW.pDevice->Clear	( 0L, NULL, D3DCLEAR_TARGET|D3DCLEAR_ZBUFFER|D3DCLEAR_STENCIL, 0x0, 1.0f, 0L) );
 		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+#ifdef USE_DX11
 		HW.pRenderContext->ClearRenderTargetView(rt_Position->pRT, ColorRGBA);
 		//HW.pContext->ClearRenderTargetView(rt_Normal->pRT, ColorRGBA);
 		//HW.pContext->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
+#else
+		HW.pRenderDevice->ClearRenderTargetView(rt_Position->pRT, ColorRGBA);
+		//HW.pDevice->ClearRenderTargetView(rt_Normal->pRT, ColorRGBA);
+		//HW.pDevice->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
+#endif
       if( !RImplementation.o.dx10_msaa )
+#ifdef USE_DX11
          HW.pRenderContext->ClearDepthStencilView(HW.pBaseZB, D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
+#else
+		HW.pRenderDevice->ClearDepthStencilView(HW.pBaseZB, D3D10_CLEAR_DEPTH|D3D10_CLEAR_STENCIL, 1.0f, 0);
+#endif
       else
       {
+#ifdef USE_DX11
          HW.pRenderContext->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
 				 HW.pRenderContext->ClearRenderTargetView(rt_Accumulator->pRT, ColorRGBA);
 				 HW.pRenderContext->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
          HW.pRenderContext->ClearDepthStencilView(HW.pBaseZB, D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
+#else
+		HW.pRenderDevice->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
+				 HW.pRenderDevice->ClearRenderTargetView(rt_Accumulator->pRT, ColorRGBA);
+				 HW.pRenderDevice->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D10_CLEAR_DEPTH|D3D10_CLEAR_STENCIL, 1.0f, 0);
+         HW.pRenderDevice->ClearDepthStencilView(HW.pBaseZB, D3D10_CLEAR_DEPTH|D3D10_CLEAR_STENCIL, 1.0f, 0);
+#endif
       }
    }
 	else
@@ -52,13 +69,21 @@ void	CRenderTarget::phase_scene_prepare	()
       {
          u_setrt	( Device.dwWidth,Device.dwHeight,HW.pBaseRT,NULL,NULL,HW.pBaseZB );
          //CHK_DX	( HW.pDevice->Clear	( 0L, NULL, D3DCLEAR_ZBUFFER|D3DCLEAR_STENCIL, 0x0, 1.0f, 0L) );
+#ifdef USE_DX11
          HW.pRenderContext->ClearDepthStencilView(HW.pBaseZB, D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
+#else
+		 HW.pRenderDevice->ClearDepthStencilView(HW.pBaseZB, D3D10_CLEAR_DEPTH|D3D10_CLEAR_STENCIL, 1.0f, 0);
+#endif
       }
       else
       {
          u_setrt	( Device.dwWidth,Device.dwHeight,HW.pBaseRT,NULL,NULL,rt_MSAADepth->pZRT );
          //CHK_DX	( HW.pDevice->Clear	( 0L, NULL, D3DCLEAR_ZBUFFER|D3DCLEAR_STENCIL, 0x0, 1.0f, 0L) );
+#ifdef USE_DX11
          HW.pRenderContext->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
+#else
+		 HW.pRenderDevice->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D10_CLEAR_DEPTH|D3D10_CLEAR_STENCIL, 1.0f, 0);
+#endif
       }
 	}
 

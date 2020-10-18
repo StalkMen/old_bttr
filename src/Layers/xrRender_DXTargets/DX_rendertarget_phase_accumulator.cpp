@@ -30,13 +30,20 @@ void	CRenderTarget::phase_accumulator()
 		//	Need for MSAA to work correctly.
 		if( RImplementation.o.dx10_msaa )
 		{
+#ifdef USE_DX11
 			HW.pRenderContext->OMSetRenderTargets(1, &(rt_Accumulator->pRT), 0);
+#else
+			HW.pRenderDevice->OMSetRenderTargets(1, &(rt_Accumulator->pRT), 0);
+#endif
 		}
 //		u32		clr4clear					= color_rgba(0,0,0,0);	// 0x00
 		//CHK_DX	(HW.pDevice->Clear			( 0L, NULL, D3DCLEAR_TARGET, clr4clear, 1.0f, 0L));
 		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+#ifdef USE_DX11
 		HW.pRenderContext->ClearRenderTargetView( rt_Accumulator->pRT, ColorRGBA);
-
+#else
+		HW.pRenderDevice->ClearRenderTargetView( rt_Accumulator->pRT, ColorRGBA);
+#endif
 		//	render this after sun to avoid troubles with sun
 		/*
 		// Render emissive geometry, stencil - write 0x0 at pixel pos
@@ -72,7 +79,11 @@ void	CRenderTarget::phase_vol_accumulator()
 		//u32		clr4clearVol				= color_rgba(0,0,0,0);	// 0x00
 		//CHK_DX	(HW.pDevice->Clear			( 0L, NULL, D3DCLEAR_TARGET, clr4clearVol, 1.0f, 0L));
 		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+#ifdef USE_DX11
 		HW.pRenderContext->ClearRenderTargetView( rt_Generic_2->pRT, ColorRGBA);
+#else
+		HW.pRenderDevice->ClearRenderTargetView( rt_Generic_2->pRT, ColorRGBA);
+#endif
 	}
 	else
 	{

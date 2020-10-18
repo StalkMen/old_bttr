@@ -184,11 +184,37 @@ void CRender::level_Unload()
 	SWIs.clear				();
 
 	//*** VB/IB
-	for (I=0; I<nVB.size(); I++)	_RELEASE(nVB[I]);
-	for (I=0; I<xVB.size(); I++)	_RELEASE(xVB[I]);
+	for (I=0; I<nVB.size(); I++)
+	{
+#ifdef USE_DX10
+		HW.stats_manager.decrement_stats_vb	( nVB[I] );
+#endif
+		_RELEASE(nVB[I]);
+	}
+	for (I=0; I<xVB.size(); I++)
+	{
+#ifdef USE_DX10
+		HW.stats_manager.decrement_stats_vb ( xVB[I] );
+#endif
+		_RELEASE(xVB[I]);
+	}
 	nVB.clear(); xVB.clear();
-	for (I=0; I<nIB.size(); I++)	_RELEASE(nIB[I]);
-	for (I=0; I<xIB.size(); I++)	_RELEASE(xIB[I]);
+
+	for (I=0; I<nIB.size(); I++)	
+	{
+#ifdef USE_DX10
+		HW.stats_manager.decrement_stats_ib ( nIB[I] );
+#endif
+		_RELEASE(nIB[I]);
+	}
+	for (I=0; I<xIB.size(); I++)	
+	{
+#ifdef USE_DX10
+		HW.stats_manager.decrement_stats_ib ( xIB[I] );
+#endif
+		_RELEASE(xIB[I]);
+	}
+	
 	nIB.clear(); xIB.clear();
 	nDC.clear(); xDC.clear();
 
@@ -259,6 +285,9 @@ void CRender::LoadBuffers		(CStreamReader *base_fs,	BOOL _alternative)
 			BYTE*	pData		= xr_alloc<BYTE>(vCount*vSize);
 			fs->r				(pData,vCount*vSize);
 			dx10BufferUtils::CreateVertexBuffer(&_VB[i], pData, vCount*vSize);
+#ifdef USE_DX10
+			HW.stats_manager.increment_stats_vb	(_VB[i]);	
+#endif			
 			xr_free(pData);
 
 //			fs->advance			(vCount*vSize);
@@ -289,6 +318,9 @@ void CRender::LoadBuffers		(CStreamReader *base_fs,	BOOL _alternative)
 			BYTE*	pData		= xr_alloc<BYTE>(iCount*2);
 			fs->r				(pData,iCount*2);
 			dx10BufferUtils::CreateIndexBuffer(&_IB[i], pData, iCount*2);
+#ifdef USE_DX10
+			HW.stats_manager.increment_stats_ib	(_IB[i]);
+#endif												
 			xr_free(pData);
 
 //			fs().advance		(iCount*2);
