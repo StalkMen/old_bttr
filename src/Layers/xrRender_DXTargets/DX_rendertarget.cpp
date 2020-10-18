@@ -13,6 +13,7 @@
 #include "..\xrRender_DXTargets\Blenders\blender_fxaa.h"
 #include "..\xrRender_DXTargets\Blenders\blender_smaa.h"
 #include "..\xrRender_DXTargets\Blenders\blender_sunshafts.h"
+#include "..\xrRender_DXTargets\Blenders\blender_gasmask.h"
 #include "..\xrRender_DXTargets\DXMinMaxSMBlender.h"
 #ifdef USE_DX11
 #include "dx11HDAOCSBlender.h"
@@ -485,6 +486,12 @@ CRenderTarget::CRenderTarget		()
 		
 		rt_sunshafts_0.create(r2_RT_sunshafts0, w, h, D3DFMT_A8R8G8B8);
 		rt_sunshafts_1.create(r2_RT_sunshafts1, w, h, D3DFMT_A8R8G8B8);
+	}
+
+	//Gasmask
+	{
+		b_gasmask = xr_new<CBlender_gasmask>();
+		s_gasmask.create(b_gasmask, "r2\\gasmask");
 	}
 		
 	// OCCLUSION
@@ -1215,6 +1222,7 @@ CRenderTarget::~CRenderTarget	()
 	xr_delete					(b_fxaa					);
 	xr_delete					(b_smaa					);
 	xr_delete					(b_sunshafts			);
+	xr_delete					(b_gasmask				);	
 #ifdef USE_DX11
 	if( RImplementation.o.dx10_msaa )
 	{

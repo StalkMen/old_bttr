@@ -46,6 +46,7 @@ public:
 	IBlender*					b_fxaa;
 	IBlender*					b_smaa;
 	IBlender*					b_sunshafts;
+	IBlender*					b_gasmask;
 	
 #ifdef USE_DX11	
     // compute shader for hdao
@@ -123,7 +124,8 @@ private:
 
 	ref_shader					s_occq;
 	ref_shader					s_sunshafts;
-	
+	ref_shader					s_gasmask;
+		
 	// SSAO
 	ref_rt						rt_ssao_temp;
 	ref_rt						rt_half_depth;
@@ -264,6 +266,7 @@ public:
 	void						u_DBT_disable			();
 	
 	void						phase_sunshafts			();
+	void						phase_gasmask			();	
 	void						phase_smaa				();
 	void						phase_fxaa				();
 	void						phase_scene_prepare		();

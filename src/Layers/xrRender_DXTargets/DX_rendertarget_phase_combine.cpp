@@ -375,25 +375,18 @@ void	CRenderTarget::phase_combine	()
 #endif
 
 	//FXAA
-	if (ps_r_type_aa == 1)
-	{
-		PIX_EVENT(FXAA);
-		phase_fxaa();
-		RCache.set_Stencil(FALSE);
-	}
-	//DLAA
-	else if (ps_r_type_aa == 2 && RenderThemeShaders == 1 || RenderThemeShaders == 2)
-	{
-		
-	}
-	//SMAA
-	else if (ps_r_type_aa == 3 && RenderThemeShaders == 1 || RenderThemeShaders == 2)
-	{
-		PIX_EVENT(SMAA);
-		//RainbowZerg
-		phase_smaa();
-		RCache.set_Stencil(FALSE);
-	}	
+	PIX_EVENT(FXAA);
+	phase_fxaa();
+	RCache.set_Stencil(FALSE);
+
+	//SMAA /RainbowZerg
+	PIX_EVENT(SMAA);
+	phase_smaa();
+	RCache.set_Stencil(FALSE);	
+	
+	//Gasmask kurwa mać
+	phase_gasmask();
+	
 	// PP enabled ?
 	//	Render to RT texture to be able to copy RT even in windowed mode.
 	BOOL	PP_Complex		= u_need_PP	() | (BOOL)RImplementation.m_bMakeAsyncSS;
