@@ -546,11 +546,14 @@
 	<ClCompile Include="..\xrRender_DXTargets\DX_R_lights.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_R_calculate.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_R_render.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_sector_detect.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_R_rain.cpp" />
 	
     <ClCompile Include="dx10_blenders.cpp" />
 
 
-    <ClCompile Include="dx10_sector_detect.cpp" />
+
 
 
     <ClCompile Include="dx10_loader.cpp" />
@@ -578,8 +581,8 @@
     <ClCompile Include="dx10_rendertarget_phase_smap_D.cpp" />
     <ClCompile Include="dx10_rendertarget_phase_smap_S.cpp" />
     <ClCompile Include="dx10_rendertarget_phase_ssao.cpp" />
-    <ClCompile Include="dx10_R_rain.cpp" />
-    <ClCompile Include="dx10_R_render.cpp" />
+
+
 
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

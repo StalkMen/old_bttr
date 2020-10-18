@@ -161,8 +161,13 @@ void CRender::render_menu	()
 	// Distort
 	{
 		FLOAT ColorRGBA[4] = {127.0f/255.0f, 127.0f/255.0f, 0.0f, 127.0f/255.0f};
-		Target->u_setrt(Target->rt_Generic_1,0,0,HW.pBaseZB);		// Now RT is a distortion mask
+		Target->u_setrt(Target->rt_Generic_1,0,0,HW.pBaseZB);
+		// Now RT is a distortion mask
+#ifdef USE_DX11		
 		HW.pRenderContext->ClearRenderTargetView(Target->rt_Generic_1->pRT, ColorRGBA);
+#else
+		HW.pRenderDevice->ClearRenderTargetView(Target->rt_Generic_1->pRT, ColorRGBA);
+#endif	
 		g_pGamePersistent->OnRenderPPUI_PP	()	;	// PP-UI
 	}
 
@@ -538,8 +543,12 @@ void CRender::AfterWorldRender()
 	if (Device.m_SecondViewport.IsSVPFrame())
 	{
 		ID3DTexture2D* pBuffer = NULL;
-		HW.m_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)& pBuffer);
+		HW.m_pSwapChain->GetBuffer(0, __uuidof(ID3DTexture2D), (LPVOID*)& pBuffer);
+#ifdef USE_DX11	
 		HW.pRenderContext->CopyResource(Target->rt_secondVP->pSurface, pBuffer);
+#else
+		HW.pRenderDevice->CopyResource(Target->rt_secondVP->pSurface, pBuffer);
+#endif
 		pBuffer->Release();
 	}
 }

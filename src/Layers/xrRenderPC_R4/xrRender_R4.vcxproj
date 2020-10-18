@@ -557,12 +557,15 @@
 	<ClCompile Include="..\xrRender_DXTargets\DX_R_lights.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_R_calculate.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_R_render.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_sector_detect.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_R_rain.cpp" />
 	
     <ClCompile Include="dx11_blenders.cpp" />
 
 
 
-    <ClCompile Include="dx11_sector_detect.cpp" />
+
     
 
     <ClCompile Include="dx11_loader.cpp" />
@@ -591,8 +594,8 @@
     <ClCompile Include="dx11_rendertarget_phase_smap_D.cpp" />
     <ClCompile Include="dx11_rendertarget_phase_smap_S.cpp" />
     <ClCompile Include="dx11_rendertarget_phase_ssao.cpp" />
-    <ClCompile Include="dx11_R_rain.cpp" />
-    <ClCompile Include="dx11_R_render.cpp" />
+
+
     
     <ClCompile Include="dx11_shaders.cpp" />
     <ClCompile Include="..\xrRenderDX11\dx11_R_Backend_LOD.cpp" />
