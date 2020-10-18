@@ -574,7 +574,7 @@
 	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_accumulator.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_luminance.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_loader.cpp" />
-    <ClCompile Include="dx11_rendertarget.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget.cpp" />
     <ClCompile Include="dx11_rendertarget_phase_hdao.cpp" />
     <ClCompile Include="dx11_shaders.cpp" />
     <ClCompile Include="..\xrRenderDX11\dx11_R_Backend_LOD.cpp" />

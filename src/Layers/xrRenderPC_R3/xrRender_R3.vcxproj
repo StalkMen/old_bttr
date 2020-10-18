@@ -565,7 +565,7 @@
 	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_accumulator.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_luminance.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_loader.cpp" />
-    <ClCompile Include="dx10_rendertarget.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">Create</PrecompiledHeader>
