@@ -385,3 +385,13 @@ bool CGrenade::GetBriefInfo( II_BriefInfo& info )
 	info.cur_ammo._set( stmp );
 	return true;
 }
+
+void CGrenade::GetBriefInfo_ammo(xr_string& str_name, xr_string& icon_sect_name, xr_string& str_count, string16& fire_mode)
+{
+	str_name = NameShort();
+	u32 ThisGrenadeCount = m_pInventory->dwfGetSameItemCount(cNameSect().c_str(), true);
+	string16 stmp;
+	sprintf_s(stmp, "%d", ThisGrenadeCount);
+	str_count = stmp;
+	icon_sect_name = *cNameSect();
+}

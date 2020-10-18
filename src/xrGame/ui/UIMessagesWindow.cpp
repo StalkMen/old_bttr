@@ -17,6 +17,10 @@ bool		IsGameTypeSingle();
 #include "../game_news.h"
 #include "UIPdaMsgListItem.h"
 
+extern u32 type_hud_token;
+#define messages_window_cmp "messages_window_cmp.xml"
+#define messages_window "messages_window.xml"
+
 CUIMessagesWindow::CUIMessagesWindow()
 :m_pChatLog(NULL),m_pChatWnd(NULL),m_pGameLog(NULL)
 {
@@ -61,7 +65,10 @@ void CUIMessagesWindow::Init(float x, float y, float width, float height)
 {
 
 	CUIXml									xml;
-	xml.Load								(CONFIG_PATH, UI_PATH, "messages_window.xml");
+	if (type_hud_token == 2)
+		xml.Load(CONFIG_PATH, UI_PATH, messages_window_cmp);
+	else
+		xml.Load(CONFIG_PATH, UI_PATH, messages_window);
 	m_pGameLog								= xr_new<CUIGameLog>();
 	m_pGameLog->SetAutoDelete				(true);
 	m_pGameLog->Show						(true);

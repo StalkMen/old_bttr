@@ -21,6 +21,9 @@ public:
 	virtual bool Useful				() const;
     virtual void activate_physic_shell	();
 
+	virtual bool GetBriefInfo(II_BriefInfo& info);
+	virtual void GetBriefInfo_ammo(xr_string& str_name, xr_string& icon_sect_name, xr_string& str_count, string16& fire_mode);
+
 	virtual BOOL UsedAI_Locations	() {return FALSE;}
 	virtual IDamageSource*	cast_IDamageSource			()	{return this;}
 };

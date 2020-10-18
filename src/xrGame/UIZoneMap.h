@@ -23,6 +23,8 @@ private:
 	CUIStatic					m_Counter;
 	CUITextWnd					m_Counter_text;
 	u8							m_current_map_idx;
+	CUIStatic*					m_pointerDistanceText;
+	CUIStatic*					m_pointerDistanceText_16_9;
 
 public:
 								CUIZoneMap		();

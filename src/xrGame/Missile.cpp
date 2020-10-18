@@ -751,3 +751,9 @@ bool CMissile::GetBriefInfo( II_BriefInfo& info )
 	return true;
 }
 
+void CMissile::GetBriefInfo_ammo(xr_string& str_name, xr_string& icon_sect_name, xr_string& str_count, string16& fire_mode)
+{
+	str_name = NameShort();
+	str_count = "";
+	icon_sect_name = "";
+}

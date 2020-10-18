@@ -10,7 +10,7 @@
 const u32			activeLocalMapColor			= 0xffffffff;//0xffc80000;
 const u32			inactiveLocalMapColor		= 0xffffffff;//0xff438cd1;
 const u32			ourLevelMapColor			= 0xffffffff;
-
+extern u32			type_hud_token;
 
 CUICustomMap::CUICustomMap ()
 {
@@ -604,6 +604,12 @@ void CUIMiniMap::UpdateSpots()
 
 void  CUIMiniMap::Draw()
 {
+	if (type_hud_token == 7 || type_hud_token == 6 || type_hud_token == 5 || type_hud_token == 4 || type_hud_token == 9)
+	{
+		inherited::Draw();
+		return;
+	}
+
 	u32	segments_count			= 20;
 
 	UIRender->SetShader			(*m_UIStaticItem.GetShader());
@@ -611,8 +617,6 @@ void  CUIMiniMap::Draw()
 
 	u32 color					= m_UIStaticItem.GetTextureColor();
 	float angle					= GetHeading();
-
-
 
 	float kx =	UI().get_current_kx();
 
@@ -668,39 +672,102 @@ void  CUIMiniMap::Draw()
 
 bool CUIMiniMap::GetPointerTo(const Fvector2& src, float item_radius, Fvector2& pos, float& heading)
 {
-	Fvector2 clip_center = GetStaticItem()->GetHeadingPivot();
-	float map_radius	= WorkingArea().width()/2.0f;
-	Fvector2			direction;
+	if (type_hud_token == 6 || type_hud_token == 5 || type_hud_token == 7 || type_hud_token == 4 || type_hud_token == 9)
+	{
+		Frect		clip_rect_abs = WorkingArea(); //absolute rect coords
+		Frect		map_rect_abs;
+		GetAbsoluteRect(map_rect_abs);
 
-	direction.sub		(clip_center, src);
-	heading				= -direction.getH();
+		Frect		rect;
+		BOOL res = rect.intersection(clip_rect_abs, map_rect_abs);
+		if (!res) return false;
 
-	float kx			= UI().get_current_kx();
-	float cosPT			= _cos(heading);
-	float sinPT			= _sin(heading);
-	pos.set				(-map_radius*sinPT*kx,		-map_radius*cosPT);
-	pos.add				(clip_center);
+		rect = clip_rect_abs;
+		rect.sub(map_rect_abs.lt.x, map_rect_abs.lt.y);
 
-	return				true;
+		Fbox2 f_clip_rect_local;
+		f_clip_rect_local.set(rect.x1, rect.y1, rect.x2, rect.y2);
+
+		Fvector2 f_center;
+		f_clip_rect_local.getcenter(f_center);
+
+		Fvector2 f_dir, f_src;
+
+		f_src.set(src.x, src.y);
+		f_dir.sub(f_center, f_src);
+		f_dir.normalize_safe();
+		Fvector2 f_intersect_point;
+		res = f_clip_rect_local.Pick2(f_src, f_dir, f_intersect_point);
+		if (!res)
+			return false;
+
+
+		heading = -f_dir.getH();
+
+		f_intersect_point.mad(f_intersect_point, f_dir, item_radius);
+
+		pos.set(iFloor(f_intersect_point.x), iFloor(f_intersect_point.y));
+		return true;
+	}
+	else
+	{
+		Fvector2 clip_center = GetStaticItem()->GetHeadingPivot();
+		float map_radius = WorkingArea().width() / 2.0f;
+		Fvector2 direction;
+
+		direction.sub(clip_center, src);
+		heading = -direction.getH();
+
+		float kx = UI().get_current_kx();
+		float cosPT = _cos(heading);
+		float sinPT = _sin(heading);
+		pos.set(-map_radius * sinPT * kx, -map_radius * cosPT);
+		pos.add(clip_center);
+
+		return true;
+	}
 }
 
 bool CUIMiniMap::NeedShowPointer(Frect r)
 {
-	Fvector2 clip_center = GetStaticItem()->GetHeadingPivot();
-
-	Fvector2			spot_pos;
-	r.getcenter			(spot_pos);
-	float dist			=clip_center.distance_to(spot_pos);
-	float spot_radius	= r.width() / 2.0f;
-	return				(dist+spot_radius > WorkingArea().width()/2.0f);
+	if (type_hud_token == 6 || type_hud_token == 5 || type_hud_token == 7 || type_hud_token == 4 || type_hud_token == 9)
+	{
+		Frect map_visible_rect = WorkingArea();
+		map_visible_rect.shrink(5, 5);
+		Fvector2 pos;
+		GetAbsolutePos(pos);
+		r.add(pos.x, pos.y);
+		return !map_visible_rect.intersected(r);
+	}
+	else
+	{
+		Fvector2 clip_center = GetStaticItem()->GetHeadingPivot();
+		Fvector2 spot_pos;
+		r.getcenter(spot_pos);
+		float dist = clip_center.distance_to(spot_pos);
+		float spot_radius = r.width() / 2.0f;
+		return (dist + spot_radius > WorkingArea().width() / 2.0f);
+	}
 }
 
 bool CUIMiniMap::IsRectVisible(Frect r)
 {
-	Fvector2 clip_center	= GetStaticItem()->GetHeadingPivot();
-	float vis_radius		= WorkingArea().width() / 2.0f;
-	Fvector2				rect_center;
-	r.getcenter				(rect_center);
-	float spot_radius		= r.width() / 2.0f;
-	return clip_center.distance_to(rect_center)+spot_radius < vis_radius; //assume that all minimap spots are circular
+	if (type_hud_token == 6 || type_hud_token == 5 || type_hud_token == 7 || type_hud_token == 4 || type_hud_token == 9)
+	{
+		Fvector2 pos;
+		GetAbsolutePos(pos);
+		r.add(pos.x, pos.y);
+
+		return !!WorkingArea().intersected(r);
+	}
+	else
+	{
+		Fvector2 clip_center = GetStaticItem()->GetHeadingPivot();
+		float vis_radius = WorkingArea().width() / 2.0f;
+		Fvector2 rect_center;
+		r.getcenter(rect_center);
+		float spot_radius = r.width() / 2.0f;
+		return clip_center.distance_to(rect_center) + spot_radius < vis_radius; // assume that all minimap spots are
+		// circular
+	}
 }

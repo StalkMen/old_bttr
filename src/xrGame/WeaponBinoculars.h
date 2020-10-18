@@ -35,6 +35,7 @@ public:
 	virtual bool	render_item_ui_query();
 	virtual bool	use_crosshair		()	const {return false;}
 	virtual bool	GetBriefInfo		(II_BriefInfo& info);
+	virtual void	GetBriefInfo_ammo	(xr_string& str_name, xr_string& icon_sect_name, xr_string& str_count, string16& fire_mode);
 	virtual void	net_Relcase			(CObject *object);
 protected:
 	CBinocularsVision*					m_binoc_vision;

@@ -38,13 +38,68 @@ protected:
 //	CUIStatic			UIStaticTorch;
 //	CUIProgressBar		UIFlashlightBar;
 
-	CUIStatic*			m_ind_bleeding;
-	CUIStatic*			m_ind_radiation;
-	CUIStatic*			m_ind_starvation;
-	CUIStatic*			m_ind_weapon_broken;
-	CUIStatic*			m_ind_helmet_broken;
-	CUIStatic*			m_ind_outfit_broken;
-	CUIStatic*			m_ind_overweight;
+	////////////////////////////////////////////////////////////////////////////////////////////////	
+//*Индикаторы худа Зов Чернобыля
+	CUIStatic* m_ind_bleeding_coc;
+	CUIStatic* m_ind_radiation_coc;
+	CUIStatic* m_ind_starvation_coc;
+	CUIStatic* m_ind_thirst_coc;
+	CUIStatic* m_ind_slepping_coc;
+	CUIStatic* m_ind_weapon_broken_coc;
+	CUIStatic* m_ind_helmet_broken_coc;
+	CUIStatic* m_ind_outfit_broken_coc;
+	CUIStatic* m_ind_overweight_coc;
+	////////////////////////////////////////////////////////////////////////////////////////////////	
+
+	////////////////////////////////////////////////////////////////////////////////////////////////	
+	//*Индикаторы худа Зов Припяти
+	CUIStatic* m_ind_bleeding_cop;
+	CUIStatic* m_ind_radiation_cop;
+	CUIStatic* m_ind_starvation_cop;
+	CUIStatic* m_ind_thirst_cop;
+	CUIStatic* m_ind_slepping_cop;
+	CUIStatic* m_ind_weapon_broken_cop;
+	CUIStatic* m_ind_helmet_broken_cop;
+	CUIStatic* m_ind_outfit_broken_cop;
+	CUIStatic* m_ind_overweight_cop;
+	////////////////////////////////////////////////////////////////////////////////////////////////	
+
+	//*Индикаторы 
+	//	CUIStatic* m_ind_bleeding_st;
+	CUIStatic* m_ind_radiation_st;
+	CUIStatic* m_ind_starvation_st;
+	CUIStatic* m_ind_thirst_st;
+	//	CUIStatic* m_ind_slepping_cop;
+	CUIStatic* m_ind_weapon_broken_st;
+	CUIStatic* m_ind_helmet_broken_st;
+	CUIStatic* m_ind_outfit_broken_st;
+	CUIStatic* m_ind_overweight_st;
+
+	CUIStatic* m_ind_bleeding_cmp;
+	CUIStatic* m_ind_radiation_cmp;
+	CUIStatic* m_ind_starvation_cmp;
+	//	CUIStatic* m_ind_slepping_cop;
+	CUIStatic* m_ind_weapon_broken_cmp;
+	CUIStatic* m_ind_helmet_broken_cmp;
+	CUIStatic* m_ind_outfit_broken_cmp;
+	CUIStatic* m_ind_overweight_cmp;
+
+	////////////////////////////////////////////////////////////////////////////////////////////////
+		//*Индикаторы худа Ветер Времени
+	CUIStatic* m_ind_radiation_vv;
+	CUIStatic* m_ind_starvation_vv;
+	CUIStatic* m_ind_thirst_vv;
+	CUIStatic* m_ind_slepping_vv;
+	CUIStatic* m_ind_weapon_broken_vv;
+	CUIStatic* m_ind_helmet_broken_vv;
+	CUIStatic* m_ind_overweight_vv;
+	////////////////////////////////////////////////////////////////////////////////////////////////	
+
+	CUIStatic* m_ind_starvation_cs;
+	CUIStatic* m_ind_thirst_cs;
+	CUIStatic* m_ind_slepping_cs;
+	CUIStatic* m_ind_weapon_broken_cs;
+	CUIStatic* m_ind_helmet_broken_cs;
 
 public:
 	CUIStatic*			m_ind_boost_psy;
@@ -92,7 +147,6 @@ protected:
 	CUIScrollView*		m_UIIcons;
 	CUIWindow*			m_pMPChatWnd;
 	CUIWindow*			m_pMPLogWnd;
-
 public:
 	
 	// Енумы соответсвующие предупреждающим иконкам 

@@ -1830,3 +1830,40 @@ void CWeaponMagazined::FireBullet(const Fvector& pos,
 
 	inherited::FireBullet(pos, shot_dir, fire_disp, cartridge, parent_id, weapon_id, send_hit, GetAmmoElapsed());
 }
+
+void CWeaponMagazined::GetBriefInfo_ammo(xr_string& str_name, xr_string& icon_sect_name, xr_string& str_count, string16& fire_mode)
+{
+    int AE = GetAmmoElapsed();
+    int AC = 0;
+    if (IsGameTypeSingle())
+    {
+        AC = GetSuitableAmmoTotal();
+    }
+    if (AE == 0 || 0 == m_magazine.size())
+        icon_sect_name = m_ammoTypes[m_ammoType.type1].c_str();
+    else
+        icon_sect_name = m_ammoTypes[m_magazine.back().m_LocalAmmoType].c_str();
+
+    string256 sItemName;
+    strcpy_s(sItemName, *CStringTable().translate(pSettings->r_string(icon_sect_name.c_str(), "inv_name_short")));
+
+    strcpy_s(fire_mode, sizeof(fire_mode), "");
+    if (HasFireModes())
+    {
+        if (m_iQueueSize == -1)
+            strcpy_s(fire_mode, "A");
+        else
+            sprintf_s(fire_mode, "%d", m_iQueueSize);
+    }
+
+    str_name = sItemName;
+
+    {
+        if (!unlimited_ammo())
+            sprintf_s(sItemName, "%d/%d", AE, AC - AE);
+        else
+            sprintf_s(sItemName, "%d/--", AE);
+
+        str_count = sItemName;
+    }
+}

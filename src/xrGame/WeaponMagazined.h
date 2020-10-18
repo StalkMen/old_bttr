@@ -114,6 +114,7 @@ public:
     virtual void	UnloadMagazine(bool spawn_ammo = true);
 
     virtual bool	GetBriefInfo(II_BriefInfo& info);
+    virtual void    GetBriefInfo_ammo(xr_string& str_name, xr_string& icon_sect_name, xr_string& str_count, string16& fire_mode);
 
 public:
     virtual bool	SwitchMode();

@@ -74,3 +74,18 @@ u16	CBolt::Initiator				()
 {
 	return m_thrower_id;
 }
+
+void CBolt::GetBriefInfo_ammo(xr_string& str_name, xr_string& icon_sect_name, xr_string& str_count, string16& fire_mode)
+{
+	str_name = NameShort();
+	str_count = "";
+	icon_sect_name = *cNameSect();
+}
+
+bool CBolt::GetBriefInfo(II_BriefInfo& info)
+{
+	info.clear();
+	info.name._set(m_nameShort);
+	info.icon._set(cNameSect());
+	return true;
+}

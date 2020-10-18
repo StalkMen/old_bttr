@@ -102,7 +102,7 @@ static Fvector	vFootExt;
 
 Flags32			psActorFlags = {AF_GODMODE_RT | AF_AUTOPICKUP | AF_RUN_BACKWARD | AF_IMPORTANT_SAVE | AF_USE_TRACERS};
 int				psActorSleepTime = 1;
-
+extern u32      type_hud_token;
 
 
 CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
@@ -1928,36 +1928,36 @@ void CActor::AnimTorsoPlayCallBack(CBlend* B)
     actor->m_bAnimTorsoPlayed = FALSE;
 }
 
-
-/*
 void CActor::UpdateMotionIcon(u32 mstate_rl)
 {
-CUIMotionIcon*	motion_icon=CurrentGameUI()->UIMainIngameWnd->MotionIcon();
-if(mstate_rl&mcClimb)
-{
-motion_icon->ShowState(CUIMotionIcon::stClimb);
-}
-else
-{
-if(mstate_rl&mcCrouch)
-{
-if (!isActorAccelerated(mstate_rl, IsZoomAimingMode()))
-motion_icon->ShowState(CUIMotionIcon::stCreep);
-else
-motion_icon->ShowState(CUIMotionIcon::stCrouch);
-}
-else
-if(mstate_rl&mcSprint)
-motion_icon->ShowState(CUIMotionIcon::stSprint);
-else
-if(mstate_rl&mcAnyMove && isActorAccelerated(mstate_rl, IsZoomAimingMode()))
-motion_icon->ShowState(CUIMotionIcon::stRun);
-else
-motion_icon->ShowState(CUIMotionIcon::stNormal);
-}
-}
-*/
+    if (type_hud_token == 5)
+    {
+        CUIMotionIcon* motion_icon = HUD().GetGameUI()->UIMainIngameWnd->MotionIcon();
 
+        if (mstate_rl & mcClimb)
+        {
+            (*motion_icon).ShowState(CUIMotionIcon::stClimb);
+        }
+        else
+        {
+            if (mstate_rl & mcCrouch)
+            {
+                if (!isActorAccelerated(mstate_rl, IsZoomAimingMode()))
+                    (*motion_icon).ShowState(CUIMotionIcon::stCreep);  // В присяди с оружием
+                else
+                    (*motion_icon).ShowState(CUIMotionIcon::stCrouch); // Крадемся с оружием
+            }
+            else
+                if (mstate_rl & mcSprint)
+                    (*motion_icon).ShowState(CUIMotionIcon::stSprint);
+                else
+                    if (mstate_rl & mcAnyMove && isActorAccelerated(mstate_rl, IsZoomAimingMode()))
+                        (*motion_icon).ShowState(CUIMotionIcon::stRun);
+                    else
+                        (*motion_icon).ShowState(CUIMotionIcon::stNormal); // Стоим 
+        }
+    }
+}
 
 CPHDestroyable*	CActor::ph_destroyable()
 {

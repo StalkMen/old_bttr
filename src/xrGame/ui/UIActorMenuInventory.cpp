@@ -42,6 +42,7 @@
 using namespace luabind; //Alundaio
 
 void move_item_from_to(u16 from_id, u16 to_id, u16 what_id);
+extern u32 type_hud_token;
 
 void CUIActorMenu::InitInventoryMode()
 {
@@ -67,7 +68,11 @@ void CUIActorMenu::InitInventoryMode()
 		InitInventoryContents				(m_pInventoryBagList);
 
 		VERIFY( CurrentGameUI() );
-		CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(true);
+
+		if (type_hud_token == 0 || type_hud_token == 1 || type_hud_token == 2 || type_hud_token == 3 || type_hud_token == 4 || type_hud_token == 6 || type_hud_token == 8)
+			if (!psActorFlags.test(AF_BOOL_DISABLE_MINIMAP))
+				CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(true);
+
 		if (!strstr(Core.Params, "-old_ver"))
 			m_clock_value->Show				(true); 
 	}

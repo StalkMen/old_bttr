@@ -48,6 +48,7 @@ public:
 	virtual void 			State						(u32 state, u32 old_state);
 	virtual void 			OnStateSwitch				(u32 S, u32 oldState);
 	virtual bool			GetBriefInfo				(II_BriefInfo& info);
+	virtual void			GetBriefInfo_ammo			(xr_string& str_name, xr_string& icon_sect_name, xr_string& str_count, string16& fire_mode);
 
 protected:
 	virtual void			UpdateFireDependencies_internal	();
