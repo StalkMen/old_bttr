@@ -6,6 +6,7 @@
 #include "NVIDIA.h"
 #include "AMD.h"
 #include "dxgi.h"
+#include "XR_IOConsole.h"
 #include <xstring>
 
 using namespace std;
