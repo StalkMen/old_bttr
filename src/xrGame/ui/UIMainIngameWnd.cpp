@@ -748,12 +748,12 @@ void CUIMainIngameWnd::UpdateMainIndicators()
     float satiety_koef =
         (satiety - satiety_critical) / (satiety >= satiety_critical ? 1 - satiety_critical : satiety_critical);
 
-    float sleep = pActor->conditions().GetSleep();
-    float sleep_critical = pActor->conditions().SleepCritical();
+    float sleep = 0;//pActor->conditions().GetSleep();
+    float sleep_critical = 0;//pActor->conditions().SleepCritical();
     float sleep_koef = (sleep - sleep_critical) / (sleep >= sleep_critical ? 1 - sleep_critical : sleep_critical);
 
-    float thirst = pActor->conditions().GetThirst();
-    float thirst_critical = pActor->conditions().ThirstCritical();
+    float thirst = 0;// pActor->conditions().GetThirst();
+    float thirst_critical = 0; //pActor->conditions().ThirstCritical();
     float thirst_koef =
         (thirst - thirst_critical) / (thirst >= thirst_critical ? 1 - thirst_critical : thirst_critical);
 
