@@ -43,13 +43,18 @@ public:
 	shared_str			m_ClickedQuestionID;
 
 	//список вопросов, которые мы можем задавать персонажу
-
-//	Fvector2			m_btn_pos[3];
 	CUI3tButton			UIToTradeButton;
-//	CUI3tButton			UIToExitButton;
 
 	CUICharacterInfo	UICharacterInfoLeft;
 	CUICharacterInfo	UICharacterInfoRight;
+
+	//элементы интерфейса диалога
+	CUIStatic			UIDialogFrameTop;
+	CUIStatic			UIDialogFrameBottom;
+
+	//информаци¤ о персонажах 
+	CUIStatic			UIOurIcon;
+	CUIStatic			UIOthersIcon;
 
 	void				AddQuestion			(LPCSTR str, LPCSTR value, int number, bool b_finalizer);
 	void				AddAnswer			(LPCSTR SpeakerName, const char* str, bool bActor);

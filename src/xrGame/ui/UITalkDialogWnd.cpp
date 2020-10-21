@@ -35,33 +35,33 @@ void CUITalkDialogWnd::InitTalkDialogWnd()
 	CUIXmlInit					ml_init;
 
 	CUIXmlInit::InitWindow		(*m_uiXml, "main", 0, this);
+	if (!strstr(Core.Params, "-old_ver"))
+	{
+		CUIXmlInit::InitStatic		(*m_uiXml, "right_character_icon", 0, &UIOurIcon);
+		CUIXmlInit::InitStatic		(*m_uiXml, "left_character_icon", 0, &UIOthersIcon);
 
-//	CUIXmlInit::InitStatic		(*m_uiXml, "right_character_icon", 0, &UIOurIcon);
+		UIOurIcon.AttachChild		(&UICharacterInfoLeft);
+		UICharacterInfoLeft.InitCharacterInfo(Fvector2().set(0,0), UIOurIcon.GetWndSize(), "talk_character.xml");
 
-//	CUIXmlInit::InitStatic		(*m_uiXml, "left_character_icon", 0, &UIOthersIcon);
+		UIOthersIcon.AttachChild	(&UICharacterInfoRight);
+		UICharacterInfoRight.InitCharacterInfo(Fvector2().set(0,0), UIOthersIcon.GetWndSize(), "talk_character.xml");
 
-//	UIOurIcon.AttachChild		(&UICharacterInfoLeft);
-//	UICharacterInfoLeft.InitCharacterInfo(Fvector2().set(0,0), UIOurIcon.GetWndSize(), "talk_character.xml");
+		AttachChild					(&UIOurIcon);
+		AttachChild					(&UIOthersIcon);
 
-//	UIOthersIcon.AttachChild	(&UICharacterInfoRight);
-//	UICharacterInfoRight.InitCharacterInfo(Fvector2().set(0,0), UIOthersIcon.GetWndSize(), "talk_character.xml");
+		// Фрейм с нащими фразами
+		AttachChild					(&UIDialogFrameBottom);
+		CUIXmlInit::InitStatic		(*m_uiXml, "frame_bottom", 0, &UIDialogFrameBottom);
 
-//	AttachChild					(&UIOurIcon);
-//	AttachChild					(&UIOthersIcon);
-
-	// Фрейм с нащими фразами
-//	AttachChild					(&UIDialogFrameBottom);
-//	CUIXmlInit::InitStatic		(*m_uiXml, "frame_bottom", 0, &UIDialogFrameBottom);
-
-	//основной фрейм диалога
-//	AttachChild					(&UIDialogFrameTop);
-//	CUIXmlInit::InitStatic		(*m_uiXml, "frame_top", 0, &UIDialogFrameTop);
-
+		//основной фрейм диалога
+		AttachChild					(&UIDialogFrameTop);
+		CUIXmlInit::InitStatic		(*m_uiXml, "frame_top", 0, &UIDialogFrameTop);
+	}
 
 	//Ответы
 	UIAnswersList				= xr_new<CUIScrollView>();
 	UIAnswersList->SetAutoDelete(true);
-//	UIDialogFrameTop.AttachChild(UIAnswersList);
+
 	AttachChild(UIAnswersList);
 	CUIXmlInit::InitScrollView	(*m_uiXml, "answers_list", 0, UIAnswersList);
 	UIAnswersList->SetWindowName("---UIAnswersList");
@@ -69,7 +69,7 @@ void CUITalkDialogWnd::InitTalkDialogWnd()
 	//Вопросы
 	UIQuestionsList				= xr_new<CUIScrollView>();
 	UIQuestionsList->SetAutoDelete(true);
-//	UIDialogFrameBottom.AttachChild(UIQuestionsList);
+
 	AttachChild(UIQuestionsList);
 	CUIXmlInit::InitScrollView	(*m_uiXml, "questions_list", 0, UIQuestionsList);
 	UIQuestionsList->SetWindowName("---UIQuestionsList");
@@ -79,26 +79,17 @@ void CUITalkDialogWnd::InitTalkDialogWnd()
 	AttachChild					(&UIToTradeButton);
 	CUIXmlInit::Init3tButton	(*m_uiXml, "button", 0, &UIToTradeButton);
 
-	//AttachChild					(&UIToExitButton);
-	//CUIXmlInit::Init3tButton	(*m_uiXml, "button_exit", 0, &UIToExitButton);
-
-	//m_btn_pos[0]				= UIToTradeButton.GetWndPos();
-	//m_btn_pos[1]				= UIToExitButton.GetWndPos();
-	//m_btn_pos[2].x				= (m_btn_pos[0].x+m_btn_pos[1].x)/2.0f;
-	//m_btn_pos[2].y				= m_btn_pos[0].y;
 	// шрифт для индикации имени персонажа в окне разговора
 	CUIXmlInit::InitFont		(*m_uiXml, "font", 0, m_iNameTextColor, m_pNameTextFont);
 
 	CGameFont * pFont			= NULL;
 	CUIXmlInit::InitFont		(*m_uiXml, "font", 1, m_uOurReplicsColor, pFont);
 
-
 	SetWindowName				("----CUITalkDialogWnd");
 
 	Register					(&UIToTradeButton);
 	AddCallbackStr				("question_item",LIST_ITEM_CLICKED,CUIWndCallback::void_function(this, &CUITalkDialogWnd::OnQuestionClicked));
 	AddCallback					(&UIToTradeButton,BUTTON_CLICKED,CUIWndCallback::void_function(this, &CUITalkDialogWnd::OnTradeClicked));
-//	AddCallback					(&UIToExitButton,BUTTON_CLICKED,CUIWndCallback::void_function(this, &CUITalkDialogWnd::OnExitClicked));
 }
 
 	
