@@ -1298,12 +1298,12 @@ void CActor::shedule_Update(u32 DT)
         }
         mstate_old = mstate_real;
     }
-    /*
-        if (this == Level().CurrentViewEntity())
-        {
-        UpdateMotionIcon		(mstate_real);
-        };
-        */
+    
+    if (this == Level().CurrentViewEntity() && type_hud_token == 5)
+    {
+        UpdateMotionIcon(mstate_real);
+    };
+        
     NET_Jump = 0;
 
 
