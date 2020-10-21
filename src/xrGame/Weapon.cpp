@@ -1851,8 +1851,8 @@ void CWeapon::OnZoomIn()
     {
         if (psActorFlags.test(AF_3DSCOPE_ENABLE) && UseScopeTexture())
 		{
-            if (pA->GetNightVisionStatus())
-				OnZoomOut();
+//            if (pA->GetNightVisionStatus())
+//				OnZoomOut();
 		}
 		else if (m_zoom_params.m_sUseZoomPostprocess.size() && !psActorFlags.test(AF_3DSCOPE_ENABLE))
         {
