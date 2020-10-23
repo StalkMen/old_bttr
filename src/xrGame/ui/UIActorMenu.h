@@ -118,7 +118,7 @@ protected:
 	CUIStatic*				    m_BinocSlotHighlight;
 	CUIStatic*					m_BackpackSlotHighlight;
 
-	enum						{e_af_count = 5};
+	enum						{e_af_count = 16};
 	CUIStatic*					m_belt_list_over[e_af_count];
 	CUIStatic*					m_HelmetOver;
 
