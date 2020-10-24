@@ -34,11 +34,8 @@ BOOL	CWeaponRG6::net_Spawn				(CSE_Abstract* DC)
 				inheritedRL::SpawnRocket(*fake_grenade_name, this);
 			}
 		}
-//			inheritedRL::SpawnRocket(*fake_grenade_name, this);
 	}
-	
 
-	
 	return l_res;
 };
 
@@ -51,8 +48,7 @@ void CWeaponRG6::Load(LPCSTR section)
 #include "inventoryOwner.h"
 void CWeaponRG6::FireStart ()
 {
-
-	if(GetState() == eIdle	&& getRocketCount() ) 
+	if (GetState() == eIdle && getRocketCount() && m_ammoElapsed.type1)
 	{
 		inheritedSG::FireStart ();
 	
@@ -93,21 +89,10 @@ void CWeaponRG6::FireStart ()
 
 			if (HasPick)
 			{
-				//			collide::rq_result& RQ = HUD().GetCurrentRayQuery();
-				Fvector Transference;
-				//Transference.add(p1, Fvector().mul(d, RQ.range));				
+				Fvector Transference;		
 				Transference.mul(d, RQ.range);
 				Fvector res[2];
-/*#ifdef		DEBUG
-				DBG_OpenCashedDraw();
-				DBG_DrawLine(p1,Fvector().add(p1,d),D3DCOLOR_XRGB(255,0,0));
-#endif*/
 				u8 canfire0 = TransferenceAndThrowVelToThrowDir(Transference, CRocketLauncher::m_fLaunchSpeed, EffectiveGravity(), res);
-/*#ifdef DEBUG
-				if(canfire0>0)DBG_DrawLine(p1,Fvector().add(p1,res[0]),D3DCOLOR_XRGB(0,255,0));
-				if(canfire0>1)DBG_DrawLine(p1,Fvector().add(p1,res[1]),D3DCOLOR_XRGB(0,0,255));
-				DBG_ClosedCashedDraw(30000);
-#endif*/
 				if (canfire0 != 0)
 				{
 //					Msg ("d[%f,%f,%f] - res [%f,%f,%f]", d.x, d.y, d.z, res[0].x, res[0].y, res[0].z);
@@ -146,7 +131,7 @@ u8 CWeaponRG6::AddCartridge		(u8 cnt)
 		--k;
 		inheritedRL::SpawnRocket(*fake_grenade_name, this);
 	}
-	return k;
+	return t;
 }
 
 void CWeaponRG6::OnEvent(NET_Packet& P, u16 type) 
