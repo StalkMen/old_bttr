@@ -835,6 +835,21 @@ void reload_language()
 	CStringTable().ReloadLanguage();
 }
 
+void LevelPressAction(EGameActions cmd)
+{
+	Level().IR_OnKeyboardPress(cmd);
+}
+
+void LevelReleaseAction(EGameActions cmd)
+{
+	Level().IR_OnKeyboardRelease(cmd);
+}
+
+void LevelHoldAction(EGameActions cmd)
+{
+	Level().IR_OnKeyboardHold(cmd);
+}
+
 #pragma optimize("s",on)
 void CLevel::script_register(lua_State *L)
 {
@@ -853,6 +868,9 @@ void CLevel::script_register(lua_State *L)
 		def("get_target_obj", &g_get_target_obj), //intentionally named to what is in xray extensions
 		def("get_target_dist", &g_get_target_dist),
 		def("get_target_element", &g_get_target_element), //Can get bone cursor is targetting
+		def("press_action", &LevelPressAction),
+		def("release_action", &LevelReleaseAction),
+		def("hold_action", &LevelHoldAction),
 		def("get_view_entity", &get_view_entity_script),
 		def("set_view_entity", &set_view_entity_script),
 		def("spawn_item", &spawn_section),
