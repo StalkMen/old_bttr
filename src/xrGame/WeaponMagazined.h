@@ -138,6 +138,7 @@ public:
     virtual float	GetFireDispersion(float cartridge_k, bool for_crosshair = false);
 
 protected:
+    IC bool         TryToGetAmmo(u32);
     //максимальный размер очереди, которой можно стрельнуть
     int				m_iQueueSize;
     //количество реально выстреляных патронов

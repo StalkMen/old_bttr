@@ -263,6 +263,12 @@ bool CWeaponMagazined::TryReload()
     {
         if (m_pInventory)
         {
+            if (ParentIsActor())
+            {
+                int AC = GetSuitableAmmoTotal();
+                Actor()->callback(GameObject::eWeaponNoAmmoAvailable)(lua_game_object(), AC);
+            }
+
             if (TryToGetAmmo(m_ammoType.type1) || unlimited_ammo() || (IsMisfire() && m_ammoElapsed.type1))
             {
                 SetPending(TRUE);
