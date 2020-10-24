@@ -94,6 +94,7 @@ public:
 	// Ищет на поясе или в рюкзаке IItem с указанным CLS_ID
 	PIItem					Get					(CLASS_ID cls_id,  bool bSearchRuck) const;
 	PIItem					GetAny				(LPCSTR name) const;//search both (ruck and belt)
+	PIItem					GetAmmoOnBelt		(LPCSTR name) const;
 	PIItem					item				(CLASS_ID cls_id) const;
 	
 	// get all the items with the same section name

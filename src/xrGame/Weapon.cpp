@@ -38,6 +38,7 @@
 ENGINE_API extern float psHUD_FOV_def;
 BOOL	b_toggle_weapon_aim = FALSE;
 extern CUIXml*	pWpnScopeXml = NULL;
+extern BOOL game_value_ammo_belt;
 
 CWeapon::CWeapon()
 {
@@ -1515,28 +1516,45 @@ int CWeapon::GetAmmoCount(u8 ammo_type) const
 int CWeapon::GetAmmoCount_forType(shared_str const& ammo_type) const
 {
     int res = 0;
-
     TIItemContainer::iterator itb = m_pInventory->m_belt.begin();
     TIItemContainer::iterator ite = m_pInventory->m_belt.end();
+
     for (; itb != ite; ++itb)
     {
-        CWeaponAmmo*	pAmmo = smart_cast<CWeaponAmmo*>(*itb);
+        CWeaponAmmo* pAmmo = smart_cast<CWeaponAmmo*>(*itb);
         if (pAmmo && (pAmmo->cNameSect() == ammo_type))
         {
             res += pAmmo->m_boxCurr;
         }
     }
 
-    itb = m_pInventory->m_ruck.begin();
-    ite = m_pInventory->m_ruck.end();
-    for (; itb != ite; ++itb)
+    auto parent = const_cast<CObject*>(H_Parent());
+    auto entity_alive = smart_cast<CEntityAlive*>(parent);
+         itb = m_pInventory->m_ruck.begin();
+         ite = m_pInventory->m_ruck.end();
+
+    CWeaponAmmo* pAmmo = smart_cast<CWeaponAmmo*>(*itb);
+
+    if (game_value_ammo_belt)
     {
-        CWeaponAmmo*	pAmmo = smart_cast<CWeaponAmmo*>(*itb);
-        if (pAmmo && (pAmmo->cNameSect() == ammo_type))
+        if (entity_alive == NULL || !entity_alive->cast_actor())
         {
-            res += pAmmo->m_boxCurr;
+            for (; itb != ite; ++itb)
+            {
+                if (pAmmo && (pAmmo->cNameSect() == ammo_type))
+                    res += pAmmo->m_boxCurr;
+            }
         }
     }
+    else
+    {
+        for (; itb != ite; ++itb)
+        {
+            if (pAmmo && (pAmmo->cNameSect() == ammo_type))
+                res += pAmmo->m_boxCurr;
+        }
+    }
+
     return res;
 }
 
