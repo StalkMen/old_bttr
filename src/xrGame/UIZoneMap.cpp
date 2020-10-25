@@ -20,6 +20,8 @@
 extern u32 type_hud_token;
 extern float minimap_zoom_factor;
 
+#define ZONE_MAP_XML_DEF "zone_map.xml"
+
 #define ZONE_MAP_XML_COP "zone_map\\maingame_zone_map_cop.xml"
 #define ZONE_MAP_XML_CMP "zone_map\\maingame_zone_map_cmp.xml"
 #define ZONE_MAP_XML_STS "zone_map\\maingame_zone_map_stason.xml"
@@ -46,7 +48,10 @@ void CUIZoneMap::Init()
     CUIXml uiXml;
 
     if (type_hud_token == 0)
-        uiXml.Load(CONFIG_PATH, UI_PATH, ZONE_MAP_XML_COC);
+        if (!strstr(Core.Params, "-old_ver"))
+            uiXml.Load(CONFIG_PATH, UI_PATH, ZONE_MAP_XML_COC);
+        else
+            uiXml.Load(CONFIG_PATH, UI_PATH, ZONE_MAP_XML_DEF);
 
     if (type_hud_token == 1)
         uiXml.Load(CONFIG_PATH, UI_PATH, ZONE_MAP_XML_COP);

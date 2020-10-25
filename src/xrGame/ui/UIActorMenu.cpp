@@ -523,8 +523,8 @@ void CUIActorMenu::clear_highlight_lists()
 		m_DetectorSlotHighlight->Show(false);
 		for (u8 i = 0; i < 4; i++)
 			m_QuickSlotsHighlight[i]->Show(false);
-		for (u8 i = 0; i < e_af_count; i++)
-			m_ArtefactSlotsHighlight[i]->Show(false);
+		for (u8 i = 0; i < e_af_count1; i++)
+			m_ArtefactSlotsHighlight1[i]->Show(false);
 
 		m_pInventoryBagList->clear_select_armament();
 
@@ -557,8 +557,8 @@ void CUIActorMenu::clear_highlight_lists()
 		m_DetectorSlotHighlight->Show(false);
 		for (u8 i = 0; i < 4; i++)
 			m_QuickSlotsHighlight[i]->Show(false);
-		for (u8 i = 0; i < e_af_count; i++)
-			m_ArtefactSlotsHighlight[i]->Show(false);
+		for (u8 i = 0; i < e_af_count2; i++)
+			m_ArtefactSlotsHighlight2[i]->Show(false);
 
 		m_pInventoryBagList->clear_select_armament();
 
@@ -665,7 +665,7 @@ void CUIActorMenu::highlight_item_slot(CUICellItem* cell_item)
 
 			Ivector2 cap = m_pInventoryBeltList->CellsCapacity();
 			for(u8 i=0; i<cap.x; i++)
-				m_ArtefactSlotsHighlight[i]->Show(true);
+				m_ArtefactSlotsHighlight1[i]->Show(true);
 			return;
 		}
 	}
@@ -724,7 +724,7 @@ void CUIActorMenu::highlight_item_slot(CUICellItem* cell_item)
 
 			Ivector2 cap = m_pInventoryBeltList->CellsCapacity();
 			for(u8 i=0; i<cap.x; i++)
-				m_ArtefactSlotsHighlight[i]->Show(true);
+				m_ArtefactSlotsHighlight2[i]->Show(true);
 			return;
 		}
 	}

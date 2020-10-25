@@ -194,12 +194,15 @@ void CUIHudStatesWnd::InitFromXml( CUIXml& xml, LPCSTR path )
 
 		if (type_hud_token == 1 || type_hud_token == 2 || type_hud_token == 0 || type_hud_token == 5 || type_hud_token == 6 || type_hud_token == 3 || type_hud_token == 9)
 		{
-			m_psy_grenn = UIHelper::CreateStatic(xml, "static_psy_grenn", this);
-			m_psy_grenn->Show(false);
-			m_psy_yellow = UIHelper::CreateStatic(xml, "static_psy_yellow", this);
-			m_psy_yellow->Show(false);
-			m_psy_red = UIHelper::CreateStatic(xml, "static_psy_red", this);
-			m_psy_red->Show(false);
+			if (!strstr(Core.Params, "-old_ver"))
+			{
+				m_psy_grenn = UIHelper::CreateStatic(xml, "static_psy_grenn", this);
+				m_psy_grenn->Show(false);
+				m_psy_yellow = UIHelper::CreateStatic(xml, "static_psy_yellow", this);
+				m_psy_yellow->Show(false);
+				m_psy_red = UIHelper::CreateStatic(xml, "static_psy_red", this);
+				m_psy_red->Show(false);
+			}
 		}
 
 		if (type_hud_token == 6 || type_hud_token == 5 || type_hud_token == 9)
@@ -995,37 +998,40 @@ void CUIHudStatesWnd::UpdateIndicators( CActor* actor )
 
 		if (type_hud_token == 1 || type_hud_token == 2 || type_hud_token == 0 || type_hud_token == 5 || type_hud_token == 6 || type_hud_token == 3 || type_hud_token == 9)
 		{
-			if (actor->conditions().GetPsyHealth() > 0.70f)
+			if (!strstr(Core.Params, "-old_ver"))
 			{
-				m_psy_grenn->Show(false);
-				m_psy_yellow->Show(false);
-				m_psy_red->Show(false);
-			}
-			if (actor->conditions().GetPsyHealth() < 0.70f)
-			{
-				m_psy_grenn->Show(true);
-			}
-			else if (actor->conditions().GetPsyHealth() < 0.50f)
-			{
-				m_psy_grenn->Show(false);
-			}
+				if (actor->conditions().GetPsyHealth() > 0.70f)
+				{
+					m_psy_grenn->Show(false);
+					m_psy_yellow->Show(false);
+					m_psy_red->Show(false);
+				}
+				if (actor->conditions().GetPsyHealth() < 0.70f)
+				{
+					m_psy_grenn->Show(true);
+				}
+				else if (actor->conditions().GetPsyHealth() < 0.50f)
+				{
+					m_psy_grenn->Show(false);
+				}
 
-			if (actor->conditions().GetPsyHealth() < 0.50f)
-			{
-				m_psy_yellow->Show(true);
-			}
-			else if (actor->conditions().GetPsyHealth() < 0.30f)
-			{
-				m_psy_yellow->Show(false);
-			}
+				if (actor->conditions().GetPsyHealth() < 0.50f)
+				{
+					m_psy_yellow->Show(true);
+				}
+				else if (actor->conditions().GetPsyHealth() < 0.30f)
+				{
+					m_psy_yellow->Show(false);
+				}
 
-			if (actor->conditions().GetPsyHealth() < 0.30f)
-			{
-				m_psy_red->Show(true);
-			}
-			else if (actor->conditions().GetPsyHealth() < 0.01f)
-			{
-				m_psy_red->Show(false);
+				if (actor->conditions().GetPsyHealth() < 0.30f)
+				{
+					m_psy_red->Show(true);
+				}
+				else if (actor->conditions().GetPsyHealth() < 0.01f)
+				{
+					m_psy_red->Show(false);
+				}
 			}
 		}
 

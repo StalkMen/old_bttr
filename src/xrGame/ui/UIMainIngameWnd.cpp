@@ -74,6 +74,8 @@ extern u32  type_hud_token;
 #define		C_ON_ENEMY					D3DCOLOR_XRGB(0xff,0,0)
 #define		C_DEFAULT					D3DCOLOR_XRGB(0xff,0xff,0xff)
 
+#define MAININGAME_XML_DEF "maingame.xml"
+
 #define MAININGAME_XML_COC "type_huds\\maingame_coc.xml"
 #define MAININGAME_XML_COP "type_huds\\maingame_cop.xml"
 #define MAININGAME_XML_MIS "type_huds\\maingame_mis.xml"
@@ -108,36 +110,41 @@ CUIMainIngameWnd::~CUIMainIngameWnd()
 void CUIMainIngameWnd::Init()
 {
 	CUIXml uiXml;
+    
+    if (!strstr(Core.Params, "-old_ver"))
+    {
+        if (type_hud_token == 0)
+            uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_COC);
 
-	if (type_hud_token == 0)
-		uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_COC);
+        if (type_hud_token == 1)
+            uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_COP);
 
-	if (type_hud_token == 1)
-		uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_COP);
+        if (type_hud_token == 2)
+            uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_CMP);
 
-	if (type_hud_token == 2)
-		uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_CMP);
+        if (type_hud_token == 3)
+            uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_STS);
 
-	if (type_hud_token == 3)
-		uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_STS);
+        if (type_hud_token == 4)
+            uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_CS);
 
-	if (type_hud_token == 4)
-		uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_CS);
+        if (type_hud_token == 5)
+            uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_SOC);
 
-	if (type_hud_token == 5)
-		uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_SOC);
+        if (type_hud_token == 6)
+            uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_VV);
 
-	if (type_hud_token == 6)
-		uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_VV);
+        if (type_hud_token == 7)
+            uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_LA);
 
-	if (type_hud_token == 7)
-		uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_LA);
+        if (type_hud_token == 8)
+            uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_MIS);
 
-	if (type_hud_token == 8)
-		uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_MIS);
-
-	if (type_hud_token == 9)
-		uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_PCH);
+        if (type_hud_token == 9)
+            uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_PCH);
+    }
+    else
+        uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_DEF);
 
 	CUIXmlInit xml_init;
 	xml_init.InitWindow(uiXml, "main", 0, this);
@@ -176,8 +183,11 @@ void CUIMainIngameWnd::Init()
 		m_ind_helmet_broken_coc = UIHelper::CreateStatic(uiXml, "indicator_helmet_broken", this);
 		m_ind_outfit_broken_coc = UIHelper::CreateStatic(uiXml, "indicator_outfit_broken", this);
 		m_ind_overweight_coc = UIHelper::CreateStatic(uiXml, "indicator_overweight", this);
-		m_ind_thirst_coc = UIHelper::CreateStatic(uiXml, "indicator_thirst", this);
-		m_ind_slepping_coc = UIHelper::CreateStatic(uiXml, "indicator_sleep", this);
+        if (!strstr(Core.Params, "-old_ver"))
+        {
+            m_ind_thirst_coc = UIHelper::CreateStatic(uiXml, "indicator_thirst", this);
+            m_ind_slepping_coc = UIHelper::CreateStatic(uiXml, "indicator_sleep", this);
+        }
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////
@@ -833,34 +843,36 @@ void CUIMainIngameWnd::UpdateMainIndicators()
                 m_ind_starvation_coc->InitTexture("ui_inGame2_circle_hunger_red_coc");
         }
 
-        if (sleep_koef > 0.5)
-            m_ind_slepping_coc->Show(false);
-        else
+        if (!strstr(Core.Params, "-old_ver"))
         {
-            m_ind_slepping_coc->Show(true);
-            if (sleep_koef > 0.0f)
-                m_ind_slepping_coc->InitTexture("ui_inGame2_circle_sleep_green_coc");
-            else if (sleep_koef > -0.5f)
-                m_ind_slepping_coc->InitTexture("ui_inGame2_circle_sleep_yellow_coc");
+            if (sleep_koef > 0.5)
+                m_ind_slepping_coc->Show(false);
             else
-                m_ind_slepping_coc->InitTexture("ui_inGame2_circle_sleep_red_coc");
-        }
+            {
+                m_ind_slepping_coc->Show(true);
+                if (sleep_koef > 0.0f)
+                    m_ind_slepping_coc->InitTexture("ui_inGame2_circle_sleep_green_coc");
+                else if (sleep_koef > -0.5f)
+                    m_ind_slepping_coc->InitTexture("ui_inGame2_circle_sleep_yellow_coc");
+                else
+                    m_ind_slepping_coc->InitTexture("ui_inGame2_circle_sleep_red_coc");
+            }
 
-        // Thirst
-
-        if (thirst_koef > 0.5)
-            m_ind_thirst_coc->Show(false);
-        else
-        {
-            m_ind_thirst_coc->Show(true);
-            if (thirst_koef > 0.0f)
-                m_ind_thirst_coc->InitTexture("ui_inGame2_circle_thirst_green_coc");
-            else if (thirst_koef > -0.5f)
-                m_ind_thirst_coc->InitTexture("ui_inGame2_circle_thirst_yellow_coc");
+            // Thirst
+        
+            if (thirst_koef > 0.5)
+                m_ind_thirst_coc->Show(false);
             else
-                m_ind_thirst_coc->InitTexture("ui_inGame2_circle_thirst_red_coc");
+            {
+                m_ind_thirst_coc->Show(true);
+                if (thirst_koef > 0.0f)
+                    m_ind_thirst_coc->InitTexture("ui_inGame2_circle_thirst_green_coc");
+                else if (thirst_koef > -0.5f)
+                    m_ind_thirst_coc->InitTexture("ui_inGame2_circle_thirst_yellow_coc");
+                else
+                    m_ind_thirst_coc->InitTexture("ui_inGame2_circle_thirst_red_coc");
+            }
         }
-
         // Armor broken icon
         m_ind_outfit_broken_coc->Show(false);
         if (outfit)

@@ -1880,7 +1880,7 @@ BOOL dead_body_collision = 1;
 extern BOOL g_b_COD_PickUpMode;
 BOOL _fake_start = 0;
 BOOL update_loot_pick_soc = 1;
-BOOL game_value_ammo_belt = 1;
+BOOL game_value_ammo_belt = 0;
 
 u32 type_hud_token = 0;
 xr_token type_hud_token_ext[] = {
@@ -1913,7 +1913,11 @@ void CCC_RegisterCommands()
 	CMD1(CCC_TimeFactor, "xrGame_time_factor");
 
 	CMD3(CCC_Mask,    "xrGame_3d_scopes", &psActorFlags, AF_3DSCOPE_ENABLE);
-	CMD3(CCC_Token, "xrGame_type_hud", &type_hud_token, type_hud_token_ext);
+	if (!strstr(Core.Params, "-old_ver"))
+	{
+		CMD3(CCC_Token, "xrGame_type_hud", &type_hud_token, type_hud_token_ext);
+		CMD4(CCC_Integer, "xrGame_game_ammo_belt_value", &game_value_ammo_belt, 0, 1);
+	}
 	CMD4(CCC_Float, "xrGame_scope_fov", &xrgame_scope_fov, 0.45f, 0.85f);
 	CMD4(CCC_Integer, "xrGame_wallmarks", &int_wallmarks, 0, 1);
 	CMD4(CCC_Float, "xrGame_minimap_zoom_factor", &minimap_zoom_factor, 0.5f, 3.5f);
@@ -1923,7 +1927,6 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Integer, "xrGame_cop_pickup_mode", &g_b_COD_PickUpMode, 0, 1);
 	CMD4(CCC_Integer, "xrGame_fake_start", &_fake_start, 0, 1);
 	CMD4(CCC_Integer, "xrGame_update_loot_pick_soc", &update_loot_pick_soc, 0, 1);
-	CMD4(CCC_Integer, "xrGame_game_ammo_belt_value", &game_value_ammo_belt, 0, 1);
 
 	CMD4(CCC_Float, "hud_adj_delta_pos", &hud_adj_delta_pos, 0.0001f, 1.0f);
 	CMD4(CCC_Float, "hud_adj_delta_rot", &hud_adj_delta_rot, 0.0001f, 1.0f);

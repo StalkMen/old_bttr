@@ -6,6 +6,8 @@
 
 extern u32 type_hud_token;
 
+const LPCSTR MOTION_ICON_XML_DEF = "motion_icon.xml";
+
 const LPCSTR MOTION_ICON_XML_COC = "motion_icon\\maingame_motion_icon_coc.xml";
 const LPCSTR MOTION_ICON_XML_COP = "motion_icon\\maingame_motion_icon_cop.xml";
 const LPCSTR MOTION_ICON_XML_CMP = "motion_icon\\maingame_motion_icon_cmp.xml";
@@ -40,7 +42,6 @@ void CUIMotionIcon::Init(Frect const& zonemap_rect)
 
     if (type_hud_token == 5)
     {
-
         uiXml.Load(CONFIG_PATH, UI_PATH, MOTION_ICON_XML_SOC);
 
         AttachChild(&background_shoc);
@@ -81,7 +82,10 @@ void CUIMotionIcon::Init(Frect const& zonemap_rect)
     else
     {
         if (type_hud_token == 0)
-            uiXml.Load(CONFIG_PATH, UI_PATH, MOTION_ICON_XML_COC);
+            if (!strstr(Core.Params, "-old_ver"))
+                uiXml.Load(CONFIG_PATH, UI_PATH, MOTION_ICON_XML_COC);
+            else 
+                uiXml.Load(CONFIG_PATH, UI_PATH, MOTION_ICON_XML_DEF);
 
         if (type_hud_token == 1)
             uiXml.Load(CONFIG_PATH, UI_PATH, MOTION_ICON_XML_COP);

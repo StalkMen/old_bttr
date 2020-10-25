@@ -1975,10 +1975,12 @@ void CUIActorMenu::ProcessPropertiesBoxClicked( CUIWindow* w, void* d )
 
 void CUIActorMenu::UpdateOutfit()
 {
-	for ( u8 i = 0; i < e_af_count ; ++i )
-	{
-		m_belt_list_over[i]->SetVisible( true );
-	}
+	if (!strstr(Core.Params, "-old_ver"))
+		for ( u8 i = 0; i < e_af_count1; ++i )
+			m_belt_list_over1[i]->SetVisible( true );
+	else
+		for (u8 i = 0; i < e_af_count2; ++i)
+			m_belt_list_over2[i]->SetVisible(true);
 
 	u32 af_count = m_pActorInvOwner->inventory().BeltWidth();
 	VERIFY( 0 <= af_count && af_count <= 16 );
@@ -2003,10 +2005,10 @@ void CUIActorMenu::UpdateOutfit()
 	m_pInventoryBeltList->SetCellsCapacity( afc );
 
 	for ( u8 i = 0; i < af_count ; ++i )
-	{
-		m_belt_list_over[i]->SetVisible( false );
-	}
-
+		if (!strstr(Core.Params, "-old_ver"))
+			m_belt_list_over1[i]->SetVisible( false );
+		else
+			m_belt_list_over2[i]->SetVisible(false);
 }
 
 void CUIActorMenu::MoveArtefactsToBag()

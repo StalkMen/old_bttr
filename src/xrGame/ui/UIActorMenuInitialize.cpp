@@ -121,8 +121,8 @@ void CUIActorMenu::Construct()
 		m_DetectorSlotHighlight		->Show(false);
 		m_QuickSlotsHighlight[0]	= UIHelper::CreateStatic(uiXml, "quick_slot_highlight", this);
 		m_QuickSlotsHighlight[0]	->Show(false);
-		m_ArtefactSlotsHighlight[0]	= UIHelper::CreateStatic(uiXml, "artefact_slot_highlight", this);
-		m_ArtefactSlotsHighlight[0]	->Show(false);
+		m_ArtefactSlotsHighlight1[0] = UIHelper::CreateStatic(uiXml, "artefact_slot_highlight", this);
+		m_ArtefactSlotsHighlight1[0] ->Show(false);
 
 		Fvector2 pos;
 		pos								= m_QuickSlotsHighlight[0]->GetWndPos();
@@ -134,14 +134,14 @@ void CUIActorMenu::Construct()
 			m_QuickSlotsHighlight[i]	->SetWndPos(pos);
 			m_QuickSlotsHighlight[i]	->Show(false);
 		}
-		pos								= m_ArtefactSlotsHighlight[0]->GetWndPos();
+		pos								= m_ArtefactSlotsHighlight1[0]->GetWndPos();
 		dx								= uiXml.ReadAttribFlt("artefact_slot_highlight", 0, "dx", 24.0f);
-		for(u8 i=1;i<e_af_count;i++)
+		for(u8 i=1;i<e_af_count1;i++)
 		{
 			pos.x						+= dx;
-			m_ArtefactSlotsHighlight[i]	= UIHelper::CreateStatic(uiXml, "artefact_slot_highlight", this);
-			m_ArtefactSlotsHighlight[i]	->SetWndPos(pos);
-			m_ArtefactSlotsHighlight[i]	->Show(false);
+			m_ArtefactSlotsHighlight1[i]	= UIHelper::CreateStatic(uiXml, "artefact_slot_highlight", this);
+			m_ArtefactSlotsHighlight1[i]	->SetWndPos(pos);
+			m_ArtefactSlotsHighlight1[i]	->Show(false);
 		}
 
 		m_pInventoryBagList			= UIHelper::CreateDragDropListEx(uiXml, "dragdrop_bag", this);
@@ -169,14 +169,14 @@ void CUIActorMenu::Construct()
 		m_pTrashList->m_f_item_drop	= CUIDragDropListEx::DRAG_CELL_EVENT	(this,&CUIActorMenu::OnItemDrop);
 		m_pTrashList->m_f_drag_event= CUIDragDropListEx::DRAG_ITEM_EVENT	(this,&CUIActorMenu::OnDragItemOnTrash);
 
-		m_belt_list_over[0]			= UIHelper::CreateStatic(uiXml, "belt_list_over", this);
-		pos							= m_belt_list_over[0]->GetWndPos();
+		m_belt_list_over1[0]			= UIHelper::CreateStatic(uiXml, "belt_list_over", this);
+		pos							= m_belt_list_over1[0]->GetWndPos();
 		dx							= uiXml.ReadAttribFlt("belt_list_over", 0, "dx", 10.0f);
-		for ( u8 i = 1; i < e_af_count; ++i )
+		for ( u8 i = 1; i < e_af_count1; ++i )
 		{
 			pos.x					+= dx;
-			m_belt_list_over[i]		= UIHelper::CreateStatic(uiXml, "belt_list_over", this);
-			m_belt_list_over[i]->SetWndPos( pos );
+			m_belt_list_over1[i]		= UIHelper::CreateStatic(uiXml, "belt_list_over", this);
+			m_belt_list_over1[i]->SetWndPos( pos );
 		}
 		m_HelmetOver = UIHelper::CreateStatic(uiXml, "helmet_over", this);
 		m_HelmetOver->Show			(false);
@@ -398,8 +398,8 @@ void CUIActorMenu::Construct()
 		m_DetectorSlotHighlight		->Show(false);
 		m_QuickSlotsHighlight[0]	= UIHelper::CreateStatic(uiXml, "quick_slot_highlight", this);
 		m_QuickSlotsHighlight[0]	->Show(false);
-		m_ArtefactSlotsHighlight[0]	= UIHelper::CreateStatic(uiXml, "artefact_slot_highlight", this);
-		m_ArtefactSlotsHighlight[0]	->Show(false);
+		m_ArtefactSlotsHighlight2[0]	= UIHelper::CreateStatic(uiXml, "artefact_slot_highlight", this);
+		m_ArtefactSlotsHighlight2[0]	->Show(false);
 
 		Fvector2 pos;
 		pos								= m_QuickSlotsHighlight[0]->GetWndPos();
@@ -411,14 +411,14 @@ void CUIActorMenu::Construct()
 			m_QuickSlotsHighlight[i]	->SetWndPos(pos);
 			m_QuickSlotsHighlight[i]	->Show(false);
 		}
-		pos								= m_ArtefactSlotsHighlight[0]->GetWndPos();
+		pos								= m_ArtefactSlotsHighlight2[0]->GetWndPos();
 		dx								= uiXml.ReadAttribFlt("artefact_slot_highlight", 0, "dx", 24.0f);
-		for(u8 i=1;i<e_af_count;i++)
+		for(u8 i=1;i<e_af_count2;i++)
 		{
 			pos.x						+= dx;
-			m_ArtefactSlotsHighlight[i]	= UIHelper::CreateStatic(uiXml, "artefact_slot_highlight", this);
-			m_ArtefactSlotsHighlight[i]	->SetWndPos(pos);
-			m_ArtefactSlotsHighlight[i]	->Show(false);
+			m_ArtefactSlotsHighlight2[i]	= UIHelper::CreateStatic(uiXml, "artefact_slot_highlight", this);
+			m_ArtefactSlotsHighlight2[i]	->SetWndPos(pos);
+			m_ArtefactSlotsHighlight2[i]	->Show(false);
 		}
 
 		m_pInventoryBagList			= UIHelper::CreateDragDropListEx(uiXml, "dragdrop_bag", this);
@@ -440,14 +440,14 @@ void CUIActorMenu::Construct()
 		m_pTrashList->m_f_item_drop	= CUIDragDropListEx::DRAG_CELL_EVENT	(this,&CUIActorMenu::OnItemDrop);
 		m_pTrashList->m_f_drag_event= CUIDragDropListEx::DRAG_ITEM_EVENT	(this,&CUIActorMenu::OnDragItemOnTrash);
 
-		m_belt_list_over[0]			= UIHelper::CreateStatic(uiXml, "belt_list_over", this);
-		pos							= m_belt_list_over[0]->GetWndPos();
+		m_belt_list_over2[0]			= UIHelper::CreateStatic(uiXml, "belt_list_over", this);
+		pos							= m_belt_list_over2[0]->GetWndPos();
 		dx							= uiXml.ReadAttribFlt("belt_list_over", 0, "dx", 10.0f);
-		for ( u8 i = 1; i < e_af_count; ++i )
+		for ( u8 i = 1; i < e_af_count2; ++i )
 		{
 			pos.x					+= dx;
-			m_belt_list_over[i]		= UIHelper::CreateStatic(uiXml, "belt_list_over", this);
-			m_belt_list_over[i]->SetWndPos( pos );
+			m_belt_list_over2[i]		= UIHelper::CreateStatic(uiXml, "belt_list_over", this);
+			m_belt_list_over2[i]->SetWndPos( pos );
 		}
 		m_HelmetOver = UIHelper::CreateStatic(uiXml, "helmet_over", this);
 		m_HelmetOver->Show			(false);

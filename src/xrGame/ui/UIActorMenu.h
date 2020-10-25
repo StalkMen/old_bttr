@@ -118,8 +118,14 @@ protected:
 	CUIStatic*				    m_BinocSlotHighlight;
 	CUIStatic*					m_BackpackSlotHighlight;
 
-	enum						{e_af_count = 16};
-	CUIStatic*					m_belt_list_over[e_af_count];
+	enum						{e_af_count1 = 16};						// Для BttR 
+	CUIStatic*					m_belt_list_over1[e_af_count1];			// Для BttR 
+	CUIStatic*					m_ArtefactSlotsHighlight1[e_af_count1];	// Для BttR 
+
+	enum						{ e_af_count2 = 5 };					// Для чистого 1.4.22
+	CUIStatic*					m_belt_list_over2[e_af_count2];			// Для чистого 1.4.22
+	CUIStatic*					m_ArtefactSlotsHighlight2[e_af_count2];	// Для чистого 1.4.22
+
 	CUIStatic*					m_HelmetOver;
 
 	CUIStatic*					m_InvSlot2Highlight;
@@ -128,7 +134,6 @@ protected:
 	CUIStatic*					m_OutfitSlotHighlight;
 	CUIStatic*					m_DetectorSlotHighlight;
 	CUIStatic*					m_QuickSlotsHighlight[4];
-	CUIStatic*					m_ArtefactSlotsHighlight[e_af_count];
 
 	CUIInventoryUpgradeWnd*		m_pUpgradeWnd;
 	
