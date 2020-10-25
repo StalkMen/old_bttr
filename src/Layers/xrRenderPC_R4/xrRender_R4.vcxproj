@@ -353,6 +353,7 @@
     <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_smaa.h" />
     <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_sunshafts.h" />	
 	<ClInclude Include="..\xrRender_DXTargets\Blenders\blender_gamma.h" />
+	<ClInclude Include="..\xrRender_DXTargets\Blenders\blender_gasmask.h" />
 	<ClInclude Include="..\xrRender_DXTargets\DX_R_sun_support.h" />
 	<ClInclude Include="..\xrRender_DXTargets\DX_rendertarget.h" />
 	<ClInclude Include="..\xrRender_DXTargets\DX_types.h" />
@@ -534,6 +535,7 @@
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_smaa.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_sunshafts.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\Blenders\blender_gamma.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\Blenders\blender_gasmask.cpp" />
     <ClCompile Include="ComputeShader.cpp" />
     <ClCompile Include="CSCompiler.cpp" />
     <ClCompile Include="dx11HDAOCSBlender.cpp" />
