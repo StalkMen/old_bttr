@@ -758,6 +758,7 @@ float ps_volumetric_distance = 1.f;
 float ps_volumetric_quality = 0.35f;
 
 float xrRenderFilteringSaturationImage = 0.f;
+float render_gamma = 0.f;
 
 int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
@@ -801,6 +802,8 @@ void		xrRender_initconsole()
 	CMD3(CCC_Token, "xrRenderThemeShaderRender",		 &RenderThemeShaders,			    RenderThemeShaders_token);
 
 	CMD4(CCC_Float, "xrRenderFilteringSaturationImage",  &xrRenderFilteringSaturationImage,	-1.f, 2.f);
+
+	CMD4(CCC_Float, "xrRenderGammaHLSL",				 &render_gamma,						0.f, 3.f);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);
