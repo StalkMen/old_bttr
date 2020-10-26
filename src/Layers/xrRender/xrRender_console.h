@@ -131,6 +131,7 @@ extern ECORE_API float			ps_r2_ss_sunshafts_radius;
 extern u32						ps_sunshafts_mode;
 
 extern ECORE_API float			render_gamma;
+extern ECORE_API Fvector		ps_r2_drops_control;
 
 enum
 {

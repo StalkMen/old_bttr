@@ -763,6 +763,8 @@ float render_gamma = 0.f;
 int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
 
+Fvector ps_r2_drops_control = { 0.000000f, 0.000000f, 0.000000f };
+
 //-----------------------------------------------------------------------
 void		xrRender_initconsole()
 {
@@ -785,6 +787,7 @@ void		xrRender_initconsole()
 	CMD4(CCC_Integer, "xrRenderDX10_triple_buffering",	 &tbufer_renders,					0, 1);
 	CMD3(CCC_Mask,  "xrRenderDX10_animMBlur_move",		 &ps_r__common_flags,				RFLAGDX10_MOTION_BLUR);
 
+	Fvector	tw_min, tw_max;
 	const bool disable_this_command = false;
 	if (disable_this_command)
 		CMD3(CCC_Mask, "xrRenderDX_old_load_dds",		 &ps_r__common_flags,				RFLAGDX_OLD_LOAD_DDS);
@@ -804,6 +807,12 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "xrRenderFilteringSaturationImage",  &xrRenderFilteringSaturationImage,	-1.f, 2.f);
 
 	CMD4(CCC_Float, "xrRenderGammaHLSL",				 &render_gamma,						0.f, 3.f);
+
+	{
+		tw_min.set(0, 0, 0);
+		tw_max.set(2, 3, 1);
+		CMD4(CCC_Vector3, "xrRenderDropsControl",		 &ps_r2_drops_control, tw_min, tw_max);
+	}
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);
@@ -832,8 +841,6 @@ void		xrRender_initconsole()
 	CMD1(CCC_ModelPoolStat, "stat_models");
 #endif // DEBUG
 	CMD4(CCC_Float, "r__wallmark_ttl", &ps_r__WallmarkTTL, 1.0f, 5.f * 60.f);
-
-	Fvector	tw_min, tw_max;
 
 	CMD4(CCC_Float, "r__geometry_lod", &ps_r__LOD, 0.1f, 1.5f);
 	//.	CMD4(CCC_Float,		"r__geometry_lod_pow",	&ps_r__LOD_Power,			0,		2		);

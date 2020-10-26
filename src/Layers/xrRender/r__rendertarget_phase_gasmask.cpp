@@ -35,7 +35,7 @@ void CRenderTarget::phase_gasmask()
 	RCache.set_Element(s_gasmask->E[0]);
 
 	//Set paramterers
-	RCache.set_c("pp_gasmask", pp_gasmask.x, pp_gasmask.y, pp_gasmask.z, 0);
+	RCache.set_c("pp_gasmask", ps_r2_drops_control.x, ps_r2_drops_control.y, ps_r2_drops_control.z, 0);
 
 	//Set geometry
 	RCache.set_Geometry(g_combine);
