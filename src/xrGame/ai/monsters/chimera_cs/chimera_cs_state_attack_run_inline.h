@@ -5,9 +5,9 @@
 template <typename _Object>
 CStateChimecsAttackRunAbstract::CStateChimecsAttackRun(_Object *obj) : inherited(obj)
 {
-	add_state(eStateAttack_MoveToHomePoint,	new CStateMonsterAttackMoveToHomePoint<CChimecs> (obj));	
- 	add_state(eStateAttack_Run_chimera,				new CStateMonsterAttackRun<CChimecs> 			(obj));
- 	add_state(eStateAttack_Melee_chimera,			new CStateMonsterAttackMelee<CChimecs> 			(obj));	
+	add_state(eStateAttack_MoveToHomePoint,	xr_new<CStateMonsterAttackMoveToHomePoint<CChimecs>>(obj));	
+ 	add_state(eStateAttack_Run_chimera,				xr_new<CStateMonsterAttackRun<CChimecs> >			(obj));
+ 	add_state(eStateAttack_Melee_chimera,			xr_new<CStateMonsterAttackMelee<CChimecs> >			(obj));	
 }
 
 template <typename _Object>

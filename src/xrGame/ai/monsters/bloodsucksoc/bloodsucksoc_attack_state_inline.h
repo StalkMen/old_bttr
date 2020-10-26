@@ -7,8 +7,8 @@
 template <typename _Object>
 CBloodsucksocStateAttackAbstract::CBloodsucksocStateAttack(_Object *obj) : inherited_attack(obj)
 {
-	add_state	(eStateVampire_Execute, new CStateBloodsucksocVampireExecute<_Object>(obj));
-	add_state	(eStateAttack_Hide, new CStateMonsterMoveToPointEx<_Object>(obj));
+	add_state	(eStateVampire_Execute, xr_new<CStateBloodsucksocVampireExecute<_Object>>(obj));
+	add_state	(eStateAttack_Hide, xr_new<CStateMonsterMoveToPointEx<_Object>>(obj));
 }
 
 template <typename _Object>

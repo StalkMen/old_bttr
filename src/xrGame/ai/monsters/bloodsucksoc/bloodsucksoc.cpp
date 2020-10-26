@@ -220,8 +220,8 @@ void CAI_Bloodsucksoc::LoadVampirePPEffector(LPCSTR section)
 void CAI_Bloodsucksoc::ActivateVampireEffector()
 {
 	Actor()->Cameras().AddCamEffector(
-		new CVampireCameraEffectorsoc(6.0f, get_head_position(this), get_head_position(Actor())));
-	Actor()->Cameras().AddPPEffector(new CVampirePPEffectsocor(pp_vampire_effector, 6.0f));
+		xr_new<CVampireCameraEffectorsoc>(6.0f, get_head_position(this), get_head_position(Actor())));
+	Actor()->Cameras().AddPPEffector(xr_new<CVampirePPEffectsocor>(pp_vampire_effector, 6.0f));
 }
 
 bool CAI_Bloodsucksoc::WantVampire() { return !!fsimilar(m_vampire_want_value, 1.f); }

@@ -16,8 +16,8 @@
 template <typename _Object>
 CBloodsucksocStateAttackHideAbstract::CBloodsucksocStateAttackHide(_Object *obj) : inherited(obj)
 {
-	add_state	(eStateAttack_HideInCover, new CStateMonsterMoveToPointEx<_Object>(obj));
-	add_state	(eStateAttack_CampInCover, new CStateBloodsucksocPredatorLite<_Object>(obj));
+	add_state	(eStateAttack_HideInCover, xr_new<CStateMonsterMoveToPointEx<_Object>> (obj));
+	add_state	(eStateAttack_CampInCover, xr_new<CStateBloodsucksocPredatorLite<_Object>>(obj));
 }
 
 template <typename _Object>

@@ -7,8 +7,8 @@
 template <typename _Object>
 CStateBloodsuckerVampireHideAbstract::CStateBloodsucksocVampireHide(_Object* obj) : inherited(obj)
 {
-    add_state(eStateVampire_RunAway, new CStateMonsterHideFromPoint<_Object>(obj));
-    add_state(eStatePredator, new CStateBloodsuckerPredator<_Object>(obj));
+    add_state(eStateVampire_RunAway, xr_new<CStateMonsterHideFromPoint<_Object>>(obj));
+    add_state(eStatePredator, xr_new<CStateBloodsuckerPredator<_Object>>(obj));
 }
 
 template <typename _Object>

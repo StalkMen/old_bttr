@@ -121,12 +121,12 @@ void CPoltergeist_cs::Load(LPCSTR section)
 
     if (xr_strcmp(polter_type, "flamer") == 0)
     {
-        m_flame = new CPolterFlame_cs(this);
+        m_flame = xr_new<CPolterFlame_cs>(this);
         m_flame->load(section);
     }
     else
     {
-        m_tele_cs = new CPolterTele_cs(this);
+        m_tele_cs = xr_new<CPolterTele_cs>(this);
         m_tele_cs->load(section);
     }
 }
@@ -309,7 +309,7 @@ void CPoltergeist_cs::on_deactivate()
 
 CMovementManager* CPoltergeist_cs::create_movement_manager()
 {
-    m_movement_manager = new CPoltergeisMovementManager_cs(this);
+    m_movement_manager = xr_new<CPoltergeisMovementManager_cs>(this);
 
     control().add(m_movement_manager, ControlCom::eControlPath);
     control().install_path_manager(m_movement_manager);

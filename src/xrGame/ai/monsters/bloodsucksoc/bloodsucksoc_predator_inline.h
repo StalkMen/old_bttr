@@ -16,9 +16,9 @@
 template <typename _Object>
 CStateBloodsucksocPredatorAbstract::CStateBloodsucksocPredator(_Object *obj) : inherited(obj)
 {
-	add_state	(eStatePredator_MoveToCover, new CStateMonsterMoveToPointEx<_Object>(obj));
-	add_state	(eStatePredator_LookOpenPlace, new CStateMonsterLookToPoint<_Object>(obj));
-	add_state	(eStatePredator_Camp, new CStateMonsterCustomAction<_Object>(obj));
+	add_state	(eStatePredator_MoveToCover, xr_new<CStateMonsterMoveToPointEx<_Object>>(obj));
+	add_state	(eStatePredator_LookOpenPlace, xr_new<CStateMonsterLookToPoint<_Object>>(obj));
+	add_state	(eStatePredator_Camp, xr_new<CStateMonsterCustomAction<_Object>>(obj));
 }
 
 template <typename _Object>

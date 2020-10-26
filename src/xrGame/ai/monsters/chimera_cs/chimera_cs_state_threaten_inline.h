@@ -9,9 +9,9 @@
 template <typename _Object>
 CStateChimecsThreatenAbstract::CStateChimecsThreaten(_Object *obj) : inherited(obj)
 {
-	add_state(eStateWalk,		new CStateChimecsThreatenWalk<_Object> 	(obj));
-	add_state(eStateThreaten,	new CStateChimecsThreatenRoar<_Object> 	(obj));
-	add_state(eStateSteal,		new CStateChimecsThreatenSteal<_Object> (obj));
+	add_state(eStateWalk,		xr_new<CStateChimecsThreatenWalk<_Object>> 	(obj));
+	add_state(eStateThreaten,	xr_new<CStateChimecsThreatenRoar<_Object>> 	(obj));
+	add_state(eStateSteal,		xr_new<CStateChimecsThreatenSteal<_Object>> (obj));
 }
 
 template <typename _Object>

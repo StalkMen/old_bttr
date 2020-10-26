@@ -12,10 +12,10 @@
 template <typename _Object>
 CStateBloodsuckerVampireAbstract::CStateBloodsucksocVampire(_Object* obj) : inherited(obj)
 {
-    add_state(eStateVampire_ApproachEnemy, new CStateBloodsucksocVampireApproach<_Object>(obj));
-    add_state(eStateVampire_Execute, new CStateBloodsucksocVampireExecute<_Object>(obj));
-    add_state(eStateVampire_RunAway, new CStateMonsterHideFromPoint<_Object>(obj));
-    add_state(eStateVampire_Hide, new CStateBloodsucksocVampireHide<_Object>(obj));
+    add_state(eStateVampire_ApproachEnemy, xr_new<CStateBloodsucksocVampireApproach<_Object>>(obj));
+    add_state(eStateVampire_Execute, xr_new<CStateBloodsucksocVampireExecute<_Object>>(obj));
+    add_state(eStateVampire_RunAway, xr_new<CStateMonsterHideFromPoint<_Object>>(obj));
+    add_state(eStateVampire_Hide, xr_new<CStateBloodsucksocVampireHide<_Object>>(obj));
 }
 
 template <typename _Object>
