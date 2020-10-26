@@ -496,6 +496,7 @@
     <ClCompile Include="..\xrRender\r__rendertarget_phase_fxaa.cpp" />
     <ClCompile Include="..\xrRender\r__rendertarget_phase_smaa.cpp" />
     <ClCompile Include="..\xrRender\r__rendertarget_phase_sunshafts.cpp" />
+	<ClCompile Include="..\xrRender\r__rendertarget_phase_gasmask.cpp" />
     <ClCompile Include="..\xrRender\r__screenshot.cpp" />
     <ClCompile Include="..\xrRender\r__sector.cpp" />
     <ClCompile Include="..\xrRender\r__sector_traversal.cpp" />

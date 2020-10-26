@@ -366,6 +366,7 @@
     <ClCompile Include="..\xrRender\r__rendertarget_phase_fxaa.cpp" />
     <ClCompile Include="..\xrRender\r__rendertarget_phase_smaa.cpp" />
     <ClCompile Include="..\xrRender\r__rendertarget_phase_sunshafts.cpp" />
+	<ClCompile Include="..\xrRender\r__rendertarget_phase_gasmask.cpp" />
     <ClCompile Include="dx10_shaders.cpp" />
     <ClInclude Include="..\xrRender\DX_SMAP_Allocator.h" />
     <ClInclude Include="stdafx.h" />
