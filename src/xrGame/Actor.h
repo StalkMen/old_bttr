@@ -172,7 +172,7 @@ public:
     
     virtual void OnItemRuck		(CInventoryItem *inventory_item, const SInvItemPlace& previous_place);
     virtual void OnItemBelt		(CInventoryItem *inventory_item, const SInvItemPlace& previous_place);
-    
+            void MoveArtefactBelt(const CArtefact* artefact, bool on_belt);
     virtual void OnItemDrop		(CInventoryItem *inventory_item, bool just_before_destroy);
     virtual void OnItemDropUpdate ();
 
@@ -217,6 +217,8 @@ protected:
     ref_sound			m_HeavyBreathSnd;
     ref_sound			m_BloodSnd;
     ref_sound			m_DangerSnd;
+
+    xr_vector<const CArtefact*> m_ArtefactsOnBelt;
 
 protected:
     // Death

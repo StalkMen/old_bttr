@@ -14,6 +14,7 @@ class	CMissile;
 class	CInventoryItem;
 class	CUIHudStatesWnd;
 class	CUIMotionIcon;
+class	CUIArtefactPanel;
 
 class CUIMainIngameWnd: public CUIWindow  
 {
@@ -25,6 +26,7 @@ public:
 	virtual void Draw();
 	virtual void Update();
 
+	CUIArtefactPanel* m_artefactPanel;
 
 protected:
 	

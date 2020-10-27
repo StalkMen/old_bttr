@@ -51,6 +51,8 @@
 #	include "../xrPhysics/phvalide.h"
 #endif
 
+#include "ui/UIArtefactPanel.h"
+
 int			g_cl_InterpolationType		= 0;
 u32			g_cl_InterpolationMaxPoints = 0;
 int			g_dwInputUpdateDelta		= 20;
@@ -546,6 +548,8 @@ BOOL CActor::net_Spawn		(CSE_Abstract* DC)
 	CSE_ALifeTraderAbstract	 *pTA	= smart_cast<CSE_ALifeTraderAbstract*>(e);
 	set_money				(pTA->m_dwMoney, false);
 
+	m_ArtefactsOnBelt.clear();
+
 	ROS()->force_mode	(IRender_ObjectSpecific::TRACE_ALL);
 
 	//mstate_wishful = E->mstate;
@@ -720,6 +724,10 @@ void CActor::net_Destroy	()
 	m_holder=NULL;
 	m_holderID=u16(-1);
 	
+	m_ArtefactsOnBelt.clear();
+	if (Level().CurrentViewEntity() == this)
+		CurrentGameUI()->UIMainIngameWnd->m_artefactPanel->InitIcons(m_ArtefactsOnBelt);
+
 	SetDefaultVisualOutfit(NULL);
 
 

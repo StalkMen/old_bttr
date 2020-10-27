@@ -53,6 +53,7 @@
 #include "game_cl_capture_the_artefact.h"
 #include "UIHudStatesWnd.h"
 #include "UIActorMenu.h"
+#include "UIArtefactPanel.h"
 
 void test_draw	();
 void test_key	(int dik);
@@ -89,6 +90,7 @@ extern u32  type_hud_token;
 CUIMainIngameWnd::CUIMainIngameWnd():m_pPickUpItem(nullptr),m_pMPChatWnd(nullptr),UIArtefactIcon(nullptr),m_pMPLogWnd(nullptr)
 {
 	UIZoneMap					= xr_new<CUIZoneMap>();
+    m_artefactPanel             = xr_new<CUIArtefactPanel>();
 }
 
 #include "UIProgressShape.h"
@@ -98,6 +100,7 @@ CUIMainIngameWnd::~CUIMainIngameWnd()
 {
 	DestroyFlashingIcons		();
 	xr_delete					(UIZoneMap);
+    xr_delete                   (m_artefactPanel);
 	HUD_SOUND_ITEM::DestroySound(m_contactSnd);
 	xr_delete					(g_MissileForceShape);
 	xr_delete					(UIWeaponJammedIcon);
@@ -323,6 +326,9 @@ void CUIMainIngameWnd::Init()
 	UIMotionIcon->SetAutoDelete(true);
 	UIZoneMap->MapFrame().AttachChild(UIMotionIcon);
 	UIMotionIcon->Init(UIZoneMap->MapFrame().GetWndRect());
+
+    m_artefactPanel->InitFromXML(uiXml, "artefact_panel", 0);
+    this->AttachChild(m_artefactPanel);
 
 	UIStaticDiskIO = UIHelper::CreateStatic(uiXml, "disk_io", this);
 
