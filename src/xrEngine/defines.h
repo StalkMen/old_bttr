@@ -13,6 +13,9 @@ ENGINE_API extern BOOL bDebug;
 // textures
 ENGINE_API extern int psTextureLOD;
 
+extern ENGINE_API bool BttR_mode;
+extern ENGINE_API bool Call_of_Chernobyl_mode;
+
 // psDeviceFlags
 enum
 {

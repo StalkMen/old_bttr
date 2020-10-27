@@ -212,6 +212,9 @@ struct path_excluder_predicate
     xr_auth_strings_t const* m_ignore;
 };
 
+ENGINE_API bool BttR_mode = false;
+ENGINE_API bool Call_of_Chernobyl_mode = false;
+
 template <typename T>
 void InitConfig(T& config, pcstr name, bool fatal = true,
     bool readOnly = true, bool loadAtStart = true, bool saveAtEnd = true,
@@ -243,8 +246,21 @@ PROTECT_API void InitSettings()
 
     InitConfig(pSettings, "system.ltx");
     InitConfig(pSettingsAuth, "system.ltx", true, true, true, false, 0, includeFilter);
-    InitConfig(pFFSettings, "weapons\\weapon_config.export", false, true, true, false);
+    InitConfig(pFFSettings, "touch_of_ray.export", false, true, true, false);
     InitConfig(pGameIni, "game.ltx");
+
+    pcstr gameMode = READ_IF_EXISTS(pFFSettings, r_string, "compatibility", "game_mode", "bttr");
+
+    if (xr_strcmp("bttr", gameMode) == 0)
+    {
+        BttR_mode = true;
+        Call_of_Chernobyl_mode = false;
+    }
+    else if (xr_strcmp("coc", gameMode) == 0)
+    {
+        BttR_mode = false;
+        Call_of_Chernobyl_mode = true;
+    }
 }
 
 PROTECT_API void InitConsole()
