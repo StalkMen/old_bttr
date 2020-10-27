@@ -11,11 +11,7 @@ void	CBlender_gasmask::Compile(CBlender_Compile& C)
 	switch (C.iElement)
 	{
 	case 0:
-
-		const bool __ = false;
-		if (__ == true)
-			C.r_Pass("stub_screen_space", "bttr_gasmask", FALSE, FALSE, FALSE);
-
+		C.r_Pass("stub_screen_space", "bttr_gasmask", FALSE, FALSE, FALSE);
 		C.r_dx10Texture("s_image", r2_RT_generic0);
 		
 		C.r_dx10Texture("s_gasmask_0", "shaders\\gasmasks\\mask_nm_0");
