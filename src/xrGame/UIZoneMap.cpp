@@ -104,7 +104,7 @@ void CUIZoneMap::Init()
             }
         }
 
-        m_activeMap = new CUIMiniMap();
+        m_activeMap = xr_new<CUIMiniMap>();
         m_clipFrame.AttachChild(m_activeMap);
         m_activeMap->SetAutoDelete(true);
 
@@ -133,7 +133,7 @@ void CUIZoneMap::Init()
 
         m_clock_wnd = UIHelper::CreateStatic(uiXml, "minimap:clock_wnd", &m_background);
 
-        m_activeMap = new CUIMiniMap();
+        m_activeMap = xr_new<CUIMiniMap>();
         m_clipFrame.AttachChild(m_activeMap);
         m_activeMap->SetAutoDelete(true);
 
@@ -200,12 +200,18 @@ void CUIZoneMap::Render			()
 	if ( !visible )
 		return;
 
+    if (psActorFlags.test(AF_BOOL_DISABLE_MINIMAP) && type_hud_token != 2)
+        return;
+
 	m_clipFrame.Draw	();
 	m_background.Draw	();
 }
 
 void CUIZoneMap::Update()
 {
+    if (psActorFlags.test(AF_BOOL_DISABLE_MINIMAP) && type_hud_token != 2)
+        return;
+
 	CActor* pActor = smart_cast<CActor*>( Level().CurrentViewEntity() );
 	if ( !pActor ) return;
 

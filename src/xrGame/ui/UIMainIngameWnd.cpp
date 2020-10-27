@@ -59,7 +59,6 @@ void test_key	(int dik);
 
 #include "../Include/xrRender/Kinematics.h"
 
-
 using namespace InventoryUtilities;
 //BOOL		g_old_style_ui_hud			= FALSE;
 const u32	g_clWhite					= 0xffffffff;
@@ -87,8 +86,7 @@ extern u32  type_hud_token;
 #define MAININGAME_XML_CS "type_huds\\maingame_cs.xml"
 #define MAININGAME_XML_PCH "type_hud\\maingame_pch.xml"
 
-CUIMainIngameWnd::CUIMainIngameWnd()
-:/*m_pGrenade(NULL),m_pItem(NULL),*/m_pPickUpItem(NULL),m_pMPChatWnd(NULL),UIArtefactIcon(NULL),m_pMPLogWnd(NULL)
+CUIMainIngameWnd::CUIMainIngameWnd():m_pPickUpItem(nullptr),m_pMPChatWnd(nullptr),UIArtefactIcon(nullptr),m_pMPLogWnd(nullptr)
 {
 	UIZoneMap					= xr_new<CUIZoneMap>();
 }
@@ -167,7 +165,7 @@ void CUIMainIngameWnd::Init()
 
 	uiXml.SetLocalRoot(uiXml.GetRoot());
 
-	m_UIIcons = new CUIScrollView();
+	m_UIIcons = xr_new<CUIScrollView>();
 	m_UIIcons->SetAutoDelete(true);
 	xml_init.InitScrollView(uiXml, "icons_scroll_view", 0, m_UIIcons);
 	AttachChild(m_UIIcons);
@@ -321,22 +319,21 @@ void CUIMainIngameWnd::Init()
 
 	uiXml.SetLocalRoot(uiXml.GetRoot());
 
-	UIMotionIcon = new CUIMotionIcon();
+	UIMotionIcon = xr_new<CUIMotionIcon>();
 	UIMotionIcon->SetAutoDelete(true);
 	UIZoneMap->MapFrame().AttachChild(UIMotionIcon);
 	UIMotionIcon->Init(UIZoneMap->MapFrame().GetWndRect());
 
-
 	UIStaticDiskIO = UIHelper::CreateStatic(uiXml, "disk_io", this);
 
-	m_ui_hud_states = new CUIHudStatesWnd();
+	m_ui_hud_states = xr_new<CUIHudStatesWnd>();
 	m_ui_hud_states->SetAutoDelete(true);
 	AttachChild(m_ui_hud_states);
 	m_ui_hud_states->InitFromXml(uiXml, "hud_states");
 
 	for (int i = 0; i < 4; i++)
 	{
-		m_quick_slots_icons.push_back(new CUIStatic());
+		m_quick_slots_icons.push_back(xr_new<CUIStatic>());
 		m_quick_slots_icons.back()->SetAutoDelete(true);
 		AttachChild(m_quick_slots_icons.back());
 		string32 path;
@@ -360,7 +357,7 @@ void CUIMainIngameWnd::Draw()
 	CActor* pActor		= smart_cast<CActor*>(Level().CurrentViewEntity());
 
 	// show IO icon
-	bool IOActive	= (FS.dwOpenCounter>0);
+	bool IOActive	= (FS.dwOpenCounter>0) && (!(psActorFlags.test(AF_BOOL_DISABLE_MINIMAP)) && type_hud_token != 2);
 	if	(IOActive)	UIStaticDiskIO_start_time = Device.fTimeGlobal;
 
 	if ((UIStaticDiskIO_start_time+1.0f) < Device.fTimeGlobal)	UIStaticDiskIO->Show(false); 
@@ -637,9 +634,9 @@ void CUIMainIngameWnd::AnimateContacts(bool b_snd)
 {
 	UIZoneMap->Counter_ResetClrAnimation();
 
-	if(b_snd)
-		HUD_SOUND_ITEM::PlaySound	(m_contactSnd, Fvector().set(0,0,0), 0, true );
-
+	if(b_snd )
+        if (!(psActorFlags.test(AF_BOOL_DISABLE_MINIMAP)) && type_hud_token != 2)
+		    HUD_SOUND_ITEM::PlaySound	(m_contactSnd, Fvector().set(0,0,0), 0, true );
 }
 
 

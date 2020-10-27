@@ -69,12 +69,17 @@ void CUIActorMenu::InitInventoryMode()
 
 		VERIFY( CurrentGameUI() );
 
-		if (type_hud_token == 0 || type_hud_token == 1 || type_hud_token == 2 || type_hud_token == 3 || type_hud_token == 4 || type_hud_token == 6 || type_hud_token == 8)
+		if (type_hud_token == 0 || type_hud_token == 1 || type_hud_token == 3 || type_hud_token == 4 || type_hud_token == 6 || type_hud_token == 8)
+		{
 			if (!psActorFlags.test(AF_BOOL_DISABLE_MINIMAP))
 				CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(true);
+		}
+		else if (type_hud_token == 2)
+		{
+			CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(true);
+		}
 
-		if (!strstr(Core.Params, "-old_ver"))
-			m_clock_value->Show				(true); 
+		m_clock_value->Show					(true); 
 	}
 	else
 	{
