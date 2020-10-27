@@ -44,7 +44,7 @@ void CUIActorMenu::InitTradeMode()
 	m_LeftDelimiter->Show			(true);
 	m_LeftBackground->Show			(true);
 	
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 		m_clock_value->Show				(true);
 	
 	m_PartnerBottomInfo->Show		(true);
@@ -172,7 +172,7 @@ void CUIActorMenu::DeInitTradeMode()
 	m_LeftDelimiter->Show			(false);
 	m_LeftBackground->Show			(false);
 	
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 		m_clock_value->Show				(false);
 	
 	m_PartnerBottomInfo->Show		(false);

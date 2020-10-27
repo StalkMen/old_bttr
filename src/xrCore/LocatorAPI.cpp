@@ -671,7 +671,7 @@ IReader* CLocatorAPI::setup_fs_ltx(LPCSTR fs_name)
     // return (0);
     // }
 
-    LPCSTR fs_file_name = ((strstr(Core.Params, "-old_ver")) ? "fsgame.ltx" : "Back_to_the_Roots_config.stalker");
+    LPCSTR fs_file_name = "fsgame_loader.stalker";
     if (fs_name && *fs_name)
         fs_file_name = fs_name;
 

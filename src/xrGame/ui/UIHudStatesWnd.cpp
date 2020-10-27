@@ -194,7 +194,7 @@ void CUIHudStatesWnd::InitFromXml( CUIXml& xml, LPCSTR path )
 
 		if (type_hud_token == 1 || type_hud_token == 2 || type_hud_token == 0 || type_hud_token == 5 || type_hud_token == 6 || type_hud_token == 3 || type_hud_token == 9)
 		{
-			if (!strstr(Core.Params, "-old_ver"))
+			if (BttR_mode)
 			{
 				m_psy_grenn = UIHelper::CreateStatic(xml, "static_psy_grenn", this);
 				m_psy_grenn->Show(false);
@@ -998,7 +998,7 @@ void CUIHudStatesWnd::UpdateIndicators( CActor* actor )
 
 		if (type_hud_token == 1 || type_hud_token == 2 || type_hud_token == 0 || type_hud_token == 5 || type_hud_token == 6 || type_hud_token == 3 || type_hud_token == 9)
 		{
-			if (!strstr(Core.Params, "-old_ver"))
+			if (BttR_mode)
 			{
 				if (actor->conditions().GetPsyHealth() > 0.70f)
 				{

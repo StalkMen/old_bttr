@@ -46,7 +46,7 @@ extern u32 type_hud_token;
 
 void CUIActorMenu::InitInventoryMode()
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		m_pInventoryBagList->Show			(true);
 		m_pInventoryBeltList->Show			(true);
@@ -61,8 +61,12 @@ void CUIActorMenu::InitInventoryMode()
 		m_pInventoryTorchList->Show			(true);
 		
 		m_pInventoryAutomaticList->Show		(true);
-		m_pQuickSlot->Show					(true);
+
+		if (type_hud_token != 2)
+			m_pQuickSlot->Show				(true);
+
 		m_pTrashList->Show					(true);
+
 		m_RightDelimiter->Show				(false);
 
 		InitInventoryContents				(m_pInventoryBagList);
@@ -70,14 +74,9 @@ void CUIActorMenu::InitInventoryMode()
 		VERIFY( CurrentGameUI() );
 
 		if (type_hud_token == 0 || type_hud_token == 1 || type_hud_token == 3 || type_hud_token == 4 || type_hud_token == 6 || type_hud_token == 8)
-		{
-			if (!psActorFlags.test(AF_BOOL_DISABLE_MINIMAP))
-				CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(true);
-		}
-		else if (type_hud_token == 2)
-		{
 			CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(true);
-		}
+		else if (type_hud_token == 2)
+			CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(true);
 
 		m_clock_value->Show					(true); 
 	}
@@ -104,7 +103,7 @@ void CUIActorMenu::InitInventoryMode()
 void CUIActorMenu::DeInitInventoryMode()
 {
 	m_pTrashList->Show				(false);
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 		m_clock_value->Show				(false); 
 }
 
@@ -276,7 +275,7 @@ bool RemoveItemFromList(CUIDragDropListEx* lst, PIItem pItem)
 
 void CUIActorMenu::OnInventoryAction(PIItem pItem, u16 action_type)
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		CUIDragDropListEx* all_lists[] =
 		{
@@ -580,7 +579,7 @@ void CUIActorMenu::InitCellForSlot( u16 slot_idx )
 
 void CUIActorMenu::InitInventoryContents(CUIDragDropListEx* pBagList)
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		ClearAllLists				();
 		m_pMouseCapturer			= NULL;
@@ -784,7 +783,7 @@ bool CUIActorMenu::ToSlotScript(CScriptGameObject* GO, bool force_place, u16 slo
 
 bool CUIActorMenu::ToSlot(CUICellItem* itm, bool force_place, u16 slot_id)
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		CUIDragDropListEx*	old_owner			= itm->OwnerList();
 		PIItem	iitem							= (PIItem)itm->m_pData;
@@ -1177,7 +1176,7 @@ bool CUIActorMenu::ToBelt(CUICellItem* itm, bool b_use_cursor_pos)
 }
 CUIDragDropListEx* CUIActorMenu::GetSlotList(u16 slot_idx)
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		if ( slot_idx == NO_ACTIVE_SLOT )
 		{
@@ -1980,7 +1979,7 @@ void CUIActorMenu::ProcessPropertiesBoxClicked( CUIWindow* w, void* d )
 
 void CUIActorMenu::UpdateOutfit()
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 		for ( u8 i = 0; i < e_af_count1; ++i )
 			m_belt_list_over1[i]->SetVisible( true );
 	else
@@ -2010,7 +2009,7 @@ void CUIActorMenu::UpdateOutfit()
 	m_pInventoryBeltList->SetCellsCapacity( afc );
 
 	for ( u8 i = 0; i < af_count ; ++i )
-		if (!strstr(Core.Params, "-old_ver"))
+		if (BttR_mode)
 			m_belt_list_over1[i]->SetVisible( false );
 		else
 			m_belt_list_over2[i]->SetVisible(false);

@@ -26,7 +26,7 @@ void CUIActorMenu::InitUpgradeMode()
 	m_pUpgradeWnd->Show( true );
 	m_pQuickSlot->Show(true);
 	
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 		m_clock_value->Show(true);
 	
 	InitInventoryContents( m_pInventoryBagList );
@@ -42,7 +42,7 @@ void CUIActorMenu::DeInitUpgradeMode()
 	m_pUpgradeWnd->set_info_cur_upgrade( NULL );
 	m_pUpgradeWnd->m_btn_repair->Enable( false );
 	
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 		m_clock_value->Show(false);
 	
 	if ( m_upgrade_selected )

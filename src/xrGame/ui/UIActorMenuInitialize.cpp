@@ -44,7 +44,7 @@ CUIActorMenu::~CUIActorMenu()
 
 void CUIActorMenu::Construct()
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		CUIXml								uiXml;
 		uiXml.Load							(CONFIG_PATH, UI_PATH, "actor_menu.xml");
@@ -184,7 +184,7 @@ void CUIActorMenu::Construct()
 		m_ActorMoney	= UIHelper::CreateTextWnd(uiXml, "actor_money_static", this);
 		m_PartnerMoney	= UIHelper::CreateTextWnd(uiXml, "partner_money_static", this);
 		
-		if (!strstr(Core.Params, "-old_ver"))
+		if (BttR_mode)
 			m_clock_value 	= UIHelper::CreateStatic(uiXml, "clock_value", this);
 		
 		m_QuickSlot1	= UIHelper::CreateTextWnd(uiXml, "quick_slot1_text", this);

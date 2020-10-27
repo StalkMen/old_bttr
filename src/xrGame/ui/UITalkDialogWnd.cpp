@@ -35,7 +35,7 @@ void CUITalkDialogWnd::InitTalkDialogWnd()
 	CUIXmlInit					ml_init;
 
 	CUIXmlInit::InitWindow		(*m_uiXml, "main", 0, this);
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		CUIXmlInit::InitStatic		(*m_uiXml, "right_character_icon", 0, &UIOurIcon);
 		CUIXmlInit::InitStatic		(*m_uiXml, "left_character_icon", 0, &UIOthersIcon);

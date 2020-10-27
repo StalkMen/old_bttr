@@ -218,7 +218,7 @@ void CUIActorMenu::Update()
 		break;
 	case mmInventory:
 		{
-			if (!strstr(Core.Params, "-old_ver"))
+			if (BttR_mode)
 				m_clock_value->TextItemControl()->SetText(InventoryUtilities::GetGameTimeAsString(
 					InventoryUtilities::etpTimeToMinutes).c_str());
 			CurrentGameUI()->UIMainIngameWnd->UpdateZoneMap();
@@ -226,7 +226,7 @@ void CUIActorMenu::Update()
 		}
 	case mmTrade:
 		{
-			if (!strstr(Core.Params, "-old_ver"))
+			if (BttR_mode)
 				m_clock_value->TextItemControl()->SetText(InventoryUtilities::GetGameTimeAsString(
 					InventoryUtilities::etpTimeToMinutes).c_str());
 			if(m_pPartnerInvOwner->inventory().ModifyFrame() != m_trade_partner_inventory_state)
@@ -236,7 +236,7 @@ void CUIActorMenu::Update()
 		}
 	case mmUpgrade:
 		{
-			if (!strstr(Core.Params, "-old_ver"))
+			if (BttR_mode)
 				m_clock_value->TextItemControl()->SetText(InventoryUtilities::GetGameTimeAsString(
 					InventoryUtilities::etpTimeToMinutes).c_str());
 			UpdateUpgradeItem();
@@ -248,7 +248,7 @@ void CUIActorMenu::Update()
 			if ((m_pPartnerInvOwner && m_pPartnerInvOwner->inventory().ModifyFrame() != m_trade_partner_inventory_state) && update_loot_pick_soc == 1)
 				RefreshDeadBodyInventoryContents();
 			
-			if (!strstr(Core.Params, "-old_ver"))
+			if (BttR_mode)
 				m_clock_value->TextItemControl()->SetText(InventoryUtilities::GetGameTimeAsString(
 					InventoryUtilities::etpTimeToMinutes).c_str());
 			break;
@@ -306,7 +306,7 @@ void CUIActorMenu::CheckDistance()
 
 EDDListType CUIActorMenu::GetListType(CUIDragDropListEx* l)
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		if(l==m_pInventoryBagList)			return iActorBag;
 		if(l==m_pInventoryBeltList)			return iActorBelt;
@@ -510,7 +510,7 @@ void CUIActorMenu::UpdateItemsPlace()
 
 void CUIActorMenu::clear_highlight_lists()
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		m_InvSlot2Highlight->Show(false);
 		m_InvSlot3Highlight->Show(false);
@@ -586,7 +586,7 @@ void CUIActorMenu::clear_highlight_lists()
 
 void CUIActorMenu::highlight_item_slot(CUICellItem* cell_item)
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		PIItem item = (PIItem)cell_item->m_pData;
 		if(!item)
@@ -973,7 +973,7 @@ void CUIActorMenu::highlight_weapons_for_addon( PIItem addon_item, CUIDragDropLi
 
 void CUIActorMenu::ClearAllLists()
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		m_pInventoryBagList->ClearAll				(true);
 		
@@ -1060,7 +1060,7 @@ void CUIActorMenu::UpdateActorMP()
 
 bool CUIActorMenu::CanSetItemToList(PIItem item, CUIDragDropListEx* l, u16& ret_slot)
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		u16 item_slot = item->BaseSlot();
 		if( GetSlotList(item_slot)==l )
@@ -1113,7 +1113,7 @@ bool CUIActorMenu::CanSetItemToList(PIItem item, CUIDragDropListEx* l, u16& ret_
 }
 void CUIActorMenu::UpdateConditionProgressBars()
 {
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		PIItem itm = m_pActorInvOwner->inventory().ItemFromSlot(INV_SLOT_2);
 		if(itm)

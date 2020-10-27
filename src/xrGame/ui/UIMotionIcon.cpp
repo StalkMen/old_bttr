@@ -82,7 +82,7 @@ void CUIMotionIcon::Init(Frect const& zonemap_rect)
     else
     {
         if (type_hud_token == 0)
-            if (!strstr(Core.Params, "-old_ver"))
+            if (Call_of_Chernobyl_mode)
                 uiXml.Load(CONFIG_PATH, UI_PATH, MOTION_ICON_XML_COC);
             else 
                 uiXml.Load(CONFIG_PATH, UI_PATH, MOTION_ICON_XML_DEF);
@@ -176,9 +176,6 @@ void CUIMotionIcon::SetLuminosity(float Pos)
 void CUIMotionIcon::Draw()
 {
     if (!IsShown())
-        return;
-
-    if (psActorFlags.test(AF_BOOL_DISABLE_MINIMAP))
         return;
 
     inherited::Draw();

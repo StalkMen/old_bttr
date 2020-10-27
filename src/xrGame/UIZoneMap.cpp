@@ -48,7 +48,7 @@ void CUIZoneMap::Init()
     CUIXml uiXml;
 
     if (type_hud_token == 0)
-        if (!strstr(Core.Params, "-old_ver"))
+        if (BttR_mode)
             uiXml.Load(CONFIG_PATH, UI_PATH, ZONE_MAP_XML_COC);
         else
             uiXml.Load(CONFIG_PATH, UI_PATH, ZONE_MAP_XML_DEF);
@@ -200,18 +200,12 @@ void CUIZoneMap::Render			()
 	if ( !visible )
 		return;
 
-    if (psActorFlags.test(AF_BOOL_DISABLE_MINIMAP) && type_hud_token != 2)
-        return;
-
 	m_clipFrame.Draw	();
 	m_background.Draw	();
 }
 
 void CUIZoneMap::Update()
 {
-    if (psActorFlags.test(AF_BOOL_DISABLE_MINIMAP) && type_hud_token != 2)
-        return;
-
 	CActor* pActor = smart_cast<CActor*>( Level().CurrentViewEntity() );
 	if ( !pActor ) return;
 

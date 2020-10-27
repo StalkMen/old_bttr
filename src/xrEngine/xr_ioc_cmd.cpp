@@ -659,7 +659,7 @@ ENGINE_API float psHUD_FOV = psHUD_FOV_def; //--#SM+#--
 ENGINE_API BOOL game_value_discord_status = 1;
 
 BOOL xrengint_noprefetch = 0;
-BOOL ps_rs_loading_stages = /*(!strstr(Core.Params, "-old_ver")) ? 1 :*/ 0;
+BOOL ps_rs_loading_stages = 0;
 
 extern int g_ErrorLineCount;
 extern int	show_FPS_only = 0;
@@ -776,7 +776,7 @@ void CCC_Register()
     CMD1(CCC_Screenmode, "monitor_mode");
     //OldSerpskiStalker, переключение версий между BttR и 1.4.22
     {
-        if (!strstr(Core.Params, "-old_ver"))
+        if (BttR_mode)
             p_engine_flags32.set(ITS_CLEAR_1_4_22, false);
         else
         {
@@ -806,7 +806,7 @@ void CCC_Register()
 
     CMD4(CCC_Float,     "xrSound_snd_speed",    &psSpeedOfSound, 0.2f, 2.0f);
 
-    if (!strstr(Core.Params, "-old_ver"))
+    if (BttR_mode)
         CMD4(CCC_Integer, "xrEngine_loadingstages", &ps_rs_loading_stages, 0, 1);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 

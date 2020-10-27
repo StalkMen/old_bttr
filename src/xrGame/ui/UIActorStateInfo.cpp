@@ -62,7 +62,7 @@ void ui_actor_state_wnd::init_from_xml( CUIXml& xml, LPCSTR path )
 		m_state[i]->set_hint_wnd(m_hint_wnd);
 	}
 
-	if (strstr(Core.Params, "-old_ver"))
+	if (Call_of_Chernobyl_mode)
 	{
 		//	m_state[stt_stamina]->init_from_xml( xml, "stamina_state" );
 		m_state[stt_health]->init_from_xml(xml, "health_state");
@@ -113,7 +113,7 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 	if (!actor)
 		return;
 
-	if (strstr(Core.Params, "-old_ver"))
+	if (Call_of_Chernobyl_mode)
 	{
 		float value = 0.0f;
 

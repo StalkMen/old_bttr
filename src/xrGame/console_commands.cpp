@@ -1913,7 +1913,7 @@ void CCC_RegisterCommands()
 	CMD1(CCC_TimeFactor, "xrGame_time_factor");
 
 	CMD3(CCC_Mask,    "xrGame_3d_scopes", &psActorFlags, AF_3DSCOPE_ENABLE);
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 	{
 		CMD3(CCC_Token, "xrGame_type_hud", &type_hud_token, type_hud_token_ext);
 		CMD4(CCC_Integer, "xrGame_game_ammo_belt_value", &game_value_ammo_belt, 0, 1);
@@ -1975,11 +1975,9 @@ void CCC_RegisterCommands()
 	psHUD_Flags.set(HUD_WEAPON, true);
 	psHUD_Flags.set(HUD_DRAW, true);
 	psHUD_Flags.set(HUD_INFO, true);
-	psActorFlags.set(AF_BOOL_DISABLE_MINIMAP, false);
 
 	CMD3(CCC_Mask, "hud_crosshair", &psHUD_Flags, HUD_CROSSHAIR);
 	CMD3(CCC_Mask, "hud_crosshair_dist", &psHUD_Flags, HUD_CROSSHAIR_DIST);
-	CMD3(CCC_Mask, "hud_disable_minimap", &psActorFlags, AF_BOOL_DISABLE_MINIMAP);
 
 	//#ifdef DEBUG
 	CMD4(CCC_Float, "hud_fov", &psHUD_FOV_def, 0.1f, 1.0f);
@@ -2126,7 +2124,7 @@ void CCC_RegisterCommands()
 	CMD1(CCC_ScriptCommand, "run_string");
 	CMD1(CCC_PHGravity, "ph_gravity");
 
-	if (strstr(Core.Params, "-old_ver"))
+	if (Call_of_Chernobyl_mode)
 		CMD3(CCC_Mask, "g_use_tracers", &psActorFlags, AF_USE_TRACERS);
 
 	CMD3(CCC_Mask, "g_autopickup", &psActorFlags, AF_AUTOPICKUP);

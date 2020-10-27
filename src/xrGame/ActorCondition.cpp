@@ -267,7 +267,7 @@ void CActorCondition::UpdateCondition()
 			}
 		}
 #pragma todo("OldSerpskiStalker. Включить смерть ГГ если пси-здоровье равно 0")
-		if (!strstr(Core.Params, "-old_ver"))
+		if (BttR_mode)
 			if(fis_zero(GetPsyHealth()))
 				SetHealth( 0.0f );
 	};

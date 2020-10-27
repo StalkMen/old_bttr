@@ -13,7 +13,6 @@ enum{
 		AF_CROUCH_TOGGLE	=(1<<10),
 		AF_USE_TRACERS		=(1<<11),
 		AF_3DSCOPE_ENABLE	=(1<<12),
-		AF_BOOL_DISABLE_MINIMAP =(1<<13),
 };
 
 extern Flags32	psActorFlags;

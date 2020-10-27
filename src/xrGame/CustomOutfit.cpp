@@ -335,7 +335,7 @@ bool CCustomOutfit::install_upgrade_impl( LPCSTR section, bool test )
 	clamp( m_fPowerLoss, 0.0f, 1.0f );
 
 	result |= process_if_exists( section, "artefact_count", &CInifile::r_u32, m_artefact_count, test );
-	clamp( m_artefact_count, (u32)0, (!strstr(Core.Params, "-old_ver")) ? (u32)16 : (u32)5 );
+	clamp( m_artefact_count, (u32)0, (BttR_mode) ? (u32)16 : (u32)5 );
 
 	return result;
 }

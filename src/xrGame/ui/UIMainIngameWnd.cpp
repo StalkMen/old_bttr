@@ -112,7 +112,7 @@ void CUIMainIngameWnd::Init()
 {
 	CUIXml uiXml;
     
-    if (!strstr(Core.Params, "-old_ver"))
+    if (BttR_mode)
     {
         if (type_hud_token == 0)
             uiXml.Load(CONFIG_PATH, UI_PATH, MAININGAME_XML_COC);
@@ -184,7 +184,7 @@ void CUIMainIngameWnd::Init()
 		m_ind_helmet_broken_coc = UIHelper::CreateStatic(uiXml, "indicator_helmet_broken", this);
 		m_ind_outfit_broken_coc = UIHelper::CreateStatic(uiXml, "indicator_outfit_broken", this);
 		m_ind_overweight_coc = UIHelper::CreateStatic(uiXml, "indicator_overweight", this);
-        if (!strstr(Core.Params, "-old_ver"))
+        if (BttR_mode)
         {
             m_ind_thirst_coc = UIHelper::CreateStatic(uiXml, "indicator_thirst", this);
             m_ind_slepping_coc = UIHelper::CreateStatic(uiXml, "indicator_sleep", this);
@@ -363,7 +363,7 @@ void CUIMainIngameWnd::Draw()
 	CActor* pActor		= smart_cast<CActor*>(Level().CurrentViewEntity());
 
 	// show IO icon
-	bool IOActive	= (FS.dwOpenCounter>0) && (!(psActorFlags.test(AF_BOOL_DISABLE_MINIMAP)) && type_hud_token != 2);
+	bool IOActive	= (FS.dwOpenCounter>0);
 	if	(IOActive)	UIStaticDiskIO_start_time = Device.fTimeGlobal;
 
 	if ((UIStaticDiskIO_start_time+1.0f) < Device.fTimeGlobal)	UIStaticDiskIO->Show(false); 
@@ -641,8 +641,7 @@ void CUIMainIngameWnd::AnimateContacts(bool b_snd)
 	UIZoneMap->Counter_ResetClrAnimation();
 
 	if(b_snd )
-        if (!(psActorFlags.test(AF_BOOL_DISABLE_MINIMAP)) && type_hud_token != 2)
-		    HUD_SOUND_ITEM::PlaySound	(m_contactSnd, Fvector().set(0,0,0), 0, true );
+		HUD_SOUND_ITEM::PlaySound	(m_contactSnd, Fvector().set(0,0,0), 0, true );
 }
 
 
@@ -846,7 +845,7 @@ void CUIMainIngameWnd::UpdateMainIndicators()
                 m_ind_starvation_coc->InitTexture("ui_inGame2_circle_hunger_red_coc");
         }
 
-        if (!strstr(Core.Params, "-old_ver"))
+        if (BttR_mode)
         {
             if (sleep_koef > 0.5)
                 m_ind_slepping_coc->Show(false);

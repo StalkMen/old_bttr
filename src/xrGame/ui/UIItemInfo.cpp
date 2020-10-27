@@ -236,7 +236,7 @@ void CUIItemInfo::InitItem(CUICellItem* pCellItem, CInventoryItem* pCompareItem,
 		}
 	}
 
-	if (UICost && (!strstr(Core.Params, "-old_ver")))
+	if (UICost && BttR_mode)
 	{
 		sprintf(str, "%d RU", pInvItem->Cost());
 		UICost->SetText(str);

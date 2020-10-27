@@ -21,11 +21,11 @@ xr_token							qpreset_token							[ ]={
 u32	ps_r_ssao_mode = 2;
 xr_token qssao_mode_token[] = 
 {
-	{ (strstr(Core.Params, "-old_ver")) ? "disabled" : "ssao_disabled",			0},
-	{ (strstr(Core.Params, "-old_ver")) ? "default"	 : "SSAO",					1},
-	{ (strstr(Core.Params, "-old_ver")) ? "hdao"     : "HDAO",					2},
-	{ (strstr(Core.Params, "-old_ver")) ? "hbao"     : "HBAO",					3},
-	{ (strstr(Core.Params, "-old_ver")) ? "not_supported_by_shaders_ssdo" : "SSDO",	(strstr(Core.Params, "-old_ver")) ? 0 : 4},
+	{ (Call_of_Chernobyl_mode) ? "disabled" : "ssao_disabled",			0},
+	{ (Call_of_Chernobyl_mode) ? "default"	 : "SSAO",					1},
+	{ (Call_of_Chernobyl_mode) ? "hdao"     : "HDAO",					2},
+	{ (Call_of_Chernobyl_mode) ? "hbao"     : "HBAO",					3},
+	{ (Call_of_Chernobyl_mode) ? "not_supported_by_shaders_ssdo" : "SSDO",	(Call_of_Chernobyl_mode) ? 0 : 4},
 	{ nullptr, 0 }
 };
 
@@ -453,31 +453,31 @@ public:
 		switch	(*value)	
 		{
 			case 0:		
-				if (strstr(Core.Params, "-old_ver"))
+				if (Call_of_Chernobyl_mode)
 					xr_strcpy(_cfg, "rspec_minimum.ltx");	
 				else
 					xr_strcpy(_cfg, "xrRender_DX_settings\\minimum_dx.ltx");
 				break;
 			case 1:		
-				if (strstr(Core.Params, "-old_ver"))
+				if (Call_of_Chernobyl_mode)
 					xr_strcpy(_cfg, "rspec_low.ltx");		
 				else
 					xr_strcpy(_cfg, "xrRender_DX_settings\\low_dx.ltx");
 				break;
 			case 2:		
-				if (strstr(Core.Params, "-old_ver"))
+				if (Call_of_Chernobyl_mode)
 					xr_strcpy(_cfg, "rspec_default.ltx");	
 				else
 					xr_strcpy(_cfg, "xrRender_DX_settings\\default_dx.ltx");
 				break;
 			case 3:		
-				if (strstr(Core.Params, "-old_ver"))
+				if (Call_of_Chernobyl_mode)
 					xr_strcpy(_cfg, "rspec_high.ltx");	
 				else
 					xr_strcpy(_cfg, "xrRender_DX_settings\\high_dx.ltx");
 				break;
 			case 4:	
-				if (strstr(Core.Params, "-old_ver"))
+				if (Call_of_Chernobyl_mode)
 					xr_strcpy(_cfg, "rspec_extreme.ltx");	
 				else
 					xr_strcpy(_cfg, "xrRender_DX_settings\\extreme_dx.ltx");
@@ -727,11 +727,11 @@ xr_token screen_mode_token[] = {
 { nullptr,	  0}
 };
 
-u32	RenderThemeShaders = (strstr(Core.Params, "-old_ver")) ? 0 : 1;
+u32	RenderThemeShaders = (Call_of_Chernobyl_mode) ? 0 : 1;
 xr_token RenderThemeShaders_token[] = {
-{ (!strstr(Core.Params, "-old_ver")) ? "cop_shaders_1_6_02" : "default_cop_shaders",																			   0},
-{ (!strstr(Core.Params, "-old_ver")) ? "old_shaders_theme892" : "Not_support_It_will_reset_to_the_original_shaders",	  (!strstr(Core.Params, "-old_ver")) ? 1 : 0},
-{ (!strstr(Core.Params, "-old_ver")) ? "new_shaders_theme895" : "Not_support_It_will_reset_to_the_original_shaders",	  (!strstr(Core.Params, "-old_ver")) ? 2 : 0},
+{ (BttR_mode) ? "cop_shaders_1_6_02" : "default_cop_shaders",																			   0},
+{ (BttR_mode) ? "old_shaders_theme892" : "Not_support_It_will_reset_to_the_original_shaders",	  (BttR_mode) ? 1 : 0},
+{ (BttR_mode) ? "new_shaders_theme895" : "Not_support_It_will_reset_to_the_original_shaders",	  (BttR_mode) ? 2 : 0},
 { nullptr,	  0}
 };
 
@@ -739,8 +739,8 @@ u32	ps_r_type_aa = 0;
 xr_token type_aa_token[] = {
 { "disable_aa",	  0},
 { "FXAA",		  1},
-{ (!strstr(Core.Params, "-old_ver")) ? "DLAA" : "not_supported_by_shaders_DLAA",		  (!strstr(Core.Params, "-old_ver")) ? 2 : 0},
-{ (!strstr(Core.Params, "-old_ver")) ? "SMAA" : "not_supported_by_shaders_SMAA",		  (!strstr(Core.Params, "-old_ver")) ? 3 : 0},
+{ (BttR_mode) ? "DLAA" : "not_supported_by_shaders_DLAA",		  (BttR_mode) ? 2 : 0},
+{ (BttR_mode) ? "SMAA" : "not_supported_by_shaders_SMAA",		  (BttR_mode) ? 3 : 0},
 { nullptr,		  0}
 };
 

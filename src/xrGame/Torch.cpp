@@ -77,7 +77,7 @@ void CTorch::Load(LPCSTR section)
 	inherited::Load			(section);
 	light_trace_bone		= pSettings->r_string(section,"light_trace_bone");
 	
-	if (!strstr(Core.Params, "-old_ver"))
+	if (BttR_mode)
 		m_battery_duration = pSettings->r_u32(section, "battery_duration");
 	else
 		m_battery_duration = READ_IF_EXISTS(pSettings, r_u32, section, "battery_duration", 999999999);
