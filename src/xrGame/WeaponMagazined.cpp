@@ -1155,12 +1155,12 @@ void CWeaponMagazined::Chamber()
     if (m_bChamberStatus == true && m_ammoElapsed.type1 >= 1 && m_chamber == false)
     {
         m_chamber = true;
-        iMagazineSize = iMagazineSize + 1;
+        iMagazineSize++;
     }
     else if (m_bChamberStatus == true && m_ammoElapsed.type1 == 0 && m_chamber == true)
     {
         m_chamber = false;
-        iMagazineSize = iMagazineSize - 1;
+        iMagazineSize--;
     }
 }
 

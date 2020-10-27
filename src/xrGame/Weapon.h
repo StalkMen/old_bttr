@@ -516,6 +516,7 @@ protected:
     virtual void			FireEnd();
 
     virtual void			Reload();
+    virtual void			UnloadMagazine(bool spawn_ammo = true, u32 into_who_id = u32(-1), bool unload_secondary = false);
     void			StopShooting();
 
     // обработка визуализации выстрела

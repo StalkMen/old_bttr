@@ -1412,6 +1412,7 @@ bool CWeapon::SwitchAmmoType(u32 flags)
         m_set_next_ammoType_on_reload = l_newType;
         if (OnServer())
         {
+            UnloadMagazine();
             Reload();
         }
     }
@@ -1624,9 +1625,15 @@ BOOL CWeapon::IsMisfire() const
 {
     return bMisfire;
 }
+
 void CWeapon::Reload()
 {
     OnZoomOut();
+}
+
+void CWeapon::UnloadMagazine(bool spawn_ammo, u32 into_who_id, bool unload_secondary)
+{
+
 }
 
 bool CWeapon::IsGrenadeLauncherAttached() const
