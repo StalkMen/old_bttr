@@ -18,6 +18,9 @@
 #include "player_hud.h"
 #include "CustomOutfit.h"
 
+#include "artefact.h"
+#include "ActorBackpack.h"
+
 #ifdef DEBUG
 #include "phdebug.h"
 #endif
@@ -687,8 +690,7 @@ float CActor::MaxWalkWeight() const
 	max_w      += get_additional_weight();
 	return max_w;
 }
-#include "artefact.h"
-#include "ActorBackpack.h"
+
 float CActor::get_additional_weight() const
 {
 	float res = 0.0f ;

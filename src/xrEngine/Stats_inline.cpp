@@ -15,6 +15,7 @@ extern u32 ps_r3_msaa;
 extern u32 ps_r3_msaa_atest;
 extern u32 ps_r_sun_quality;
 extern u32 render_video_size;
+extern bool IsMainMenuActive();
 
 #define CONST_HEIGHT_FONT pFontHW->SetHeightI(0.018f)
 #define U32_NULL     u32(-1)
@@ -46,7 +47,7 @@ void CStats::Show_HW_Stats()
     dd.cb = sizeof(DISPLAY_DEVICEA);
     EnumDisplayDevicesA(NULL, 0, &dd, EDD_GET_DEVICE_INTERFACE_NAME);
 //  string str_GPU = string(dd.DeviceString);
-    static const int GetMainInfoStats = 10;
+    static const int GetMainInfoStats = 300;
 
     if (psDeviceFlags.test(rsRenderInfo))
     {
@@ -191,14 +192,15 @@ void CStats::Show_HW_Stats()
                         {
                             if (GPUTemperature_AMD != U32_NULL)
                             {
-                                if (GPUTemperature_AMD < 75)
+                                if (GPUTemperature_AMD < 70)
                                     pFontHW->SetColor(DebugTextColor::DTC_RED);
-                                else if (GPUTemperature_AMD < 55)
+                                else if (GPUTemperature_AMD < 60)
                                     pFontHW->SetColor(DebugTextColor::DTC_YELLOW);
-                                else
+                                else if (GPUTemperature_AMD < 50)
                                     pFontHW->SetColor(DebugTextColor::DTC_GREEN);
 
                                 pFontHW->Out(GetMainInfoStats, InfoScale, "GPU Temperature: %i°", GPUTemperature_AMD / 1000);
+                                InfoScale += 15;
                             }
                         }
                         else
@@ -213,9 +215,9 @@ void CStats::Show_HW_Stats()
                                     pFontHW->SetColor(DebugTextColor::DTC_GREEN);
 
                                 pFontHW->Out(GetMainInfoStats, InfoScale, "GPU Temperature: %i°", GPUTemperature_NVIDIA);
+                                InfoScale += 15;
                             }
                         }
-                        InfoScale += 15;
                 case 13:
                         pFontHW->SetColor(DebugTextColor::DTC_GREEN);
                         pFontHW->Out(GetMainInfoStats, InfoScale, "Processor model: CPU: %s [%s], F%d/M%d/S%d, %.2f mhz, %u-clk 'rdtsc'", CPU::ID.brand, CPU::ID.vendor, CPU::ID.family, CPU::ID.model, CPU::ID.stepping, float(CPU::clk_per_second / u64(1000000)), u32(CPU::clk_overhead));
