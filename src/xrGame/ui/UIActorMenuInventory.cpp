@@ -61,9 +61,8 @@ void CUIActorMenu::InitInventoryMode()
 		m_pInventoryTorchList->Show			(true);
 		
 		m_pInventoryAutomaticList->Show		(true);
-
-		if (type_hud_token != 2)
-			m_pQuickSlot->Show				(true);
+		
+		m_pQuickSlot->Show					(true);
 
 		m_pTrashList->Show					(true);
 
@@ -76,7 +75,7 @@ void CUIActorMenu::InitInventoryMode()
 		if (type_hud_token == 0 || type_hud_token == 1 || type_hud_token == 3 || type_hud_token == 4 || type_hud_token == 6 || type_hud_token == 8)
 			CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(true);
 		else if (type_hud_token == 2)
-			CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(true);
+			CurrentGameUI()->UIMainIngameWnd->ShowZoneMap(false);
 
 		m_clock_value->Show					(true); 
 	}
