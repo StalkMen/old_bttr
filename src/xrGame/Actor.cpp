@@ -43,7 +43,6 @@
 #include "game_cl_single.h"
 #include "xrmessages.h"
 #include "string_table.h"
-#include "usablescriptobject.h"
 #include "../xrEngine/cl_intersect.h"
 //#include "ExtendedGeom.h"
 #include "alife_registry_wrappers.h"
@@ -207,9 +206,6 @@ CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
 
     //hFriendlyIndicator.create(FVF::F_LIT,RCache.Vertex.Buffer(),RCache.QuadIB);
 
-    m_pUsableObject = NULL;
-
-
     m_anims = xr_new<SActorMotions>();
 	//Alundaio: Needed for car
 #ifdef ENABLE_CAR
@@ -284,7 +280,6 @@ void CActor::reinit()
     character_physics_support()->in_Init();
     material().reinit();
 
-    m_pUsableObject = NULL;
     if (!g_dedicated_server)
         memory().reinit();
 
@@ -1400,7 +1395,6 @@ void CActor::shedule_Update(u32 DT)
         m_pObjectWeLookingAt = smart_cast<CGameObject*>(RQ.O);
 
         CGameObject						*game_object = smart_cast<CGameObject*>(RQ.O);
-        m_pUsableObject = smart_cast<CUsableScriptObject*>(game_object);
         m_pInvBoxWeLookingAt = smart_cast<CInventoryBox*>(game_object);
         m_pPersonWeLookingAt = smart_cast<CInventoryOwner*>(game_object);
         m_pVehicleWeLookingAt = smart_cast<CHolderCustom*>(game_object);
@@ -1408,9 +1402,9 @@ void CActor::shedule_Update(u32 DT)
 
         if (GameID() == eGameIDSingle)
         {
-            if (m_pUsableObject && m_pUsableObject->tip_text())
+            if (game_object->tip_text())
             {
-                m_sDefaultObjAction = CStringTable().translate(m_pUsableObject->tip_text());
+                m_sDefaultObjAction = CStringTable().translate(game_object->tip_text());
             }
             else
             {
@@ -1458,7 +1452,6 @@ void CActor::shedule_Update(u32 DT)
     {
         m_pPersonWeLookingAt = NULL;
         m_sDefaultObjAction = NULL;
-        m_pUsableObject = NULL;
         m_pObjectWeLookingAt = NULL;
         m_pVehicleWeLookingAt = NULL;
         m_pInvBoxWeLookingAt = NULL;
@@ -2283,5 +2276,62 @@ void CActor::SwitchNightVision(bool vision_on, bool use_sounds, bool send_event)
 		packet.w_u32(m_trader_flags.get());
 		object->u_EventSend(packet);
 		//Msg("GE_TRADER_FLAGS event sent %d", m_trader_flags.get());
+	}
+}
+
+void CActor::RepackAmmo()
+{
+	xr_vector<CWeaponAmmo*>  _ammo;
+
+	for (PIItem &_pIItem : inventory().m_ruck)
+	{
+		CWeaponAmmo* pAmmo = smart_cast<CWeaponAmmo*>(_pIItem);
+		if (pAmmo && pAmmo->m_boxCurr < pAmmo->m_boxSize) _ammo.push_back(pAmmo);
+	}
+
+	while (!_ammo.empty())
+	{
+		shared_str asect = _ammo[0]->cNameSect();
+		u16 box_size = _ammo[0]->m_boxSize; 
+		u32 cnt = 0;
+		u16 cart_cnt = 0;
+
+		for (CWeaponAmmo* ammo : _ammo)
+		{
+			if (asect == ammo->cNameSect())
+			{
+				cnt = cnt + ammo->m_boxCurr;
+				cart_cnt++;
+			}
+		}
+
+		if (cart_cnt > 1)
+		{
+			for (CWeaponAmmo* ammo : _ammo)
+			{
+				if (asect == ammo->cNameSect())
+				{
+					if (cnt > 0)
+					{
+						if (cnt > box_size)
+						{
+							ammo->m_boxCurr = box_size;
+							cnt = cnt - box_size;
+						}
+						else
+						{
+							ammo->m_boxCurr = (u16)cnt;
+							cnt = 0;
+						}
+					}
+					else
+					{
+						ammo->DestroyObject();
+					}
+				}
+			}
+		}
+
+		_ammo.erase(std::remove_if(_ammo.begin(), _ammo.end(), [asect](CWeaponAmmo* a) { return a->cNameSect() == asect; }), _ammo.end());
 	}
 }

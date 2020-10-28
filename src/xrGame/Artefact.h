@@ -50,7 +50,10 @@ public:
 				void	SetSatietyPower						(float value)					{m_fSatietyRestoreSpeed = value;}
 				void	SetPowerPower						(float value)					{m_fPowerRestoreSpeed = value;}
 				void	SetBleedingPower						(float value)					{m_fBleedingRestoreSpeed = value;}                                  
-
+				
+				float 	m_fJumpSpeed;
+				float 	m_fWalkAccel;
+				
 protected:
 	virtual void					UpdateCLChild					()		{};
 	virtual void					CreateArtefactActivation			();

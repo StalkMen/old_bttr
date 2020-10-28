@@ -22,7 +22,8 @@ protected:
 	UIArtefactParamItem*	m_restore_item[ALife::eRestoreTypeMax];
 	UIArtefactParamItem*	m_additional_weight;
 	UIArtefactParamItem*	m_disp_condition; //Alundaio: Show AF Condition
-
+	UIArtefactParamItem*	m_fJumpSpeed;
+	UIArtefactParamItem*	m_fWalkAccel;
 	CUIStatic*				m_Prop_line;
 
 }; // class CUIArtefactParams

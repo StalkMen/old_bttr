@@ -16,6 +16,7 @@
 #include "actoreffector.h"
 #include "static_cast_checked.hpp"
 #include "player_hud.h"
+#include "CustomOutfit.h"
 
 #ifdef DEBUG
 #include "phdebug.h"
@@ -204,9 +205,29 @@ void CActor::g_cl_CheckControls(u32 mstate_wf, Fvector &vControlAccel, float &Ju
 		{
 			mstate_real			|=	mcJump;
 			m_bJumpKeyPressed	=	TRUE;
-			Jump				= m_fJumpSpeed;
-			m_fJumpTime			= s_fJumpTime;
+			float jumpSpd		= m_fJumpSpeed;
 
+			TIItemContainer::iterator it = inventory().m_belt.begin();
+			TIItemContainer::iterator ite = inventory().m_belt.end();
+			for (; it != ite; ++it)
+			{
+				CArtefact*	artefact = smart_cast<CArtefact*>(*it);
+				if (artefact)
+				{
+					jumpSpd *= (artefact->m_fJumpSpeed * artefact->GetCondition());
+				}
+			}
+			
+			CCustomOutfit* outfit = GetOutfit();
+			if (outfit)
+				jumpSpd *= outfit->m_fJumpSpeed;
+			
+			CBackpack* backpack = smart_cast<CBackpack*>(inventory().ItemFromSlot(BACKPACK_SLOT));
+			if (backpack)
+				jumpSpd *= backpack->m_fJumpSpeed;
+			
+			Jump = jumpSpd;
+			m_fJumpTime = s_fJumpTime;
 
 			//уменьшить силу игрока из-за выполненого прыжка
 			if (!GodMode())
@@ -260,7 +281,38 @@ void CActor::g_cl_CheckControls(u32 mstate_wf, Fvector &vControlAccel, float &Ju
 			float	scale			= vControlAccel.magnitude();
 			if(scale>EPS)	
 			{
-				scale	=	m_fWalkAccel/scale;
+				float accel_k = m_fWalkAccel;
+
+				TIItemContainer::iterator it = inventory().m_belt.begin();
+				TIItemContainer::iterator ite = inventory().m_belt.end();
+				for (; it != ite; ++it)
+				{
+					CArtefact*	artefact = smart_cast<CArtefact*>(*it);
+					if (artefact)
+					{
+						accel_k *= (artefact->m_fWalkAccel * artefact->GetCondition());
+					}
+				}
+				
+				CCustomOutfit* outfit = GetOutfit();
+				if (outfit)
+				{
+					accel_k *= outfit->m_fWalkAccel;
+					if (inventory().TotalWeight() > MaxWalkWeight())
+						accel_k *= outfit->m_fOverweightWalkK;
+				}
+				
+				CBackpack* backpack = smart_cast<CBackpack*>(inventory().ItemFromSlot(BACKPACK_SLOT));
+				if (backpack)
+				{
+					accel_k *= backpack->m_fWalkAccel;
+
+					if (inventory().TotalWeight() > MaxWalkWeight())
+						accel_k *= backpack->m_fOverweightWalkK;
+				}
+				
+				scale	=	accel_k/scale;
+				
 				if (bAccelerated)
 					if (mstate_real&mcBack)
 						scale *= m_fRunBackFactor;
@@ -622,7 +674,6 @@ bool CActor::is_jump()
 }
 
 //максимальный переносимы вес
-#include "CustomOutfit.h"
 float CActor::MaxCarryWeight () const
 {
 	float res = inventory().GetMaxWeight();
