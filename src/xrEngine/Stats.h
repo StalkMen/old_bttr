@@ -121,10 +121,8 @@ public:
     void OnDeviceDestroy(void);
     
     u32     GPULoad;
-    u32     GPUTemperature_AMD;
-    u32     GPUTemperature_NVIDIA;
-    bool    GPUType;
-    int     _CARD;
+    u32     GPUTemperature;
+
     float   AvailableMem;
     float   AvailablePageFileMem;
     float   PageFileMemUsedByApp;

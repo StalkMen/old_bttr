@@ -23,7 +23,7 @@ extern bool IsMainMenuActive();
 enum DebugTextColor : DWORD
 {
     // Ñèñòåìíûå öâåòà
-    DTC_RED = 0xFFF0672B,
+    DTC_RED = 0xFFFF0000,
     DTC_YELLOW = 0xFFF6D434,
     DTC_GREEN = 0xFF67F92E,
     DTC_GREEN_DX = 0xFF00FF7F,
@@ -86,17 +86,7 @@ void CStats::Show_HW_Stats()
             CPU::ID.MTCPULoad();
 
             GPULoad = CAMDReader::bAMDSupportADL ? AMDData->GetPercentActive() : CNvReader::bSupport ? NvData->GetPercentActive() : U32_NULL;
-            GPUType = CAMDReader::bAMDSupportADL ? _CARD = 1 : CNvReader::bSupport ? _CARD = 2 : U32_NULL;
-
-            switch (_CARD)
-            {
-                case 1:
-                        GPUTemperature_AMD = AMDData->GetTemperature();
-                        break;
-                case 2:
-                        GPUTemperature_NVIDIA = NvData->GetTemperature();
-                        break;
-            }
+            GPUTemperature = CAMDReader::bAMDSupportADL ? AMDData->GetTemperature() : CNvReader::bSupport ? NvData->GetTemperature() : U32_NULL;;
         }
 
         CONST_HEIGHT_FONT;
@@ -161,24 +151,16 @@ void CStats::Show_HW_Stats()
                         InfoScale += 15;
 
                 case 10:
-                        if (_CARD == 1)
-                        {
-                            pFontHW->SetColor(DebugTextColor::DTC_RED);
-                            pFontHW->Out(GetMainInfoStats, InfoScale, "Video card model: %s", dd.DeviceString);
-                            InfoScale += 15;
-                        }
-                        else
-                        {
-                            pFontHW->SetColor(DebugTextColor::DTC_GREEN_NV);
-                            pFontHW->Out(GetMainInfoStats, InfoScale, "Video card model: %s", dd.DeviceString);
-                            InfoScale += 15;
-                        }
+                        pFontHW->SetColor(CAMDReader::bAMDSupportADL ? DebugTextColor::DTC_RED : DebugTextColor::DTC_GREEN_NV);
+                        pFontHW->Out(GetMainInfoStats, InfoScale, "Video card model: %s", dd.DeviceString);
+                        InfoScale += 15;
+
                 case 11: 
                         if (GPULoad != U32_NULL)
                         {
-                            if (GPULoad > 80)
+                            if (GPULoad > u32(80))
                                 pFontHW->SetColor(DebugTextColor::DTC_RED);
-                            else if (GPULoad > 60)
+                            else if (GPULoad > u32(60))
                                 pFontHW->SetColor(DebugTextColor::DTC_YELLOW);
                             else
                                 pFontHW->SetColor(DebugTextColor::DTC_GREEN);
@@ -188,36 +170,11 @@ void CStats::Show_HW_Stats()
                         }
 
                 case 12:
-                        if (_CARD == 1)
-                        {
-                            if (GPUTemperature_AMD != U32_NULL)
-                            {
-                                if (GPUTemperature_AMD < 70)
-                                    pFontHW->SetColor(DebugTextColor::DTC_RED);
-                                else if (GPUTemperature_AMD < 60)
-                                    pFontHW->SetColor(DebugTextColor::DTC_YELLOW);
-                                else if (GPUTemperature_AMD < 50)
-                                    pFontHW->SetColor(DebugTextColor::DTC_GREEN);
+                        if (GPUTemperature != U32_NULL)
+                            pFontHW->Out(GetMainInfoStats, InfoScale, "GPU Temperature: %i°", CAMDReader::bAMDSupportADL ? GPUTemperature / 1000 : GPUTemperature);
 
-                                pFontHW->Out(GetMainInfoStats, InfoScale, "GPU Temperature: %i°", GPUTemperature_AMD / 1000);
-                                InfoScale += 15;
-                            }
-                        }
-                        else
-                        {
-                            if (GPUTemperature_NVIDIA != U32_NULL)
-                            {
-                                if (GPUTemperature_NVIDIA > 75)
-                                    pFontHW->SetColor(DebugTextColor::DTC_RED);
-                                else if (GPUTemperature_NVIDIA > 55)
-                                    pFontHW->SetColor(DebugTextColor::DTC_YELLOW);
-                                else
-                                    pFontHW->SetColor(DebugTextColor::DTC_GREEN);
+                        InfoScale += 15;
 
-                                pFontHW->Out(GetMainInfoStats, InfoScale, "GPU Temperature: %i°", GPUTemperature_NVIDIA);
-                                InfoScale += 15;
-                            }
-                        }
                 case 13:
                         pFontHW->SetColor(DebugTextColor::DTC_GREEN);
                         pFontHW->Out(GetMainInfoStats, InfoScale, "Processor model: CPU: %s [%s], F%d/M%d/S%d, %.2f mhz, %u-clk 'rdtsc'", CPU::ID.brand, CPU::ID.vendor, CPU::ID.family, CPU::ID.model, CPU::ID.stepping, float(CPU::clk_per_second / u64(1000000)), u32(CPU::clk_overhead));
