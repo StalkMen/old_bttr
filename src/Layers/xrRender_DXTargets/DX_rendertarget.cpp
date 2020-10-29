@@ -15,6 +15,7 @@
 #include "..\xrRender_DXTargets\Blenders\blender_dlaa.h"
 #include "..\xrRender_DXTargets\Blenders\blender_sunshafts.h"
 #include "..\xrRender_DXTargets\Blenders\blender_gasmask.h"
+#include "..\xrRender_DXTargets\Blenders\blender_gamma.h"
 #include "..\xrRender_DXTargets\DXMinMaxSMBlender.h"
 #ifdef USE_DX11
 #include "dx11HDAOCSBlender.h"
@@ -352,6 +353,7 @@ CRenderTarget::CRenderTarget		()
 	b_luminance				= xr_new<CBlender_luminance>		();
 	b_combine				= xr_new<CBlender_combine>			();
 	b_ssao					= xr_new<CBlender_SSAO_noMSAA>		();
+	b_gamma					= xr_new<CBlender_gamma>			();
 
 #ifdef USE_DX11
 	// HDAO
@@ -394,6 +396,8 @@ CRenderTarget::CRenderTarget		()
 			static_cast<CBlender_SSAO_MSAA*>(b_ssao_msaa[i])->SetDefine("ISAMPLE", SampleDefs[i]);
 		}
 	}
+
+	s_gamma.create(b_gamma);
 
 	//	NORMAL
 	{
@@ -1238,6 +1242,7 @@ CRenderTarget::~CRenderTarget	()
         xr_delete( b_hdao_msaa_cs );
     }
 #endif
+	xr_delete					(b_gamma				);
 }
 
 void CRenderTarget::reset_light_marker( bool bResetStencil)

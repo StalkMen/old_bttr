@@ -350,6 +350,7 @@
     <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_smaa.h" />
 	<ClInclude Include="..\xrRender_DXTargets\Blenders\blender_dlaa.h" />
     <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_sunshafts.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_gamma.h" />
     <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_gasmask.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX_R_sun_support.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX_rendertarget.h" />
@@ -531,6 +532,7 @@
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_smaa.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\Blenders\blender_dlaa.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_sunshafts.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_gamma.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_gasmask.cpp" />
     <ClCompile Include="..\xrRender\light_GI.cpp" />
     <ClCompile Include="..\xrRender\Light_Render_Direct.cpp" />
@@ -570,6 +572,7 @@
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_ssao.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_accumulator.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_luminance.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_gamma.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_loader.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_ScreenQuad.cpp" />
