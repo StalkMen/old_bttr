@@ -12,6 +12,7 @@
 #include "..\xrRender_DXTargets\Blenders\blender_ssao.h"
 #include "..\xrRender_DXTargets\Blenders\blender_fxaa.h"
 #include "..\xrRender_DXTargets\Blenders\blender_smaa.h"
+#include "..\xrRender_DXTargets\Blenders\blender_dlaa.h"
 #include "..\xrRender_DXTargets\Blenders\blender_sunshafts.h"
 #include "..\xrRender_DXTargets\Blenders\blender_gasmask.h"
 #include "..\xrRender_DXTargets\DXMinMaxSMBlender.h"
@@ -463,6 +464,12 @@ CRenderTarget::CRenderTarget		()
 	{
 		b_fxaa = xr_new<CBlender_FXAA>();
 		s_fxaa.create(b_fxaa, "r3\\fxaa");
+	}
+
+	//DLAA
+	{
+		b_dlaa = xr_new<CBlender_dlaa>();
+		s_dlaa.create(b_dlaa, "r3\\dlaa_main");
 	}
 
 	//SMAA
@@ -1221,6 +1228,7 @@ CRenderTarget::~CRenderTarget	()
 	xr_delete					(b_hdao_cs				);
 #endif
 	xr_delete					(b_fxaa					);
+	xr_delete					(b_dlaa					);
 	xr_delete					(b_smaa					);
 	xr_delete					(b_sunshafts			);
 	xr_delete					(b_gasmask				);	

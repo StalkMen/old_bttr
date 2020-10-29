@@ -44,6 +44,7 @@ public:
 	IBlender*					b_ssao;
 	IBlender*					b_ssao_msaa[8];
 	IBlender*					b_fxaa;
+	IBlender*					b_dlaa;
 	IBlender*					b_smaa;
 	IBlender*					b_sunshafts;
 	IBlender*					b_gasmask;
@@ -146,7 +147,7 @@ private:
 	ref_shader					s_accum_reflected;
 	ref_shader					s_accum_volume;
 	ref_shader					s_fxaa;
-
+	ref_shader					s_dlaa;
 	ref_shader 					s_smaa;
 	ref_rt 						rt_smaa_edgetex;
 	ref_rt 						rt_smaa_blendtex;
@@ -269,6 +270,7 @@ public:
 	void						phase_sunshafts			();
 	void						phase_gasmask			();	
 	void						phase_smaa				();
+	void						phase_dlaa				();
 	void						phase_fxaa				();
 	void						phase_scene_prepare		();
 	void						phase_scene_begin		();

@@ -384,7 +384,9 @@ void	CRenderTarget::phase_combine	()
 	//DLAA
 	else if (ps_r_type_aa == 2 && RenderThemeShaders == 1 || RenderThemeShaders == 2)
 	{
-		//Net blyad, JMAA
+		PIX_EVENT(DLAA);
+		phase_dlaa();
+		RCache.set_Stencil(FALSE);
 	}
 	//SMAA
 	else if (ps_r_type_aa == 3 && RenderThemeShaders == 1 || RenderThemeShaders == 2)
