@@ -353,7 +353,7 @@ CRenderTarget::CRenderTarget		()
 	b_luminance				= xr_new<CBlender_luminance>		();
 	b_combine				= xr_new<CBlender_combine>			();
 	b_ssao					= xr_new<CBlender_SSAO_noMSAA>		();
-	b_gamma					= xr_new<CBlender_gamma>			();
+
 
 #ifdef USE_DX11
 	// HDAO
@@ -396,8 +396,6 @@ CRenderTarget::CRenderTarget		()
 			static_cast<CBlender_SSAO_MSAA*>(b_ssao_msaa[i])->SetDefine("ISAMPLE", SampleDefs[i]);
 		}
 	}
-
-	s_gamma.create(b_gamma);
 
 	//	NORMAL
 	{
@@ -505,7 +503,13 @@ CRenderTarget::CRenderTarget		()
 		b_gasmask = xr_new<CBlender_gasmask>();
 		s_gasmask.create(b_gasmask, "r2\\gasmask");
 	}
-		
+	
+	//Gamma correction
+	{
+		b_gamma = xr_new<CBlender_gamma>();
+		s_gamma.create(b_gamma);
+	}
+	
 	// OCCLUSION
 	s_occq.create					(b_occq,		"r2\\occq");
 
