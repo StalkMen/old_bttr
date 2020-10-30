@@ -369,5 +369,5 @@ public:
 	IC void						dbg_addplane			(Fplane& P0,  u32 c)								{}
 #endif
 
-	void						RenderScreenQuad		(ref_rt& rt, ref_selement& sh, float res);
+	void						RenderScreenQuad		(ref_rt& rt, ref_selement& sh);
 };
