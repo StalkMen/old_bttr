@@ -13,7 +13,7 @@ void CRenderTarget::phase_gamma()
 	RCache.set_c("gamma", render_gamma, 0, 0, 0);
 	
 	//Perform screen space rendering
-	RenderScreenQuad(dest_rt, s_gamma->E[0], float(1.0));
+	RenderScreenQuad(dest_rt, s_gamma->E[0]);
 	
 	//Resolve RT
 	HW.pRenderContext->CopyResource(rt_Generic_0->pTexture->surface_get(), dest_rt->pTexture->surface_get());

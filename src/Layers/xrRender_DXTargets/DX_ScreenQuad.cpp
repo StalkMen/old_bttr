@@ -3,14 +3,14 @@
 	For screen space effects/blits
 */
 
-void CRenderTarget::RenderScreenQuad(ref_rt& rt, ref_selement& sh, float res)
+void CRenderTarget::RenderScreenQuad(ref_rt& rt, ref_selement& sh)
 {
 	u32 Offset = 0;
 	u32 C = color_rgba(0, 0, 0, 255);
 	
 	//Prepare resolution (with additional resizing)
-	float width = float(Device.dwWidth)*res;
-	float height = float(Device.dwHeight)*res;
+	float width = float(Device.dwWidth);
+	float height = float(Device.dwHeight);
 	
 	//set rendertarget 
 	u_setrt(rt, NULL, NULL, HW.pBaseZB);
