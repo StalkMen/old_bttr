@@ -14,6 +14,6 @@ void CBlender_gamma::Compile(CBlender_Compile& C)
 	
 	C.r_dx10Texture("s_gamma", "shaders\\gamma");
 	
-	C.r_dx10Sampler("smp_rtlinear");
+	C.r_dx10Sampler("smp_nofilter");
 	C.r_End();
 }
