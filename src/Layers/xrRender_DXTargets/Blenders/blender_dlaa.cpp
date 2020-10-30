@@ -9,7 +9,7 @@ void CBlender_dlaa::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile(C);
 
-	C.r_Pass("stub_screen_space", "dlaa_main", FALSE, FALSE, FALSE);
+		C.r_Pass("stub_notransform_aa_AA", "dlaa_main", FALSE, FALSE, FALSE);
 
 		C.r_dx10Texture		("s_image",					"$user$generic0");
 		C.r_dx10Texture		("s_position",				"$user$position");
