@@ -219,9 +219,6 @@ enum
 extern ECORE_API u32 ps_r2_smapsize;
 extern ECORE_API xr_token qsmapsize_token[];
 
-extern ECORE_API u32 ps_r_type_aa;
-extern ECORE_API xr_token type_aa_token[];
-
 extern ECORE_API Flags32 ps_r__common_flags;
 extern ECORE_API int ps_render_volumetric_fog;
 

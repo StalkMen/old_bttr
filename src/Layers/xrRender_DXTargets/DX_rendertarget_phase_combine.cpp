@@ -39,6 +39,7 @@ void CRenderTarget::DoAsyncScreenshot()
 	}
 }
 
+extern ENGINE_API u32 ps_r_type_aa;
 float	hclip(float v, float dim)		{ return 2.f*v/dim - 1.f; }
 void	CRenderTarget::phase_combine	()
 {

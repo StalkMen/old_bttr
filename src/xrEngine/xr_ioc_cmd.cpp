@@ -767,6 +767,15 @@ xr_token render_video_size_token[] = {
 { nullptr,					0}
 };
 
+ENGINE_API u32	ps_r_type_aa = 0;
+xr_token type_aa_token[] = {
+{ "disable_aa",	  0},
+{ "FXAA",		  1},
+{ "DLAA",		  2},
+{ "SMAA",		  3},
+{ nullptr,		  0}
+};
+
 ENGINE_API Flags32 p_engine_flags32 = { /*ITS_CLEAR_1_4_22*/ };
 
 #include "device.h"
@@ -793,6 +802,8 @@ void CCC_Register()
         CMD3(CCC_Token, "r2_sun_quality", &ps_r_sun_quality, qsun_quality_token);
         CMD3(CCC_Token, "r3_msaa", &ps_r3_msaa, qmsaa_token);
         CMD3(CCC_Token, "r3_msaa_alphatest", &ps_r3_msaa_atest, qmsaa_atest_token);
+
+        CMD3(CCC_Token, "xrRenderDX10_type_aa", &ps_r_type_aa, type_aa_token);
     }
 
     CMD3(CCC_Token,     "xrEngine_fps_lock",    &g_dwFPSlimit, FpsLockToken);
