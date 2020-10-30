@@ -6,9 +6,16 @@
 
 void CRenderTarget::phase_gamma()
 {
-	RCache.set_c("gamma", render_gamma, 0, 0, 0);
-	RenderScreenQuad(rt_Generic, s_gamma->E[0], float(1.0));
+	//Set backbuffer RT
+	ref_rt& dest_rt = RImplementation.o.dx10_msaa ? rt_Generic : rt_Color;
 	
-	HW.pRenderContext->CopyResource(rt_Generic_0->pTexture->surface_get(), rt_Generic->pTexture->surface_get());
+	//Set parameters
+	RCache.set_c("gamma", render_gamma, 0, 0, 0);
+	
+	//Perform screen space rendering
+	RenderScreenQuad(dest_rt, s_gamma->E[0], float(1.0));
+	
+	//Resolve RT
+	HW.pRenderContext->CopyResource(rt_Generic_0->pTexture->surface_get(), dest_rt->pTexture->surface_get());
 };
 
