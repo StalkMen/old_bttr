@@ -705,6 +705,7 @@ public:
     u8                      UniqueOptionNV;
     bool                    UniqueOptionNV_enable;
 	bool					m_bGrenadeMode;
+	float					m_APk;
     xr_vector<shared_str>	m_ammoTypes;
     
     DEFINE_VECTOR(shared_str, SCOPES_VECTOR, SCOPES_VECTOR_IT);

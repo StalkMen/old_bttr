@@ -82,7 +82,7 @@ void CUIMotionIcon::Init(Frect const& zonemap_rect)
     else
     {
         if (type_hud_token == 0)
-            if (Call_of_Chernobyl_mode)
+            if (BttR_mode)
                 uiXml.Load(CONFIG_PATH, UI_PATH, MOTION_ICON_XML_COC);
             else 
                 uiXml.Load(CONFIG_PATH, UI_PATH, MOTION_ICON_XML_DEF);
