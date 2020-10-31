@@ -5,7 +5,6 @@
 #include "../xrRender/dxEnvironmentRender.h"
 
 #define STENCIL_CULL 0
-extern u32 RenderThemeShaders;
 extern float xrRenderFilteringSaturationImage;
 
 void CRenderTarget::DoAsyncScreenshot()
@@ -383,14 +382,14 @@ void	CRenderTarget::phase_combine	()
 		RCache.set_Stencil(FALSE);
 	}
 	//DLAA
-	else if (ps_r_type_aa == 2 && RenderThemeShaders == 1 || RenderThemeShaders == 2)
+	else if (ps_r_type_aa == 2)
 	{
 		PIX_EVENT(DLAA);
 		phase_dlaa();
 		RCache.set_Stencil(FALSE);
 	}
 	//SMAA
-	else if (ps_r_type_aa == 3 && RenderThemeShaders == 1 || RenderThemeShaders == 2)
+	else if (ps_r_type_aa == 3)
 	{
 		PIX_EVENT(SMAA);
 		phase_smaa();

@@ -178,8 +178,6 @@ void CSCompiler::end()
 	m_Target.Construct(m_cs, DEV->_CreateConstantTable(m_constants), m_Samplers, m_Textures, m_Outputs);
 }
 
-extern u32 RenderThemeShaders;
-
 void CSCompiler::compile(const char* name)
 {
 	if (0==stricmp(name, "null"))
@@ -190,10 +188,7 @@ void CSCompiler::compile(const char* name)
 
 	string_path					cname;
 
-	if (RenderThemeShaders == 0)
-		strconcat					(sizeof(cname),cname,::Render->getShaderPath(), name, ".cs");
-	else
-		strconcat					(sizeof(cname), cname, ::Render->getShaderPath(), "cs_", name, ".hlsl");
+	strconcat					(sizeof(cname), cname, ::Render->getShaderPath(), "cs_", name, ".hlsl");
 
 	FS.update_path				(cname,	"$game_shaders$", cname);
 

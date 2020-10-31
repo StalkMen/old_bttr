@@ -18,7 +18,6 @@ void	fill_vid_mode_list(CHW* _hw);
 void	free_vid_mode_list();
 
 extern int tbufer_renders;
-extern u32 RenderThemeShaders;
 extern ENGINE_API u32 renderer_value;
 extern ENGINE_API u32 g_screenmode;
 extern ENGINE_API void GetMonitorResolution(u32& horizontal, u32& vertical);
@@ -105,15 +104,6 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 		sd.BufferCount = (tbufer_renders == 0) ? 1 : 3;
 		Msg("# HW DX10. Number of buffers for prepared frames: %i", sd.BufferCount);
 	}
-
-	Msg("------------------------------------------------------------------------------------------------------------");
-	Msg("# To avoid losing the exact cause of the error, this log will show the exact definition of the Shader theme.");
-	Msg("# List of existing Shader themes: ");
-	Msg("# 1. cop_shaders_1_6_02   = 0. !Supported on the basis of the Call of Pripyat and Call of Chernobyl.");
-	Msg("# 2. old_shaders_theme892 = 1. !Supported only in modification Back to the Roots.");
-	Msg("# 3. new_shaders_theme895 = 2. !Supported only in modification Back to the Roots.");
-	Msg("- Theme shader: %i", RenderThemeShaders);
-	Msg("----------------------------------------------------------: TouchOfRay Engine x64 OldSerpskiStalker, LVutner");
 
 	// Multisample
 	sd.SampleDesc.Count = 1;

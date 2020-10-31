@@ -26,7 +26,6 @@
 
 class dxRender_Visual;
 extern ENGINE_API u32 renderer_value;									 
-extern u32 RenderThemeShaders;
 
 // definition
 class CRender	:	public R_dsgraph_structure
@@ -282,25 +281,7 @@ public:
 
     // Information
     virtual void					Statistics					(CGameFont* F);
-    virtual LPCSTR					getShaderPath				()									
-    { 
-        switch (RenderThemeShaders)
-        {
-            case 0:
-                return "DX11_COP_SHADERS\\";
-                break;
-            case 1:
-                return "DX11_OLD_THEME\\";
-                break;
-            case 2:
-                return "DX11_895_PBR\\";
-                break;
-            default:
-                Debug.fatal(DEBUG_INFO, "An unexpected error occurred when selecting the Shader theme ID!");
-                break;
-        }
-        return "DX11_COP_SHADERS\\";
-    }
+    virtual LPCSTR					getShaderPath				() { return "DX11\\"; }
 
     virtual ref_shader				getShader					(int id);
     virtual IRender_Sector*			getSector					(int id);

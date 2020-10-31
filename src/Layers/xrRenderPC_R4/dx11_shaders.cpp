@@ -4,7 +4,6 @@
 #include "../xrRender/dxRenderDeviceRender.h"
 #include "../../xrCore/FileCRC32.h"
 
-extern u32 RenderThemeShaders;
 extern ENGINE_API u32 renderer_value;
 extern ENGINE_API u32 ps_r_sun_quality;
 
@@ -666,37 +665,11 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	FS.file_list	( m_file_set, folder_name, FS_ListFiles | FS_RootOnly, "*");
 
 	string_path temp_file_name, file_name;
-	if (ps_use_precompiled_shaders == 0 || !match_shader_id(name, sh_name, m_file_set, temp_file_name)) {
+	if (ps_use_precompiled_shaders == 0 || !match_shader_id(name, sh_name, m_file_set, temp_file_name)) 
+	{
 		string_path file;
-
-		switch (RenderThemeShaders)
-		{
-			case 0:
-			{
-				strconcat(sizeof(file), file, "shaders_cache_theme_0\\DX11\\", name, ".", extension, "\\", sh_name);
-				FS.update_path(file_name, "$app_data_root$", file);
-			}
-			break;
-
-			case 1:
-			{
-				strconcat(sizeof(file), file, "shaders_cache_theme_1\\DX11\\", name, ".", extension, "\\", sh_name);
-				FS.update_path(file_name, "$app_data_root$", file);
-			}
-			break;
-
-			case 2:
-			{
-				strconcat(sizeof(file), file, "shaders_cache_theme_2\\DX11\\", name, ".", extension, "\\", sh_name);
-				FS.update_path(file_name, "$app_data_root$", file);
-			}
-			break;
-
-			default:
-				Debug.fatal(DEBUG_INFO, "Error in selecting the theme id!");
-
-			break;
-		}
+		strconcat(sizeof(file), file, "shaders_cache\\DX11\\", name, ".", extension, "\\", sh_name);
+		FS.update_path(file_name, "$app_data_root$", file);
 	}
 	else
 	{

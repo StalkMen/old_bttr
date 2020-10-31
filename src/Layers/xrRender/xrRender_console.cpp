@@ -15,7 +15,7 @@ xr_token							qpreset_token							[ ]={
 	{ "Default",					2											},
 	{ "High",						3											},
 	{ "Extreme",					4											},
-	{ 0,							0											}
+	{ nullptr,						0											}
 };
 
 u32	ps_r_ssao_mode = 2;
@@ -35,7 +35,7 @@ xr_token							qsun_shafts_token							[ ]={
 	{ "st_opt_low",					1												},
 	{ "st_opt_medium",				2												},
 	{ "st_opt_high",				3												},
-	{ 0,							0												}
+	{ nullptr,						0												}
 };
 
 u32			ps_r_ssao				=	3;
@@ -45,7 +45,7 @@ xr_token							qssao_token									[ ]={
 	{ "st_opt_medium",				2												},
 	{ "st_opt_high",				3												},
 	{ "st_opt_ultra",				4												},
-	{ 0,							0												}
+	{ nullptr,						0												}
 };
 
 u32			ps_r3_minmax_sm			=	3;			//	=	0;
@@ -61,7 +61,7 @@ u32 ps_sunshafts_mode = 0;
 xr_token sunshafts_mode_token[] = {
 	{ "sunshafts_enable", 0 },
 	{ "sunshafts_disable", 1 },
-	{ 0, 0 }
+	{ nullptr, 0 }
 };
 
 // Common
@@ -726,14 +726,6 @@ xr_token screen_mode_token[] = {
 { nullptr,	  0}
 };
 
-u32	RenderThemeShaders = (Call_of_Chernobyl_mode) ? 0 : 1;
-xr_token RenderThemeShaders_token[] = {
-{ (BttR_mode) ? "cop_shaders_1_6_02" : "default_cop_shaders",																			   0},
-{ (BttR_mode) ? "old_shaders_theme892" : "Not_support_It_will_reset_to_the_original_shaders",	  (BttR_mode) ? 1 : 0},
-{ (BttR_mode) ? "new_shaders_theme895" : "Not_support_It_will_reset_to_the_original_shaders",	  (BttR_mode) ? 2 : 0},
-{ nullptr,	  0}
-};
-
 float ps_r__tf_Mipbias = 0.0f;
 float ps_r2_ss_sunshafts_length	= 1.f;
 float ps_r2_ss_sunshafts_radius	= 1.f;
@@ -790,8 +782,6 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "xrRenderDX_volum_intensity",		 &ps_volumetric_intensity,			-1.f, 1.f);
 	CMD4(CCC_Float, "xrRenderDX_volum_distance",		 &ps_volumetric_distance,			0.f, 2.f);
 	CMD4(CCC_Float, "xrRenderDX_volum_quality",			 &ps_volumetric_quality,			0.f, 1.f);
-
-	CMD3(CCC_Token, "xrRenderThemeShaderRender",		 &RenderThemeShaders,			    RenderThemeShaders_token);
 
 	CMD4(CCC_Float, "xrRenderFilteringSaturationImage",  &xrRenderFilteringSaturationImage,	-1.f, 2.f);
 
