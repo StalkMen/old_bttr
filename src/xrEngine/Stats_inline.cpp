@@ -114,7 +114,7 @@ void CStats::Show_HW_Stats()
                        else if (fDeviceMeasuredFPS <= 35)
                             pFontHW->SetColor(DebugTextColor::DTC_RED);
 
-                        pFontHW->Out(GetMainInfoStats, InfoScale, "FPS: %f", fDeviceMeasuredFPS);
+                        pFontHW->Out(GetMainInfoStats, InfoScale, "FPS: %i", (int)fDeviceMeasuredFPS);
                         InfoScale += 15;
 
                 case 3: 
