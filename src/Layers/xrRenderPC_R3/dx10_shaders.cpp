@@ -9,29 +9,26 @@ extern ENGINE_API u32 ps_r_sun_quality;
 static inline bool match_shader_id(LPCSTR const debug_shader_id, LPCSTR const full_shader_id, FS_FileSet const& file_set, string_path& result);
 
 template <typename T>
-static HRESULT create_shader(LPCSTR const pTarget, DWORD const* buffer, u32 const buffer_size, LPCSTR const file_name,
-    T*& result, bool const disasm)
+static HRESULT create_shader(LPCSTR const pTarget, DWORD const* buffer, u32 const buffer_size, LPCSTR const file_name, T*& result, bool const disasm)
 {
-    // XXX: disasm it
+	result->sh = ShaderTypeTraits<T>::CreateHWShader(buffer, buffer_size);
 
-    result->sh = ShaderTypeTraits<T>::CreateHWShader(buffer, buffer_size);
+	ID3DShaderReflection* pReflection = 0;
+	HRESULT const _hr = D3D10ReflectShader(buffer, buffer_size, &pReflection);
 
-    ID3DShaderReflection* pReflection = 0;
-    HRESULT const _hr = D3D10ReflectShader(buffer, buffer_size, &pReflection);
+	if (SUCCEEDED(_hr) && pReflection)
+	{
+		// Parse constant table data
+		result->constants.parse(pReflection, ShaderTypeTraits<T>::GetShaderDest());
 
-    if (SUCCEEDED(_hr) && pReflection)
-    {
-        // Parse constant table data
-        result->constants.parse(pReflection, ShaderTypeTraits<T>::GetShaderDest());
+		_RELEASE(pReflection);
+	}
+	else
+	{
+		Msg("! D3DReflectShader %s hr == 0x%08x", file_name, _hr);
+	}
 
-        _RELEASE(pReflection);
-    }
-    else
-    {
-        Msg("! D3DReflectShader %s hr == 0x%08x", file_name, _hr);
-    }
-
-    return _hr;
+	return _hr;
 }
 
 static HRESULT create_shader				(
@@ -99,7 +96,7 @@ static HRESULT create_shader				(
 	{
 		ID3DBlob*		disasm	= 0;
 		D3DDisassemble	(buffer, buffer_size, FALSE, 0, &disasm );
-		//D3DXDisassembleShader		(LPDWORD(code->GetBufferPointer()), FALSE, 0, &disasm );
+		
 		string_path		dname;
 		strconcat		(sizeof(dname),dname,"disasm\\",file_name,('v'==pTarget[0])?".vs":('p'==pTarget[0])?".ps":".gs" );
 		IWriter*		W		= FS.w_open("$logs$",dname);
@@ -638,7 +635,7 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 		strconcat(sizeof(file), file, "shaders_cache\\DX10\\", name, ".", extension, "\\", sh_name);
 		FS.update_path(file_name, "$app_data_root$", file);
 	}
-	else 
+	else
 	{
 		xr_strcpy		( file_name, folder_name );
 		xr_strcat		( file_name, temp_file_name );
@@ -717,7 +714,8 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 			}
 			_result					= create_shader(pTarget, (DWORD*)pShaderBuf->GetBufferPointer(), (u32)pShaderBuf->GetBufferSize(), file_name, result, o.disasm);
 		}
-		else {
+		else 
+		{
 			Log						("! ", file_name);
 			if ( pErrorBuf )
 				Log					("! error: ",(LPCSTR)pErrorBuf->GetBufferPointer());

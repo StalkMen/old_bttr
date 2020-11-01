@@ -6,35 +6,29 @@
 
 extern ENGINE_API u32 renderer_value;
 extern ENGINE_API u32 ps_r_sun_quality;
+static inline bool match_shader_id(LPCSTR const debug_shader_id, LPCSTR const full_shader_id, FS_FileSet const& file_set, string_path& result);
 
 template <typename T>
-static HRESULT create_shader				(
-		LPCSTR const	pTarget,
-		DWORD const*	buffer,
-		u32	const		buffer_size,
-		LPCSTR const	file_name,
-		T*&				result,
-		bool const		disasm
-	)
+static HRESULT create_shader(LPCSTR const pTarget, DWORD const* buffer, u32 const buffer_size, LPCSTR const file_name, T*& result, bool const disasm)
 {
-	result->sh			= ShaderTypeTraits<T>::CreateHWShader(buffer, buffer_size);
+	result->sh = ShaderTypeTraits<T>::CreateHWShader(buffer, buffer_size);
 
-	ID3DShaderReflection *pReflection = 0;
-    HRESULT const _hr = D3DReflect(buffer, buffer_size, IID_ID3DShaderReflection, (void**)&pReflection);
+	ID3DShaderReflection* pReflection = 0;
+	HRESULT const _hr = D3DReflect(buffer, buffer_size, IID_ID3DShaderReflection, (void**)&pReflection);
 
 	if (SUCCEEDED(_hr) && pReflection)
 	{
 		// Parse constant table data
 		result->constants.parse(pReflection, ShaderTypeTraits<T>::GetShaderDest());
 
-		_RELEASE		(pReflection);
+		_RELEASE(pReflection);
 	}
 	else
 	{
 		Msg("! D3DReflectShader %s hr == 0x%08x", file_name, _hr);
 	}
 
-	return				_hr;
+	return _hr;
 }
 
 static HRESULT create_shader				(
@@ -56,7 +50,8 @@ static HRESULT create_shader				(
 		SVS* svs_result = (SVS*)result;
 		_result			= HW.pRenderDevice->CreateVertexShader(buffer, buffer_size, 0, &svs_result->sh);
 
-		if ( !SUCCEEDED(_result) ) {
+		if ( !SUCCEEDED(_result) ) 
+		{
 			Log			("! VS: ", file_name);
 			Msg			("! CreatePixelShader hr == 0x%08x", _result);
 			return		E_FAIL;
@@ -134,7 +129,8 @@ public:
 		string_path				pname;
 		strconcat				(sizeof(pname),pname,::Render->getShaderPath(),pFileName);
 		IReader*		R		= FS.r_open	("$game_shaders$",pname);
-		if (0==R)				{
+		if (0==R)				
+		{
 			// possibly in shared directory or somewhere else - open directly
 			R					= FS.r_open	("$game_shaders$",pFileName);
 			if (0==R)			return			E_FAIL;
@@ -159,8 +155,6 @@ public:
 };
 
 #include <boost/crc.hpp>
-
-static inline bool match_shader_id		( LPCSTR const debug_shader_id, LPCSTR const full_shader_id, FS_FileSet const& file_set, string_path& result );
 
 HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
     LPCSTR pTarget, DWORD Flags, void*& result)
@@ -394,7 +388,8 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 		def_it						++	;
 		sh_name[len]='1'; ++len;
 	}
-	else {
+	else 
+	{
 		sh_name[len]='0'; ++len;
 	}
 

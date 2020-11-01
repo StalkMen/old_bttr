@@ -24,6 +24,7 @@
 #include "mt_config.h"
 #include "../xrEngine/igame_persistent.h"
 #include "../xrEngine/Discord.h"
+#include "script_engine.h"
 
 using namespace ALife;
 #ifdef	ENGINE_LUA_ALIFE_UPDAGE_MANAGER_CALLBACKS
