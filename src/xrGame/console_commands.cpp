@@ -1852,6 +1852,7 @@ extern BOOL g_b_COD_PickUpMode;
 BOOL _fake_start = 0;
 BOOL update_loot_pick_soc = 1;
 BOOL game_value_ammo_belt = 0;
+extern BOOL g_use_aim_inertion;
 
 u32 type_hud_token = 0;
 xr_token type_hud_token_ext[] = {
@@ -1898,7 +1899,9 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Integer, "xrGame_cop_pickup_mode", &g_b_COD_PickUpMode, 0, 1);
 	CMD4(CCC_Integer, "xrGame_fake_start", &_fake_start, 0, 1);
 	CMD4(CCC_Integer, "xrGame_update_loot_pick_soc", &update_loot_pick_soc, 0, 1);
-
+	
+	CMD4(CCC_Integer, "xrGame_g_use_aim_inertion", &g_use_aim_inertion, 0, 1);
+	
 	CMD4(CCC_Float, "hud_adj_delta_pos", &hud_adj_delta_pos, 0.0001f, 1.0f);
 	CMD4(CCC_Float, "hud_adj_delta_rot", &hud_adj_delta_rot, 0.0001f, 1.0f);
 

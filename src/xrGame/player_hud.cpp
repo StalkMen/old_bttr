@@ -34,6 +34,7 @@ Fvector _wpn_root_pos;
 #define ORIGIN_OFFSET_AIM_OLD -0.03f    // (Для прицеливания)
 
 const float _CalcMotionSpeed = 1.f;
+extern BOOL g_use_aim_inertion = 1;
 
 float CalcMotionSpeed(const shared_str& anim_name)
 {
@@ -669,7 +670,7 @@ void player_hud::update_inertion(Fmatrix& trans)
 		
 		// load params
 		hud_item_measures::inertion_params inertion_data;
-		if (pMainHud != NULL)
+		if (g_use_aim_inertion && pMainHud != NULL)
 		{ // Загружаем параметры инерции из основного худа
 			inertion_data.m_pitch_offset_r			= pMainHud->m_measures.m_inertion_params.m_pitch_offset_r;
 			inertion_data.m_pitch_offset_n			= pMainHud->m_measures.m_inertion_params.m_pitch_offset_n;

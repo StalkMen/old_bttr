@@ -773,7 +773,8 @@ void CUIMainIngameWnd::UpdateMainIndicators()
     u16 slot = pActor->inventory().GetActiveSlot();
     float cur_weight = pActor->inventory().TotalWeight();
     float max_weight = pActor->MaxWalkWeight();
-
+	float max_carry_weight = pActor->MaxCarryWeight();
+	
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //*Индикаторы худа Зов Чернобыля
     if (type_hud_token == 0)
@@ -929,15 +930,22 @@ void CUIMainIngameWnd::UpdateMainIndicators()
             }
         }
         // Overweight icon
-        m_ind_overweight_coc->Show(false);
-        if (cur_weight >= max_weight - 10.0f && IsGameTypeSingle() && !(psActorFlags.test(AF_GODMODE | AF_GODMODE_RT)))
-        {
-            m_ind_overweight_coc->Show(true);
-            if (cur_weight > max_weight)
-                m_ind_overweight_coc->InitTexture("ui_inGame2_circle_Overweight_red_coc");
-            else
-                m_ind_overweight_coc->InitTexture("ui_inGame2_circle_Overweight_yellow_coc");
-        }
+		m_ind_overweight_coc->Show(false);
+		if (cur_weight >= max_carry_weight && !(psActorFlags.test(AF_GODMODE | AF_GODMODE_RT)))
+		{
+			m_ind_overweight_coc->Show(true);
+			if (cur_weight >= max_weight)
+			{
+				m_ind_overweight_coc->InitTexture("ui_inGame2_circle_Overweight_red_coc");
+			}
+			else
+			{
+				if (max_carry_weight / max_weight >= 0.5f)
+					m_ind_overweight_coc->InitTexture("ui_inGame2_circle_Overweight_yellow_coc");
+				else
+					m_ind_overweight_coc->InitTexture("ui_inGame2_circle_Overweight_green_coc");
+			}
+		}
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1096,15 +1104,22 @@ void CUIMainIngameWnd::UpdateMainIndicators()
             }
         }
         // Overweight icon
-        m_ind_overweight_cop->Show(false);
-        if (cur_weight >= max_weight - 10.0f && IsGameTypeSingle() && !(psActorFlags.test(AF_GODMODE | AF_GODMODE_RT)))
-        {
-            m_ind_overweight_cop->Show(true);
-            if (cur_weight > max_weight)
-                m_ind_overweight_cop->InitTexture("ui_inGame2_circle_Overweight_red_cop");
-            else
-                m_ind_overweight_cop->InitTexture("ui_inGame2_circle_Overweight_yellow_cop");
-        }
+		m_ind_overweight_cop->Show(false);
+		if (cur_weight >= max_carry_weight && !(psActorFlags.test(AF_GODMODE | AF_GODMODE_RT)))
+		{
+			m_ind_overweight_cop->Show(true);
+			if (cur_weight >= max_weight)
+			{
+				m_ind_overweight_cop->InitTexture("ui_inGame2_circle_Overweight_red_cop");
+			}
+			else
+			{
+				if (max_carry_weight / max_weight >= 0.5f)
+					m_ind_overweight_cop->InitTexture("ui_inGame2_circle_Overweight_yellow_cop");
+				else
+					m_ind_overweight_cop->InitTexture("ui_inGame2_circle_Overweight_green_cop");
+			}
+		}
     }
 
     if (type_hud_token == 2)
@@ -1230,15 +1245,22 @@ void CUIMainIngameWnd::UpdateMainIndicators()
             }
         }
         // Overweight icon
-        m_ind_overweight_cmp->Show(false);
-        if (cur_weight >= max_weight - 10.0f && IsGameTypeSingle() && !(psActorFlags.test(AF_GODMODE | AF_GODMODE_RT)))
-        {
-            m_ind_overweight_cmp->Show(true);
-            if (cur_weight > max_weight)
-                m_ind_overweight_cmp->InitTexture("ui_inGame2_circle_Overweight_red_cmp");
-            else
-                m_ind_overweight_cmp->InitTexture("ui_inGame2_circle_Overweight_yellow_cmp");
-        }
+		m_ind_overweight_cmp->Show(false);
+		if (cur_weight >= max_carry_weight && !(psActorFlags.test(AF_GODMODE | AF_GODMODE_RT)))
+		{
+			m_ind_overweight_cmp->Show(true);
+			if (cur_weight >= max_weight)
+			{
+				m_ind_overweight_cmp->InitTexture("ui_inGame2_circle_Overweight_red_cmp");
+			}
+			else
+			{
+				if (max_carry_weight / max_weight >= 0.5f)
+					m_ind_overweight_cmp->InitTexture("ui_inGame2_circle_Overweight_yellow_cmp");
+				else
+					m_ind_overweight_cmp->InitTexture("ui_inGame2_circle_Overweight_green_cmp");
+			}
+		}
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1368,15 +1390,22 @@ void CUIMainIngameWnd::UpdateMainIndicators()
             }
         }
         // Overweight icon
-        m_ind_overweight_st->Show(false);
-        if (cur_weight >= max_weight - 10.0f && IsGameTypeSingle() && !(psActorFlags.test(AF_GODMODE | AF_GODMODE_RT)))
-        {
-            m_ind_overweight_st->Show(true);
-            if (cur_weight > max_weight)
-                m_ind_overweight_st->InitTexture("ui_inGame2_circle_Overweight_red_st174");
-            else
-                m_ind_overweight_st->InitTexture("ui_inGame2_circle_Overweight_yellow_st174");
-        }
+		m_ind_overweight_st->Show(false);
+		if (cur_weight >= max_carry_weight && !(psActorFlags.test(AF_GODMODE | AF_GODMODE_RT)))
+		{
+			m_ind_overweight_st->Show(true);
+			if (cur_weight >= max_weight)
+			{
+				m_ind_overweight_st->InitTexture("ui_inGame2_circle_Overweight_red_st174");
+			}
+			else
+			{
+				if (max_carry_weight / max_weight >= 0.5f)
+					m_ind_overweight_st->InitTexture("ui_inGame2_circle_Overweight_yellow_st174");
+				else
+					m_ind_overweight_st->InitTexture("ui_inGame2_circle_Overweight_green_st174");
+			}
+		}
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1580,15 +1609,22 @@ void CUIMainIngameWnd::UpdateMainIndicators()
             }
         }
         // Overweight icon 
-        m_ind_overweight_vv->Show(false);
-        if (cur_weight >= max_weight - 10.0f && !(psActorFlags.test(AF_GODMODE | AF_GODMODE_RT)))
-        {
-            m_ind_overweight_vv->Show(true);
-            if (cur_weight > max_weight)
-                m_ind_overweight_vv->InitTexture("ui_inGame2_circle_Overweight_red_cop");
-            else
-                m_ind_overweight_vv->InitTexture("ui_inGame2_circle_Overweight_yellow_cop");
-        }
+		m_ind_overweight_vv->Show(false);
+		if (cur_weight >= max_carry_weight && !(psActorFlags.test(AF_GODMODE | AF_GODMODE_RT)))
+		{
+			m_ind_overweight_vv->Show(true);
+			if (cur_weight >= max_weight)
+			{
+				m_ind_overweight_vv->InitTexture("ui_inGame2_circle_Overweight_red_cop");
+			}
+			else
+			{
+				if (max_carry_weight / max_weight >= 0.5f)
+					m_ind_overweight_vv->InitTexture("ui_inGame2_circle_Overweight_yellow_cop");
+				else
+					m_ind_overweight_vv->InitTexture("ui_inGame2_circle_Overweight_green_cop");
+			}
+		}
     }
 }
 

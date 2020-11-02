@@ -274,4 +274,5 @@ void game_cl_GameState::set_type_name(LPCSTR s)
 void game_cl_GameState::OnConnected()
 {
 	m_game_ui_custom	= CurrentGameUI();
+	switch_Phase(GAME_PHASE_INPROGRESS);
 }

@@ -164,7 +164,8 @@ CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
     m_fCrouchFactor = 0.2f;
     m_fClimbFactor = 1.f;
     m_fCamHeightFactor = 0.87f;
-
+	m_fOverweightWalkAccel = 1.f;
+	
     m_fFallTime = s_fFallTime;
     m_bAnimTorsoPlayed = false;
 
@@ -385,6 +386,7 @@ void CActor::Load(LPCSTR section)
     set_box(section, *character_physics_support()->movement(), 0);
 
     m_fWalkAccel = pSettings->r_float(section, "walk_accel");
+	m_fOverweightWalkAccel = READ_IF_EXISTS(pSettings, r_float, section, "overweight_walk_accel", 1.0f);
     m_fJumpSpeed = pSettings->r_float(section, "jump_speed");
     m_fRunFactor = pSettings->r_float(section, "run_coef");
     m_fRunBackFactor = pSettings->r_float(section, "run_back_coef");
@@ -2336,79 +2338,155 @@ void CActor::RepackAmmo()
 	}
 }
 
+#include "../xrphysics/actorcameracollision.h"
 bool CActor::use_HolderEx(CHolderCustom* object, bool bForce)
 {
-    if (m_holder)
-    {
-        CCar* car = smart_cast<CCar*>(m_holder);
-        if (car)
-        {
-            detach_Vehicle();
-            return true;
-        }
-        if (!m_holder->ExitLocked())
-        {
-            if (!object || (m_holder == object)) {
+	if (m_holder)
+	{
+		/*
+		CCar* car = smart_cast<CCar*>(m_holder);
+		if (car)
+		{
+			detach_Vehicle();
+			return true;
+		}
+		*/
+		if (!m_holder->ExitLocked() || bForce)
+		{
+			if (!object || (m_holder == object)){
 
-                SetWeaponHideState(INV_STATE_CAR, false);
+				CGameObject* go = smart_cast<CGameObject*>(m_holder);
+				CPhysicsShellHolder* pholder = smart_cast<CPhysicsShellHolder*>(go);
+				if (pholder)
+				{
+					pholder->PPhysicsShell()->SplitterHolderDeactivate();
+					if (!character_physics_support()->movement()->ActivateBoxDynamic(0))
+					{
+						pholder->PPhysicsShell()->SplitterHolderActivate();
+						return true;
+					}
+					pholder->PPhysicsShell()->SplitterHolderActivate();
+				}
 
-                CGameObject* go = smart_cast<CGameObject*>(m_holder);
-                if (go)
-                    this->callback(GameObject::eDetachVehicle)(go->lua_game_object());
+				SetWeaponHideState(INV_STATE_BLOCK_ALL, false);
+				
+				if (go)
+					this->callback(GameObject::eDetachVehicle)(go->lua_game_object());
 
-                m_holder->detach_Actor();
+				m_holder->detach_Actor();
 
-                character_physics_support()->movement()->CreateCharacter();
-                character_physics_support()->movement()->SetPosition(m_holder->ExitPosition());
-                character_physics_support()->movement()->SetVelocity(m_holder->ExitVelocity());
+				character_physics_support()->movement()->CreateCharacter();
+				character_physics_support()->movement()->SetPosition(m_holder->ExitPosition());
+				character_physics_support()->movement()->SetVelocity(m_holder->ExitVelocity());
 
-                r_model_yaw = -m_holder->Camera()->yaw;
-                r_torso.yaw = r_model_yaw;
-                r_model_yaw_dest = r_model_yaw;
+				r_model_yaw = -m_holder->Camera()->yaw;
+				r_torso.yaw = r_model_yaw;
+				r_model_yaw_dest = r_model_yaw;
 
-                cam_Active()->Direction().set(m_holder->Camera()->Direction());
+				cam_Active()->Direction().set(m_holder->Camera()->Direction());
 
-                SetCallbacks();
+				SetCallbacks();
 
-                m_holder = NULL;
-                m_holderID = u16(-1);
-            }
-        }
-        return true;
-    }
-    else
-    {
-        CCar* car = smart_cast<CCar*>(object);
-        if (car)
-        {
-            attach_Vehicle(object);
-            return true;
-        }
-        if (object && !object->EnterLocked())
-        {
-            Fvector center;	Center(center);
-            if (object->Use(Device.vCameraPosition, Device.vCameraDirection, center) && object->attach_Actor(this))
-            {
-                SetWeaponHideState(INV_STATE_CAR, true);
+				m_holder = NULL;
+				m_holderID = u16(-1);
 
-                // destroy actor character
-                character_physics_support()->movement()->DestroyCharacter();
+				IKinematicsAnimated* V = smart_cast<IKinematicsAnimated*>(Visual()); R_ASSERT(V);
+				V->PlayCycle(m_anims->m_normal.legs_idle);
+				V->PlayCycle(m_anims->m_normal.m_torso_idle);
+				
+				IKinematics* pK = smart_cast<IKinematics*>(Visual());
+				u16 head_bone = pK->LL_BoneID("bip01_head");
+				pK->LL_GetBoneInstance(u16(head_bone)).set_callback(bctPhysics, HeadCallback, this);
+			}
+		}
+		return true;
+	}
+	else
+	{
+		/*
+		CCar* car = smart_cast<CCar*>(object);
+		if (car)
+		{
+			attach_Vehicle(object);
+			return true;
+		}
+		*/
+		if (object && (!object->EnterLocked() || bForce))
+		{
+			Fvector center;	Center(center);
+			if ((bForce || object->Use(Device.vCameraPosition, Device.vCameraDirection, center)) && object->attach_Actor(this))
+			{
+				inventory().SetActiveSlot(NO_ACTIVE_SLOT);
+				SetWeaponHideState(INV_STATE_BLOCK_ALL, true);
 
-                m_holder = object;
-                CObject* oHolder = smart_cast<CObject*>(object);
-                m_holderID = oHolder->ID();
+				// destroy actor character
+				character_physics_support()->movement()->DestroyCharacter();
 
-                if (pCamBobbing) {
-                    Cameras().RemoveCamEffector(eCEBobbing);
-                    pCamBobbing = NULL;
-                }
+				m_holder = object;
+				CObject* oHolder = smart_cast<CObject*>(object);
+				m_holderID = oHolder->ID();
 
-                CGameObject* go = smart_cast<CGameObject*>(object);
-                if (go)
-                    this->callback(GameObject::eAttachVehicle)(go->lua_game_object());
-                return true;
-            }
-        }
-    }
-    return false;
+				if (pCamBobbing){
+					Cameras().RemoveCamEffector(eCEBobbing);
+					pCamBobbing = NULL;
+				}
+
+				if (actor_camera_shell)
+					destroy_physics_shell(actor_camera_shell);
+
+				IKinematics* pK = smart_cast<IKinematics*>(Visual());
+				u16 head_bone = pK->LL_BoneID("bip01_head");
+				pK->LL_GetBoneInstance(u16(head_bone)).set_callback(bctPhysics, VehicleHeadCallback, this);
+
+				CCar* car = smart_cast<CCar*>(object);
+				if (car)
+				{
+					u16 anim_type = car->DriverAnimationType();
+					SVehicleAnimCollection& anims = m_vehicle_anims->m_vehicles_type_collections[anim_type];
+					IKinematicsAnimated* V = smart_cast<IKinematicsAnimated*>(Visual()); R_ASSERT(V);
+					V->PlayCycle(anims.idles[0], FALSE);
+					CStepManager::on_animation_start(MotionID(), 0);
+				}
+
+				CGameObject* go = smart_cast<CGameObject*>(object);
+				if (go)
+					this->callback(GameObject::eAttachVehicle)(go->lua_game_object());
+
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+void CActor::on_requested_spawn(CObject *object)
+{
+	CHolderCustom* oHolder = smart_cast<CHolderCustom*>(object);
+	if (!oHolder) return;
+
+	CGameObject* go = smart_cast<CGameObject*>(object);
+	CPhysicsShellHolder* pholder = smart_cast<CPhysicsShellHolder*>(go);
+	if (pholder)
+	{
+		pholder->PPhysicsShell()->SplitterHolderDeactivate();
+		if (!character_physics_support()->movement()->ActivateBoxDynamic(0))
+		{
+			pholder->PPhysicsShell()->SplitterHolderActivate();
+			return;
+		}
+		pholder->PPhysicsShell()->SplitterHolderActivate();
+	}
+
+	character_physics_support()->movement()->CreateCharacter();
+	character_physics_support()->movement()->SetPosition(oHolder->ExitPosition());
+	character_physics_support()->movement()->SetVelocity(oHolder->ExitVelocity());
+
+	m_holder = NULL;
+	m_holderID = (u16)(-1);
+
+	use_HolderEx(oHolder, true);
+
+	Fvector xyz;
+	object->XFORM().getXYZi(xyz);
+	r_torso.yaw = xyz.y;
 }

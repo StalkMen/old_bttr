@@ -301,7 +301,7 @@ void CActor::g_cl_CheckControls(u32 mstate_wf, Fvector &vControlAccel, float &Ju
 				if (outfit)
 				{
 					accel_k *= outfit->m_fWalkAccel;
-					if (inventory().TotalWeight() > MaxWalkWeight())
+					if (inventory().TotalWeight() > MaxCarryWeight())
 						accel_k *= outfit->m_fOverweightWalkK;
 				}
 				
@@ -310,9 +310,12 @@ void CActor::g_cl_CheckControls(u32 mstate_wf, Fvector &vControlAccel, float &Ju
 				{
 					accel_k *= backpack->m_fWalkAccel;
 
-					if (inventory().TotalWeight() > MaxWalkWeight())
+					if (inventory().TotalWeight() > MaxCarryWeight())
 						accel_k *= backpack->m_fOverweightWalkK;
 				}
+				
+				if (inventory().TotalWeight() > MaxCarryWeight())
+					accel_k *= m_fOverweightWalkAccel;
 				
 				scale	=	accel_k/scale;
 				
@@ -680,7 +683,7 @@ bool CActor::is_jump()
 float CActor::MaxCarryWeight () const
 {
 	float res = inventory().GetMaxWeight();
-	res      += get_additional_weight();
+	res      += get_additional_weight2();
 	return res;
 }
 
@@ -712,3 +715,27 @@ float CActor::get_additional_weight() const
 
 	return res;
 }
+
+float CActor::get_additional_weight2() const
+{
+	float res = 0.0f;
+
+	CCustomOutfit* outfit = GetOutfit();
+	if (outfit)
+		res += outfit->m_additional_weight2;
+
+	CBackpack* pBackpack = smart_cast<CBackpack*>(inventory().ItemFromSlot(BACKPACK_SLOT));
+	if (pBackpack)
+		res += pBackpack->m_additional_weight2;
+
+	for (TIItemContainer::const_iterator it = inventory().m_belt.begin();
+		inventory().m_belt.end() != it; ++it)
+	{
+		CArtefact*	artefact = smart_cast<CArtefact*>(*it);
+		if (artefact)
+			res += (artefact->AdditionalInventoryWeight()*artefact->GetCondition());
+	}
+
+	return res;
+}
+

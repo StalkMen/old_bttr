@@ -269,7 +269,6 @@ protected:
     CHolderCustom*			m_holder;
     u16						m_holderID;
     bool					use_Holder				(CHolderCustom* holder);
-    bool					use_Vehicle				(CHolderCustom* object);
     void					ActorUse				();
 	void					actor_kick				();
 	
@@ -443,6 +442,7 @@ protected:
 
 public:
     float					m_fWalkAccel;
+	float					m_fOverweightWalkAccel;
     float					m_fJumpSpeed;
     float					m_fRunFactor;
     float					m_fRunBackFactor;
@@ -478,8 +478,9 @@ public:
             bool						IsZoomAimingMode	() const {return m_bZoomAimingMode;}
     virtual float						MaxCarryWeight		() const;
             float						MaxWalkWeight		() const;
-            float						get_additional_weight() const;
-
+            float						get_additional_weight() const;	//MaxWalkWeight
+			float						get_additional_weight2() const;	//MaxCarryWeight
+			
 protected:
     CFireDispertionController			m_fdisp_controller;
     //если актер целится в прицел

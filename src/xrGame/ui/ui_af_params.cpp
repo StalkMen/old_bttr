@@ -25,6 +25,11 @@ CUIArtefactParams::CUIArtefactParams()
 		m_restore_item[i] = NULL;
 	}
 	m_additional_weight = NULL;
+	m_disp_condition = NULL;
+	m_fJumpSpeed = NULL;
+	m_fWalkAccel = NULL;
+	m_fOverweightWalkAccel = NULL;
+	m_Prop_line = NULL;
 }
 
 CUIArtefactParams::~CUIArtefactParams()
@@ -32,6 +37,10 @@ CUIArtefactParams::~CUIArtefactParams()
 	delete_data	( m_immunity_item );
 	delete_data	( m_restore_item );
 	xr_delete	( m_additional_weight );
+	xr_delete(m_disp_condition);
+	xr_delete(m_fJumpSpeed);
+	xr_delete(m_fWalkAccel);
+	xr_delete(m_fOverweightWalkAccel);
 	xr_delete	( m_Prop_line );
 }
 
