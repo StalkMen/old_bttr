@@ -28,7 +28,7 @@ CUIArtefactParams::CUIArtefactParams()
 	m_disp_condition = NULL;
 	m_fJumpSpeed = NULL;
 	m_fWalkAccel = NULL;
-	m_fOverweightWalkAccel = NULL;
+//	m_fOverweightWalkAccel = NULL;
 	m_Prop_line = NULL;
 }
 
@@ -40,7 +40,7 @@ CUIArtefactParams::~CUIArtefactParams()
 	xr_delete(m_disp_condition);
 	xr_delete(m_fJumpSpeed);
 	xr_delete(m_fWalkAccel);
-	xr_delete(m_fOverweightWalkAccel);
+//	xr_delete(m_fOverweightWalkAccel);
 	xr_delete	( m_Prop_line );
 }
 
