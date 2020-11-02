@@ -3,8 +3,8 @@
 #include "Level_Bullet_Manager.h"
 #include "xrserver.h"
 #include "game_cl_base.h"
+#include "game_sv_base.h"
 #include "xrmessages.h"
-#include "xrGameSpyServer.h"
 #include "../xrEngine/x_ray.h"
 #include "../xrEngine/device.h"
 #include "../xrEngine/IGame_Persistent.h"
@@ -12,7 +12,6 @@
 #include "MainMenu.h"
 #include "string_table.h"
 #include "UIGameCustom.h"
-#include "ui/UICDkey.h"
 #include "../xrEngine/Discord.h"
 
 int		g_cl_save_demo = 0;
@@ -34,8 +33,7 @@ bool CLevel::net_Start(const char* op_server, const char* op_client)
 
 	pApp->LoadBegin				();
 
-	string64	player_name;
-	GetPlayerName_FromRegistry( player_name, sizeof(player_name) );
+	string64	player_name = "callofchernobyl";
 
 	if ( xr_strlen(player_name) == 0 )
 	{
@@ -116,14 +114,7 @@ bool CLevel::net_start1				()
 		typedef IGame_Persistent::params params;
 		params							&p = g_pGamePersistent->m_game_params;
 		// Connect
-		if (!xr_strcmp(p.m_game_type,"single"))
-		{
-			Server					= xr_new<xrServer>();
-		} else
-		{
-			g_allow_heap_min		= false;
-			Server					= xr_new<xrGameSpyServer>();
-		}
+		Server = xr_new<xrServer>();
 
 		if (xr_strcmp(p.m_alife,"alife"))
 		{
@@ -199,16 +190,6 @@ bool CLevel::net_start3				()
 			m_caClientOptions = tmp;
 		};
 	};
-	//setting players GameSpy CDKey if it comes from command line
-	if (strstr(m_caClientOptions.c_str(), "/cdkey="))
-	{
-		string64 CDKey;
-		const char* start = strstr(m_caClientOptions.c_str(),"/cdkey=") +xr_strlen("/cdkey=");
-		sscanf			(start, "%[^/]",CDKey);
-		string128 cmd;
-		xr_sprintf(cmd, "cdkey %s", _strupr(CDKey));
-		Console->Execute			(cmd);
-	}
 	return true;
 }
 
@@ -266,8 +247,6 @@ bool CLevel::net_start6				()
 		{
 			DEL_INSTANCE	(g_pGameLevel);
 			Console->Execute("main_menu on");
-
-			MainMenu()->SwitchToMultiplayerMenu();
 		}
 		else
 		if (!map_data.m_map_loaded && map_data.m_name.size() && m_bConnectResult)	//if (map_data.m_name == "") - level not loaded, see CLevel::net_start_client3
@@ -284,12 +263,6 @@ bool CLevel::net_start6				()
 
 			DEL_INSTANCE	(g_pGameLevel);
 			Console->Execute("main_menu on");
-
-			if	(!g_dedicated_server)
-			{
-				MainMenu()->SwitchToMultiplayerMenu();
-				MainMenu()->Show_DownloadMPMap(dialog_string, download_url);
-			}
 		}
 		else
 		if (map_data.IsInvalidClientChecksum())
@@ -307,11 +280,6 @@ bool CLevel::net_start6				()
 			g_pGameLevel->net_Stop();
 			DEL_INSTANCE	(g_pGameLevel);
 			Console->Execute("main_menu on");
-			if	(!g_dedicated_server)
-			{
-				MainMenu()->SwitchToMultiplayerMenu();
-				MainMenu()->Show_DownloadMPMap(dialog_string, download_url);
-			}
 		}
 		else 
 		{

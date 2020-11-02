@@ -16,6 +16,7 @@
 #include "../../../CharacterPhysicsSupport.h"
 #include "../control_path_builder_base.h"
 
+#include "script_engine.h"
 
 CPseudoGigant_jumper::CPseudoGigant_jumper()
 {

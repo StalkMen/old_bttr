@@ -14,6 +14,8 @@
 #include "../../../level.h"
 #include "Actor.h"
 
+#include "script_engine.h"
+
 CSnork::CSnork() 
 {
 	StateMan		= xr_new<CStateManagerSnork>(this);

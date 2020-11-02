@@ -16,6 +16,8 @@
 #include "game_level_cross_table.h"
 #include "game_graph.h"
 #include "xrServer.h"
+#include "ai_space_inline.h"
+#include "script_engine.h"
 
 void CSE_ALifeDynamicObject::on_spawn				()
 {

@@ -14,6 +14,8 @@
 #include "ActorCondition.h"
 #include "HUDManager.h"
 
+#include "script_engine.h"
+
 void CControllerPsyHit::load(LPCSTR section)
 {
     m_min_tube_dist = pSettings->r_float(section, "tube_condition_min_distance");

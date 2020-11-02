@@ -11,7 +11,7 @@
 #include "UIWindow.h"
 
 class CUIGameLog;
-class CUIChatWnd;
+
 struct GAME_NEWS_DATA;
 struct KillMessageStruct;
 
@@ -28,16 +28,13 @@ public:
 	void				AddChatMessage					(shared_str msg, shared_str author);
 //.	void				SetChatOwner					(game_cl_GameState* owner);
 	void				PendingMode						(bool const is_in_pending_mode);
-	CUIChatWnd*			GetChatWnd						() {return m_pChatWnd;}
 	virtual void		Show							(bool show);
 
 
 protected:
 	virtual void		Init(float x, float y, float width, float height);
 
-
 	CUIGameLog*			m_pChatLog;
-	CUIChatWnd*			m_pChatWnd;
 	CUIGameLog*			m_pGameLog;
 	bool				m_in_pending_mode;
 	
