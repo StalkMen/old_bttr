@@ -18,6 +18,7 @@
 #include "eatable_item_object.h"
 
 #include "../battery.h"
+#include "../flash_card.h"
 
 #include "../silencer.h"
 #include "../scope.h"
@@ -1274,8 +1275,9 @@ bool CUIActorMenu::TryUseItem( CUICellItem* cell_itm )
 	CAntirad*		pAntirad		= smart_cast<CAntirad*>		(item);
 	CEatableItem*	pEatableItem	= smart_cast<CEatableItem*>	(item);
 	CBattery* 		pBattery 		= smart_cast<CBattery*>		(CurrentIItem());
-	
-	if ( !(pMedkit || pAntirad || pEatableItem || pBottleItem || pBattery) )
+	CFlashCard*		pFlash			= smart_cast<CFlashCard*>	(CurrentIItem());
+
+	if ( !(pMedkit || pAntirad || pEatableItem || pBottleItem || pBattery || pFlash) )
 	{
 		return false;
 	}
@@ -1615,39 +1617,31 @@ void CUIActorMenu::PropertiesBoxForUsing( PIItem item, bool& b_show )
 		m_UIPropertiesBox->AddItem(act_str, NULL, INVENTORY_EAT_ACTION);
 		b_show = true;
 	}
-	else {
+	else 
+	{
 		CMedkit*		pMedkit = smart_cast<CMedkit*>		(item);
 		CAntirad*		pAntirad = smart_cast<CAntirad*>		(item);
 		CEatableItem*	pEatableItem = smart_cast<CEatableItem*>	(item);
 		CBottleItem*	pBottleItem = smart_cast<CBottleItem*>	(item);
 		CBattery* 		pBattery = smart_cast<CBattery*>(item);
-		
+		CFlashCard*		pFlash = smart_cast<CFlashCard*>(item);
+
 		if (pMedkit || pAntirad)
-		{
 			act_str = "st_use";
-		}
 		else if (pBottleItem)
-		{
 			act_str = "st_drink";
-		}
 		else if (pBattery)
             act_str = "st_battery";
+		else if (pFlash)
+			act_str = "st_use_info";
 		else if (pEatableItem)
 		{
-
-
 			if (!xr_strcmp(section_name, "vodka") || !(xr_strcmp(section_name, "energy_drink")))
-			{
 				act_str = "st_drink";
-			}
 			else if (!xr_strcmp(section_name, "bread") || !xr_strcmp(section_name, "kolbasa") || !xr_strcmp(section_name, "conserva"))
-			{
 				act_str = "st_eat";
-			}
 			else
-			{
 				act_str = "st_use";
-			}
 		}
 		if (act_str)
 		{

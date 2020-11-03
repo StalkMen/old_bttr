@@ -1211,6 +1211,7 @@
     <ClInclude Include="material_manager_inline.h" />
     <ClInclude Include="medkit.h" />
     <ClInclude Include="battery.h" />
+	<ClInclude Include="flash_card.h" />
     <ClInclude Include="member_corpse.h" />
     <ClInclude Include="member_corpse_inline.h" />
     <ClInclude Include="member_enemy.h" />
@@ -2889,6 +2890,7 @@
     <ClCompile Include="material_manager.cpp" />
     <ClCompile Include="medkit.cpp" />
     <ClCompile Include="battery.cpp" />
+	<ClCompile Include="flash_card.cpp" />
     <ClCompile Include="memory_manager.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
