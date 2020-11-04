@@ -38,6 +38,7 @@
 #include "movement_manager.h"
 #include "detail_path_manager.h"
 #include "CharacterPhysicsSupport.h"
+#include "Inventory.h"
 
 void CScriptGameObject::explode	(u32 level_time)
 {
@@ -553,4 +554,19 @@ void CScriptGameObject::set_visual_name(LPCSTR visual)
 LPCSTR CScriptGameObject::get_visual_name() const
 {
 	return object().cNameVisual().c_str();
+}
+
+void CScriptGameObject::BlockHands(bool val)
+{
+	CActor* actor = smart_cast<CActor*>(&object());
+	if (actor) 
+		actor->inventory().BlockHands(val);
+	else
+		ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "ScriptGameObject : attempt to call SetActorLegsVisible method for non-actor object");
+}
+
+bool CScriptGameObject::IsHandsBlocked()
+{
+	CActor* actor = smart_cast<CActor*>(&object());
+	return	(actor && actor->inventory().IsHandsBlocked());
 }

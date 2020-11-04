@@ -85,10 +85,42 @@ void CWeaponPistol::PlayAnimIdle()
     }
 }
 
+void CWeaponPistol::PlayAnimCrouchIdleMoving()
+{
+    if (m_ammoElapsed.type1 == 0)
+        PlayHUDMotion("anm_idle_moving_crouch_empty", TRUE, NULL, GetState());
+    else
+        PlayHUDMotion("anm_idle_moving_crouch", TRUE, NULL, GetState());
+}
+
+void CWeaponPistol::PlayAnimMovingSlow()
+{
+    if (m_ammoElapsed.type1 == 0)
+        PlayHUDMotion("anm_idle_moving_slow_empty", TRUE, NULL, GetState());
+    else
+        PlayHUDMotion("anm_idle_moving_slow", TRUE, NULL, GetState());
+}
+
 void CWeaponPistol::PlayAnimAim()
 {
     if (m_ammoElapsed.type1 == 0)
-        PlayHUDMotion("anm_idle_aim_empty", TRUE, NULL, GetState());
+    {
+        CActor* pActor = smart_cast<CActor*>(H_Parent());
+        if (pActor)
+        {
+            CEntity::SEntityState st;
+            pActor->g_State(st);
+            if (pActor->AnyMove())
+            {
+                if (HudAnimationExist("anim_idle_aim_moving_empty"))
+                    PlayHUDMotion("anim_idle_aim_moving_empty", TRUE, NULL, GetState());
+                else
+                    PlayHUDMotion("anim_idle_aim_empty", TRUE, NULL, GetState());
+            }
+            else
+                PlayHUDMotion("anim_idle_aim_empty", TRUE, NULL, GetState());
+        }
+    }
     else
         inherited::PlayAnimAim();
 }

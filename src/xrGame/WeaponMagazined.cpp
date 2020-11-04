@@ -1641,7 +1641,21 @@ void CWeaponMagazined::PlayAnimReload()
 
 void CWeaponMagazined::PlayAnimAim()
 {
-    PlayHUDMotion("anm_idle_aim", TRUE, NULL, GetState());
+    CActor* pActor = smart_cast<CActor*>(H_Parent());
+    if (pActor)
+    {
+        CEntity::SEntityState st;
+        pActor->g_State(st);
+        if (pActor->AnyMove())
+        {
+            if (HudAnimationExist("anim_idle_aim_moving"))
+                PlayHUDMotion("anim_idle_aim_moving", TRUE, NULL, GetState());
+            else
+                PlayHUDMotion("anim_idle_aim", TRUE, NULL, GetState());
+        }
+        else
+            PlayHUDMotion("anim_idle_aim", TRUE, NULL, GetState());
+    }
 }
 
 void CWeaponMagazined::PlayAnimIdle()

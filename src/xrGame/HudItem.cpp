@@ -364,6 +364,11 @@ void CHudItem::PlayAnimIdle()
     PlayHUDMotion("anm_idle", TRUE, NULL, GetState());
 }
 
+void CHudItem::PlayAnimMovingSlow()
+{
+    PlayHUDMotion("anm_moving_slow", TRUE, NULL, GetState());
+}
+
 bool CHudItem::TryPlayAnimIdle()
 {
     if (MovingAnimAllowedNow())
@@ -373,23 +378,27 @@ bool CHudItem::TryPlayAnimIdle()
         {
             CEntity::SEntityState st;
             pActor->g_State(st);
-            if (st.bSprint)
+            if (!st.bCrouch && pActor->AnyMove() && !pActor->Accel())
             {
-                PlayAnimIdleSprint();
+                PlayAnimIdleMoving();
                 return true;
             }
-            else
-                if (!st.bCrouch && pActor->AnyMove())
-                {
+            else if (!st.bCrouch && pActor->Accel() && pActor->AnyMove())
+            {
+                if (HudAnimationExist("anm_moving_slow"))
+                    PlayAnimMovingSlow();
+                else
                     PlayAnimIdleMoving();
-                    return true;
-                }      
-//AVO: new crouch idle animation
-                else if (st.bCrouch && pActor->AnyMove()) 
-                {
+                return true;
+            }
+            else if (st.bCrouch && pActor->AnyMove() && !pActor->Accel())
+            {
+                if (HudAnimationExist("anm_idle_moving_crouch"))
                     PlayAnimCrouchIdleMoving();
-                    return true;
-                }
+                else
+                    PlayAnimIdleMoving();
+                return true;
+            }
         }
     }
     return false;
@@ -443,7 +452,7 @@ void CHudItem::OnMovementChanged(ACTOR_DEFS::EMoveCommand cmd)
 {
     if (GetState() == eIdle && !m_bStopAtEndAnimIsRunning)
     {
-        if ((cmd == ACTOR_DEFS::mcSprint) || (cmd == ACTOR_DEFS::mcAnyMove))
+        if ((cmd == ACTOR_DEFS::mcSprint) || (cmd == ACTOR_DEFS::mcAnyMove) || (cmd == ACTOR_DEFS::mcCrouch) || (cmd == ACTOR_DEFS::mcAccel))
         {
             PlayAnimIdle();
             ResetSubStateTime();

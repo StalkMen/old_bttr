@@ -920,6 +920,8 @@ public:
 		    void        SetActorRunBackCoef   (float run_back_coef);
 
 			void		SetCharacterIcon(LPCSTR iconName);
+			void		BlockHands(bool val);
+            bool		IsHandsBlocked();
 #endif
 //-Alundaio
 

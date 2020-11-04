@@ -28,7 +28,9 @@ public:
     virtual void	PlayAnimShoot();
     virtual void	PlayAnimBore();
     virtual void	PlayAnimAim();
-
+	virtual void	PlayAnimCrouchIdleMoving();
+    virtual void	PlayAnimMovingSlow();
+	
     virtual void	UpdateSounds();
 protected:
     virtual bool	AllowFireWhileWorking()

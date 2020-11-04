@@ -397,6 +397,14 @@ void CActor::g_SetAnimation( u32 mstate_rl )
 		if ((mstate_rl&mcAnyMove) != (mstate_old&mcAnyMove))
 		{
 			g_player_hud->OnMovementChanged(mcAnyMove);
+		}else
+		if ((mstate_rl & mcCrouch) != (mstate_old & mcCrouch))
+		{
+			g_player_hud->OnMovementChanged(mcCrouch);
+		}else
+		if ((mstate_rl & mcAccel) != (mstate_old & mcAccel))
+		{
+			g_player_hud->OnMovementChanged(mcAccel);
 		}
 	};
 
