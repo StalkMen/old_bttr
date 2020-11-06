@@ -112,13 +112,13 @@ void CWeaponPistol::PlayAnimAim()
             pActor->g_State(st);
             if (pActor->AnyMove())
             {
-                if (HudAnimationExist("anim_idle_aim_moving_empty"))
-                    PlayHUDMotion("anim_idle_aim_moving_empty", TRUE, NULL, GetState());
+                if (HudAnimationExist("anm_idle_aim_moving_empty"))
+                    PlayHUDMotion("anm_idle_aim_moving_empty", TRUE, NULL, GetState());
                 else
-                    PlayHUDMotion("anim_idle_aim_empty", TRUE, NULL, GetState());
+                    PlayHUDMotion("anm_idle_aim_empty", TRUE, NULL, GetState());
             }
             else
-                PlayHUDMotion("anim_idle_aim_empty", TRUE, NULL, GetState());
+                PlayHUDMotion("anm_idle_aim_empty", TRUE, NULL, GetState());
         }
     }
     else

@@ -1648,13 +1648,13 @@ void CWeaponMagazined::PlayAnimAim()
         pActor->g_State(st);
         if (pActor->AnyMove())
         {
-            if (HudAnimationExist("anim_idle_aim_moving"))
-                PlayHUDMotion("anim_idle_aim_moving", TRUE, NULL, GetState());
+            if (HudAnimationExist("anm_idle_aim_moving"))
+                PlayHUDMotion("anm_idle_aim_moving", TRUE, NULL, GetState());
             else
-                PlayHUDMotion("anim_idle_aim", TRUE, NULL, GetState());
+                PlayHUDMotion("anm_idle_aim", TRUE, NULL, GetState());
         }
         else
-            PlayHUDMotion("anim_idle_aim", TRUE, NULL, GetState());
+            PlayHUDMotion("anm_idle_aim", TRUE, NULL, GetState());
     }
 }
 

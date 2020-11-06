@@ -378,7 +378,12 @@ bool CHudItem::TryPlayAnimIdle()
         {
             CEntity::SEntityState st;
             pActor->g_State(st);
-            if (!st.bCrouch && pActor->AnyMove() && !pActor->Accel())
+            if (st.bSprint)
+            {
+                PlayAnimIdleSprint();
+                return true;
+            }
+            else if (!st.bCrouch && pActor->AnyMove() && !pActor->Accel())
             {
                 PlayAnimIdleMoving();
                 return true;
