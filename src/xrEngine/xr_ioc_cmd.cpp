@@ -788,9 +788,7 @@ void CCC_Register()
         if (BttR_mode)
             p_engine_flags32.set(ITS_CLEAR_1_4_22, false);
         else
-        {
             p_engine_flags32.set(ITS_CLEAR_1_4_22, true);
-        }
 
         CMD3(CCC_Mask, "_game_preset_clear_version_call_of_chernobyl", &p_engine_flags32, ITS_CLEAR_1_4_22);
     }
