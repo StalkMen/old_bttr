@@ -18,7 +18,7 @@
 #include "..\xrRender_DXTargets\Blenders\blender_gamma.h"
 #include "..\xrRender_DXTargets\DXMinMaxSMBlender.h"
 #ifdef USE_DX11
-#include "dx11HDAOCSBlender.h"
+#include "..\xrRender_DXTargets\DX11_HDAOCSBlender.h"
 #endif
 #include "../xrRenderDX10/msaa/dx10MSAABlender.h"
 #include "../xrRenderDX10/DX10 Rain/dx10RainBlender.h"

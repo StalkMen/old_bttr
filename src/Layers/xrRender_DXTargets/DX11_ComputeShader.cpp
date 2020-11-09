@@ -5,7 +5,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
-#include "ComputeShader.h"
+#include "DX11_ComputeShader.h"
 
 void ComputeShader::Construct(
 	ID3D11ComputeShader*	cs,

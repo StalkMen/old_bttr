@@ -369,7 +369,7 @@
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_smaa.cpp" />
 	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_dlaa.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_sunshafts.cpp" />
-    <ClCompile Include="dx10_shaders.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_shaders.cpp" />
     <ClInclude Include="..\xrRender\DX_SMAP_Allocator.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>

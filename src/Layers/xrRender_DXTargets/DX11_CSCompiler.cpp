@@ -5,8 +5,8 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
-#include "CSCompiler.h"
-#include "ComputeShader.h"
+#include "..\xrRender_DXTargets\DX11_CSCompiler.h"
+#include "..\xrRender_DXTargets\DX11_ComputeShader.h"
 #include "..\xrRender\dxRenderDeviceRender.h"
 
 extern ENGINE_API u32 renderer_value;
