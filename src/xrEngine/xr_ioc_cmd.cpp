@@ -776,6 +776,13 @@ xr_token type_aa_token[] = {
 { nullptr,		  0}
 };
 
+ENGINE_API u32 ps_sunshafts_mode = 0;
+xr_token sunshafts_mode_token[] = {
+    { "sunshafts_enable", 0 },
+    { "sunshafts_disable", 1 },
+    { nullptr, 0 }
+};
+
 ENGINE_API Flags32 p_engine_flags32 = { /*ITS_CLEAR_1_4_22*/ };
 
 #include "device.h"
@@ -802,6 +809,7 @@ void CCC_Register()
         CMD3(CCC_Token, "r3_msaa_alphatest", &ps_r3_msaa_atest, qmsaa_atest_token);
 
         CMD3(CCC_Token, "xrRenderDX10_type_aa", &ps_r_type_aa, type_aa_token);
+        CMD3(CCC_Token, "xrRenderDX10_sunshafts_mode", &ps_sunshafts_mode, sunshafts_mode_token);
     }
 
     CMD3(CCC_Token,     "xrEngine_fps_lock",    &g_dwFPSlimit, FpsLockToken);

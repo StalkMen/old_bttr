@@ -1080,6 +1080,7 @@ void CRenderTarget::accum_direct_lum	()
       }
 }
 
+extern ENGINE_API u32 ps_sunshafts_mode;
 void CRenderTarget::accum_direct_volumetric	(u32 sub_phase, const u32 Offset, const Fmatrix &mShadow)
 {
 	PIX_EVENT(accum_direct_volumetric);
