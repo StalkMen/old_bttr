@@ -18,33 +18,12 @@ xr_token							qpreset_token							[ ]={
 	{ nullptr,						0											}
 };
 
-u32	ps_r_ssao_mode = 2;
-xr_token qssao_mode_token[] = 
-{
-	{ (Call_of_Chernobyl_mode) ? "disabled" : "ssao_disabled",			0},
-	{ (Call_of_Chernobyl_mode) ? "default"	 : "SSAO",					1},
-	{ (Call_of_Chernobyl_mode) ? "hdao"     : "HDAO",					2},
-	{ (Call_of_Chernobyl_mode) ? "hbao"     : "HBAO",					3},
-	{ (Call_of_Chernobyl_mode) ? "not_supported_by_shaders_ssdo" : "SSDO",	(Call_of_Chernobyl_mode) ? 0 : 4},
-	{ nullptr, 0 }
-};
-
 u32			ps_r_sun_shafts				=	2;
 xr_token							qsun_shafts_token							[ ]={
 	{ "st_opt_off",					0												},
 	{ "st_opt_low",					1												},
 	{ "st_opt_medium",				2												},
 	{ "st_opt_high",				3												},
-	{ nullptr,						0												}
-};
-
-u32			ps_r_ssao				=	3;
-xr_token							qssao_token									[ ]={
-	{ "st_opt_off",					0												},
-	{ "st_opt_low",					1												},
-	{ "st_opt_medium",				2												},
-	{ "st_opt_high",				3												},
-	{ "st_opt_ultra",				4												},
 	{ nullptr,						0												}
 };
 
@@ -126,10 +105,7 @@ Flags32		ps_r2_ls_flags				= { R2FLAG_SUN
 	|R2FLAG_VOLUMETRIC_LIGHTS
 	};	// r2-only
 
-Flags32		ps_r2_ls_flags_ext			= {
-		/*R2FLAGEXT_SSAO_OPT_DATA |*/ R2FLAGEXT_SSAO_HALF_DATA
-		|R2FLAGEXT_ENABLE_TESSELLATION
-	};
+Flags32		ps_r2_ls_flags_ext			= { R2FLAGEXT_ENABLE_TESSELLATION };
 
 BOOL		ps_clear_models_on_unload	= 0; //Alundaio
 BOOL		ps_use_precompiled_shaders = 0; //Alundaio
@@ -357,77 +333,6 @@ public:
 	CCC_ModelPoolStat(LPCSTR N) : IConsole_Command(N)  { bEmptyArgsHandled = TRUE; };
 	virtual void Execute(LPCSTR args) {
 		RImplementation.Models->dump();
-	}
-};
-
-class	CCC_SSAO_Mode		: public CCC_Token
-{
-public:
-	CCC_SSAO_Mode(LPCSTR N, u32* V, xr_token* T) : CCC_Token(N,V,T)	{}	;
-
-	virtual void	Execute	(LPCSTR args)	{
-		CCC_Token::Execute	(args);
-				
-		switch	(*value)
-		{
-			case 0:
-			{
-				ps_r_ssao = 0;
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_SSDO, 0);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HBAO, 0);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HDAO, 0);
-				break;
-			}
-			case 1:
-			{
-				if (ps_r_ssao==0)
-				{
-					ps_r_ssao = 1;
-				}
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_SSDO, 0);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HBAO, 0);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HDAO, 0);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HALF_DATA, 0);
-				break;
-			}
-			case 2:
-			{
-				if (ps_r_ssao==0)
-				{
-					ps_r_ssao = 1;
-				}
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_SSDO, 0);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HBAO, 0);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HDAO, 1);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_OPT_DATA, 0);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HALF_DATA, 0);
-				break;
-			}
-			case 3:
-			{
-				if (ps_r_ssao==0)
-				{
-					ps_r_ssao = 1;
-				}
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_SSDO, 0);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HBAO, 1);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HDAO, 0);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_OPT_DATA, 1);
-				break;
-			}
-			case 4:
-			{
-				if (ps_r_ssao == 0)
-				{
-					ps_r_ssao = 1;
-				}
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_SSDO, 1);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HBAO, 0);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_HDAO, 0);
-				ps_r2_ls_flags_ext.set(R2FLAGEXT_SSAO_OPT_DATA, 1);
-				break;
-			}
-		}
 	}
 };
 
@@ -952,15 +857,8 @@ void		xrRender_initconsole()
 	//	float		ps_r2_dof_focus			= 1.4f;					// 1.4f
 
 	CMD3(CCC_Mask, "r2_volumetric_lights", &ps_r2_ls_flags, R2FLAG_VOLUMETRIC_LIGHTS);
-	//	CMD3(CCC_Mask,		"r2_sun_shafts",				&ps_r2_ls_flags,			R2FLAG_SUN_SHAFTS);
 	CMD3(CCC_Token, "r2_sun_shafts", &ps_r_sun_shafts, qsun_shafts_token);
-	CMD3(CCC_SSAO_Mode, "r2_ssao_mode", &ps_r_ssao_mode, qssao_mode_token);
-	CMD3(CCC_Token, "r2_ssao", &ps_r_ssao, qssao_token);
-	CMD3(CCC_Mask, "r2_ssao_blur", &ps_r2_ls_flags_ext, R2FLAGEXT_SSAO_BLUR);//Need restart
-	CMD3(CCC_Mask, "r2_ssao_opt_data", &ps_r2_ls_flags_ext, R2FLAGEXT_SSAO_OPT_DATA);//Need restart
-	CMD3(CCC_Mask, "r2_ssao_half_data", &ps_r2_ls_flags_ext, R2FLAGEXT_SSAO_HALF_DATA);//Need restart
-	CMD3(CCC_Mask, "r2_ssao_hbao", &ps_r2_ls_flags_ext, R2FLAGEXT_SSAO_HBAO);//Need restart
-	CMD3(CCC_Mask, "r2_ssao_hdao", &ps_r2_ls_flags_ext, R2FLAGEXT_SSAO_HDAO);//Need restart
+
 	CMD3(CCC_Mask, "r4_enable_tessellation", &ps_r2_ls_flags_ext, R2FLAGEXT_ENABLE_TESSELLATION);//Need restart
 	CMD3(CCC_Mask, "r4_wireframe", &ps_r2_ls_flags_ext, R2FLAGEXT_WIREFRAME);//Need restart
 	CMD3(CCC_Mask, "r2_steep_parallax", &ps_r2_ls_flags, R2FLAG_STEEP_PARALLAX);

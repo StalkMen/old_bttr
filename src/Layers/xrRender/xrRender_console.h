@@ -12,12 +12,6 @@ extern ECORE_API    BOOL		ps_grass_shadow;
 extern ECORE_API	u32			ps_r_sun_shafts;	//=	0;
 extern ECORE_API	xr_token	qsun_shafts_token[];
 
-extern ECORE_API	u32			ps_r_ssao;			//	=	0;
-extern ECORE_API	xr_token	qssao_token[];
-
-extern ECORE_API	u32			ps_r_ssao_mode;
-extern ECORE_API	xr_token	qssao_mode_token[];
-
 extern ECORE_API	u32			ps_r3_minmax_sm;//	=	0;
 extern ECORE_API	xr_token	qminmax_sm_token[];
 
@@ -164,8 +158,6 @@ enum
 	R2FLAG_STEEP_PARALLAX		= (1<<22),
 	R2FLAG_DOF					= (1<<23),
 
-
-
 	R2FLAG_DETAIL_BUMP			= (1<<25),
 
 	R3FLAG_DYN_WET_SURF			= (1<<26),
@@ -178,17 +170,11 @@ enum
 
 enum
 {
-	R2FLAGEXT_SSAO_BLUR				= (1<<0),
-	R2FLAGEXT_SSAO_OPT_DATA			= (1<<1),
-	R2FLAGEXT_SSAO_HALF_DATA		= (1<<2),
-	R2FLAGEXT_SSAO_HBAO				= (1<<3),
-	R2FLAGEXT_SSAO_HDAO				= (1<<4),
-	R2FLAGEXT_SSAO_SSDO				= (1<<5),
-	R2FLAGEXT_ENABLE_TESSELLATION	= (1<<6),
-	R2FLAGEXT_WIREFRAME				= (1<<7),
-	R_FLAGEXT_HOM_DEPTH_DRAW		= (1<<8),
-	R2FLAGEXT_SUN_ZCULLING			= (1<<9),
-	R2FLAGEXT_SUN_OLD				= (1<<10),
+	R2FLAGEXT_ENABLE_TESSELLATION	= (1<<1),
+	R2FLAGEXT_WIREFRAME				= (1<<2),
+	R_FLAGEXT_HOM_DEPTH_DRAW		= (1<<3),
+	R2FLAGEXT_SUN_ZCULLING			= (1<<4),
+	R2FLAGEXT_SUN_OLD				= (1<<5),
 };
 
 //Swartz: actor shadow

@@ -162,7 +162,8 @@ extern ENGINE_API u32  renderer_value;
 
 extern ENGINE_API u32  ps_r3_msaa;
 extern ENGINE_API u32  ps_r3_msaa_atest;
-
+extern ENGINE_API u32  ps_r_ssao;
+extern ENGINE_API Flags32 p_engine_flags32;
 //////////////////////////////////////////////////////////////////////////
 // Just two static storage
 void					CRender::create					()
@@ -315,12 +316,12 @@ void					CRender::create					()
 	if (o.no_ram_textures)
 		Msg("# Managed textures disabled");
 
-	o.ssao_blur_on		= ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_BLUR) && (ps_r_ssao != 0);
-	o.ssao_opt_data		= ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_OPT_DATA) && (ps_r_ssao != 0);
-	o.ssao_half_data	= ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_HALF_DATA) && o.ssao_opt_data && (ps_r_ssao != 0);
-	o.ssao_hdao			= ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_HDAO) && (ps_r_ssao != 0);
-	o.ssao_hbao			= !o.ssao_hdao && ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_HBAO) && (ps_r_ssao != 0);
-	o.ssao_ssdo			= !o.ssao_hdao && !o.ssao_hbao && ps_r2_ls_flags_ext.test(R2FLAGEXT_SSAO_SSDO) && (ps_r_ssao != 0);
+	o.ssao_blur_on		= p_engine_flags32.test(R2FLAGEXT_SSAO_BLUR) && (ps_r_ssao != 0);
+	o.ssao_opt_data		= p_engine_flags32.test(R2FLAGEXT_SSAO_OPT_DATA) && (ps_r_ssao != 0);
+	o.ssao_half_data	= p_engine_flags32.test(R2FLAGEXT_SSAO_HALF_DATA) && o.ssao_opt_data && (ps_r_ssao != 0);
+	o.ssao_hdao			= p_engine_flags32.test(R2FLAGEXT_SSAO_HDAO) && (ps_r_ssao != 0);
+	o.ssao_hbao			= !o.ssao_hdao && p_engine_flags32.test(R2FLAGEXT_SSAO_HBAO) && (ps_r_ssao != 0);
+	o.ssao_ssdo			= !o.ssao_hdao && !o.ssao_hbao && p_engine_flags32.test(R2FLAGEXT_SSAO_SSDO) && (ps_r_ssao != 0);
 
 	Msg("~ DX: Information about MSAA with xrEngine, selected token: %i", ps_r3_msaa);
 	Msg("~ DX: Information about MSAA A-Test with xrEngine, selected token: %i", ps_r3_msaa_atest);

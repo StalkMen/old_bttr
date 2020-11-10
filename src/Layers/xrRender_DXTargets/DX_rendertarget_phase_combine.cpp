@@ -39,6 +39,8 @@ void CRenderTarget::DoAsyncScreenshot()
 }
 
 extern ENGINE_API u32 ps_r_type_aa;
+extern ENGINE_API u32 ps_r_ssao;
+extern ENGINE_API u32 ps_r_ssao_mode;
 float	hclip(float v, float dim)		{ return 2.f*v/dim - 1.f; }
 void	CRenderTarget::phase_combine	()
 {
@@ -69,9 +71,7 @@ void	CRenderTarget::phase_combine	()
     {
 #ifdef USE_DX11	
         if( ps_r_ssao > 0 )
-        {
 		    phase_hdao();
-        }
 #endif
     }
     else

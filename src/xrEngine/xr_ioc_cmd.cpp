@@ -783,7 +783,99 @@ xr_token sunshafts_mode_token[] = {
     { nullptr, 0 }
 };
 
-ENGINE_API Flags32 p_engine_flags32 = { /*ITS_CLEAR_1_4_22*/ };
+ENGINE_API u32	ps_r_ssao_mode = 2;
+xr_token qssao_mode_token[] =
+{
+    { "SSAO_off", 0 },
+    { "SSAO",     1 },
+    { "HDAO",     2 },
+    { "HBAO",     3 },
+    { "SSDO",     4 },
+    { nullptr,    0 }
+};
+
+ENGINE_API u32	ps_r_ssao = 3;
+xr_token qssao_token[] = {
+    { "st_opt_off",		0 },
+    { "st_opt_low",		1 },
+    { "st_opt_medium",	2 },
+    { "st_opt_high",	3 },
+    { "st_opt_ultra",	4 },
+    { nullptr,			0 }
+};
+
+ENGINE_API Flags32 p_engine_flags32 = { /*ITS_CLEAR_1_4_22 |*/R2FLAGEXT_SSAO_HALF_DATA };
+
+class	CCC_SSAO : public CCC_Token
+{
+public:
+    CCC_SSAO(LPCSTR N, u32* V, xr_token* T) : CCC_Token(N, V, T) {};
+
+    virtual void	Execute(LPCSTR args) {
+        CCC_Token::Execute(args);
+
+        switch (*value)
+        {
+        case 0:
+        {
+            ps_r_ssao = 0;
+            p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
+            break;
+        }
+        case 1:
+        {
+            if (ps_r_ssao == 0)
+            {
+                ps_r_ssao = 1;
+            }
+            p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_HALF_DATA, false);
+            break;
+        }
+        case 2:
+        {
+            if (ps_r_ssao == 0)
+            {
+                ps_r_ssao = 1;
+            }
+            p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, true);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_OPT_DATA, false);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_HALF_DATA, false);
+            break;
+        }
+        case 3:
+        {
+            if (ps_r_ssao == 0)
+            {
+                ps_r_ssao = 1;
+            }
+            p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, true);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_OPT_DATA, true);
+            break;
+        }
+        case 4:
+        {
+            if (ps_r_ssao == 0)
+            {
+                ps_r_ssao = 1;
+            }
+            p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, true);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
+            p_engine_flags32.set(R2FLAGEXT_SSAO_OPT_DATA, true);
+            break;
+        }
+        }
+    }
+};
 
 #include "device.h"
 void CCC_Register()
@@ -805,6 +897,16 @@ void CCC_Register()
     {
         CMD3(CCC_Token, "xrRenderDX_video_size", &render_video_size, render_video_size_token);
         CMD3(CCC_Token, "r2_sun_quality", &ps_r_sun_quality, qsun_quality_token);
+
+        CMD3(CCC_SSAO, "r2_ssao_mode", &ps_r_ssao_mode, qssao_mode_token);
+        CMD3(CCC_Token, "r2_ssao", &ps_r_ssao, qssao_token);
+        CMD3(CCC_Mask, "r2_ssao_blur", &p_engine_flags32, R2FLAGEXT_SSAO_BLUR);
+        CMD3(CCC_Mask, "r2_ssao_opt_data", &p_engine_flags32, R2FLAGEXT_SSAO_OPT_DATA);
+        CMD3(CCC_Mask, "r2_ssao_half_data", &p_engine_flags32, R2FLAGEXT_SSAO_HALF_DATA);
+        CMD3(CCC_Mask, "r2_ssao_hbao", &p_engine_flags32, R2FLAGEXT_SSAO_HBAO);
+        CMD3(CCC_Mask, "r2_ssao_hdao", &p_engine_flags32, R2FLAGEXT_SSAO_HDAO);
+        CMD3(CCC_Mask, "r2_ssao_ssdo", &p_engine_flags32, R2FLAGEXT_SSAO_SSDO);
+
         CMD3(CCC_Token, "r3_msaa", &ps_r3_msaa, qmsaa_token);
         CMD3(CCC_Token, "r3_msaa_alphatest", &ps_r3_msaa_atest, qmsaa_atest_token);
 

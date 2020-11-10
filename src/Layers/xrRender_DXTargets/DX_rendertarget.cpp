@@ -299,6 +299,8 @@ void	generate_jitter	(DWORD*	dest, u32 elem_count)
 		*dest	= color_rgba(samples[2*it].x,samples[2*it].y,samples[2*it+1].y,samples[2*it+1].x);
 }
 
+extern ENGINE_API u32 ps_r_ssao;
+extern ENGINE_API u32 ps_r_ssao_mode;
 CRenderTarget::CRenderTarget		()
 {
    u32 SampleCount = 1;

@@ -1,5 +1,8 @@
 #include "stdafx.h"
 
+extern ENGINE_API u32 ps_r_ssao;
+extern ENGINE_API u32 ps_r_ssao_mode;
+
 // startup
 void	CRenderTarget::phase_scene_prepare	()
 {

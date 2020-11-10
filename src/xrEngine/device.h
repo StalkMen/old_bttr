@@ -331,4 +331,10 @@ public:
 };
 extern ENGINE_API CLoadScreenRenderer load_screen_renderer;
 #define ITS_CLEAR_1_4_22 (1<<0)
+#define R2FLAGEXT_SSAO_BLUR (1<<1)
+#define R2FLAGEXT_SSAO_OPT_DATA (1<<2)
+#define R2FLAGEXT_SSAO_HALF_DATA (1<<3)
+#define R2FLAGEXT_SSAO_HBAO (1<<4)
+#define R2FLAGEXT_SSAO_HDAO (1<<5)
+#define R2FLAGEXT_SSAO_SSDO (1<<6)
 #endif

@@ -6,6 +6,9 @@
 
 extern ENGINE_API u32 renderer_value;
 extern ENGINE_API u32 ps_r_sun_quality;
+extern ENGINE_API u32 ps_r_ssao;
+extern ENGINE_API u32 ps_r_ssao_mode;
+
 static inline bool match_shader_id(LPCSTR const debug_shader_id, LPCSTR const full_shader_id, FS_FileSet const& file_set, string_path& result);
 
 template <typename T>
