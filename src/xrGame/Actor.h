@@ -431,7 +431,7 @@ public:
     bool					AnyAction				()	{return (mstate_real & mcAnyAction) != 0;};
     bool					AnyMove					()	{return (mstate_real & mcAnyMove) != 0;};
 	bool					Accel                   () 	{return (mstate_real & mcAccel) != 0;};
-
+    bool					Crouch                  ()  {return (mstate_real & mcCrouch) != 0;};
     bool					is_jump					();
     u32						MovingState				() const {return mstate_real;}
 protected:

@@ -396,7 +396,7 @@ bool CHudItem::TryPlayAnimIdle()
                     PlayAnimIdleMoving();
                 return true;
             }
-            else if (st.bCrouch && pActor->AnyMove() && !pActor->Accel())
+            else if (st.bCrouch && pActor->AnyMove() && !pActor->Accel() || pActor->Crouch() && pActor->Accel() && pActor->AnyMove())
             {
                 if (HudAnimationExist("anm_idle_moving_crouch"))
                     PlayAnimCrouchIdleMoving();
