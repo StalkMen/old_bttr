@@ -906,6 +906,7 @@ void CCC_Register()
         CMD3(CCC_Mask, "r2_ssao_hbao", &p_engine_flags32, R2FLAGEXT_SSAO_HBAO);
         CMD3(CCC_Mask, "r2_ssao_hdao", &p_engine_flags32, R2FLAGEXT_SSAO_HDAO);
         CMD3(CCC_Mask, "r2_ssao_ssdo", &p_engine_flags32, R2FLAGEXT_SSAO_SSDO);
+        CMD3(CCC_Mask, "xrEngine_ssao_debug", &p_engine_flags32, R2FLAGEXT_SSAO_DEBUG);
 
         CMD3(CCC_Token, "r3_msaa", &ps_r3_msaa, qmsaa_token);
         CMD3(CCC_Token, "r3_msaa_alphatest", &ps_r3_msaa_atest, qmsaa_atest_token);

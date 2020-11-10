@@ -337,4 +337,5 @@ extern ENGINE_API CLoadScreenRenderer load_screen_renderer;
 #define R2FLAGEXT_SSAO_HBAO (1<<4)
 #define R2FLAGEXT_SSAO_HDAO (1<<5)
 #define R2FLAGEXT_SSAO_SSDO (1<<6)
+#define R2FLAGEXT_SSAO_DEBUG (1<<7)
 #endif

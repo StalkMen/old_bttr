@@ -8,6 +8,7 @@ extern ENGINE_API u32 renderer_value;
 extern ENGINE_API u32 ps_r_sun_quality;
 extern ENGINE_API u32 ps_r_ssao;
 extern ENGINE_API u32 ps_r_ssao_mode;
+extern ENGINE_API Flags32 p_engine_flags32;
 
 static inline bool match_shader_id(LPCSTR const debug_shader_id, LPCSTR const full_shader_id, FS_FileSet const& file_set, string_path& result);
 
@@ -478,6 +479,17 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 	sh_name[len] = '0' + char(o.ssao_ssdo);
 	++len;
 #endif
+
+	static bool DEBUG_SSAO = p_engine_flags32.test(R2FLAGEXT_SSAO_DEBUG);
+	if (DEBUG_SSAO)
+	{
+		defines[def_it].Name = "DEBUG_AMBIENT_OCC";
+		defines[def_it].Definition = "1";
+		def_it++;
+	}
+	sh_name[len] = '0' + char(DEBUG_SSAO);
+	++len;
+
 	// skinning
 	if (m_skinning < 0) 
 	{
