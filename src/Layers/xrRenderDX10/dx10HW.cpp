@@ -78,7 +78,7 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	DXGI_ADAPTER_DESC Desc;
 	R_CHK(m_pAdapter->GetDesc(&Desc));
 	//	Warning: Desc.Description is wide string
-	Msg("* GPU [vendor:%X]-[device:%X]: %S", Desc.VendorId, Desc.DeviceId, Desc.Description);
+	Msg("# GPU [vendor:%X]-[device:%X]: %S", Desc.VendorId, Desc.DeviceId, Desc.Description);
 
 	Caps.id_vendor = Desc.VendorId;
 	Caps.id_device = Desc.DeviceId;

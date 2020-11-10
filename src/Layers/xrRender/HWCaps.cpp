@@ -33,7 +33,7 @@ namespace
 		status = NvAPI_EnumLogicalGPUs(logicalGPUs, &logicalGPUCount);
 		if (status != NVAPI_OK)
 		{
-			Msg("* NVIDIA_EnumLogicalGPUs failed!");
+			Msg("! NVIDIA_EnumLogicalGPUs failed!");
 			return iGpuNum;
 			// error
 		}
@@ -42,12 +42,12 @@ namespace
 		status = NvAPI_EnumPhysicalGPUs(physicalGPUs, &physicalGPUCount);
 		if (status != NVAPI_OK)
 		{
-			Msg("* NVIDIA_EnumPhysicalGPUs failed!");
+			Msg("! NVIDIA_EnumPhysicalGPUs failed!");
 			return iGpuNum;
 			// error
 		}
 
-		Msg	("* NVIDIA MGPU: Logical(%d), Physical(%d)", physicalGPUCount, logicalGPUCount);
+		Msg	("- NVIDIA MGPU: Logical(%d), Physical(%d)", physicalGPUCount, logicalGPUCount);
 
 		//	Assume that we are running on logical GPU with most physical GPUs connected.
 		for ( u32 i = 0; i<logicalGPUCount; ++i )
@@ -59,7 +59,7 @@ namespace
 
 		if (iGpuNum>1)
 		{
-			Msg	("* NVIDIA MGPU: %d-Way SLI detected.", iGpuNum);
+			Msg	("- NVIDIA MGPU: %d-Way SLI detected.", iGpuNum);
 		}
 
 		return iGpuNum;
@@ -71,7 +71,7 @@ namespace
 
 		if (iGpuNum>1)
 		{
-			Msg	("* ATI MGPU: %d-Way CrossFire detected.", iGpuNum);
+			Msg	("# ATI MGPU: %d-Way CrossFire detected.", iGpuNum);
 		}
 
 		return iGpuNum;
