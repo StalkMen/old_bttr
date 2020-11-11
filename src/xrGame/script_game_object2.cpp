@@ -559,8 +559,11 @@ LPCSTR CScriptGameObject::get_visual_name() const
 void CScriptGameObject::BlockHands(bool val)
 {
 	CActor* actor = smart_cast<CActor*>(&object());
-	if (actor) 
+	if (actor)
+	{
 		actor->inventory().BlockHands(val);
+		actor->bCanUse = !val;
+	}
 	else
 		ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "ScriptGameObject : attempt to call SetActorLegsVisible method for non-actor object");
 }

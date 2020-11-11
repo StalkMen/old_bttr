@@ -239,6 +239,8 @@ CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
 	m_night_vision = NULL;
 	m_bNightVisionAllow = true;
 	m_bNightVisionOn = false;
+
+    bCanUse = true;
 }
 
 

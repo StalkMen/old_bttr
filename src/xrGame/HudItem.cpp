@@ -366,7 +366,7 @@ void CHudItem::PlayAnimIdle()
 
 void CHudItem::PlayAnimMovingSlow()
 {
-    PlayHUDMotion("anm_moving_slow", TRUE, NULL, GetState());
+    PlayHUDMotion("anm_idle_moving_slow", TRUE, NULL, GetState());
 }
 
 bool CHudItem::TryPlayAnimIdle()
@@ -390,7 +390,7 @@ bool CHudItem::TryPlayAnimIdle()
             }
             else if (!st.bCrouch && pActor->Accel() && pActor->AnyMove())
             {
-                if (HudAnimationExist("anm_moving_slow"))
+                if (HudAnimationExist("anm_idle_moving_slow"))
                     PlayAnimMovingSlow();
                 else
                     PlayAnimIdleMoving();

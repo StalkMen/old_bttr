@@ -650,35 +650,62 @@ void CWeaponMagazinedWGrenade::PlayAnimIdle()
 {
     if (IsGrenadeLauncherAttached())
     {
+        CActor* pActor = smart_cast<CActor*>(H_Parent());
+        CEntity::SEntityState st;
+        pActor->g_State(st);
         if (IsZoomed())
         {
-            if (m_bGrenadeMode)
-                PlayHUDMotion("anm_idle_g_aim", /*FALSE*/TRUE, NULL, GetState()); //AVO: fix fast anim switch
-            else
-                PlayHUDMotion("anm_idle_w_gl_aim", TRUE, NULL, GetState());
-        }
-        else
-        {
-            int act_state = 0;
-            CActor* pActor = smart_cast<CActor*>(H_Parent());
             if (pActor)
             {
                 CEntity::SEntityState st;
                 pActor->g_State(st);
-                if (st.bSprint)
+                if (pActor->AnyMove())
                 {
-                    act_state = 1;
-                }
-                else
-                    if (pActor->AnyMove() && (!st.bCrouch))
+                    if (HudAnimationExist("anm_idle_g_aim_moving") && HudAnimationExist("anm_idle_w_gl_aim_moving"))
                     {
-                        act_state = 2;
+                        if (m_bGrenadeMode)
+                            PlayHUDMotion("anm_idle_g_aim_moving", TRUE, NULL, GetState());
+                        else
+                            PlayHUDMotion("anm_idle_w_gl_aim_moving", TRUE, NULL, GetState());
                     }
                     else
-                        if (pActor->AnyMove() && (st.bCrouch))
-                        {
-                            act_state = 3;
-                        }
+                    {
+                        if (m_bGrenadeMode)
+                            PlayHUDMotion("anm_idle_g_aim", TRUE, NULL, GetState());
+                        else
+                            PlayHUDMotion("anm_idle_w_gl_aim", TRUE, NULL, GetState());
+                    }
+                }
+                else
+                {
+                    if (m_bGrenadeMode)
+                        PlayHUDMotion("anm_idle_g_aim", TRUE, NULL, GetState());
+                    else
+                        PlayHUDMotion("anm_idle_w_gl_aim", TRUE, NULL, GetState());
+                }
+            }
+        }
+        else
+        {
+            int act_state = 0;
+            if (pActor)
+            {
+                if (st.bSprint)
+                {
+                    act_state = 1;		// Sprint
+                }
+                else if (!st.bCrouch && pActor->AnyMove() && !pActor->Accel())
+                {
+                    act_state = 2;		// Moving
+                }
+                else if (!st.bCrouch && pActor->Accel() && pActor->AnyMove())
+                {
+                    act_state = 3;		// Moving Slow
+                }
+                else if (st.bCrouch && pActor->AnyMove() && !pActor->Accel() || pActor->Crouch() && pActor->Accel() && pActor->AnyMove())
+                {
+                    act_state = 4;		// Crouch
+                }
             }
 
             if (m_bGrenadeMode)
@@ -694,25 +721,42 @@ void CWeaponMagazinedWGrenade::PlayAnimIdle()
                         else
                             if (act_state == 3)
                             {
-                                if (HudAnimationExist("anm_idle_moving_crouch_g")) 
-                                    PlayHUDMotion("anm_idle_moving_crouch_g", TRUE, NULL, GetState());
+                                if (HudAnimationExist("anm_idle_moving_slow_g"))
+                                    PlayHUDMotion("anm_idle_moving_slow_g", TRUE, NULL, GetState());
+                                else
+                                    PlayHUDMotion("anm_idle_moving_g", TRUE, NULL, GetState());
                             }
+                            else
+                                if (act_state == 4)
+                                {
+                                    if (HudAnimationExist("anm_idle_moving_crouch_g"))
+                                        PlayHUDMotion("anm_idle_moving_crouch_g", TRUE, NULL, GetState());
+                                    else
+                                        PlayHUDMotion("anm_idle_moving_g", TRUE, NULL, GetState());
+                                }
             }
             else
             {
-                if (act_state == 0)
-                    PlayHUDMotion("anm_idle_w_gl", /*FALSE*/TRUE, NULL, GetState()); //AVO: fix fast anim switch
+                if (act_state == 1)
+                    PlayHUDMotion("anm_idle_sprint_w_gl", TRUE, NULL, GetState());
                 else
-                    if (act_state == 1)
-                        PlayHUDMotion("anm_idle_sprint_w_gl", TRUE, NULL, GetState());
+                    if (act_state == 2)
+                        PlayHUDMotion("anm_idle_moving_w_gl", TRUE, NULL, GetState());
                     else
-                        if (act_state == 2)
-                            PlayHUDMotion("anm_idle_moving_w_gl", TRUE, NULL, GetState());
+                        if (act_state == 3)
+                        {
+                            if (HudAnimationExist("anm_idle_moving_slow_w_gl"))
+                                PlayHUDMotion("anm_idle_moving_slow_w_gl", TRUE, NULL, GetState());
+                            else
+                                PlayHUDMotion("anm_idle_moving_w_gl", TRUE, NULL, GetState());
+                        }
                         else
-                            if (act_state == 3)
+                            if (act_state == 4)
                             {
                                 if (HudAnimationExist("anm_idle_moving_crouch_w_gl"))
                                     PlayHUDMotion("anm_idle_moving_crouch_w_gl", TRUE, NULL, GetState());
+                                else
+                                    PlayHUDMotion("anm_idle_moving_w_gl", TRUE, NULL, GetState());
                             }
             }
         }

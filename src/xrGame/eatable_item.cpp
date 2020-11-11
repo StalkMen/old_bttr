@@ -19,6 +19,7 @@
 #include "InventoryOwner.h"
 #include "UIGameCustom.h"
 #include "ui/UIActorMenu.h"
+#include "Actor.h"
 
 CEatableItem::CEatableItem()
 {
@@ -121,6 +122,13 @@ void CEatableItem::OnH_B_Independent(bool just_before_destroy)
 
 bool CEatableItem::UseBy (CEntityAlive* entity_alive)
 {
+	CActor* pActor = smart_cast<CActor*>(object().H_Parent());
+	if (pActor)
+	{
+		if (!pActor->bCanUse)
+			return false;
+	}
+
 	SMedicineInfluenceValues	V;
 	V.Load						(m_physic_item->cNameSect());
 

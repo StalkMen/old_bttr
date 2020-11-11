@@ -815,6 +815,8 @@ public:
 			void	SetNightVisionAllowed(bool bAllow) { m_bNightVisionAllow = bAllow; }
 			CNightVisionEffector* GetNightVision() { return m_night_vision; }
 			void 	RepackAmmo();
+
+            bool                    bCanUse;
 protected:
 			bool					m_bNightVisionOn;
 			bool					m_bNightVisionAllow;
