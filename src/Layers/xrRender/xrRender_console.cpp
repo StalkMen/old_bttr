@@ -66,20 +66,8 @@ float		ps_r__ssaDONTSORT			=  32.f	;					//RO
 float		ps_r__ssaHZBvsTEX			=  96.f	;					//RO
 
 int			ps_r__tf_Anisotropic		= 8		;
-
-// R1
-float		ps_r1_ssaLOD_A				= 64.f	;
-float		ps_r1_ssaLOD_B				= 48.f	;
-Flags32		ps_r1_flags					= { R1FLAG_DLIGHTS };		// r1-only
-float		ps_r1_lmodel_lerp			= 0.1f	;
-float		ps_r1_dlights_clip			= 40.f	;
 float		ps_r1_pps_u					= 0.f	;
 float		ps_r1_pps_v					= 0.f	;
-
-// R1-specific
-int			ps_r1_GlowsPerFrame			= 16	;					// r1-only
-float		ps_r1_fog_luminance			= 1.1f	;					// r1-only
-int			ps_r1_SoftwareSkinning		= 0		;					// r1-only
 
 // R2
 float		ps_r2_ssaLOD_A				= 64.f	;
@@ -735,26 +723,11 @@ void		xrRender_initconsole()
 
 	CMD2(CCC_tf_Aniso, "r__tf_aniso", &ps_r__tf_Anisotropic); //	{1..16}
 
-	// R1
 	CMD4(CCC_Float, "r1_ssa_lod_a", &ps_r1_ssaLOD_A, 16, 96);
-	CMD4(CCC_Float, "r1_ssa_lod_b", &ps_r1_ssaLOD_B, 16, 64);
 	CMD4(CCC_Float, "r1_lmodel_lerp", &ps_r1_lmodel_lerp, 0, 0.333f);
-	CMD3(CCC_Mask, "r1_dlights", &ps_r1_flags, R1FLAG_DLIGHTS);
-	CMD4(CCC_Float, "r1_dlights_clip", &ps_r1_dlights_clip, 10.f, 150.f);
+
 	CMD4(CCC_Float, "r1_pps_u", &ps_r1_pps_u, -1.f, +1.f);
 	CMD4(CCC_Float, "r1_pps_v", &ps_r1_pps_v, -1.f, +1.f);
-
-
-	// R1-specific
-	CMD4(CCC_Integer, "r1_glows_per_frame", &ps_r1_GlowsPerFrame, 2, 32);
-
-	CMD4(CCC_Float, "r1_fog_luminance", &ps_r1_fog_luminance, 0.2f, 5.f);
-
-	// Software Skinning
-	// 0 - disabled (renderer can override)
-	// 1 - enabled
-	// 2 - forced hardware skinning (renderer can not override)
-	CMD4(CCC_Integer, "r1_software_skinning", &ps_r1_SoftwareSkinning, 0, 2);
 
 	// R2
 	CMD4(CCC_Float, "r2_ssa_lod_a", &ps_r2_ssaLOD_A, 16, 96);

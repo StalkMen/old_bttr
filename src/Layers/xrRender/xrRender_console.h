@@ -41,25 +41,8 @@ extern ECORE_API	float		ps_r__ssaHZBvsTEX	;
 extern ECORE_API	int			ps_r__tf_Anisotropic;
 extern ECORE_API    float 		ps_r__tf_Mipbias;
 
-// R1
-extern ECORE_API	float		ps_r1_ssaLOD_A;
-extern ECORE_API	float		ps_r1_ssaLOD_B;
-extern ECORE_API	float		ps_r1_lmodel_lerp;
-extern ECORE_API	float		ps_r1_dlights_clip;
 extern ECORE_API	float		ps_r1_pps_u;
 extern ECORE_API	float		ps_r1_pps_v;
-
-// R1-specific
-extern ECORE_API	int			ps_r1_GlowsPerFrame;	// r1-only
-extern ECORE_API	Flags32		ps_r1_flags;			// r1-only
-
-extern ECORE_API	float		ps_r1_fog_luminance;	//1.f r1-only
-extern ECORE_API	int			ps_r1_SoftwareSkinning;	// r1-only
-
-enum
-{
-	R1FLAG_DLIGHTS				= (1<<0),
-};
 
 // R2
 extern ECORE_API	float		ps_r2_ssaLOD_A;
