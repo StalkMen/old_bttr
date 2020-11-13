@@ -75,6 +75,7 @@
 
 #include "ui/UIArtefactPanel.h"
 
+#include "../xrEngine/ExternalData.h"
 //Alundaio
 #include "ActorNightVision.h"
 #include "ActorBackpack.h"
@@ -113,24 +114,9 @@ CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
     cameras[eacFirstEye] = xr_new<CCameraFirstEye>(this);
     cameras[eacFirstEye]->Load("actor_firsteye_cam");
 
-	//Alundaio -psp always
-	/*
-    if (strstr(Core.Params, "-psp"))
-        psActorFlags.set(AF_PSP, TRUE);
-    else
-        psActorFlags.set(AF_PSP, FALSE);
-	*/
-
-    //if (psActorFlags.test(AF_PSP))
-    //{
-        cameras[eacLookAt] = xr_new<CCameraLook2>(this);
-        cameras[eacLookAt]->Load("actor_look_cam_psp");
-    //}
-    //else
-    //{
-    //    cameras[eacLookAt] = xr_new<CCameraLook>(this);
-    //    cameras[eacLookAt]->Load("actor_look_cam");
-    //}
+    cameras[eacLookAt] = xr_new<CCameraLook2>(this);
+    cameras[eacLookAt]->Load("actor_look_cam_psp");
+    
 	//-Alundaio
     cameras[eacFreeLook] = xr_new<CCameraLook>(this);
     cameras[eacFreeLook]->Load("actor_free_cam");
@@ -147,7 +133,6 @@ CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
 	
     // эффекторы
     pCamBobbing = 0;
-
 
     r_torso.yaw = 0;
     r_torso.pitch = 0;
@@ -332,43 +317,6 @@ void CActor::Load(LPCSTR section)
     }
     //////////////////////////////////////////////////////////////////////////
 
-    // m_PhysicMovementControl: General
-    //m_PhysicMovementControl->SetParent		(this);
-
-
-    /*
-    Fbox	bb;Fvector	vBOX_center,vBOX_size;
-    // m_PhysicMovementControl: BOX
-    vBOX_center= pSettings->r_fvector3	(section,"ph_box2_center"	);
-    vBOX_size	= pSettings->r_fvector3	(section,"ph_box2_size"		);
-    bb.set	(vBOX_center,vBOX_center); bb.grow(vBOX_size);
-    character_physics_support()->movement()->SetBox		(2,bb);
-
-    // m_PhysicMovementControl: BOX
-    vBOX_center= pSettings->r_fvector3	(section,"ph_box1_center"	);
-    vBOX_size	= pSettings->r_fvector3	(section,"ph_box1_size"		);
-    bb.set	(vBOX_center,vBOX_center); bb.grow(vBOX_size);
-    character_physics_support()->movement()->SetBox		(1,bb);
-
-    // m_PhysicMovementControl: BOX
-    vBOX_center= pSettings->r_fvector3	(section,"ph_box0_center"	);
-    vBOX_size	= pSettings->r_fvector3	(section,"ph_box0_size"		);
-    bb.set	(vBOX_center,vBOX_center); bb.grow(vBOX_size);
-    character_physics_support()->movement()->SetBox		(0,bb);
-    */
-
-
-
-
-
-
-
-    //// m_PhysicMovementControl: Foots
-    //Fvector	vFOOT_center= pSettings->r_fvector3	(section,"ph_foot_center"	);
-    //Fvector	vFOOT_size	= pSettings->r_fvector3	(section,"ph_foot_size"		);
-    //bb.set	(vFOOT_center,vFOOT_center); bb.grow(vFOOT_size);
-    ////m_PhysicMovementControl->SetFoots	(vFOOT_center,vFOOT_size);
-
     // m_PhysicMovementControl: Crash speed and mass
     float	cs_min = pSettings->r_float(section, "ph_crash_speed_min");
     float	cs_max = pSettings->r_float(section, "ph_crash_speed_max");
@@ -448,6 +396,7 @@ void CActor::Load(LPCSTR section)
 		if (this == Level().CurrentEntity()) //--#SM+#--
 		{
 			g_pGamePersistent->m_pGShaderConstants->m_blender_mode.set(0.f, 0.f, 0.f, 0.f);
+            g_pGamePersistent->m_DataExport->ZoomActive(false);
 		}
     }
     
@@ -1030,7 +979,10 @@ void CActor::UpdateCL()
                 S->SetParams(full_fire_disp);
 
             SetZoomAimingMode(true);
+            g_pGamePersistent->m_DataExport->ZoomActive(true);
         }
+        else
+            g_pGamePersistent->m_DataExport->ZoomActive(false);
 
         if (Level().CurrentEntity() && this->ID() == Level().CurrentEntity()->ID())
         {
@@ -1222,16 +1174,6 @@ void CActor::shedule_Update(u32 DT)
     {
         g_cl_CheckControls(mstate_wishful, NET_SavedAccel, NET_Jump, dt);
         {
-            /*
-            if (mstate_real & mcJump)
-            {
-            NET_Packet	P;
-            u_EventGen(P, GE_ACTOR_JUMPING, ID());
-            P.w_sdir(NET_SavedAccel);
-            P.w_float(NET_Jump);
-            u_EventSend(P);
-            }
-            */
         }
         g_cl_Orientate(mstate_real, dt);
         g_Orientate(mstate_real, dt);

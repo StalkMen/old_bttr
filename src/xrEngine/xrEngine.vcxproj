@@ -280,6 +280,7 @@
     <ClInclude Include="envelope.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="EventAPI.h" />
+	<ClInclude Include="ExternalData.h" />
     <ClInclude Include="FDemoPlay.h" />
     <ClInclude Include="FDemoRecord.h" />
     <ClInclude Include="Feel_Sound.h" />

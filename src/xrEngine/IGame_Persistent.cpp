@@ -31,7 +31,8 @@ IGame_Persistent::IGame_Persistent()
     m_pMainMenu = NULL;
 	
 	m_pGShaderConstants = xr_new<ShadersExternalData>(); //--#SM+#--
-	
+    m_DataExport        = xr_new<ExteranData>();
+
 #ifndef INGAME_EDITOR
     pEnvironment = xr_new<CEnvironment>();
 #else // #ifdef INGAME_EDITOR

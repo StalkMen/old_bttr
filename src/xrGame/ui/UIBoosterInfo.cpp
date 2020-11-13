@@ -33,23 +33,6 @@ CUIBoosterInfo::~CUIBoosterInfo()
 	xr_delete(m_booster_thirst);
 }
 
-LPCSTR boost_influence_caption[] =
-{
-	"ui_inv_health",
-	"ui_inv_power",
-	"ui_inv_radiation",
-	"ui_inv_bleeding",
-	"ui_inv_outfit_additional_weight",
-	"ui_inv_outfit_radiation_protection",
-	"ui_inv_outfit_telepatic_protection",
-	"ui_inv_outfit_chemical_burn_protection",
-	"ui_inv_outfit_burn_immunity",
-	"ui_inv_outfit_shock_immunity",
-	"ui_inv_outfit_radiation_immunity",
-	"ui_inv_outfit_telepatic_immunity",
-	"ui_inv_outfit_chemical_burn_immunity"
-};
-
 LPCSTR boost_influence_caption_bttr[] =
 {
 	"st_ui_boosterlnfo_1",
@@ -90,14 +73,8 @@ void CUIBoosterInfo::InitFromXml(CUIXml& xml)
 		m_booster_items[i]->Init(xml, ef_boosters_section_names[i]);
 		m_booster_items[i]->SetAutoDelete(false);
 
-		LPCSTR name;
-		if (BttR_mode)
-			name = CStringTable().translate(boost_influence_caption_bttr[i]).c_str();
-		else
-			name = CStringTable().translate(boost_influence_caption[i]).c_str();
-
+		LPCSTR name = CStringTable().translate(boost_influence_caption_bttr[i]).c_str();
 		m_booster_items[i]->SetCaption(name);
-
 		xml.SetLocalRoot(base_node);
 	}
 

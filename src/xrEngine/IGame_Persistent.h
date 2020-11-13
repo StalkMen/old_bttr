@@ -9,6 +9,7 @@
 #endif
 
 #include "ShadersExternalData.h" //--#SM+#--
+#include "ExternalData.h"
 
 class IRenderVisual;
 class IMainMenu;
@@ -75,6 +76,7 @@ public:
     IMainMenu* m_pMainMenu;
 
 	ShadersExternalData* m_pGShaderConstants; //--#SM+#--
+    ExteranData*         m_DataExport;
 
     virtual bool OnRenderPPUI_query() { return FALSE; }; // should return true if we want to have second function called
     virtual void OnRenderPPUI_main() {};

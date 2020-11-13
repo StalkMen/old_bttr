@@ -44,6 +44,7 @@
 #include "../xrRender/xrRender_console.h"
 #include "..\xrRender_DXTargets\DX.h"
 #include "../../build_render_config.h"
+#include "../../xrEngine/ExternalData.h"
 
 /*
 #ifdef RENDER_DX11_BUILD
