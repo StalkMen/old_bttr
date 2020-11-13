@@ -6,14 +6,8 @@
 #include "LightTrack.h"
 #include "../../include/xrRender/RenderVisual.h"
 #include "../../xrEngine/xr_object.h"
-
-#ifdef _EDITOR
-#	include "igame_persistent.h"
-#	include "environment.h"
-#else
-#	include "../../xrEngine/igame_persistent.h"
-#	include "../../xrEngine/environment.h"
-#endif
+#include "../../xrEngine/igame_persistent.h"
+#include "../../xrEngine/environment.h"
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
