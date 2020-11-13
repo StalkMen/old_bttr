@@ -318,6 +318,19 @@ class cl_inv_v : public R_constant_setup
 };
 static cl_inv_v	binder_inv_v;
 
+static class cl_rain_params : public R_constant_setup
+{
+	u32 marker;
+	Fvector4 result;
+
+	virtual void setup(R_constant* C)
+	{
+		float rainDensity = g_pGamePersistent->Environment().CurrentEnv->rain_density;
+
+		RCache.set_c(C, rainDensity, 0, 0, 0);
+	}
+}
+binder_rain_params;
 
 // Standart constant-binding
 void	CBlender_Compile::SetMapping	()
@@ -383,6 +396,9 @@ void	CBlender_Compile::SetMapping	()
 #endif
 	r_Constant				("screen_res",		&binder_screen_res);
 	r_Constant				("m_inv_V", 		&binder_inv_v);
+
+	r_Constant				("rain_params",		&binder_rain_params);
+
 	// detail
 	//if (bDetail	&& detail_scaler)
 	//	Igor: bDetail can be overridden by no_detail_texture option.

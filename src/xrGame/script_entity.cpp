@@ -98,39 +98,33 @@ void CScriptEntity::SetScriptControl(const bool bScriptControl, shared_str caSci
 {
 	if (!(
 		(
-			(m_bScriptControl && !bScriptControl) || 
+			(m_bScriptControl && !bScriptControl) ||
 			(!m_bScriptControl && bScriptControl)
-		) &&
+			) &&
+		(
+			bScriptControl ||
 			(
-				bScriptControl || 
-				(
-					xr_strlen(*m_caScriptName) && 
-					!xr_strcmp(caSciptName,m_caScriptName)
+				xr_strlen(*m_caScriptName) &&
+				!xr_strcmp(caSciptName, m_caScriptName)
 				)
 			)
-		)) {
-		ai().script_engine().script_log(eLuaMessageTypeError,"Invalid sequence of taking an entity under script control");
+		))
+	{
+		ai().script_engine().script_log(eLuaMessageTypeError, "Invalid sequence of taking an entity under script control");
 		return;
 	}
 
 	if (bScriptControl && !can_script_capture()) return;
 
 	if (bScriptControl && !m_bScriptControl)
-		object().add_visual_callback			(&ActionCallback);
+		object().add_visual_callback(&ActionCallback);
 	else
 		if (!bScriptControl && m_bScriptControl)
-			object().remove_visual_callback		(&ActionCallback);
+			object().remove_visual_callback(&ActionCallback);
 
-	m_bScriptControl	= bScriptControl;
-	m_caScriptName		= caSciptName;
-/* 
-#ifdef DEBUG
-	if (bScriptControl)
-		ai().script_engine().script_log			(ScriptStorage::eLuaMessageTypeInfo,"Script %s set object %s under its control",*caSciptName,*object().cName());
-	else
-		ai().script_engine().script_log			(ScriptStorage::eLuaMessageTypeInfo,"Script %s freed object %s from its control",*caSciptName,*object().cName());
-#endif
-*/
+	m_bScriptControl = bScriptControl;
+	m_caScriptName = caSciptName;
+
 	if (!bScriptControl)
 		ResetScriptData(this);
 }
@@ -162,7 +156,8 @@ bool CScriptEntity::CheckTypeVisibility(const char* section_name)
 
 	CVisualMemoryManager::VISIBLES::const_iterator	I = m_monster->memory().visual().objects().begin();
 	CVisualMemoryManager::VISIBLES::const_iterator	E = m_monster->memory().visual().objects().end();
-	for ( ; I != E; ++I) {
+	for ( ; I != E; ++I) 
+	{
 		VERIFY			((*I).m_object);
 		if (!xr_strcmp(section_name, *(*I).m_object->cNameSect()))
 			return		(true);
@@ -175,7 +170,8 @@ void CScriptEntity::AddAction(const CScriptEntityAction *tpEntityAction, bool bH
 	bool				empty = m_tpActionQueue.empty();
 	if (!bHighPriority || m_tpActionQueue.empty())
 		m_tpActionQueue.push_back(xr_new<CScriptEntityAction>(*tpEntityAction));
-	else {
+	else 
+	{
 		VERIFY			(m_tpActionQueue.front());
 		CScriptEntityAction	*l_tpEntityAction = xr_new<CScriptEntityAction>(*m_tpActionQueue.front());
 		vfFinishAction	(m_tpActionQueue.front());
@@ -210,7 +206,8 @@ void __stdcall ActionCallback(IKinematics *tpKinematics)
 void CScriptEntity::vfUpdateParticles()
 {
 	CScriptParticleAction	&l_tParticleAction = GetCurrentAction()->m_tParticleAction;
-	if (xr_strlen(l_tParticleAction.m_caBoneName)) {
+	if (xr_strlen(l_tParticleAction.m_caBoneName)) 
+	{
 		CParticlesObject	*l_tpParticlesObject = l_tParticleAction.m_tpParticleSystem;
 		l_tpParticlesObject->UpdateParent(GetUpdatedMatrix(l_tParticleAction.m_caBoneName,l_tParticleAction.m_tParticlePosition,l_tParticleAction.m_tParticleAngles),l_tParticleAction.m_tParticleVelocity);
 	}
@@ -225,7 +222,8 @@ void CScriptEntity::vfUpdateSounds()
 
 void CScriptEntity::vfFinishAction(CScriptEntityAction *tpEntityAction)
 {
-	if (m_current_sound) {
+	if (m_current_sound) 
+	{
 		m_current_sound->destroy	();
 		xr_delete					(m_current_sound);
 	}
@@ -235,30 +233,22 @@ void CScriptEntity::vfFinishAction(CScriptEntityAction *tpEntityAction)
 
 void CScriptEntity::ProcessScripts()
 {
-	CScriptEntityAction	*l_tpEntityAction = 0;
+	CScriptEntityAction* l_tpEntityAction = 0;
 #ifdef DEBUG
 	bool			empty_queue = m_tpActionQueue.empty();
 #endif
-	while (!m_tpActionQueue.empty()) {
-		l_tpEntityAction= m_tpActionQueue.front();
-		VERIFY		(l_tpEntityAction);
-#ifdef _DEBUG
-//		if (!xr_strcmp("m_stalker_wounded",*object().cName()))
-//			Msg			("%6d Processing action : %s",Device.dwTimeGlobal,*l_tpEntityAction->m_tAnimationAction.m_caAnimationToPlay);
-#endif
-		
-		if (m_tpCurrentEntityAction != l_tpEntityAction)
-			l_tpEntityAction->initialize	();
+	while (!m_tpActionQueue.empty()) 
+	{
+		l_tpEntityAction = m_tpActionQueue.front();
+		VERIFY(l_tpEntityAction);
 
-		m_tpCurrentEntityAction	= l_tpEntityAction;
+		if (m_tpCurrentEntityAction != l_tpEntityAction)
+			l_tpEntityAction->initialize();
+
+		m_tpCurrentEntityAction = l_tpEntityAction;
 
 		if (!l_tpEntityAction->CheckIfActionCompleted())
 			break;
-
-#ifdef _DEBUG
-//		if (!xr_strcmp("m_stalker_wounded",*object().cName()))
-//			Msg			("%6d Action completed : %s",Device.dwTimeGlobal,*l_tpEntityAction->m_tAnimationAction.m_caAnimationToPlay);
-#endif
 
 		vfFinishAction(l_tpEntityAction);
 
@@ -266,62 +256,69 @@ void CScriptEntity::ProcessScripts()
 		if (psAI_Flags.is(aiLua))
 			Msg("Entity Action removed!!!");
 #endif
-		if (true /*psAI_Flags.is(aiLua)*/ )
-		{
-			object().callback(GameObject::eActionTypeRemoved)(object().lua_game_object(),u32(eActionTypeRemoved));
-		}
+		if (true)
+			object().callback(GameObject::eActionTypeRemoved)(object().lua_game_object(), u32(eActionTypeRemoved));
 
-		xr_delete	(l_tpEntityAction);
+		xr_delete(l_tpEntityAction);
 		m_tpActionQueue.erase(m_tpActionQueue.begin());
 	}
 
-	if (m_tpActionQueue.empty()) {
+	if (m_tpActionQueue.empty()) 
+	{
 #ifdef DEBUG
 		if (empty_queue)
-			ai().script_engine().script_log	(ScriptStorage::eLuaMessageTypeInfo,"Object %s has an empty script queue!",*object().cName());
+			ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeInfo, "Object %s has an empty script queue!", *object().cName());
 #endif
 		return;
 	}
 
-	try {
-		bool			l_bCompleted;
-		l_bCompleted	= l_tpEntityAction->m_tWatchAction.m_bCompleted;
-		bfAssignWatch	(l_tpEntityAction);
-		if (l_tpEntityAction->m_tWatchAction.m_bCompleted && !l_bCompleted)
-			object().callback(GameObject::eActionTypeWatch)(object().lua_game_object(),u32(eActionTypeWatch));
+	if (!l_tpEntityAction)
+	{
+		ResetScriptData();
+		return;
+	}
 
-		l_bCompleted	= l_tpEntityAction->m_tAnimationAction.m_bCompleted;
+	try
+	{
+		bool			l_bCompleted;
+		l_bCompleted = l_tpEntityAction->m_tWatchAction.m_bCompleted;
+		bfAssignWatch(l_tpEntityAction);
+		if (l_tpEntityAction->m_tWatchAction.m_bCompleted && !l_bCompleted)
+			object().callback(GameObject::eActionTypeWatch)(object().lua_game_object(), u32(eActionTypeWatch));
+
+		l_bCompleted = l_tpEntityAction->m_tAnimationAction.m_bCompleted;
 		bfAssignAnimation(l_tpEntityAction);
 
-		l_bCompleted	= l_tpEntityAction->m_tSoundAction.m_bCompleted;
-		bfAssignSound	(l_tpEntityAction);
+		l_bCompleted = l_tpEntityAction->m_tSoundAction.m_bCompleted;
+		bfAssignSound(l_tpEntityAction);
 		if (l_tpEntityAction->m_tSoundAction.m_bCompleted && !l_bCompleted)
-			object().callback(GameObject::eActionTypeSound)(object().lua_game_object(),u32(eActionTypeSound));
+			object().callback(GameObject::eActionTypeSound)(object().lua_game_object(), u32(eActionTypeSound));
 
-		
-		l_bCompleted	= l_tpEntityAction->m_tParticleAction.m_bCompleted;
+
+		l_bCompleted = l_tpEntityAction->m_tParticleAction.m_bCompleted;
 		bfAssignParticles(l_tpEntityAction);
 		if (l_tpEntityAction->m_tParticleAction.m_bCompleted && !l_bCompleted)
-			object().callback(GameObject::eActionTypeParticle)(object().lua_game_object(),u32(eActionTypeParticle));
-		
-		l_bCompleted	= l_tpEntityAction->m_tObjectAction.m_bCompleted;
-		bfAssignObject	(l_tpEntityAction);
+			object().callback(GameObject::eActionTypeParticle)(object().lua_game_object(), u32(eActionTypeParticle));
+
+		l_bCompleted = l_tpEntityAction->m_tObjectAction.m_bCompleted;
+		bfAssignObject(l_tpEntityAction);
 		if (l_tpEntityAction->m_tObjectAction.m_bCompleted && !l_bCompleted)
-			object().callback(GameObject::eActionTypeObject)(object().lua_game_object(),u32(eActionTypeObject));
-		
-		l_bCompleted	= l_tpEntityAction->m_tMovementAction.m_bCompleted;
+			object().callback(GameObject::eActionTypeObject)(object().lua_game_object(), u32(eActionTypeObject));
+
+		l_bCompleted = l_tpEntityAction->m_tMovementAction.m_bCompleted;
 		bfAssignMovement(l_tpEntityAction);
 		if (l_tpEntityAction->m_tMovementAction.m_bCompleted && !l_bCompleted)
-			object().callback(GameObject::eActionTypeMovement)(object().lua_game_object(),u32(eActionTypeMovement), -1);
+			object().callback(GameObject::eActionTypeMovement)(object().lua_game_object(), u32(eActionTypeMovement), -1);
 
 		// Установить выбранную анимацию
 		if (!l_tpEntityAction->m_tAnimationAction.m_bCompleted)
-			bfScriptAnimation	();
+			bfScriptAnimation();
 
 		bfAssignMonsterAction(l_tpEntityAction);
 	}
-	catch(...) {
-		ResetScriptData		();
+	catch (...) 
+	{
+		ResetScriptData();
 	}
 }
 

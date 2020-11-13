@@ -17,6 +17,16 @@
 void	fill_vid_mode_list			(CHW* _hw);
 void	free_vid_mode_list			();
 
+// Always request high performance GPU
+extern "C"
+{
+	// https://docs.nvidia.com/gameworks/content/technologies/desktop/optimus.htm
+	__declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001; // NVIDIA Optimus
+
+	// https://gpuopen.com/amdpowerxpressrequesthighperformance/
+	__declspec(dllexport) DWORD AmdPowerXpressRequestHighPerformance = 0x00000001; // PowerXpress or Hybrid Graphics
+}
+
 CHW			HW;
 
 CHW::CHW() : m_move_window(true)
@@ -142,6 +152,30 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	if (FAILED(R))
 		R_CHK(createDevice(&featureLevels[1], count - 1));
 
+	if (FeatureLevel >= D3D_FEATURE_LEVEL_11_0)
+		ComputeShadersSupported = true;
+	else
+	{
+		D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS data;
+		pRenderDevice->CheckFeatureSupport(D3D11_FEATURE_D3D10_X_HARDWARE_OPTIONS,
+			&data, sizeof(data));
+		ComputeShadersSupported = data.ComputeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x;
+	}
+
+	D3D11_FEATURE_DATA_D3D11_OPTIONS options;
+	pRenderDevice->CheckFeatureSupport(D3D11_FEATURE_D3D11_OPTIONS, &options, sizeof(options));
+
+	D3D11_FEATURE_DATA_DOUBLES doubles;
+	pRenderDevice->CheckFeatureSupport(D3D11_FEATURE_DOUBLES, &doubles, sizeof(doubles));
+
+	DoublePrecisionFloatShaderOps = doubles.DoublePrecisionFloatShaderOps;
+	SAD4ShaderInstructions = options.SAD4ShaderInstructions;
+	ExtendedDoublesShaderInstructions = options.ExtendedDoublesShaderInstructions;
+
+	// https://habr.com/ru/post/308980/
+	IDXGIDevice1* pDeviceDXGI = nullptr;
+	R_CHK(pRenderDevice->QueryInterface(__uuidof(IDXGIDevice1), reinterpret_cast<void**>(&pDeviceDXGI)));
+	R_CHK(pDeviceDXGI->SetMaximumFrameLatency(1));
 	R_CHK(pFactory->CreateSwapChain(pRenderDevice, &sd, &m_pSwapChain));
 
 	if (FeatureLevel != D3D_FEATURE_LEVEL_11_1)

@@ -251,6 +251,29 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 	sh_name[len] = '0' + char(AMD);
 	++len;
 
+#ifdef USE_DX11
+	if (HW.DoublePrecisionFloatShaderOps)
+	{
+		defines[def_it].Name = "DOUBLE_PRECISION";
+		defines[def_it].Definition = "1";
+		def_it++;
+	}
+
+	if (HW.ExtendedDoublesShaderInstructions)
+	{
+		defines[def_it].Name = "EXTENDED_DOUBLES";
+		defines[def_it].Definition = "1";
+		def_it++;
+	}
+
+	if (HW.SAD4ShaderInstructions)
+	{
+		defines[def_it].Name = "SAD4_SUPPORTED";
+		defines[def_it].Definition = "1";
+		def_it++;
+	}
+#endif
+
 	/////////////////////////////////////////////////////////////////////////////////////////
 
 	if (o.fp16_filter) 

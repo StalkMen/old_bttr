@@ -62,6 +62,8 @@ struct SMedicineInfluenceValues{
 	float fHealth;
 	float fPower;
 	float fSatiety;
+	float fSleep;
+	float fThirst;
 	float fRadiation;
 	float fWoundsHeal;
 	float fMaxPowerUp;
@@ -114,6 +116,11 @@ public:
 	IC float 				GetEntityMorale			() const			{return m_fEntityMorale;}
 
 	IC float 				GetHealthLost			() const			{return m_fHealthLost;}
+
+	IC float				GetSleep				() const			{return 1.0f;}
+	IC float				GetThirst				() const			{return 1.0f;}
+	virtual void			ChangeSleep				(const float value) {};
+	virtual void			ChangeThirst			(const float value) {};
 
 	virtual bool 			IsLimping				() const;
 

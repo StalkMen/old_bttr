@@ -52,16 +52,8 @@ extern	BOOL death_anim_debug;
 #define USE_SMART_HITS
 #define USE_IK
 
-//void  NodynamicsCollide( bool& do_colide, bool bo1, dContact& c, SGameMtl * /*material_1*/, SGameMtl * /*material_2*/ )
-//{
-//	dBodyID body1=dGeomGetBody( c.geom.g1 );
-//	dBodyID body2=dGeomGetBody( c.geom.g2 );
-//	if( !body1 || !body2 || ( dGeomUserDataHasCallback( c.geom.g1,NodynamicsCollide )&& dGeomUserDataHasCallback( c.geom.g2, NodynamicsCollide ) ) )
-//		return;
-//	do_colide = false; 
-//}
-
-
+#define IK_CALC_DIST 100.f
+#define IK_ALWAYS_CALC_DIST 20.f
 
 IC bool is_imotion(interactive_motion *im)
 {
@@ -183,7 +175,6 @@ void CCharacterPhysicsSupport::update_interactive_anims	()
 		
 }
 
-
 void CCharacterPhysicsSupport::in_NetSpawn( CSE_Abstract* e )
 {
 	m_sv_hit = SHit();
@@ -224,8 +215,6 @@ void CCharacterPhysicsSupport::in_NetSpawn( CSE_Abstract* e )
 	pK->CalculateBones_Invalidate( );
 	pK->CalculateBones( TRUE );
 	
-
-
 	CPHSkeleton::Spawn( e );
 	movement( )->EnableCharacter();
 	movement( )->SetPosition(m_EntityAlife.Position( ) );
@@ -245,8 +234,6 @@ void CCharacterPhysicsSupport::in_NetSpawn( CSE_Abstract* e )
 	CInifile * ini = m_EntityAlife.spawn_ini			();
 	if(ini && ini->section_exist("physics") && ini->line_exist("physics","controller_can_be_moved_by_player") )
 		m_PhysicMovementControl->SetActorMovable(!! ini->r_bool("physics","controller_can_be_moved_by_player") );
-
-		
 }
 
 bool		CCharacterPhysicsSupport::CollisionCorrectObjPos( )
@@ -321,26 +308,15 @@ void CCharacterPhysicsSupport::SpawnInitPhysics( CSE_Abstract* e )
 		po->_flags.set(CSE_PHSkeleton::flSavedData, FALSE );
 		saved_bones.clear();
 	}
-
 }
+
 void		CCharacterPhysicsSupport::					SpawnCharacterCreate			( )
 {
-	if( HACK_TERRIBLE_DONOT_COLLIDE_ON_SPAWN( m_EntityAlife ) ) //||  m_EntityAlife.animation_movement_controlled( )
+	if( HACK_TERRIBLE_DONOT_COLLIDE_ON_SPAWN( m_EntityAlife ) )
 		return;
 	CreateCharacterSafe();
-	//if( m_eType != etStalker )
-	//	CreateCharacterSafe();
-	//VERIFY( movement() );
-
-	//if( movement()->CharacterExist() )
-	//	return;
-	//else
-	//{
-	//	VERIFY( !m_collision_activating_delay );
-	//	m_collision_activating_delay = xr_new<activating_character_delay>(this);
-	//}
-		
 }
+
 void CCharacterPhysicsSupport::destroy_imotion()
 {
 	destroy( m_interactive_motion );
@@ -405,15 +381,6 @@ void CCharacterPhysicsSupport::in_shedule_Update( u32 DT )
 	else	if( m_pPhysicsShell&&m_pPhysicsShell->isFullActive( ) && !m_pPhysicsShell->isEnabled( ) )
 		m_EntityAlife.deactivate_physics_shell( );
 	movement( )->in_shedule_Update( DT );
-#if	0
-	if( anim_mov_state.active )
-	{
-		DBG_OpenCashedDraw( );
-		DBG_DrawMatrix( mXFORM, 0.5f );
-		DBG_ClosedCashedDraw( 5000 );
-	}
-#endif
-
 }
 
 #ifdef DEBUG
@@ -447,11 +414,6 @@ bool is_similar( const Fmatrix &m0, const Fmatrix &m1, float param )
 	return _abs( ang )<M_PI/2.f;
 }
 
-//static struct callback_tracks_disable: public IUpdateTracksCallback
-//{
-//	virtual	bool	operator () ( float dt, IKinematicsAnimated& k ){return false;}
-//} tracks_disable_update;
-
 void CCharacterPhysicsSupport::KillHit( SHit &H )
 {
 #ifdef	DEBUG
@@ -461,10 +423,6 @@ void CCharacterPhysicsSupport::KillHit( SHit &H )
 	VERIFY( m_EntityAlife.Visual( ) );
 	VERIFY( m_EntityAlife.Visual( )->dcast_PKinematics( ) );
 
-	//IKinematicsAnimated * KA = m_EntityAlife.Visual( )->dcast_PKinematicsAnimated	();
-	//VERIFY( KA );
-	//KA->SetUpdateTracksCalback( &tracks_disable_update );
-
 	m_character_shell_control.TestForWounded( m_EntityAlife.XFORM( ), m_EntityAlife.Visual( )->dcast_PKinematics( ) );
 	Fmatrix prev_pose; prev_pose.set( mXFORM );
 
@@ -473,9 +431,7 @@ void CCharacterPhysicsSupport::KillHit( SHit &H )
 	Fvector death_position;
 
 	CreateShell( H.who, death_position, velocity );
-	//ActivateShell( H.who );
 
-//	if(Type() == etStalker && xr_strcmp(dbg_stalker_death_anim, "none") != 0)
 	float hit_angle = 0;
 	MotionID m = m_death_anims.motion( m_EntityAlife, H, hit_angle );
 
@@ -483,7 +439,7 @@ void CCharacterPhysicsSupport::KillHit( SHit &H )
 	if (holder && (holder->wounded() || holder->movement().current_params().cover()) )
 		m		= MotionID();
 
-	if( m.valid( ) )//&& cmp( prev_pose, mXFORM ) 
+	if( m.valid( ) )
 	{
 		destroy( m_interactive_motion );
 		if( false && b_death_anim_velocity )
@@ -493,13 +449,9 @@ void CCharacterPhysicsSupport::KillHit( SHit &H )
 		m_interactive_motion->setup( m ,m_pPhysicsShell, hit_angle );
 	} else 
 		DestroyIKController( );
-	//KA->SetUpdateTracksCalback( 0 );
 
 	if( is_imotion(m_interactive_motion ) )
 			m_interactive_motion->play( );
-		
-
-
 
 	m_character_shell_control.set_fatal_impulse( H );
 
@@ -638,15 +590,25 @@ void CCharacterPhysicsSupport::in_UpdateCL( )
 		m_character_shell_control.UpdateFrictionAndJointResistanse( m_pPhysicsShell );
 
 	} 
-	//else if ( !m_EntityAlife.g_Alive( ) && !m_EntityAlife.use_simplified_visual( ) )
-	//{
-		//ActivateShell( NULL );
-		//m_PhysicMovementControl->DestroyCharacter( );
-	//} 
+	
 	else if( ik_controller( ) )
 	{
-		update_interactive_anims();
-		ik_controller( )->Update();
+		CFrustum& view_frust = ::Render->ViewBase;
+		vis_data& vis = m_EntityAlife.Visual()->getVisData();
+		Fvector p;
+
+		m_EntityAlife.XFORM().transform_tiny(p, vis.sphere.P);
+
+		float dist = Device.vCameraPosition.distance_to(p);
+
+		if (dist < IK_CALC_DIST)
+		{
+			if (view_frust.testSphere_dirty(p, vis.sphere.R) || dist < IK_ALWAYS_CALC_DIST)
+			{
+				update_interactive_anims();
+				ik_controller()->Update();
+			}
+		}
 	}
 
 #ifdef DEBUG
@@ -655,25 +617,6 @@ void CCharacterPhysicsSupport::in_UpdateCL( )
 		Fmatrix m;
 		m_hit_animations.GetBaseMatrix(m,m_EntityAlife);
 		DBG_DrawMatrix(m,1.5f);
-/*
-		IKinematicsAnimated	*K = smart_cast<IKinematicsAnimated*>(m_EntityAlife.Visual());
-		u16 hb = K->LL_BoneID("bip01_head");
-		u16 pb = K->LL_GetBoneRoot();
-		u16 nb = K->LL_BoneID("bip01_neck");
-		u16 eb = K->LL_BoneID("eye_right");
-		Fmatrix &mh  = K->LL_GetTransform(hb);
-		Fmatrix &mp  = K->LL_GetTransform(pb);
-		Fmatrix &me	 = K->LL_GetTransform(eb);
-		Fmatrix &mn	 = K->LL_GetTransform(nb);
-		float d = DET(mh);
-		if(Fvector().sub(mh.c,mp.c).magnitude() < 0.3f||d<0.7 )//|| Fvector().sub(me.c,mn.c) < 0.5
-		{
-			
-			K->CalculateBones_Invalidate();
-			K->CalculateBones();
-			;
-		}
-*/
 	}
 #endif
 }
@@ -694,7 +637,6 @@ void CCharacterPhysicsSupport::CreateSkeleton(CPhysicsShell* &pShell)
 	phys_shell_verify_object_model ( m_EntityAlife );
 	pShell->preBuild_FromKinematics(k);
 	
-
 	pShell->mXFORM.set(mXFORM);
 
 	pShell->SmoothElementsInertia(0.3f);
@@ -705,7 +647,6 @@ void CCharacterPhysicsSupport::CreateSkeleton(CPhysicsShell* &pShell)
 
 	pShell->Build();
 
-	
 #ifdef DEBUG	
 	Msg("shell for %s[%d] created in %f ms",*m_EntityAlife.cName(),m_EntityAlife.ID(),t.GetElapsed_sec()*1000.f);
 #endif
@@ -722,10 +663,8 @@ bool CCharacterPhysicsSupport::DoCharacterShellCollide()
 	return true;
 }
 
-
 bool CCharacterPhysicsSupport::CollisionCorrectObjPos(const Fvector& start_from,bool	character_create/*=false*/)
 {
-	//Fvector shift;shift.sub( start_from, m_EntityAlife.Position() );
 	Fvector shift;shift.set(0,0,0);
 	Fbox box;
 	if(character_create)
@@ -752,18 +691,14 @@ bool CCharacterPhysicsSupport::CollisionCorrectObjPos(const Fvector& start_from,
 	bool set_rotation =				!character_create;
 	
 	Fvector activation_res = Fvector().set(0,0,0);
-////////////////
 
 	bool ret = ActivateShapeCharacterPhysicsSupport( activation_res, vbox, activation_pos, mXFORM, not_collide_characters, set_rotation, &m_EntityAlife );
-//////////////////
-
-
 
 	m_EntityAlife.Position().sub(activation_res,shift);
 
-
 	if(m_pPhysicsShell)
 		m_pPhysicsShell->EnableCollision();
+
 	return ret;
 }
 
@@ -775,6 +710,7 @@ void CCharacterPhysicsSupport::set_movement_position( const Fvector &pos)
 	
 	movement()->SetPosition( m_EntityAlife.Position() );
 }
+
 void CCharacterPhysicsSupport::ForceTransform( const Fmatrix &m )
 {
 	if( !m_EntityAlife.g_Alive() )
@@ -787,53 +723,7 @@ void CCharacterPhysicsSupport::ForceTransform( const Fmatrix &m )
 	movement()->SetVelocity( 0, 0, 0 );
 
 }
-/*
-void reset_root_bone_start_pose( CPhysicsShell& shell )
-{
-	VERIFY( &shell );
-	CPhysicsElement * physics_root_element = shell.get_ElementByStoreOrder( 0 );
-	VERIFY( physics_root_element );
 
-	IKinematics * K = shell.PKinematics();
-	VERIFY( K );
-	
-	u16	animation_root_bone_id = K->LL_GetBoneRoot();
-
-	CODEGeom	*physics_root_bone_geom = physics_root_element->geometry( 0 );
-	VERIFY( physics_root_bone_geom );
-
-	u16 physics_root_bone_id = physics_root_bone_geom->bone_id();
-	VERIFY( physics_root_bone_id != BI_NONE );
-
-	if( animation_root_bone_id == physics_root_bone_id )
-		return ;
-
-	//u16 anim_bones_number = K->LL_BoneCount();
-
-	//buffer_vector<u32>	anim_bones_bind_positions( _alloca(anim_bones_number*sizeof(u32)),
-	//												anim_bones_number
-	//											);
-#pragma todo("LL_GetBindTransform shoud use buffer_vector")
-
-	xr_vector<Fmatrix> anim_bones_bind_positions;
-	K->LL_GetBindTransform( anim_bones_bind_positions );
-
-
-	const Fmatrix physics_root_to_anim_root_bind_transformation 
-		= Fmatrix().mul_43( Fmatrix().invert( anim_bones_bind_positions[ physics_root_bone_id ] ), 
-											  anim_bones_bind_positions[ animation_root_bone_id ] );
-
-	const Fmatrix &physics_root_bone_anim_transform = K->LL_GetTransform( physics_root_bone_id );
-
-	const Fmatrix physics_root_bone_corrected_pos = Fmatrix().mul_43( physics_root_bone_anim_transform ,
-																	  physics_root_to_anim_root_bind_transformation
-																	  );
-
-	physics_root_element->SetTransform( Fmatrix().mul_43( shell.mXFORM, physics_root_bone_corrected_pos ) );
-
-	//physics_root_element->TransformPosition( Fmatrix().mul_43( Fmatrix().invert( K->LL_GetTransform( animation_root_bone_id ) ), physics_root_bone_corrected_pos ) );
-}
-*/
 static const u32 physics_shell_animated_destroy_delay = 3000;
 void	CCharacterPhysicsSupport::	destroy_animation_collision		( )
 {
@@ -853,11 +743,11 @@ void CCharacterPhysicsSupport::update_animation_collision		( )
 	if( animation_collision( ) )
 	{
 			animation_collision( )->update( mXFORM );
-			//animation_collision( )->shell()->set_LinearVel( movement()->GetVelocity() );
 			if( Device.dwTimeGlobal > m_physics_shell_animated_time_destroy )
 						destroy_animation_collision		( );
 	}
 }
+
 #ifdef	DEBUG
 BOOL dbg_draw_ragdoll_spawn = FALSE;
 #endif
@@ -873,11 +763,7 @@ void CCharacterPhysicsSupport::ActivateShell			( CObject* who )
 	m_pPhysicsShell->Enable();
 	m_pPhysicsShell->set_LinearVel( Fvector().set(0,-1,0) );
 }
-//void	CCharacterPhysicsSupport::	on_active_weapon_shell_activate()
-//{
-//	if( !m_weapon_geoms.empty() )
-//		RemoveActiveWeaponCollision		();
-//}
+
 bool	CCharacterPhysicsSupport::has_shell_collision_place		( const CPhysicsShellHolder* obj ) const
 {
 	return m_active_item_obj && obj == m_active_item_obj;
@@ -888,80 +774,59 @@ void		CCharacterPhysicsSupport::on_child_shell_activate	( CPhysicsShellHolder* o
 		return;
 
 	VERIFY(obj->PPhysicsShell());
-#if	0
-//	DBG_OpenCashedDraw();
-	//m_pPhysicsShell->dbg_draw_geometry( 0.2f, D3DCOLOR_XRGB( 255, 100, 0 ) );
-	m_pPhysicsShell->dbg_draw_velocity( 0.01f, D3DCOLOR_XRGB( 100, 255, 0 ) );
-	m_pPhysicsShell->dbg_draw_force( 0.1f, D3DCOLOR_XRGB( 100, 0, 255 ) );
-	DBG_ClosedCashedDraw( 50000 );
-#endif
-	//DBG_OpenCashedDraw();
-	//obj->PPhysicsShell()->dbg_draw_geometry( 0.2f, D3DCOLOR_XRGB( 255, 100, 0 ) );
-	
+
 	RemoveActiveWeaponCollision	();
-
-	
-	//DBG_ClosedCashedDraw( 50000 );
-
 }
 
-void	CCharacterPhysicsSupport::	RemoveActiveWeaponCollision		()
+void	CCharacterPhysicsSupport::RemoveActiveWeaponCollision()
 {
-	
-
-	VERIFY( m_pPhysicsShell );
-	VERIFY( m_weapon_attach_bone );
-	VERIFY( !m_weapon_geoms.empty() );
-	xr_vector<CODEGeom*>::iterator ii =m_weapon_geoms.begin(), ee = m_weapon_geoms.end();
+	VERIFY(m_pPhysicsShell);
+	VERIFY(m_weapon_attach_bone);
+	VERIFY(!m_weapon_geoms.empty());
+	xr_vector<CODEGeom*>::iterator ii = m_weapon_geoms.begin(), ee = m_weapon_geoms.end();
 	Fmatrix m0;
-	(*ii)->get_xform( m0 );
-	CPhysicsElement* root = m_active_item_obj->PPhysicsShell()->get_ElementByStoreOrder( 0 );
-	CODEGeom *rg = root->geometry( 0 );
-	VERIFY( rg );
+	(*ii)->get_xform(m0);
+	CPhysicsElement* root = m_active_item_obj->PPhysicsShell()->get_ElementByStoreOrder(0);
+	CODEGeom* rg = root->geometry(0);
+	VERIFY(rg);
 	Fmatrix m1;
-	rg->get_xform( m1 );
+	rg->get_xform(m1);
 
 	Fmatrix me;
-	root->GetGlobalTransformDynamic( &me );
+	root->GetGlobalTransformDynamic(&me);
 
-	Fmatrix m1_to_e = Fmatrix().mul_43( Fmatrix().invert( m1 ), me );
+	Fmatrix m1_to_e = Fmatrix().mul_43(Fmatrix().invert(m1), me);
 
-	Fmatrix m0e = Fmatrix().mul_43( m0, m1_to_e );
-	root->SetTransform( m0e, mh_unspecified );
+	Fmatrix m0e = Fmatrix().mul_43(m0, m1_to_e);
+	root->SetTransform(m0e, mh_unspecified);
 
-	for( ;ii!=ee; ++ii )
+	for (; ii != ee; ++ii)
 	{
-		CODEGeom *g  =(*ii);
-
-		//g->dbg_draw( 0.01f, D3DCOLOR_XRGB( 0, 0, 255 ), Flags32() );
-
-		m_weapon_attach_bone->remove_geom( g );
+		CODEGeom* g = (*ii);
+		m_weapon_attach_bone->remove_geom(g);
 		g->destroy();
 		xr_delete(g);
 	}
 
-
-	//m_active_item_obj->PPhysicsShell()->dbg_draw_geometry( 0.2f, D3DCOLOR_XRGB( 255, 0, 100 ) );
-	
 	Fvector a_vel, l_vel;
 	const Fvector& mc = root->mass_Center();
-	//dBodyGetPointVel( m_weapon_attach_bone->get_body(),mc.x, mc.y, mc.z, cast_fp(l_vel) );
-	m_weapon_attach_bone->GetPointVel( l_vel, mc );
-	m_weapon_attach_bone->get_AngularVel( a_vel );
-	
-	root->set_AngularVel( a_vel );
-	root->set_LinearVel( l_vel );
-	
+	m_weapon_attach_bone->GetPointVel(l_vel, mc);
+	m_weapon_attach_bone->get_AngularVel(a_vel);
+
+	root->set_AngularVel(a_vel);
+	root->set_LinearVel(l_vel);
+
 	m_weapon_geoms.clear();
 	m_weapon_attach_bone = 0;
-	m_active_item_obj	= 0;
+	m_active_item_obj = 0;
 
 	bone_fix_clear();
 }
+
 void CCharacterPhysicsSupport::bone_fix_clear()
 {
 	xr_vector<anim_bone_fix*>::iterator i = m_weapon_bone_fixes.begin(), e = m_weapon_bone_fixes.end();
-	for(; i != e; ++i )
+	for (; i != e; ++i)
 	{
 		(*i)->deinit();
 		xr_delete(*i);
@@ -969,207 +834,189 @@ void CCharacterPhysicsSupport::bone_fix_clear()
 	m_weapon_bone_fixes.clear();
 }
 
-
-void CCharacterPhysicsSupport::bone_chain_disable(u16 bone, u16 r_bone, IKinematics &K)
+void CCharacterPhysicsSupport::bone_chain_disable(u16 bone, u16 r_bone, IKinematics& K)
 {
 	VERIFY(&K);
-	u16 bid					= bone;
-	//K.LL_GetBoneInstance( bid ).set_callback( bctCustom, 0, 0, TRUE );
-
-	while( bid!=r_bone && bid !=  K.LL_GetBoneRoot() )
+	u16 bid = bone;
+	while (bid != r_bone && bid != K.LL_GetBoneRoot())
 	{
-		CBoneData	&bd =	K.LL_GetData( bid );
-		if( K.LL_GetBoneInstance( bid ).callback() != anim_bone_fix::callback )
+		CBoneData& bd = K.LL_GetData(bid);
+		if (K.LL_GetBoneInstance(bid).callback() != anim_bone_fix::callback)
 		{
-			m_weapon_bone_fixes.push_back( xr_new<anim_bone_fix>() );
-			m_weapon_bone_fixes.back()->fix( bid, K );
+			m_weapon_bone_fixes.push_back(xr_new<anim_bone_fix>());
+			m_weapon_bone_fixes.back()->fix(bid, K);
 		}
-		bid =	bd.GetParentID();
-		
-		
-	
-
-		//K.LL_GetBoneInstance( bid ).set_callback( bctCustom, 0, 0, TRUE );
+		bid = bd.GetParentID();
 	}
-	
 }
 
-void	CCharacterPhysicsSupport::	AddActiveWeaponCollision		()
+void	CCharacterPhysicsSupport::AddActiveWeaponCollision()
 {
-	if( m_eType!=etStalker )
+	if (m_eType != etStalker)
 		return;
-	VERIFY( !m_weapon_attach_bone );
-	VERIFY( !m_active_item_obj );
-	VERIFY( m_weapon_geoms.empty() );
-	VERIFY( m_weapon_bone_fixes.empty() );
+	VERIFY(!m_weapon_attach_bone);
+	VERIFY(!m_active_item_obj);
+	VERIFY(m_weapon_geoms.empty());
+	VERIFY(m_weapon_bone_fixes.empty());
 
-	CInventoryOwner*inv_owner = smart_cast<CInventoryOwner*>( &m_EntityAlife );
-	VERIFY( inv_owner );
+	CInventoryOwner* inv_owner = smart_cast<CInventoryOwner*>(&m_EntityAlife);
+	VERIFY(inv_owner);
 	PIItem active_weapon_item = inv_owner->inventory().ActiveItem();
-	if( !active_weapon_item )
+	if (!active_weapon_item)
 		return;
-	int bl=-1, br=-1, br2=-1;
-	m_EntityAlife.g_WeaponBones( bl, br, br2 );
-	if( br==-1 )
+	int bl = -1, br = -1, br2 = -1;
+	m_EntityAlife.g_WeaponBones(bl, br, br2);
+	if (br == -1)
 		return;
 
 	active_weapon_item->UpdateXForm();
 
-	CPhysicsShell *weapon_shell = P_build_Shell( &active_weapon_item->object(), true, (BONE_P_MAP*) (0), true );
+	CPhysicsShell* weapon_shell = P_build_Shell(&active_weapon_item->object(), true, (BONE_P_MAP*)(0), true);
 
-	VERIFY( m_pPhysicsShell );
-	CPhysicsElement* weapon_attach_bone = m_pPhysicsShell->get_PhysicsParrentElement( (u16)br );
+	VERIFY(m_pPhysicsShell);
+	CPhysicsElement* weapon_attach_bone = m_pPhysicsShell->get_PhysicsParrentElement((u16)br);
 
-	bone_chain_disable( (u16)br, weapon_attach_bone->m_SelfID, *m_pPhysicsShell->PKinematics() );
-	if(bl != br && bl!=-1 )
+	bone_chain_disable((u16)br, weapon_attach_bone->m_SelfID, *m_pPhysicsShell->PKinematics());
+	if (bl != br && bl != -1)
 	{
-		CPhysicsElement* p = m_pPhysicsShell->get_PhysicsParrentElement( (u16) bl );
-		VERIFY( p );
-		bone_chain_disable( (u16)bl, p->m_SelfID, *m_pPhysicsShell->PKinematics() );
+		CPhysicsElement* p = m_pPhysicsShell->get_PhysicsParrentElement((u16)bl);
+		VERIFY(p);
+		bone_chain_disable((u16)bl, p->m_SelfID, *m_pPhysicsShell->PKinematics());
 	}
-	if(br2!=bl && br2 != br && br2!=-1 )
+	if (br2 != bl && br2 != br && br2 != -1)
 	{
-		CPhysicsElement* p = m_pPhysicsShell->get_PhysicsParrentElement( (u16) br2 );
-		VERIFY( p );
-		bone_chain_disable( (u16)br2, weapon_attach_bone->m_SelfID, *m_pPhysicsShell->PKinematics() );
+		CPhysicsElement* p = m_pPhysicsShell->get_PhysicsParrentElement((u16)br2);
+		VERIFY(p);
+		bone_chain_disable((u16)br2, weapon_attach_bone->m_SelfID, *m_pPhysicsShell->PKinematics());
 	}
 
-	CPhysicsElement* weapon_element		= weapon_shell->get_ElementByStoreOrder( 0 );
+	CPhysicsElement* weapon_element = weapon_shell->get_ElementByStoreOrder(0);
 
 	u16 geom_num = weapon_element->numberOfGeoms();
-	for( u16 i = 0; i< geom_num; ++i )
-		m_weapon_geoms.push_back(  weapon_element->geometry( i ) );
-	xr_vector<CODEGeom*>::iterator ii =m_weapon_geoms.begin(), ee = m_weapon_geoms.end();
+	for (u16 i = 0; i < geom_num; ++i)
+		m_weapon_geoms.push_back(weapon_element->geometry(i));
+	xr_vector<CODEGeom*>::iterator ii = m_weapon_geoms.begin(), ee = m_weapon_geoms.end();
 
-
-	//DBG_OpenCashedDraw();
-
-	for( ;ii!=ee; ++ii )
+	for (; ii != ee; ++ii)
 	{
-		CODEGeom *g  =(*ii);
-		//g->dbg_draw( 0.01f, D3DCOLOR_XRGB( 255, 0, 0 ), Flags32() );
-		weapon_element->remove_geom( g );
-		g->set_bone_id( weapon_attach_bone->m_SelfID );
-		weapon_attach_bone->add_geom( g );
-		//g->dbg_draw( 0.01f, D3DCOLOR_XRGB( 0, 255, 0 ), Flags32() );
+		CODEGeom* g = (*ii);
+		weapon_element->remove_geom(g);
+		g->set_bone_id(weapon_attach_bone->m_SelfID);
+		weapon_attach_bone->add_geom(g);
 	}
 	m_weapon_attach_bone = weapon_attach_bone;
-	m_active_item_obj	= &(active_weapon_item->object());
+	m_active_item_obj = &(active_weapon_item->object());
 
 
-	destroy_physics_shell( weapon_shell );
-
-	//m_pPhysicsShell->dbg_draw_geometry( 1, D3DCOLOR_XRGB( 0, 0, 255 ) );
-	//DBG_ClosedCashedDraw( 50000 );
+	destroy_physics_shell(weapon_shell);
 }
 
 extern BOOL dead_body_collision;
 
-void	CCharacterPhysicsSupport::	CreateShell						( CObject* who, Fvector& dp, Fvector & velocity  )
+void	CCharacterPhysicsSupport::CreateShell(CObject* who, Fvector& dp, Fvector& velocity)
 {
-	xr_delete( m_collision_activating_delay );
-	xr_delete( m_interactive_animation );
-	destroy_animation_collision( );
-	//DestroyIKController( );
-	IKinematics* K=smart_cast<IKinematics*>( m_EntityAlife.Visual( ) );
+	xr_delete(m_collision_activating_delay);
+	xr_delete(m_interactive_animation);
+	destroy_animation_collision();
+	IKinematics* K = smart_cast<IKinematics*>(m_EntityAlife.Visual());
 	//animation movement controller issues
-	bool	anim_mov_ctrl =m_EntityAlife.animation_movement_controlled( );
-	CBoneInstance	&BR = K->LL_GetBoneInstance( K->LL_GetBoneRoot( ) );
-	Fmatrix start_xform; start_xform.identity( );
-	CBlend *anim_mov_blend = 0;
-	if( anim_mov_ctrl )
+	bool	anim_mov_ctrl = m_EntityAlife.animation_movement_controlled();
+	CBoneInstance& BR = K->LL_GetBoneInstance(K->LL_GetBoneRoot());
+	Fmatrix start_xform; start_xform.identity();
+	CBlend* anim_mov_blend = 0;
+	if (anim_mov_ctrl)
 	{
-		m_EntityAlife.animation_movement( )->ObjStartXform( start_xform );
-		anim_mov_blend = m_EntityAlife.animation_movement( )->ControlBlend( );
-	
-		m_EntityAlife.destroy_anim_mov_ctrl( );
-		BR.set_callback_overwrite (TRUE);
+		m_EntityAlife.animation_movement()->ObjStartXform(start_xform);
+		anim_mov_blend = m_EntityAlife.animation_movement()->ControlBlend();
+
+		m_EntityAlife.destroy_anim_mov_ctrl();
+		BR.set_callback_overwrite(TRUE);
 	}
 	//
 	u16 anim_root = K->LL_GetBoneRoot();
 	u16 physics_root = anim_root;
 
-	if( m_eType != etBitting )
+	if (m_eType != etBitting)
 	{
-		physics_root = K->LL_BoneID( "bip01_pelvis" );
-		K->LL_SetBoneRoot( physics_root );
+		physics_root = K->LL_BoneID("bip01_pelvis");
+		K->LL_SetBoneRoot(physics_root);
 
 	}
-//
-	if( !m_physics_skeleton ) 
-		CreateSkeleton( m_physics_skeleton );
-	
-	if( m_eType == etActor )
+
+	if (!m_physics_skeleton)
+		CreateSkeleton(m_physics_skeleton);
+
+	if (m_eType == etActor)
 	{
-		CActor* A=smart_cast<CActor*>( &m_EntityAlife );
-		R_ASSERT2( A, "not an actor has actor type" );
-		if( A->Holder( ) ) return;
-		if( m_eState==esRemoved )return;
+		CActor* A = smart_cast<CActor*>(&m_EntityAlife);
+		R_ASSERT2(A, "not an actor has actor type");
+		if (A->Holder()) return;
+		if (m_eState == esRemoved)return;
 	}
 
-	
-//////////////////////this needs to evaluate object box//////////////////////////////////////////////////////
-	if( m_eType != etBitting )
-		K->LL_SetBoneRoot( anim_root );
-	
-	for( u16 I = K->LL_BoneCount( )-1; I!=u16(-1); --I )
-				K->LL_GetBoneInstance( I ).reset_callback( );
-//
-	if( anim_mov_ctrl )	//we do not whant to move by long animation in root 
-			BR.set_callback_overwrite (TRUE);
-//
+
+	//////////////////////this needs to evaluate object box//////////////////////////////////////////////////////
+	if (m_eType != etBitting)
+		K->LL_SetBoneRoot(anim_root);
+
+	for (u16 I = K->LL_BoneCount() - 1; I != u16(-1); --I)
+		K->LL_GetBoneInstance(I).reset_callback();
+	//
+	if (anim_mov_ctrl)	//we do not whant to move by long animation in root 
+		BR.set_callback_overwrite(TRUE);
+	//
 	K->CalculateBones_Invalidate();
-	K->CalculateBones	(TRUE);
-	if( m_eType != etBitting )
-		K->LL_SetBoneRoot( physics_root );
-////////////////////////////////////////////////////////////////////////////
+	K->CalculateBones(TRUE);
+	if (m_eType != etBitting)
+		K->LL_SetBoneRoot(physics_root);
+	////////////////////////////////////////////////////////////////////////////
 
-	if( m_pPhysicsShell )
+	if (m_pPhysicsShell)
 		return;
 
-	m_PhysicMovementControl->GetCharacterVelocity		( velocity );
-	
+	m_PhysicMovementControl->GetCharacterVelocity(velocity);
 
-	if( !m_PhysicMovementControl->CharacterExist( ) )
-		dp.set( m_EntityAlife.Position( ) );
-	else m_PhysicMovementControl->GetDeathPosition( dp );
-	m_PhysicMovementControl->DestroyCharacter( );
+
+	if (!m_PhysicMovementControl->CharacterExist())
+		dp.set(m_EntityAlife.Position());
+	else m_PhysicMovementControl->GetDeathPosition(dp);
+	m_PhysicMovementControl->DestroyCharacter();
 
 	//shell create
-	R_ASSERT2(m_physics_skeleton,"No skeleton created!!");
-	m_pPhysicsShell=m_physics_skeleton;
-	m_physics_skeleton=NULL;
+	R_ASSERT2(m_physics_skeleton, "No skeleton created!!");
+	m_pPhysicsShell = m_physics_skeleton;
+	m_physics_skeleton = NULL;
 	m_pPhysicsShell->set_Kinematics(K);
 	m_pPhysicsShell->RunSimulation();
 	m_pPhysicsShell->mXFORM.set(mXFORM);
-	m_pPhysicsShell->SetCallbacks( );
+	m_pPhysicsShell->SetCallbacks();
 	//
 
-	if(anim_mov_ctrl) //we do not whant to move by long animation in root 
-			BR.set_callback_overwrite (TRUE);
+	if (anim_mov_ctrl) //we do not whant to move by long animation in root 
+		BR.set_callback_overwrite(TRUE);
 
 
-	if(!DoCharacterShellCollide())
+	if (!DoCharacterShellCollide())
 		m_pPhysicsShell->DisableCharacterCollision();
 
-	if( m_eType != etBitting )
-		K->LL_SetBoneRoot( anim_root );
+	if (m_eType != etBitting)
+		K->LL_SetBoneRoot(anim_root);
 
 
 	K->CalculateBones_Invalidate();
-	K->CalculateBones	(TRUE);
+	K->CalculateBones(TRUE);
 
 
-	if( m_eType != etBitting )
-		K->LL_SetBoneRoot( physics_root );
+	if (m_eType != etBitting)
+		K->LL_SetBoneRoot(physics_root);
 	//reset_root_bone_start_pose( *m_pPhysicsShell );
-	
-	m_flags.set(fl_death_anim_on,FALSE);
-	m_eState=esDead;
-	m_flags.set(fl_skeleton_in_shell,TRUE);
-	
 
-	m_pPhysicsShell->SetPrefereExactIntegration	();
+	m_flags.set(fl_death_anim_on, FALSE);
+	m_eState = esDead;
+	m_flags.set(fl_skeleton_in_shell, TRUE);
+
+
+	m_pPhysicsShell->SetPrefereExactIntegration();
 
 	if (!dead_body_collision)
 		m_pPhysicsShell->SetRemoveCharacterCollLADisable();
@@ -1177,6 +1024,7 @@ void	CCharacterPhysicsSupport::	CreateShell						( CObject* who, Fvector& dp, Fv
 	m_pPhysicsShell->SetIgnoreSmall();
 	AddActiveWeaponCollision();
 }
+
 void	CCharacterPhysicsSupport::	EndActivateFreeShell			( CObject* who, const Fvector& inital_entity_position, const Fvector& dp, const Fvector & velocity )
 {
 	VERIFY ( m_pPhysicsShell );
@@ -1227,25 +1075,7 @@ if( dbg_draw_ragdoll_spawn )
 	m_pPhysicsShell->GetGlobalTransformDynamic(&mXFORM);
 	m_pPhysicsShell->mXFORM.set(mXFORM);
 
-
-
-	//if( false &&  anim_mov_ctrl && anim_mov_blend && anim_mov_blend->blend != CBlend::eFREE_SLOT &&  anim_mov_blend->timeCurrent + Device.fTimeDelta*anim_mov_blend->speed < anim_mov_blend->timeTotal-SAMPLE_SPF-EPS)//.
-	//{
-	//	const Fmatrix sv_xform = mXFORM;
-	//	mXFORM.set( start_xform );
-	//	//anim_mov_blend->blendPower = 1;
-	//	anim_mov_blend->timeCurrent  += Device.fTimeDelta * anim_mov_blend->speed;
-	//	m_pPhysicsShell->AnimToVelocityState( Device.fTimeDelta, 2 * default_l_limit, 10.f * default_w_limit );
-	//	mXFORM.set( sv_xform );
-	//}
 	IKinematics* K=smart_cast<IKinematics*>( m_EntityAlife.Visual( ) );
-	//u16 root =K->LL_GetBoneRoot();
-	//if( root!=0 )
-	//{
-	//	K->LL_GetTransform( 0 ).set( Fidentity );
-	//	
-	//	K->LL_SetBoneVisible( 0, FALSE, FALSE );
-	//}
 	
 	K->CalculateBones_Invalidate();
 	K->CalculateBones	(TRUE);
@@ -1340,19 +1170,18 @@ void		 CCharacterPhysicsSupport::in_NetRelcase(CObject* O)
 		m_sv_hit = SHit();
 }
  
-void CCharacterPhysicsSupport::set_collision_hit_callback( ICollisionHitCallback* cc )
+void CCharacterPhysicsSupport::set_collision_hit_callback(ICollisionHitCallback* cc)
 {
-	
-	xr_delete( m_collision_hit_callback );
+
+	xr_delete(m_collision_hit_callback);
 	m_collision_hit_callback = cc;
 
 }
-ICollisionHitCallback * CCharacterPhysicsSupport::get_collision_hit_callback()
+
+ICollisionHitCallback* CCharacterPhysicsSupport::get_collision_hit_callback()
 {
 	return m_collision_hit_callback;
 }
-
-
 
 void	CCharacterPhysicsSupport::FlyTo(const	Fvector &disp)
 {
@@ -1372,31 +1201,17 @@ void	CCharacterPhysicsSupport::FlyTo(const	Fvector &disp)
 		vel.mul(1.f/fsteps_num/fixed_step);
 
 
-		for(u16	i=0;steps_num>i;++i)
+		for (u16 i = 0; steps_num > i; ++i)
 		{
 			m_pPhysicsShell->set_LinearVel(vel);
-#if	0
-	DBG_OpenCashedDraw();
-	//m_pPhysicsShell->dbg_draw_geometry( 0.2f, D3DCOLOR_XRGB( 255, 100, 0 ) );
-	m_pPhysicsShell->dbg_draw_velocity( 0.01f, D3DCOLOR_XRGB( 0, 255, 0 ) );
-	m_pPhysicsShell->dbg_draw_force( 0.1f, D3DCOLOR_XRGB( 0, 0, 255 ) );
-//	DBG_ClosedCashedDraw( 50000 );
-#endif
 			physics_world()->Step();
-#if	0
-//	DBG_OpenCashedDraw();
-	//m_pPhysicsShell->dbg_draw_geometry( 0.2f, D3DCOLOR_XRGB( 255, 100, 0 ) );
-	m_pPhysicsShell->dbg_draw_velocity( 0.01f, D3DCOLOR_XRGB( 100, 255, 0 ) );
-	m_pPhysicsShell->dbg_draw_force( 0.1f, D3DCOLOR_XRGB( 100, 0, 255 ) );
-	DBG_ClosedCashedDraw( 50000 );
-#endif
 		}
 		//u16 step_num=disp.magnitude()/fixed_step;
 		m_pPhysicsShell->set_ApplyByGravity(g);
 		m_pPhysicsShell->set_CallbackData(cd);
 		m_pPhysicsShell->remove_ObjectContactCallback(StaticEnvironmentCB);
 		physics_world()->UnFreeze();
-}
+		}
 
 void CCharacterPhysicsSupport::on_create_anim_mov_ctrl	()
 {
@@ -1421,6 +1236,7 @@ bool CCharacterPhysicsSupport::interactive_motion( )
 {
 	return is_imotion( m_interactive_motion ) ;
 }
+
 bool	CCharacterPhysicsSupport::	can_drop_active_weapon	( )
 {
 	return !interactive_motion() && m_flags.test(fl_death_anim_on);
@@ -1446,6 +1262,7 @@ u16	CCharacterPhysicsSupport::PHGetSyncItemsNumber( )
 	else 
 		return m_EntityAlife.CPhysicsShellHolder::PHGetSyncItemsNumber();
 }
+
 CPHSynchronize*	CCharacterPhysicsSupport::PHGetSyncItem	(u16 item)
 {
 	if(movement()->CharacterExist()) 

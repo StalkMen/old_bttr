@@ -985,13 +985,13 @@ void CUIHudStatesWnd::UpdateIndicators( CActor* actor )
 
 		CCustomOutfit* outfit = smart_cast<CCustomOutfit*>(actor->inventory().ItemFromSlot(OUTFIT_SLOT));
 
-		float thirst = 0;// actor->conditions().GetThirst();
-		float thirst_critical = 0;// actor->conditions().ThirstCritical();
+		float thirst = actor->conditions().GetThirst();
+		float thirst_critical = actor->conditions().ThirstCritical();
 		float thirst_koef =
 			(thirst - thirst_critical) / (thirst >= thirst_critical ? 1 - thirst_critical : thirst_critical);
 
-		float sleep = 0;//actor->conditions().GetSleep();
-		float sleep_critical = 0;// actor->conditions().SleepCritical();
+		float sleep = actor->conditions().GetSleep();
+		float sleep_critical = actor->conditions().SleepCritical();
 		float sleep_koef = (sleep - sleep_critical) / (sleep >= sleep_critical ? 1 - sleep_critical : sleep_critical);
 
 		float radiation = actor->conditions().GetRadiation();

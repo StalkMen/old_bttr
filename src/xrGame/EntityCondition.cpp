@@ -642,6 +642,8 @@ bool CEntityCondition::ApplyInfluence(const SMedicineInfluenceValues& V, const s
 	ChangeHealth	(V.fHealth);
 	ChangePower		(V.fPower);
 	ChangeSatiety	(V.fSatiety);
+	ChangeSleep		(V.fSleep);
+	ChangeThirst	(V.fThirst);
 	ChangeRadiation	(V.fRadiation);
 	ChangeBleeding	(V.fWoundsHeal);
 	SetMaxPower		(GetMaxPower()+V.fMaxPowerUp);
@@ -659,10 +661,12 @@ void SMedicineInfluenceValues::Load(const shared_str& sect)
 	fHealth			= pSettings->r_float(sect.c_str(), "eat_health");
 	fPower			= pSettings->r_float(sect.c_str(), "eat_power");
 	fSatiety		= pSettings->r_float(sect.c_str(), "eat_satiety");
+	fSleep 			= READ_IF_EXISTS(pSettings, r_float, sect.c_str(), "eat_sleep", (BttR_mode) ? 0.0f : 0.0f);
+	fThirst			= READ_IF_EXISTS(pSettings, r_float, sect.c_str(), "eat_thirst", (BttR_mode) ? 0.0f : 0.0f);
 	fRadiation		= pSettings->r_float(sect.c_str(), "eat_radiation");
 	fWoundsHeal		= pSettings->r_float(sect.c_str(), "wounds_heal_perc");
 	clamp			(fWoundsHeal, 0.f, 1.f);
-	fMaxPowerUp		= READ_IF_EXISTS	(pSettings,r_float,sect.c_str(),	"eat_max_power",0.0f);
+	fMaxPowerUp		= READ_IF_EXISTS	(pSettings, r_float, sect.c_str(),	"eat_max_power",0.0f);
 	fAlcohol		= READ_IF_EXISTS	(pSettings, r_float, sect.c_str(),	"eat_alcohol", 0.0f);
 	fTimeTotal		= READ_IF_EXISTS	(pSettings, r_float, sect.c_str(),	"apply_time_sec", -1.0f);
 }

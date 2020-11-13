@@ -65,3 +65,11 @@ IC	void	jitter(CBlender_Compile& C)
 	C.r_dx10Texture	("jitterMipped",	r2_jitter_mipped);
 	C.r_dx10Sampler	("smp_jitter");
 }
+
+IC	void	samplers_pack(CBlender_Compile& C)
+{
+	C.r_dx10Sampler("smp_nofilter"); 	//D3DTADDRESS_CLAMP		D3DTEXF_POINT			D3DTEXF_NONE		D3DTEXF_POINT 
+	C.r_dx10Sampler("smp_rtlinear");	//D3DTADDRESS_WRAP		D3DTEXF_LINEAR			D3DTEXF_LINEAR		D3DTEXF_LINEAR
+	C.r_dx10Sampler("smp_base");		//D3DTADDRESS_WRAP		D3DTEXF_ANISOTROPIC		D3DTEXF_LINEAR		D3DTEXF_ANISOTROPIC
+	C.r_dx10Sampler("smp_linear");		//D3DTADDRESS_CLAMP		D3DTEXF_LINEAR			D3DTEXF_NONE		D3DTEXF_LINEAR 
+}

@@ -1848,11 +1848,27 @@ float minimap_zoom_factor = 1.0f;
 BOOL int_wallmarks = 1;
 BOOL actor_death_first_eye = 1;
 BOOL dead_body_collision = 1;
-extern BOOL g_b_COD_PickUpMode;
 BOOL _fake_start = 0;
 BOOL update_loot_pick_soc = 1;
 BOOL game_value_ammo_belt = 0;
-extern BOOL g_use_aim_inertion;
+BOOL g_use_aim_inertion = 1;
+extern BOOL g_b_COD_PickUpMode;
+
+// Change weather immediately
+class CCC_SetWeather : public IConsole_Command
+{
+public:
+	CCC_SetWeather(LPCSTR N) : IConsole_Command(N) {};
+	virtual void Execute(LPCSTR args)
+	{
+		if (!xr_strlen(args))
+			return;
+		if (!g_pGamePersistent)
+			return;
+
+		g_pGamePersistent->Environment().SetWeather(args, true);
+	}
+};
 
 u32 type_hud_token = 0;
 xr_token type_hud_token_ext[] = {
@@ -1905,6 +1921,7 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Float, "hud_adj_delta_pos", &hud_adj_delta_pos, 0.0001f, 1.0f);
 	CMD4(CCC_Float, "hud_adj_delta_rot", &hud_adj_delta_rot, 0.0001f, 1.0f);
 
+	CMD1(CCC_SetWeather, "set_weather");
 	CMD1(CCC_MemStats, "stat_memory");
 #ifdef DEBUG
 	CMD1(CCC_MemCheckpoint, "stat_memory_checkpoint");

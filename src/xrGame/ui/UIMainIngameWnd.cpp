@@ -447,35 +447,8 @@ void CUIMainIngameWnd::Update()
 	}
 	
 	UpdateMainIndicators();
-/*
-	CTorch* flashlight = pActor->GetCurrentTorch();
-	if (flashlight)
-	{
-		if (flashlight->IsSwitchedOn())
-		{
-			if (!UIStaticTorch.IsShown())
-				UIStaticTorch.Show(true);
-			if (!UIFlashlightBar.IsShown())
-				UIFlashlightBar.Show(true);
-			UIFlashlightBar.SetProgressPos(100.0f * (((float)flashlight->GetBatteryStatus()) / ((float)flashlight->GetBatteryLifetime())));
-		}
-		else
-		{
-			if (UIStaticTorch.IsShown())
-				UIStaticTorch.Show(false);
-			if (UIFlashlightBar.IsShown())
-				UIFlashlightBar.Show(false);
-		}
-	}
-	else {
-		if (UIStaticTorch.IsShown())
-			UIStaticTorch.Show(false);
-		if (UIFlashlightBar.IsShown())
-			UIFlashlightBar.Show(false);
-	}
-	*/
-}//update
 
+}
 
 void CUIMainIngameWnd::RenderQuickInfos()
 {
@@ -545,20 +518,6 @@ void CUIMainIngameWnd::SetWarningIconColor(EWarningIcons icon, const u32 cl)
 		SetWarningIconColorUI	(UIWeaponJammedIcon, cl);
 		if (bMagicFlag) break;
 
-/*	case ewiRadiation:
-		SetWarningIconColorUI	(&UIRadiaitionIcon, cl);
-		if (bMagicFlag) break;
-	case ewiWound:
-		SetWarningIconColorUI	(&UIWoundIcon, cl);
-		if (bMagicFlag) break;
-
-	case ewiStarvation:
-		SetWarningIconColorUI	(&UIStarvationIcon, cl);
-		if (bMagicFlag) break;	
-	case ewiPsyHealth:
-		SetWarningIconColorUI	(&UIPsyHealthIcon, cl);
-		if (bMagicFlag) break;
-*/
 	case ewiInvincible:
 		SetWarningIconColorUI	(UIInvincibleIcon, cl);
 		if (bMagicFlag) break;
@@ -656,7 +615,6 @@ void CUIMainIngameWnd::UpdatePickUpItem	()
 		UIPickUpItemIcon->Show(false);
 		return;
 	};
-
 
 	shared_str sect_name	= m_pPickUpItem->object().cNameSect();
 
@@ -759,12 +717,12 @@ void CUIMainIngameWnd::UpdateMainIndicators()
     float satiety_koef =
         (satiety - satiety_critical) / (satiety >= satiety_critical ? 1 - satiety_critical : satiety_critical);
 
-    float sleep = 0;//pActor->conditions().GetSleep();
-    float sleep_critical = 0;//pActor->conditions().SleepCritical();
+    float sleep = pActor->conditions().GetSleep();
+    float sleep_critical = pActor->conditions().SleepCritical();
     float sleep_koef = (sleep - sleep_critical) / (sleep >= sleep_critical ? 1 - sleep_critical : sleep_critical);
 
-    float thirst = 0;// pActor->conditions().GetThirst();
-    float thirst_critical = 0; //pActor->conditions().ThirstCritical();
+    float thirst = pActor->conditions().GetThirst();
+    float thirst_critical = pActor->conditions().ThirstCritical();
     float thirst_koef =
         (thirst - thirst_critical) / (thirst >= thirst_critical ? 1 - thirst_critical : thirst_critical);
 
@@ -1268,33 +1226,6 @@ void CUIMainIngameWnd::UpdateMainIndicators()
     //*
     if (type_hud_token == 3)
     {
-        /*
-                // Bleeding icon
-                if (fis_zero(bleeding, EPS))
-                {
-                    m_ind_bleeding_st->Show(false);
-                    m_ind_bleeding_st->ResetColorAnimation();
-                }
-                else
-                {
-                    m_ind_bleeding_st->Show(true);
-                    if (bleeding < 0.35f)
-                    {
-                        m_ind_bleeding_st->InitTexture("ui_inGame2_circle_bloodloose_green_st174");
-                        m_ind_bleeding_st->SetColorAnimation("ui_slow_blinking_alpha", flags);
-                    }
-                    else if (bleeding < 0.7f)
-                    {
-                        m_ind_bleeding_st->InitTexture("ui_inGame2_circle_bloodloose_yellow_st174");
-                        m_ind_bleeding_st->SetColorAnimation("ui_medium_blinking_alpha", flags);
-                    }
-                    else
-                    {
-                        m_ind_bleeding_st->InitTexture("ui_inGame2_circle_bloodloose_red_st174");
-                        m_ind_bleeding_st->SetColorAnimation("ui_fast_blinking_alpha", flags);
-                    }
-                }
-        */
         // Radiation icon
         if (fis_zero(radiation, EPS))
         {

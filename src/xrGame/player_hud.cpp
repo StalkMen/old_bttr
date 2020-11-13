@@ -34,7 +34,7 @@ Fvector _wpn_root_pos;
 #define ORIGIN_OFFSET_AIM_OLD -0.03f    // (Для прицеливания)
 
 const float _CalcMotionSpeed = 1.f;
-extern BOOL g_use_aim_inertion = 1;
+extern BOOL g_use_aim_inertion;
 
 float CalcMotionSpeed(const shared_str& anim_name)
 {

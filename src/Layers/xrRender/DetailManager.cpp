@@ -8,18 +8,9 @@
 #include "DetailManager.h"
 #include "cl_intersect.h"
 
-#ifdef _EDITOR
-#	include "ESceneClassList.h"
-#	include "Scene.h"
-#	include "SceneObject.h"
-#	include "igame_persistent.h"
-#	include "environment.h"
-#else
-#	include "../../xrEngine/igame_persistent.h"
-#	include "../../xrEngine/environment.h"
-#   include <xmmintrin.h>
-#endif
-
+#include "../../xrEngine/igame_persistent.h"
+#include "../../xrEngine/environment.h"
+#include <xmmintrin.h>
 
 const float dbgOffset			= 0.f;
 const int	dbgItems			= 128;
@@ -163,19 +154,7 @@ CDetailManager::~CDetailManager	()
     Memory.mem_free(cache_level1);
 #endif
 }
-/*
-*/
-#ifndef _EDITOR
 
-/*
-void dump	(CDetailManager::vis_list& lst)
-{
-	for (int i=0; i<lst.size(); i++)
-	{
-		Msg("%8x / %8x / %8x",	lst[i]._M_start, lst[i]._M_finish, lst[i]._M_end_of_storage._M_data);
-	}
-}
-*/
 void CDetailManager::Load		()
 {
 	// Open file stream
@@ -236,7 +215,7 @@ void CDetailManager::Load		()
 	swing_desc[1].rot2	= pSettings->r_float("details","swing_fast_rot2");
 	swing_desc[1].speed	= pSettings->r_float("details","swing_fast_speed");
 }
-#endif
+
 void CDetailManager::Unload		()
 {
 	if (UseVS())	hw_Unload	();
@@ -266,8 +245,13 @@ void CDetailManager::UpdateVisibleM()
 	Fvector		EYE				= RDEVICE.vCameraPosition_saved;
 
 	CFrustum	View;
-	View.CreateFromMatrix		(RDEVICE.mFullTransform_saved, FRUSTUM_P_LRTB + FRUSTUM_P_FAR);
-	
+#if 0
+	View.CreateFromMatrix(RDEVICE.mFullTransform_saved, FRUSTUM_P_LRTB + FRUSTUM_P_FAR);
+#else
+#pragma todo("OldSerpskiStalker. Fix the viewing angle for multithreading of the engine")
+	View = RImplementation.ViewBase;
+#endif
+
  	CFrustum	View_old;
  	Fmatrix		Viewm_old = RDEVICE.mFullTransform;
  	View_old.CreateFromMatrix		(Viewm_old, FRUSTUM_P_LRTB + FRUSTUM_P_FAR);
@@ -319,12 +303,12 @@ void CDetailManager::UpdateVisibleM()
 						continue;	// invisible-view frustum
 					}
 				}
-#ifndef _EDITOR
+
 				if (!RImplementation.HOM.visible(S.vis))
 				{
 					continue;	// invisible-occlusion
 				}
-#endif
+
 				// Add to visibility structures
 				if (RDEVICE.dwFrame>S.frame){
 					// Calc fade factor	(per slot)
@@ -360,7 +344,6 @@ void CDetailManager::UpdateVisibleM()
 							
 							sp.r_items[vis_id].push_back	(*siIT);
 
-//2							visible[vis_id][sp.id].push_back(&Item);
 						}
 					}
 				}
@@ -388,22 +371,16 @@ void CDetailManager::UpdateVisibleM()
 
 void CDetailManager::Render	()
 {
-#ifndef _EDITOR
 	if (0==dtFS)						return;
 	if (!psDeviceFlags.is(rsDetails))	return;
-#endif
 
 	// MT
 	MT_SYNC					();
 
 	RDEVICE.Statistic->RenderDUMP_DT_Render.Begin	();
 	g_pGamePersistent->m_pGShaderConstants->m_blender_mode.w = 1.0f; //--#SM+#--
-	
-#ifndef _EDITOR
 	float factor			= g_pGamePersistent->Environment().wind_strength_factor;
-#else
-	float factor			= 0.3f;
-#endif
+
 	swing_current.lerp		(swing_desc[0],swing_desc[1],factor);
 
 	RCache.set_CullMode		(CULL_CCW); //LV: Set cull mode only once
@@ -421,11 +398,9 @@ void CDetailManager::Render	()
 
 void __stdcall	CDetailManager::MT_CALC		()
 {
-#ifndef _EDITOR
 	if (0==RImplementation.Details)		return;	// possibly deleted
 	if (0==dtFS)						return;
-	if (!psDeviceFlags.is(rsDetails))	return;
-#endif    
+	if (!psDeviceFlags.is(rsDetails))	return; 
 
 	MT.Enter					();
 	if (m_frame_calc!=RDEVICE.dwFrame)	

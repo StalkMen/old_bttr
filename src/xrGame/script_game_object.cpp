@@ -44,6 +44,7 @@
 #include "uigamecustom.h"
 #include "ui/UIActorMenu.h"
 #include "InventoryBox.h"
+#include "ActorCondition.h"
 
 class CScriptBinderObject;
 
@@ -77,14 +78,14 @@ BIND_FUNCTION10(&object(), CScriptGameObject::GetRange, CEntityAlive, ffGetRange
 BIND_FUNCTION10(&object(), CScriptGameObject::GetHealth, CEntityAlive, conditions().GetHealth, float, -1);
 BIND_FUNCTION10(&object(), CScriptGameObject::GetPsyHealth, CEntityAlive, conditions().GetPsyHealth, float, -1);
 BIND_FUNCTION10(&object(), CScriptGameObject::GetPower, CEntityAlive, conditions().GetPower, float, -1);
-BIND_FUNCTION10(&object(), CScriptGameObject::GetSatiety, CEntityAlive, conditions().GetSatiety, float, -1);
+
 BIND_FUNCTION10(&object(), CScriptGameObject::GetRadiation, CEntityAlive, conditions().GetRadiation, float, -1);
 BIND_FUNCTION10(&object(), CScriptGameObject::GetBleeding, CEntityAlive, conditions().BleedingSpeed, float, -1);
 BIND_FUNCTION10(&object(), CScriptGameObject::GetMorale, CEntityAlive, conditions().GetEntityMorale, float, -1);
 BIND_FUNCTION01(&object(), CScriptGameObject::SetHealth, CEntityAlive, conditions().ChangeHealth, float, float);
 BIND_FUNCTION01(&object(), CScriptGameObject::SetPsyHealth, CEntityAlive, conditions().ChangePsyHealth, float, float);
 BIND_FUNCTION01(&object(), CScriptGameObject::SetPower, CEntityAlive, conditions().ChangePower, float, float);
-BIND_FUNCTION01(&object(), CScriptGameObject::ChangeSatiety, CEntityAlive, conditions().ChangeSatiety, float, float);
+
 BIND_FUNCTION01(&object(), CScriptGameObject::SetRadiation, CEntityAlive, conditions().ChangeRadiation, float, float);
 BIND_FUNCTION01(&object(), CScriptGameObject::SetBleeding, CEntityAlive, conditions().ChangeBleeding, float, float);
 BIND_FUNCTION01(&object(), CScriptGameObject::SetCircumspection, CEntityAlive, conditions().ChangeCircumspection, float, float);
@@ -114,6 +115,36 @@ CScriptIniFile *CScriptGameObject::spawn_ini() const
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
+
+float CScriptGameObject::GetSatiety() const
+{
+    return Actor()->conditions().GetSatiety();
+}
+
+void CScriptGameObject::ChangeSatiety(float fNewValue)
+{
+    Actor()->conditions().ChangeSatiety(fNewValue);
+}
+
+float CScriptGameObject::GetThirst() const
+{
+    return Actor()->conditions().GetThirst();
+}
+
+void CScriptGameObject::ChangeThirst(float fNewValue)
+{
+    Actor()->conditions().ChangeThirst(fNewValue);
+}
+
+float CScriptGameObject::GetSleep() const
+{
+    return Actor()->conditions().GetSleep();
+}
+
+void CScriptGameObject::ChangeSleep(float fNewValue)
+{
+    Actor()->conditions().ChangeSleep(fNewValue);
+}
 
 void CScriptGameObject::ResetActionQueue()
 {

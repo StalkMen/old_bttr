@@ -69,11 +69,18 @@ public:
 	D3D_FEATURE_LEVEL		FeatureLevel;
 	stats_manager			stats_manager;
 
-	void			UpdateViews();
-	DXGI_RATIONAL	selectRefresh(u32 dwWidth, u32 dwHeight, DXGI_FORMAT fmt);
+	void					UpdateViews();
+	DXGI_RATIONAL			selectRefresh(u32 dwWidth, u32 dwHeight, DXGI_FORMAT fmt);
 
-	virtual	void	OnAppActivate();
-	virtual void	OnAppDeactivate();
+	virtual	void			OnAppActivate();
+	virtual void			OnAppDeactivate();
+
+#ifdef USE_DX11
+	bool					ComputeShadersSupported;
+	bool					DoublePrecisionFloatShaderOps;
+	bool					SAD4ShaderInstructions;
+	bool					ExtendedDoublesShaderInstructions;
+#endif
 
 private:
 	bool					m_move_window;

@@ -22,6 +22,16 @@ extern ENGINE_API u32 renderer_value;
 extern ENGINE_API u32 g_screenmode;
 extern ENGINE_API void GetMonitorResolution(u32& horizontal, u32& vertical);
 
+// Always request high performance GPU
+extern "C"
+{
+	// https://docs.nvidia.com/gameworks/content/technologies/desktop/optimus.htm
+	__declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001; // NVIDIA Optimus
+
+	// https://gpuopen.com/amdpowerxpressrequesthighperformance/
+	__declspec(dllexport) DWORD AmdPowerXpressRequestHighPerformance = 0x00000001; // PowerXpress or Hybrid Graphics
+}
+
 CHW			HW;
 
 CHW::CHW() :m_pAdapter(0), pRenderDevice(NULL), m_move_window(true)
@@ -153,8 +163,14 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 			TerminateProcess(GetCurrentProcess(), 0);
 		};
 
+		// https://habr.com/ru/post/308980/
+		IDXGIDevice1* pDeviceDXGI = nullptr;
+		R_CHK(pRenderDevice->QueryInterface(__uuidof(IDXGIDevice1), reinterpret_cast<void**>(&pDeviceDXGI)));
+		R_CHK(pDeviceDXGI->SetMaximumFrameLatency(1));
+
 		R_CHK(R);
 	}
+
 	_SHOW_REF("* CREATE: DeviceREF:", HW.pRenderDevice);
 
 	//	Create render target and depth-stencil views here

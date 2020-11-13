@@ -188,6 +188,12 @@ public:
     _DECLARE_FUNCTION10	(GetBleeding		,			float);
     _DECLARE_FUNCTION10	(GetMorale			,			float);
 
+    _DECLARE_FUNCTION10(GetSleep, float);
+    _DECLARE_FUNCTION11(ChangeSleep, void, float);
+
+    _DECLARE_FUNCTION10(GetThirst, float);
+    _DECLARE_FUNCTION11(ChangeThirst, void, float);
+
     _DECLARE_FUNCTION11	(SetHealth,			void, float);
     _DECLARE_FUNCTION11	(SetPsyHealth,		void, float);
     _DECLARE_FUNCTION11	(SetPower,			void, float);
@@ -882,7 +888,11 @@ public:
 			float				GetArtefactSatietyRestoreSpeed();
 			float				GetArtefactPowerRestoreSpeed();
 			float				GetArtefactBleedingRestoreSpeed();
+            float               GetArtefactSleepRestoreSpeed();
+            float               GetArtefactThirstRestoreSpeed();
 
+            void                SetArtefactThirstRestoreSpeed(float value);
+            void                SetArtefactSleepRestoreSpeed(float value);
 			void				SetArtefactHealthRestoreSpeed(float value);
 			void				SetArtefactRadiationRestoreSpeed(float value);
 			void				SetArtefactSatietyRestoreSpeed(float value);

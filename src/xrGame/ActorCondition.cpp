@@ -46,6 +46,8 @@ CActorCondition::CActorCondition(CActor *object) :
 	m_fSprintK					= 0.f;
 	m_fAlcohol					= 0.f;
 	m_fSatiety					= 1.0f;
+	m_fSleep					= 1.0f;
+	m_fThirst					= 1.0f;
 
 //	m_vecBoosts.clear();
 
@@ -120,6 +122,18 @@ void CActorCondition::LoadCondition(LPCSTR entity_section)
 	m_fV_SatietyPower			= pSettings->r_float(section,"satiety_power_v");
 	m_fV_SatietyHealth			= pSettings->r_float(section,"satiety_health_v");
 	
+	m_fSleepCritical			= READ_IF_EXISTS(pSettings, r_float, section, "sleep_critical", (BttR_mode) ? 0.35f : 0.0f);
+	clamp						(m_fSleepCritical, 0.0f, 1.0f);
+	m_fV_Sleep				    = READ_IF_EXISTS(pSettings, r_float, section, "sleep_v", (BttR_mode) ? 0.0000350f : 0.0f);		
+	m_fV_SleepPower			    = READ_IF_EXISTS(pSettings, r_float, section, "sleep_power_v", (BttR_mode) ? 0.0f : 0.0f);
+	m_fV_SleepHealth			= READ_IF_EXISTS(pSettings, r_float, section, "sleep_health_v", (BttR_mode) ? 0.0f : 0.0f);
+
+	m_fThirstCritical			= READ_IF_EXISTS(pSettings, r_float, section, "thirst_critical", (BttR_mode) ? 0.3f : 0.0f);
+	clamp						(m_fThirstCritical, 0.0f, 1.0f);
+	m_fV_Thirst					= READ_IF_EXISTS(pSettings, r_float, section, "thirst_v", (BttR_mode) ? 0.0000255f : 0.0f);
+	m_fV_ThirstPower			= READ_IF_EXISTS(pSettings, r_float, section, "thirst_power_v", (BttR_mode) ? 0.00025f : 0.0f);
+	m_fV_ThirstHealth			= READ_IF_EXISTS(pSettings, r_float, section, "thirst_health_v", (BttR_mode) ? 0.0f : 0.0f);
+
 	m_MaxWalkWeight				= pSettings->r_float(section,"max_walk_weight");
 
 	m_zone_max_power[ALife::infl_rad]	= pSettings->r_float(section, "radio_zone_max_power" );
@@ -182,7 +196,9 @@ void CActorCondition::UpdateCondition()
 	{
 		UpdateSatiety();
 		UpdateBoosters();
-
+		UpdateSleep();
+		UpdateThirst();	
+		
 		m_fAlcohol		+= m_fV_Alcohol*m_fDeltaTime;
 		clamp			(m_fAlcohol,			0.0f,		1.0f);
 		if(IsGameTypeSingle())
@@ -428,6 +444,51 @@ void CActorCondition::UpdateRadiation()
 	inherited::UpdateRadiation();
 }
 
+void CActorCondition::UpdateSleep()
+{
+ 	if (!IsGameTypeSingle()) 
+	{
+		m_fDeltaPower += m_fV_SleepPower * m_fDeltaTime;
+ 		return;
+	}
+
+	if(m_fSleep>0)
+	{
+		m_fSleep -= m_fV_Sleep*m_fDeltaTime;
+		clamp(m_fSleep, 0.0f, 1.0f);
+	}
+		
+	float sleep_health_koef = (m_fSleep-m_fSleepCritical)/(m_fSleep>=m_fSleepCritical?1-m_fSleepCritical:m_fSleepCritical);
+	if(CanBeHarmed() && !psActorFlags.test(AF_GODMODE_RT) )
+	{
+		m_fDeltaHealth += m_fV_SleepHealth*sleep_health_koef*m_fDeltaTime;
+		m_fDeltaPower += m_fV_SleepPower*m_fSleep*m_fDeltaTime;
+	}
+}
+
+
+void CActorCondition::UpdateThirst()
+{
+ 	if (!IsGameTypeSingle()) 
+	{
+		m_fDeltaPower += m_fV_ThirstPower * m_fDeltaTime;
+		return;
+	}
+
+	if(m_fThirst>0)
+	{
+		m_fThirst -= m_fV_Thirst*m_fDeltaTime;
+		clamp(m_fThirst, 0.0f, 1.0f);
+	}
+		
+	float thirst_health_koef = (m_fThirst-m_fThirstCritical)/(m_fThirst>=m_fThirstCritical?1-m_fThirstCritical:m_fThirstCritical);
+	if(CanBeHarmed() && !psActorFlags.test(AF_GODMODE_RT) )
+	{
+		m_fDeltaHealth += m_fV_ThirstHealth*thirst_health_koef*m_fDeltaTime;
+		m_fDeltaPower += m_fV_ThirstPower*m_fThirst*m_fDeltaTime;
+	}
+}
+
 void CActorCondition::UpdateSatiety()
 {
  	if (!IsGameTypeSingle()) 
@@ -537,7 +598,9 @@ void CActorCondition::save(NET_Packet &output_packet)
 	save_data			(m_fAlcohol, output_packet);
 	save_data			(m_condition_flags, output_packet);
 	save_data			(m_fSatiety, output_packet);
-
+	save_data			(m_fSleep, output_packet);	
+	save_data			(m_fThirst, output_packet);
+	
 	save_data			(m_curr_medicine_influence.fHealth, output_packet);
 	save_data			(m_curr_medicine_influence.fPower, output_packet);
 	save_data			(m_curr_medicine_influence.fSatiety, output_packet);
@@ -564,7 +627,9 @@ void CActorCondition::load(IReader &input_packet)
 	load_data			(m_fAlcohol, input_packet);
 	load_data			(m_condition_flags, input_packet);
 	load_data			(m_fSatiety, input_packet);
-
+	load_data			(m_fSleep, input_packet);
+	load_data			(m_fThirst, input_packet);		
+	
 	load_data			(m_curr_medicine_influence.fHealth, input_packet);
 	load_data			(m_curr_medicine_influence.fPower, input_packet);
 	load_data			(m_curr_medicine_influence.fSatiety, input_packet);
@@ -592,16 +657,31 @@ void CActorCondition::reinit	()
 	inherited::reinit	();
 	m_bLimping					= false;
 	m_fSatiety					= 1.f;
+	m_fSleep  					= 1.f;
+	m_fThirst  					= 1.f;
 }
 
 void CActorCondition::ChangeAlcohol	(float value)
 {
 	m_fAlcohol += value;
 }
+
 void CActorCondition::ChangeSatiety(float value)
 {
 	m_fSatiety += value;
 	clamp		(m_fSatiety, 0.0f, 1.0f);
+}
+
+void CActorCondition::ChangeSleep(float value)
+{
+	m_fSleep += value;
+	clamp		(m_fSleep, 0.0f, 1.0f);
+}
+
+void CActorCondition::ChangeThirst(float value)
+{
+	m_fThirst += value;
+	clamp		(m_fThirst, 0.0f, 1.0f);
 }
 
 void CActorCondition::BoostParameters(const SBooster& B)
@@ -665,6 +745,8 @@ void CActorCondition::BoostHpRestore(const float value)
 void CActorCondition::BoostPowerRestore(const float value)
 {
 	m_fV_SatietyPower += value;
+	m_fV_SleepPower += value;
+	m_fV_ThirstPower += value;
 }
 void CActorCondition::BoostRadiationRestore(const float value)
 {

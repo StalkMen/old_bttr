@@ -46,7 +46,7 @@ void stalker_movement_manager_obstacles::Load	( LPCSTR section )
 {
 	inherited::Load					( section );
 
-	level_path_builder().use_delay_after_fail	( false );
+	level_path_builder().use_delay_after_fail	( true );
 }
 
 CRestrictedObject *stalker_movement_manager_obstacles::create_restricted_object	()

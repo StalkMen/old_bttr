@@ -277,12 +277,13 @@ void CRender::Render		()
 	//*******
 	// Sync point
 	Device.Statistic->RenderDUMP_Wait_S.Begin	();
+#pragma todo("OldSerpskiStalker. Fix")
+#ifndef ___DISABLED
 	if (1)
 	{
 		CTimer	T;							T.Start	();
 		BOOL	result						= FALSE;
 		HRESULT	hr							= S_FALSE;
-		//while	((hr=q_sync_point[q_sync_count]->GetData	(&result,sizeof(result),D3DGETDATA_FLUSH))==S_FALSE) {
 		while	((hr=GetData (q_sync_point[q_sync_count], &result,sizeof(result)))==S_FALSE) 
 		{
 			if (!SwitchToThread())			Sleep(ps_r2_wait_sleep);
@@ -292,6 +293,7 @@ void CRender::Render		()
 			}
 		}
 	}
+#endif
 	Device.Statistic->RenderDUMP_Wait_S.End		();
 	q_sync_count								= (q_sync_count+1)%HW.Caps.iGPUNum;
 	//CHK_DX										(q_sync_point[q_sync_count]->Issue(D3DISSUE_END));

@@ -15,6 +15,8 @@
 #include "../../build_render_config.h"
 #include "../xrRenderDX10/dx10TextureDDS.h"
 
+constexpr cpcstr NOT_EXISTING_TEXTURE = "ed\\ed_not_existing_texture";
+
 void fix_texture_name(LPSTR fn)
 {
 	LPSTR _ext = strext(fn);
@@ -212,7 +214,12 @@ CANT_LOAD:
 	{
 		Msg("! DX11 Can't find texture '%s'", fname);
 	}
-	R_ASSERT(FS.exist(fn,"$game_textures$",	"ed\\ed_not_existing_texture",".dds"));
+	const bool dummyTextureExist = FS.exist(fn, "$game_textures$", NOT_EXISTING_TEXTURE, ".dds");
+#pragma todo("OldSerpskiStalker: Fix crash dx11Textures")
+	R_ASSERT3(dummyTextureExist, "! [DX11]: Fake texture does not exist, everything is normal. The render continues...", NOT_EXISTING_TEXTURE);
+	if (!dummyTextureExist)
+		return nullptr;
+
 	goto _DDS;
 
 _DDS:

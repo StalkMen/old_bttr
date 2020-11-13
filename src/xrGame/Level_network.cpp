@@ -216,22 +216,20 @@ u32	CLevel::Objects_net_Save	(NET_Packet* _Packet, u32 start, u32 max_object_siz
 		CObject		*_P = Objects.o_get_by_iterator(start);
 		CGameObject *P = smart_cast<CGameObject*>(_P);
 //		Msg			("save:iterating:%d:%s, size[%d]",P->ID(),*P->cName(), Packet.w_tell() );
-		if (P && !P->getDestroy() && P->net_SaveRelevant())	{
-			Packet.w_u16			(u16(P->ID())	);
-			Packet.w_chunk_open16	(position);
-//			Msg						("save:saving:%d:%s",P->ID(),*P->cName());
-			P->net_Save				(Packet);
-#ifdef DEBUG
-			u32 size				= u32		(Packet.w_tell()-position)-sizeof(u16);
-//			Msg						("save:saved:%d bytes:%d:%s",size,P->ID(),*P->cName());
-			if				(size>=65536)			{
-				Debug.fatal	(DEBUG_INFO,"Object [%s][%d] exceed network-data limit\n size=%d, Pend=%d, Pstart=%d",
-					*P->cName(), P->ID(), size, Packet.w_tell(), position);
-			}
-#endif
-			Packet.w_chunk_close16	(position);
-//			if (0==(--count))		
-//				break;
+		if (P && !P->getDestroy() && P->net_SaveRelevant())
+		{
+			Packet.w_u16(u16(P->ID()));
+			Packet.w_chunk_open16(position);
+			//Msg("save:saving:%d:%s",P->ID(),*P->cName());
+			P->net_Save(Packet);
+
+#pragma todo("OldSerpskiStalker. Fix crash on x64, OGSR")
+			u32 size = u32(Packet.w_tell() - position) - sizeof(u16);
+			CRASH_PROTECTION_OGSR(size < 65536, "~ Object [%s][%u] exceed network-data limit: size = [%u], Pend = [%u], Pstart = [%u]", P->cName().c_str(), P->ID(), size, Packet.w_tell(), position);
+			//Msg("save:saved:%d bytes:%d:%s", size, P->ID(), *P->cName());
+
+			Packet.w_chunk_close16(position);
+
 			if (max_object_size >= (NET_PacketSizeLimit - Packet.w_tell()))
 				break;
 		}
@@ -267,28 +265,30 @@ void CLevel::ClientSave	()
 //extern	XRPHYSICS_API	float		phTimefactor;
 extern					BOOL		g_SV_Disable_Auth_Check;
 
-void CLevel::Send		(NET_Packet& P, u32 dwFlags, u32 dwTimeout)
+void CLevel::Send(NET_Packet& P, u32 dwFlags, u32 dwTimeout)
 {
 	if (IsDemoPlayStarted() || IsDemoPlayFinished()) return;
 	// optimize the case when server located in our memory
-	if(psNET_direct_connect){
+	if (psNET_direct_connect) {
 		ClientID	_clid;
-		_clid.set	(1);
-		Server->OnMessage		(P,	_clid );
-	}else
-	if (Server && game_configured && OnServer() )
-	{
+		_clid.set(1);
+		Server->OnMessage(P, _clid);
+	}
+	else
+		if (Server && game_configured && OnServer())
+		{
 #ifdef DEBUG
-		VERIFY2(Server->IsPlayersMonitorLockedByMe() == false, "potential deadlock detected");
+			VERIFY2(Server->IsPlayersMonitorLockedByMe() == false, "potential deadlock detected");
 #endif
-		Server->OnMessageSync	(P,Game().local_svdpnid	);
-	}else											
-		IPureClient::Send	(P,dwFlags,dwTimeout	);
+			Server->OnMessageSync(P, Game().local_svdpnid);
+		}
+		else
+			IPureClient::Send(P, dwFlags, dwTimeout);
 
-	if (g_pGameLevel && Level().game && GameID() != eGameIDSingle && !g_SV_Disable_Auth_Check)		{
+	if (g_pGameLevel && Level().game && GameID() != eGameIDSingle && !g_SV_Disable_Auth_Check) {
 		// anti-cheat
-		phTimefactor		= 1.f					;
-		psDeviceFlags.set	(rsConstantFPS,FALSE)	;	
+		phTimefactor = 1.f;
+		psDeviceFlags.set(rsConstantFPS, FALSE);
 	}
 }
 
@@ -559,9 +559,6 @@ void				CLevel::OnSessionFull			()
 void				CLevel::OnConnectRejected		()
 {
 	IPureClient::OnConnectRejected();
-
-//	if (MainMenu()->GetErrorDialogType() != CMainMenu::ErrNoError)
-//		MainMenu()->SetErrorDialog(CMainMenu::ErrServerReject);
 };
 
 void				CLevel::net_OnChangeSelfName			(NET_Packet* P)

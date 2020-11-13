@@ -284,13 +284,12 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 
 		float value = 0.0f;
 		value = floor(value * 55) / 55;
-		/*
+
 			//Onoaeinou
-			{
-				value = actor->conditions().GetSleep();
-				m_state[stt_sleep]->set_progress(value);
-			}
-			*/
+		{
+			value = actor->conditions().GetSleep();
+			m_state[stt_sleep]->set_progress(value);
+		}
 			//Ine-cai?iaua
 		{
 			value = actor->conditions().GetPsyHealth();
@@ -317,11 +316,10 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 			m_state[stt_satiety]->set_progress(value);
 		}
 		//?a?aa
-		/*
 		{
 			value = actor->conditions().GetThirst();
 			m_state[stt_thirst]->set_progress(value);
-		}*/
+		}
 		//Cai?iaua
 		{
 			value = actor->conditions().GetHealth();

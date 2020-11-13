@@ -651,14 +651,12 @@ void CWeaponMagazinedWGrenade::PlayAnimIdle()
     if (IsGrenadeLauncherAttached())
     {
         CActor* pActor = smart_cast<CActor*>(H_Parent());
-        CEntity::SEntityState st;
-        pActor->g_State(st);
-        if (IsZoomed())
+        if (pActor)
         {
-            if (pActor)
+            CEntity::SEntityState st;
+            pActor->g_State(st);
+            if (IsZoomed())
             {
-                CEntity::SEntityState st;
-                pActor->g_State(st);
                 if (pActor->AnyMove())
                 {
                     if (HudAnimationExist("anm_idle_g_aim_moving") && HudAnimationExist("anm_idle_w_gl_aim_moving"))
@@ -684,12 +682,9 @@ void CWeaponMagazinedWGrenade::PlayAnimIdle()
                         PlayHUDMotion("anm_idle_w_gl_aim", TRUE, NULL, GetState());
                 }
             }
-        }
-        else
-        {
-            int act_state = 0;
-            if (pActor)
+            else
             {
+                int act_state = 0;
                 if (st.bSprint)
                 {
                     act_state = 1;		// Sprint
@@ -706,58 +701,61 @@ void CWeaponMagazinedWGrenade::PlayAnimIdle()
                 {
                     act_state = 4;		// Crouch
                 }
-            }
 
-            if (m_bGrenadeMode)
-            {
-                if (act_state == 0)
-                    PlayHUDMotion("anm_idle_g", /*FALSE*/TRUE, NULL, GetState()); //AVO: fix fast anim switch
-                else
-                    if (act_state == 1)
-                        PlayHUDMotion("anm_idle_sprint_g", TRUE, NULL, GetState());
+                if (m_bGrenadeMode)
+                {
+                    if (act_state == 0)
+                        PlayHUDMotion("anm_idle_g", /*FALSE*/TRUE, NULL, GetState()); //AVO: fix fast anim switch
                     else
-                        if (act_state == 2)
-                            PlayHUDMotion("anm_idle_moving_g", TRUE, NULL, GetState());
+                        if (act_state == 1)
+                            PlayHUDMotion("anm_idle_sprint_g", TRUE, NULL, GetState());
                         else
-                            if (act_state == 3)
-                            {
-                                if (HudAnimationExist("anm_idle_moving_slow_g"))
-                                    PlayHUDMotion("anm_idle_moving_slow_g", TRUE, NULL, GetState());
-                                else
-                                    PlayHUDMotion("anm_idle_moving_g", TRUE, NULL, GetState());
-                            }
+                            if (act_state == 2)
+                                PlayHUDMotion("anm_idle_moving_g", TRUE, NULL, GetState());
                             else
-                                if (act_state == 4)
+                                if (act_state == 3)
                                 {
-                                    if (HudAnimationExist("anm_idle_moving_crouch_g"))
-                                        PlayHUDMotion("anm_idle_moving_crouch_g", TRUE, NULL, GetState());
+                                    if (HudAnimationExist("anm_idle_moving_slow_g"))
+                                        PlayHUDMotion("anm_idle_moving_slow_g", TRUE, NULL, GetState());
                                     else
                                         PlayHUDMotion("anm_idle_moving_g", TRUE, NULL, GetState());
                                 }
-            }
-            else
-            {
-                if (act_state == 1)
-                    PlayHUDMotion("anm_idle_sprint_w_gl", TRUE, NULL, GetState());
-                else
-                    if (act_state == 2)
-                        PlayHUDMotion("anm_idle_moving_w_gl", TRUE, NULL, GetState());
-                    else
-                        if (act_state == 3)
-                        {
-                            if (HudAnimationExist("anm_idle_moving_slow_w_gl"))
-                                PlayHUDMotion("anm_idle_moving_slow_w_gl", TRUE, NULL, GetState());
-                            else
-                                PlayHUDMotion("anm_idle_moving_w_gl", TRUE, NULL, GetState());
-                        }
-                        else
-                            if (act_state == 4)
-                            {
-                                if (HudAnimationExist("anm_idle_moving_crouch_w_gl"))
-                                    PlayHUDMotion("anm_idle_moving_crouch_w_gl", TRUE, NULL, GetState());
                                 else
-                                    PlayHUDMotion("anm_idle_moving_w_gl", TRUE, NULL, GetState());
-                            }
+                                    if (act_state == 4)
+                                    {
+                                        if (HudAnimationExist("anm_idle_moving_crouch_g"))
+                                            PlayHUDMotion("anm_idle_moving_crouch_g", TRUE, NULL, GetState());
+                                        else
+                                            PlayHUDMotion("anm_idle_moving_g", TRUE, NULL, GetState());
+                                    }
+                }
+                else
+                {
+                    if (act_state == 0)
+                        PlayHUDMotion("anm_idle_w_gl", /*FALSE*/TRUE, NULL, GetState()); //AVO: fix fast anim switch
+                    else
+                        if (act_state == 1)
+                            PlayHUDMotion("anm_idle_sprint_w_gl", TRUE, NULL, GetState());
+                        else
+                            if (act_state == 2)
+                                PlayHUDMotion("anm_idle_moving_w_gl", TRUE, NULL, GetState());
+                            else
+                                if (act_state == 3)
+                                {
+                                    if (HudAnimationExist("anm_idle_moving_slow_w_gl"))
+                                        PlayHUDMotion("anm_idle_moving_slow_w_gl", TRUE, NULL, GetState());
+                                    else
+                                        PlayHUDMotion("anm_idle_moving_w_gl", TRUE, NULL, GetState());
+                                }
+                                else
+                                    if (act_state == 4)
+                                    {
+                                        if (HudAnimationExist("anm_idle_moving_crouch_w_gl"))
+                                            PlayHUDMotion("anm_idle_moving_crouch_w_gl", TRUE, NULL, GetState());
+                                        else
+                                            PlayHUDMotion("anm_idle_moving_w_gl", TRUE, NULL, GetState());
+                                    }
+                }
             }
         }
     }

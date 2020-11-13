@@ -34,23 +34,22 @@ CUIArtefactParams::CUIArtefactParams()
 
 CUIArtefactParams::~CUIArtefactParams()
 {
-	delete_data	( m_immunity_item );
-	delete_data	( m_restore_item );
-	xr_delete	( m_additional_weight );
+	delete_data(m_immunity_item);
+	delete_data(m_restore_item);
+	xr_delete(m_additional_weight);
 	xr_delete(m_disp_condition);
 	xr_delete(m_fJumpSpeed);
 	xr_delete(m_fWalkAccel);
-//	xr_delete(m_fOverweightWalkAccel);
-	xr_delete	( m_Prop_line );
+	xr_delete(m_Prop_line);
 }
 
-LPCSTR af_immunity_section_names[] = // ALife::EInfluenceType
+LPCSTR af_immunity_section_names[] =
 {
-	"radiation_immunity",		// infl_rad=0
-	"burn_immunity",			// infl_fire=1
-	"chemical_burn_immunity",	// infl_acid=2
-	"telepatic_immunity",		// infl_psi=3
-	"shock_immunity",			// infl_electra=4
+	"radiation_immunity",
+	"burn_immunity",
+	"chemical_burn_immunity",
+	"telepatic_immunity",
+	"shock_immunity",
 
 	//Alundaio: Uncommented
 	"wound_immunity",		
@@ -59,37 +58,39 @@ LPCSTR af_immunity_section_names[] = // ALife::EInfluenceType
 	"strike_immunity",
 };
 
-LPCSTR af_restore_section_names[] = // ALife::EConditionRestoreType
+LPCSTR af_restore_section_names[] =
 {
-	"health_restore_speed",			// eHealthRestoreSpeed=0
-	"satiety_restore_speed",		// eSatietyRestoreSpeed=1
-	"power_restore_speed",			// ePowerRestoreSpeed=2
-	"bleeding_restore_speed",		// eBleedingRestoreSpeed=3
-	"radiation_restore_speed",		// eRadiationRestoreSpeed=4
+	"health_restore_speed",
+	"satiety_restore_speed",
+	"power_restore_speed",
+	"bleeding_restore_speed",
+	"radiation_restore_speed",
+	"thirst_restore_speed",
+	"sleep_restore_speed",
 };
 
-LPCSTR af_immunity_caption[] =  // ALife::EInfluenceType
+LPCSTR af_immunity_caption[] =
 {
-	"ui_inv_outfit_radiation_protection",		// "(radiation_imm)",
-	"ui_inv_outfit_burn_protection",			// "(burn_imm)",
-	"ui_inv_outfit_chemical_burn_protection",	// "(chemical_burn_imm)",
-	"ui_inv_outfit_telepatic_protection",		// "(telepatic_imm)",
-	"ui_inv_outfit_shock_protection",			// "(shock_imm)",
-
-	//Alundaio: Uncommented
-	"ui_inv_outfit_wound_protection",			// "(wound_imm)",
-	"ui_inv_outfit_fire_wound_protection",		// "(fire_wound_imm)",
-	"ui_inv_outfit_explosion_protection",		// "(explosion_imm)",
-	"ui_inv_outfit_strike_protection",			// "(strike_imm)",
+	"ui_inv_outfit_radiation_protection",
+	"ui_inv_outfit_burn_protection",
+	"ui_inv_outfit_chemical_burn_protection",
+	"ui_inv_outfit_telepatic_protection",
+	"ui_inv_outfit_shock_protection",
+	"ui_inv_outfit_wound_protection",
+	"ui_inv_outfit_fire_wound_protection",
+	"ui_inv_outfit_explosion_protection",
+	"ui_inv_outfit_strike_protection",
 };
 
-LPCSTR af_restore_caption[] =  // ALife::EConditionRestoreType
+LPCSTR af_restore_caption[] =
 {
 	"ui_inv_health",
 	"ui_inv_satiety",
 	"ui_inv_power",
 	"ui_inv_bleeding",
 	"ui_inv_radiation",
+	"ui_af_inv_thirst",
+	"ui_af_inv_sleep",
 };
 
 void CUIArtefactParams::InitFromXml( CUIXml& xml )

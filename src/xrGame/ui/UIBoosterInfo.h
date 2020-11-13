@@ -20,6 +20,8 @@ protected:
 	UIBoosterInfoItem*	m_booster_satiety;
 	UIBoosterInfoItem*	m_booster_anabiotic;
 	UIBoosterInfoItem*	m_booster_time;
+	UIBoosterInfoItem*  m_booster_sleep;
+	UIBoosterInfoItem*  m_booster_thirst;
 
 	CUIStatic*			m_Prop_line;
 

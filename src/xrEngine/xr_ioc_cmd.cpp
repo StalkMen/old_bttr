@@ -507,12 +507,12 @@ ENGINE_API BOOL r2_advanced_pp = TRUE; // advanced post process and effects
 ENGINE_API BOOL render_dx10_1 = FALSE;
 ENGINE_API u32 renderer_value = 0;
 
-class CCC_r2 : public CCC_Token
+class CCC_DirectX : public CCC_Token
 {
     typedef CCC_Token inherited;
 public:
-    CCC_r2(LPCSTR N) :inherited(N, &renderer_value, NULL) { renderer_value = 3; };
-    virtual ~CCC_r2()
+    CCC_DirectX(LPCSTR N) :inherited(N, &renderer_value, NULL) { renderer_value = 3; };
+    virtual ~CCC_DirectX()
     {
         //free_render_mode_list();
     }
@@ -783,7 +783,7 @@ xr_token sunshafts_mode_token[] = {
     { nullptr, 0 }
 };
 
-ENGINE_API u32	ps_r_ssao_mode = 2;
+ENGINE_API u32	ps_r_ssao_mode = 4;
 xr_token qssao_mode_token[] =
 {
     { "SSAO_off", 0 },
@@ -900,13 +900,13 @@ void CCC_Register()
 
         CMD3(CCC_SSAO, "r2_ssao_mode", &ps_r_ssao_mode, qssao_mode_token);
         CMD3(CCC_Token, "r2_ssao", &ps_r_ssao, qssao_token);
-        CMD3(CCC_Mask, "r2_ssao_blur", &p_engine_flags32, R2FLAGEXT_SSAO_BLUR);
-        CMD3(CCC_Mask, "r2_ssao_opt_data", &p_engine_flags32, R2FLAGEXT_SSAO_OPT_DATA);
-        CMD3(CCC_Mask, "r2_ssao_half_data", &p_engine_flags32, R2FLAGEXT_SSAO_HALF_DATA);
-        CMD3(CCC_Mask, "r2_ssao_hbao", &p_engine_flags32, R2FLAGEXT_SSAO_HBAO);
-        CMD3(CCC_Mask, "r2_ssao_hdao", &p_engine_flags32, R2FLAGEXT_SSAO_HDAO);
-        CMD3(CCC_Mask, "r2_ssao_ssdo", &p_engine_flags32, R2FLAGEXT_SSAO_SSDO);
-        CMD3(CCC_Mask, "xrEngine_ssao_debug", &p_engine_flags32, R2FLAGEXT_SSAO_DEBUG);
+        CMD3(CCC_Mask, "r2_ssao_blur", &p_engine_flags32,           R2FLAGEXT_SSAO_BLUR);
+        CMD3(CCC_Mask, "r2_ssao_opt_data", &p_engine_flags32,       R2FLAGEXT_SSAO_OPT_DATA);
+        CMD3(CCC_Mask, "r2_ssao_half_data", &p_engine_flags32,      R2FLAGEXT_SSAO_HALF_DATA);
+        CMD3(CCC_Mask, "r2_ssao_hbao", &p_engine_flags32,           R2FLAGEXT_SSAO_HBAO);
+        CMD3(CCC_Mask, "r2_ssao_hdao", &p_engine_flags32,           R2FLAGEXT_SSAO_HDAO);
+        CMD3(CCC_Mask, "r2_ssao_ssdo", &p_engine_flags32,           R2FLAGEXT_SSAO_SSDO);
+        CMD3(CCC_Mask, "xrEngine_ssao_debug", &p_engine_flags32,    R2FLAGEXT_SSAO_DEBUG);
 
         CMD3(CCC_Token, "r3_msaa", &ps_r3_msaa, qmsaa_token);
         CMD3(CCC_Token, "r3_msaa_alphatest", &ps_r3_msaa_atest, qmsaa_atest_token);
@@ -929,6 +929,8 @@ void CCC_Register()
     if (BttR_mode)
         CMD4(CCC_Integer, "xrEngine_loadingstages", &ps_rs_loading_stages, 0, 1);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    CMD1(CCC_DirectX, "renderer");
 
     // General
     CMD1(CCC_Help, "help");
@@ -1037,8 +1039,6 @@ void CCC_Register()
     // Camera
     CMD2(CCC_Float, "cam_inert", &psCamInert);
     CMD2(CCC_Float, "cam_slide_inert", &psCamSlideInert);
-
-    CMD1(CCC_r2, "renderer");
 
 #ifndef DEDICATED_SERVER
     CMD1(CCC_soundDevice, "snd_device");

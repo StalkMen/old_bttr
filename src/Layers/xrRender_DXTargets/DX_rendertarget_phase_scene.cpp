@@ -25,81 +25,74 @@ void	CRenderTarget::phase_scene_prepare	()
 
 	//	TODO: DX10: Check if complete clear of _ALL_ rendertargets will increase
 	//	FPS. Make check for SLI configuration.
-	if ( RImplementation.o.advancedpp &&
-			(
-				ps_r2_ls_flags.test(R2FLAG_SOFT_PARTICLES|R2FLAG_DOF) ||
-				( (ps_r_sun_shafts>0) && (fValue>=0.0001) ) ||
-				(ps_r_ssao>0)
+	if (RImplementation.o.advancedpp &&
+		(
+			ps_r2_ls_flags.test(R2FLAG_SOFT_PARTICLES | R2FLAG_DOF) ||
+			((ps_r_sun_shafts > 0) && (fValue >= 0.0001)) ||
+			(ps_r_ssao > 0)
 			)
 		)
 	{
 		//	TODO: DX10: Check if we need to set RT here.
-      if( !RImplementation.o.dx10_msaa )
-   		u_setrt	( Device.dwWidth,Device.dwHeight,rt_Position->pRT,NULL,NULL,HW.pBaseZB );
-      else
-         u_setrt	( Device.dwWidth,Device.dwHeight,rt_Position->pRT,NULL,NULL,rt_MSAADepth->pZRT );
-      
-		//CHK_DX	( HW.pDevice->Clear	( 0L, NULL, D3DCLEAR_TARGET|D3DCLEAR_ZBUFFER|D3DCLEAR_STENCIL, 0x0, 1.0f, 0L) );
-		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+		if (!RImplementation.o.dx10_msaa)
+			u_setrt(Device.dwWidth, Device.dwHeight, rt_Position->pRT, NULL, NULL, HW.pBaseZB);
+		else
+			u_setrt(Device.dwWidth, Device.dwHeight, rt_Position->pRT, NULL, NULL, rt_MSAADepth->pZRT);
+
+		FLOAT ColorRGBA[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
 #ifdef USE_DX11
 		HW.pRenderContext->ClearRenderTargetView(rt_Position->pRT, ColorRGBA);
-		//HW.pContext->ClearRenderTargetView(rt_Normal->pRT, ColorRGBA);
-		//HW.pContext->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
 #else
 		HW.pRenderDevice->ClearRenderTargetView(rt_Position->pRT, ColorRGBA);
-		//HW.pDevice->ClearRenderTargetView(rt_Normal->pRT, ColorRGBA);
-		//HW.pDevice->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
 #endif
-      if( !RImplementation.o.dx10_msaa )
+		if (!RImplementation.o.dx10_msaa)
 #ifdef USE_DX11
-         HW.pRenderContext->ClearDepthStencilView(HW.pBaseZB, D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
+			HW.pRenderContext->ClearDepthStencilView(HW.pBaseZB, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
 #else
-		HW.pRenderDevice->ClearDepthStencilView(HW.pBaseZB, D3D10_CLEAR_DEPTH|D3D10_CLEAR_STENCIL, 1.0f, 0);
+			HW.pRenderDevice->ClearDepthStencilView(HW.pBaseZB, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
 #endif
-      else
-      {
+		else
+		{
 #ifdef USE_DX11
-         HW.pRenderContext->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
-				 HW.pRenderContext->ClearRenderTargetView(rt_Accumulator->pRT, ColorRGBA);
-				 HW.pRenderContext->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
-         HW.pRenderContext->ClearDepthStencilView(HW.pBaseZB, D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
+			HW.pRenderContext->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
+			HW.pRenderContext->ClearRenderTargetView(rt_Accumulator->pRT, ColorRGBA);
+			HW.pRenderContext->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
+			HW.pRenderContext->ClearDepthStencilView(HW.pBaseZB, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
 #else
-		HW.pRenderDevice->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
-				 HW.pRenderDevice->ClearRenderTargetView(rt_Accumulator->pRT, ColorRGBA);
-				 HW.pRenderDevice->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D10_CLEAR_DEPTH|D3D10_CLEAR_STENCIL, 1.0f, 0);
-         HW.pRenderDevice->ClearDepthStencilView(HW.pBaseZB, D3D10_CLEAR_DEPTH|D3D10_CLEAR_STENCIL, 1.0f, 0);
+			HW.pRenderDevice->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
+			HW.pRenderDevice->ClearRenderTargetView(rt_Accumulator->pRT, ColorRGBA);
+			HW.pRenderDevice->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
+			HW.pRenderDevice->ClearDepthStencilView(HW.pBaseZB, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
 #endif
-      }
-   }
+		}
+	}
 	else
 	{
 		//	TODO: DX10: Check if we need to set RT here.
-      if( !RImplementation.o.dx10_msaa )
-      {
-         u_setrt	( Device.dwWidth,Device.dwHeight,HW.pBaseRT,NULL,NULL,HW.pBaseZB );
-         //CHK_DX	( HW.pDevice->Clear	( 0L, NULL, D3DCLEAR_ZBUFFER|D3DCLEAR_STENCIL, 0x0, 1.0f, 0L) );
+		if (!RImplementation.o.dx10_msaa)
+		{
+			u_setrt(Device.dwWidth, Device.dwHeight, HW.pBaseRT, NULL, NULL, HW.pBaseZB);
 #ifdef USE_DX11
-         HW.pRenderContext->ClearDepthStencilView(HW.pBaseZB, D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
+			HW.pRenderContext->ClearDepthStencilView(HW.pBaseZB, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
 #else
-		 HW.pRenderDevice->ClearDepthStencilView(HW.pBaseZB, D3D10_CLEAR_DEPTH|D3D10_CLEAR_STENCIL, 1.0f, 0);
+			HW.pRenderDevice->ClearDepthStencilView(HW.pBaseZB, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
 #endif
-      }
-      else
-      {
-         u_setrt	( Device.dwWidth,Device.dwHeight,HW.pBaseRT,NULL,NULL,rt_MSAADepth->pZRT );
-         //CHK_DX	( HW.pDevice->Clear	( 0L, NULL, D3DCLEAR_ZBUFFER|D3DCLEAR_STENCIL, 0x0, 1.0f, 0L) );
+		}
+		else
+		{
+			u_setrt(Device.dwWidth, Device.dwHeight, HW.pBaseRT, NULL, NULL, rt_MSAADepth->pZRT);
 #ifdef USE_DX11
-         HW.pRenderContext->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
+			HW.pRenderContext->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
 #else
-		 HW.pRenderDevice->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D10_CLEAR_DEPTH|D3D10_CLEAR_STENCIL, 1.0f, 0);
+			HW.pRenderDevice->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
 #endif
-      }
-	}
+		}
+		}
 
 	//	Igor: for volumetric lights
-	m_bHasActiveVolumetric				= false;
+	m_bHasActiveVolumetric = false;
 	//	Clear later if try to draw volumetric
-}
+	}
 
 // begin
 void	CRenderTarget::phase_scene_begin	()

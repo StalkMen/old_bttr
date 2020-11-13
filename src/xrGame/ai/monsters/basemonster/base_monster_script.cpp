@@ -190,6 +190,10 @@ bool CBaseMonster::bfAssignMovement (CScriptEntityAction *tpEntityAction)
 			CSE_ALifeMonsterAbstract* const i_am 
 						=	smart_cast<CSE_ALifeMonsterAbstract*>( ai().alife().objects().object(ID()) );
 			VERIFY								(i_am);
+
+			if (!i_am || i_am->m_group_id == (ALife::_OBJECT_ID)(-1))
+				break;
+
 			CSE_ALifeOnlineOfflineGroup& group	
 											=	ai().alife().groups().object(i_am->m_group_id);
 

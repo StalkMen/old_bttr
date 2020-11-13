@@ -18,6 +18,8 @@ CUIBoosterInfo::CUIBoosterInfo()
 	m_booster_satiety = NULL;
 	m_booster_anabiotic = NULL;
 	m_booster_time = NULL;
+	m_booster_sleep = NULL;
+	m_booster_thirst = NULL;
 }
 
 CUIBoosterInfo::~CUIBoosterInfo()
@@ -27,6 +29,8 @@ CUIBoosterInfo::~CUIBoosterInfo()
 	xr_delete(m_booster_anabiotic);
 	xr_delete(m_booster_time);
 	xr_delete(m_Prop_line);
+	xr_delete(m_booster_sleep);
+	xr_delete(m_booster_thirst);
 }
 
 LPCSTR boost_influence_caption[] =
@@ -46,6 +50,24 @@ LPCSTR boost_influence_caption[] =
 	"ui_inv_outfit_chemical_burn_immunity"
 };
 
+LPCSTR boost_influence_caption_bttr[] =
+{
+	"st_ui_boosterlnfo_1",
+	"st_ui_boosterlnfo_2",
+	"st_ui_boosterlnfo_3",
+	"st_ui_boosterlnfo_4",
+	"st_ui_boosterlnfo_5",
+	"st_ui_boosterlnfo_6",
+	"st_ui_boosterlnfo_7",
+	"st_ui_boosterlnfo_8",
+	"st_ui_boosterlnfo_9",
+	"st_ui_boosterlnfo_10",
+	"st_ui_boosterlnfo_11",
+	"st_ui_boosterlnfo_12",
+	"st_ui_boosterlnfo_13",
+	"st_ui_boosterlnfo_14",
+	"st_ui_boosterlnfo_15"
+};
 void CUIBoosterInfo::InitFromXml(CUIXml& xml)
 {
 	LPCSTR base	= "booster_params";
@@ -68,7 +90,12 @@ void CUIBoosterInfo::InitFromXml(CUIXml& xml)
 		m_booster_items[i]->Init(xml, ef_boosters_section_names[i]);
 		m_booster_items[i]->SetAutoDelete(false);
 
-		LPCSTR name = CStringTable().translate(boost_influence_caption[i]).c_str();
+		LPCSTR name;
+		if (BttR_mode)
+			name = CStringTable().translate(boost_influence_caption_bttr[i]).c_str();
+		else
+			name = CStringTable().translate(boost_influence_caption[i]).c_str();
+
 		m_booster_items[i]->SetCaption(name);
 
 		xml.SetLocalRoot(base_node);
@@ -80,7 +107,21 @@ void CUIBoosterInfo::InitFromXml(CUIXml& xml)
 	LPCSTR name = CStringTable().translate("ui_inv_satiety").c_str();
 	m_booster_satiety->SetCaption(name);
 	xml.SetLocalRoot( base_node );
+	
+	m_booster_sleep = xr_new<UIBoosterInfoItem>();
+	m_booster_sleep->Init(xml, "boost_sleep");
+	m_booster_sleep->SetAutoDelete(false);
+	name = CStringTable().translate("ui_inv_sleep").c_str();
+	m_booster_sleep->SetCaption(name);
+	xml.SetLocalRoot(base_node);
 
+	m_booster_thirst = xr_new<UIBoosterInfoItem>();
+	m_booster_thirst->Init(xml, "boost_thirst");
+	m_booster_thirst->SetAutoDelete(false);
+	name = CStringTable().translate("ui_inv_thirst").c_str();
+	m_booster_thirst->SetCaption(name);
+	xml.SetLocalRoot(base_node);
+	
 	m_booster_anabiotic = xr_new<UIBoosterInfoItem>();
 	m_booster_anabiotic->Init(xml, "boost_anabiotic");
 	m_booster_anabiotic->SetAutoDelete(false);
@@ -202,6 +243,36 @@ void CUIBoosterInfo::SetInfo( shared_str const& section )
 
 			h += m_booster_time->GetWndSize().y;
 			AttachChild(m_booster_time);
+		}
+	}
+
+	if (pSettings->line_exist(section.c_str(), "eat_sleep"))
+	{
+		val = pSettings->r_float(section, "eat_sleep");
+		if (!fis_zero(val))
+		{
+			m_booster_sleep->SetValue(val);
+			pos.set(m_booster_sleep->GetWndPos());
+			pos.y = h;
+			m_booster_sleep->SetWndPos(pos);
+
+			h += m_booster_sleep->GetWndSize().y;
+			AttachChild(m_booster_sleep);
+		}
+	}
+
+	if (pSettings->line_exist(section.c_str(), "eat_thirst"))
+	{
+		val = pSettings->r_float(section, "eat_thirst");
+		if (!fis_zero(val))
+		{
+			m_booster_thirst->SetValue(val);
+			pos.set(m_booster_thirst->GetWndPos());
+			pos.y = h;
+			m_booster_thirst->SetWndPos(pos);
+
+			h += m_booster_thirst->GetWndSize().y;
+			AttachChild(m_booster_thirst);
 		}
 	}
 	SetHeight(h);
