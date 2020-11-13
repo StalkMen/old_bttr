@@ -15,6 +15,8 @@
 
 #include "dxRenderDeviceRender.h"
 #include "../xrEngine/Discord.h"
+#include "../xrEngine/Rain.h"
+
 // matrices
 #define	BIND_DECLARE(xf)	\
 class cl_xform_##xf	: public R_constant_setup {	virtual void setup (R_constant* C) { RCache.xforms.set_c_##xf (C); } }; \
@@ -332,11 +334,41 @@ static class cl_rain_params : public R_constant_setup
 }
 binder_rain_params;
 
+// wind for clouds
+class cl_clouds_velocity : public R_constant_setup {
+    u32			marker;
+    Fvector4	result;
+    virtual void setup(R_constant* C)
+    {
+        if (marker != Device.dwFrame)
+        {
+            float	a = g_pGamePersistent->Environment().CurrentEnv->clouds_velocity_0;
+            float	b = g_pGamePersistent->Environment().CurrentEnv->clouds_velocity_1;
+            result.set(a, b, 0, 0);
+        }
+        RCache.set_c(C, result);
+    }
+};	static cl_clouds_velocity	binder_clouds_velocity;
+
+class cl_rain_params_new : public R_constant_setup {
+    u32			marker;
+    Fvector4	result;
+    virtual void setup(R_constant* C) {
+        if (marker != Device.dwFrame) {
+            result.set(*rain_params_new);
+        }
+        RCache.set_c(C, result);
+    }
+};
+static cl_rain_params_new binder_rain_params_new;
+
 // Standart constant-binding
 void	CBlender_Compile::SetMapping	()
 {
 	r_Constant				("m_levelID",		&binder_level_id_params);
-
+	r_Constant				("clouds_velocity", &binder_clouds_velocity);
+	r_Constant				("ogse_c_rain", 	&binder_rain_params_new);
+	
 	// misc
 	r_Constant				("m_hud_params",	&binder_hud_params);	//--#SM+#--
 	r_Constant				("m_script_params", &binder_script_params); //--#SM+#--

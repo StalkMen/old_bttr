@@ -93,7 +93,7 @@ Flags32		ps_r2_ls_flags				= { R2FLAG_SUN
 	|R2FLAG_VOLUMETRIC_LIGHTS
 	};	// r2-only
 
-Flags32		ps_r2_ls_flags_ext			= { R2FLAGEXT_ENABLE_TESSELLATION };
+Flags32		ps_r2_ls_flags_ext			= { R2FLAGEXT_ENABLE_TESSELLATION | R2FLAGEXT_DOF_WEATHER };
 
 BOOL		ps_clear_models_on_unload	= 0; //Alundaio
 BOOL		ps_use_precompiled_shaders = 0; //Alundaio
@@ -132,7 +132,7 @@ float		ps_r2_sun_depth_far_scale	= 1.00000f;			// 1.00001f
 float		ps_r2_sun_depth_far_bias	= -0.00002f;			// -0.0000f
 float		ps_r2_sun_depth_near_scale	= 1.0000f;			// 1.00001f
 float		ps_r2_sun_depth_near_bias	= 0.00001f;		// -0.00005f
-float		ps_r2_sun_lumscale			= 1.0f;				// 1.0f
+//float		ps_r2_sun_lumscale			= 1.0f;				// 1.0f
 float		ps_r2_sun_lumscale_hemi		= 1.0f;				// 1.0f
 float		ps_r2_sun_lumscale_amb		= 1.0f;
 float		ps_r2_gmaterial				= 2.2f;				// 
@@ -778,7 +778,7 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "r2_sun_depth_far_bias", &ps_r2_sun_depth_far_bias, -0.5, +0.5);
 	CMD4(CCC_Float, "r2_sun_depth_near_scale", &ps_r2_sun_depth_near_scale, 0.5, 1.5);
 	CMD4(CCC_Float, "r2_sun_depth_near_bias", &ps_r2_sun_depth_near_bias, -0.5, +0.5);
-	CMD4(CCC_Float, "r2_sun_lumscale", &ps_r2_sun_lumscale, -1.0, +3.0);
+//	CMD4(CCC_Float, "r2_sun_lumscale", &ps_r2_sun_lumscale, -1.0, +3.0);
 	CMD4(CCC_Float, "r2_sun_lumscale_hemi", &ps_r2_sun_lumscale_hemi, 0.0, +3.0);
 	CMD4(CCC_Float, "r2_sun_lumscale_amb", &ps_r2_sun_lumscale_amb, 0.0, +3.0);
 	CMD4(CCC_Float, "r2_mblur", &ps_r2_mblur, 0.0f, 1.0f);
@@ -819,7 +819,8 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "r2_dof_kernel", &ps_r2_dof_kernel_size, .0f, 10.f);
 	CMD4(CCC_Float, "r2_dof_sky", &ps_r2_dof_sky, -10000.f, 10000.f);
 	CMD3(CCC_Mask, "r2_dof_enable", &ps_r2_ls_flags, R2FLAG_DOF);
-
+	CMD3(CCC_Mask,  "r2_dof_weather", &ps_r2_ls_flags_ext, R2FLAGEXT_DOF_WEATHER); 
+	
 	CMD3(CCC_Mask, "r2_volumetric_lights", &ps_r2_ls_flags, R2FLAG_VOLUMETRIC_LIGHTS);
 	CMD3(CCC_Token, "r2_sun_shafts", &ps_r_sun_shafts, qsun_shafts_token);
 

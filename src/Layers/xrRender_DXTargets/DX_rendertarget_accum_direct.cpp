@@ -188,9 +188,9 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
 			Fmatrix			m_xform;
 			Fvector			direction	= fuckingsun->direction	;
 			float	w_dir				= g_pGamePersistent->Environment().CurrentEnv->wind_direction	;
-			//float	w_speed				= g_pGamePersistent->Environment().CurrentEnv->wind_velocity	;
+			float	w_speed 			= g_pGamePersistent->Environment().CurrentEnv->clouds_velocity_0;
 			Fvector			normal	;	normal.setHP(w_dir,0);
-							w_shift		+=	0.003f*Device.fTimeDelta;
+							w_shift 	+= w_speed * Device.fTimeDelta;
 			Fvector			position;	position.set(0,0,0);
 			m_xform.build_camera_dir	(position,direction,normal)	;
 			Fvector			localnormal;m_xform.transform_dir(localnormal,normal); localnormal.normalize();

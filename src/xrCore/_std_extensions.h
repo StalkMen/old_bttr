@@ -281,6 +281,13 @@ inline errno_t xr_strcat(char(&destination)[count], LPCSTR source)
 {
     return xr_strcat(destination, count, source);
 }
+
+template <class T>
+inline T		saturate(T a) { return clampr(a, (T)0, (T)1); }
+
+template <class T>
+inline T		_lerp(T v0, T v1, T t) { return fma(t, v1, fma(-t, v0, v0)); }
+
 #endif // #ifndef _EDITOR
 
 XRCORE_API char* timestamp(string64& dest);

@@ -53,6 +53,20 @@ void dxRainRender::Render(CEffect_Rain &owner)
 	float	factor				= g_pGamePersistent->Environment().CurrentEnv->rain_density;
 	if (factor<EPS_L)			return;
 
+	rain_timers_new->Update_new(true, false);
+	{
+#pragma todo("qweasdd to himself: replace 40, 30,20 with sonsole command")
+		rain_params_new->x = (rain_timers_new->timer.x - rain_timers_new->timer.y) / 40.f
+			+ _lerp<float>(0, saturate(rain_timers_new->timer.y / 40), saturate(rain_timers_new->timer.y));
+		rain_params_new->y = (rain_timers_new->timer.x - rain_timers_new->timer.y) / 30.f
+			+ _lerp<float>(0, saturate(rain_timers_new->timer.y / 30.f), saturate(rain_timers_new->timer.y));
+		rain_params_new->z = (rain_timers_new->timer.x - rain_timers_new->timer.y) / 20.f
+			+ _lerp<float>(0, saturate(rain_timers_new->timer.y / 20.f), saturate(rain_timers_new->timer.y));
+		rain_params_new->w = factor;
+	}
+
+	//    Msg("rain_params_new: %f, %f, %f, %f", rain_params_new->x, rain_params_new->y, rain_params_new->z, rain_params_new->w);
+
   	u32 desired_items			= iFloor	(0.5f*(1.f+factor)*float(max_desired_items));
 	// visual
 	float		factor_visual	= factor/2.f+.5f;

@@ -9,6 +9,7 @@
 #include "IGame_Level.h"
 #include "../xrServerEntities/object_broker.h"
 #include "../xrServerEntities/LevelGameDef.h"
+#include "IGame_Persistent.h"
 
 //#include "securom_api.h"
 
@@ -32,6 +33,16 @@ void CEnvModifier::load(IReader* fs, u32 version)
     {
         use_flags.assign(fs->r_u16());
     }
+}
+
+void CEnvDescriptor::EnvSwingValue::lerp(const EnvSwingValue& A, const EnvSwingValue& B, float f)
+{
+    float fi = 1.f - f;
+    amp1 = fi * A.amp1 + f * B.amp1;
+    amp2 = fi * A.amp2 + f * B.amp2;
+    rot1 = fi * A.rot1 + f * B.rot1;
+    rot2 = fi * A.rot2 + f * B.rot2;
+    speed = fi * A.speed + f * B.speed;
 }
 
 float CEnvModifier::sum(CEnvModifier& M, Fvector3& view)
@@ -229,7 +240,10 @@ m_identifier(identifier)
 
     wind_velocity = 0.0f;
     wind_direction = 0.0f;
-
+	clouds_velocity_0 = 0.0f;
+    clouds_velocity_1 = 0.0f;
+    wind_volume = 0.0f;
+	
     ambient.set(0, 0, 0);
     hemi_color.set(1, 1, 1, 1);
     sun_color.set(1, 1, 1);
@@ -246,6 +260,10 @@ m_identifier(identifier)
 	m_fFogShaders_density = 0;
 	m_fFogShaders_max_dist = 0;
 	m_fFogShaders_min_dist = 0;
+	
+	dof_value.set(-1.25f, 1.4f, 600.f);
+    dof_kernel = 5.0f;
+    dof_sky = 30.0f;
 	
     lens_flare_id = "";
     tb_id = "";
@@ -267,12 +285,7 @@ void CEnvDescriptor::load(CEnvironment& environment, CInifile& config)
     sky_texture_name = st;
     sky_texture_env_name = st_env;
     clouds_texture_name = config.r_string(m_identifier.c_str(), "clouds_texture");
-    LPCSTR cldclr = config.r_string(m_identifier.c_str(), "clouds_color");
-    float multiplier = 0, save = 0;
-    sscanf(cldclr, "%f,%f,%f,%f,%f", &clouds_color.x, &clouds_color.y, &clouds_color.z, &clouds_color.w, &multiplier);
-    save = clouds_color.w;
-    clouds_color.mul(.5f*multiplier);
-    clouds_color.w = save;
+    clouds_color = config.r_fvector4(m_identifier.c_str(), "clouds_color");
 
     sky_color = config.r_fvector3(m_identifier.c_str(), "sky_color");
 
@@ -287,6 +300,11 @@ void CEnvDescriptor::load(CEnvironment& environment, CInifile& config)
     rain_color = config.r_fvector3(m_identifier.c_str(), "rain_color");
     wind_velocity = config.r_float(m_identifier.c_str(), "wind_velocity");
     wind_direction = deg2rad(config.r_float(m_identifier.c_str(), "wind_direction"));
+	
+	wind_volume = config.line_exist(m_identifier.c_str(), "wind_sound_volume") ? config.r_float(m_identifier.c_str(), "wind_sound_volume") : 0.0f;
+    clouds_velocity_0 = config.line_exist(m_identifier.c_str(), "clouds_velocity_0") ? config.r_float(m_identifier.c_str(), "clouds_velocity_0") : 0.1f;
+    clouds_velocity_1 = config.line_exist(m_identifier.c_str(), "clouds_velocity_1") ? config.r_float(m_identifier.c_str(), "clouds_velocity_1") : 0.05f;
+	
 #pragma TODO("OldSerpskiStalker. Vanilla Call Of Chernobyl")
     ambient = config.r_fvector3(m_identifier.c_str(), (Call_of_Chernobyl_mode) ? "ambient_color" : "ambient");
     hemi_color = config.r_fvector4(m_identifier.c_str(), "hemisphere_color");
@@ -321,10 +339,29 @@ void CEnvDescriptor::load(CEnvironment& environment, CInifile& config)
         m_fFogShaders_min_dist = config.r_float(m_identifier.c_str(), "fog_min_dist");
 	
 #ifdef TREE_WIND_EFFECT
-    if (config.line_exist(m_identifier.c_str(), "tree_amplitude_intensity"))
-        m_fTreeAmplitudeIntensity = config.r_float(m_identifier.c_str(), "tree_amplitude_intensity");
+    if (config.line_exist(m_identifier.c_str(), (BttR_mode) ? "tree_amplitude" : "tree_amplitude_intensity"))
+        m_fTreeAmplitudeIntensity = config.r_float(m_identifier.c_str(), (BttR_mode) ? "tree_amplitude" : "tree_amplitude_intensity");
 #endif
+	
+	sun_lumscale = config.line_exist(m_identifier.c_str(), "sun_lumscale") ? config.r_float(m_identifier.c_str(), "sun_lumscale") : 1.f;
+    dof_value = config.line_exist(m_identifier.c_str(), "dof") ? config.r_fvector3(m_identifier.c_str(), "dof") : Fvector3().set(-1.25f, 1.4f, 600.f);
+    dof_kernel = config.line_exist(m_identifier.c_str(), "dof_kernel") ? config.r_float(m_identifier.c_str(), "dof_kernel") : 7.0f;
+    dof_sky = config.line_exist(m_identifier.c_str(), "dof_sky") ? config.r_float(m_identifier.c_str(), "dof_sky") : 30.0f;
 
+    // swing desc
+    // normal
+    m_cSwingDesc[0].amp1 = config.line_exist(m_identifier.c_str(), "swing_normal_amp1") ? config.r_float(m_identifier.c_str(), "swing_normal_amp1") : pSettings->r_float("details", "swing_normal_amp1");
+    m_cSwingDesc[0].amp2 = config.line_exist(m_identifier.c_str(), "swing_normal_amp2") ? config.r_float(m_identifier.c_str(), "swing_normal_amp2") : pSettings->r_float("details", "swing_normal_amp2");
+    m_cSwingDesc[0].rot1 = config.line_exist(m_identifier.c_str(), "swing_normal_rot1") ? config.r_float(m_identifier.c_str(), "swing_normal_rot1") : pSettings->r_float("details", "swing_normal_rot1");
+    m_cSwingDesc[0].rot2 = config.line_exist(m_identifier.c_str(), "swing_normal_rot2") ? config.r_float(m_identifier.c_str(), "swing_normal_rot2") : pSettings->r_float("details", "swing_normal_rot2");
+    m_cSwingDesc[0].speed = config.line_exist(m_identifier.c_str(), "swing_normal_speed") ? config.r_float(m_identifier.c_str(), "swing_normal_speed") : pSettings->r_float("details", "swing_normal_speed");
+    // fast
+    m_cSwingDesc[1].amp1 = config.line_exist(m_identifier.c_str(), "swing_fast_amp1") ? config.r_float(m_identifier.c_str(), "swing_fast_amp1") : pSettings->r_float("details", "swing_fast_amp1");
+    m_cSwingDesc[1].amp2 = config.line_exist(m_identifier.c_str(), "swing_fast_amp2") ? config.r_float(m_identifier.c_str(), "swing_fast_amp2") : pSettings->r_float("details", "swing_fast_amp2");
+    m_cSwingDesc[1].rot1 = config.line_exist(m_identifier.c_str(), "swing_fast_rot1") ? config.r_float(m_identifier.c_str(), "swing_fast_rot1") : pSettings->r_float("details", "swing_fast_rot1");
+    m_cSwingDesc[1].rot2 = config.line_exist(m_identifier.c_str(), "swing_fast_rot2") ? config.r_float(m_identifier.c_str(), "swing_fast_rot2") : pSettings->r_float("details", "swing_fast_rot2");
+    m_cSwingDesc[1].speed = config.line_exist(m_identifier.c_str(), "swing_fast_speed") ? config.r_float(m_identifier.c_str(), "swing_fast_speed") : pSettings->r_float("details", "swing_fast_speed");
+	
     C_CHECK(clouds_color);
     C_CHECK(sky_color);
     C_CHECK(fog_color);
@@ -409,7 +446,11 @@ void CEnvDescriptorMixer::lerp(CEnvironment*, CEnvDescriptor& A, CEnvDescriptor&
     // wind
     wind_velocity = fi*A.wind_velocity + f*B.wind_velocity;
     wind_direction = fi*A.wind_direction + f*B.wind_direction;
+	wind_volume = fi * A.wind_volume + f * B.wind_volume;
 
+    clouds_velocity_0 = fi * A.clouds_velocity_0 + f * B.clouds_velocity_0;
+    clouds_velocity_1 = fi * A.clouds_velocity_1 + f * B.clouds_velocity_1;
+	
     m_fSunShaftsIntensity = fi*A.m_fSunShaftsIntensity + f*B.m_fSunShaftsIntensity;
     m_fWaterIntensity = fi*A.m_fWaterIntensity + f*B.m_fWaterIntensity;
 
@@ -439,7 +480,15 @@ void CEnvDescriptorMixer::lerp(CEnvironment*, CEnvDescriptor& A, CEnvDescriptor&
         ambient.add(Mdf.ambient).mul(modif_power);
 
     hemi_color.lerp(A.hemi_color, B.hemi_color, f);
+	
+	sun_lumscale = fi * A.sun_lumscale + f * B.sun_lumscale;
+    dof_value.lerp(A.dof_value, B.dof_value, f);
+    dof_kernel = fi * A.dof_kernel + f * B.dof_kernel;
+    dof_sky = fi * A.dof_sky + f * B.dof_sky;
 
+    m_cSwingDesc[0].lerp(A.m_cSwingDesc[0], B.m_cSwingDesc[0], f);
+    m_cSwingDesc[1].lerp(A.m_cSwingDesc[1], B.m_cSwingDesc[1], f);
+	
     if (Mdf.use_flags.test(eHemiColor))
     {
         hemi_color.x += Mdf.hemi_color.x;

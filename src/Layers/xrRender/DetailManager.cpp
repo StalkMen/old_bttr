@@ -50,6 +50,15 @@ void bwdithermap	(int levels, int magic[16][16])
 }
 //--------------------------------------------------- Decompression
 
+void CDetailManager::SSwingValue::set(const CEnvDescriptor::EnvSwingValue& A)
+{
+    amp1 = A.amp1;
+    amp2 = A.amp2;
+    rot1 = A.rot1;
+    rot2 = A.rot2;
+    speed = A.speed;
+}
+
 void CDetailManager::SSwingValue::lerp(const SSwingValue& A, const SSwingValue& B, float f)
 {
 	float fi	= 1.f-f;

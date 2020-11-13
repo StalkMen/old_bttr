@@ -115,18 +115,19 @@ void	CRenderTarget::phase_combine	()
 	// draw skybox
 	if (1)
 	{
-		//	Moved to shader!
-		//RCache.set_ColorWriteEnable					();
-		//	Moved to shader!
-		//RCache.set_Z(FALSE);
+		#pragma todo("OldSerpskiStalker. Включил тут для теста эти функции и обозначил")
+		//	Moved to shader! (1)
+		RCache.set_ColorWriteEnable					();
+		//	Moved to shader! (2)
+		RCache.set_Z(FALSE);
+		
 		g_pGamePersistent->Environment().RenderSky	();
-
 		//	Igor: Render clouds before compine without Z-test
 		//	to avoid siluets. HOwever, it's a bit slower process.
 		g_pGamePersistent->Environment().RenderClouds	();
 
-		//	Moved to shader!
-		//RCache.set_Z(TRUE);
+		//	Moved to shader! (3)
+		RCache.set_Z(TRUE);
 	}
 
 	// 
@@ -454,11 +455,23 @@ void	CRenderTarget::phase_combine	()
 		pv->p.set(float(_w+EPS),float(_h+EPS),	EPS,1.f); pv->uv0.set(p1.x, p1.y);pv->uv1.set(p1.x-ddw,p1.y-ddh);pv->uv2.set(p1.x+ddw,p1.y+ddh);pv->uv3.set(p1.x+ddw,p1.y-ddh);pv->uv4.set(p1.x-ddw,p1.y+ddh);pv->uv5.set(p1.x-ddw,p1.y,p1.y,p1.x+ddw);pv->uv6.set(p1.x,p1.y-ddh,p1.y+ddh,p1.x);pv++;
 		pv->p.set(float(_w+EPS),EPS,			EPS,1.f); pv->uv0.set(p1.x, p0.y);pv->uv1.set(p1.x-ddw,p0.y-ddh);pv->uv2.set(p1.x+ddw,p0.y+ddh);pv->uv3.set(p1.x+ddw,p0.y-ddh);pv->uv4.set(p1.x-ddw,p0.y+ddh);pv->uv5.set(p1.x-ddw,p0.y,p0.y,p1.x+ddw);pv->uv6.set(p1.x,p0.y-ddh,p0.y+ddh,p1.x);pv++;
 		RCache.Vertex.Unlock		(4,g_aa_AA->vb_stride);
-
+		
+		// : get value from weather or from console
+        float kernel_size = ps_r2_dof_kernel_size;
+        float dof_sky = ps_r2_dof_sky;
+        Fvector3 dof_value = ps_r2_dof;
+        if (ps_r2_ls_flags_ext.test(R2FLAGEXT_DOF_WEATHER))
+        {
+            kernel_size = g_pGamePersistent->Environment().CurrentEnv->dof_kernel;
+            dof_sky = g_pGamePersistent->Environment().CurrentEnv->dof_sky;
+            dof_value = g_pGamePersistent->Environment().CurrentEnv->dof_value;
+        }
+        g_pGamePersistent->SetBaseDof(dof_value);
+		
 		//	Set up variable
 		Fvector2	vDofKernel;
 		vDofKernel.set(0.5f/Device.dwWidth, 0.5f/Device.dwHeight);
-		vDofKernel.mul(ps_r2_dof_kernel_size);
+		vDofKernel.mul(kernel_size);
 
 		// Draw COLOR
 		if (!RImplementation.o.dx10_msaa)
@@ -471,8 +484,8 @@ void	CRenderTarget::phase_combine	()
 		RCache.set_c				("m_blur",		m_blur_scale.x,m_blur_scale.y, 0,0);
 		Fvector3					dof;
 		g_pGamePersistent->GetCurrentDof(dof);
-		RCache.set_c				("dof_params",	dof.x, dof.y, dof.z, ps_r2_dof_sky);
-//.		RCache.set_c				("dof_params",	ps_r2_dof.x, ps_r2_dof.y, ps_r2_dof.z, ps_r2_dof_sky);
+		RCache.set_c				("dof_params", dof.x, dof.y, dof.z, dof_sky);
+        RCache.set_c				("dof_kernel", vDofKernel.x, vDofKernel.y, kernel_size, 0);
 		RCache.set_c				("dof_kernel",	vDofKernel.x, vDofKernel.y, ps_r2_dof_kernel_size, 0);
 		RCache.set_c				("vibrance", xrRenderFilteringSaturationImage, 0, 0, 0);
 

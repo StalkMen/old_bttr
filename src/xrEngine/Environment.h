@@ -156,7 +156,17 @@ public:
 
     float wind_velocity;
     float wind_direction;
+	
+	float clouds_velocity_0; //: speed of clouds
+    float clouds_velocity_1; //: speed of second clouds
+    float wind_volume; //: volume for wind sound
 
+    // on vincentvega request
+    float sun_lumscale;
+    Fvector3 dof_value;
+    float	 dof_kernel;
+    float	 dof_sky;
+	
     Fvector3 ambient;
     Fvector4 hemi_color; // w = R2 correction
     Fvector3 sun_color;
@@ -177,7 +187,19 @@ public:
     // int tb_id;
     shared_str lens_flare_id;
     shared_str tb_id;
-
+	
+	//: swing values
+    struct EnvSwingValue
+    {
+        float						rot1;
+        float						rot2;
+        float						amp1;
+        float						amp2;
+        float						speed;
+        void						lerp(const EnvSwingValue& v1, const EnvSwingValue& v2, float factor);
+    };
+    EnvSwingValue						m_cSwingDesc[2];
+	
     CEnvAmbient* env_ambient;
 
 

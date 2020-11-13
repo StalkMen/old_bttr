@@ -23,6 +23,11 @@ xr_token vid_bpp_token[] =
     {"32", 32},
     {0, 0}
 };
+
+ENGINE_API float		ps_r2_sun_lumscale = 1.0f;	
+
+//	x - min (0), y - focus (1.4), z - max (100)
+ENGINE_API Fvector3	ps_r2_dof = Fvector3().set(-1.25f, 1.4f, 600.f);
 //-----------------------------------------------------------------------
 
 void IConsole_Command::add_to_LRU(shared_str const& arg)
