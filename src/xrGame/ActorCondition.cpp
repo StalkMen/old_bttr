@@ -289,6 +289,8 @@ void CActorCondition::UpdateCondition()
 	};
 
 	UpdateSatiety();
+	UpdateThirst();
+	UpdateSleep();
 	UpdateBoosters();
 	inherited::UpdateCondition();
 	UpdateTutorialThresholds();
@@ -604,6 +606,8 @@ void CActorCondition::save(NET_Packet &output_packet)
 	save_data			(m_curr_medicine_influence.fHealth, output_packet);
 	save_data			(m_curr_medicine_influence.fPower, output_packet);
 	save_data			(m_curr_medicine_influence.fSatiety, output_packet);
+	save_data			(m_curr_medicine_influence.fThirst, output_packet);
+	save_data			(m_curr_medicine_influence.fSleep, output_packet);
 	save_data			(m_curr_medicine_influence.fRadiation, output_packet);
 	save_data			(m_curr_medicine_influence.fWoundsHeal, output_packet);
 	save_data			(m_curr_medicine_influence.fMaxPowerUp, output_packet);
@@ -633,6 +637,8 @@ void CActorCondition::load(IReader &input_packet)
 	load_data			(m_curr_medicine_influence.fHealth, input_packet);
 	load_data			(m_curr_medicine_influence.fPower, input_packet);
 	load_data			(m_curr_medicine_influence.fSatiety, input_packet);
+	load_data			(m_curr_medicine_influence.fThirst, input_packet);
+	load_data			(m_curr_medicine_influence.fSleep, input_packet);
 	load_data			(m_curr_medicine_influence.fRadiation, input_packet);
 	load_data			(m_curr_medicine_influence.fWoundsHeal, input_packet);
 	load_data			(m_curr_medicine_influence.fMaxPowerUp, input_packet);
