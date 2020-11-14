@@ -38,15 +38,15 @@ CEffect_Rain::CEffect_Rain()
 	snd_Ambient.create("ambient\\rain", st_Effect, sg_Undefined);
 	snd_Wind.create("ambient\\wind", st_Effect, sg_Undefined);
 
-	timerWorld = new RainTimer();
-	timerCurrViewEntity = new RainTimer();
+	timerWorld = xr_new<RainTimer>();
+	timerCurrViewEntity = xr_new<RainTimer>();
 
 	p_create();
 
 	if (!rain_timers_new)
-		rain_timers_new = new rain_timer_params_new();
+		rain_timers_new = xr_new<rain_timer_params_new>();
 	if (!rain_params_new)
-		rain_params_new = new Fvector4();
+		rain_params_new = xr_new<Fvector4>();
 
 }
 
