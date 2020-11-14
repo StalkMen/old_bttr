@@ -818,6 +818,17 @@ xr_token qsun_shafts_token[] = {
     { nullptr,			0 }
 };
 
+ENGINE_API u32 optTessQuality_ = 0;
+xr_token qtess_quality_token[] =
+{
+{ "st_tess_low_DX11",			0 },
+{ "st_tess_med_DX11",			1 },
+{ "st_tess_optimum_DX11",		2 },
+{ "st_tess_overneeded_DX11",	3 },
+{ nullptr, 0 }
+};
+
+
 ENGINE_API Flags32 p_engine_flags32 = { /*ITS_CLEAR_1_4_22 |*/R2FLAGEXT_SSAO_HALF_DATA };
 
 class	CCC_SSAO : public CCC_Token
@@ -928,6 +939,8 @@ void CCC_Register()
 
         CMD3(CCC_Token, "xrRenderDX10_type_aa", &ps_r_type_aa, type_aa_token);
         CMD3(CCC_Token, "xrRenderDX10_sunshafts_mode", &ps_sunshafts_mode, sunshafts_mode_token);
+
+        CMD3(CCC_Token, "xrRenderDX11_tess_quality", &optTessQuality_, qtess_quality_token);
     }
 
     CMD3(CCC_Token,     "xrEngine_fps_lock",    &g_dwFPSlimit, FpsLockToken);

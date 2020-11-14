@@ -1,5 +1,4 @@
-#ifndef R_BACKEND_LOD_H_INCLUDED
-#define R_BACKEND_LOD_H_INCLUDED
+#pragma once
 
 class R_LOD
 {
@@ -11,7 +10,5 @@ public:
 
 	void			unmap() {c_LOD = 0;}
 	void			set_LOD(R_constant* C) {c_LOD = C;}
-	void			set_LOD(float LOD);
+	void			set_LOD(float camera_distance);
 };
-
-#endif // #ifndef R_BACKEND_LOD_H_INCLUDED

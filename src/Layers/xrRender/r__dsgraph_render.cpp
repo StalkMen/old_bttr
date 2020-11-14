@@ -24,18 +24,32 @@ ICF float calcLOD	(float ssa/*fDistSq*/, float R)
 IC	bool	cmp_normal_items		(const _NormalItem& N1, const _NormalItem& N2)
 {	return (N1.ssa > N2.ssa);		}
 
-void __fastcall mapNormal_Render	(mapNormalItems& N)
+void __fastcall mapNormal_Render(mapNormalItems& N)
 {
 	// *** DIRECT ***
-	std::sort				(N.begin(),N.end(),cmp_normal_items);
-	_NormalItem				*I=&*N.begin(), *E = &*N.end();
-	for (; I!=E; I++)		{
-		_NormalItem&		Ni	= *I;
-		float LOD = calcLOD(Ni.ssa,Ni.pVisual->vis.sphere.R);
+	std::sort(N.begin(), N.end(), cmp_normal_items);
+	_NormalItem* I = &*N.begin(), * E = &*N.end();
+	for (; I != E; I++) 
+	{
+		_NormalItem& Ni = *I;
+		float LOD = calcLOD(Ni.ssa, Ni.pVisual->vis.sphere.R);
 #ifdef USE_DX11
-		RCache.LOD.set_LOD(LOD);
+		if (RCache.LOD.c_LOD)
+		{
+			// don't know if this is correct, but i did not see rendering objects of this type, so could not test it
+
+			Fmatrix m;
+			Ni.pVisual->getVisData().box.xform(m);
+			Fvector o_position = m.c;
+
+			float distance = Device.vCameraPosition.distance_to(o_position);
+			float fov_K = 67.f / Device.fFOV;
+			float adjusted_distane = distance / fov_K;
+
+			RCache.LOD.set_LOD(adjusted_distane);
+		}
 #endif
-		Ni.pVisual->Render	(LOD);
+		Ni.pVisual->Render(LOD);
 	}
 }
 
@@ -43,24 +57,34 @@ void __fastcall mapNormal_Render	(mapNormalItems& N)
 IC	bool	cmp_matrix_items		(const _MatrixItem& N1, const _MatrixItem& N2)
 {	return (N1.ssa > N2.ssa);		}
 
-void __fastcall mapMatrix_Render	(mapMatrixItems& N)
+void __fastcall mapMatrix_Render(mapMatrixItems& N)
 {
 	// *** DIRECT ***
-	std::sort				(N.begin(),N.end(),cmp_matrix_items);
-	_MatrixItem				*I=&*N.begin(), *E = &*N.end();
-	for (; I!=E; I++)		{
-		_MatrixItem&	Ni				= *I;
-		RCache.set_xform_world			(Ni.Matrix);
-		RImplementation.apply_object	(Ni.pObject);
-		RImplementation.apply_lmaterial	();
+	std::sort(N.begin(), N.end(), cmp_matrix_items);
+	_MatrixItem* I = &*N.begin(), * E = &*N.end();
+	for (; I != E; I++)
+	{
+		_MatrixItem& Ni = *I;
+		RCache.set_xform_world(Ni.Matrix);
+		RImplementation.apply_object(Ni.pObject);
+		RImplementation.apply_lmaterial();
 
-		float LOD = calcLOD(Ni.ssa,Ni.pVisual->vis.sphere.R);
+		float LOD = calcLOD(Ni.ssa, Ni.pVisual->vis.sphere.R);
 #ifdef USE_DX11
-		RCache.LOD.set_LOD(LOD);
+		if (RCache.LOD.c_LOD)
+		{
+			Fvector o_position = Ni.pObject->renderable.xform.c;
+
+			float distance = Device.vCameraPosition.distance_to(o_position);
+			float fov_K = 67.f / Device.fFOV;
+			float adjusted_distane = distance / fov_K;
+
+			RCache.LOD.set_LOD(adjusted_distane);
+		}
 #endif
 		Ni.pVisual->Render(LOD);
 	}
-	N.clear	();
+	N.clear();
 }
 
 // ALPHA
