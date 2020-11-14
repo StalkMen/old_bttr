@@ -173,11 +173,7 @@ public:
     Fvector3 sun_dir;
     float m_fSunShaftsIntensity;
     float m_fWaterIntensity;
-
-#ifdef TREE_WIND_EFFECT
     float m_fTreeAmplitudeIntensity;
-#endif
-	
 	float m_fFogShaders_height;
 	float m_fFogShaders_density;
 	float m_fFogShaders_max_dist;
@@ -266,7 +262,6 @@ private:
     void SelectEnvs(EnvVec* envs, CEnvDescriptor*& e0, CEnvDescriptor*& e1, float tm);
     void SelectEnv(EnvVec* envs, CEnvDescriptor*& e, float tm);
 
-    void calculate_dynamic_sun_dir();
 public:
     static bool sort_env_pred(const CEnvDescriptor* x, const CEnvDescriptor* y)
     {

@@ -285,12 +285,14 @@ static const float	ik_cam_shift_tolerance = 0.2f;
 static const float	ik_cam_shift_speed = 0.01f;
 #endif
 
+extern BOOL collision_wpn;
+
 void CActor::cam_Update(float dt, float fFOV)
 {
 	if(m_holder)		return;
 	
 	// HUD FOV Update --#SM+#--
-	if (this == Level().CurrentControlEntity())
+	if (this == Level().CurrentControlEntity() && collision_wpn == 1)
 	{
 		CWeapon* pWeapon = smart_cast<CWeapon*>(this->inventory().ActiveItem());
 		if (eacFirstEye == cam_active && pWeapon)
@@ -365,33 +367,27 @@ void CActor::cam_Update(float dt, float fFOV)
 		collide_camera( *cameras[eacFirstEye], _viewport_near, this );
 	}
 	
-	//Alundaio -psp always
-	//if( psActorFlags.test(AF_PSP) )
-	//{
-		Cameras().UpdateFromCamera			(C);
-	//}else
-	//{
-	//	Cameras().UpdateFromCamera			(cameras[eacFirstEye]);
-	//}
-	//-Alundaio
-
+	Cameras().UpdateFromCamera			(C);
+	
 	fCurAVelocity			= vPrevCamDir.sub(cameras[eacFirstEye]->vDirection).magnitude()/Device.fTimeDelta;
 	vPrevCamDir				= cameras[eacFirstEye]->vDirection;
 	
-	// Высчитываем разницу между предыдущим и текущим Yaw \ Pitch от 1-го лица //--#SM+ Begin#--
-	float& cam_yaw_cur = cameras[eacFirstEye]->yaw;
-	static float cam_yaw_prev = cam_yaw_cur;
+	{
+		// Высчитываем разницу между предыдущим и текущим Yaw \ Pitch от 1-го лица //--#SM+ Begin#--
+		float& cam_yaw_cur = cameras[eacFirstEye]->yaw;
+		static float cam_yaw_prev = cam_yaw_cur;
 
-	float& cam_pitch_cur = cameras[eacFirstEye]->pitch;
-	static float cam_pitch_prev = cam_pitch_cur;
+		float& cam_pitch_cur = cameras[eacFirstEye]->pitch;
+		static float cam_pitch_prev = cam_pitch_cur;
 
-	fFPCamYawMagnitude = angle_difference_signed(cam_yaw_prev, cam_yaw_cur) / Device.fTimeDelta; // L+ / R-
-	fFPCamPitchMagnitude = angle_difference_signed(cam_pitch_prev, cam_pitch_cur) / Device.fTimeDelta; //U+ / D-
+		fFPCamYawMagnitude = angle_difference_signed(cam_yaw_prev, cam_yaw_cur) / Device.fTimeDelta; // L+ / R-
+		fFPCamPitchMagnitude = angle_difference_signed(cam_pitch_prev, cam_pitch_cur) / Device.fTimeDelta; //U+ / D-
 
-	cam_yaw_prev = cam_yaw_cur;
-	cam_pitch_prev = cam_pitch_cur;
-	//--#SM+ End#--
-	
+		cam_yaw_prev = cam_yaw_cur;
+		cam_pitch_prev = cam_pitch_cur;
+		//--#SM+ End#--
+	}
+
 #ifdef DEBUG
 	if( dbg_draw_camera_collision )
 	{

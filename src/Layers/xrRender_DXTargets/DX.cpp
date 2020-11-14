@@ -35,8 +35,8 @@ public:
 	virtual void					set_color			(float r, float g, float b)	{ }
 };
 
-bool CRender::is_sun() {
-    if (o.sunstatic) return FALSE;
+bool CRender::is_sun() 
+{
     Fcolor sun_color = ((light*)Lights.sun_adapted._get())->color;
     return (ps_r2_ls_flags.test(R2FLAG_SUN) && (u_diffuse2s(sun_color.r, sun_color.g, sun_color.b)>EPS));
 }
@@ -103,7 +103,6 @@ static class cl_water_intensity : public R_constant_setup
 	}
 }	binder_water_intensity;
 
-#ifdef TREE_WIND_EFFECT
 static class cl_tree_amplitude_intensity : public R_constant_setup
 {
     virtual void setup(R_constant* C)
@@ -113,7 +112,6 @@ static class cl_tree_amplitude_intensity : public R_constant_setup
         RCache.set_c(C, fValue, fValue, fValue, 0);
     }
 } binder_tree_amplitude_intensity;
-#endif
 
 static class cl_sun_shafts_intensity : public R_constant_setup		
 {	
@@ -155,7 +153,6 @@ static class cl_volumetric_fog_param : public R_constant_setup
 	}
 }	binder_volumetric_fog;
 
-extern ENGINE_API BOOL r2_sun_static;
 extern ENGINE_API BOOL r2_advanced_pp;	//	advanced post process and effects
 extern ENGINE_API BOOL render_dx10_1;
 extern ENGINE_API u32  renderer_value;
@@ -299,7 +296,6 @@ void					CRender::create					()
 	o.bug				= (strstr(Core.Params,"-bug"))?			TRUE	:FALSE	;
 	o.sunfilter			= (strstr(Core.Params,"-sunfilter"))?	TRUE	:FALSE	;
 	//.	o.sunstatic			= (strstr(Core.Params,"-sunstatic"))?	TRUE	:FALSE	;
-	o.sunstatic			= r2_sun_static;
 	o.advancedpp		= r2_advanced_pp;
 	o.volumetricfog		= ps_r2_ls_flags.test(R3FLAG_VOLUMETRIC_SMOKE);
 	o.sjitter			= (strstr(Core.Params,"-sjitter"))?		TRUE	:FALSE	;

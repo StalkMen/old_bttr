@@ -218,25 +218,33 @@ LPCSTR CObjectHandlerPlanner::property2string(const _condition_type &id)
 }
 #endif
 
-void CObjectHandlerPlanner::remove_evaluators	(CObject *object)
+void CObjectHandlerPlanner::remove_evaluators(CObject* object)
 {
 #pragma todo("Dima to Dima : safe, but not optimal!")
-	for (;;) {
-		EVALUATORS::iterator	I = m_evaluators.lower_bound(uid(object->ID(),0));
-		if (!object_action((*I).first,object))
+#pragma todo("OldSerpskiStalker. Fix from OGSR")
+	//https://github.com/OGSR/OGSR-Engine/commit/a1eefbe8714e3aaca5e372e7b33d4956d5ab55da
+	for (;;)
+	{
+		EVALUATORS::iterator I = m_evaluators.lower_bound(uid(object->ID(), 0));
+		if (I == m_evaluators.end() || !object_action((*I).first, object))
 			break;
-		remove_evaluator		((*I).first);
+
+		remove_evaluator((*I).first);
 	}
 }
 
-void CObjectHandlerPlanner::remove_operators	(CObject *object)
+void CObjectHandlerPlanner::remove_operators(CObject* object)
 {
 #pragma todo("Dima to Dima : safe, but not optimal!")
-	for (;;) {
-		OPERATOR_VECTOR::iterator	I = std::lower_bound(m_operators.begin(),m_operators.end(),uid(object->ID(),0));
-		if (!object_action((*I).m_operator_id,object))
+#pragma todo("OldSerpskiStalker. Fix from OGSR")
+	//https://github.com/OGSR/OGSR-Engine/commit/a1eefbe8714e3aaca5e372e7b33d4956d5ab55da
+	for (;;)
+	{
+		OPERATOR_VECTOR::iterator I = std::lower_bound(m_operators.begin(), m_operators.end(), uid(object->ID(), 0));
+		if (I == m_operators.end() || !object_action((*I).m_operator_id, object))
 			break;
-		remove_operator	((*I).m_operator_id);
+
+		remove_operator((*I).m_operator_id);
 	}
 }
 

@@ -2,6 +2,7 @@
 #pragma hdrstop
 
 #include "fs_internal.h"
+#include "../build_engine_config.h"
 
 XRCORE_API CInifile const* pSettings            = NULL;
 XRCORE_API CInifile const* pSettingsAuth        = NULL;
@@ -199,11 +200,7 @@ IC BOOL is_empty_line_now(IReader* F)
     return (*a0 == 13) && (*a1 == 10) && (*a2 == 13) && (*a3 == 10);
 };
 
-void CInifile::Load(IReader* F, LPCSTR path
-#ifndef _EDITOR
-                    , allow_include_func_t allow_include_func
-#endif
-                   )
+void CInifile::Load(IReader* F, LPCSTR path, allow_include_func_t allow_include_func)
 {
     R_ASSERT(F);
     Sect* Current = 0;
@@ -261,17 +258,12 @@ void CInifile::Load(IReader* F, LPCSTR path
                 strconcat(sizeof(fn), fn, path, inc_name);
                 _splitpath(fn, inc_path, folder, 0, 0);
                 xr_strcat(inc_path, sizeof(inc_path), folder);
-#ifndef _EDITOR
+
                 if (!allow_include_func || allow_include_func(fn))
-#endif
                 {
                     IReader* I = FS.r_open(fn);
                     R_ASSERT3(I, "Can't find include file:", inc_name);
-                    Load(I, inc_path
-#ifndef _EDITOR
-                         , allow_include_func
-#endif
-                        );
+                    Load(I, inc_path, allow_include_func);
                     FS.r_close(I);
                 }
             }
@@ -284,7 +276,18 @@ void CInifile::Load(IReader* F, LPCSTR path
                 //store previous section
                 RootIt I = std::lower_bound(DATA.begin(), DATA.end(), *Current->Name, sect_pred);
                 if ((I != DATA.end()) && ((*I)->Name == Current->Name))
+#ifdef FIX_GAME_INFO
+                {
+                    Msg("------------------------------------------------------------------------");
+                    Msg("# [MSG INFO]: When reading configs, duplicate sections were found!");
+                    Msg("# [MSG INFO]: Fix this section!");
+                    Msg("# [MSG INFO]: Duplicate section [%s] found.", *Current->Name);
+                    Msg("# [MSG INFO]: If this is 'game_info', then you can skip this. So it has a systemic origin and cannot be settled.");
+                    Msg("------------------------------------------------------------------------");
+                }
+#else
                     Debug.fatal(DEBUG_INFO, "Duplicate section '%s' found.", *Current->Name);
+#endif
                 DATA.insert(I, Current);
             }
             Current = xr_new<Sect>();
@@ -382,9 +385,6 @@ void CInifile::Load(IReader* F, LPCSTR path
                     if (
                         *I.first
                         || *I.second
-                        //#ifdef DEBUG
-                        // || *I.comment
-                        //#endif
                     )
                         insert_item(Current, I);
                 }
@@ -395,7 +395,18 @@ void CInifile::Load(IReader* F, LPCSTR path
     {
         RootIt I = std::lower_bound(DATA.begin(), DATA.end(), *Current->Name, sect_pred);
         if ((I != DATA.end()) && ((*I)->Name == Current->Name))
+#ifdef FIX_GAME_INFO
+        {
+            Msg("------------------------------------------------------------------------");
+            Msg("# [MSG INFO]: When reading configs, duplicate sections were found!");
+            Msg("# [MSG INFO]: Fix this section!");
+            Msg("# [MSG INFO]: Duplicate section [%s] found.", *Current->Name);
+            Msg("# [MSG INFO]: If this is 'game_info', then you can skip this. So it has a systemic origin and cannot be settled.");
+            Msg("------------------------------------------------------------------------");
+        }
+#else
             Debug.fatal(DEBUG_INFO, "Duplicate section '%s' found.", *Current->Name);
+#endif
         DATA.insert(I, Current);
     }
 }

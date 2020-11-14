@@ -507,7 +507,6 @@ public:
     }
 };
 
-ENGINE_API BOOL r2_sun_static = FALSE;
 ENGINE_API BOOL r2_advanced_pp = TRUE; // advanced post process and effects
 ENGINE_API BOOL render_dx10_1 = FALSE;
 ENGINE_API u32 renderer_value = 0;
@@ -554,7 +553,7 @@ public:
     }
 
 };
-#ifndef DEDICATED_SERVER
+
 class CCC_soundDevice : public CCC_Token
 {
     typedef CCC_Token inherited;
@@ -590,7 +589,7 @@ public:
         inherited::Save(F);
     }
 };
-#endif
+
 //-----------------------------------------------------------------------
 class CCC_ExclusiveMode : public IConsole_Command
 {

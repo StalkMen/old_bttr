@@ -122,17 +122,17 @@ void CActorCondition::LoadCondition(LPCSTR entity_section)
 	m_fV_SatietyPower			= pSettings->r_float(section,"satiety_power_v");
 	m_fV_SatietyHealth			= pSettings->r_float(section,"satiety_health_v");
 	
-	m_fSleepCritical			= READ_IF_EXISTS(pSettings, r_float, section, "sleep_critical", 0.0f);
+	m_fSleepCritical			= READ_IF_EXISTS(pSettings, r_float, section, "sleep_critical", (BttR_mode) ? 0.35f : 0.0f);
 	clamp						(m_fSleepCritical, 0.0f, 1.0f);
-	m_fV_Sleep				    = READ_IF_EXISTS(pSettings, r_float, section, "sleep_v", 0.0f);		
-	m_fV_SleepPower			    = READ_IF_EXISTS(pSettings, r_float, section, "sleep_power_v", 0.0f);
-	m_fV_SleepHealth			= READ_IF_EXISTS(pSettings, r_float, section, "sleep_health_v", 0.0f);
+	m_fV_Sleep				    = READ_IF_EXISTS(pSettings, r_float, section, "sleep_v", (BttR_mode) ? 0.0000350f : 0.0f);		
+	m_fV_SleepPower			    = READ_IF_EXISTS(pSettings, r_float, section, "sleep_power_v", (BttR_mode) ? 0.0f : 0.0f);
+	m_fV_SleepHealth			= READ_IF_EXISTS(pSettings, r_float, section, "sleep_health_v", (BttR_mode) ? 0.0f : 0.0f);
 
-	m_fThirstCritical			= READ_IF_EXISTS(pSettings, r_float, section, "thirst_critical", 0.0f);
+	m_fThirstCritical			= READ_IF_EXISTS(pSettings, r_float, section, "thirst_critical", (BttR_mode) ? 0.3f : 0.0f);
 	clamp						(m_fThirstCritical, 0.0f, 1.0f);
-	m_fV_Thirst					= READ_IF_EXISTS(pSettings, r_float, section, "thirst_v", 0.0f);
-	m_fV_ThirstPower			= READ_IF_EXISTS(pSettings, r_float, section, "thirst_power_v", 0.0f);
-	m_fV_ThirstHealth			= READ_IF_EXISTS(pSettings, r_float, section, "thirst_health_v", 0.0f);
+	m_fV_Thirst					= READ_IF_EXISTS(pSettings, r_float, section, "thirst_v", (BttR_mode) ? 0.0000255f : 0.0f);
+	m_fV_ThirstPower			= READ_IF_EXISTS(pSettings, r_float, section, "thirst_power_v", (BttR_mode) ? 0.00025f : 0.0f);
+	m_fV_ThirstHealth			= READ_IF_EXISTS(pSettings, r_float, section, "thirst_health_v", (BttR_mode) ? 0.0f : 0.0f);
 
 	m_MaxWalkWeight				= pSettings->r_float(section,"max_walk_weight");
 

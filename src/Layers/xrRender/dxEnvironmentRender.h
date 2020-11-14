@@ -12,24 +12,20 @@ public:
 	virtual		BOOL		canBeDetailed()	{ return FALSE;	}
 	virtual		BOOL		canBeLMAPped()	{ return FALSE;	}
 
-	virtual		void		Compile			(CBlender_Compile& C)
+	virtual		void		Compile(CBlender_Compile& C)
 	{
-		C.r_Pass			("sky2",		"sky2",			FALSE,	TRUE, FALSE);
-#if defined(USE_DX10) || defined(USE_DX11)
-		//C.r_Sampler_clf		("s_sky0",		"$null"			);
-		//C.r_Sampler_clf		("s_sky1",		"$null"			);
-		C.r_dx10Texture		("s_sky0",		"$null"			);
-		C.r_dx10Texture		("s_sky1",		"$null"			);
-		C.r_dx10Sampler		("smp_rtlinear");
-		//C.r_Sampler_rtf		("s_tonemap",	"$user$tonemap"	);	//. hack
-		C.r_dx10Texture		("s_tonemap",	"$user$tonemap"	);	//. hack
+		C.r_Pass("sky2", "sky2", FALSE, TRUE, FALSE);
+		C.r_dx10Texture("s_sky0", "$null");
+		C.r_dx10Texture("s_sky1", "$null");
+		C.r_dx10Texture("s_clouds", "bttr_shaders\\sky\\clouds_noise");
+		C.r_dx10Texture("s_blowout", "bttr_shaders\\sky\\blowout_noise");
+		C.r_dx10Texture("s_stars", "bttr_shaders\\sky\\stars_noise");
+
+		C.r_dx10Sampler("smp_nofilter");
+		C.r_dx10Sampler("smp_rtlinear");
+		C.r_dx10Texture("s_tonemap", "$user$tonemap");	//. hack
 		C.PassSET_ZB(FALSE, FALSE);
-#else	//	USE_DX10
-		C.r_Sampler_clf		("s_sky0",		"$null"			);
-		C.r_Sampler_clf		("s_sky1",		"$null"			);
-		C.r_Sampler_rtf		("s_tonemap",	"$user$tonemap"	);	//. hack
-#endif	//	USE_DX10
-		C.r_End				();
+		C.r_End();
 	}
 };
 

@@ -359,7 +359,7 @@ void CWallmarksEngine::Render()
 	Device.Statistic->RenderDUMP_WMD_Count	= 0;
 	Device.Statistic->RenderDUMP_WMT_Count	= 0;
 
-	float	ssaCLIP				= r_ssaDISCARD/4;
+//	float	ssaCLIP				= r_ssaDISCARD/4;
 
 	lock.Enter		();			// Physics may add wallmarks in parallel with rendering
 
@@ -375,7 +375,8 @@ void CWallmarksEngine::Render()
 				Device.Statistic->RenderDUMP_WMS_Count++;
 				float dst	= Device.vCameraPosition.distance_to_sqr(W->bounds.P);
 				float ssa	= W->bounds.R * W->bounds.R / dst;
-				if (ssa>=ssaCLIP)	{
+//				if (ssa>=ssaCLIP)	
+				{
 					u32 w_count		= u32(w_verts-w_start);
 					if ((w_count+W->verts.size())>=(MAX_TRIS*3)){
 						FlushStream	(hGeom,slot->shader,w_offset,w_verts,w_start,FALSE);
@@ -417,7 +418,8 @@ void CWallmarksEngine::Render()
 
 			float dst	= Device.vCameraPosition.distance_to_sqr(W->m_Bounds.P);
 			float ssa	= W->m_Bounds.R * W->m_Bounds.R / dst;
-			if (ssa>=ssaCLIP){
+//			if (ssa>=ssaCLIP)
+			{
 				Device.Statistic->RenderDUMP_WMD_Count++;
 				u32 w_count		= u32(w_verts-w_start);
 				if ((w_count+W->VCount())>=(MAX_TRIS*3)){

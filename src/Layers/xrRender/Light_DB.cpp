@@ -34,12 +34,8 @@ void CLight_DB::Load			(IReader *fs)
 			light*		L				= Create	();
 			L->flags.bStatic			= true;
 			L->set_type					(IRender_Light::POINT);
-
-#if RENDER==R_R1
-			L->set_shadow				(false);
-#else
 			L->set_shadow				(true);
-#endif
+
 			u32 controller				= 0;
 			F->r						(&controller,4);
 			F->r						(&Ldata,sizeof(Flight));
@@ -79,26 +75,8 @@ void CLight_DB::Load			(IReader *fs)
 		F->close			();
 	}
 	R_ASSERT2(sun_original && sun_adapted,"Where is sun?");
-
-	// fake spot
-	/*
-	if (0)
-	{
-		Fvector	P;			P.set(-5.58f,	-0.00f + 2, -3.63f);
-		Fvector	D;			D.set(0,-1,0);
-		light*	fake		= Create();
-		fake->set_type		(IRender_Light::SPOT);
-		fake->set_color		(1,1,1);
-		fake->set_cone		(deg2rad(60.f));
-		fake->set_direction	(D);
-		fake->set_position	(P);
-		fake->set_range		(3.f);
-		fake->set_active	(true);
-	}
-	*/
 }
 
-#if RENDER != R_R1
 void	CLight_DB::LoadHemi	()
 {
 	string_path fn_game;
@@ -153,7 +131,6 @@ void	CLight_DB::LoadHemi	()
 		FS.r_close(F);
 	}
 }
-#endif
 
 void			CLight_DB::Unload	()
 {
@@ -232,12 +209,8 @@ void			CLight_DB::Update			()
 		sun_adapted->set_position	(AP		);
 		sun_adapted->set_color				(E.sun_color.x * E.sun_lumscale, E.sun_color.y * E.sun_lumscale, E.sun_color.z * E.sun_lumscale);
 		sun_adapted->set_range		(600.f	);
-		
-		if (!::Render->is_sun_static())
-		{
-			sun_adapted->set_rotation (OD,_sun_original->right	);
-			sun_adapted->set_position (OP);
-		}
+		sun_adapted->set_rotation (OD,_sun_original->right	);
+		sun_adapted->set_position (OP);
 	}
 
 	// Clear selection

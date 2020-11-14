@@ -97,6 +97,9 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{f4e91cc4-c16a-4e60-a043-111c2c108207}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MemoryUtils">
+      <UniqueIdentifier>{fa2965b4-69e0-4386-8fae-9069a3d0877e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FTimer.cpp">
@@ -320,6 +323,9 @@
     </ClCompile>
     <ClCompile Include="FileCRC32.cpp">
       <Filter>Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="xrMemoryUtils.cpp">
+      <Filter>MemoryUtils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -649,6 +655,9 @@
     </ClInclude>
     <ClInclude Include="FileCRC32.h">
       <Filter>Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="xrMemoryUtils.h">
+      <Filter>MemoryUtils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

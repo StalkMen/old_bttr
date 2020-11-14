@@ -127,6 +127,9 @@ bool IGame_Level::Load(u32 dwNum)
     if (!g_hud)
         g_hud = (CCustomHUD*)NEW_INSTANCE(CLSID_HUDMANAGER);
 
+#pragma todo("OldSerpskiStalker. Fix crash level")
+    Msg("~ Fix level_unload");
+    Render->level_Unload();
     // Render-level Load
     Render->level_Load(LL_Stream);
     // tscreate.FrameEnd ();

@@ -374,6 +374,15 @@ void CControlJump::grounding()
 	{ 
 		SControlPathBuilderData		*ctrl_path = (SControlPathBuilderData*)m_man->data(this, ControlCom::eControlPath); 
 		VERIFY						(ctrl_path);
+
+#pragma todo("OldSerpskiStalker. Fix from OGSR")
+		//https://github.com/OGSR/OGSR-Engine/commit/b213e38dfea9e6baeb54a498b1c1dbfd1a7adf69
+		if (!ctrl_path)
+		{
+			stop();
+			return;
+		}
+
 		ctrl_path->enable			= true;
 		m_man->lock					(this, ControlCom::eControlPath);
 

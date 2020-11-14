@@ -363,14 +363,6 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 	}
 	sh_name[len] = '0' + char(o.sunfilter); ++len;
 
-	if (o.sunstatic) 
-	{
-		defines[def_it].Name = "USE_R2_STATIC_SUN";
-		defines[def_it].Definition = "1";
-		def_it++;
-	}
-	sh_name[len] = '0' + char(o.sunstatic); ++len;
-
 	if (o.forcegloss) 
 	{
 		xr_sprintf(c_gloss, "%f", o.forcegloss_v);

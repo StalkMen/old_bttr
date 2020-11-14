@@ -252,9 +252,7 @@ m_identifier(identifier)
     m_fSunShaftsIntensity = 0;
     m_fWaterIntensity = 1;
 
-#ifdef TREE_WIND_EFFECT
     m_fTreeAmplitudeIntensity = 0.01;
-#endif
 	
 	m_fFogShaders_height = 0;   
 	m_fFogShaders_density = 0;
@@ -338,10 +336,8 @@ void CEnvDescriptor::load(CEnvironment& environment, CInifile& config)
 	if (config.line_exist(m_identifier.c_str(), "fog_min_dist"))
         m_fFogShaders_min_dist = config.r_float(m_identifier.c_str(), "fog_min_dist");
 	
-#ifdef TREE_WIND_EFFECT
     if (config.line_exist(m_identifier.c_str(), (BttR_mode) ? "tree_amplitude" : "tree_amplitude_intensity"))
         m_fTreeAmplitudeIntensity = config.r_float(m_identifier.c_str(), (BttR_mode) ? "tree_amplitude" : "tree_amplitude_intensity");
-#endif
 	
 	sun_lumscale = config.line_exist(m_identifier.c_str(), "sun_lumscale") ? config.r_float(m_identifier.c_str(), "sun_lumscale") : 1.f;
     dof_value = config.line_exist(m_identifier.c_str(), "dof") ? config.r_fvector3(m_identifier.c_str(), "dof") : Fvector3().set(-1.25f, 1.4f, 600.f);
@@ -464,9 +460,7 @@ void CEnvDescriptorMixer::lerp(CEnvironment*, CEnvDescriptor& A, CEnvDescriptor&
 	m_fFogShaders_max_dist = fi * A.m_fFogShaders_max_dist + f * B.m_fFogShaders_max_dist;
 	m_fFogShaders_min_dist = fi * A.m_fFogShaders_min_dist + f * B.m_fFogShaders_min_dist;
 	
-#ifdef TREE_WIND_EFFECT
     m_fTreeAmplitudeIntensity = fi*A.m_fTreeAmplitudeIntensity + f*B.m_fTreeAmplitudeIntensity;
-#endif
 
     // colors
     //. sky_color.lerp (A.sky_color,B.sky_color,f).add(Mdf.sky_color).mul(modif_power);

@@ -9,6 +9,7 @@
 	#define NEW_CPU_LOAD												  					    // Mini-rework choice of processor cores
 	#define MULTICORE_ENGINE													  		        // Многоядерность процессора, снятие ограничения привязки на 1 ядро
 	#define FPS_LIMIT																			// Новый лимит FPS
+	#define FIX_GAME_INFO																		// Fix crash for fake section 'game_info'
 
 	//-' Миниреворк загрузочных сообщений
 	#define STAGE_1					"st_loading_saved_game_solyanka"			  // xrGame	+
@@ -60,13 +61,8 @@
 //	#define USE_GSC_MEM_ALLOC								// when this is undefined memory allocation for luajit is handled by luajit allocator
 //-CORE
 
-// VISUAL:
-	#define TREE_WIND_EFFECT								// configurable tree sway, can be used to have trees sway more during storms or lightly on clear days.
-//-VISUAL
-
 // TWEAKS:
 	//#define ACTOR_FEEL_GRENADE							// When undefined it disables the grenade HUD indicator for thrown grenades
-	//#define DYNAMIC_SUN_MOVEMENT							// use dynamic sun movement. If this is not defined sun will move as configured in weather ltx files
 //-TWEAKS
 
 // SOUND:

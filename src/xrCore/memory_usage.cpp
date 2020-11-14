@@ -47,7 +47,7 @@ size_t xrMemory::mem_usage()
         if (hinfo._useflag == _USEDENTRY)
             bytesUsed += hinfo._size;
     }
-#pragma todo("OldSerpskiStalker. OGSR fix #1")
+#pragma todo("OldSerpskiStalker. OGSR fix")
     switch (status)
     {
         case _HEAPEMPTY:

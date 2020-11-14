@@ -203,7 +203,13 @@ void CPseudoGigant_jumper::on_threaten_execute()
 	Level().ObjectSpace.GetNearest	(m_nearest,Position(), 15.f, NULL); 
 	for (u32 i=0;i<m_nearest.size();i++) {
 		CPhysicsShellHolder  *obj = smart_cast<CPhysicsShellHolder *>(m_nearest[i]);
-		if (!obj || !obj->m_pPhysicsShell) continue;
+#pragma todo("OldSerpskiStalker. Fix from OGSR")
+		//https://github.com/OGSR/OGSR-Engine/commit/298dff12851da90e8696360241573bab0864b698
+		if (
+			!obj || !obj->m_pPhysicsShell ||
+			(obj->spawn_ini() && obj->spawn_ini()->section_exist("ph_heavy")) ||
+			(pSettings->line_exist(obj->cNameSect().c_str(), "ph_heavy") && pSettings->r_bool(obj->cNameSect().c_str(), "ph_heavy"))
+			) continue;
 
 		Fvector dir;
 		Fvector pos;

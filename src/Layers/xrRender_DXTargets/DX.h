@@ -91,7 +91,7 @@ public:
         u32		mblur				: 1;
 
         u32		sunfilter			: 1;
-        u32		sunstatic			: 1;
+
         u32		sjitter				: 1;
         u32		noshadows			: 1;
         u32		Tshadows			: 1;						// transluent shadows
@@ -192,9 +192,6 @@ public:
     void							render_forward				();
     void							render_indirect				(light*			L	);
     void							render_lights				(light_Package& LP	);
-    void							render_sun					();
-    void							render_sun_near				();
-    void							render_sun_filtered			();
     void							render_menu					();
     void							render_rain					();
 
@@ -256,7 +253,6 @@ public:
     // feature level
     virtual	GenerationLevel			get_generation			()	{ return IRender_interface::GENERATION_R2; }
 
-    virtual bool					is_sun_static			()	{ return o.sunstatic;}
     virtual DWORD					get_dx_level			()	
 	{ 
 #ifdef USE_DX11

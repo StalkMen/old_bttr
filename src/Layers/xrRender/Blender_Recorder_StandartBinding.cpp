@@ -362,13 +362,44 @@ class cl_rain_params_new : public R_constant_setup {
 };
 static cl_rain_params_new binder_rain_params_new;
 
+class cl_inv_p : public R_constant_setup
+{
+	u32			marker;
+	Fmatrix		result;
+
+	virtual void setup(R_constant* C)
+	{
+		result.invert(Device.mProject);
+		RCache.set_c(C, result);
+	}
+};
+static cl_inv_p	binder_inv_p;
+
+static class cl_wind_params : public R_constant_setup
+{
+	u32 marker;
+	Fvector4 result;
+	virtual void setup(R_constant* C)
+	{
+		if (marker != Device.dwFrame)
+		{
+			CEnvDescriptor& E = *g_pGamePersistent->Environment().CurrentEnv;
+			result.set(E.wind_direction, E.wind_velocity, 0.0f, 0.0f);
+		}
+		RCache.set_c(C, result);
+	}
+}
+binder_wind_params;
+
 // Standart constant-binding
 void	CBlender_Compile::SetMapping	()
 {
 	r_Constant				("m_levelID",		&binder_level_id_params);
 	r_Constant				("clouds_velocity", &binder_clouds_velocity);
 	r_Constant				("ogse_c_rain", 	&binder_rain_params_new);
-	
+	r_Constant				("m_inv_P",			&binder_inv_p);
+	r_Constant				("wind_params",		&binder_wind_params);
+
 	// misc
 	r_Constant				("m_hud_params",	&binder_hud_params);	//--#SM+#--
 	r_Constant				("m_script_params", &binder_script_params); //--#SM+#--
