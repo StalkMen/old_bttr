@@ -664,6 +664,7 @@ ENGINE_API BOOL game_value_discord_status = 1;
 
 BOOL xrengint_noprefetch = 0;
 BOOL ps_rs_loading_stages = 0;
+BOOL advSettingsDiclaimerIsShown = 0;
 
 extern int g_ErrorLineCount;
 extern int	show_FPS_only = 0;
@@ -933,6 +934,7 @@ void CCC_Register()
     CMD3(CCC_Mask,      "xrEngine_xrRender_stats", &psDeviceFlags, rsRenderInfo);
     CMD4(CCC_Integer,   "xrEngine_noprefetch",  &xrengint_noprefetch, 0, 1);
     CMD4(CCC_Integer,   "xrEngine_discord",     &game_value_discord_status, 0, 1);
+    CMD4(CCC_Integer,   "xrEngine_adv_settings_diclaimer_is_shown", &advSettingsDiclaimerIsShown, 0, 1);
 
 #if 0
     CMD4(CCC_Integer,   "xrEngine_rs_fps_test", &show_FPS_only, 0, 1);
