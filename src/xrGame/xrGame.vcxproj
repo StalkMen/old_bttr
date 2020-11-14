@@ -693,10 +693,6 @@
     <ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_jumper.h" />
     <ClInclude Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_step_effector_jumper.h" />
     <ClInclude Include="ai\Monsters\psy_aura.h" />
-    <ClInclude Include="ai\monsters\rats\ai_rat.h" />
-    <ClInclude Include="ai\monsters\rats\ai_rat_impl.h" />
-    <ClInclude Include="ai\monsters\rats\ai_rat_inline.h" />
-    <ClInclude Include="ai\monsters\rats\ai_rat_space.h" />
     <ClInclude Include="ai\Monsters\scanning_ability.h" />
     <ClInclude Include="ai\Monsters\scanning_ability_inline.h" />
     <ClInclude Include="ai\Monsters\Snork\snork.h" />
@@ -1364,11 +1360,6 @@
     <ClInclude Include="queued_async_method.h" />
     <ClInclude Include="RadioactiveZone.h" />
     <ClInclude Include="random32.h" />
-    <ClInclude Include="rat_states.h" />
-    <ClInclude Include="rat_state_base.h" />
-    <ClInclude Include="rat_state_base_inline.h" />
-    <ClInclude Include="rat_state_manager.h" />
-    <ClInclude Include="rat_state_manager_inline.h" />
 	<ClInclude Include="raypick.h" />
     <ClInclude Include="refreshable_obstacles_query.h" />
     <ClInclude Include="refreshable_obstacles_query_inline.h" />
@@ -2298,38 +2289,6 @@
     <ClCompile Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_jumper.cpp" />
     <ClCompile Include="ai\Monsters\PseudoGigant_jumper\pseudo_gigant_step_effector_jumper.cpp" />
     <ClCompile Include="ai\Monsters\psy_aura.cpp" />
-    <ClCompile Include="ai\monsters\rats\ai_rat.cpp" />
-    <ClCompile Include="ai\monsters\rats\ai_rat_animations.cpp" />
-    <ClCompile Include="ai\monsters\rats\ai_rat_behaviour.cpp" />
-    <ClCompile Include="ai\monsters\rats\ai_rat_feel.cpp">
-      <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
-    </ClCompile>
-    <ClCompile Include="ai\monsters\rats\ai_rat_fire.cpp">
-      <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
-    </ClCompile>
-    <ClCompile Include="ai\monsters\rats\ai_rat_fsm.cpp">
-      <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="ai\monsters\rats\ai_rat_templates.cpp">
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
-    </ClCompile>
-    <ClCompile Include="ai\monsters\rats\rat_state_activation.cpp">
-      <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
-    </ClCompile>
-    <ClCompile Include="ai\monsters\rats\rat_state_initialize.cpp">
-      <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
-    </ClCompile>
-    <ClCompile Include="ai\monsters\rats\rat_state_switch.cpp">
-      <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
-    </ClCompile>
     <ClCompile Include="ai\Monsters\Snork\snork.cpp" />
     <ClCompile Include="ai\Monsters\Snork\snork_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
@@ -3056,9 +3015,6 @@
     <ClCompile Include="purchase_list.cpp" />
     <ClCompile Include="RadioactiveZone.cpp" />
     <ClCompile Include="random32.cpp" />
-    <ClCompile Include="rat_states.cpp" />
-    <ClCompile Include="rat_state_base.cpp" />
-    <ClCompile Include="rat_state_manager.cpp" />
     <ClCompile Include="raypick.cpp" />
     <ClCompile Include="relation_registry.cpp" />
     <ClCompile Include="relation_registry_actions.cpp">
