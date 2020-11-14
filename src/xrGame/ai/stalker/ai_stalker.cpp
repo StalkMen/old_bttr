@@ -95,6 +95,7 @@ CAI_Stalker::CAI_Stalker			() :
 	m_dbg_hud_draw					= false;
 #endif // DEBUG
 	m_registered_in_combat_on_migration	= false;
+	lastHittedInHead_				= false;
 }
 
 CAI_Stalker::~CAI_Stalker			()
@@ -196,6 +197,7 @@ void CAI_Stalker::reinit			()
 	}
 
 	m_update_rotation_on_frame						= false;
+	lastHittedInHead_				= false;
 }
 
 void CAI_Stalker::LoadSounds		(LPCSTR section)
@@ -480,7 +482,7 @@ void CAI_Stalker::Die				(CObject* who)
 		//sound().set_sound_mask		((u32)eStalkerSoundMaskDie);
 		if (is_special_killer(who))
 			sound().play			(eStalkerSoundDieInAnomaly);
-		else
+		else if (!lastHittedInHead_) // dont play sound when head shoted
 			sound().play			(eStalkerSoundDie);
 	}
 	
