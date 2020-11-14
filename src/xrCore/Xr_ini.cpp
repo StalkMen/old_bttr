@@ -540,10 +540,12 @@ CInifile::Sect& CInifile::r_section(LPCSTR S)const
 LPCSTR CInifile::r_string(LPCSTR S, LPCSTR L)const
 {
     Sect const& I = r_section(S);
-    SectCIt A = std::lower_bound(I.Data.begin(), I.Data.end(), L, item_pred);
-    if (A != I.Data.end() && xr_strcmp(*A->first, L) == 0) return *A->second;
+    SectCIt	A = std::lower_bound(I.Data.begin(), I.Data.end(), L, item_pred);
+
+    if (A != I.Data.end() && xr_strcmp(*A->first, L) == 0)
+        return *A->second;
     else
-        Debug.fatal(DEBUG_INFO, "Can't find variable %s in [%s]", L, S);
+        Debug.fatal(DEBUG_INFO, "Can't find variable(line) %s in section [%s]", L, S);
     return 0;
 }
 
