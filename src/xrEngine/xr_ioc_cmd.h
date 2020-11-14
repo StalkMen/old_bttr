@@ -361,6 +361,47 @@ public:
     }
 };
 
+class ENGINE_API CCC_BOOL : public IConsole_Command
+{
+protected:
+    BOOL* value;
+    BOOL min, max;
+public:
+    const BOOL GetValue() const { return *value; };
+    void GetBounds(BOOL& imin, BOOL& imax) const { imin = min; imax = max; }
+
+    CCC_BOOL(LPCSTR N, BOOL* V, BOOL _min = 0, BOOL _max = 999) :
+        IConsole_Command(N),
+        value(V),
+        min(_min),
+        max(_max)
+    {};
+
+    virtual void Execute(LPCSTR args)
+    {
+        BOOL v = atoi(args);
+        if (v<min || v>max) 
+            InvalidSyntax();
+        else 
+            *value = v;
+    }
+    virtual void Status(TStatus& S)
+    {
+        itoa(*value, S, 10);
+    }
+    virtual void Info(TInfo& I)
+    {
+        xr_sprintf(I, sizeof(I), "BOOL value in range [%d,%d]", min, max);
+    }
+    virtual void fill_tips(vecTips& tips, u32 mode)
+    {
+        TStatus str;
+        xr_sprintf(str, sizeof(str), "%d (current) [%d,%d]", *value, min, max);
+        tips.push_back(str);
+        IConsole_Command::fill_tips(tips, mode);
+    }
+};
+
 class ENGINE_API CCC_String : public IConsole_Command
 {
 protected:
