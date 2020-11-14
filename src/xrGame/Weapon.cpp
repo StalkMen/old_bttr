@@ -39,7 +39,6 @@ ENGINE_API extern float psHUD_FOV_def;
 BOOL	b_toggle_weapon_aim = FALSE;
 extern CUIXml*	pWpnScopeXml = NULL;
 extern BOOL game_value_ammo_belt;
-extern BOOL g_use_aim_inertion;
 
 CWeapon::CWeapon()
 {
@@ -1883,7 +1882,7 @@ void CWeapon::OnZoomIn()
     else 
 		SetZoomFactor(psActorFlags.test(AF_3DSCOPE_ENABLE) ? m_zoom_params.m_f3dZoomFactor : m_fRTZoomFactor);
 
-    EnableHudInertion(g_use_aim_inertion);
+//    EnableHudInertion(FALSE);
 
     if (m_zoom_params.m_bZoomDofEnabled && !IsScopeAttached())
         GamePersistent().SetEffectorDOF(m_zoom_params.m_ZoomDof);
@@ -1920,7 +1919,7 @@ void CWeapon::OnZoomOut()
 	
     m_zoom_params.m_bIsZoomModeNow = false;
     SetZoomFactor(g_fov);
-    EnableHudInertion(TRUE);
+//    EnableHudInertion(TRUE);
 
     GamePersistent().RestoreEffectorDOF();
 

@@ -34,7 +34,6 @@ Fvector _wpn_root_pos;
 #define ORIGIN_OFFSET_AIM_OLD -0.03f    // (Для прицеливания)
 
 const float _CalcMotionSpeed = 1.f;
-extern BOOL g_use_aim_inertion;
 
 float CalcMotionSpeed(const shared_str& anim_name)
 {
@@ -670,7 +669,7 @@ void player_hud::update_inertion(Fmatrix& trans)
 		
 		// load params
 		hud_item_measures::inertion_params inertion_data;
-		if (g_use_aim_inertion && pMainHud != NULL)
+		if (pMainHud)
 		{ // Загружаем параметры инерции из основного худа
 			inertion_data.m_pitch_offset_r			= pMainHud->m_measures.m_inertion_params.m_pitch_offset_r;
 			inertion_data.m_pitch_offset_n			= pMainHud->m_measures.m_inertion_params.m_pitch_offset_n;
@@ -707,48 +706,6 @@ void player_hud::update_inertion(Fmatrix& trans)
 			inertion_data.m_min_angle_aim			= INERT_MIN_ANGLE_AIM;
 		}
 		
-		// Very FPS sensitive and hard to control
-		/*
-		// calc difference
-		Fvector								diff_dir;
-		diff_dir.sub(xform.k, st_last_dir);
-
-		// clamp by PI_DIV_2
-		Fvector last;						last.normalize_safe(st_last_dir);
-		float dot = last.dotproduct(xform.k);
-		if (dot < EPS) {
-			Fvector v0;
-			v0.crossproduct(st_last_dir, xform.k);
-			st_last_dir.crossproduct(xform.k, v0);
-			diff_dir.sub(xform.k, st_last_dir);
-		}
-
-		// tend to forward
-		float _tendto_speed, _origin_offset;
-		if (pMainHud != NULL && pMainHud->m_parent_hud_item->GetCurrentHudOffsetIdx() > 0)
-		{ // Худ в режиме "Прицеливание"
-			float factor = pMainHud->m_parent_hud_item->GetInertionFactor();
-			_tendto_speed = inertion_data.m_tendto_speed_aim - (inertion_data.m_tendto_speed_aim - inertion_data.m_tendto_speed) * factor;
-			_origin_offset =
-				inertion_data.m_origin_offset_aim - (inertion_data.m_origin_offset_aim - inertion_data.m_origin_offset) * factor;
-		}
-		else
-		{ // Худ в режиме "От бедра"
-			_tendto_speed = inertion_data.m_tendto_speed;
-			_origin_offset = inertion_data.m_origin_offset;
-		}
-
-		// Фактор силы инерции
-		if (pMainHud != NULL)
-		{
-			float power_factor = pMainHud->m_parent_hud_item->GetInertionPowerFactor();
-			_tendto_speed *= power_factor;
-			_origin_offset *= power_factor;
-		}
-
-		st_last_dir.mad(diff_dir, _tendto_speed * Device.fTimeDelta);
-		origin.mad(diff_dir, _origin_offset);
-		*/
 		// pitch compensation
 		float pitch = angle_normalize_signed(xform.k.getP());
 		if (pMainHud != NULL)
