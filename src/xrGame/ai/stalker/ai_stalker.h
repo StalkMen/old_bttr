@@ -127,7 +127,12 @@ private:
 	float							m_fRankDisperison;
 	float							m_fRankVisibility;
 	float							m_fRankImmunity;
+
 	bool							lastHittedInHead_;
+	int								noviceSayPraseChance_;
+	int								experiencedSayPraseChance_;
+	int								veteranSayPraseChance_;
+	int								masterSayPraseChance_;
 
 	// best item/ammo selection members
 public:
@@ -137,6 +142,7 @@ public:
 	CInventoryItem					*m_best_ammo;
 	const CInventoryItem			*m_best_found_item_to_kill;
 	const CInventoryItem			*m_best_found_ammo;
+	int								GetTalkingChanceWhenFighting();
 
 	// covers being used
 public:

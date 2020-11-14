@@ -1626,6 +1626,7 @@
     <ClInclude Include="traffic_optimization.h" />
     <ClInclude Include="trajectories.h" />
     <ClInclude Include="UICursor.h" />
+	<ClInclude Include="XRayGameConstants.h" />
     <ClInclude Include="UIDialogHolder.h" />
     <ClInclude Include="UIGameCustom.h" />
     <ClInclude Include="UIGameSP.h" />
@@ -3497,6 +3498,7 @@
     <ClCompile Include="traffic_optimization.cpp" />
     <ClCompile Include="trajectories.cpp" />
     <ClCompile Include="UICursor.cpp" />
+	<ClCompile Include="XRayGameConstants.cpp" />
     <ClCompile Include="UIDialogHolder.cpp" />
     <ClCompile Include="UIGameCustom.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>

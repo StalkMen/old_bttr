@@ -17,6 +17,7 @@
 #include "profiler.h"
 #include "sound_collection_storage.h"
 #include "object_broker.h"
+#include "ai/stalker/ai_stalker.h"
 
 CSoundPlayer::CSoundPlayer			(CObject *object)
 {
@@ -169,7 +170,10 @@ void CSoundPlayer::play				(u32 internal_type, u32 max_start_time, u32 min_start
 {
 	if (!check_sound_legacy(internal_type))
 		return;
-	
+
+	if (!CheckNPCDifficultyForPlaying(internal_type))
+		return;
+
 	SOUND_COLLECTIONS::iterator	I = m_sounds.find(internal_type);
 	VERIFY						(m_sounds.end() != I);
 	CSoundCollectionParamsFull	&sound = (*I).second.first;
@@ -188,21 +192,7 @@ void CSoundPlayer::play				(u32 internal_type, u32 max_start_time, u32 min_start
 	R_ASSERT					  (sound_single.m_bone_id != BI_NONE);
 
 	sound_single.m_sound		= xr_new<ref_sound>();
-	/**
-	sound_single.m_sound->clone	(
-		*(*I).second.second->m_sounds[
-			id == u32(-1)
-			?
-			(*I).second.second->random(
-				(*I).second.second->m_sounds.size()
-			)
-			:
-			id
-		],
-		st_Effect,
-		sg_SourceType
-	);
-	/**/
+	
 	sound_single.m_sound->clone	(
 		(*I).second.second->random(id),
 		st_Effect,
@@ -308,4 +298,50 @@ const ref_sound &CSoundPlayer::CSoundCollection::random	(const u32 &id)
 
 	m_last_sound_id			= result;
 	return					(*m_sounds[result]);
+}
+
+bool CSoundPlayer::CheckNPCDifficultyForPlaying(u32 sound_mask)
+{
+	CAI_Stalker* npc = smart_cast<CAI_Stalker*>(m_object);
+
+	if (!npc)
+		return true;
+
+	switch (sound_mask)
+	{
+		case StalkerSpace::EStalkerSounds::eStalkerSoundDie:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundDieInAnomaly:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundInjuring:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundHumming:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundAlarm:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundAttackNoAllies:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundAttackAlliesSingleEnemy:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundAttackAlliesSeveralEnemies:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundBackup:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundDetour:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundSearch1WithAllies:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundSearch1NoAllies:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundEnemyLostNoAllies:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundEnemyLostWithAllies:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundInjuringByFriend:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundPanicHuman:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundPanicMonster:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundTolls:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundWounded:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundGrenadeAlarm:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundFriendlyGrenadeAlarm:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundNeedBackup:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundRunningInDanger:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundKillWounded:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundEnemyCriticallyWounded:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundEnemyKilledOrWounded:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundThrowGrenade:
+		case StalkerSpace::EStalkerSounds::eStalkerSoundScript:
+			if (Random.randI(1, 100) < npc->GetTalkingChanceWhenFighting())
+				return true;
+			else
+				return false;
+	}
+
+	return true;
 }

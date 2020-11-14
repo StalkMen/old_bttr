@@ -60,6 +60,7 @@
 #include "smart_cover_animation_selector.h"
 #include "smart_cover_animation_planner.h"
 #include "smart_cover_planner_target_selector.h"
+#include "../../XRayGameConstants.h"
 
 #ifdef DEBUG
 #	include "../../alife_simulator.h"
@@ -528,6 +529,30 @@ void CAI_Stalker::Load				(LPCSTR section)
 	m_pPhysics_support->in_Load		(section);
 
 	m_can_select_items				= !!pSettings->r_bool(section,"can_select_items");
+
+	noviceSayPraseChance_ = READ_IF_EXISTS(pSettings, r_s32, section, "say_phrase_chance_novice", 100);
+	experiencedSayPraseChance_ = READ_IF_EXISTS(pSettings, r_s32, section, "say_phrase_chance_experinced", 80);
+	veteranSayPraseChance_ = READ_IF_EXISTS(pSettings, r_s32, section, "say_phrase_chance_veteran", 50);
+	masterSayPraseChance_ = READ_IF_EXISTS(pSettings, r_s32, section, "say_phrase_chance_master", 20);
+}
+
+int CAI_Stalker::GetTalkingChanceWhenFighting()
+{
+	CInventoryOwner* owner = cast_inventory_owner();
+
+	if (owner)
+	{
+		if (owner->Rank() >= GameConstants::GetMasterRankStart())
+			return masterSayPraseChance_;
+		else if (owner->Rank() >= GameConstants::GetVeteranRankStart())
+			return veteranSayPraseChance_;
+		else if (owner->Rank() >= GameConstants::GetExperiencesRankStart())
+			return experiencedSayPraseChance_;
+		else
+			return noviceSayPraseChance_;
+	}
+
+	return noviceSayPraseChance_;
 }
 
 BOOL CAI_Stalker::net_Spawn			(CSE_Abstract* DC)

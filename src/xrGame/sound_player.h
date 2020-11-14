@@ -157,6 +157,7 @@ public:
 	IC		void		sound_prefix				(const shared_str &sound_prefix);
 	IC	const shared_str &sound_prefix				() const;
 			void 		clear_playing_sounds		();
+			bool		CheckNPCDifficultyForPlaying(u32 sound_mask);
 };
 
 #include "sound_player_inline.h"
