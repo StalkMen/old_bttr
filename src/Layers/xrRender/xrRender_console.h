@@ -9,9 +9,6 @@ extern ECORE_API    BOOL		ps_use_precompiled_shaders;
 extern ECORE_API    BOOL		ps_grass_shadow;
 //-Alundaio
 
-extern ECORE_API	u32			ps_r_sun_shafts;	//=	0;
-extern ECORE_API	xr_token	qsun_shafts_token[];
-
 extern ECORE_API	u32			ps_r3_minmax_sm;//	=	0;
 extern ECORE_API	xr_token	qminmax_sm_token[];
 

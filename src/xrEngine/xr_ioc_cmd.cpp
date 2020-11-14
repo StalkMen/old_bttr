@@ -808,6 +808,15 @@ xr_token qssao_token[] = {
     { nullptr,			0 }
 };
 
+ENGINE_API u32	ps_r_sun_shafts = 2;
+xr_token qsun_shafts_token[] = {
+    { "st_opt_off",	    0 },
+    { "st_opt_low",		1 },
+    { "st_opt_medium",	2 },
+    { "st_opt_high",	3 },
+    { nullptr,			0 }
+};
+
 ENGINE_API Flags32 p_engine_flags32 = { /*ITS_CLEAR_1_4_22 |*/R2FLAGEXT_SSAO_HALF_DATA };
 
 class	CCC_SSAO : public CCC_Token
@@ -901,6 +910,7 @@ void CCC_Register()
     {
         CMD3(CCC_Token, "xrRenderDX_video_size", &render_video_size, render_video_size_token);
         CMD3(CCC_Token, "r2_sun_quality", &ps_r_sun_quality, qsun_quality_token);
+        CMD3(CCC_Token, "r2_sun_shafts", &ps_r_sun_shafts, qsun_shafts_token);
 
         CMD3(CCC_SSAO, "r2_ssao_mode", &ps_r_ssao_mode, qssao_mode_token);
         CMD3(CCC_Token, "r2_ssao", &ps_r_ssao, qssao_token);

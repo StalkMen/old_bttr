@@ -153,14 +153,6 @@ static class cl_volumetric_fog_param : public R_constant_setup
 	}
 }	binder_volumetric_fog;
 
-extern ENGINE_API BOOL r2_advanced_pp;	//	advanced post process and effects
-extern ENGINE_API BOOL render_dx10_1;
-extern ENGINE_API u32  renderer_value;
-
-extern ENGINE_API u32  ps_r3_msaa;
-extern ENGINE_API u32  ps_r3_msaa_atest;
-extern ENGINE_API u32  ps_r_ssao;
-extern ENGINE_API Flags32 p_engine_flags32;
 //////////////////////////////////////////////////////////////////////////
 // Just two static storage
 void					CRender::create					()

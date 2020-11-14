@@ -365,5 +365,16 @@ private:
     FS_FileSet						m_file_set;
 };
 
+extern ENGINE_API BOOL              r2_advanced_pp;	//	advanced post process and effects
+extern ENGINE_API BOOL              render_dx10_1;
+
 extern ENGINE_API u32               ps_r_sun_quality;
-extern CRender						RImplementation;
+extern ENGINE_API u32               renderer_value;
+
+extern ENGINE_API u32               ps_r3_msaa;
+extern ENGINE_API u32               ps_r3_msaa_atest;
+extern ENGINE_API u32               ps_r_ssao;
+extern ENGINE_API u32               ps_r_sun_shafts;
+
+extern ENGINE_API Flags32           p_engine_flags32;
+extern            CRender			RImplementation;

@@ -18,15 +18,6 @@ xr_token							qpreset_token							[ ]={
 	{ nullptr,						0											}
 };
 
-u32			ps_r_sun_shafts				=	2;
-xr_token							qsun_shafts_token							[ ]={
-	{ "st_opt_off",					0												},
-	{ "st_opt_low",					1												},
-	{ "st_opt_medium",				2												},
-	{ "st_opt_high",				3												},
-	{ nullptr,						0												}
-};
-
 u32			ps_r3_minmax_sm			=	3;			//	=	0;
 xr_token							qminmax_sm_token					[ ]={
 	{ "off",						0												},
@@ -822,7 +813,6 @@ void		xrRender_initconsole()
 	CMD3(CCC_Mask,  "r2_dof_weather", &ps_r2_ls_flags_ext, R2FLAGEXT_DOF_WEATHER); 
 	
 	CMD3(CCC_Mask, "r2_volumetric_lights", &ps_r2_ls_flags, R2FLAG_VOLUMETRIC_LIGHTS);
-	CMD3(CCC_Token, "r2_sun_shafts", &ps_r_sun_shafts, qsun_shafts_token);
 
 	CMD3(CCC_Mask, "r4_enable_tessellation", &ps_r2_ls_flags_ext, R2FLAGEXT_ENABLE_TESSELLATION);//Need restart
 	CMD3(CCC_Mask, "r4_wireframe", &ps_r2_ls_flags_ext, R2FLAGEXT_WIREFRAME);//Need restart
