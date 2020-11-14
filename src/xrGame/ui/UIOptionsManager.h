@@ -17,9 +17,11 @@ public:
 	void DoVidRestart						();
 	void DoSndRestart						();
 	void DoSystemRestart					();
+	void DoLevelRestart						();
 
 	bool NeedSystemRestart					()	{return 0 != (m_restart_flags&e_system_restart);}
 	bool NeedVidRestart						()	{return 0 != (m_restart_flags&e_vid_restart);}
+	bool NeedLevelRestart					()  {return 0 != (m_restart_flags & e_level_restart);}
 	void SendMessage2Group					(const shared_str& group, const char* message);
 
 	void RegisterItem						(CUIOptionsItem* item, const shared_str& group);
@@ -34,6 +36,12 @@ protected:
 
 	groups	m_groups;
 	
-	enum {e_vid_restart=(1<<0), e_snd_restart=(1<<1), e_system_restart=(1<<2)};
+	enum 
+	{ 
+		e_vid_restart = (1 << 0),
+		e_snd_restart = (1 << 1),
+		e_system_restart = (1 << 2),
+		e_level_restart = (1 << 3)
+	};
 	u16		m_restart_flags;
 };

@@ -126,17 +126,16 @@ bool CUIXmlInit::InitOptionsItem(CUIXml& xml_doc, LPCSTR path, int index, CUIOpt
 		{
 			CUIOptionsItem::ESystemDepends d = CUIOptionsItem::sdNothing;
 
-			if(0==stricmp(depends,"vid"))
+			if (0==stricmp(depends,"vid"))
 				d = CUIOptionsItem::sdVidRestart;
-			else
-			if(0==stricmp(depends,"snd"))
-				d = CUIOptionsItem::sdSndRestart;
-			else
-			if(0==stricmp(depends,"restart"))
-				d = CUIOptionsItem::sdSystemRestart;
-			else
-			if(0==stricmp(depends,"runtime"))
-				d = CUIOptionsItem::sdApplyOnChange;
+			else if(0==stricmp(depends,"snd"))
+					d = CUIOptionsItem::sdSndRestart;
+			else if(0==stricmp(depends,"restart"))
+					d = CUIOptionsItem::sdSystemRestart;
+			else if(0==stricmp(depends,"runtime"))
+					d = CUIOptionsItem::sdApplyOnChange;
+			else if (0 == stricmp(depends, "level_restart"))
+					d = CUIOptionsItem::sdLevelRestart;
 			else
 				Msg("! unknown param [%s] in optionsItem [%s]", depends, entry.c_str());
 
