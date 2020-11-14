@@ -850,6 +850,47 @@ void LevelHoldAction(EGameActions cmd)
 	Level().IR_OnKeyboardHold(cmd);
 }
 
+int RandomInteger0()
+{
+	int rondo = Random.randI();
+	return rondo;
+}
+
+int RandomInteger1(int max)
+{
+	int rondo = Random.randI(max);
+
+	return rondo;
+}
+
+int RandomInteger2(int min, int max)
+{
+	int rondo = Random.randI(min, max);
+
+	return rondo;
+}
+
+float RandomFloat0()
+{
+	float rondo = Random.randF();
+
+	return rondo;
+}
+
+float RandomFloat1(float max)
+{
+	float rondo = Random.randF(max);
+
+	return rondo;
+}
+
+float RandomFloat2(float min, float max)
+{
+	float rondo = Random.randF(min, max);
+
+	return rondo;
+}
+
 #pragma optimize("s",on)
 void CLevel::script_register(lua_State *L)
 {
@@ -1077,4 +1118,13 @@ void CLevel::script_register(lua_State *L)
 	def("reload_language",		&reload_language)
 
 	];
+	module(L, "Random")
+		[
+			def("I", &RandomInteger0),
+			def("I", &RandomInteger1),
+			def("I", &RandomInteger2),
+			def("F", &RandomFloat0),
+			def("F", &RandomFloat1),
+			def("F", &RandomFloat2)
+		];
 }
