@@ -1181,14 +1181,20 @@ bool CWeaponMagazined::Action(u16 cmd, u32 flags)
 						return false;
 
 					PIItem Det = Actor()->inventory().ItemFromSlot(DETECTOR_SLOT);
-					if (!Det)
-						Reload(); // Rietmon: Если в слоте нету детектора, то он не может быть активен
+                    if (!Det)
+                    {
+                        Reload(); // Rietmon: Если в слоте нету детектора, то он не может быть активен
+                        g_pGamePersistent->m_DataExport->ReloadActive(true); //OldSerpskiStalker: При перезарядке включаем доф оружия
+                    }
 
 					if (Det)
 					{
 						CCustomDetector* pDet = smart_cast<CCustomDetector*>(Det);
-						if (!pDet->IsWorking())
-							Reload();
+                        if (!pDet->IsWorking())
+                        {
+                            Reload();
+                            g_pGamePersistent->m_DataExport->ReloadActive(true);
+                        }
 					}
 				}
     }

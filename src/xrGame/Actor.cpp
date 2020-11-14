@@ -397,6 +397,7 @@ void CActor::Load(LPCSTR section)
 		{
 			g_pGamePersistent->m_pGShaderConstants->m_blender_mode.set(0.f, 0.f, 0.f, 0.f);
             g_pGamePersistent->m_DataExport->ZoomActive(false);
+            g_pGamePersistent->m_DataExport->ReloadActive(false);
 		}
     }
     
@@ -980,9 +981,13 @@ void CActor::UpdateCL()
 
             SetZoomAimingMode(true);
             g_pGamePersistent->m_DataExport->ZoomActive(true);
+            g_pGamePersistent->m_DataExport->ReloadActive(false);
         }
         else
+        {
             g_pGamePersistent->m_DataExport->ZoomActive(false);
+            g_pGamePersistent->m_DataExport->ReloadActive(false);
+        }
 
         if (Level().CurrentEntity() && this->ID() == Level().CurrentEntity()->ID())
         {
@@ -1039,6 +1044,8 @@ void CActor::UpdateCL()
 			
 			//CWeapon::UpdateSecondVP();
 			Device.m_SecondViewport.SetSVPActive(false); //--#SM+#-- +SecondVP+
+
+            g_pGamePersistent->m_DataExport->ReloadActive(false);
         }
     }
 

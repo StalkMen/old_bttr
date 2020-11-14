@@ -469,7 +469,8 @@ void	CRenderTarget::phase_combine	()
 
 		if (!Device.m_SecondViewport.IsSVPActive())
 			if (!g_pGamePersistent->m_DataExport->IsZoomActive())
-				g_pGamePersistent->SetBaseDof(dof_value);
+				if (g_pGamePersistent->m_DataExport->IsReloadActive())
+					g_pGamePersistent->SetBaseDof(dof_value);
 		
 		//	Set up variable
 		Fvector2	vDofKernel;
