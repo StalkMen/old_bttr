@@ -1147,16 +1147,21 @@ void CCharacterPhysicsSupport::PHGetLinearVell(Fvector &velocity)
 		
 }
 
+extern BOOL useInverseKinematics_;
 void CCharacterPhysicsSupport::CreateIKController()
 {
+	if (!useInverseKinematics_)
+		return;
 
 	VERIFY(!m_ik_controller);
 	m_ik_controller=xr_new<CIKLimbsController>();
 	m_ik_controller->Create(&m_EntityAlife);
-	
 }
+
 void CCharacterPhysicsSupport::DestroyIKController()
 {
+	if (!useInverseKinematics_)
+		return;
 	if(!m_ik_controller)return;
 	m_ik_controller->Destroy(&m_EntityAlife);
 	xr_delete(m_ik_controller);

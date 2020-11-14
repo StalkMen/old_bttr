@@ -1852,6 +1852,7 @@ BOOL _fake_start = 0;
 BOOL update_loot_pick_soc = 1;
 BOOL game_value_ammo_belt = 0;
 BOOL collision_wpn = 1;
+BOOL useInverseKinematics_ = 1; // CPU Intensive, asspecialy, if not using mt_kinematics flag ON
 extern BOOL g_b_COD_PickUpMode;
 
 // Change weather immediately
@@ -1916,6 +1917,7 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Integer, "xrGame_fake_start", &_fake_start, 0, 1);
 	CMD4(CCC_Integer, "xrGame_update_loot_pick_soc", &update_loot_pick_soc, 0, 1);
 	CMD4(CCC_Integer, "xrGame_collision_wpn", &collision_wpn, 0, 1);
+	CMD4(CCC_Integer, "xrGame_inverse_kinematics", &useInverseKinematics_, 0, 1);
 
 	CMD4(CCC_Float, "hud_adj_delta_pos", &hud_adj_delta_pos, 0.0001f, 1.0f);
 	CMD4(CCC_Float, "hud_adj_delta_rot", &hud_adj_delta_rot, 0.0001f, 1.0f);
