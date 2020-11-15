@@ -37,6 +37,7 @@
 #include "alife_object_registry.h"
 #include "xrServer_Objects_ALife_Monsters.h"
 #include "hudmanager.h"
+#include "monster_community.h"
 
 #include "raypick.h"
 #include "../xrcdb/xr_collide_defs.h"
@@ -686,6 +687,11 @@ void g_set_community_relation( LPCSTR comm_from, LPCSTR comm_to, int value )
 	RELATION_REGISTRY().SetCommunityRelation( community_from.index(), community_to.index(), value );
 }
 
+void set_monster_relation(LPCSTR from, LPCSTR to, int rel)
+{
+	MONSTER_COMMUNITY::set_relation((MONSTER_COMMUNITY_ID)from, (MONSTER_COMMUNITY_ID)to, rel);
+}
+
 int g_get_general_goodwill_between ( u16 from, u16 to)
 {
 	CHARACTER_GOODWILL presonal_goodwill		= RELATION_REGISTRY().GetGoodwill(from, to); VERIFY(presonal_goodwill != NO_GOODWILL);
@@ -1008,7 +1014,9 @@ void CLevel::script_register(lua_State *L)
 		def("vertex_id",						&vertex_id),
 
 		def("game_id",							&GameID),
-    	def("ray_pick", &ray_pick)    
+    	def("ray_pick",							&ray_pick),
+
+		def("set_monster_relation",				&set_monster_relation)
 	],
 	
 	module(L,"actor_stats")
