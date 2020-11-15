@@ -178,21 +178,43 @@ void CUIActorMenu::SendMessage(CUIWindow* pWnd, s16 msg, void* pData)
 	CUIWndCallback::OnEvent		(pWnd, msg, pData);
 }
 
+#include "ai_space.h"
+#include "script_engine.h"
+
+extern BOOL g_hand_hide_inventory;
 void CUIActorMenu::Show(bool status)
 {
-	inherited::Show							(status);
-	if(status)
+	CActor* pActor = smart_cast<CActor*>(Level().CurrentEntity());
+	inherited::Show(status);
+	if (status)
 	{
-		SetMenuMode							(m_currMenuMode);
-		PlaySnd								(eSndOpen);
-		m_ActorStateInfo->UpdateActorInfo	(m_pActorInvOwner);
-	}else
-	{
-		PlaySnd								(eSndClose);
-		SetMenuMode							(mmUndefined);
-		Actor()->RepackAmmo					();
+		SetMenuMode(m_currMenuMode);
+		PlaySnd(eSndOpen);
+		m_ActorStateInfo->UpdateActorInfo(m_pActorInvOwner);
+
+		if (pActor && g_hand_hide_inventory && BttR_mode)
+		{
+			LPCSTR status1;
+			LUA_EXPORT m_functor;
+			R_ASSERT(_SCRIPT_ENGINE("_export_touch_of_ray.actor_v_inv_status_true", m_functor));
+			status1 = m_functor();
+		}
 	}
-	m_ActorStateInfo->Show					(status);
+	else
+	{
+		PlaySnd(eSndClose);
+		SetMenuMode(mmUndefined);
+		Actor()->RepackAmmo();
+
+		if (pActor && g_hand_hide_inventory && BttR_mode)
+		{
+			LPCSTR status0;
+			LUA_EXPORT m_functor;
+			R_ASSERT(_SCRIPT_ENGINE("_export_touch_of_ray.actor_v_inv_status_false", m_functor));
+			status0 = m_functor();
+		}
+	}
+	m_ActorStateInfo->Show(status);
 }
 
 void CUIActorMenu::Draw()
