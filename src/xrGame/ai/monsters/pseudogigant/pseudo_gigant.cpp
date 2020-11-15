@@ -255,7 +255,8 @@ void CPseudoGigant::on_threaten_execute()
 		if (
 			!obj || !obj->m_pPhysicsShell ||
 			(obj->spawn_ini() && obj->spawn_ini()->section_exist("ph_heavy")) ||
-			(pSettings->line_exist(obj->cNameSect().c_str(), "ph_heavy") && pSettings->r_bool(obj->cNameSect().c_str(), "ph_heavy"))
+			(pSettings->line_exist(obj->cNameSect().c_str(), "ph_heavy") && pSettings->r_bool(obj->cNameSect().c_str(), "ph_heavy")) ||
+			(pSettings->line_exist(obj->cNameSect().c_str(), "quest_item") && pSettings->r_bool(obj->cNameSect().c_str(), "quest_item"))
 			) continue;
 
 		Fvector dir;
