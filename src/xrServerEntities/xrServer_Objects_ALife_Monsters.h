@@ -122,7 +122,7 @@ add_to_type_list(CSE_ALifeTrader)
 #define script_type_list save_type_list(CSE_ALifeTrader)
 
 SERVER_ENTITY_DECLARE_BEGIN(CSE_ALifeCustomZone,CSE_ALifeSpaceRestrictor)
-//.	f32								m_maxPower;
+	f32								m_maxPower;
 	ALife::EHitType					m_tHitType;
 	u32								m_owner_id;
 	u32								m_enabled_time;
@@ -152,7 +152,7 @@ SERVER_ENTITY_DECLARE_BEGIN(CSE_ALifeAnomalousZone,CSE_ALifeCustomZone)
 	virtual u32						ef_weapon_type			() const;
 	virtual u32						ef_creature_type		() const;
 #ifdef XRGAME_EXPORTS
-//			void					spawn_artefacts			();
+			void					spawn_artefacts			();
 	virtual void					on_spawn				();
 	virtual	CSE_ALifeItemWeapon		*tpfGetBestWeapon		(ALife::EHitType		&tHitType,				float &fHitPower);
 	virtual	ALife::EMeetActionType	tfGetActionType			(CSE_ALifeSchedulable	*tpALifeSchedulable,	int iGroupIndex, bool bMutualDetection);

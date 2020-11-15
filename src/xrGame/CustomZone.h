@@ -5,6 +5,7 @@
 
 class CActor;
 class CLAItem;
+class CArtefact;
 class CParticlesObject;
 class CZoneEffector;
 
@@ -24,6 +25,7 @@ struct SZoneObjectInfo
 	//время прибывания в зоне
 	u32						dw_time_in_zone;
 	float					f_time_affected;
+	bool					death_in_zone;
 
 	bool operator == (const CGameObject* O) const {return object==O;}
 };
@@ -34,6 +36,7 @@ class CCustomZone :		public CSpaceRestrictor,
 {
 private:
     typedef	CSpaceRestrictor inherited;
+	virtual		void	SpawnArtefact					();
 
 public:
 	CZoneEffector*		m_actor_effector;
@@ -48,6 +51,9 @@ public:
 	virtual		void	net_Export						(NET_Packet& P);
 	virtual		void	Load							(LPCSTR section);
 	virtual		void	net_Destroy						();
+				void	OnOwnershipTake					(u16 id);
+				//выброс артефактов из зоны
+				void	ThrowOutArtefact				(CArtefact* pArtefact);
 
 	virtual		void	save							(NET_Packet &output_packet);
 	virtual		void	load							(IReader &input_packet);
@@ -68,6 +74,10 @@ public:
 
 				float	GetMaxPower						()							{return m_fMaxPower;}
 				void	SetMaxPower						(float p)					{m_fMaxPower = p;}
+				//рождение артефакта в зоне, во время ее срабатывания
+				//и присоединение его к зоне
+				void	BornArtefact					(bool forced);
+				void	PrefetchArtefacts				();
 
 	//вычисление силы хита в зависимости от расстояния до центра зоны
 	//относительный размер силы (от 0 до 1)
@@ -109,6 +119,10 @@ protected:
 		eIdleLightR1			=(1<<15),
 		eBoltEntranceParticles	=(1<<16),
 		eUseSecondaryHit		=(1<<17),
+		eSpawnBlowoutArtefacts  =(1<<18),
+		eBirthOnNonAlive		=(1<<19),
+		eBirthOnAlive			=(1<<20),
+		eBirthOnDead			=(1<<21),
 	};
 	u32					m_owner_id;
 	u32					m_ttl;
@@ -126,6 +140,35 @@ protected:
 	//размер радиуса в процентах от оригинального, 
 	//где действует зона
 	float				m_fEffectiveRadius;
+
+	//срабатывании аномалии
+	float					m_fArtefactSpawnProbability;
+	//высота над центром зоны, где будет появляться артефакт
+	float					m_fArtefactSpawnHeight;
+	// bak / флаг для рождения артефакта
+	bool					m_bBornOnBlowoutFlag;
+
+	//имя партиклов, которые проигрываются во время и на месте рождения артефакта
+	shared_str				m_sArtefactSpawnParticles;
+	//звук рождения артефакта
+	ref_sound				m_ArtefactBornSound;
+
+	// bak вероятность спавна при смерти в зоне
+	float					m_fArtefactSpawnOnDeathProbability;
+
+	//величина импульса выкидывания артефакта из зоны
+	float					 m_fThrowOutPower;
+
+	struct ARTEFACT_SPAWN
+	{
+		shared_str	section;
+		float		probability;
+	};
+
+	DEFINE_VECTOR(ARTEFACT_SPAWN, ARTEFACT_SPAWN_VECTOR, ARTEFACT_SPAWN_IT);
+	ARTEFACT_SPAWN_VECTOR	m_ArtefactSpawn;
+	DEFINE_VECTOR(CArtefact*, ARTEFACT_VECTOR, ARTEFACT_VECTOR_IT);
+	ARTEFACT_VECTOR			m_SpawnedArtefacts;
 
 	//тип наносимого хита
 	ALife::EHitType		m_eHitTypeBlowout;
