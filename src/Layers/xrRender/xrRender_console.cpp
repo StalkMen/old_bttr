@@ -48,14 +48,6 @@ float		ps_r__WallmarkTTL			= 50.f	;
 float		ps_r__WallmarkSHIFT			= 0.0001f;
 float		ps_r__WallmarkSHIFT_V		= 0.0001f;
 
-float		ps_r__GLOD_ssa_start		= 256.f	;
-float		ps_r__GLOD_ssa_end			=  64.f	;
-float		ps_r__LOD					=  0.75f	;
-//. float		ps_r__LOD_Power				=  1.5f	;
-float		ps_r__ssaDISCARD			=  3.5f	;					//RO
-float		ps_r__ssaDONTSORT			=  32.f	;					//RO
-float		ps_r__ssaHZBvsTEX			=  96.f	;					//RO
-
 int			ps_r__tf_Anisotropic		= 8		;
 float		ps_r1_pps_u					= 0.f	;
 float		ps_r1_pps_v					= 0.f	;
@@ -619,6 +611,19 @@ float ps_volumetric_quality = 0.35f;
 float xrRenderFilteringSaturationImage = 0.f;
 float render_gamma = 0.f;
 
+// Base factor values
+FLOAT ps_r__GLOD_ssa_start		= 256.f;
+FLOAT ps_r__GLOD_ssa_end		= 64.f;
+FLOAT ps_r__ssaDISCARD			= 3.5f;
+FLOAT ps_r__ssaHZBvsTEX			= 96.f;
+
+// Distance factor values
+FLOAT ps_r__geomLodSpriteDistF_ = 0.75f;
+FLOAT ps_r__geomDiscardDistF_	= 0.75f;
+FLOAT ps_r__geomLodDistF_		= 0.75f;
+FLOAT ps_r__geomNTextureDistF_  = 0.75f;
+FLOAT ps_r__geomDTextureDistF_  = 0.75f;
+
 int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
 
@@ -665,6 +670,14 @@ void		xrRender_initconsole()
 
 	CMD4(CCC_Float, "xrRenderGammaHLSL",				 &render_gamma,						0.f, 3.f);
 
+	CMD4(CCC_FLOAT, "r__ssa_glod_start",				 &ps_r__GLOD_ssa_start,				128, 512);
+	CMD4(CCC_FLOAT, "r__ssa_glod_end",					 &ps_r__GLOD_ssa_end,				16, 96);
+	CMD4(CCC_FLOAT, "r__lod_sprite_dist_f",				 &ps_r__geomLodSpriteDistF_,		0.1f, 3.0f);
+	CMD4(CCC_FLOAT, "r__geom_quality_dist_f",			 &ps_r__geomLodDistF_,				0.1f, 3.0f);
+	CMD4(CCC_FLOAT, "r__geom_discard_dist_f",			 &ps_r__geomDiscardDistF_,			0.1f, 3.0f);
+	CMD4(CCC_FLOAT, "r__dtexture_dist_f",				 &ps_r__geomDTextureDistF_,			0.1f, 3.0f);
+	CMD4(CCC_FLOAT, "r__ntexture_dist_f",				 &ps_r__geomNTextureDistF_,			0.1f, 3.0f);
+
 	{
 		tw_min.set(0, 0, 0);
 		tw_max.set(2, 3, 1);
@@ -689,15 +702,12 @@ void		xrRender_initconsole()
 #ifdef DEBUG
 	CMD1(CCC_BuildSSA, "build_ssa");
 	CMD4(CCC_Integer, "r__lsleep_frames", &ps_r__LightSleepFrames, 4, 30);
-	CMD4(CCC_Float, "r__ssa_glod_start", &ps_r__GLOD_ssa_start, 128, 512);
-	CMD4(CCC_Float, "r__ssa_glod_end", &ps_r__GLOD_ssa_end, 16, 96);
 	CMD4(CCC_Float, "r__wallmark_shift_pp", &ps_r__WallmarkSHIFT, 0.0f, 1.f);
 	CMD4(CCC_Float, "r__wallmark_shift_v", &ps_r__WallmarkSHIFT_V, 0.0f, 1.f);
 	CMD1(CCC_ModelPoolStat, "stat_models");
 #endif // DEBUG
 	CMD4(CCC_Float, "r__wallmark_ttl", &ps_r__WallmarkTTL, 1.0f, 5.f * 60.f);
 
-	CMD4(CCC_Float, "r__geometry_lod", &ps_r__LOD, 0.1f, 1.5f);
 	CMD4(CCC_Float, "r__detail_density", &ps_current_detail_density/*&ps_r__Detail_density*/, 0.04f/*.2f*/, 0.6f); //AVO: extended from 0.2 to 0.04 and replaced variable
 	CMD4(CCC_Float, "r__detail_scale", &ps_current_detail_scale, 0.5f, 2.0f);
 

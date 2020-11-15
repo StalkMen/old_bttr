@@ -276,7 +276,45 @@ public:
         tips.push_back(str);
         IConsole_Command::fill_tips(tips, mode);
     }
+};
 
+class ENGINE_API CCC_FLOAT : public IConsole_Command
+{
+protected:
+    FLOAT* value;
+    FLOAT min, max;
+public:
+    CCC_FLOAT(LPCSTR N, FLOAT* V, FLOAT _min = 0, FLOAT _max = 1) :
+        IConsole_Command(N),
+        value(V),
+        min(_min),
+        max(_max)
+    {};
+    const FLOAT GetValue() const { return *value; };
+    void GetBounds(FLOAT& fmin, FLOAT& fmax) const { fmin = min; fmax = max; }
+
+    virtual void Execute(LPCSTR args)
+    {
+        FLOAT v = FLOAT(atof(args));
+        if (v<(min - EPS) || v>(max + EPS)) InvalidSyntax();
+        else *value = v;
+    }
+    virtual void Status(TStatus& S)
+    {
+        xr_sprintf(S, sizeof(S), "%3.5f", *value);
+        while (xr_strlen(S) && ('0' == S[xr_strlen(S) - 1])) S[xr_strlen(S) - 1] = 0;
+    }
+    virtual void Info(TInfo& I)
+    {
+        xr_sprintf(I, sizeof(I), "FLOAT value in range [%3.3f,%3.3f]", min, max);
+    }
+    virtual void fill_tips(vecTips& tips, u32 mode)
+    {
+        TStatus str;
+        xr_sprintf(str, sizeof(str), "%3.5f (current) [%3.3f,%3.3f]", *value, min, max);
+        tips.push_back(str);
+        IConsole_Command::fill_tips(tips, mode);
+    }
 };
 
 class ENGINE_API CCC_Vector3 : public IConsole_Command
