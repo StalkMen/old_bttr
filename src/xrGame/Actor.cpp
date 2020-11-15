@@ -783,7 +783,7 @@ void CActor::Die(CObject* who)
         {
             LPCSTR game_over1;
             LUA_EXPORT m_functor1;
-            R_ASSERT(ai().script_engine().functor("_export_touch_of_ray.game_over_script", m_functor1));
+            R_ASSERT(_SCRIPT_ENGINE("_export_touch_of_ray.game_over_script", m_functor1));
             game_over1 = m_functor1();
         }
     }

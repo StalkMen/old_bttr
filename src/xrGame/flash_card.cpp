@@ -60,7 +60,7 @@ bool CFlashCard::UseBy (CEntityAlive* entity_alive)
 
 	LPCSTR							flash_use;
 	LUA_EXPORT						m_functor_flash;
-	R_ASSERT						(ai().script_engine().functor("_export_touch_of_ray.flash_info_use", m_functor_flash));
+	R_ASSERT						(_SCRIPT_ENGINE("_export_touch_of_ray.flash_info_use", m_functor_flash));
 	flash_use						= m_functor_flash();
 
 	return inherited::UseBy(entity_alive);

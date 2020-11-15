@@ -1138,11 +1138,21 @@ void CGameObject::OnRender			()
 
 #include "doors_door.h"
 #include "doors.h"
+#include "Actor.h"
 bool CGameObject::use(CGameObject* who_use)
 {
 	VERIFY(who_use);
 	if (this->lua_game_object() && this->lua_game_object()->m_door && (this->lua_game_object()->m_door->is_blocked(doors::door_state_open) || this->lua_game_object()->m_door->is_blocked(doors::door_state_closed)))
 		return false;
+
+	if (Actor() && BttR_mode)
+	{
+		LPCSTR animation_door;
+		LUA_EXPORT m_functor;
+		R_ASSERT(_SCRIPT_ENGINE("_export_touch_of_ray.animation_door_open", m_functor));
+		animation_door = m_functor();
+		Msg("# Actor open door");
+	}
 
 	this->callback(GameObject::eUseObject)(lua_game_object(), who_use->lua_game_object());
 
