@@ -157,6 +157,7 @@ enum
 	R_FLAGEXT_HOM_DEPTH_DRAW		= (1<<3),
 	R2FLAGEXT_SUN_ZCULLING			= (1<<4),
 	R2FLAGEXT_DOF_WEATHER 			= (1<<5),
+	R2FLAGEXT_SUN_FLARES			= (1<<6),
 };
 
 //Swartz: actor shadow

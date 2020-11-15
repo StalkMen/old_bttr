@@ -76,7 +76,7 @@ Flags32		ps_r2_ls_flags				= { R2FLAG_SUN
 	|R2FLAG_VOLUMETRIC_LIGHTS
 	};	// r2-only
 
-Flags32		ps_r2_ls_flags_ext			= { R2FLAGEXT_ENABLE_TESSELLATION | R2FLAGEXT_DOF_WEATHER };
+Flags32		ps_r2_ls_flags_ext			= { R2FLAGEXT_ENABLE_TESSELLATION | R2FLAGEXT_SUN_FLARES | R2FLAGEXT_DOF_WEATHER };
 
 BOOL		ps_clear_models_on_unload	= 0; //Alundaio
 BOOL		ps_use_precompiled_shaders = 0; //Alundaio
@@ -665,6 +665,8 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "xrRenderDX_volum_intensity",		 &ps_volumetric_intensity,			-1.f, 1.f);
 	CMD4(CCC_Float, "xrRenderDX_volum_distance",		 &ps_volumetric_distance,			0.f, 2.f);
 	CMD4(CCC_Float, "xrRenderDX_volum_quality",			 &ps_volumetric_quality,			0.f, 1.f);
+
+	CMD3(CCC_Mask, "xrRenderDX10_sun_flares",			 &ps_r2_ls_flags_ext,				R2FLAGEXT_SUN_FLARES);
 
 	CMD4(CCC_Float, "xrRenderFilteringSaturationImage",  &xrRenderFilteringSaturationImage,	-1.f, 2.f);
 

@@ -498,8 +498,8 @@ void	CRenderTarget::phase_combine	()
 	}
 	RCache.set_Stencil		(FALSE);
 
-	//	if FP16-BLEND !not! supported - draw flares here, overwise they are already in the bloom target
-	/* if (!RImplementation.o.fp16_blend)*/	g_pGamePersistent->Environment().RenderFlares	();	// lens-flares
+	if (ps_r2_ls_flags_ext.test(R2FLAGEXT_SUN_FLARES))
+		g_pGamePersistent->Environment().RenderFlares	();	// lens-flares
 
 	//	PP-if required
 	if (PP_Complex)		
