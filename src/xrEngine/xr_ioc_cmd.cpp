@@ -671,6 +671,7 @@ extern int	show_FPS_only = 0;
 
 ENGINE_API float ps_r2_sun_shafts_min = 0.f;
 ENGINE_API float ps_r2_sun_shafts_value = 1.f;
+ENGINE_API int game_console_show = 1;
 
 ENGINE_API u32 g_screenmode = 1;
 xr_token screen_mode_tokens[] =
@@ -828,7 +829,6 @@ xr_token qtess_quality_token[] =
 { nullptr, 0 }
 };
 
-
 ENGINE_API Flags32 p_engine_flags32 = { /*ITS_CLEAR_1_4_22 |*/R2FLAGEXT_SSAO_HALF_DATA };
 
 class	CCC_SSAO : public CCC_Token
@@ -836,68 +836,114 @@ class	CCC_SSAO : public CCC_Token
 public:
     CCC_SSAO(LPCSTR N, u32* V, xr_token* T) : CCC_Token(N, V, T) {};
 
-    virtual void	Execute(LPCSTR args) {
+    virtual void	Execute(LPCSTR args) 
+    {
         CCC_Token::Execute(args);
 
         switch (*value)
         {
-        case 0:
-        {
-            ps_r_ssao = 0;
-            p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
-            break;
-        }
-        case 1:
-        {
-            if (ps_r_ssao == 0)
+            case 0:
             {
-                ps_r_ssao = 1;
+                ps_r_ssao = 0;
+                p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
+                break;
             }
-            p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_HALF_DATA, false);
-            break;
-        }
-        case 2:
-        {
-            if (ps_r_ssao == 0)
+            case 1:
             {
-                ps_r_ssao = 1;
+                if (ps_r_ssao == 0)
+                {
+                    ps_r_ssao = 1;
+                }
+                p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_HALF_DATA, false);
+                break;
             }
-            p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, true);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_OPT_DATA, false);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_HALF_DATA, false);
-            break;
-        }
-        case 3:
-        {
-            if (ps_r_ssao == 0)
+            case 2:
             {
-                ps_r_ssao = 1;
+                if (ps_r_ssao == 0)
+                {
+                    ps_r_ssao = 1;
+                }
+                p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, true);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_OPT_DATA, false);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_HALF_DATA, false);
+                break;
             }
-            p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, true);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_OPT_DATA, true);
-            break;
-        }
-        case 4:
-        {
-            if (ps_r_ssao == 0)
+            case 3:
             {
-                ps_r_ssao = 1;
+                if (ps_r_ssao == 0)
+                {
+                    ps_r_ssao = 1;
+                }
+                p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, true);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_OPT_DATA, true);
+                break;
             }
-            p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, true);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
-            p_engine_flags32.set(R2FLAGEXT_SSAO_OPT_DATA, true);
-            break;
+            case 4:
+            {
+                if (ps_r_ssao == 0)
+                {
+                    ps_r_ssao = 1;
+                }
+                p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, true);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
+                p_engine_flags32.set(R2FLAGEXT_SSAO_OPT_DATA, true);
+                break;
+            }
         }
+    }
+};
+
+ENGINE_API u32	ps_crosshair_mode = 0;
+xr_token crosshair_mode_token[] =
+{
+    { "standart_crosshair",     0 },
+    { "collide_crosshair",      1 },
+    { "inertion_crosshair",     2 },
+    { nullptr,    0 }
+};
+
+class	CCC_Crosshair : public CCC_Token
+{
+public:
+    CCC_Crosshair(LPCSTR N, u32* V, xr_token* T) : CCC_Token(N, V, T) {};
+
+    virtual void	Execute(LPCSTR args) 
+    {
+        CCC_Token::Execute(args);
+
+        switch (*value)
+        {
+            case 0:
+            {
+                p_engine_flags32.set(AF_CROSSHAIR_STANDART, true);
+                p_engine_flags32.set(AF_CROSSHAIR_INERT, false);
+                p_engine_flags32.set(AF_CROSSHAIR_COLLIDE, false);
+                break;
+            }
+            case 1:
+            {
+                p_engine_flags32.set(AF_CROSSHAIR_STANDART, false);
+                p_engine_flags32.set(AF_CROSSHAIR_INERT, false);
+                p_engine_flags32.set(AF_CROSSHAIR_COLLIDE, true);
+                break;
+            }
+            case 2:
+            {
+                p_engine_flags32.set(AF_CROSSHAIR_STANDART, false);
+                p_engine_flags32.set(AF_CROSSHAIR_INERT, true);
+                p_engine_flags32.set(AF_CROSSHAIR_COLLIDE, false);
+                break;
+            }
         }
     }
 };
@@ -948,6 +994,12 @@ void CCC_Register()
     CMD4(CCC_Integer,   "xrEngine_noprefetch",  &xrengint_noprefetch, 0, 1);
     CMD4(CCC_Integer,   "xrEngine_discord",     &game_value_discord_status, 0, 1);
     CMD4(CCC_Integer,   "xrEngine_adv_settings_diclaimer_is_shown", &advSettingsDiclaimerIsShown, 0, 1);
+    CMD4(CCC_Integer,   "xrEngine_game_console_show_value", &game_console_show, 0, 1);
+
+    CMD3(CCC_Crosshair, "xrEngine_crosshair", &ps_crosshair_mode, crosshair_mode_token);
+    CMD3(CCC_Mask,      "xrEngine_hud_crosshair_collide", &p_engine_flags32, AF_CROSSHAIR_COLLIDE);
+    CMD3(CCC_Mask,      "xrEngine_hud_crosshair_inert", &p_engine_flags32, AF_CROSSHAIR_INERT);
+    CMD3(CCC_Mask,      "xrEngine_hud_crosshair_standart", &p_engine_flags32, AF_CROSSHAIR_STANDART);
 
 #if 0
     CMD4(CCC_Integer,   "xrEngine_rs_fps_test", &show_FPS_only, 0, 1);
