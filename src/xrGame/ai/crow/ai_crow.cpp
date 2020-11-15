@@ -170,6 +170,11 @@ BOOL CAI_Crow::net_Spawn		(CSE_Abstract* DC)
 	}
 	
 	VERIFY2( valid_pos( Position() ), dbg_valide_pos_string(Position(),this,"CAI_Crow::net_Spawn") );
+	auto tmp = Position();
+	tmp.x = tmp.x + ::Random.randF(-50.0f, 50.0f);
+	tmp.y = tmp.y + ::Random.randF(20.0f, 50.0f);
+	tmp.z = tmp.z + ::Random.randF(-50.0f, 50.0f);
+	Position().set(tmp);
 	return		R;
 }
 
