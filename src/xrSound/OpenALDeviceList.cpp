@@ -99,7 +99,7 @@ void ALDeviceList::Enumerate()
 
 		index				= 0;
 		// go through device list (each device terminated with a single NULL, list terminated with double NULL)
-		while(*devices != NULL) 
+		while (*devices != '\0')
 		{
 			ALCdevice *device		= alcOpenDevice(devices);
 			if (device) 
@@ -126,11 +126,11 @@ void ALDeviceList::Enumerate()
 						if(alIsExtensionPresent("EAX5.0"))
 							m_devices.back().props.eax		= 5;	
 
-						m_devices.back().props.efx			= (alIsExtensionPresent("ALC_EXT_EFX") == TRUE);
+						m_devices.back().props.efx			= alcIsExtensionPresent(device, "ALC_EXT_EFX") == AL_TRUE;
 						m_devices.back().props.xram			= (alIsExtensionPresent("EAX_RAM") == TRUE);
 
-						m_devices.back().props.eax_unwanted	= ((0==xr_strcmp(actualDeviceName,AL_GENERIC_HARDWARE))||
-															(0==xr_strcmp(actualDeviceName,AL_GENERIC_SOFTWARE)));
+						m_devices.back().props.eax_unwanted = 0;
+
 						++index;
 					}
 					alcDestroyContext(context);
