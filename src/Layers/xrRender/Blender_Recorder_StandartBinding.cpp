@@ -391,6 +391,17 @@ static class cl_wind_params : public R_constant_setup
 }
 binder_wind_params;
 
+class cl_m_v2w : public R_constant_setup
+{
+	virtual void setup(R_constant* C)
+	{
+		Fmatrix m_v2w;
+		m_v2w.invert(Device.mView);
+		RCache.set_c(C, m_v2w);
+	}
+};
+static cl_m_v2w binder_m_v2w;
+
 // Standart constant-binding
 void	CBlender_Compile::SetMapping	()
 {
@@ -399,6 +410,7 @@ void	CBlender_Compile::SetMapping	()
 	r_Constant				("ogse_c_rain", 	&binder_rain_params_new);
 	r_Constant				("m_inv_P",			&binder_inv_p);
 	r_Constant				("wind_params",		&binder_wind_params);
+	r_Constant				("m_v2w",			&binder_m_v2w);
 
 	// misc
 	r_Constant				("m_hud_params",	&binder_hud_params);	//--#SM+#--
