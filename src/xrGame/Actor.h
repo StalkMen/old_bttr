@@ -224,6 +224,7 @@ protected:
     float					m_hit_slowmo;
     float					m_hit_probability;
     s8						m_block_sprint_counter;
+    bool                    m_hit_slowmo_jump;
 
     // media
     SndShockEffector*		m_sndShockEffector;

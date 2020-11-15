@@ -19,6 +19,7 @@ void CActor::script_register(lua_State *L)
 	[
 		class_<CActor,CGameObject>("CActor")
 			.def(constructor<>())
+			.def_readwrite("hit_slowmo", &CActor::m_hit_slowmo)
 			
 #ifndef	BENCHMARK_BUILD
 		,

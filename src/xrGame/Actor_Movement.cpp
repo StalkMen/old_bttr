@@ -30,6 +30,10 @@ static const float	s_fJumpTime			= 0.3f;
 static const float	s_fJumpGroundTime	= 0.1f;	// для снятия флажка Jump если на земле
 	   const float	s_fFallTime			= 0.2f;
 
+			 float  f_CoefReturnSpeed	= 11.5f; // Rietmon: этот коэф. * DT 
+			 float  s_fDecreaseSpeed	= 14.f; // Rietmon: насколько уменьшаем скорость после прыжка
+			 float  m_fDecreaseWalkAccel;
+
 IC static void generate_orthonormal_basis1(const Fvector& dir,Fvector& updir, Fvector& right)
 {
 
@@ -203,6 +207,8 @@ void CActor::g_cl_CheckControls(u32 mstate_wf, Fvector &vControlAccel, float &Ju
 		}
 		// jump
 		m_fJumpTime				-=	dt;
+		if (m_fDecreaseWalkAccel > 0) m_fDecreaseWalkAccel -= dt * f_CoefReturnSpeed;
+		if (m_fDecreaseWalkAccel < 0) m_fDecreaseWalkAccel = 0;
 
 		if( CanJump() && (mstate_wf&mcJump) )
 		{
@@ -231,6 +237,7 @@ void CActor::g_cl_CheckControls(u32 mstate_wf, Fvector &vControlAccel, float &Ju
 			
 			Jump = jumpSpd;
 			m_fJumpTime = s_fJumpTime;
+			m_fDecreaseWalkAccel = s_fDecreaseSpeed;
 
 			//уменьшить силу игрока из-за выполненого прыжка
 			if (!GodMode())
@@ -284,7 +291,7 @@ void CActor::g_cl_CheckControls(u32 mstate_wf, Fvector &vControlAccel, float &Ju
 			float	scale			= vControlAccel.magnitude();
 			if(scale>EPS)	
 			{
-				float accel_k = m_fWalkAccel;
+				float accel_k = (m_fWalkAccel - m_fDecreaseWalkAccel) / scale;
 
 				TIItemContainer::iterator it = inventory().m_belt.begin();
 				TIItemContainer::iterator ite = inventory().m_belt.end();
@@ -630,8 +637,8 @@ bool CActor::CanSprint()
 bool CActor::CanJump()
 {
 	bool can_Jump = 
-        !conditions().IsCantSprint() && !character_physics_support()->movement()->PHCapture() &&((mstate_real&mcJump)==0) && (m_fJumpTime<=0.f) 
-		&& !m_bJumpKeyPressed &&!IsZoomAimingMode();
+        !conditions().IsCantSprint() && !character_physics_support()->movement()->PHCapture() &&
+		((mstate_real & mcJump) == 0) && (m_fJumpTime <= 0.f) && (!m_hit_slowmo_jump || fis_zero(m_hit_slowmo)) && !m_bJumpKeyPressed && !IsZoomAimingMode();
 
 	return can_Jump;
 }

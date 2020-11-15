@@ -54,13 +54,6 @@ void CActor::OnEvent(NET_Packet& P, u16 type)
 			if( inventory().CanTakeItem(smart_cast<CInventoryItem*>(_GO)) )
 			{
 				Obj->H_SetParent		(smart_cast<CObject*>(this));
-				
-#ifdef MP_LOGGING
-				string64 act;
-				xr_strcpy( act, (type == GE_TRADE_BUY)? "buys" : "takes" );
-				Msg("--- Actor [%d][%s]  %s  [%d][%s]", ID(), Name(), act, _GO->ID(), _GO->cNameSect().c_str());
-#endif // MP_LOGGING
-				
 				inventory().Take	(_GO, false, true);
 			
 				SelectBestWeapon(Obj);
@@ -98,13 +91,7 @@ void CActor::OnEvent(NET_Packet& P, u16 type)
 			Obj->SetTmpPreDestroy			(just_before_destroy);
 			
 			CGameObject * GO = smart_cast<CGameObject*>(Obj);
-			
-#ifdef MP_LOGGING
-			string64 act;
-			xr_strcpy( act, (type == GE_TRADE_SELL)? "sells" : "rejects" );
-			Msg("--- Actor [%d][%s]  %s  [%d][%s]", ID(), Name(), act, GO->ID(), GO->cNameSect().c_str());
-#endif // MP_LOGGING
-			
+
 			VERIFY( GO->H_Parent() );
 			if ( !GO->H_Parent() )
 			{
@@ -137,13 +124,6 @@ void CActor::OnEvent(NET_Packet& P, u16 type)
 				{
 					P.r_vec3(dropPosition);
 					GO->MoveTo(dropPosition);
-					//Other variant :)
-					/*NET_Packet MovePacket;
-					MovePacket.w_begin(M_MOVE_ARTEFACTS);
-					MovePacket.w_u8(1);
-					MovePacket.w_u16(id);
-					MovePacket.w_vec3(dropPosition);
-					u_EventSend(MovePacket);*/
 				}
 			}
 
@@ -162,7 +142,6 @@ void CActor::OnEvent(NET_Packet& P, u16 type)
 			s32 ShotRndSeed = P.r_s32();
 			if (!IsGameTypeSingle() && !g_Alive())
 			{
-//				Msg("! WARNING: dead player tries to rize inventory action");
 				break;
 			}
 									
@@ -187,17 +166,13 @@ void CActor::OnEvent(NET_Packet& P, u16 type)
 			P.r_u16		(id);
 			CObject* Obj	= Level().Objects.net_Find	(id);
 
-//			R_ASSERT2( Obj, make_string("GEG_PLAYER_ITEM_EAT(use): Object not found. object_id = [%d]", id).c_str() );
 			VERIFY2  ( Obj, make_string("GEG_PLAYER_ITEM_EAT(use): Object not found. object_id = [%d]", id).c_str() );
 			if ( !Obj ) {
-//				Msg                 ( "! GEG_PLAYER_ITEM_EAT(use): Object not found. object_id = [%d]", id );
 				break;
 			}
 
-//			R_ASSERT2( !Obj->getDestroy(), make_string("GEG_PLAYER_ITEM_EAT(use): Object is destroying. object_id = [%d]", id).c_str() );
 			VERIFY2  ( !Obj->getDestroy(), make_string("GEG_PLAYER_ITEM_EAT(use): Object is destroying. object_id = [%d]", id).c_str() );
 			if ( Obj->getDestroy() ) {
-//				Msg                                ( "! GEG_PLAYER_ITEM_EAT(use): Object is destroying. object_id = [%d]", id );
 				break;
 			}
 
@@ -211,7 +186,6 @@ void CActor::OnEvent(NET_Packet& P, u16 type)
 			if ( type == GEG_PLAYER_ACTIVATEARTEFACT )
 			{
 				CArtefact* pArtefact = smart_cast<CArtefact*>(Obj);
-	//			R_ASSERT2( pArtefact, make_string("GEG_PLAYER_ACTIVATEARTEFACT: Artefact not found. artefact_id = [%d]", id).c_str() );
 				VERIFY2  ( pArtefact, make_string("GEG_PLAYER_ACTIVATEARTEFACT: Artefact not found. artefact_id = [%d]", id).c_str() );
 				if ( !pArtefact ) {
 					Msg                       ( "! GEG_PLAYER_ACTIVATEARTEFACT: Artefact not found. artefact_id = [%d]", id );
@@ -257,7 +231,7 @@ void CActor::OnEvent(NET_Packet& P, u16 type)
 		{
 			s8 cmd				= P.r_s8();
 			m_block_sprint_counter = m_block_sprint_counter+cmd;
-			Msg("m_block_sprint_counter=%d",m_block_sprint_counter);
+			Msg("# m_block_sprint_counter = %d", m_block_sprint_counter);
 			if(m_block_sprint_counter>0)
 			{
 				mstate_wishful	&=~mcSprint;
@@ -315,16 +289,6 @@ void CActor::OnEvent(NET_Packet& P, u16 type)
 		}break;
 	case GE_ACTOR_JUMPING:
 		{
-			/*
-			Fvector dir;
-			P.r_dir(dir);
-			float jump = P.r_float();
-			NET_SavedAccel = dir;
-			extern float NET_Jump;
-			NET_Jump = jump;
-			m_bInInterpolation = false;
-			mstate_real |= mcJump;
-			*/
 		}break;
 	}
 }

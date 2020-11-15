@@ -226,6 +226,7 @@ CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
 	m_bNightVisionOn = false;
 
     bCanUse = true;
+    m_hit_slowmo = 0.f;
 }
 
 
@@ -355,6 +356,8 @@ void CActor::Load(LPCSTR section)
     character_physics_support()->movement()->SetAirControlParam(AirControlParam);
 
     m_fPickupInfoRadius = pSettings->r_float(section, "pickup_info_radius");
+
+    m_hit_slowmo_jump = READ_IF_EXISTS(pSettings, r_bool, section, "hit_slowmo_jump", true);
 
 //Alundaio
 #ifdef ACTOR_FEEL_GRENADE
