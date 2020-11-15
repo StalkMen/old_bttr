@@ -667,6 +667,7 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "xrRenderDX_volum_quality",			 &ps_volumetric_quality,			0.f, 1.f);
 
 	CMD3(CCC_Mask, "xrRenderDX10_sun_flares",			 &ps_r2_ls_flags_ext,				R2FLAGEXT_SUN_FLARES);
+	CMD3(CCC_Mask, "xrRenderDX10_dof_weather",			 &ps_r2_ls_flags_ext,				R2FLAGEXT_DOF_WEATHER);
 
 	CMD4(CCC_Float, "xrRenderFilteringSaturationImage",  &xrRenderFilteringSaturationImage,	-1.f, 2.f);
 
@@ -824,7 +825,6 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "r2_dof_kernel", &ps_r2_dof_kernel_size, .0f, 10.f);
 	CMD4(CCC_Float, "r2_dof_sky", &ps_r2_dof_sky, -10000.f, 10000.f);
 	CMD3(CCC_Mask, "r2_dof_enable", &ps_r2_ls_flags, R2FLAG_DOF);
-	CMD3(CCC_Mask,  "r2_dof_weather", &ps_r2_ls_flags_ext, R2FLAGEXT_DOF_WEATHER); 
 	
 	CMD3(CCC_Mask, "r2_volumetric_lights", &ps_r2_ls_flags, R2FLAG_VOLUMETRIC_LIGHTS);
 
