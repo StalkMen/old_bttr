@@ -24,6 +24,7 @@
 
 #define MAX_SATIETY					1.0f
 #define START_SATIETY				0.5f
+extern ENGINE_API Flags32 p_engine_flags32;
 
 BOOL	GodMode	()	
 { 
@@ -943,18 +944,10 @@ bool CActorCondition::ApplyInfluence(const SMedicineInfluenceValues& V, const sh
 	if(m_curr_medicine_influence.InProcess())
 		return false;
 
-	if (m_object->Local() && m_object == Level().CurrentViewEntity())
-	{
-		if(pSettings->line_exist(sect, "use_sound"))
-		{
-			if(m_use_sound._feedback())
-				m_use_sound.stop		();
-
-			shared_str snd_name			= pSettings->r_string(sect, "use_sound");
-			m_use_sound.create			(snd_name.c_str(), st_Effect, sg_SourceType);
-			m_use_sound.play			(NULL, sm_2D);
-		}
-	}
+	if (!p_engine_flags32.test(FLAG_MORE_REALISM))
+		sound_use(sect);
+	else
+		sound_use_realistic(sect);
 
 	if(V.fTimeTotal<0.0f)
 		return inherited::ApplyInfluence	(V, sect);
@@ -963,22 +956,15 @@ bool CActorCondition::ApplyInfluence(const SMedicineInfluenceValues& V, const sh
 	m_curr_medicine_influence.fTimeCurrent  = m_curr_medicine_influence.fTimeTotal;
 	return true;
 }
+
 bool CActorCondition::ApplyBooster(const SBooster& B, const shared_str& sect)
 {
 	if(B.fBoostValue>0.0f)
 	{
-		if (m_object->Local() && m_object == Level().CurrentViewEntity())
-		{
-			if(pSettings->line_exist(sect, "use_sound"))
-			{
-				if(m_use_sound._feedback())
-					m_use_sound.stop		();
-
-				shared_str snd_name			= pSettings->r_string(sect, "use_sound");
-				m_use_sound.create			(snd_name.c_str(), st_Effect, sg_SourceType);
-				m_use_sound.play			(NULL, sm_2D);
-			}
-		}
+		if (!p_engine_flags32.test(FLAG_MORE_REALISM))
+			sound_use(sect);
+		else
+			sound_use_realistic(sect);
 
 		BOOSTER_MAP::iterator it = m_booster_influences.find(B.m_type);
 		if (it != m_booster_influences.end())
@@ -996,6 +982,37 @@ bool CActorCondition::ApplyBooster(const SBooster& B, const shared_str& sect)
 	return true;
 }
 
+void CActorCondition::sound_use(const shared_str& sect)
+{
+	if (m_object->Local() && m_object == Level().CurrentViewEntity())
+	{
+		if (pSettings->line_exist(sect, "use_sound"))
+		{
+			if (m_use_sound._feedback())
+				m_use_sound.stop();
+
+			shared_str snd_name = pSettings->r_string(sect, "use_sound");
+			m_use_sound.create(snd_name.c_str(), st_Effect, sg_SourceType);
+			m_use_sound.play(NULL, sm_2D);
+		}
+	}
+}
+
+void CActorCondition::sound_use_realistic(const shared_str& sect)
+{
+	if (m_object->Local() && m_object == Level().CurrentViewEntity())
+	{
+		if (pSettings->line_exist(sect, "use_sound_real"))
+		{
+			if (m_use_sound._feedback())
+				m_use_sound.stop();
+
+			shared_str snd_name = pSettings->r_string(sect, "use_sound_real");
+			m_use_sound.create(snd_name.c_str(), st_Effect, sg_SourceType);
+			m_use_sound.play(NULL, sm_2D);
+		}
+	}
+}
 void disable_input();
 void enable_input();
 void hide_indicators();

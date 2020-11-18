@@ -1001,6 +1001,14 @@ void CCC_Register()
     CMD3(CCC_Mask,      "xrEngine_hud_crosshair_inert", &p_engine_flags32, AF_CROSSHAIR_INERT);
     CMD3(CCC_Mask,      "xrEngine_hud_crosshair_standart", &p_engine_flags32, AF_CROSSHAIR_STANDART);
 
+    if (BttR_mode)
+    {
+        p_engine_flags32.set(FLAG_MORE_REALISM, true);
+        CMD3(CCC_Mask, "xrEngine_more_realism", &p_engine_flags32, FLAG_MORE_REALISM);
+    }
+    else
+        p_engine_flags32.set(FLAG_MORE_REALISM, false);
+
 #if 0
     CMD4(CCC_Integer,   "xrEngine_rs_fps_test", &show_FPS_only, 0, 1);
 #endif

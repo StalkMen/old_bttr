@@ -342,4 +342,5 @@ extern ENGINE_API CLoadScreenRenderer load_screen_renderer;
 #define AF_CROSSHAIR_COLLIDE        (1<<8)
 #define AF_CROSSHAIR_INERT          (1<<9)
 #define AF_CROSSHAIR_STANDART       (1<<10)
+#define FLAG_MORE_REALISM           (1<<11)
 #endif

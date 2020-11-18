@@ -134,6 +134,9 @@ public:
 	float	HitSlowmo								(SHit* pHDS);
 	virtual bool			ApplyInfluence			(const SMedicineInfluenceValues& V, const shared_str& sect);
 	virtual bool			ApplyBooster			(const SBooster& B, const shared_str& sect);
+			void			sound_use				(const shared_str& sect);
+			void			sound_use_realistic		(const shared_str& sect);
+
 	float	GetMaxPowerRestoreSpeed					() {return m_max_power_restore_speed;};
 	float	GetMaxWoundProtection					() {return m_max_wound_protection;};
 	float	GetMaxFireWoundProtection				() {return m_max_fire_wound_protection;};
