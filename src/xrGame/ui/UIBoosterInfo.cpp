@@ -20,6 +20,15 @@ CUIBoosterInfo::CUIBoosterInfo()
 	m_booster_time = NULL;
 	m_booster_sleep = NULL;
 	m_booster_thirst = NULL;
+
+	if (BttR_mode)
+	{
+		m_booster_vodka = NULL;
+		m_booster_medkit = NULL;
+		m_booster_antizombin = NULL;
+		m_booster_psyblockade = NULL;
+		m_booster_antirad = NULL;
+	}
 }
 
 CUIBoosterInfo::~CUIBoosterInfo()
@@ -31,6 +40,15 @@ CUIBoosterInfo::~CUIBoosterInfo()
 	xr_delete(m_Prop_line);
 	xr_delete(m_booster_sleep);
 	xr_delete(m_booster_thirst);
+
+	if (BttR_mode)
+	{
+		xr_delete(m_booster_vodka);
+		xr_delete(m_booster_medkit);
+		xr_delete(m_booster_antizombin);
+		xr_delete(m_booster_psyblockade);
+		xr_delete(m_booster_antirad);
+	}
 }
 
 LPCSTR boost_influence_caption_bttr[] =
@@ -99,6 +117,44 @@ void CUIBoosterInfo::InitFromXml(CUIXml& xml)
 	m_booster_thirst->SetCaption(name);
 	xml.SetLocalRoot(base_node);
 	
+	if (BttR_mode)
+	{
+		m_booster_vodka = xr_new<UIBoosterInfoItem>();
+		m_booster_vodka->Init(xml, "boost_vodka");
+		m_booster_vodka->SetAutoDelete(false);
+		name = CStringTable().translate("ui_inv_vodka_engine").c_str();
+		m_booster_vodka->SetCaption(name);
+		xml.SetLocalRoot(base_node);
+
+		m_booster_medkit = xr_new<UIBoosterInfoItem>();
+		m_booster_medkit->Init(xml, "boost_medtik_psy");
+		m_booster_medkit->SetAutoDelete(false);
+		name = CStringTable().translate("ui_inv_medkit_engine").c_str();
+		m_booster_medkit->SetCaption(name);
+		xml.SetLocalRoot(base_node);
+
+		m_booster_antizombin = xr_new<UIBoosterInfoItem>();
+		m_booster_antizombin->Init(xml, "boost_antizombin");
+		m_booster_antizombin->SetAutoDelete(false);
+		name = CStringTable().translate("ui_inv_antizombin_engine").c_str();
+		m_booster_antizombin->SetCaption(name);
+		xml.SetLocalRoot(base_node);
+
+		m_booster_psyblockade = xr_new<UIBoosterInfoItem>();
+		m_booster_psyblockade->Init(xml, "boost_psyblockade");
+		m_booster_psyblockade->SetAutoDelete(false);
+		name = CStringTable().translate("ui_inv_psyblockade_engine").c_str();
+		m_booster_psyblockade->SetCaption(name);
+		xml.SetLocalRoot(base_node);
+
+		m_booster_antirad = xr_new<UIBoosterInfoItem>();
+		m_booster_antirad->Init(xml, "boost_antirad");
+		m_booster_antirad->SetAutoDelete(false);
+		name = CStringTable().translate("ui_inv_antirad").c_str();
+		m_booster_antirad->SetCaption(name);
+		xml.SetLocalRoot(base_node);
+	}
+
 	m_booster_anabiotic = xr_new<UIBoosterInfoItem>();
 	m_booster_anabiotic->Init(xml, "boost_anabiotic");
 	m_booster_anabiotic->SetAutoDelete(false);
@@ -235,6 +291,58 @@ void CUIBoosterInfo::SetInfo( shared_str const& section )
 
 			h += m_booster_sleep->GetWndSize().y;
 			AttachChild(m_booster_sleep);
+		}
+	}
+
+	if (BttR_mode)
+	{
+		if (!xr_strcmp(section.c_str(), "vodka"))
+		{
+			pos.set(m_booster_vodka->GetWndPos());
+			pos.y = h;
+			m_booster_vodka->SetWndPos(pos);
+
+			h += m_booster_vodka->GetWndSize().y;
+			AttachChild(m_booster_vodka);
+		}
+
+		if (!xr_strcmp(section.c_str(), "medkit_scientic"))
+		{
+			pos.set(m_booster_medkit->GetWndPos());
+			pos.y = h;
+			m_booster_medkit->SetWndPos(pos);
+
+			h += m_booster_medkit->GetWndSize().y;
+			AttachChild(m_booster_medkit);
+		}
+
+		if (!xr_strcmp(section.c_str(), "antizombin"))
+		{
+			pos.set(m_booster_antizombin->GetWndPos());
+			pos.y = h;
+			m_booster_antizombin->SetWndPos(pos);
+
+			h += m_booster_antizombin->GetWndSize().y;
+			AttachChild(m_booster_antizombin);
+		}
+
+		if (!xr_strcmp(section.c_str(), "drug_psy_blockade"))
+		{
+			pos.set(m_booster_psyblockade->GetWndPos());
+			pos.y = h;
+			m_booster_psyblockade->SetWndPos(pos);
+
+			h += m_booster_psyblockade->GetWndSize().y;
+			AttachChild(m_booster_psyblockade);
+		}
+
+		if (!xr_strcmp(section.c_str(), "antirad"))
+		{
+			pos.set(m_booster_antirad->GetWndPos());
+			pos.y = h;
+			m_booster_antirad->SetWndPos(pos);
+			h += m_booster_antirad->GetWndSize().y;
+			AttachChild(m_booster_antirad);
 		}
 	}
 

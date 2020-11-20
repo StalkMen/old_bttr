@@ -22,6 +22,11 @@ protected:
 	UIBoosterInfoItem*	m_booster_time;
 	UIBoosterInfoItem*  m_booster_sleep;
 	UIBoosterInfoItem*  m_booster_thirst;
+	UIBoosterInfoItem*  m_booster_medkit;
+	UIBoosterInfoItem*  m_booster_vodka;
+	UIBoosterInfoItem*  m_booster_antizombin;
+	UIBoosterInfoItem*  m_booster_psyblockade;
+	UIBoosterInfoItem*  m_booster_antirad;
 
 	CUIStatic*			m_Prop_line;
 
