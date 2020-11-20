@@ -181,7 +181,7 @@ void CUIActorMenu::SendMessage(CUIWindow* pWnd, s16 msg, void* pData)
 #include "ai_space.h"
 #include "script_engine.h"
 
-extern BOOL g_hand_hide_inventory;
+extern ENGINE_API Flags32 p_engine_flags32;
 void CUIActorMenu::Show(bool status)
 {
 	CActor* pActor = smart_cast<CActor*>(Level().CurrentEntity());
@@ -192,7 +192,7 @@ void CUIActorMenu::Show(bool status)
 		PlaySnd(eSndOpen);
 		m_ActorStateInfo->UpdateActorInfo(m_pActorInvOwner);
 
-		if (pActor && g_hand_hide_inventory && BttR_mode)
+		if (pActor && (p_engine_flags32.test(AF_HAND_HIDE_INVENTORY)) && BttR_mode)
 		{
 			LPCSTR status1;
 			LUA_EXPORT m_functor;
@@ -206,7 +206,7 @@ void CUIActorMenu::Show(bool status)
 		SetMenuMode(mmUndefined);
 		Actor()->RepackAmmo();
 
-		if (pActor && g_hand_hide_inventory && BttR_mode)
+		if (pActor && (p_engine_flags32.test(AF_HAND_HIDE_INVENTORY)) && BttR_mode)
 		{
 			LPCSTR status0;
 			LUA_EXPORT m_functor;

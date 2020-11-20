@@ -343,4 +343,6 @@ extern ENGINE_API CLoadScreenRenderer load_screen_renderer;
 #define AF_CROSSHAIR_INERT          (1<<9)
 #define AF_CROSSHAIR_STANDART       (1<<10)
 #define FLAG_MORE_REALISM           (1<<11)
+#define AF_HAND_HIDE_INVENTORY      (1<<12)
+#define AF_HAND_HIDE_WITH_RUCK      (1<<13)
 #endif

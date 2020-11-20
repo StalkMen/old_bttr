@@ -948,6 +948,48 @@ public:
     }
 };
 
+ENGINE_API u32	ps_ruck_mode = 0;
+xr_token ruck_mode_token[] =
+{
+    { "standart_ruck",                0 },
+    { "hand_hide_inventory",          1 },
+    { "nlc7_hand_hide_inventory",     2 },
+    { nullptr,                        0 }
+};
+
+class	CCC_InvRuck : public CCC_Token
+{
+public:
+    CCC_InvRuck(LPCSTR N, u32* V, xr_token* T) : CCC_Token(N, V, T) {};
+
+    virtual void	Execute(LPCSTR args)
+    {
+        CCC_Token::Execute(args);
+
+        switch (*value)
+        {
+            case 0:
+            {
+                p_engine_flags32.set(AF_HAND_HIDE_INVENTORY, false);
+                p_engine_flags32.set(AF_HAND_HIDE_WITH_RUCK, false);
+                break;
+            }
+            case 1:
+            {
+                p_engine_flags32.set(AF_HAND_HIDE_INVENTORY, true);
+                p_engine_flags32.set(AF_HAND_HIDE_WITH_RUCK, false);
+                break;
+            }
+            case 2:
+            {
+                p_engine_flags32.set(AF_HAND_HIDE_INVENTORY, false);
+                p_engine_flags32.set(AF_HAND_HIDE_WITH_RUCK, true);
+                break;
+            }
+        }
+    }
+};
+
 #include "device.h"
 void CCC_Register()
 {
@@ -1000,6 +1042,10 @@ void CCC_Register()
     CMD3(CCC_Mask,      "xrEngine_hud_crosshair_collide", &p_engine_flags32, AF_CROSSHAIR_COLLIDE);
     CMD3(CCC_Mask,      "xrEngine_hud_crosshair_inert", &p_engine_flags32, AF_CROSSHAIR_INERT);
     CMD3(CCC_Mask,      "xrEngine_hud_crosshair_standart", &p_engine_flags32, AF_CROSSHAIR_STANDART);
+
+    CMD3(CCC_InvRuck,   "xrEngine_inv_ruck_type", &ps_ruck_mode, ruck_mode_token);
+    CMD3(CCC_Mask,      "xrEngine_hand_hide_inventory", &p_engine_flags32, AF_HAND_HIDE_INVENTORY);
+    CMD3(CCC_Mask,      "xrEngine_hand_hide_with_ruck", &p_engine_flags32, AF_HAND_HIDE_WITH_RUCK);
 
     if (BttR_mode)
     {

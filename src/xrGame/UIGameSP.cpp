@@ -20,7 +20,7 @@
 #include "ui/UIPdaWnd.h"
 #include "ui/UITalkWnd.h"
 #include "ui/UIMessageBox.h"
-
+#include "inventory.h"
 
 CUIGameSP::CUIGameSP()
 :m_game(NULL),m_game_objective(NULL)
@@ -84,6 +84,7 @@ void CUIGameSP::OnFrame()
 	}
 }
 
+extern ENGINE_API Flags32 p_engine_flags32;
 bool CUIGameSP::IR_UIOnKeyboardPress(int dik) 
 {
 	if(inherited::IR_UIOnKeyboardPress(dik)) return true;
@@ -115,10 +116,32 @@ bool CUIGameSP::IR_UIOnKeyboardPress(int dik)
 
 	case kINVENTORY:
 		{
-			if ( !pActor->inventory_disabled() )
-				ShowActorMenu();
+			u16 slot = Actor()->inventory().GetActiveSlot();
 
-			break;
+			if (p_engine_flags32.test(AF_HAND_HIDE_WITH_RUCK))
+			{
+				if ((slot == KNIFE_SLOT|| slot == INV_SLOT_2 || slot == INV_SLOT_3 || slot == GRENADE_SLOT || 
+					slot == BINOCULAR_SLOT || slot == BOLT_SLOT || slot == DETECTOR_SLOT || slot == ARTEFACT_SLOT))
+				{
+					break;
+				}
+				else
+				{
+					if (!pActor->inventory_disabled())
+						ShowActorMenu();
+
+					break;
+				}
+			}
+			else
+			{
+				if (!pActor->inventory_disabled())
+					ShowActorMenu();
+
+				break;
+			}
+
+		break;
 		}
 
 	case kSCORES:
