@@ -274,7 +274,7 @@ void CAI_Stalker::Hit(SHit* pHDS)
 
 		if (entity_alive && !wounded() && !lastHittedInHead_)
 		{
-			if (is_relation_enemy(entity_alive))
+			if (is_relation_enemy(entity_alive) && !fis_zero(pHDS->damage()))
 				sound().play		(eStalkerSoundInjuring);
 			else
 				sound().play		(eStalkerSoundInjuringByFriend);
