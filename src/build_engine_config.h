@@ -11,6 +11,7 @@
 	#define MULTICORE_ENGINE													  		        // Многоядерность процессора, снятие ограничения привязки на 1 ядро
 	#define FPS_LIMIT																			// Новый лимит FPS
 	#define FIX_GAME_INFO																		// Fix crash for fake section 'game_info'
+	#define ALIFE_VERSION				0x0895													// Alife
 
 	//-' Миниреворк загрузочных сообщений
 	#define STAGE_1					"st_loading_saved_game_solyanka"			  // xrGame	+
