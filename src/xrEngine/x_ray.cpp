@@ -268,7 +268,7 @@ PROTECT_API void InitConsole()
     Console = xr_new<CConsole>();
     Console->Initialize();
 
-    xr_strcpy(Console->ConfigFile, "user.ltx");
+    xr_strcpy(Console->ConfigFile, "settings.ltx");
     if (strstr(Core.Params, "-ltx "))
     {
         string64 c_name;
@@ -1405,7 +1405,7 @@ void doBenchmark(LPCSTR name)
 
         Engine.External.Initialize();
 
-        xr_strcpy(Console->ConfigFile, "user.ltx");
+        xr_strcpy(Console->ConfigFile, "settings.ltx");
         if (strstr(Core.Params, "-ltx "))
         {
             string64 c_name;
