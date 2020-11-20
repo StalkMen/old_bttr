@@ -761,20 +761,6 @@ int APIENTRY WinMain_impl(HINSTANCE hInstance,
                 return 0;
         };
 
-#ifndef DEDICATED_SERVER
-        if (strstr(Core.Params, "-r2a"))
-            Console->Execute("renderer renderer_r2a");
-        else if (strstr(Core.Params, "-r2"))
-            Console->Execute("renderer renderer_r2");
-        else
-        {
-            CCC_LoadCFG_custom* pTmp = xr_new<CCC_LoadCFG_custom>("renderer ");
-            pTmp->Execute(Console->ConfigFile);
-            xr_delete(pTmp);
-        }
-#else
-        Console->Execute("renderer renderer_r1");
-#endif
         //. InitInput ( );
         Engine.External.Initialize();
         Console->Execute("stat_memory");
@@ -981,21 +967,6 @@ void CApplication::OnEvent(EVENT E, u64 P1, u64 P2)
         Level_Current = u32(-1);
         R_ASSERT(0 == g_pGameLevel);
         R_ASSERT(0 != g_pGamePersistent);
-
-#ifdef NO_SINGLE
-        Console->Execute("main_menu on");
-        if ((op_server == NULL) ||
-                (!xr_strlen(op_server)) ||
-                (
-                    (strstr(op_server, "/dm") || strstr(op_server, "/deathmatch") ||
-                     strstr(op_server, "/tdm") || strstr(op_server, "/teamdeathmatch") ||
-                     strstr(op_server, "/ah") || strstr(op_server, "/artefacthunt") ||
-                     strstr(op_server, "/cta") || strstr(op_server, "/capturetheartefact")
-                    ) &&
-                    !strstr(op_server, "/alife")
-                )
-           )
-#endif // #ifdef NO_SINGLE
         {
             Console->Execute("main_menu off");
             Console->Hide();
@@ -1025,8 +996,9 @@ void CApplication::OnEvent(EVENT E, u64 P1, u64 P2)
             Console->Hide();
             g_pGameLevel->net_Stop();
             DEL_INSTANCE(g_pGameLevel);
+#ifndef CONSOLE_SHOW
             Console->Show();
-
+#endif
             if ((FALSE == Engine.Event.Peek("KERNEL:quit")) && (FALSE == Engine.Event.Peek("KERNEL:start")))
             {
                 Console->Execute("main_menu off");
