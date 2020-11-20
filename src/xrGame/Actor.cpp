@@ -105,7 +105,7 @@ static Fvector	vFootExt;
 Flags32			psActorFlags = {AF_GODMODE_RT | AF_AUTOPICKUP | AF_RUN_BACKWARD | AF_IMPORTANT_SAVE | AF_USE_TRACERS};
 int				psActorSleepTime = 1;
 extern u32      type_hud_token;
-
+extern ENGINE_API Flags32 p_engine_flags32;
 
 CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
 {
@@ -310,7 +310,7 @@ void CActor::Load(LPCSTR section)
     if (GameID() == eGameIDSingle)
         OnDifficultyChanged();
     //////////////////////////////////////////////////////////////////////////
-    ISpatial*		self = smart_cast<ISpatial*> (this);
+    ISpatial* self = smart_cast<ISpatial*> (this);
     if (self)
     {
         self->spatial.type |= STYPE_VISIBLEFORAI;
@@ -337,7 +337,7 @@ void CActor::Load(LPCSTR section)
     set_box(section, *character_physics_support()->movement(), 0);
 
     m_fWalkAccel = pSettings->r_float(section, "walk_accel");
-	m_fOverweightWalkAccel = READ_IF_EXISTS(pSettings, r_float, section, "overweight_walk_accel", 1.0f);
+    m_fOverweightWalkAccel = READ_IF_EXISTS(pSettings, r_float, section, "overweight_walk_accel", 1.0f);
     m_fJumpSpeed = pSettings->r_float(section, "jump_speed");
     m_fRunFactor = pSettings->r_float(section, "run_coef");
     m_fRunBackFactor = pSettings->r_float(section, "run_back_coef");
@@ -349,7 +349,6 @@ void CActor::Load(LPCSTR section)
     m_fWalk_StrafeFactor = READ_IF_EXISTS(pSettings, r_float, section, "walk_strafe_coef", 1.0f);
     m_fRun_StrafeFactor = READ_IF_EXISTS(pSettings, r_float, section, "run_strafe_coef", 1.0f);
 
-
     m_fCamHeightFactor = pSettings->r_float(section, "camera_height_factor");
     character_physics_support()->movement()->SetJumpUpVelocity(m_fJumpSpeed);
     float AirControlParam = pSettings->r_float(section, "air_control_param");
@@ -359,7 +358,7 @@ void CActor::Load(LPCSTR section)
 
     m_hit_slowmo_jump = READ_IF_EXISTS(pSettings, r_bool, section, "hit_slowmo_jump", true);
 
-//Alundaio
+    //Alundaio
 #ifdef ACTOR_FEEL_GRENADE
     m_fFeelGrenadeRadius = pSettings->r_float(section, "feel_grenade_radius");
     m_fFeelGrenadeTime = pSettings->r_float(section, "feel_grenade_time");
@@ -368,48 +367,44 @@ void CActor::Load(LPCSTR section)
 
     character_physics_support()->in_Load(section);
 
-
-    if (!g_dedicated_server)
+    LPCSTR hit_snd_sect = pSettings->r_string(section, "hit_sounds");
+    for (int hit_type = 0; hit_type < (int)ALife::eHitTypeMax; ++hit_type)
     {
-        LPCSTR hit_snd_sect = pSettings->r_string(section, "hit_sounds");
-        for (int hit_type = 0; hit_type < (int) ALife::eHitTypeMax; ++hit_type)
+        LPCSTR hit_name = ALife::g_cafHitType2String((ALife::EHitType)hit_type);
+        LPCSTR hit_snds = READ_IF_EXISTS(pSettings, r_string, hit_snd_sect, hit_name, "");
+        int cnt = _GetItemCount(hit_snds);
+        string128		tmp;
+        VERIFY(cnt != 0);
+        for (int i = 0; i < cnt; ++i)
         {
-            LPCSTR hit_name = ALife::g_cafHitType2String((ALife::EHitType)hit_type);
-            LPCSTR hit_snds = READ_IF_EXISTS(pSettings, r_string, hit_snd_sect, hit_name, "");
-            int cnt = _GetItemCount(hit_snds);
-            string128		tmp;
-            VERIFY(cnt != 0);
-            for (int i = 0; i < cnt; ++i)
-            {
-                sndHit[hit_type].push_back(ref_sound());
-                sndHit[hit_type].back().create(_GetItem(hit_snds, i, tmp), st_Effect, sg_SourceType);
-            }
-            char buf[256];
-
-            ::Sound->create(sndDie[0], strconcat(sizeof(buf), buf, *cName(), "\\die0"), st_Effect, SOUND_TYPE_MONSTER_DYING);
-            ::Sound->create(sndDie[1], strconcat(sizeof(buf), buf, *cName(), "\\die1"), st_Effect, SOUND_TYPE_MONSTER_DYING);
-            ::Sound->create(sndDie[2], strconcat(sizeof(buf), buf, *cName(), "\\die2"), st_Effect, SOUND_TYPE_MONSTER_DYING);
-            ::Sound->create(sndDie[3], strconcat(sizeof(buf), buf, *cName(), "\\die3"), st_Effect, SOUND_TYPE_MONSTER_DYING);
-
-            m_HeavyBreathSnd.create(pSettings->r_string(section, "heavy_breath_snd"), st_Effect, SOUND_TYPE_MONSTER_INJURING);
-            m_BloodSnd.create(pSettings->r_string(section, "heavy_blood_snd"), st_Effect, SOUND_TYPE_MONSTER_INJURING);
-            m_DangerSnd.create(pSettings->r_string(section, "heavy_danger_snd"), st_Effect, SOUND_TYPE_MONSTER_INJURING);
+            sndHit[hit_type].push_back(ref_sound());
+            sndHit[hit_type].back().create(_GetItem(hit_snds, i, tmp), st_Effect, sg_SourceType);
         }
-		
-		if (this == Level().CurrentEntity()) //--#SM+#--
-		{
-			g_pGamePersistent->m_pGShaderConstants->m_blender_mode.set(0.f, 0.f, 0.f, 0.f);
-            g_pGamePersistent->m_DataExport->ZoomActive(false);
-            g_pGamePersistent->m_DataExport->ReloadActive(false);
-		}
+        char buf[256];
+
+        ::Sound->create(sndDie[0], strconcat(sizeof(buf), buf, *cName(), "\\die0"), st_Effect, SOUND_TYPE_MONSTER_DYING);
+        ::Sound->create(sndDie[1], strconcat(sizeof(buf), buf, *cName(), "\\die1"), st_Effect, SOUND_TYPE_MONSTER_DYING);
+        ::Sound->create(sndDie[2], strconcat(sizeof(buf), buf, *cName(), "\\die2"), st_Effect, SOUND_TYPE_MONSTER_DYING);
+        ::Sound->create(sndDie[3], strconcat(sizeof(buf), buf, *cName(), "\\die3"), st_Effect, SOUND_TYPE_MONSTER_DYING);
+
+        m_HeavyBreathSnd.create(pSettings->r_string(section, "heavy_breath_snd"), st_Effect, SOUND_TYPE_MONSTER_INJURING);
+        m_BloodSnd.create(pSettings->r_string(section, "heavy_blood_snd"), st_Effect, SOUND_TYPE_MONSTER_INJURING);
+        m_DangerSnd.create(pSettings->r_string(section, "heavy_danger_snd"), st_Effect, SOUND_TYPE_MONSTER_INJURING);
     }
-    
-	//Alundaio -psp always
-	//if (psActorFlags.test(AF_PSP))
+
+    if (this == Level().CurrentEntity()) //--#SM+#--
+    {
+        g_pGamePersistent->m_pGShaderConstants->m_blender_mode.set(0.f, 0.f, 0.f, 0.f);
+        g_pGamePersistent->m_DataExport->ZoomActive(false);
+        g_pGamePersistent->m_DataExport->ReloadActive(false);
+    }
+
+    //Alundaio -psp always
+    //if (psActorFlags.test(AF_PSP))
     //    cam_Set(eacLookAt);
     //else
-	//-Alundaio
-        cam_Set(eacFirstEye);
+    //-Alundaio
+    cam_Set(eacFirstEye);
 
     // sheduler
     shedule.t_min = shedule.t_max = 1;
@@ -446,8 +441,8 @@ void CActor::Load(LPCSTR section)
     //---------------------------------------------------------------------
     m_sHeadShotParticle = READ_IF_EXISTS(pSettings, r_string, section, "HeadShotParticle", 0);
 
-	// Alex ADD: for smooth crouch fix
-	CurrentHeight = CameraHeight();
+    // Alex ADD: for smooth crouch fix
+    CurrentHeight = CameraHeight();
 }
 
 void CActor::PHHit(SHit &H)
@@ -983,7 +978,9 @@ void CActor::UpdateCL()
                 S->SetParams(full_fire_disp);
 
             SetZoomAimingMode(true);
-            g_pGamePersistent->m_DataExport->ZoomActive(true);
+            if (p_engine_flags32.test(AF_ZOOM_DOF))
+                g_pGamePersistent->m_DataExport->ZoomActive(true);
+
             g_pGamePersistent->m_DataExport->ReloadActive(false);
         }
         else
@@ -1047,7 +1044,6 @@ void CActor::UpdateCL()
 			
 			//CWeapon::UpdateSecondVP();
 			Device.m_SecondViewport.SetSVPActive(false); //--#SM+#-- +SecondVP+
-
             g_pGamePersistent->m_DataExport->ReloadActive(false);
         }
     }

@@ -990,6 +990,153 @@ public:
     }
 };
 
+ENGINE_API u32	ps_group_gg_mode = 0;
+xr_token group_gg_mode_token[] =
+{
+    { "e_stalker",         0 },
+    { "e_bandit",          1 },
+    { "e_csky",            2 },
+    { "e_dolg",            3 },
+    { "e_freedom",         4 },
+    { "e_killer",          5 },
+    { "e_army",            6 },
+    { "e_ecolog",          7 },
+    { "e_monolith",        8 },
+    { nullptr,             0 }
+};
+
+class	CCC_GROUP_GG : public CCC_Token
+{
+public:
+    CCC_GROUP_GG(LPCSTR N, u32* V, xr_token* T) : CCC_Token(N, V, T) {};
+
+    virtual void	Execute(LPCSTR args)
+    {
+        CCC_Token::Execute(args);
+
+        switch (*value)
+        {
+            case 0: // Сталкер
+            {
+                p_engine_flags32.set(E_STALKER, true);
+                p_engine_flags32.set(E_BANDIT, false);
+                p_engine_flags32.set(E_CSKY, false);
+                p_engine_flags32.set(E_DOLG, false);
+                p_engine_flags32.set(E_FREEDOM, false);
+                p_engine_flags32.set(E_KILLER, false);
+                p_engine_flags32.set(E_ARMY, false);
+                p_engine_flags32.set(E_ECOLOG, false);
+                p_engine_flags32.set(E_MONOLITH, false);
+                break;
+            }
+            case 1: // Бандит
+            {
+                p_engine_flags32.set(E_STALKER, false);
+                p_engine_flags32.set(E_BANDIT, true);
+                p_engine_flags32.set(E_CSKY, false);
+                p_engine_flags32.set(E_DOLG, false);
+                p_engine_flags32.set(E_FREEDOM, false);
+                p_engine_flags32.set(E_KILLER, false);
+                p_engine_flags32.set(E_ARMY, false);
+                p_engine_flags32.set(E_ECOLOG, false);
+                p_engine_flags32.set(E_MONOLITH, false);
+                break;
+            }
+            case 2: // Чистое небо
+            {
+                p_engine_flags32.set(E_STALKER, false);
+                p_engine_flags32.set(E_BANDIT, false);
+                p_engine_flags32.set(E_CSKY, true);
+                p_engine_flags32.set(E_DOLG, false);
+                p_engine_flags32.set(E_FREEDOM, false);
+                p_engine_flags32.set(E_KILLER, false);
+                p_engine_flags32.set(E_ARMY, false);
+                p_engine_flags32.set(E_ECOLOG, false);
+                p_engine_flags32.set(E_MONOLITH, false);
+                break;
+            }
+            case 3: // Долг
+            {
+                p_engine_flags32.set(E_STALKER, false);
+                p_engine_flags32.set(E_BANDIT, false);
+                p_engine_flags32.set(E_CSKY, false);
+                p_engine_flags32.set(E_DOLG, true);
+                p_engine_flags32.set(E_FREEDOM, false);
+                p_engine_flags32.set(E_KILLER, false);
+                p_engine_flags32.set(E_ARMY, false);
+                p_engine_flags32.set(E_ECOLOG, false);
+                p_engine_flags32.set(E_MONOLITH, false);
+                break;
+            }
+            case 4: // Свобода
+            {
+                p_engine_flags32.set(E_STALKER, false);
+                p_engine_flags32.set(E_BANDIT, false);
+                p_engine_flags32.set(E_CSKY, false);
+                p_engine_flags32.set(E_DOLG, false);
+                p_engine_flags32.set(E_FREEDOM, true);
+                p_engine_flags32.set(E_KILLER, false);
+                p_engine_flags32.set(E_ARMY, false);
+                p_engine_flags32.set(E_ECOLOG, false);
+                p_engine_flags32.set(E_MONOLITH, false);
+                break;
+            }
+            case 5: // Наемник
+            {
+                p_engine_flags32.set(E_STALKER, false);
+                p_engine_flags32.set(E_BANDIT, false);
+                p_engine_flags32.set(E_CSKY, false);
+                p_engine_flags32.set(E_DOLG, false);
+                p_engine_flags32.set(E_FREEDOM, false);
+                p_engine_flags32.set(E_KILLER, true);
+                p_engine_flags32.set(E_ARMY, false);
+                p_engine_flags32.set(E_ECOLOG, false);
+                p_engine_flags32.set(E_MONOLITH, false);
+                break;
+            }
+            case 6: // Военные
+            {
+                p_engine_flags32.set(E_STALKER, false);
+                p_engine_flags32.set(E_BANDIT, false);
+                p_engine_flags32.set(E_CSKY, false);
+                p_engine_flags32.set(E_DOLG, false);
+                p_engine_flags32.set(E_FREEDOM, false);
+                p_engine_flags32.set(E_KILLER, false);
+                p_engine_flags32.set(E_ARMY, true);
+                p_engine_flags32.set(E_ECOLOG, false);
+                p_engine_flags32.set(E_MONOLITH, false);
+                break;
+            }
+            case 7: // Экологи
+            {
+                p_engine_flags32.set(E_STALKER, false);
+                p_engine_flags32.set(E_BANDIT, false);
+                p_engine_flags32.set(E_CSKY, false);
+                p_engine_flags32.set(E_DOLG, false);
+                p_engine_flags32.set(E_FREEDOM, false);
+                p_engine_flags32.set(E_KILLER, false);
+                p_engine_flags32.set(E_ARMY, false);
+                p_engine_flags32.set(E_ECOLOG, true);
+                p_engine_flags32.set(E_MONOLITH, false);
+                break;
+            }
+            case 8: // Монолит
+            {
+                p_engine_flags32.set(E_STALKER, false);
+                p_engine_flags32.set(E_BANDIT, false);
+                p_engine_flags32.set(E_CSKY, false);
+                p_engine_flags32.set(E_DOLG, false);
+                p_engine_flags32.set(E_FREEDOM, false);
+                p_engine_flags32.set(E_KILLER, false);
+                p_engine_flags32.set(E_ARMY, false);
+                p_engine_flags32.set(E_ECOLOG, false);
+                p_engine_flags32.set(E_MONOLITH, true);
+                break;
+            }
+        }
+    }
+};
+
 #include "device.h"
 void CCC_Register()
 {
@@ -1046,6 +1193,20 @@ void CCC_Register()
     CMD3(CCC_InvRuck,   "xrEngine_inv_ruck_type", &ps_ruck_mode, ruck_mode_token);
     CMD3(CCC_Mask,      "xrEngine_hand_hide_inventory", &p_engine_flags32, AF_HAND_HIDE_INVENTORY);
     CMD3(CCC_Mask,      "xrEngine_hand_hide_with_ruck", &p_engine_flags32, AF_HAND_HIDE_WITH_RUCK);
+
+    CMD3(CCC_GROUP_GG,  "xrEngine_group_gg", &ps_group_gg_mode,         group_gg_mode_token);
+    CMD3(CCC_Mask,      "xrEngine_e_stalker", &p_engine_flags32,        E_STALKER);
+    CMD3(CCC_Mask,      "xrEngine_e_bandit", &p_engine_flags32,         E_BANDIT);
+    CMD3(CCC_Mask,      "xrEngine_e_csky", &p_engine_flags32,           E_CSKY);
+    CMD3(CCC_Mask,      "xrEngine_e_dolg", &p_engine_flags32,           E_DOLG);
+    CMD3(CCC_Mask,      "xrEngine_e_freedom", &p_engine_flags32,        E_FREEDOM);
+    CMD3(CCC_Mask,      "xrEngine_e_killer", &p_engine_flags32,         E_KILLER);
+    CMD3(CCC_Mask,      "xrEngine_e_army", &p_engine_flags32,           E_ARMY);
+    CMD3(CCC_Mask,      "xrEngine_e_ecolog", &p_engine_flags32,         E_ECOLOG);
+    CMD3(CCC_Mask,      "xrEngine_e_monolith", &p_engine_flags32,       E_MONOLITH);
+    
+    CMD3(CCC_Mask,      "xrEngine_reload_dof_wpn", &p_engine_flags32,   AF_RELOAD_DOF);
+    CMD3(CCC_Mask,      "xrEngine_zoom_dof_wpn", &p_engine_flags32,     AF_ZOOM_DOF);
 
     if (BttR_mode)
     {

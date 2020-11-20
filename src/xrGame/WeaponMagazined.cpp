@@ -1166,6 +1166,8 @@ void CWeaponMagazined::Chamber()
 }
 
 #include "CustomDetector.h"
+extern ENGINE_API Flags32 p_engine_flags32;
+
 bool CWeaponMagazined::Action(u16 cmd, u32 flags)
 {
     if (inherited::Action(cmd, flags)) return true;
@@ -1191,7 +1193,8 @@ bool CWeaponMagazined::Action(u16 cmd, u32 flags)
                     if (!Det)
                     {
                         Reload(); // Rietmon: Если в слоте нету детектора, то он не может быть активен
-                        g_pGamePersistent->m_DataExport->ReloadActive(true); //OldSerpskiStalker: При перезарядке включаем доф оружия
+                        if (p_engine_flags32.test(AF_RELOAD_DOF))
+                            g_pGamePersistent->m_DataExport->ReloadActive(true); //OldSerpskiStalker: При перезарядке включаем доф оружия
                     }
 
 					if (Det)
@@ -1200,7 +1203,8 @@ bool CWeaponMagazined::Action(u16 cmd, u32 flags)
                         if (!pDet->IsWorking())
                         {
                             Reload();
-                            g_pGamePersistent->m_DataExport->ReloadActive(true);
+                            if (p_engine_flags32.test(AF_RELOAD_DOF))
+                                g_pGamePersistent->m_DataExport->ReloadActive(true);
                         }
 					}
 				}

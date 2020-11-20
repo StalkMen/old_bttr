@@ -331,7 +331,9 @@ public:
 };
 extern ENGINE_API CLoadScreenRenderer load_screen_renderer;
 
+//-' Ключи относящиеся к переключению версий ЗЧ и BttR
 #define ITS_CLEAR_1_4_22            (1<<0)
+//-' Команды для включения AO
 #define R2FLAGEXT_SSAO_BLUR         (1<<1)
 #define R2FLAGEXT_SSAO_OPT_DATA     (1<<2)
 #define R2FLAGEXT_SSAO_HALF_DATA    (1<<3)
@@ -339,10 +341,26 @@ extern ENGINE_API CLoadScreenRenderer load_screen_renderer;
 #define R2FLAGEXT_SSAO_HDAO         (1<<5)
 #define R2FLAGEXT_SSAO_SSDO         (1<<6)
 #define R2FLAGEXT_SSAO_DEBUG        (1<<7)
+//-' Прицелы
 #define AF_CROSSHAIR_COLLIDE        (1<<8)
 #define AF_CROSSHAIR_INERT          (1<<9)
 #define AF_CROSSHAIR_STANDART       (1<<10)
+//-' Флаг больше реализма
 #define FLAG_MORE_REALISM           (1<<11)
+//-' Открытие инветаря
 #define AF_HAND_HIDE_INVENTORY      (1<<12)
 #define AF_HAND_HIDE_WITH_RUCK      (1<<13)
+//-' Переключение выбора группировки ГГ
+#define E_STALKER                   (1<<14)
+#define E_BANDIT                    (1<<15)
+#define E_CSKY                      (1<<16)
+#define E_DOLG                      (1<<17)
+#define E_FREEDOM                   (1<<18)
+#define E_KILLER                    (1<<19)
+#define E_ARMY                      (1<<20)
+#define E_ECOLOG                    (1<<21)
+#define E_MONOLITH                  (1<<22)
+//-' Доф оружия
+#define AF_RELOAD_DOF               (1<<23)
+#define AF_ZOOM_DOF                 (1<<24)
 #endif
