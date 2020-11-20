@@ -218,15 +218,22 @@ void CWeaponMagazined::FireStart()
     }
 }
 
+extern BOOL auto_reload;
 void CWeaponMagazined::FireEnd()
 {
     inherited::FireEnd();
 
-	/* Alundaio: Removed auto-reload since it's widely asked by just about everyone who is a gun whore
-    CActor	*actor = smart_cast<CActor*>(H_Parent());
-    if (m_pInventory && !iAmmoElapsed && actor && GetState() != eReload)
-        Reload();
-	*/
+    if (auto_reload)
+    {
+        CActor* actor = smart_cast<CActor*>(H_Parent());
+        if (m_pInventory && !m_ammoElapsed.type1 && actor && GetState() != eReload)
+        {
+            if (auto_reload)
+                Reload();
+            else
+                return;
+        }
+    }
 }
 
 void CWeaponMagazined::Reload()
