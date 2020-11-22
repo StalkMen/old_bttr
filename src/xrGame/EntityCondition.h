@@ -64,6 +64,7 @@ struct SMedicineInfluenceValues{
 	float fSatiety;
 	float fSleep;
 	float fThirst;
+	float fKurr;
 	float fRadiation;
 	float fWoundsHeal;
 	float fMaxPowerUp;
@@ -119,8 +120,11 @@ public:
 
 	IC float				GetSleep				() const			{return 1.0f;}
 	IC float				GetThirst				() const			{return 1.0f;}
+	IC float				GetKurr					() const			{return 1.0f;}
+
 	virtual void			ChangeSleep				(const float value) {};
 	virtual void			ChangeThirst			(const float value) {};
+	virtual void			ChangeKurr				(const float value) {};
 
 	virtual bool 			IsLimping				() const;
 

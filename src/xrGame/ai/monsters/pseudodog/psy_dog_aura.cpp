@@ -105,7 +105,6 @@ void CPsyDogAura::update_schedule()
 	}
 
 	bool const close_to_actor = m_actor ? m_object->Position().distance_to(m_actor->Position()) < 30 : false;
-	bool const close_to_actor = m_actor ? m_object->Position().distance_to(m_actor->Position()) < 30 : false;
 	bool const need_be_active = ((m_time_actor_saw_phantom + 2000 > time()) ||
 		(m_time_phantom_saw_actor + 10000 > time())) && close_to_actor;
 	if (active()) 

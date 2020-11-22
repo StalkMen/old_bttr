@@ -28,6 +28,7 @@ CUIBoosterInfo::CUIBoosterInfo()
 		m_booster_antizombin = NULL;
 		m_booster_psyblockade = NULL;
 		m_booster_antirad = NULL;
+		m_booster_kurr = NULL;
 	}
 }
 
@@ -48,6 +49,7 @@ CUIBoosterInfo::~CUIBoosterInfo()
 		xr_delete(m_booster_antizombin);
 		xr_delete(m_booster_psyblockade);
 		xr_delete(m_booster_antirad);
+		xr_delete(m_booster_kurr);
 	}
 }
 
@@ -152,6 +154,13 @@ void CUIBoosterInfo::InitFromXml(CUIXml& xml)
 		m_booster_antirad->SetAutoDelete(false);
 		name = CStringTable().translate("ui_inv_antirad").c_str();
 		m_booster_antirad->SetCaption(name);
+		xml.SetLocalRoot(base_node);
+
+		m_booster_kurr = xr_new<UIBoosterInfoItem>();
+		m_booster_kurr->Init(xml, "boost_kurr");
+		m_booster_kurr->SetAutoDelete(false);
+		name = CStringTable().translate("ui_inv_kurr").c_str();
+		m_booster_kurr->SetCaption(name);
 		xml.SetLocalRoot(base_node);
 	}
 
@@ -343,6 +352,21 @@ void CUIBoosterInfo::SetInfo( shared_str const& section )
 			m_booster_antirad->SetWndPos(pos);
 			h += m_booster_antirad->GetWndSize().y;
 			AttachChild(m_booster_antirad);
+		}
+
+		if (pSettings->line_exist(section.c_str(), "eat_kurr"))
+		{
+			val = pSettings->r_float(section, "eat_kurr");
+			if (!fis_zero(val))
+			{
+				m_booster_kurr->SetValue(val);
+				pos.set(m_booster_kurr->GetWndPos());
+				pos.y = h;
+				m_booster_kurr->SetWndPos(pos);
+
+				h += m_booster_kurr->GetWndSize().y;
+				AttachChild(m_booster_kurr);
+			}
 		}
 	}
 

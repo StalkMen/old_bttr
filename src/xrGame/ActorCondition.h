@@ -24,7 +24,8 @@ private:
 			eCantWalkWeight					=(1<<7),
 			eCantWalkWeightReached			=(1<<8),
 			eCriticalThirstReached 			=(1<<9),
-			eCriticalSleepReached 			=(1<<10),	
+			eCriticalSleepReached 			=(1<<10),
+			eCriticalKurrReached			=(1<<11),
 			};
 	Flags16											m_condition_flags;
 private:
@@ -34,6 +35,7 @@ private:
 			void 		UpdateSatiety				();
 			void 		UpdateSleep					();
 			void 		UpdateThirst				();
+			void		UpdateKurr					();
 	virtual void		UpdateRadiation				();
 public:
 						CActorCondition				(CActor *object);
@@ -50,7 +52,8 @@ public:
 	virtual void 		ChangeSatiety				(const float value);
 	virtual void 		ChangeSleep					(const float value);
 	virtual void 		ChangeThirst				(const float value);
-	
+	virtual void		ChangeKurr					(const float value);
+
 	void 				BoostParameters				(const SBooster& B);
 	void 				DisableBoostParameters		(const SBooster& B);
 	IC void				BoostMaxWeight				(const float value);
@@ -93,8 +96,12 @@ public:
 	
 			float				GetSleep			()  {return m_fSleep;}
 	IC  	float				GetSleepPower		() const {return m_fV_SleepPower*m_fSleep;};	
+
 			float				GetThirst			()  {return m_fThirst;}
 	IC		float				GetThirstPower		() const {return m_fV_ThirstPower*m_fThirst;};		
+
+			float				GetKurr				() { return m_fKurr; }
+	IC		float				GetKurrPower		() const { return m_fV_KurrPower * m_fKurr; };
 
 			void		AffectDamage_InjuriousMaterialAndMonstersInfluence();
 			float		GetInjuriousMaterialDamage	();
@@ -126,6 +133,11 @@ public:
 	IC		float const&	V_ThirstHealth			()	{ return m_fV_ThirstHealth; }
 	IC		float const&	ThirstCritical			()	{ return m_fThirstCritical; }
 	
+	IC		float const&	V_Kurr					()  { return m_fV_Kurr; }
+	IC		float const&	V_KurrPower				()  { return m_fV_KurrPower; }
+	IC		float const&	V_KurrHealth		    ()  { return m_fV_KurrHealth; }
+	IC		float const&	KurrCritical			()  { return m_fKurrCritical; }
+
 	float	GetZoneMaxPower							(ALife::EInfluenceType type) const;
 	float	GetZoneMaxPower							(ALife::EHitType hit_type) const;
 
@@ -164,6 +176,12 @@ protected:
 	float m_fV_ThirstHealth;
 	float m_fThirstCritical;		
 	
+	float m_fKurr;
+	float m_fV_Kurr;
+	float m_fV_KurrPower;
+	float m_fV_KurrHealth;
+	float m_fKurrCritical;
+
 	float m_fPowerLeakSpeed;
 
 	float m_fJumpPower;

@@ -1145,7 +1145,7 @@ bool CGameObject::use(CGameObject* who_use)
 	if (this->lua_game_object() && this->lua_game_object()->m_door && (this->lua_game_object()->m_door->is_blocked(doors::door_state_open) || this->lua_game_object()->m_door->is_blocked(doors::door_state_closed)))
 		return false;
 
-	if (Actor() && BttR_mode)
+	if (Actor() && BttR_mode && this->lua_game_object()->m_door)
 	{
 		LPCSTR animation_door;
 		LUA_EXPORT m_functor;

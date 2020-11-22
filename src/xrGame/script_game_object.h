@@ -188,11 +188,14 @@ public:
     _DECLARE_FUNCTION10	(GetBleeding		,			float);
     _DECLARE_FUNCTION10	(GetMorale			,			float);
 
-    _DECLARE_FUNCTION10(GetSleep, float);
-    _DECLARE_FUNCTION11(ChangeSleep, void, float);
+    _DECLARE_FUNCTION10 (GetSleep           ,           float);
+    _DECLARE_FUNCTION11 (ChangeSleep        , void,     float);
 
-    _DECLARE_FUNCTION10(GetThirst, float);
-    _DECLARE_FUNCTION11(ChangeThirst, void, float);
+    _DECLARE_FUNCTION10 (GetThirst          ,           float);
+    _DECLARE_FUNCTION11 (ChangeThirst       , void,     float);
+
+    _DECLARE_FUNCTION10 (GetKurr            ,           float);
+    _DECLARE_FUNCTION11 (ChangeKurr         , void,     float);
 
     _DECLARE_FUNCTION11	(SetHealth,			void, float);
     _DECLARE_FUNCTION11	(SetPsyHealth,		void, float);

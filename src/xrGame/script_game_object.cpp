@@ -131,6 +131,16 @@ float CScriptGameObject::GetThirst() const
     return Actor()->conditions().GetThirst();
 }
 
+float CScriptGameObject::GetKurr() const
+{
+    return Actor()->conditions().GetKurr();
+}
+
+void CScriptGameObject::ChangeKurr(float fNewValue)
+{
+    Actor()->conditions().ChangeKurr(fNewValue);
+}
+
 void CScriptGameObject::ChangeThirst(float fNewValue)
 {
     Actor()->conditions().ChangeThirst(fNewValue);

@@ -116,6 +116,7 @@ namespace ALife {
 		eRestoreTypeMax,
 		eSleepRestoreSpeed,
 		eThirstRestoreSpeed,
+		eKurrRestoreSpeed,
 	};
 
 	enum ETakeType {
