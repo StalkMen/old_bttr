@@ -57,24 +57,25 @@ float		ps_r2_ssaLOD_A				= 64.f	;
 float		ps_r2_ssaLOD_B				= 48.f	;
 
 // R2-specific
-Flags32		ps_r2_ls_flags				= { R2FLAG_SUN 
-	//| R2FLAG_SUN_IGNORE_PORTALS
+Flags32		ps_r2_ls_flags				= 
+{ 
+	  R2FLAG_SUN 
 	| R2FLAG_EXP_DONT_TEST_UNSHADOWED 
-	| R2FLAG_USE_NVSTENCIL | R2FLAG_EXP_SPLIT_SCENE 
-	| R2FLAG_EXP_MT_CALC | R3FLAG_DYN_WET_SURF
+	| R2FLAG_USE_NVSTENCIL 
+	| R2FLAG_EXP_SPLIT_SCENE 
+	| R2FLAG_EXP_MT_CALC 
+	| R3FLAG_DYN_WET_SURF
 	| R3FLAG_VOLUMETRIC_SMOKE
-	//| R3FLAG_MSAA 
-	//| R3FLAG_MSAA_OPT
-	|R2FLAG_DETAIL_BUMP
-	|R2FLAG_DOF
-	|R2FLAG_SOFT_PARTICLES
-	|R2FLAG_SOFT_WATER
-	|R2FLAG_STEEP_PARALLAX
-	|R2FLAG_SUN_FOCUS
-	|R2FLAG_SUN_TSM
-	|R2FLAG_TONEMAP
-	|R2FLAG_VOLUMETRIC_LIGHTS
-	};	// r2-only
+	| R2FLAG_DETAIL_BUMP
+	| R2FLAG_DOF
+	| R2FLAG_SOFT_PARTICLES
+	| R2FLAG_SOFT_WATER
+	| R2FLAG_STEEP_PARALLAX
+	| R2FLAG_SUN_FOCUS
+	| R2FLAG_SUN_TSM
+	| R2FLAG_TONEMAP
+	| R2FLAG_VOLUMETRIC_LIGHTS
+};	// r2-only
 
 Flags32		ps_r2_ls_flags_ext			= { R2FLAGEXT_ENABLE_TESSELLATION | R2FLAGEXT_SUN_FLARES | R2FLAGEXT_DOF_WEATHER };
 
@@ -612,17 +613,17 @@ float xrRenderFilteringSaturationImage = 0.f;
 float render_gamma = 0.f;
 
 // Base factor values
-FLOAT ps_r__GLOD_ssa_start		= 256.f;
-FLOAT ps_r__GLOD_ssa_end		= 64.f;
-FLOAT ps_r__ssaDISCARD			= 3.5f;
-FLOAT ps_r__ssaHZBvsTEX			= 96.f;
+float ps_r__GLOD_ssa_start		= 256.f;
+float ps_r__GLOD_ssa_end		= 64.f;
+float ps_r__ssaDISCARD			= 3.5f;
+float ps_r__ssaHZBvsTEX			= 96.f;
 
 // Distance factor values
-FLOAT ps_r__geomLodSpriteDistF_ = 0.75f;
-FLOAT ps_r__geomDiscardDistF_	= 0.75f;
-FLOAT ps_r__geomLodDistF_		= 0.75f;
-FLOAT ps_r__geomNTextureDistF_  = 0.75f;
-FLOAT ps_r__geomDTextureDistF_  = 0.75f;
+float ps_r__geomLodSpriteDistF_ = 0.75f;
+float ps_r__geomDiscardDistF_	= 0.75f;
+float ps_r__geomLodDistF_		= 0.75f;
+float ps_r__geomNTextureDistF_  = 0.75f;
+float ps_r__geomDTextureDistF_  = 0.75f;
 
 int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
@@ -673,13 +674,13 @@ void		xrRender_initconsole()
 
 	CMD4(CCC_Float, "xrRenderGammaHLSL",				 &render_gamma,						0.f, 3.f);
 
-	CMD4(CCC_FLOAT, "r__ssa_glod_start",				 &ps_r__GLOD_ssa_start,				128, 512);
-	CMD4(CCC_FLOAT, "r__ssa_glod_end",					 &ps_r__GLOD_ssa_end,				16, 96);
-	CMD4(CCC_FLOAT, "r__lod_sprite_dist_f",				 &ps_r__geomLodSpriteDistF_,		0.1f, 3.0f);
-	CMD4(CCC_FLOAT, "r__geom_quality_dist_f",			 &ps_r__geomLodDistF_,				0.1f, 3.0f);
-	CMD4(CCC_FLOAT, "r__geom_discard_dist_f",			 &ps_r__geomDiscardDistF_,			0.1f, 3.0f);
-	CMD4(CCC_FLOAT, "r__dtexture_dist_f",				 &ps_r__geomDTextureDistF_,			0.1f, 3.0f);
-	CMD4(CCC_FLOAT, "r__ntexture_dist_f",				 &ps_r__geomNTextureDistF_,			0.1f, 3.0f);
+	CMD4(CCC_Float, "r__ssa_glod_start",				 &ps_r__GLOD_ssa_start,				128, 512);
+	CMD4(CCC_Float, "r__ssa_glod_end",					 &ps_r__GLOD_ssa_end,				16, 96);
+	CMD4(CCC_Float, "r__lod_sprite_dist_f",				 &ps_r__geomLodSpriteDistF_,		0.1f, 3.0f);
+	CMD4(CCC_Float, "r__geom_quality_dist_f",			 &ps_r__geomLodDistF_,				0.1f, 3.0f);
+	CMD4(CCC_Float, "r__geom_discard_dist_f",			 &ps_r__geomDiscardDistF_,			0.1f, 3.0f);
+	CMD4(CCC_Float, "r__dtexture_dist_f",				 &ps_r__geomDTextureDistF_,			0.1f, 3.0f);
+	CMD4(CCC_Float, "r__ntexture_dist_f",				 &ps_r__geomNTextureDistF_,			0.1f, 3.0f);
 
 	{
 		tw_min.set(0, 0, 0);

@@ -3,27 +3,27 @@
 
 float				g_fSCREEN;
 
-extern FLOAT		r_dtex_range;
-extern FLOAT		r_ssaDISCARD;
-extern FLOAT		r_ssaLOD_A;
-extern FLOAT		r_ssaLOD_B;
-extern FLOAT		r_ssaHZBvsTEX;
-extern FLOAT		r_ssaGLOD_start, r_ssaGLOD_end;
+extern float		r_dtex_range;
+extern float		r_ssaDISCARD;
+extern float		r_ssaLOD_A;
+extern float		r_ssaLOD_B;
+extern float		r_ssaHZBvsTEX;
+extern float		r_ssaGLOD_start, r_ssaGLOD_end;
 
 void CRender::Calculate		()
 {
 	// Transfer to global space to avoid deep pointer access
 	IRender_Target* T = getTarget();
 
-	FLOAT fov_factor = _sqr(90.f / Device.fFOV);
+	float fov_factor = _sqr(90.f / Device.fFOV);
 
-	g_fSCREEN		 = FLOAT(T->get_width() * T->get_height()) * fov_factor;
+	g_fSCREEN		 = float(T->get_width() * T->get_height()) * fov_factor;
 
-	FLOAT sprite_lodding_dist_f			= g_fSCREEN * (EPS_S + ps_r__geomLodSpriteDistF_);
-	FLOAT geom_q_dist_f					= g_fSCREEN * (EPS_S + ps_r__geomLodDistF_);
-	FLOAT geom_discard_dist_f			= g_fSCREEN * (EPS_S + ps_r__geomDiscardDistF_);
-	FLOAT geom_nt_dist_f				= g_fSCREEN * (EPS_S + ps_r__geomNTextureDistF_);
-	FLOAT geom_dt_dist_f				= g_fSCREEN * (EPS_S + ps_r__geomDTextureDistF_);
+	float sprite_lodding_dist_f			= g_fSCREEN * (EPS_S + ps_r__geomLodSpriteDistF_);
+	float geom_q_dist_f					= g_fSCREEN * (EPS_S + ps_r__geomLodDistF_);
+	float geom_discard_dist_f			= g_fSCREEN * (EPS_S + ps_r__geomDiscardDistF_);
+	float geom_nt_dist_f				= g_fSCREEN * (EPS_S + ps_r__geomNTextureDistF_);
+	float geom_dt_dist_f				= g_fSCREEN * (EPS_S + ps_r__geomDTextureDistF_);
 
 	r_ssaDISCARD	= _sqr(ps_r__ssaDISCARD) / geom_discard_dist_f;
 	r_ssaLOD_A		= _sqr(ps_r2_ssaLOD_A / 3) / sprite_lodding_dist_f;
