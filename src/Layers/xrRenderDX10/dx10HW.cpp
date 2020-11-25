@@ -112,7 +112,10 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	{
 		//OldSerpskiStalker
 		sd.BufferCount = (tbufer_renders == 0) ? 1 : 3;
-		Msg("# HW DX10. Number of buffers for prepared frames: %i", sd.BufferCount);
+		if (renderer_value == 0)
+			Msg("# HW DX10. Number of buffers for prepared frames: %i", sd.BufferCount);
+		else
+			Msg("# HW DX10.1. Number of buffers for prepared frames: %i", sd.BufferCount);
 	}
 
 	// Multisample
@@ -177,7 +180,11 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	UpdateViews();
 
 	size_t	memory = Desc.DedicatedVideoMemory;
-	Msg("*     Texture memory DX10: %d M", memory / (1024 * 1024));
+	
+	if (renderer_value == 0)
+		Msg("*     Texture memory DX10: %d M", memory / (1024 * 1024));
+	else
+		Msg("*     Texture memory DX10.1: %d M", memory / (1024 * 1024));
 
 	updateWindowProps(m_hWnd);
 	fill_vid_mode_list(this);
