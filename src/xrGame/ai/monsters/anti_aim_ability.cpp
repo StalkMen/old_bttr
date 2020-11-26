@@ -73,62 +73,40 @@ bool   anti_aim_ability::can_detect ()
 	return								angle < deg2rad(70.f);
 }
 
-bool   anti_aim_ability::check_start_condition ()
+bool   anti_aim_ability::check_start_condition()
 {
-	if ( is_active() )
-	{
+	if (is_active())
 		return							false;
-	}
 
-	if ( m_object->GetScriptControl() && !m_object->get_force_anti_aim() )
-	{
+	if (m_object->GetScriptControl() && !m_object->get_force_anti_aim())
 		return							false;
-	}
 
-	if ( !m_object->check_start_conditions(ControlCom::eAntiAim) )
-	{
+	if (!m_object->check_start_conditions(ControlCom::eAntiAim))
 		return							false;
-	}
 
-	if ( m_man->is_captured(ControlCom::eControlAnimation) )
-	{
+	if (m_man->is_captured(ControlCom::eControlAnimation))
 		return							false;
-	}
 
-	if ( m_man->is_captured(ControlCom::eControlPath) )
-	{
+	if (m_man->is_captured(ControlCom::eControlPath))
 		return							false;
-	}
 
-	if ( m_man->is_captured(ControlCom::eControlMovement) )
-	{
+	if (m_man->is_captured(ControlCom::eControlMovement))
 		return							false;
-	}
 
-	if ( is_active() )
-	{
+	if (is_active())
 		return							false;
-	}
 
-	if ( !check_update_condition() )
-	{
+	if (!check_update_condition())
 		return							false;
-	}
 
-	if ( m_object->anim().has_override_animation() )
-	{
+	if (m_object->anim().has_override_animation())
 		return							false;
-	}
 
-	if ( m_detection_level < 1.f && !m_object->get_force_anti_aim() )
-	{
+	if (m_detection_level < 1.f && !m_object->get_force_anti_aim())
 		return							false;
-	}
 
-	if ( !can_detect () )
-	{
+	if (!can_detect())
 		return							false;
-	}
 
 	return								true;
 }

@@ -360,6 +360,10 @@ bool CStateBurerAttackTele<Object>::CheckTeleStart()
 	// проверка на текущую активность 
 	if (IsActiveObjects()) return false;
 
+	CEntityAlive const* enemy = object->EnemyMan.get_enemy();
+	if (!enemy || enemy != Actor())
+		return false;
+
 	// проверить дистанцию до врага
 	float dist = object->Position().distance_to(object->EnemyMan.get_enemy()->Position());
 	if ( dist < object->m_tele_min_distance ) return false;
