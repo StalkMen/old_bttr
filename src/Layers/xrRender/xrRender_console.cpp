@@ -97,7 +97,7 @@ float		ps_r2_ls_dsm_kernel			= .7f;				// r2-only
 float		ps_r2_ls_psm_kernel			= .7f;				// r2-only
 float		ps_r2_ls_ssm_kernel			= .7f;				// r2-only
 float		ps_r2_ls_bloom_threshold	= .00001f;				// r2-only
-float		ps_r2_mblur					= .0f;				// .5f
+float		ps_r2_mblur					= .2f;				// .5f
 int			ps_r2_GI_depth				= 1;				// 1..5
 int			ps_r2_GI_photons			= 16;				// 8..64
 float		ps_r2_GI_clip				= EPS_L;			// EPS
@@ -619,11 +619,11 @@ float ps_r__ssaDISCARD			= 3.5f;
 float ps_r__ssaHZBvsTEX			= 96.f;
 
 // Distance factor values
-float ps_r__geomLodSpriteDistF_ = 0.75f;
-float ps_r__geomDiscardDistF_	= 0.75f;
-float ps_r__geomLodDistF_		= 0.75f;
-float ps_r__geomNTextureDistF_  = 0.75f;
-float ps_r__geomDTextureDistF_  = 0.75f;
+float ps_r__geomLodSpriteDistF_ = 2.0f;
+float ps_r__geomDiscardDistF_	= 2.0f;
+float ps_r__geomLodDistF_		= 2.0f;
+float ps_r__geomNTextureDistF_  = 2.0f;
+float ps_r__geomDTextureDistF_  = 2.0f;
 
 int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
@@ -788,7 +788,7 @@ void		xrRender_initconsole()
 //	CMD4(CCC_Float, "r2_sun_lumscale", &ps_r2_sun_lumscale, -1.0, +3.0);
 	CMD4(CCC_Float, "r2_sun_lumscale_hemi", &ps_r2_sun_lumscale_hemi, 0.0, +3.0);
 	CMD4(CCC_Float, "r2_sun_lumscale_amb", &ps_r2_sun_lumscale_amb, 0.0, +3.0);
-	CMD4(CCC_Float, "r2_mblur", &ps_r2_mblur, 0.0f, 1.0f);
+	CMD4(CCC_Float, "r2_mblur", &ps_r2_mblur, 0.15f, 1.0f);
 
 	CMD3(CCC_Mask, "r2_gi", &ps_r2_ls_flags, R2FLAG_GI);
 	CMD4(CCC_Float, "r2_gi_clip", &ps_r2_GI_clip, EPS, 0.1f);
