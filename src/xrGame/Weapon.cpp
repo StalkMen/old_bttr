@@ -31,6 +31,7 @@
 #include "ui/UIXmlInit.h"
 #include "Torch.h"
 #include "ActorNightVision.h"
+#include "../xrServerEntities/ai_sounds.h"
 
 #define WEAPON_REMOVE_TIME		60000
 #define ROTATION_TIME			0.25f
@@ -2682,50 +2683,145 @@ bool CWeapon::IsHudModeNow()
 
 void CWeapon::ZoomDynamicMod(bool bIncrement, bool bForceLimit)
 {
-	if (!IsScopeAttached())
-		return;
+    if (!IsScopeAttached())
+        return;
 
-	if (!m_zoom_params.m_bUseDynamicZoom)
-		return;
+    if (!m_zoom_params.m_bUseDynamicZoom)
+        return;
 
-	float delta, min_zoom_factor, max_zoom_factor;
+    if (psActorFlags.test(AF_3DSCOPE_ENABLE))
+    {
+        float delta, min_zoom_factor, max_zoom_factor;
 
-	bool bIsSecondZOOM = bIsSecondVPZoomPresent() && psActorFlags.test(AF_3DSCOPE_ENABLE);
+        bool bIsSecondZOOM = bIsSecondVPZoomPresent();
 
-	max_zoom_factor = (bIsSecondZOOM ? GetSecondVPZoomFactor() * 100.0f : m_zoom_params.m_fScopeZoomFactor);
+        max_zoom_factor = (bIsSecondZOOM ? GetSecondVPZoomFactor() * 100.0f : m_zoom_params.m_fScopeZoomFactor);
 
-	GetZoomData(max_zoom_factor, delta, min_zoom_factor);
+        GetZoomData(max_zoom_factor, delta, min_zoom_factor);
 
-	if (bForceLimit)
-	{
-		if(bIsSecondZOOM)
-			m_fSecondRTZoomFactor = (bIncrement ? max_zoom_factor : min_zoom_factor);
-		else
-			m_fRTZoomFactor = (bIncrement ? max_zoom_factor : min_zoom_factor);
-	}
-	else
-	{
-		float f = (bIsSecondZOOM ? m_fSecondRTZoomFactor : GetZoomFactor());
+        if (bForceLimit)
+            if (bIsSecondZOOM)
+                m_fSecondRTZoomFactor = (bIncrement ? max_zoom_factor : min_zoom_factor);
+    }
+}
 
-		f -= delta * (bIncrement ? 1.f : -1.f);
+void CWeapon::snd_zoom_inc()
+{
+    sndZoom.play(Actor(), sm_2D);
+    sndZoom.create("device\\snd_zoom_inc", st_Effect, SOUND_TYPE_ITEM_USING);
+}
 
-		clamp(f, max_zoom_factor, min_zoom_factor);
-
-		if (bIsSecondZOOM)
-			m_fSecondRTZoomFactor = f;
-		else
-			SetZoomFactor(f);
-	}
+void CWeapon::snd_zoom_dec()
+{
+    sndZoom.play(Actor(), sm_2D);
+    sndZoom.create("device\\snd_zoom_dec", st_Effect, SOUND_TYPE_ITEM_USING);
 }
 
 void CWeapon::ZoomInc()
 {
-	ZoomDynamicMod(true, false);
+    if (!IsScopeAttached())
+        return;
+
+    if (!m_zoom_params.m_bUseDynamicZoom)
+        return;
+
+    if (psActorFlags.test(AF_3DSCOPE_ENABLE))
+    {
+
+        float delta, min_zoom_factor, max_zoom_factor;
+
+        bool bIsSecondZOOM = bIsSecondVPZoomPresent();
+
+        max_zoom_factor = (bIsSecondZOOM ? GetSecondVPZoomFactor() * 100.0f : m_zoom_params.m_fScopeZoomFactor);
+
+        GetZoomData(max_zoom_factor, delta, min_zoom_factor);
+
+        if (false)
+        {
+            if (bIsSecondZOOM)
+                m_fSecondRTZoomFactor = (true ? max_zoom_factor : min_zoom_factor);
+        }
+        else
+        {
+            float f = (bIsSecondZOOM ? m_fSecondRTZoomFactor : GetZoomFactor());
+            f -= delta * (true ? 1.f : -1.f);
+            clamp(f, max_zoom_factor, min_zoom_factor);
+
+            m_fSecondRTZoomFactor = f;
+
+            if (f == max_zoom_factor)
+                return;
+            else
+                snd_zoom_inc();
+        }
+    }
+    else
+    {
+        float delta, min_zoom_factor;
+        GetZoomData(m_zoom_params.m_fScopeZoomFactor, delta, min_zoom_factor);
+
+        float f = GetZoomFactor() - delta;
+        clamp(f, m_zoom_params.m_fScopeZoomFactor, min_zoom_factor);
+        SetZoomFactor(f);
+
+        if (f == m_zoom_params.m_fScopeZoomFactor)
+            return;
+        else
+            snd_zoom_inc();
+    }
 }
 
 void CWeapon::ZoomDec()
 {
-	ZoomDynamicMod(false, false);
+    if (!IsScopeAttached())
+        return;
+
+    if (!m_zoom_params.m_bUseDynamicZoom)
+        return;
+
+    if (psActorFlags.test(AF_3DSCOPE_ENABLE))
+    {
+        float delta, min_zoom_factor, max_zoom_factor;
+
+        bool bIsSecondZOOM = bIsSecondVPZoomPresent();
+
+        max_zoom_factor = (bIsSecondZOOM ? GetSecondVPZoomFactor() * 100.0f : m_zoom_params.m_fScopeZoomFactor);
+
+        GetZoomData(max_zoom_factor, delta, min_zoom_factor);
+
+        if (false)
+        {
+            if (bIsSecondZOOM)
+                m_fSecondRTZoomFactor = (false ? max_zoom_factor : min_zoom_factor);
+        }
+        else
+        {
+            float f = (bIsSecondZOOM ? m_fSecondRTZoomFactor : GetZoomFactor());
+            f -= delta * (false ? 1.f : -1.f);
+            clamp(f, max_zoom_factor, min_zoom_factor);
+
+            m_fSecondRTZoomFactor = f;
+
+            if (f == min_zoom_factor)
+                return;
+            else
+                snd_zoom_dec();
+        }
+    }
+    else
+    {
+        float delta, min_zoom_factor;
+        GetZoomData(m_zoom_params.m_fScopeZoomFactor, delta, min_zoom_factor);
+
+        float f = GetZoomFactor() + delta;
+        clamp(f, m_zoom_params.m_fScopeZoomFactor, min_zoom_factor);
+        SetZoomFactor(f);
+
+        if (f == min_zoom_factor)
+            return;
+        else
+            snd_zoom_dec();
+    }
 }
 
 u32 CWeapon::Cost() const

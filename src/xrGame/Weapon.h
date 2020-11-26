@@ -377,6 +377,8 @@ public:
     virtual	void			ZoomDec();
     virtual void			OnZoomIn();
     virtual void			OnZoomOut();
+            void            snd_zoom_inc();
+            void            snd_zoom_dec();
     IC		bool			IsZoomed()	const
     {
         return m_zoom_params.m_bIsZoomModeNow;
@@ -439,6 +441,7 @@ protected:
     Fmatrix					m_StrapOffset;
     bool					m_strapped_mode;
     bool					m_can_be_strapped;
+    ref_sound		        sndZoom;
 
     Fmatrix					m_Offset;
     // 0-используется без участия рук, 1-одна рука, 2-две руки
