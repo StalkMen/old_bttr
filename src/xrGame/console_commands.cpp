@@ -1952,6 +1952,7 @@ Flags32 p_game_flags32 = { /*ALIFE_FULL_ACTIVE*/ };
 
 float hud_adj_delta_pos = 0.005f;
 float hud_adj_delta_rot = 0.005f;
+BOOL  mode_youtube = 0;
 
 void CCC_RegisterCommands()
 {
@@ -1980,6 +1981,7 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Integer, "xrGame_collision_wpn", &collision_wpn, 0, 1);
 	CMD4(CCC_Integer, "xrGame_autoreload_wpn", &auto_reload, 0, 1);
 	CMD4(CCC_Integer, "xrGame_inverse_kinematics", &useInverseKinematics_, 0, 1);
+	CMD4(CCC_Integer, "xrGame_mode_youtube", &mode_youtube, 0, 1);
 
 	CMD4(CCC_Float, "hud_adj_delta_pos", &hud_adj_delta_pos, 0.0001f, 1.0f);
 	CMD4(CCC_Float, "hud_adj_delta_rot", &hud_adj_delta_rot, 0.0001f, 1.0f);

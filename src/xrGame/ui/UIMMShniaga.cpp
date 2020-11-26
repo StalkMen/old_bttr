@@ -15,6 +15,7 @@
 #include "MainMenu.h"
 
 extern string_path g_last_saved_game;
+extern BOOL mode_youtube;
 
 CUIMMShniaga::CUIMMShniaga()
 {
@@ -91,7 +92,11 @@ void CUIMMShniaga::InitShniaga(CUIXml& xml_doc, LPCSTR path)
 
     ShowMain				();
 
-	m_sound->Init(xml_doc, "menu_sound");
+	if (mode_youtube == TRUE)
+		m_sound->Init(xml_doc, "menu_sound_youtube");
+	else
+		m_sound->Init(xml_doc, "menu_sound");
+
 	m_sound->music_Play();
 }
 
