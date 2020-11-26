@@ -91,12 +91,6 @@ protected:
     CTimer_paused Timer;
     CTimer_paused TimerGlobal;
 
-public:
-    // Frame Rate Controll
-    CTimer									RateControlingTimer;
-    float									fPreviousFrameTime;	// Time of previous frame
-
-protected:
     //AVO: 
     CTimer frame_timer;   //TODO: проверить, не дублируется-ли схожий таймер (alpet)
     //-AVO

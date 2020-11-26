@@ -101,6 +101,12 @@ void CStats::Show_HW_Stats()
 
         CONST_HEIGHT_FONT;
 
+        //On every 25 frame, update last known fps
+        if ((Core.dwFrame % 25) == 0)
+            fLastDisplayedFPS = fFPS;
+
+        //If game paused, engine not updating deltaTime variable, so FPS variable is freezed to last value
+        const char*   FPSFormat = Device.Paused() ? "Last known FPS: %i" : "FPS: %i";
         // LoopScale всегда должен быть равен 2 или цикл съедет за экран
         constexpr int LoopScale = 2;
                   int InfoScale = 10;
@@ -114,15 +120,14 @@ void CStats::Show_HW_Stats()
                        InfoScale += 15;
 
                 case 2:
-                       pFontHW->SetColor(DebugTextColor::DTC_GREEN);
-                       if (fDeviceMeasuredFPS > 80)
+                        if (fLastDisplayedFPS > 60)
                             pFontHW->SetColor(DebugTextColor::DTC_GREEN);
-                       else if (fDeviceMeasuredFPS < 60)
+                        else if (fLastDisplayedFPS > 30)
                             pFontHW->SetColor(DebugTextColor::DTC_YELLOW);
-                       else if (fDeviceMeasuredFPS <= 35)
+                        else									
                             pFontHW->SetColor(DebugTextColor::DTC_RED);
 
-                        pFontHW->Out(GetMainInfoStats, InfoScale, "FPS: %i", (int)fDeviceMeasuredFPS);
+                        pFontHW->Out(GetMainInfoStats, InfoScale, FPSFormat, (int)fLastDisplayedFPS);
                         InfoScale += 15;
 
                 case 3: 

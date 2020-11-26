@@ -25,22 +25,12 @@ class ENGINE_API CStats :
     public pureRender,
     public CStatsPhysics
 {
-private:
-    float			UpdateFPSCounterSkip;
-    float			UpdateFPSMinute;
-    float			fCounterTotalMinute;
-    int				iTotalMinute;
-    int				iAvrageMinute;
-
 public:
     CGameFont* pFont;
     CGameFont* pFontHW;
-    CGameFont* pFPSFont;
 
-    float       fMem_calls;
-    int			iFPS;					// For statistics internal mechanics
-    float		fDeviceMeasuredFPS;		// Fps measured in device.cpp
-
+    float fFPS, fRFPS, fTPS; // FPS, RenderFPS, TPS
+    float fMem_calls;
     u32 dwMem_calls;
     u32 dwSND_Played, dwSND_Allocated; // Play/Alloc
     float fShedulerLoad;
@@ -127,6 +117,7 @@ public:
     float   AvailablePageFileMem;
     float   PageFileMemUsedByApp;
     float   PhysMemoryUsedPercent;
+    float   fLastDisplayedFPS;
 
     double cpuBefore;
     double cpuLoad = cpuBefore;
