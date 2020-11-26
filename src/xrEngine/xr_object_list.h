@@ -55,6 +55,8 @@ public:
     void SingleUpdate(CObject* O);
     void Update(bool bForce);
 
+    void ProcessDestroyQueue();
+
     void net_Register(CObject* O);
     void net_Unregister(CObject* O);
 

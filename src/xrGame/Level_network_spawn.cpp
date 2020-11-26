@@ -99,9 +99,16 @@ void CLevel::g_sv_Spawn		(CSE_Abstract* E)
 //	Msg					("* CLIENT: Spawn: %s, ID=%d", *E->s_name, E->ID);
 #endif
 
-	// Optimization for single-player only	- minimize traffic between client and server
-	if	(GameID()	== eGameIDSingle)		psNET_Flags.set	(NETFLAG_MINIMIZEUPDATES,TRUE);
-	else								psNET_Flags.set	(NETFLAG_MINIMIZEUPDATES,FALSE);
+	// Optimization for single-player only	- minimize traffic between client and server		
+	psNET_Flags.set	(NETFLAG_MINIMIZEUPDATES,TRUE);
+	
+	auto obj = Objects.net_Find(E->ID);
+
+	if (obj && obj->getDestroy())
+	{
+		Msg("[%s]: %s[%u] already net_Spawn'ed, ProcessDestroyQueue()", __FUNCTION__, obj->cName().c_str(), obj->ID());
+		Objects.ProcessDestroyQueue();
+	}
 
 	// Client spawn
 //	T.Start		();

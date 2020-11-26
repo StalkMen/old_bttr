@@ -194,7 +194,7 @@ void CObjectList::Update(bool bForce)
     if (!Device.Paused() || bForce)
     {
         // Clients
-        if (Device.fTimeDelta>EPS_S || bForce)
+        if (Device.fTimeDelta > EPS_S || bForce)
         {
             // Select Crow-Mode
             Device.Statistic->UpdateClient_updated = 0;
@@ -208,8 +208,8 @@ void CObjectList::Update(bool bForce)
             }
 
 #if 0
-            std::sort (crows.begin(), crows.end());
-            crows.erase (
+            std::sort(crows.begin(), crows.end());
+            crows.erase(
                 std::unique(
                     crows.begin(),
                     crows.end()
@@ -243,7 +243,7 @@ void CObjectList::Update(bool bForce)
             Device.Statistic->UpdateClient_total = objects_active.size() + objects_sleeping.size();
 
             u32 const objects_count = workload->size();
-            CObject** objects = (CObject**)_alloca(objects_count*sizeof(CObject*));
+            CObject** objects = (CObject**)_alloca(objects_count * sizeof(CObject*));
             std::copy(workload->begin(), workload->end(), objects);
 
             crows.clear_not_free();
@@ -263,6 +263,12 @@ void CObjectList::Update(bool bForce)
         }
     }
 
+    // Destroy
+    ProcessDestroyQueue();
+}
+
+void CObjectList::ProcessDestroyQueue()
+{
     // Destroy
     if (!destroy_queue.empty())
     {
@@ -313,8 +319,6 @@ void CObjectList::net_Register(CObject* O)
     R_ASSERT(O->ID() < 0xffff);
 
     map_NETID[O->ID()] = O;
-
-
 
     //. map_NETID.insert(mk_pair(O->ID(),O));
     //Msg ("-------------------------------- Register: %s",O->cName());
