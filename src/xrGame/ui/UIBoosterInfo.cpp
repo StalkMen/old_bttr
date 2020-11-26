@@ -168,7 +168,7 @@ void CUIBoosterInfo::InitFromXml(CUIXml& xml)
 		m_booster_komponent = xr_new<UIBoosterInfoItem>();
 		m_booster_komponent->Init(xml, "boost_komponent");
 		m_booster_komponent->SetAutoDelete(false);
-		name = StringTable().translate("ui_inv_komponent_art_mod").c_str();
+		name = CStringTable().translate("ui_inv_komponent_art_mod").c_str();
 		m_booster_komponent->SetCaption(name);
 		xml.SetLocalRoot(base_node);
 	}
