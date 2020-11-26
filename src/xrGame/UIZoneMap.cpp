@@ -200,12 +200,18 @@ void CUIZoneMap::Render			()
 	if ( !visible )
 		return;
 
+    if (psActorFlags.test(AF_DISABLE_MINIMAP))
+        return;
+
 	m_clipFrame.Draw	();
 	m_background.Draw	();
 }
 
 void CUIZoneMap::Update()
 {
+    if (psActorFlags.test(AF_DISABLE_MINIMAP))
+        return;
+
 	CActor* pActor = smart_cast<CActor*>( Level().CurrentViewEntity() );
 	if ( !pActor ) return;
 

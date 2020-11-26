@@ -151,7 +151,7 @@ void CUIMotionIcon::SetNoise(float Pos)
     }
     else
     {
-        if (!IsGameTypeSingle())
+        if (psActorFlags.test(AF_DISABLE_MINIMAP))
             return;
         Pos = clampr(Pos, 0.f, 100.f);
         m_noise_progress_shape.SetPos(Pos / 100.f);
@@ -167,7 +167,7 @@ void CUIMotionIcon::SetLuminosity(float Pos)
     }
     else
     {
-        if (!IsGameTypeSingle())
+        if (psActorFlags.test(AF_DISABLE_MINIMAP))
             return;
         m_luminosity = Pos;
     }
@@ -226,8 +226,12 @@ void CUIMotionIcon::Update()
             return;
         }
 
+        if (psActorFlags.test(AF_DISABLE_MINIMAP))
+            return;
+
         if (!IsShown())
             return;
+
         if (m_bchanged)
         {
             m_bchanged = false;
@@ -272,6 +276,9 @@ void CUIMotionIcon::SetActorVisibility(u16 who_id, float value)
 {
     if (type_hud_token == 5 || type_hud_token == 9)
     {
+        if (psActorFlags.test(AF_DISABLE_MINIMAP))
+            return;
+
         float v = float(m_luminosity_progress.GetRange_max() - m_luminosity_progress.GetRange_min());
         value *= v;
         value += m_luminosity_progress.GetRange_min();
@@ -297,6 +304,8 @@ void CUIMotionIcon::SetActorVisibility(u16 who_id, float value)
     }
     else
     {
+        if (psActorFlags.test(AF_DISABLE_MINIMAP))
+            return;
 
         if (!IsShown())
             return;

@@ -362,7 +362,7 @@ void CUIMainIngameWnd::Draw()
 	CActor* pActor		= smart_cast<CActor*>(Level().CurrentViewEntity());
 
 	// show IO icon
-	bool IOActive	= (FS.dwOpenCounter>0);
+	bool IOActive	= (FS.dwOpenCounter>0) && !(psActorFlags.test(AF_DISABLE_MINIMAP));
 	if	(IOActive)	UIStaticDiskIO_start_time = Device.fTimeGlobal;
 
 	if ((UIStaticDiskIO_start_time+1.0f) < Device.fTimeGlobal)	UIStaticDiskIO->Show(false); 
@@ -598,7 +598,7 @@ void CUIMainIngameWnd::AnimateContacts(bool b_snd)
 {
 	UIZoneMap->Counter_ResetClrAnimation();
 
-	if(b_snd )
+	if(b_snd && !(psActorFlags.test(AF_DISABLE_MINIMAP)))
 		HUD_SOUND_ITEM::PlaySound	(m_contactSnd, Fvector().set(0,0,0), 0, true );
 }
 
