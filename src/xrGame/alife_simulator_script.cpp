@@ -284,6 +284,8 @@ void CALifeSimulator__release					(CALifeSimulator *self, CSE_Abstract *object, 
 //	self->release						(object,true);
 
 	THROW								(object);
+	R_ASSERT2							(object, "CALifeSimulator__release: Object is not exist.");
+
     if (!object) return;
 	CSE_ALifeObject						*alife_object = smart_cast<CSE_ALifeObject*>(object);
 	THROW								(alife_object);
