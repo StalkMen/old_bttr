@@ -123,7 +123,11 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window)
 	sd.SampleDesc.Quality = 0;
 
 	// Windoze
-	sd.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
+	if (tbufer_renders > 1)
+		sd.SwapEffect = DXGI_SWAP_EFFECT_SEQUENTIAL;
+	else
+		sd.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
+
 	sd.OutputWindow = m_hWnd;
 	sd.Windowed = bWindowed;
 
@@ -515,7 +519,7 @@ void CHW::UpdateViews()
 
 	// Create a render target view
 	ID3DTexture2D* pBuffer;
-	R = m_pSwapChain->GetBuffer(0, __uuidof(ID3DTexture2D), (LPVOID*)&pBuffer);
+	R = m_pSwapChain->GetBuffer(0, __uuidof(ID3DTexture2D), reinterpret_cast<void**>(&pBuffer));
 	R_CHK(R);
 
 	R = pRenderDevice->CreateRenderTargetView(pBuffer, NULL, &pBaseRT);

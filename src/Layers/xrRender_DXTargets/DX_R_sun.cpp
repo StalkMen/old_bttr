@@ -279,11 +279,14 @@ struct	DumbClipper
 };
 
 template <class _Tp>
-inline const _Tp& min(const _Tp& __a, const _Tp& __b) {
+inline const _Tp& min(const _Tp& __a, const _Tp& __b) 
+{
     return __b < __a ? __b : __a;
 }
+
 template <class _Tp>
-inline const _Tp& max(const _Tp& __a, const _Tp& __b) {
+inline const _Tp& max(const _Tp& __a, const _Tp& __b)
+{
     return  __a < __b ? __b : __a;
 }
 
@@ -308,6 +311,7 @@ D3DXVECTOR2 BuildTSMProjectionMatrix_caster_depth_bounds(D3DXMATRIX& lightSpaceB
     return D3DXVECTOR2(min_z,max_z);
 }
 
+extern ENGINE_API int m_sun_cascade_0_size, m_sun_cascade_1_size, m_sun_cascade_2_size;
 void CRender::init_cacades				( )
 {
     u32 cascade_count = 3;
@@ -316,21 +320,14 @@ void CRender::init_cacades				( )
     float fBias = -0.0000025f;
     //	float size = MAP_SIZE_START;
     m_sun_cascades[0].reset_chain = true;
-    m_sun_cascades[0].size = 20; //Swartz: insreased from m_sun_cascades[0].size = 9; as part of actor shadow
+    m_sun_cascades[0].size = m_sun_cascade_0_size; //Swartz: insreased from m_sun_cascades[0].size = 9; as part of actor shadow
     m_sun_cascades[0].bias = m_sun_cascades[0].size*fBias;
 
-    m_sun_cascades[1].size = 40;
+    m_sun_cascades[1].size = m_sun_cascade_1_size;
     m_sun_cascades[1].bias = m_sun_cascades[1].size*fBias;
 
-    m_sun_cascades[2].size = 160;
+    m_sun_cascades[2].size = m_sun_cascade_2_size;
     m_sun_cascades[2].bias = m_sun_cascades[2].size*fBias;
-
-// 	for( u32 i = 0; i < cascade_count; ++i )
-// 	{
-// 		m_sun_cascades[i].size = size;
-// 		size *= MAP_GROW_FACTOR;
-// 	}
-/// 	m_sun_cascades[m_sun_cascades.size()-1].size = 80;
 }
 
 void CRender::render_sun_cascades ( )

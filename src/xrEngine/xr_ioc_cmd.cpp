@@ -1137,6 +1137,10 @@ public:
     }
 };
 
+ENGINE_API int m_sun_cascade_0_size = 8;
+ENGINE_API int m_sun_cascade_1_size = 32;
+ENGINE_API int m_sun_cascade_2_size = 192;
+
 #include "device.h"
 void CCC_Register()
 {
@@ -1176,6 +1180,10 @@ void CCC_Register()
         CMD3(CCC_Token, "xrRenderDX10_sunshafts_mode", &ps_sunshafts_mode, sunshafts_mode_token);
 
         CMD3(CCC_Token, "xrRenderDX11_tess_quality", &optTessQuality_, qtess_quality_token);
+
+        CMD4(CCC_Integer, "xrRenderDX_sun_cascade_size_0", &m_sun_cascade_0_size, 1, 80);
+        CMD4(CCC_Integer, "xrRenderDX_sun_cascade_size_1", &m_sun_cascade_1_size, 1, 150);
+        CMD4(CCC_Integer, "xrRenderDX_sun_cascade_size_2", &m_sun_cascade_2_size, 1, 250);
     }
 
     CMD3(CCC_Token,     "xrEngine_fps_lock",    &g_dwFPSlimit, FpsLockToken);
@@ -1279,7 +1287,7 @@ void CCC_Register()
     // CMD3(CCC_Mask, "rs_disable_objects_as_crows",&psDeviceFlags, rsDisableObjectsAsCrows );
     CMD3(CCC_Mask, "rs_refresh_60hz", &psDeviceFlags, rsRefresh60hz);
     CMD3(CCC_Mask, "rs_stats", &psDeviceFlags, rsStatistic);
-    CMD4(CCC_Float, "rs_vis_distance", &psVisDistance, 0.4f, 1.5f);
+    CMD4(CCC_Float, "rs_vis_distance", &psVisDistance, 0.4f, 1.0f);
 
     CMD3(CCC_Mask, "rs_cam_pos", &psDeviceFlags, rsCameraPos);
 #ifdef DEBUG
