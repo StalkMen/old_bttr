@@ -29,6 +29,7 @@ CUIBoosterInfo::CUIBoosterInfo()
 		m_booster_psyblockade = NULL;
 		m_booster_antirad = NULL;
 		m_booster_kurr = NULL;
+		m_booster_komponent = NULL;
 	}
 }
 
@@ -50,6 +51,7 @@ CUIBoosterInfo::~CUIBoosterInfo()
 		xr_delete(m_booster_psyblockade);
 		xr_delete(m_booster_antirad);
 		xr_delete(m_booster_kurr);
+		xr_delete(m_booster_komponent);
 	}
 }
 
@@ -161,6 +163,13 @@ void CUIBoosterInfo::InitFromXml(CUIXml& xml)
 		m_booster_kurr->SetAutoDelete(false);
 		name = CStringTable().translate("ui_inv_kurr").c_str();
 		m_booster_kurr->SetCaption(name);
+		xml.SetLocalRoot(base_node);
+
+		m_booster_komponent = xr_new<UIBoosterInfoItem>();
+		m_booster_komponent->Init(xml, "boost_komponent");
+		m_booster_komponent->SetAutoDelete(false);
+		name = StringTable().translate("ui_inv_komponent_art_mod").c_str();
+		m_booster_komponent->SetCaption(name);
 		xml.SetLocalRoot(base_node);
 	}
 
@@ -367,6 +376,66 @@ void CUIBoosterInfo::SetInfo( shared_str const& section )
 				h += m_booster_kurr->GetWndSize().y;
 				AttachChild(m_booster_kurr);
 			}
+		}
+
+		if (!xr_strcmp(section.c_str(), "gravi_kapsula"))
+		{
+			pos.set(m_booster_komponent->GetWndPos());
+			pos.y = h;
+			m_booster_komponent->SetWndPos(pos);
+
+			h += m_booster_komponent->GetWndSize().y;
+			AttachChild(m_booster_komponent);
+		}
+
+		if (!xr_strcmp(section.c_str(), "fire_kapsula"))
+		{
+			pos.set(m_booster_komponent->GetWndPos());
+			pos.y = h;
+			m_booster_komponent->SetWndPos(pos);
+
+			h += m_booster_komponent->GetWndSize().y;
+			AttachChild(m_booster_komponent);
+		}
+
+		if (!xr_strcmp(section.c_str(), "chim_kapsula"))
+		{
+			pos.set(m_booster_komponent->GetWndPos());
+			pos.y = h;
+			m_booster_komponent->SetWndPos(pos);
+
+			h += m_booster_komponent->GetWndSize().y;
+			AttachChild(m_booster_komponent);
+		}
+
+		if (!xr_strcmp(section.c_str(), "snow_kapsula"))
+		{
+			pos.set(m_booster_komponent->GetWndPos());
+			pos.y = h;
+			m_booster_komponent->SetWndPos(pos);
+
+			h += m_booster_komponent->GetWndSize().y;
+			AttachChild(m_booster_komponent);
+		}
+
+		if (!xr_strcmp(section.c_str(), "electro_kapsula"))
+		{
+			pos.set(m_booster_komponent->GetWndPos());
+			pos.y = h;
+			m_booster_komponent->SetWndPos(pos);
+
+			h += m_booster_komponent->GetWndSize().y;
+			AttachChild(m_booster_komponent);
+		}
+
+		if (!xr_strcmp(section.c_str(), "radio_kapsula"))
+		{
+			pos.set(m_booster_komponent->GetWndPos());
+			pos.y = h;
+			m_booster_komponent->SetWndPos(pos);
+
+			h += m_booster_komponent->GetWndSize().y;
+			AttachChild(m_booster_komponent);
 		}
 	}
 

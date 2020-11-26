@@ -28,6 +28,7 @@ protected:
 	UIBoosterInfoItem*  m_booster_antizombin;
 	UIBoosterInfoItem*  m_booster_psyblockade;
 	UIBoosterInfoItem*  m_booster_antirad;
+	UIBoosterInfoItem*  m_booster_komponent;
 
 	CUIStatic*			m_Prop_line;
 
