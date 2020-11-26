@@ -2204,10 +2204,20 @@ void CWeapon::UpdateHudAdditonal(Fmatrix& trans)
 		hud_rotation.translate_over(curr_offs);
 		trans.mulB_43(hud_rotation);
 
-		if (pActor->IsZoomAimingMode())
-			m_zoom_params.m_fZoomRotationFactor += Device.fTimeDelta / m_zoom_params.m_fZoomRotateTime;
-		else
-			m_zoom_params.m_fZoomRotationFactor -= Device.fTimeDelta / m_zoom_params.m_fZoomRotateTime;
+        float AimSpeed = m_zoom_params.m_fZoomRotateTime;  // 8.f normal
+
+        if (pActor->IsZoomAimingMode())
+        {
+            const float targetHeight = 1.f;
+            const float dti = AimSpeed * Device.dwTimeDelta / 1000.0f;
+            m_zoom_params.m_fZoomRotationFactor = (m_zoom_params.m_fZoomRotationFactor * (1.0f - dti)) + (targetHeight * dti);
+        }
+        else
+        {
+            const float targetHeight = 0.f;
+            const float dti = AimSpeed * Device.dwTimeDelta / 1000.0f;
+            m_zoom_params.m_fZoomRotationFactor = (m_zoom_params.m_fZoomRotationFactor * (1.0f - dti)) + (targetHeight * dti);
+        }
 
 		clamp(m_zoom_params.m_fZoomRotationFactor, 0.f, 1.f);
 	}
