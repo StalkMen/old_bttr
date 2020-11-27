@@ -178,6 +178,9 @@ void CUIMotionIcon::Draw()
     if (!IsShown())
         return;
 
+    if (psActorFlags.test(AF_DISABLE_MINIMAP))
+        return;
+
     inherited::Draw();
 }
 
