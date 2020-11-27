@@ -18,6 +18,7 @@ public:
 	virtual			~CWeaponBinoculars	();
 
 	void			Load				(LPCSTR section);
+			bool    dynamics_zoom		  ;
 
 	virtual void	OnZoomIn			();
 	virtual void	OnZoomOut			();

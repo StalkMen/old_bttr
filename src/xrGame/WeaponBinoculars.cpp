@@ -28,8 +28,9 @@ void CWeaponBinoculars::Load	(LPCSTR section)
 	m_sounds.LoadSound(section, "snd_zoomin",  "sndZoomIn",		false, SOUND_TYPE_ITEM_USING);
 	m_sounds.LoadSound(section, "snd_zoomout", "sndZoomOut",	false, SOUND_TYPE_ITEM_USING);
 	m_bVision = !!pSettings->r_bool(section,"vision_present");
-}
 
+	dynamics_zoom = READ_IF_EXISTS(pSettings, r_bool, section, "zoom_enabled_binoc", true);
+}
 
 bool CWeaponBinoculars::Action(u16 cmd, u32 flags) 
 {
@@ -107,7 +108,9 @@ void CWeaponBinoculars::render_item_ui()
 
 void CWeaponBinoculars::ZoomInc()
 {
-	if (!m_zoom_params.m_bUseDynamicZoom)	return;
+	if (dynamics_zoom == false)
+		return;
+
 	float delta,min_zoom_factor;
 	GetZoomData(m_zoom_params.m_fScopeZoomFactor, delta, min_zoom_factor);
 
@@ -123,7 +126,9 @@ void CWeaponBinoculars::ZoomInc()
 
 void CWeaponBinoculars::ZoomDec()
 {
-	if (!m_zoom_params.m_bUseDynamicZoom)	return;
+	if (dynamics_zoom == false)
+		return;
+
 	float delta,min_zoom_factor;
 	GetZoomData(m_zoom_params.m_fScopeZoomFactor,delta,min_zoom_factor);
 
