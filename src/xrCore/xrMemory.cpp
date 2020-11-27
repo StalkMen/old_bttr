@@ -153,6 +153,33 @@ void xrMemory::mem_compact()
         SetProcessWorkingSetSize(GetCurrentProcess(), size_t(-1), size_t(-1));
 }
 
+#include "psapi.h"
+void xrMemory::GetProcessMemInfo(SProcessMemInfo& minfo)
+{
+    std::memset(&minfo, 0, sizeof(SProcessMemInfo));
+
+    MEMORYSTATUSEX mem;
+    mem.dwLength = sizeof(mem);
+    GlobalMemoryStatusEx(&mem);
+
+    minfo.TotalPhysicalMemory = mem.ullTotalPhys;
+    minfo.FreePhysicalMemory = mem.ullAvailPhys;
+    minfo.TotalVirtualMemory = mem.ullTotalVirtual;
+    minfo.MemoryLoad = mem.dwMemoryLoad;
+
+    //--------------------------------------------------------------------
+    PROCESS_MEMORY_COUNTERS pc;
+    std::memset(&pc, 0, sizeof(PROCESS_MEMORY_COUNTERS));
+    pc.cb = sizeof(pc);
+    if (GetProcessMemoryInfo(GetCurrentProcess(), &pc, sizeof(pc)))
+    {
+        minfo.PeakWorkingSetSize = pc.PeakWorkingSetSize;
+        minfo.WorkingSetSize = pc.WorkingSetSize;
+        minfo.PagefileUsage = pc.PagefileUsage;
+        minfo.PeakPagefileUsage = pc.PeakPagefileUsage;
+    }
+}
+
 #ifdef DEBUG_MEMORY_MANAGER
 ICF u8* acc_header(void* P) { u8* _P = (u8*)P; return _P - 1; }
 ICF u32 get_header(void* P) { return (u32)*acc_header(P); }

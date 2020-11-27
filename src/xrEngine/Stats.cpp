@@ -9,6 +9,8 @@
 
 #include "../Include/xrRender/DrawUtils.h"
 #include "device.h"
+#include "psapi.h"
+#pragma comment( lib, "psapi.lib" )
 
 int g_ErrorLineCount = 15;
 Flags32 g_stats_flags = {0};

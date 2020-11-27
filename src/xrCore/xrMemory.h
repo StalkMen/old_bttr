@@ -43,6 +43,21 @@ public:
     void _initialize(BOOL _debug_mode = FALSE);
     void _destroy();
 
+    struct SProcessMemInfo
+    {
+        u64 PeakWorkingSetSize;
+        u64 WorkingSetSize;
+        u64 PagefileUsage;
+        u64 PeakPagefileUsage;
+
+        u64 TotalPhysicalMemory;
+        s64 FreePhysicalMemory;
+        u64 TotalVirtualMemory;
+        u32 MemoryLoad;
+    };
+
+    void GetProcessMemInfo(SProcessMemInfo& minfo);
+
 #ifdef DEBUG_MEMORY_MANAGER
     BOOL debug_mode;
     xrCriticalSection debug_cs;

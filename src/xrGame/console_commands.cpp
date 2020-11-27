@@ -193,6 +193,18 @@ static void full_memory_stats()
 	Msg("- [TouchOfRay Engine x64]: file mapping: memory[%d K], count[%d]", g_file_mapped_memory / 1024, g_file_mapped_count);
 	dump_file_mappings();
 #endif // DEBUG
+
+	Log("--------------------------------------------------------------------------------");
+	xrMemory::SProcessMemInfo memCounters;
+	::Memory.GetProcessMemInfo(memCounters);
+	Msg("~ %I64dMB physical memory installed, %I64dMB available, %ld percent of memory in use",
+		memCounters.TotalPhysicalMemory / (1024 * 1024), memCounters.FreePhysicalMemory / (1024 * 1024),
+		memCounters.MemoryLoad);
+	Msg("~ PageFile usage: %I64dMB, Peak PageFile usage: %I64dMB,", memCounters.PagefileUsage / (1024 * 1024),
+		memCounters.PeakPagefileUsage / (1024 * 1024));
+	Log("--------------------------------------------------------------------------------");
+	Log("# Engine: Touch Of Ray x64");
+	Log("--------------------------------------------------------------------------------");
 }
 
 class CCC_MemStats : public IConsole_Command
