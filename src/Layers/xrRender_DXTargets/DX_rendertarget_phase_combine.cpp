@@ -196,28 +196,6 @@ void	CRenderTarget::phase_combine	()
 			sundir.set				(L_dir.x,L_dir.y,L_dir.z,0);
 		}
 
-		/*
-		// Fill VB
-		//float	_w					= float(Device.dwWidth);
-		//float	_h					= float(Device.dwHeight);
-		//p0.set						(.5f/_w, .5f/_h);
-		//p1.set						((_w+.5f)/_w, (_h+.5f)/_h );
-		//p0.set						(.5f/_w, .5f/_h);
-		//p1.set						((_w+.5f)/_w, (_h+.5f)/_h );
-
-		// Fill vertex buffer
-		Fvector4* pv				= (Fvector4*)	RCache.Vertex.Lock	(4,g_combine_VP->vb_stride,Offset);
-		//pv->set						(hclip(EPS,		_w),	hclip(_h+EPS,	_h),	p0.x, p1.y);	pv++;
-		//pv->set						(hclip(EPS,		_w),	hclip(EPS,		_h),	p0.x, p0.y);	pv++;
-		//pv->set						(hclip(_w+EPS,	_w),	hclip(_h+EPS,	_h),	p1.x, p1.y);	pv++;
-		//pv->set						(hclip(_w+EPS,	_w),	hclip(EPS,		_h),	p1.x, p0.y);	pv++;
-		pv->set						(-1,	1,	0, 1);	pv++;
-		pv->set						(-1,	-1,	0, 0);	pv++;
-		pv->set						(1,		1,	1, 1);	pv++;
-		pv->set						(1,		-1,	1, 0);	pv++;
-		RCache.Vertex.Unlock		(4,g_combine_VP->vb_stride);
-		*/
-
 		// Fill VB
 		float	scale_X				= float(Device.dwWidth)	/ float(TEX_jitter);
 		float	scale_Y				= float(Device.dwHeight)/ float(TEX_jitter);
@@ -402,6 +380,31 @@ void	CRenderTarget::phase_combine	()
 	
 	//Gamma
 	phase_gamma();
+
+	/*
+		nv color = rgb.brightness
+		nv postprocessing = noise, flickering, scanlines, radius
+	*/
+	switch (render_nightvision)
+	{
+		case 0:
+			RCache.set_c("nv_color", 0.f, 0.f, 0.f, 0.f);
+			RCache.set_c("nv_postprocessing", 0.f, 0.f, 0.f, 0.f);
+			break;
+		case 1:
+			RCache.set_c("nv_color", 0.45f, 0.9f, 0.55f, 7.f);
+			RCache.set_c("nv_postprocessing", 0.175f, 0.009f, 0.025f, 0.8f);
+			break;
+		case 2:
+			RCache.set_c("nv_color", 0.40f, 0.99f, 0.83f, 10.f);
+			RCache.set_c("nv_postprocessing", 0.125f, 0.005f, 0.0125f, 0.9f);
+			break;
+		case 3:
+			RCache.set_c("nv_color", 0.8f, 0.8f, 0.8f, 15.f);
+			RCache.set_c("nv_postprocessing", 0.075f, 0.0025f, 0.005f, 1.f);
+			break;
+	}
+
 	// PP enabled ?
 	//	Render to RT texture to be able to copy RT even in windowed mode.
 	BOOL	PP_Complex		= u_need_PP	() | (BOOL)RImplementation.m_bMakeAsyncSS;

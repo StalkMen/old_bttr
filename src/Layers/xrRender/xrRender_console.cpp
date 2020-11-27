@@ -627,6 +627,7 @@ float ps_r__geomDTextureDistF_  = 2.0f;
 
 int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
+int	  render_nightvision = 0;
 
 Fvector ps_r2_drops_control = { 0.000000f, 0.000000f, 0.000000f };
 
@@ -673,6 +674,9 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "xrRenderFilteringSaturationImage",  &xrRenderFilteringSaturationImage,	-1.f, 2.f);
 
 	CMD4(CCC_Float, "xrRenderGammaHLSL",				 &render_gamma,						0.f, 3.f);
+
+	//LVutner 
+	CMD4(CCC_Integer, "r_nv",							 &render_nightvision,				0, 3);
 
 	CMD4(CCC_Float, "r__ssa_glod_start",				 &ps_r__GLOD_ssa_start,				128, 512);
 	CMD4(CCC_Float, "r__ssa_glod_end",					 &ps_r__GLOD_ssa_end,				16, 96);
