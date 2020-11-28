@@ -70,7 +70,7 @@ void CRenderTarget::accum_spot_geom_create	()
 	{
 		u32		vCount		= DU_CONE_NUMVERTEX;
 		u32		vSize		= 3*4;
-		//R_CHK	(HW.pDevice->CreateVertexBuffer(
+		//R_CHK	(DEVICE_HW::XRAY::HW.pDevice->CreateVertexBuffer(
 		//	vCount*vSize,
 		//	dwUsage,
 		//	0,
@@ -84,7 +84,7 @@ void CRenderTarget::accum_spot_geom_create	()
 
 		R_CHK(dx10BufferUtils::CreateVertexBuffer( &g_accum_spot_vb, du_cone_vertices,vCount*vSize));
 #ifdef USE_DX10
-		HW.stats_manager.increment_stats_vb			( g_accum_spot_vb );
+		DEVICE_HW::XRAY::HW.stats_manager.increment_stats_vb			( g_accum_spot_vb );
 #endif
 	}
 
@@ -93,14 +93,14 @@ void CRenderTarget::accum_spot_geom_create	()
 		u32		iCount		= DU_CONE_NUMFACES*3;
 
 		//BYTE*	pData		= 0;
-		//R_CHK				(HW.pDevice->CreateIndexBuffer(iCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&g_accum_spot_ib,0));
+		//R_CHK				(DEVICE_HW::XRAY::HW.pDevice->CreateIndexBuffer(iCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&g_accum_spot_ib,0));
 		//R_CHK				(g_accum_spot_ib->Lock(0,0,(void**)&pData,0));
 		//CopyMemory		(pData,du_cone_faces,iCount*2);
 		//g_accum_spot_ib->Unlock	();
 
 		R_CHK( dx10BufferUtils::CreateIndexBuffer( &g_accum_spot_ib, du_cone_faces, iCount*2 ) );
 #ifdef USE_DX10	
-		HW.stats_manager.increment_stats_ib			( g_accum_spot_ib );
+		DEVICE_HW::XRAY::HW.stats_manager.increment_stats_ib			( g_accum_spot_ib );
 #endif														
 	}
 }
@@ -111,14 +111,14 @@ void CRenderTarget::accum_spot_geom_destroy()
 	_SHOW_REF	("g_accum_spot_ib",g_accum_spot_ib);
 #endif // DEBUG
 #ifdef USE_DX10	
-	HW.stats_manager.decrement_stats_ib	(g_accum_spot_ib);
+	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_ib	(g_accum_spot_ib);
 #endif	
 	_RELEASE	(g_accum_spot_ib);
 #ifdef DEBUG
 	_SHOW_REF	("g_accum_spot_vb",g_accum_spot_vb);
 #endif // DEBUG
 #ifdef USE_DX10	
-	HW.stats_manager.decrement_stats_vb	(g_accum_spot_vb);
+	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_vb	(g_accum_spot_vb);
 #endif
 	_RELEASE	(g_accum_spot_vb);
 }
@@ -137,7 +137,7 @@ void CRenderTarget::accum_volumetric_geom_create()
 		//	VOLUMETRIC_SLICES quads
 		static const u32		vCount		= VOLUMETRIC_SLICES*4;
 		u32		vSize		= 3*4;
-		//R_CHK	(HW.pDevice->CreateVertexBuffer(
+		//R_CHK	(DEVICE_HW::XRAY::HW.pDevice->CreateVertexBuffer(
 		//	vCount*vSize,
 		//	dwUsage,
 		//	0,
@@ -173,7 +173,7 @@ void CRenderTarget::accum_volumetric_geom_create()
 
 		R_CHK( dx10BufferUtils::CreateVertexBuffer( &g_accum_volumetric_vb, &pSlice, vCount*vSize) );
 #ifdef USE_DX10
-		HW.stats_manager.increment_stats_vb			( g_accum_volumetric_vb );	
+		DEVICE_HW::XRAY::HW.stats_manager.increment_stats_vb			( g_accum_volumetric_vb );	
 #endif		
 	}
 
@@ -182,7 +182,7 @@ void CRenderTarget::accum_volumetric_geom_create()
 		const u32		iCount		= VOLUMETRIC_SLICES*6;
 
 		//BYTE*	pData		= 0;
-		//R_CHK				(HW.pDevice->CreateIndexBuffer(iCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&g_accum_volumetric_ib,0));
+		//R_CHK				(DEVICE_HW::XRAY::HW.pDevice->CreateIndexBuffer(iCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&g_accum_volumetric_ib,0));
 		//R_CHK				(g_accum_volumetric_ib->Lock(0,0,(void**)&pData,0));
 		//u16 *pInd = (u16*) pData;
 		//for ( u16 i=0; i<VOLUMETRIC_SLICES; ++i, pInd+=6)
@@ -213,10 +213,10 @@ void CRenderTarget::accum_volumetric_geom_create()
 
 		R_CHK( dx10BufferUtils::CreateIndexBuffer( &g_accum_volumetric_ib, &Datap, iCount*2 ) );
 #ifdef USE_DX10
-		HW.stats_manager.increment_stats_ib			(g_accum_volumetric_ib);
+		DEVICE_HW::XRAY::HW.stats_manager.increment_stats_ib			(g_accum_volumetric_ib);
 #endif																
 
-//		R_CHK				(HW.pDevice->CreateIndexBuffer(iCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&g_accum_volumetric_ib,0));
+//		R_CHK				(DEVICE_HW::XRAY::HW.pDevice->CreateIndexBuffer(iCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&g_accum_volumetric_ib,0));
 	}
 }
 
@@ -226,14 +226,14 @@ void CRenderTarget::accum_volumetric_geom_destroy()
 	_SHOW_REF	("g_accum_volumetric_ib",g_accum_volumetric_ib);
 #endif // DEBUG
 #ifdef USE_DX10
-	HW.stats_manager.decrement_stats_ib(g_accum_volumetric_ib);
+	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_ib(g_accum_volumetric_ib);
 #endif															
 	_RELEASE	(g_accum_volumetric_ib);
 #ifdef DEBUG
 	_SHOW_REF	("g_accum_volumetric_vb",g_accum_volumetric_vb);
 #endif // DEBUG
 #ifdef USE_DX10
-	HW.stats_manager.decrement_stats_vb(g_accum_volumetric_vb);
+	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_vb(g_accum_volumetric_vb);
 #endif															
 	_RELEASE	(g_accum_volumetric_vb);
 }

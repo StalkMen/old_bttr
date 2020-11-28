@@ -248,15 +248,15 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
 //	TODO: DX10: Check if DX10 has analog for NV DBT
 //		if (u_DBT_enable(zMin,zMax))	{
 			// z-test always
-//			HW.pDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
-//			HW.pDevice->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+//			DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
+//			DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
 //		}
 
 		// Fetch4 : enable
 //		if (RImplementation.o.HW_smap_FETCH4)	{
 			//. we hacked the shader to force smap on S0
 //#			define FOURCC_GET4  MAKEFOURCC('G','E','T','4') 
-//			HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET4 );
+//			DEVICE_HW::XRAY::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET4 );
 //		}
 
 		// setup stencil
@@ -298,7 +298,7 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
 //		if (RImplementation.o.HW_smap_FETCH4)	{
 			//. we hacked the shader to force smap on S0
 //#			define FOURCC_GET1  MAKEFOURCC('G','E','T','1') 
-//			HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET1 );
+//			DEVICE_HW::XRAY::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET1 );
 //		}
 
 //	TODO: DX10: Check if DX10 has analog for NV DBT
@@ -575,15 +575,15 @@ void CRenderTarget::accum_direct_cascade	( u32 sub_phase, Fmatrix& xform, Fmatri
 		//	TODO: DX10: Check if DX10 has analog for NV DBT
 		//		if (u_DBT_enable(zMin,zMax))	{
 		// z-test always
-		//			HW.pDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
-		//			HW.pDevice->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+		//			DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
+		//			DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
 		//		}
 
 		// Fetch4 : enable
 		//		if (RImplementation.o.HW_smap_FETCH4)	{
 		//. we hacked the shader to force smap on S0
 		//#			define FOURCC_GET4  MAKEFOURCC('G','E','T','4') 
-		//			HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET4 );
+		//			DEVICE_HW::XRAY::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET4 );
 		//		}
 
 		// Enable Z function only for near and middle cascades, the far one is restricted by only stencil.
@@ -665,7 +665,7 @@ void CRenderTarget::accum_direct_cascade	( u32 sub_phase, Fmatrix& xform, Fmatri
 		//		if (RImplementation.o.HW_smap_FETCH4)	{
 		//. we hacked the shader to force smap on S0
 		//#			define FOURCC_GET1  MAKEFOURCC('G','E','T','1') 
-		//			HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET1 );
+		//			DEVICE_HW::XRAY::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET1 );
 		//		}
 
 		//	TODO: DX10: Check if DX10 has analog for NV DBT
@@ -686,7 +686,7 @@ void CRenderTarget::accum_direct_blend	()
 	if (!RImplementation.o.fp16_blend)	{
 		VERIFY(0);
       if( ! RImplementation.o.dx10_msaa )
-		   u_setrt						(rt_Accumulator,NULL,NULL,HW.pBaseZB);
+		   u_setrt						(rt_Accumulator,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
       else
          u_setrt						(rt_Accumulator,NULL,NULL,rt_MSAADepth->pZRT);
 
@@ -760,7 +760,7 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 	}
 	phase_accumulator					();
 	if( ! RImplementation.o.dx10_msaa )
-		u_setrt								(rt_Generic_0,NULL,NULL,HW.pBaseZB);
+		u_setrt								(rt_Generic_0,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
 	else
 		u_setrt								(rt_Generic_0_r,NULL,NULL,RImplementation.Target->rt_MSAADepth->pZRT);
 
@@ -789,12 +789,12 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 	if (SE_SUN_NEAR==sub_phase)	//.
 	{
 		// For sun-filter - clear to zero
-		//CHK_DX	(HW.pDevice->Clear	( 0L, NULL, D3DCLEAR_TARGET, 0, 1.0f, 0L));
+		//CHK_DX	(DEVICE_HW::XRAY::HW.pDevice->Clear	( 0L, NULL, D3DCLEAR_TARGET, 0, 1.0f, 0L));
 		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 #ifdef USE_DX11
-		HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
+		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
 #else
-		HW.pRenderDevice->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
+		DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
 #endif
 		// Fill vertex buffer
 		FVF::TL* pv					= (FVF::TL*)	RCache.Vertex.Lock	(4,g_combine->vb_stride,Offset);
@@ -861,7 +861,7 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 	// Perform lighting
 	{
 		if( ! RImplementation.o.dx10_msaa )
-			u_setrt								(rt_Generic_0,NULL,NULL,HW.pBaseZB);  // enshure RT setup
+			u_setrt								(rt_Generic_0,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);  // enshure RT setup
 		else
 			u_setrt								(rt_Generic_0_r,NULL,NULL,RImplementation.Target->rt_MSAADepth->pZRT);  // enshure RT setup
 		RCache.set_CullMode					(CULL_NONE	);
@@ -1190,18 +1190,18 @@ void CRenderTarget::accum_direct_volumetric	(u32 sub_phase, const u32 Offset, co
 //	TODO: DX10: Check if DX10 has analog for NV DBT
 //		if (u_DBT_enable(zMin,zMax))	{
 			// z-test always
-//			HW.pDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
-//			HW.pDevice->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+//			DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
+//			DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
 //		}
 //		else
 		{
 
 //	TODO: DX10: Implement via different passes
 			if (SE_SUN_NEAR==sub_phase)
-				//HW.pDevice->SetRenderState( D3DRS_ZFUNC, D3DCMP_GREATER);
+				//DEVICE_HW::XRAY::HW.pDevice->SetRenderState( D3DRS_ZFUNC, D3DCMP_GREATER);
 				RCache.set_ZFunc(D3DCMP_GREATER);
 			else
-				//HW.pDevice->SetRenderState( D3DRS_ZFUNC, D3DCMP_LESSEQUAL);
+				//DEVICE_HW::XRAY::HW.pDevice->SetRenderState( D3DRS_ZFUNC, D3DCMP_LESSEQUAL);
 				RCache.set_ZFunc(D3DCMP_ALWAYS);
 		}
 
@@ -1209,7 +1209,7 @@ void CRenderTarget::accum_direct_volumetric	(u32 sub_phase, const u32 Offset, co
 //		if (RImplementation.o.HW_smap_FETCH4)	{
 			//. we hacked the shader to force smap on S0
 //#			define FOURCC_GET4  MAKEFOURCC('G','E','T','4') 
-//			HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET4 );
+//			DEVICE_HW::XRAY::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET4 );
 //		}
 
 		// setup stencil: we have to draw to both lit and unlit pixels
@@ -1256,7 +1256,7 @@ void CRenderTarget::accum_direct_volumetric	(u32 sub_phase, const u32 Offset, co
 //		if (RImplementation.o.HW_smap_FETCH4)	{
 			//. we hacked the shader to force smap on S0
 //#			define FOURCC_GET1  MAKEFOURCC('G','E','T','1') 
-//			HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET1 );
+//			DEVICE_HW::XRAY::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET1 );
 //		}
 
 //	TODO: DX10: Check if DX10 has analog for NV DBT

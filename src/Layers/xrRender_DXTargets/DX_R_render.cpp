@@ -71,7 +71,7 @@ void CRender::render_main	(Fmatrix&	m_ViewProjection, bool _fportals)
 			Device.vCameraPosition,
 			m_ViewProjection,
 			CPortalTraverser::VQ_HOM + CPortalTraverser::VQ_SSA + CPortalTraverser::VQ_FADE
-			//. disabled scissoring (HW.Caps.bScissor?CPortalTraverser::VQ_SCISSOR:0)	// generate scissoring info
+			//. disabled scissoring (DEVICE_HW::XRAY::HW.Caps.bScissor?CPortalTraverser::VQ_SCISSOR:0)	// generate scissoring info
 			);
 
 		// Determine visibility for static geometry hierrarhy
@@ -154,25 +154,25 @@ void CRender::render_menu	()
 
 	// Main Render
 	{
-		Target->u_setrt(Target->rt_Generic_0,0,0,HW.pBaseZB);		// LDR RT
+		Target->u_setrt(Target->rt_Generic_0,0,0,DEVICE_HW::XRAY::HW.pBaseZB);		// LDR RT
 		g_pGamePersistent->OnRenderPPUI_main()	;	// PP-UI
 	}
 
 	// Distort
 	{
 		FLOAT ColorRGBA[4] = {127.0f/255.0f, 127.0f/255.0f, 0.0f, 127.0f/255.0f};
-		Target->u_setrt(Target->rt_Generic_1,0,0,HW.pBaseZB);
+		Target->u_setrt(Target->rt_Generic_1,0,0,DEVICE_HW::XRAY::HW.pBaseZB);
 		// Now RT is a distortion mask
 #ifdef USE_DX11		
-		HW.pRenderContext->ClearRenderTargetView(Target->rt_Generic_1->pRT, ColorRGBA);
+		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(Target->rt_Generic_1->pRT, ColorRGBA);
 #else
-		HW.pRenderDevice->ClearRenderTargetView(Target->rt_Generic_1->pRT, ColorRGBA);
+		DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(Target->rt_Generic_1->pRT, ColorRGBA);
 #endif	
 		g_pGamePersistent->OnRenderPPUI_PP	()	;	// PP-UI
 	}
 
 	// Actual Display
-	Target->u_setrt					( Device.dwWidth,Device.dwHeight,HW.pBaseRT,NULL,NULL,HW.pBaseZB);
+	Target->u_setrt					( Device.dwWidth,Device.dwHeight,DEVICE_HW::XRAY::HW.pBaseRT,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
 	RCache.set_Shader				( Target->s_menu	);
 	RCache.set_Geometry				( Target->g_menu	);
 
@@ -217,7 +217,7 @@ void CRender::Render		()
 	if( !(g_pGameLevel && g_hud)
 		|| bMenu)	
 	{
-		Target->u_setrt				( Device.dwWidth,Device.dwHeight,HW.pBaseRT,NULL,NULL,HW.pBaseZB);
+		Target->u_setrt				( Device.dwWidth,Device.dwHeight,DEVICE_HW::XRAY::HW.pBaseRT,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
 		return;
 	}
 
@@ -293,7 +293,7 @@ void CRender::Render		()
 	}
 #endif
 	Device.Statistic->RenderDUMP_Wait_S.End		();
-	q_sync_count								= (q_sync_count+1)%HW.Caps.iGPUNum;
+	q_sync_count								= (q_sync_count+1)%DEVICE_HW::XRAY::HW.Caps.iGPUNum;
 	//CHK_DX										(q_sync_point[q_sync_count]->Issue(D3DISSUE_END));
 	CHK_DX										(EndQuery(q_sync_point[q_sync_count]));
 
@@ -365,7 +365,7 @@ void CRender::Render		()
 		{
 
 			if( !RImplementation.o.dx10_msaa )
-				Target->u_setrt		( Target->rt_Generic_0,	Target->rt_Generic_1,0,HW.pBaseZB );
+				Target->u_setrt		( Target->rt_Generic_0,	Target->rt_Generic_1,0,DEVICE_HW::XRAY::HW.pBaseZB );
 			else
 				Target->u_setrt		( Target->rt_Generic_0_r,	Target->rt_Generic_1,0,RImplementation.Target->rt_MSAADepth->pZRT );
 			RCache.set_CullMode	( CULL_NONE );
@@ -373,10 +373,10 @@ void CRender::Render		()
 
 			// draw skybox
 			RCache.set_ColorWriteEnable					();
-			//CHK_DX(HW.pDevice->SetRenderState			( D3DRS_ZENABLE,	FALSE				));
+			//CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState			( D3DRS_ZENABLE,	FALSE				));
 			RCache.set_Z(FALSE);
 			g_pGamePersistent->Environment().RenderSky	();
-			//CHK_DX(HW.pDevice->SetRenderState			( D3DRS_ZENABLE,	TRUE				));
+			//CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState			( D3DRS_ZENABLE,	TRUE				));
 			RCache.set_Z(TRUE);
 		}
 
@@ -515,11 +515,11 @@ void CRender::AfterWorldRender()
 	if (Device.m_SecondViewport.IsSVPFrame())
 	{
 		ID3DTexture2D* pBuffer = NULL;
-		HW.m_pSwapChain->GetBuffer(0, __uuidof(ID3DTexture2D), (LPVOID*)& pBuffer);
+		DEVICE_HW::XRAY::HW.m_pSwapChain->GetBuffer(0, __uuidof(ID3DTexture2D), (LPVOID*)& pBuffer);
 #ifdef USE_DX11	
-		HW.pRenderContext->CopyResource(Target->rt_secondVP->pSurface, pBuffer);
+		DEVICE_HW::XRAY::HW.pRenderContext->CopyResource(Target->rt_secondVP->pSurface, pBuffer);
 #else
-		HW.pRenderDevice->CopyResource(Target->rt_secondVP->pSurface, pBuffer);
+		DEVICE_HW::XRAY::HW.pRenderDevice->CopyResource(Target->rt_secondVP->pSurface, pBuffer);
 #endif
 		pBuffer->Release();
 	}

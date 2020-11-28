@@ -27,8 +27,8 @@ void _VertexStream::Create	()
 	bufferDesc.CPUAccessFlags   = D3D_CPU_ACCESS_WRITE;
 	bufferDesc.MiscFlags        = 0;
 
-	R_CHK					(HW.pRenderDevice->CreateBuffer	( &bufferDesc, 0, &pVB ));
-	HW.stats_manager.increment_stats_vb						( pVB );
+	R_CHK					(DEVICE_HW::XRAY::HW.pRenderDevice->CreateBuffer	( &bufferDesc, 0, &pVB ));
+	DEVICE_HW::XRAY::HW.stats_manager.increment_stats_vb						( pVB );
 
 	R_ASSERT				(pVB);
 
@@ -40,7 +40,7 @@ void _VertexStream::Create	()
 
 void _VertexStream::Destroy	()
 {
-	HW.stats_manager.decrement_stats_vb	(pVB);
+	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_vb	(pVB);
 	_RELEASE							(pVB);
 	_clear								();
 }
@@ -75,7 +75,7 @@ void* _VertexStream::Lock	( u32 vl_Count, u32 Stride, u32& vOffset )
 		mDiscardID			++;
 
 #if defined(USE_DX11)
-		HW.pRenderContext->Map(pVB, 0, D3D_MAP_WRITE_DISCARD, 0, &MappedSubRes);
+		DEVICE_HW::XRAY::HW.pRenderContext->Map(pVB, 0, D3D_MAP_WRITE_DISCARD, 0, &MappedSubRes);
 		pData=(BYTE*)MappedSubRes.pData;
 		pData += vOffset;
 #elif defined(USE_DX10)
@@ -90,7 +90,7 @@ void* _VertexStream::Lock	( u32 vl_Count, u32 Stride, u32& vOffset )
 		vOffset				= vl_mPosition;
 
 #if defined(USE_DX11)
-		HW.pRenderContext->Map(pVB, 0, D3D_MAP_WRITE_NO_OVERWRITE, 0, &MappedSubRes);
+		DEVICE_HW::XRAY::HW.pRenderContext->Map(pVB, 0, D3D_MAP_WRITE_NO_OVERWRITE, 0, &MappedSubRes);
 		pData=(BYTE*)MappedSubRes.pData;
 		pData += vOffset*Stride;
 #elif defined(USE_DX10)
@@ -115,7 +115,7 @@ void	_VertexStream::Unlock		( u32 Count, u32 Stride)
 	VERIFY				(pVB);
 
 #if defined(USE_DX11)
-	HW.pRenderContext->Unmap(pVB, 0);
+	DEVICE_HW::XRAY::HW.pRenderContext->Unmap(pVB, 0);
 #elif defined(USE_DX10)
 	pVB->Unmap();
 #endif	//	USE_DX10
@@ -163,8 +163,8 @@ void	_IndexStream::Create	()
 	bufferDesc.CPUAccessFlags   = D3D_CPU_ACCESS_WRITE;
 	bufferDesc.MiscFlags        = 0;
 
-	R_CHK					(HW.pRenderDevice->CreateBuffer( &bufferDesc, 0, &pIB ));
-	HW.stats_manager.increment_stats_ib		(pIB);
+	R_CHK					(DEVICE_HW::XRAY::HW.pRenderDevice->CreateBuffer( &bufferDesc, 0, &pIB ));
+	DEVICE_HW::XRAY::HW.stats_manager.increment_stats_ib		(pIB);
 
 	R_ASSERT				(pIB);
 
@@ -176,7 +176,7 @@ void	_IndexStream::Create	()
 
 void	_IndexStream::Destroy()
 {
-	HW.stats_manager.decrement_stats_ib	(pIB);
+	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_ib	(pIB);
 	_RELEASE							(pIB);
 	_clear								();
 }
@@ -206,7 +206,7 @@ u16*	_IndexStream::Lock	( u32 Count, u32& vOffset )
 #if defined(USE_DX11)
 	D3D_MAP MapMode = (dwFlags==LOCKFLAGS_APPEND) ? 
 		D3D_MAP_WRITE_NO_OVERWRITE : D3D_MAP_WRITE_DISCARD;
-	HW.pRenderContext->Map(pIB, 0, MapMode, 0, &MappedSubRes);
+	DEVICE_HW::XRAY::HW.pRenderContext->Map(pIB, 0, MapMode, 0, &MappedSubRes);
 	pLockedData = (BYTE*)MappedSubRes.pData;
 	pLockedData += mPosition * 2;
 #elif defined(USE_DX10)
@@ -229,7 +229,7 @@ void	_IndexStream::Unlock(u32 RealCount)
 	mPosition				+=	RealCount;
 	VERIFY					(pIB);
 #if defined(USE_DX11)
-	HW.pRenderContext->Unmap(pIB, 0);
+	DEVICE_HW::XRAY::HW.pRenderContext->Unmap(pIB, 0);
 #elif defined(USE_DX10)
 	pIB->Unmap();
 #endif	//	USE_DX10

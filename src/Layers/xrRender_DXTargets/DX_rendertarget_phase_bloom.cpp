@@ -74,7 +74,7 @@ void CRenderTarget::phase_bloom	()
 	// Clear	- don't clear - it's stupid here :)
 	// Stencil	- disable
 	// Misc		- draw everything (no culling)
-	//CHK_DX		(HW.pDevice->SetRenderState	( D3DRS_ZENABLE,		FALSE				));
+	//CHK_DX		(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_ZENABLE,		FALSE				));
 	RCache.set_Z(FALSE);
 
 	// Transfer into Bloom1
@@ -323,16 +323,16 @@ void CRenderTarget::phase_bloom	()
 	bool	_menu_pp		= g_pGamePersistent?g_pGamePersistent->OnRenderPPUI_query():false;
 	if (_menu_pp)			
 	{
-		//CHK_DX				(HW.pDevice->Clear( 0L, NULL, D3DCLEAR_TARGET,	0,	1.0f, 0L));
+		//CHK_DX				(DEVICE_HW::XRAY::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_TARGET,	0,	1.0f, 0L));
 		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 #ifdef USE_DX11
-		HW.pRenderContext->ClearRenderTargetView( RCache.get_RT(), ColorRGBA);
+		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView( RCache.get_RT(), ColorRGBA);
 #else
-		HW.pRenderDevice->ClearRenderTargetView( RCache.get_RT(), ColorRGBA);
+		DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView( RCache.get_RT(), ColorRGBA);
 #endif
 	};
 
 	// re-enable z-buffer
-	//CHK_DX		(HW.pDevice->SetRenderState	( D3DRS_ZENABLE,	TRUE				));
+	//CHK_DX		(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_ZENABLE,	TRUE				));
 	RCache.set_Z(TRUE);
 }

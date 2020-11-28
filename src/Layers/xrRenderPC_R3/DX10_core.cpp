@@ -48,7 +48,7 @@ static HRESULT create_shader				(
 	else if (pTarget[0] == 'v') 
 	{
 		SVS* svs_result = (SVS*)result;
-		_result			= HW.pRenderDevice->CreateVertexShader(buffer, buffer_size, &svs_result->sh);
+		_result			= DEVICE_HW::XRAY::HW.pRenderDevice->CreateVertexShader(buffer, buffer_size, &svs_result->sh);
 
 		if ( !SUCCEEDED(_result) ) 
 		{
@@ -187,8 +187,8 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 	}
 	sh_name[len] = '0' + char(DX10_1); ++len;
 
-	const bool NVIDIA = HW.Caps.id_vendor == 0x10DE;
-	const bool AMD	  = HW.Caps.id_vendor == 0x1002;
+	const bool NVIDIA = DEVICE_HW::XRAY::HW.Caps.id_vendor == 0x10DE;
+	const bool AMD	  = DEVICE_HW::XRAY::HW.Caps.id_vendor == 0x1002;
 
 	if (NVIDIA)
 	{
@@ -251,19 +251,19 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 	}
 	sh_name[len]='0'+char(o.sjitter); ++len;
 
-	if (HW.Caps.raster_major >= 3)	{
+	if (DEVICE_HW::XRAY::HW.Caps.raster_major >= 3)	{
 		defines[def_it].Name		=	"USE_BRANCHING";
 		defines[def_it].Definition	=	"1";
 		def_it						++	;
 	}
-	sh_name[len]='0'+char(HW.Caps.raster_major >= 3); ++len;
+	sh_name[len]='0'+char(DEVICE_HW::XRAY::HW.Caps.raster_major >= 3); ++len;
 
-	if (HW.Caps.geometry.bVTF)	{
+	if (DEVICE_HW::XRAY::HW.Caps.geometry.bVTF)	{
 		defines[def_it].Name		=	"USE_VTF";
 		defines[def_it].Definition	=	"1";
 		def_it						++	;
 	}
-	sh_name[len]='0'+char(HW.Caps.geometry.bVTF); ++len;
+	sh_name[len]='0'+char(DEVICE_HW::XRAY::HW.Caps.geometry.bVTF); ++len;
 
 	if (o.Tshadows)			{
 		defines[def_it].Name		=	"USE_TSHADOWS";
@@ -586,22 +586,22 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 	{
 		if ('v'==pTarget[0])
       {
-         if( HW.pDevice1 == 0 )
-            pTarget = D3D10GetVertexShaderProfile(HW.pRenderDevice);	// vertex	"vs_4_0"; //
+         if( DEVICE_HW::XRAY::HW.pDevice1 == 0 )
+            pTarget = D3D10GetVertexShaderProfile(DEVICE_HW::XRAY::HW.pRenderDevice);	// vertex	"vs_4_0"; //
          else
             pTarget = "vs_4_1";	// pixel	"ps_4_0"; //
       }
 		else if ('p'==pTarget[0])
       {
-         if( HW.pDevice1 == 0 )
-            pTarget = D3D10GetPixelShaderProfile(HW.pRenderDevice);	// pixel	"ps_4_0"; //
+         if( DEVICE_HW::XRAY::HW.pDevice1 == 0 )
+            pTarget = D3D10GetPixelShaderProfile(DEVICE_HW::XRAY::HW.pRenderDevice);	// pixel	"ps_4_0"; //
          else
             pTarget = "ps_4_1";	// pixel	"ps_4_0"; //
       }
 		else if ('g'==pTarget[0])		
       {
-         if( HW.pDevice1 == 0 )
-            pTarget = D3D10GetGeometryShaderProfile(HW.pRenderDevice);	// geometry	"gs_4_0"; //
+         if( DEVICE_HW::XRAY::HW.pDevice1 == 0 )
+            pTarget = D3D10GetGeometryShaderProfile(DEVICE_HW::XRAY::HW.pRenderDevice);	// geometry	"gs_4_0"; //
          else
             pTarget = "gs_4_1";	// pixel	"ps_4_0"; //
       }

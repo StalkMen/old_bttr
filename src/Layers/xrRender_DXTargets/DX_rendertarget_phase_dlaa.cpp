@@ -26,7 +26,7 @@ void CRenderTarget::phase_dlaa()
 	p1.set((_w + .5f) / _w, (_h + .5f) / _h);
 
 	// Set RT's
-	u_setrt(rt_Generic, nullptr, nullptr, HW.pBaseZB);
+	u_setrt(rt_Generic, nullptr, nullptr, DEVICE_HW::XRAY::HW.pBaseZB);
 	RCache.set_CullMode(CULL_NONE);
 	RCache.set_Stencil(FALSE);
 
@@ -43,5 +43,5 @@ void CRenderTarget::phase_dlaa()
 	RCache.set_Geometry(g_aa_AA);
 	RCache.Render(D3DPT_TRIANGLELIST, Offset, 0, 4, 0, 2);
 
-	HW.pRenderContext->CopyResource(rt_Generic_0->pTexture->surface_get(), rt_Generic->pTexture->surface_get());
+	DEVICE_HW::XRAY::HW.pRenderContext->CopyResource(rt_Generic_0->pTexture->surface_get(), rt_Generic->pTexture->surface_get());
 };

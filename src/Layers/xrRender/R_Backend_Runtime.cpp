@@ -21,16 +21,16 @@ void CBackend::OnFrameEnd	()
 #endif    
 	{
 #if defined(USE_DX10) || defined(USE_DX11)
-		HW.pRenderContext->ClearState();
+		DEVICE_HW::XRAY::HW.pRenderContext->ClearState();
 		Invalidate			();
 #else	//	USE_DX10
 
-		for (u32 stage=0; stage<HW.Caps.raster.dwStages; stage++)
-			CHK_DX(HW.pDevice->SetTexture(0,0));
-		CHK_DX				(HW.pDevice->SetStreamSource	(0,0,0,0));
-		CHK_DX				(HW.pDevice->SetIndices			(0));
-		CHK_DX				(HW.pDevice->SetVertexShader	(0));
-		CHK_DX				(HW.pDevice->SetPixelShader		(0));
+		for (u32 stage=0; stage<DEVICE_HW::XRAY::HW.Caps.raster.dwStages; stage++)
+			CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetTexture(0,0));
+		CHK_DX				(DEVICE_HW::XRAY::HW.pDevice->SetStreamSource	(0,0,0,0));
+		CHK_DX				(DEVICE_HW::XRAY::HW.pDevice->SetIndices			(0));
+		CHK_DX				(DEVICE_HW::XRAY::HW.pDevice->SetVertexShader	(0));
+		CHK_DX				(DEVICE_HW::XRAY::HW.pDevice->SetPixelShader		(0));
 		Invalidate			();
 #endif	//	USE_DX10
 	}
@@ -49,8 +49,8 @@ void CBackend::OnFrameBegin	()
 		Invalidate();
 		//	DX9 sets base rt nd base zb by default
 		RImplementation.rmNormal();
-		set_RT				(HW.pBaseRT);
-		set_ZB				(HW.pBaseZB);
+		set_RT				(DEVICE_HW::XRAY::HW.pBaseRT);
+		set_ZB				(DEVICE_HW::XRAY::HW.pBaseZB);
 #endif	//	USE_DX10
 		Memory.mem_fill		(&stat,0,sizeof(stat));
 		Vertex.Flush		();
@@ -152,15 +152,15 @@ void	CBackend::set_ClipPlanes	(u32 _enable, Fplane*	_planes /*=NULL */, u32 coun
 	//VERIFY(!"CBackend::set_ClipPlanes not implemented!");
 	return;
 #else	//	USE_DX10
-	if (0==HW.Caps.geometry.dwClipPlanes)	return;
+	if (0==DEVICE_HW::XRAY::HW.Caps.geometry.dwClipPlanes)	return;
 	if (!_enable)	{
-		CHK_DX	(HW.pDevice->SetRenderState(D3DRS_CLIPPLANEENABLE,FALSE));
+		CHK_DX	(DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_CLIPPLANEENABLE,FALSE));
 		return;
 	}
 
 	// Enable and setup planes
 	VERIFY	(_planes && count);
-	if		(count>HW.Caps.geometry.dwClipPlanes)	count=HW.Caps.geometry.dwClipPlanes;
+	if		(count>DEVICE_HW::XRAY::HW.Caps.geometry.dwClipPlanes)	count=DEVICE_HW::XRAY::HW.Caps.geometry.dwClipPlanes;
 
 	D3DXMATRIX			worldToClipMatrixIT;
 	D3DXMatrixInverse	(&worldToClipMatrixIT,NULL,(D3DXMATRIX*)&RDEVICE.mFullTransform);
@@ -170,26 +170,26 @@ void	CBackend::set_ClipPlanes	(u32 _enable, Fplane*	_planes /*=NULL */, u32 coun
 		D3DXPLANE	planeWorld	(-P.n.x,-P.n.y,-P.n.z,-P.d), planeClip;
 		D3DXPlaneNormalize		(&planeWorld,	&planeWorld);
 		D3DXPlaneTransform		(&planeClip,	&planeWorld, &worldToClipMatrixIT);
-		CHK_DX					(HW.pDevice->SetClipPlane(it,planeClip));
+		CHK_DX					(DEVICE_HW::XRAY::HW.pDevice->SetClipPlane(it,planeClip));
 	}
 
 	// Enable them
 	u32		e_mask	= (1<<count)-1;
-	CHK_DX	(HW.pDevice->SetRenderState(D3DRS_CLIPPLANEENABLE,e_mask));
+	CHK_DX	(DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_CLIPPLANEENABLE,e_mask));
 #endif	//	USE_DX10
 }
 
 #ifndef DEDICATED_SREVER
 void	CBackend::set_ClipPlanes	(u32 _enable, Fmatrix*	_xform  /*=NULL */, u32 fmask/* =0xff */)
 {
-	if (0==HW.Caps.geometry.dwClipPlanes)	return;
+	if (0==DEVICE_HW::XRAY::HW.Caps.geometry.dwClipPlanes)	return;
 	if (!_enable)	{
 #if defined(USE_DX10) || defined(USE_DX11)
 		//	TODO: DX10: Implement in the corresponding vertex shaders
 		//	Use this to set up location, were shader setup code will get data
 		//VERIFY(!"CBackend::set_ClipPlanes not implemented!");
 #else	//	USE_DX10
-		CHK_DX	(HW.pDevice->SetRenderState(D3DRS_CLIPPLANEENABLE,FALSE));
+		CHK_DX	(DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_CLIPPLANEENABLE,FALSE));
 #endif	//	USE_DX10
 		return;
 	}
@@ -374,10 +374,10 @@ void CBackend::set_Textures			(STextureList* _T)
 #if defined(USE_DX10) || defined(USE_DX11)
 		//	TODO: DX10: Optimise: set all resources at once
 		ID3DShaderResourceView	*pRes = 0;
-		//HW.pDevice->PSSetShaderResources(_last_ps, 1, &pRes);
+		//DEVICE_HW::XRAY::HW.pDevice->PSSetShaderResources(_last_ps, 1, &pRes);
 		SRVSManager.SetPSResource(_last_ps, pRes);
 #else	//	USE_DX10
-		CHK_DX							(HW.pDevice->SetTexture(_last_ps,NULL));
+		CHK_DX							(DEVICE_HW::XRAY::HW.pDevice->SetTexture(_last_ps,NULL));
 #endif	//	USE_DX10
 	}
 	// clear remaining stages (VS)
@@ -390,10 +390,10 @@ void CBackend::set_Textures			(STextureList* _T)
 #if defined(USE_DX10) || defined(USE_DX11)
 		//	TODO: DX10: Optimise: set all resources at once
 		ID3DShaderResourceView	*pRes = 0;
-		//HW.pDevice->VSSetShaderResources(_last_vs, 1, &pRes);
+		//DEVICE_HW::XRAY::HW.pDevice->VSSetShaderResources(_last_vs, 1, &pRes);
 		SRVSManager.SetVSResource(_last_vs, pRes);
 #else	//	USE_DX10
-		CHK_DX							(HW.pDevice->SetTexture(_last_vs+CTexture::rstVertex,NULL));
+		CHK_DX							(DEVICE_HW::XRAY::HW.pDevice->SetTexture(_last_vs+CTexture::rstVertex,NULL));
 #endif	//	USE_DX10
 	}
 
@@ -408,7 +408,7 @@ void CBackend::set_Textures			(STextureList* _T)
 
 		//	TODO: DX10: Optimise: set all resources at once
 		ID3DShaderResourceView	*pRes = 0;
-		//HW.pDevice->GSSetShaderResources(_last_gs, 1, &pRes);
+		//DEVICE_HW::XRAY::HW.pDevice->GSSetShaderResources(_last_gs, 1, &pRes);
 		SRVSManager.SetGSResource(_last_gs, pRes);
 	}
 #ifdef USE_DX11

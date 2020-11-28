@@ -13,7 +13,7 @@ void CRenderTarget::RenderScreenQuad(ref_rt& rt, ref_selement& sh)
 	float height = float(Device.dwHeight);
 	
 	//set rendertarget 
-	u_setrt(rt, NULL, NULL, HW.pBaseZB);
+	u_setrt(rt, NULL, NULL, DEVICE_HW::XRAY::HW.pBaseZB);
 	RCache.set_CullMode(CULL_NONE);
 	RCache.set_Stencil(FALSE);
 

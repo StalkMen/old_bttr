@@ -118,11 +118,11 @@ void CRenderTarget::draw_rain( light &RainSetup )
 		//	Use for intermediate results
 		//	Patch normal
 		if( !RImplementation.o.dx10_msaa )
-			u_setrt	(rt_Accumulator,NULL,NULL,HW.pBaseZB);
+			u_setrt	(rt_Accumulator,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
 		else
 			u_setrt	(rt_Accumulator,NULL,NULL,rt_MSAADepth->pZRT);
 
-      //u_setrt	(rt_Normal,NULL,NULL,HW.pBaseZB);
+      //u_setrt	(rt_Normal,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
 		RCache.set_Element		(s_rain->E[1]);
 		RCache.set_c				("Ldynamic_dir",		L_dir.x,L_dir.y,L_dir.z,0		);
 		RCache.set_c				("WorldX",				W_dirX.x,W_dirX.y,W_dirX.z,0		);
@@ -183,7 +183,7 @@ void CRenderTarget::draw_rain( light &RainSetup )
 		RCache.set_c				("m_sunmask",			m_clouds_shadow					);
 
 		if( ! RImplementation.o.dx10_msaa )
-			u_setrt	(rt_Position,NULL,NULL,HW.pBaseZB); 
+			u_setrt	(rt_Position,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB); 
 		else
 			u_setrt	(rt_Position,NULL,NULL,rt_MSAADepth->pZRT); 
 
@@ -229,7 +229,7 @@ void CRenderTarget::draw_rain( light &RainSetup )
 		//	It is restored automatically by a set_Element call
 		//StateManager.SetColorWriteEnable( D3Dxx_COLOR_WRITE_ENABLE_ALL );
 		if( ! RImplementation.o.dx10_msaa )
-			u_setrt	(rt_Color,NULL,NULL,HW.pBaseZB);
+			u_setrt	(rt_Color,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
 		else
 			u_setrt	(rt_Color,NULL,NULL,rt_MSAADepth->pZRT);
 

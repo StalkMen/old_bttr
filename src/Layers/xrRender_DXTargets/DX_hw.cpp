@@ -110,7 +110,7 @@ bool TestDX11Present()
 BOOL xrRender_test_hw()
 {
 #ifdef USE_DX10
-	CHW	_HW;
+	DEVICE_HW::XRAY::CHW _HW;
 	HRESULT	hr;
 	_HW.CreateD3D();
 	hr = _HW.m_pAdapter->CheckInterfaceSupport(__uuidof(ID3D10Device), 0);

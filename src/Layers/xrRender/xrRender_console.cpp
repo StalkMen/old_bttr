@@ -210,7 +210,7 @@ class CCC_tf_Aniso : public CCC_Integer
 {
 public:
 	void	apply() {
-		if (0 == HW.pRenderDevice)	return;
+		if (0 == DEVICE_HW::XRAY::HW.pRenderDevice)	return;
 		int	val = *value;	clamp(val, 1, 16);
 
 		SSManager.SetMaxAnisotropy(val);
@@ -234,7 +234,7 @@ class CCC_MipT : public CCC_Float
 public:
 	void	apply()
 	{
-		if (0 == HW.pRenderDevice)
+		if (0 == DEVICE_HW::XRAY::HW.pRenderDevice)
 			return;
 		SSManager.SetMipLODBias(*value);
 	}
@@ -378,22 +378,22 @@ public		:
 
 		Msg		("memory usage  mb \t \t video    \t managed      \t system \n" );
 
-		float vb_video		= (float)HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_vertex][D3DPOOL_DEFAULT]/1024/1024;
-		float vb_managed	= (float)HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_vertex][D3DPOOL_MANAGED]/1024/1024;
-		float vb_system		= (float)HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_vertex][D3DPOOL_SYSTEMMEM]/1024/1024;
+		float vb_video		= (float)DEVICE_HW::XRAY::HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_vertex][D3DPOOL_DEFAULT]/1024/1024;
+		float vb_managed	= (float)DEVICE_HW::XRAY::HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_vertex][D3DPOOL_MANAGED]/1024/1024;
+		float vb_system		= (float)DEVICE_HW::XRAY::HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_vertex][D3DPOOL_SYSTEMMEM]/1024/1024;
 		Msg		("vertex buffer      \t \t %f \t %f \t %f ",	vb_video, vb_managed, vb_system);
 
-		float ib_video		= (float)HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_index][D3DPOOL_DEFAULT]/1024/1024; 
-		float ib_managed	= (float)HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_index][D3DPOOL_MANAGED]/1024/1024; 
-		float ib_system		= (float)HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_index][D3DPOOL_SYSTEMMEM]/1024/1024; 
+		float ib_video		= (float)DEVICE_HW::XRAY::HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_index][D3DPOOL_DEFAULT]/1024/1024; 
+		float ib_managed	= (float)DEVICE_HW::XRAY::HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_index][D3DPOOL_MANAGED]/1024/1024; 
+		float ib_system		= (float)DEVICE_HW::XRAY::HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_index][D3DPOOL_SYSTEMMEM]/1024/1024; 
 		Msg		("index buffer      \t \t %f \t %f \t %f ",	ib_video, ib_managed, ib_system);
 		
 		float textures_managed = (float)(m_base+m_lmaps)/1024/1024;
 		Msg		("textures          \t \t %f \t %f \t %f ",	0.f, textures_managed, 0.f);
 
-		float rt_video		= (float)HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_rtarget][D3DPOOL_DEFAULT]/1024/1024;
-		float rt_managed	= (float)HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_rtarget][D3DPOOL_MANAGED]/1024/1024;
-		float rt_system		= (float)HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_rtarget][D3DPOOL_SYSTEMMEM]/1024/1024;
+		float rt_video		= (float)DEVICE_HW::XRAY::HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_rtarget][D3DPOOL_DEFAULT]/1024/1024;
+		float rt_managed	= (float)DEVICE_HW::XRAY::HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_rtarget][D3DPOOL_MANAGED]/1024/1024;
+		float rt_system		= (float)DEVICE_HW::XRAY::HW.stats_manager.memory_usage_summary[enum_stats_buffer_type_rtarget][D3DPOOL_SYSTEMMEM]/1024/1024;
 		Msg		("R-Targets         \t \t %f \t %f \t %f ",	rt_video, rt_managed, rt_system);									
 
 		Msg		("\nTotal             \t \t %f \t %f \t %f ",	vb_video+ib_video+rt_video,

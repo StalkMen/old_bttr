@@ -69,13 +69,13 @@ void dxDebugRender::NextSceneMode()
 {
 //	This mode is not supported in DX10
 #ifndef	USE_DX10
-	HW.Caps.SceneMode			= (HW.Caps.SceneMode+1)%3;
+	DEVICE_HW::XRAY::HW.Caps.SceneMode			= (DEVICE_HW::XRAY::HW.Caps.SceneMode+1)%3;
 #endif	//	USE_DX10
 }
 
 void dxDebugRender::ZEnable(bool bEnable)
 {
-	//CHK_DX(HW.pDevice->SetRenderState(D3DRS_ZENABLE,bEnable));
+	//CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ZENABLE,bEnable));
 	RCache.set_Z(bEnable);
 }
 

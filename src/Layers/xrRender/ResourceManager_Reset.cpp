@@ -25,7 +25,7 @@ void	CResourceManager::reset_begin			()
 
 	// destroy DStreams
  	RCache.old_QuadIB					= RCache.QuadIB;
-	HW.stats_manager.decrement_stats_ib	(RCache.QuadIB);
+	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_ib	(RCache.QuadIB);
  	_RELEASE							(RCache.QuadIB);
 
 	RCache.Index.reset_begin	();

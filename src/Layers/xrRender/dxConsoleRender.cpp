@@ -14,7 +14,7 @@ void dxConsoleRender::Copy(IConsoleRender &_in)
 
 void dxConsoleRender::OnRender(bool bGame)
 {
-	VERIFY	(HW.pDevice);
+	VERIFY	(DEVICE_HW::XRAY::HW.pDevice);
 
 	D3DRECT R = { 0,0,Device.dwWidth,Device.dwHeight};
 	if		(bGame) R.y2 /= 2;

@@ -292,7 +292,7 @@ void CRenderTarget::accum_point_geom_create()
 	{
 		u32		vCount		= DU_SPHERE_NUMVERTEX;
 		u32		vSize		= 3*4;
-		//R_CHK	(HW.pDevice->CreateVertexBuffer(
+		//R_CHK	(DEVICE_HW::XRAY::HW.pDevice->CreateVertexBuffer(
 //			vCount*vSize,
 //			dwUsage,
 //			0,
@@ -306,7 +306,7 @@ void CRenderTarget::accum_point_geom_create()
 
 		R_CHK( dx10BufferUtils::CreateVertexBuffer( &g_accum_point_vb, du_sphere_vertices, vCount*vSize ) );
 #ifdef USE_DX10
-		HW.stats_manager.increment_stats_vb			( g_accum_point_vb );
+		DEVICE_HW::XRAY::HW.stats_manager.increment_stats_vb			( g_accum_point_vb );
 #endif		
 	}
 
@@ -315,14 +315,14 @@ void CRenderTarget::accum_point_geom_create()
 		u32		iCount		= DU_SPHERE_NUMFACES*3;
 
 		//BYTE*	pData		= 0;
-		//R_CHK				(HW.pDevice->CreateIndexBuffer(iCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&g_accum_point_ib,0));
+		//R_CHK				(DEVICE_HW::XRAY::HW.pDevice->CreateIndexBuffer(iCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&g_accum_point_ib,0));
 		//R_CHK				(g_accum_point_ib->Lock(0,0,(void**)&pData,0));
 		//CopyMemory		(pData,du_sphere_faces,iCount*2);
 		//g_accum_point_ib->Unlock	();
 
 		R_CHK( dx10BufferUtils::CreateIndexBuffer( &g_accum_point_ib, du_sphere_faces, iCount*2) );
 #ifdef USE_DX10
-		HW.stats_manager.increment_stats_ib			( g_accum_point_ib );
+		DEVICE_HW::XRAY::HW.stats_manager.increment_stats_ib			( g_accum_point_ib );
 #endif
 	}
 }
@@ -333,14 +333,14 @@ void CRenderTarget::accum_point_geom_destroy()
 	_SHOW_REF("g_accum_point_ib",g_accum_point_ib);
 #endif // DEBUG
 #ifdef USE_DX10
-	HW.stats_manager.decrement_stats_ib(g_accum_point_ib);
+	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_ib(g_accum_point_ib);
 #endif	
 	_RELEASE(g_accum_point_ib);
 #ifdef DEBUG
 	_SHOW_REF("g_accum_point_vb",g_accum_point_vb);
 #endif // DEBUG
 #ifdef USE_DX10
-	HW.stats_manager.decrement_stats_vb(g_accum_point_vb);
+	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_vb(g_accum_point_vb);
 #endif	
 	_RELEASE(g_accum_point_vb);
 }

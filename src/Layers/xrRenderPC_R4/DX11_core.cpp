@@ -48,7 +48,7 @@ static HRESULT create_shader				(
 	else if (pTarget[0] == 'v') 
 	{
 		SVS* svs_result = (SVS*)result;
-		_result			= HW.pRenderDevice->CreateVertexShader(buffer, buffer_size, 0, &svs_result->sh);
+		_result			= DEVICE_HW::XRAY::HW.pRenderDevice->CreateVertexShader(buffer, buffer_size, 0, &svs_result->sh);
 
 		if ( !SUCCEEDED(_result) ) 
 		{
@@ -196,8 +196,8 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	}
 	sh_name[len] = '0' + char(DX11); ++len;
 
-	const bool NVIDIA = HW.Caps.id_vendor == 0x10DE;
-	const bool AMD = HW.Caps.id_vendor == 0x1002;
+	const bool NVIDIA = DEVICE_HW::XRAY::HW.Caps.id_vendor == 0x10DE;
+	const bool AMD = DEVICE_HW::XRAY::HW.Caps.id_vendor == 0x1002;
 
 	if (NVIDIA)
 	{
@@ -261,19 +261,19 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	}
 	sh_name[len]='0'+char(o.sjitter); ++len;
 
-	if (HW.Caps.raster_major >= 3)	{
+	if (DEVICE_HW::XRAY::HW.Caps.raster_major >= 3)	{
 		defines[def_it].Name		=	"USE_BRANCHING";
 		defines[def_it].Definition	=	"1";
 		def_it						++	;
 	}
-	sh_name[len]='0'+char(HW.Caps.raster_major >= 3); ++len;
+	sh_name[len]='0'+char(DEVICE_HW::XRAY::HW.Caps.raster_major >= 3); ++len;
 
-	if (HW.Caps.geometry.bVTF)	{
+	if (DEVICE_HW::XRAY::HW.Caps.geometry.bVTF)	{
 		defines[def_it].Name		=	"USE_VTF";
 		defines[def_it].Definition	=	"1";
 		def_it						++	;
 	}
-	sh_name[len]='0'+char(HW.Caps.geometry.bVTF); ++len;
+	sh_name[len]='0'+char(DEVICE_HW::XRAY::HW.Caps.geometry.bVTF); ++len;
 
 	if (o.Tshadows)			{
 		defines[def_it].Name		=	"USE_TSHADOWS";
@@ -296,19 +296,19 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	}
 	sh_name[len]='0'+char(o.sunfilter); ++len;
 
-	if (HW.DoublePrecisionFloatShaderOps) {
+	if (DEVICE_HW::XRAY::HW.DoublePrecisionFloatShaderOps) {
 		defines[def_it].Name = "DOUBLE_PRECISION";
 		defines[def_it].Definition = "1";
 		def_it++;
 	}
 
-	if (HW.ExtendedDoublesShaderInstructions) {
+	if (DEVICE_HW::XRAY::HW.ExtendedDoublesShaderInstructions) {
 		defines[def_it].Name = "EXTENDED_DOUBLES";
 		defines[def_it].Definition = "1";
 		def_it++;
 	}
 
-	if (HW.SAD4ShaderInstructions) {
+	if (DEVICE_HW::XRAY::HW.SAD4ShaderInstructions) {
 		defines[def_it].Name = "SAD4_SUPPORTED";
 		defines[def_it].Definition = "1";
 		def_it++;
@@ -527,14 +527,14 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 		sh_name[len]='0'; ++len;
 	}
 
-   R_ASSERT						( HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 );
-   if( HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 )
+   R_ASSERT						( DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 );
+   if( DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 )
    {
 	   defines[def_it].Name		=	"SM_5";
 	   defines[def_it].Definition	=	"1";
 	   def_it++;
    }
-	sh_name[len]='0'+char(HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0); ++len;
+	sh_name[len]='0'+char(DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0); ++len;
 
    if (o.dx10_minmax_sm)
    {
@@ -624,34 +624,34 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	{
 		if ('v'==pTarget[0])
 		{
-			if( HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
+			if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
 				pTarget = "vs_4_0";
-			else if( HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
+			else if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
 				pTarget = "vs_4_1";
-			else if( HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
+			else if( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
 				pTarget = "vs_5_0";
 		}
 		else if ('p'==pTarget[0])
 		{
-			if( HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
+			if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
 				pTarget = "ps_4_0";
-			else if( HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
+			else if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
 				pTarget = "ps_4_1";
-			else if( HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
+			else if( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
 				pTarget = "ps_5_0";
 		}
 		else if ('g'==pTarget[0])		
 		{
-			if( HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
+			if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
 				pTarget = "gs_4_0";
-			else if( HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
+			else if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
 				pTarget = "gs_4_1";
-			else if( HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
+			else if( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
 				pTarget = "gs_5_0";
 		}
 		else if ('c'==pTarget[0])		
 		{
-			if( HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
+			if( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
 				pTarget = "cs_5_0";
 		}
 	}

@@ -7,8 +7,8 @@ void	CRenderTarget::phase_accumulator()
 		// normal operation - setup
       if( !RImplementation.o.dx10_msaa )
       {
-		   if (RImplementation.o.fp16_blend)	u_setrt	(rt_Accumulator,		NULL,NULL,HW.pBaseZB);
-		   else								u_setrt	(rt_Accumulator_temp,	NULL,NULL,HW.pBaseZB);
+		   if (RImplementation.o.fp16_blend)	u_setrt	(rt_Accumulator,		NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
+		   else								u_setrt	(rt_Accumulator_temp,	NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
       }
       else
       {
@@ -21,7 +21,7 @@ void	CRenderTarget::phase_accumulator()
 
 		// clear
       if( !RImplementation.o.dx10_msaa )
-   		u_setrt								(rt_Accumulator,		NULL,NULL,HW.pBaseZB);
+   		u_setrt								(rt_Accumulator,		NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
       else
          u_setrt								(rt_Accumulator,		NULL,NULL,rt_MSAADepth->pZRT);
 		//dwLightMarkerID						= 5;					// start from 5, increment in 2 units
@@ -31,18 +31,18 @@ void	CRenderTarget::phase_accumulator()
 		if( RImplementation.o.dx10_msaa )
 		{
 #ifdef USE_DX11
-			HW.pRenderContext->OMSetRenderTargets(1, &(rt_Accumulator->pRT), 0);
+			DEVICE_HW::XRAY::HW.pRenderContext->OMSetRenderTargets(1, &(rt_Accumulator->pRT), 0);
 #else
-			HW.pRenderDevice->OMSetRenderTargets(1, &(rt_Accumulator->pRT), 0);
+			DEVICE_HW::XRAY::HW.pRenderDevice->OMSetRenderTargets(1, &(rt_Accumulator->pRT), 0);
 #endif
 		}
 //		u32		clr4clear					= color_rgba(0,0,0,0);	// 0x00
-		//CHK_DX	(HW.pDevice->Clear			( 0L, NULL, D3DCLEAR_TARGET, clr4clear, 1.0f, 0L));
+		//CHK_DX	(DEVICE_HW::XRAY::HW.pDevice->Clear			( 0L, NULL, D3DCLEAR_TARGET, clr4clear, 1.0f, 0L));
 		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 #ifdef USE_DX11
-		HW.pRenderContext->ClearRenderTargetView( rt_Accumulator->pRT, ColorRGBA);
+		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView( rt_Accumulator->pRT, ColorRGBA);
 #else
-		HW.pRenderDevice->ClearRenderTargetView( rt_Accumulator->pRT, ColorRGBA);
+		DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView( rt_Accumulator->pRT, ColorRGBA);
 #endif
 		//	render this after sun to avoid troubles with sun
 		/*
@@ -73,22 +73,22 @@ void	CRenderTarget::phase_vol_accumulator()
 	{
 		m_bHasActiveVolumetric = true;
 		if( !RImplementation.o.dx10_msaa )
-			u_setrt								(rt_Generic_2,		NULL,NULL,HW.pBaseZB);
+			u_setrt								(rt_Generic_2,		NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
 		else
 			u_setrt								(rt_Generic_2,		NULL,NULL,RImplementation.Target->rt_MSAADepth->pZRT);
 		//u32		clr4clearVol				= color_rgba(0,0,0,0);	// 0x00
-		//CHK_DX	(HW.pDevice->Clear			( 0L, NULL, D3DCLEAR_TARGET, clr4clearVol, 1.0f, 0L));
+		//CHK_DX	(DEVICE_HW::XRAY::HW.pDevice->Clear			( 0L, NULL, D3DCLEAR_TARGET, clr4clearVol, 1.0f, 0L));
 		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 #ifdef USE_DX11
-		HW.pRenderContext->ClearRenderTargetView( rt_Generic_2->pRT, ColorRGBA);
+		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView( rt_Generic_2->pRT, ColorRGBA);
 #else
-		HW.pRenderDevice->ClearRenderTargetView( rt_Generic_2->pRT, ColorRGBA);
+		DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView( rt_Generic_2->pRT, ColorRGBA);
 #endif
 	}
 	else
 	{
 		if( !RImplementation.o.dx10_msaa )
-			u_setrt								(rt_Generic_2,		NULL,NULL,HW.pBaseZB);
+			u_setrt								(rt_Generic_2,		NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
 		else
 			u_setrt								(rt_Generic_2,		NULL,NULL,RImplementation.Target->rt_MSAADepth->pZRT);
 	}

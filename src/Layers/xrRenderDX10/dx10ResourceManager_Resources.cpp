@@ -214,7 +214,7 @@ SDeclaration*	CResourceManager::_CreateDecl	(D3DVERTEXELEMENT9* dcl)
 	SDeclaration* D			= xr_new<SDeclaration>();
 	u32 dcl_size			= D3DXGetDeclLength(dcl)+1;
 	//	Don't need it for DirectX 10 here
-	//CHK_DX					(HW.pDevice->CreateVertexDeclaration(dcl,&D->dcl));
+	//CHK_DX					(DEVICE_HW::XRAY::HW.pDevice->CreateVertexDeclaration(dcl,&D->dcl));
 	D->dcl_code.assign		(dcl,dcl+dcl_size);
 	dx10BufferUtils::ConvertVertexDeclaration(D->dcl_code, D->dx10_dcl_code);
 	D->dwFlags				|= xr_resource_flagged::RF_REGISTERED;

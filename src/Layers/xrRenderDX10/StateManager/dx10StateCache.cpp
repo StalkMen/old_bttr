@@ -49,7 +49,7 @@ void
 dx10StateCache<ID3DRasterizerState, D3D_RASTERIZER_DESC>
 ::CreateState( D3D_RASTERIZER_DESC desc, ID3DRasterizerState** ppIState )
 {
-	CHK_DX(HW.pRenderDevice->CreateRasterizerState( &desc, ppIState));
+	CHK_DX(DEVICE_HW::XRAY::HW.pRenderDevice->CreateRasterizerState( &desc, ppIState));
 
 	//	TODO: DX10: Remove this.
 #ifdef	DEBUG
@@ -62,7 +62,7 @@ void
 dx10StateCache<ID3DDepthStencilState, D3D_DEPTH_STENCIL_DESC>
 ::CreateState( D3D_DEPTH_STENCIL_DESC desc, ID3DDepthStencilState** ppIState )
 {
-	CHK_DX(HW.pRenderDevice->CreateDepthStencilState( &desc, ppIState));
+	CHK_DX(DEVICE_HW::XRAY::HW.pRenderDevice->CreateDepthStencilState( &desc, ppIState));
 
 	//	TODO: DX10: Remove this.
 #ifdef	DEBUG
@@ -75,7 +75,7 @@ void
 dx10StateCache<ID3DBlendState, D3D_BLEND_DESC>
 ::CreateState( D3D_BLEND_DESC desc, ID3DBlendState** ppIState )
 {
-	CHK_DX(HW.pRenderDevice->CreateBlendState( &desc, ppIState));
+	CHK_DX(DEVICE_HW::XRAY::HW.pRenderDevice->CreateBlendState( &desc, ppIState));
 
 	//	TODO: DX10: Remove this.
 #ifdef	DEBUG

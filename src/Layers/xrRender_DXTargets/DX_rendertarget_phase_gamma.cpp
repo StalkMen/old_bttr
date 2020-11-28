@@ -29,7 +29,7 @@ void CRenderTarget::phase_gamma()
 	p1.set((_w + .5f) / _w, (_h + .5f) / _h);
 
 	// Set RT's
-	u_setrt(rt_Generic, 0, 0, HW.pBaseZB);
+	u_setrt(rt_Generic, 0, 0, DEVICE_HW::XRAY::HW.pBaseZB);
 	RCache.set_CullMode(CULL_NONE);
 	RCache.set_Stencil(FALSE);
 
@@ -46,5 +46,5 @@ void CRenderTarget::phase_gamma()
 	RCache.set_c("gamma", render_gamma, 0, 0, 0);
 	RCache.set_Geometry(g_aa_AA);
 	RCache.Render(D3DPT_TRIANGLELIST, Offset, 0, 4, 0, 2);
-	HW.pRenderContext->CopyResource(rt_Generic_0->pTexture->surface_get(), rt_Generic->pTexture->surface_get());
+	DEVICE_HW::XRAY::HW.pRenderContext->CopyResource(rt_Generic_0->pTexture->surface_get(), rt_Generic->pTexture->surface_get());
 };

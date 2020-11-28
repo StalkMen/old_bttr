@@ -23,14 +23,14 @@ void CRenderTarget::phase_ssao	()
 
 	FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 #ifdef USE_DX11
-	HW.pRenderContext->ClearRenderTargetView(rt_ssao_temp->pRT, ColorRGBA);
+	DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_ssao_temp->pRT, ColorRGBA);
 #else
-	HW.pRenderDevice->ClearRenderTargetView(rt_ssao_temp->pRT, ColorRGBA);
+	DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(rt_ssao_temp->pRT, ColorRGBA);
 #endif
 	// low/hi RTs
 	if( !RImplementation.o.dx10_msaa )
 	{
-		u_setrt				( rt_ssao_temp,0,0,0/*HW.pBaseZB*/ );
+		u_setrt				( rt_ssao_temp,0,0,0/*DEVICE_HW::XRAY::HW.pBaseZB*/ );
 	}
 	else
 	{
@@ -64,12 +64,12 @@ void CRenderTarget::phase_ssao	()
 	float _w = float(Device.dwWidth) * 0.5f;
 	float _h = float(Device.dwHeight) * 0.5f;
 
-	set_viewport(HW.pRenderContext, _w, _h);
+	set_viewport(DEVICE_HW::XRAY::HW.pRenderContext, _w, _h);
 #else
 	u32 _w = Device.dwWidth/2;
 	u32 _h = Device.dwHeight/2;
 
-	set_viewport(HW.pRenderDevice, _w, _h);
+	set_viewport(DEVICE_HW::XRAY::HW.pRenderDevice, _w, _h);
 #endif
 	// Fill vertex buffer
 	FVF::TL* pv					= (FVF::TL*)	RCache.Vertex.Lock	(4,g_combine->vb_stride,Offset);
@@ -118,9 +118,9 @@ void CRenderTarget::phase_ssao	()
 		//RCache.set_Stencil( FALSE, D3DCMP_EQUAL, 0x01, 0xff, 0 );
 	}  
 #ifdef USE_DX11
-	set_viewport(HW.pRenderContext, float(Device.dwWidth), float(Device.dwHeight));
+	set_viewport(DEVICE_HW::XRAY::HW.pRenderContext, float(Device.dwWidth), float(Device.dwHeight));
 #else
-	set_viewport(HW.pRenderDevice, Device.dwWidth, Device.dwHeight);
+	set_viewport(DEVICE_HW::XRAY::HW.pRenderDevice, Device.dwWidth, Device.dwHeight);
 #endif
 	RCache.set_Stencil	(FALSE);
 }
@@ -132,23 +132,23 @@ void CRenderTarget::phase_downsamp	()
 	//IDirect3DSurface9 *source, *dest;
 	//rt_Position->pSurface->GetSurfaceLevel(0, &source);
 	//rt_half_depth->pSurface->GetSurfaceLevel(0, &dest);
-	//HW.pDevice->StretchRect(source, NULL, dest, NULL, D3DTEXF_POINT);
+	//DEVICE_HW::XRAY::HW.pDevice->StretchRect(source, NULL, dest, NULL, D3DTEXF_POINT);
 
 	//Fvector2	p0,p1;
 	u32			Offset = 0;
 
-    u_setrt( rt_half_depth,0,0,0/*HW.pBaseZB*/ );
+    u_setrt( rt_half_depth,0,0,0/*DEVICE_HW::XRAY::HW.pBaseZB*/ );
 	FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
-    HW.pRenderContext->ClearRenderTargetView(rt_half_depth->pRT, ColorRGBA);
+    DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_half_depth->pRT, ColorRGBA);
 	u32 w = Device.dwWidth;
 	u32 h = Device.dwHeight;
 
 	if (RImplementation.o.ssao_half_data)
 	{
 #ifdef USE_DX11
-		set_viewport(HW.pRenderContext, float(Device.dwWidth) * 0.5f, float(Device.dwHeight) * 0.5f);
+		set_viewport(DEVICE_HW::XRAY::HW.pRenderContext, float(Device.dwWidth) * 0.5f, float(Device.dwHeight) * 0.5f);
 #else
-		set_viewport(HW.pRenderDevice, Device.dwWidth/2, Device.dwHeight/2);
+		set_viewport(DEVICE_HW::XRAY::HW.pRenderDevice, Device.dwWidth/2, Device.dwHeight/2);
 #endif
 		w /= 2;
 		h /= 2;
@@ -181,8 +181,8 @@ void CRenderTarget::phase_downsamp	()
 
 	if (RImplementation.o.ssao_half_data)
 #ifdef USE_DX11
-		set_viewport(HW.pRenderContext, float(Device.dwWidth), float(Device.dwHeight));
+		set_viewport(DEVICE_HW::XRAY::HW.pRenderContext, float(Device.dwWidth), float(Device.dwHeight));
 #else
-		set_viewport(HW.pRenderDevice, Device.dwWidth, Device.dwHeight);
+		set_viewport(DEVICE_HW::XRAY::HW.pRenderDevice, Device.dwWidth, Device.dwHeight);
 #endif
 }

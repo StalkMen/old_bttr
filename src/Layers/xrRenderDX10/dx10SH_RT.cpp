@@ -35,7 +35,7 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 {
 	if (pSurface)	return;
 
-	R_ASSERT	(HW.pRenderDevice && Name && Name[0] && w && h);
+	R_ASSERT	(DEVICE_HW::XRAY::HW.pRenderDevice && Name && Name[0] && w && h);
 	_order		= CPU::GetCLK()	;	//Device.GetTimerGlobal()->GetElapsed_clk();
 
 	//HRESULT		_hr;
@@ -46,13 +46,13 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 
 	// Get caps
 	//D3DCAPS9	caps;
-	//R_CHK		(HW.pDevice->GetDeviceCaps(&caps));
+	//R_CHK		(DEVICE_HW::XRAY::HW.pDevice->GetDeviceCaps(&caps));
 
 	//	DirectX 10 supports non-power of two textures
 	// Pow2
 	//if (!btwIsPow2(w) || !btwIsPow2(h))
 	//{
-	//	if (!HW.Caps.raster.bNonPow2)	return;
+	//	if (!DEVICE_HW::XRAY::HW.Caps.raster.bNonPow2)	return;
 	//}
 
 	// Check width-and-height of render target surface
@@ -84,17 +84,17 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 	bool	bUseAsDepth = (usage == D3DUSAGE_RENDERTARGET)?false:true;
 
    // Validate render-target usage
-	//_hr = HW.pD3D->CheckDeviceFormat(
-		//HW.DevAdapter,
-		//HW.DevT,
-		//HW.Caps.fTarget,
+	//_hr = DEVICE_HW::XRAY::HW.pD3D->CheckDeviceFormat(
+		//DEVICE_HW::XRAY::HW.DevAdapter,
+		//DEVICE_HW::XRAY::HW.DevT,
+		//DEVICE_HW::XRAY::HW.Caps.fTarget,
 		//usage,
 		//D3DRTYPE_TEXTURE,
 		//f
 		//);
 	//	TODO: DX10: implement format support check
 	//UINT	FormatSupport;
-	//_hr = HW.pDevice->CheckFormatSupport( dx10FMT, &FormatSupport);
+	//_hr = DEVICE_HW::XRAY::HW.pDevice->CheckFormatSupport( dx10FMT, &FormatSupport);
 	//if (FAILED(_hr)) return;
 	//if (!(
 			//(FormatSupport&D3Dxx_FORMAT_SUPPORT_TEXTURE2D) 
@@ -104,7 +104,7 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 
 	// Try to create texture/surface
 	DEV->Evict				();
-	//_hr = HW.pDevice->CreateTexture		(w, h, 1, usage, f, D3DPOOL_DEFAULT, &pSurface,NULL);
+	//_hr = DEVICE_HW::XRAY::HW.pDevice->CreateTexture		(w, h, 1, usage, f, D3DPOOL_DEFAULT, &pSurface,NULL);
 	//if (FAILED(_hr) || (0==pSurface))	return;
 	// Create the render target texture
 	D3D_TEXTURE2D_DESC desc;
@@ -128,12 +128,12 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
    }
 
 #ifdef USE_DX11
-	if (HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && !bUseAsDepth && SampleCount == 1 && useUAV )
+	if (DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && !bUseAsDepth && SampleCount == 1 && useUAV )
 		desc.BindFlags |= D3D11_BIND_UNORDERED_ACCESS;
 #endif
 
-	CHK_DX( HW.pRenderDevice->CreateTexture2D( &desc, NULL, &pSurface ) );
-	HW.stats_manager.increment_stats_rtarget( pSurface );
+	CHK_DX( DEVICE_HW::XRAY::HW.pRenderDevice->CreateTexture2D( &desc, NULL, &pSurface ) );
+	DEVICE_HW::XRAY::HW.stats_manager.increment_stats_rtarget( pSurface );
 	// OK
 #ifdef DEBUG
 	Msg			("* created RT(%s), %dx%d, format = %d samples = %d",Name,w,h, dx10FMT, SampleCount );
@@ -166,13 +166,13 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 			break;
 		}
 
-		CHK_DX( HW.pRenderDevice->CreateDepthStencilView( pSurface, &ViewDesc, &pZRT) );
+		CHK_DX( DEVICE_HW::XRAY::HW.pRenderDevice->CreateDepthStencilView( pSurface, &ViewDesc, &pZRT) );
 	}
 	else
-		CHK_DX( HW.pRenderDevice->CreateRenderTargetView( pSurface, 0, &pRT ) );
+		CHK_DX( DEVICE_HW::XRAY::HW.pRenderDevice->CreateRenderTargetView( pSurface, 0, &pRT ) );
 
 #ifdef USE_DX11
-	if (HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && !bUseAsDepth &&  SampleCount == 1 && useUAV)
+	if (DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && !bUseAsDepth &&  SampleCount == 1 && useUAV)
     {
 	    D3D11_UNORDERED_ACCESS_VIEW_DESC UAVDesc;
 		ZeroMemory( &UAVDesc, sizeof( D3D11_UNORDERED_ACCESS_VIEW_DESC ) );
@@ -180,7 +180,7 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 		UAVDesc.ViewDimension = D3D11_UAV_DIMENSION_TEXTURE2D;
 		UAVDesc.Buffer.FirstElement = 0;
 		UAVDesc.Buffer.NumElements = dwWidth * dwHeight;
-		CHK_DX( HW.pRenderDevice->CreateUnorderedAccessView( pSurface, &UAVDesc, &pUAView ) );
+		CHK_DX( DEVICE_HW::XRAY::HW.pRenderDevice->CreateUnorderedAccessView( pSurface, &UAVDesc, &pUAView ) );
     }
 #endif
 
@@ -197,7 +197,7 @@ void CRT::destroy		()
 	_RELEASE	(pRT		);
 	_RELEASE	(pZRT		);
 	
-	HW.stats_manager.decrement_stats_rtarget( pSurface );
+	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_rtarget( pSurface );
 	_RELEASE	(pSurface	);
 #ifdef USE_DX11
 	_RELEASE	(pUAView);
@@ -245,7 +245,7 @@ CRTC::~CRTC			()
 
 void CRTC::create	(LPCSTR Name, u32 size,	D3DFORMAT f)
 {
-	R_ASSERT	(HW.pDevice && Name && Name[0] && size && btwIsPow2(size));
+	R_ASSERT	(DEVICE_HW::XRAY::HW.pDevice && Name && Name[0] && size && btwIsPow2(size));
 	_order		= CPU::GetCLK();	//Device.GetTimerGlobal()->GetElapsed_clk();
 
 	HRESULT		_hr;
@@ -255,13 +255,13 @@ void CRTC::create	(LPCSTR Name, u32 size,	D3DFORMAT f)
 
 	// Get caps
 	//D3DCAPS9	caps;
-	//R_CHK		(HW.pDevice->GetDeviceCaps(&caps));
+	//R_CHK		(DEVICE_HW::XRAY::HW.pDevice->GetDeviceCaps(&caps));
 
 	//	DirectX 10 supports non-power of two textures
 	// Pow2
 	//if (!btwIsPow2(size))
 	//{
-	//	if (!HW.Caps.raster.bNonPow2)	return;
+	//	if (!DEVICE_HW::XRAY::HW.Caps.raster.bNonPow2)	return;
 	//}
 
 	// Check width-and-height of render target surface
@@ -269,10 +269,10 @@ void CRTC::create	(LPCSTR Name, u32 size,	D3DFORMAT f)
 
 	//	TODO: DX10: Validate cube texture format
 	// Validate render-target usage
-	//_hr = HW.pD3D->CheckDeviceFormat(
-	//	HW.DevAdapter,
-	//	HW.DevT,
-	//	HW.Caps.fTarget,
+	//_hr = DEVICE_HW::XRAY::HW.pD3D->CheckDeviceFormat(
+	//	DEVICE_HW::XRAY::HW.DevAdapter,
+	//	DEVICE_HW::XRAY::HW.DevT,
+	//	DEVICE_HW::XRAY::HW.Caps.fTarget,
 	//	D3DUSAGE_RENDERTARGET,
 	//	D3DRTYPE_CUBETEXTURE,
 	//	f
@@ -281,7 +281,7 @@ void CRTC::create	(LPCSTR Name, u32 size,	D3DFORMAT f)
 
 	// Try to create texture/surface
 	DEV->Evict					();
-	_hr = HW.pDevice->CreateCubeTexture	(size, 1, D3DUSAGE_RENDERTARGET, f, D3DPOOL_DEFAULT, &pSurface,NULL);
+	_hr = DEVICE_HW::XRAY::HW.pDevice->CreateCubeTexture	(size, 1, D3DUSAGE_RENDERTARGET, f, D3DPOOL_DEFAULT, &pSurface,NULL);
 	if (FAILED(_hr) || (0==pSurface))	return;
 
 	// OK

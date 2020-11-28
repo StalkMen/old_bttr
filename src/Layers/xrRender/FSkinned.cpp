@@ -432,7 +432,7 @@ void CSkeletonX_ST::Load(const char* N, IReader *data, u32 dwFlags)
 void CSkeletonX_ext::_Load_hw	(Fvisual& V, void *	_verts_)
 {
 	// Create HW VB in case this is possible
-//	BOOL	bSoft				= HW.Caps.geometry.bSoftware;
+//	BOOL	bSoft				= DEVICE_HW::XRAY::HW.Caps.geometry.bSoftware;
 //	u32		dwUsage				= /*D3DUSAGE_WRITEONLY |*/ (bSoft?D3DUSAGE_SOFTWAREPROCESSING:0);	// VB may be read by wallmarks code
 	switch	(RenderMode)
 	{
@@ -454,7 +454,7 @@ void CSkeletonX_ext::_Load_hw	(Fvisual& V, void *	_verts_)
 //			BYTE*	bytes		= 0;
 			VERIFY				(NULL==V.p_rm_Vertices);
 
-			//R_CHK				(HW.pDevice->CreateVertexBuffer(V.vCount*vStride,dwUsage,0,D3DPOOL_MANAGED,&V.p_rm_Vertices,0));
+			//R_CHK				(DEVICE_HW::XRAY::HW.pDevice->CreateVertexBuffer(V.vCount*vStride,dwUsage,0,D3DPOOL_MANAGED,&V.p_rm_Vertices,0));
 			//R_CHK				(V.p_rm_Vertices->Lock(0,0,(void**)&bytes,0));
 			//vertHW_1W*		dst	= (vertHW_1W*)bytes;
 			//vertBoned1W*	src = (vertBoned1W*)_verts_;
@@ -474,9 +474,9 @@ void CSkeletonX_ext::_Load_hw	(Fvisual& V, void *	_verts_)
 				dst->set	(src->P,src->N,src->T,src->B,uv,src->matrix*3);
 				dst++; src++;
 			}
-			//R_CHK				(HW.pDevice->CreateVertexBuffer(V.vCount*vStride,dwUsage,0,D3DPOOL_MANAGED,&V.p_rm_Vertices,0));
+			//R_CHK				(DEVICE_HW::XRAY::HW.pDevice->CreateVertexBuffer(V.vCount*vStride,dwUsage,0,D3DPOOL_MANAGED,&V.p_rm_Vertices,0));
 			R_CHK(dx10BufferUtils::CreateVertexBuffer	(&V.p_rm_Vertices, dstOriginal, V.vCount*vStride));
-			HW.stats_manager.increment_stats_vb			(V.p_rm_Vertices);
+			DEVICE_HW::XRAY::HW.stats_manager.increment_stats_vb			(V.p_rm_Vertices);
 			xr_free(dstOriginal);
 
 			V.rm_geom.create		(dwDecl_01W, V.p_rm_Vertices, V.p_rm_Indices);
@@ -495,7 +495,7 @@ void CSkeletonX_ext::_Load_hw	(Fvisual& V, void *	_verts_)
 //			BYTE* bytes			= 0;
 			VERIFY				(NULL==V.p_rm_Vertices);
 
-			//R_CHK				(HW.pDevice->CreateVertexBuffer(V.vCount*vStride,dwUsage,0,D3DPOOL_MANAGED,&V.p_rm_Vertices,0));
+			//R_CHK				(DEVICE_HW::XRAY::HW.pDevice->CreateVertexBuffer(V.vCount*vStride,dwUsage,0,D3DPOOL_MANAGED,&V.p_rm_Vertices,0));
 			//R_CHK				(V.p_rm_Vertices->Lock(0,0,(void**)&bytes,0));
 			//vertHW_2W* dst		= (vertHW_2W*)bytes;
 			//vertBoned2W* src	= (vertBoned2W*)_verts_;
@@ -518,7 +518,7 @@ void CSkeletonX_ext::_Load_hw	(Fvisual& V, void *	_verts_)
 				dst++;		src++;
 			}
 			R_CHK(dx10BufferUtils::CreateVertexBuffer	(&V.p_rm_Vertices, dstOriginal, V.vCount*vStride));
-			HW.stats_manager.increment_stats_vb			(V.p_rm_Vertices);
+			DEVICE_HW::XRAY::HW.stats_manager.increment_stats_vb			(V.p_rm_Vertices);
 			xr_free(dstOriginal);
 
 			V.rm_geom.create		(dwDecl_2W, V.p_rm_Vertices, V.p_rm_Indices);
@@ -536,7 +536,7 @@ void CSkeletonX_ext::_Load_hw	(Fvisual& V, void *	_verts_)
 //			BYTE*	bytes			= 0;
 			VERIFY					(NULL==V.p_rm_Vertices);
 
-			//R_CHK					(HW.pDevice->CreateVertexBuffer(V.vCount*vStride,dwUsage,0,D3DPOOL_MANAGED,&V.p_rm_Vertices,0));
+			//R_CHK					(DEVICE_HW::XRAY::HW.pDevice->CreateVertexBuffer(V.vCount*vStride,dwUsage,0,D3DPOOL_MANAGED,&V.p_rm_Vertices,0));
 			//R_CHK					(V.p_rm_Vertices->Lock(0,0,(void**)&bytes,0));
 			//vertHW_3W* dst			= (vertHW_3W*)bytes;
 			//vertBoned3W* src		= (vertBoned3W*)_verts_;
@@ -562,7 +562,7 @@ void CSkeletonX_ext::_Load_hw	(Fvisual& V, void *	_verts_)
 				src++;
 			}
 			R_CHK(dx10BufferUtils::CreateVertexBuffer	(&V.p_rm_Vertices, dstOriginal, V.vCount*vStride));
-			HW.stats_manager.increment_stats_vb			(V.p_rm_Vertices);
+			DEVICE_HW::XRAY::HW.stats_manager.increment_stats_vb			(V.p_rm_Vertices);
 			xr_free(dstOriginal);
 
 			V.rm_geom.create		(dwDecl_3W, V.p_rm_Vertices, V.p_rm_Indices);
@@ -580,7 +580,7 @@ void CSkeletonX_ext::_Load_hw	(Fvisual& V, void *	_verts_)
 //			BYTE*	bytes			= 0;
 			VERIFY					(NULL==V.p_rm_Vertices);
 
-			//R_CHK					(HW.pDevice->CreateVertexBuffer(V.vCount*vStride,dwUsage,0,D3DPOOL_MANAGED,&V.p_rm_Vertices,0));
+			//R_CHK					(DEVICE_HW::XRAY::HW.pDevice->CreateVertexBuffer(V.vCount*vStride,dwUsage,0,D3DPOOL_MANAGED,&V.p_rm_Vertices,0));
 			//R_CHK					(V.p_rm_Vertices->Lock(0,0,(void**)&bytes,0));
 			//vertHW_4W* dst			= (vertHW_4W*)bytes;
 			//vertBoned4W* src		= (vertBoned4W*)_verts_;
@@ -606,7 +606,7 @@ void CSkeletonX_ext::_Load_hw	(Fvisual& V, void *	_verts_)
 				src++;
 			}
 			R_CHK(dx10BufferUtils::CreateVertexBuffer	(&V.p_rm_Vertices, dstOriginal, V.vCount*vStride));
-			HW.stats_manager.increment_stats_vb			(V.p_rm_Vertices);
+			DEVICE_HW::XRAY::HW.stats_manager.increment_stats_vb			(V.p_rm_Vertices);
 			xr_free(dstOriginal);
 
 			V.rm_geom.create		(dwDecl_4W, V.p_rm_Vertices, V.p_rm_Indices);

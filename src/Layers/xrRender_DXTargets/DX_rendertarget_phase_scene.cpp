@@ -8,15 +8,15 @@ void	CRenderTarget::phase_scene_prepare	()
 {
 	PIX_EVENT(phase_scene_prepare);
 	// Clear depth & stencil
-	//u_setrt	( Device.dwWidth,Device.dwHeight,HW.pBaseRT,NULL,NULL,HW.pBaseZB );
-	//CHK_DX	( HW.pDevice->Clear	( 0L, NULL, D3DCLEAR_ZBUFFER|D3DCLEAR_STENCIL, 0x0, 1.0f, 0L) );
+	//u_setrt	( Device.dwWidth,Device.dwHeight,DEVICE_HW::XRAY::HW.pBaseRT,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB );
+	//CHK_DX	( DEVICE_HW::XRAY::HW.pDevice->Clear	( 0L, NULL, D3DCLEAR_ZBUFFER|D3DCLEAR_STENCIL, 0x0, 1.0f, 0L) );
 	//	Igor: soft particles
 
 	//thx to K.D.
 	// we need to clean up G-buffer every frame to avoid "ghosting" on sky
 	u_setrt(rt_Position, rt_Normal, rt_Color, 0);
 	float ColorRGBA[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
-	HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
+	DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
 
 	CEnvDescriptor&	E = *g_pGamePersistent->Environment().CurrentEnv;
 	float fValue = E.m_fSunShaftsIntensity;
@@ -35,34 +35,34 @@ void	CRenderTarget::phase_scene_prepare	()
 	{
 		//	TODO: DX10: Check if we need to set RT here.
 		if (!RImplementation.o.dx10_msaa)
-			u_setrt(Device.dwWidth, Device.dwHeight, rt_Position->pRT, NULL, NULL, HW.pBaseZB);
+			u_setrt(Device.dwWidth, Device.dwHeight, rt_Position->pRT, NULL, NULL, DEVICE_HW::XRAY::HW.pBaseZB);
 		else
 			u_setrt(Device.dwWidth, Device.dwHeight, rt_Position->pRT, NULL, NULL, rt_MSAADepth->pZRT);
 
 		FLOAT ColorRGBA[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
 #ifdef USE_DX11
-		HW.pRenderContext->ClearRenderTargetView(rt_Position->pRT, ColorRGBA);
+		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_Position->pRT, ColorRGBA);
 #else
-		HW.pRenderDevice->ClearRenderTargetView(rt_Position->pRT, ColorRGBA);
+		DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(rt_Position->pRT, ColorRGBA);
 #endif
 		if (!RImplementation.o.dx10_msaa)
 #ifdef USE_DX11
-			HW.pRenderContext->ClearDepthStencilView(HW.pBaseZB, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
+			DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView(DEVICE_HW::XRAY::HW.pBaseZB, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
 #else
-			HW.pRenderDevice->ClearDepthStencilView(HW.pBaseZB, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
+			DEVICE_HW::XRAY::HW.pRenderDevice->ClearDepthStencilView(DEVICE_HW::XRAY::HW.pBaseZB, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
 #endif
 		else
 		{
 #ifdef USE_DX11
-			HW.pRenderContext->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
-			HW.pRenderContext->ClearRenderTargetView(rt_Accumulator->pRT, ColorRGBA);
-			HW.pRenderContext->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
-			HW.pRenderContext->ClearDepthStencilView(HW.pBaseZB, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
+			DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
+			DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_Accumulator->pRT, ColorRGBA);
+			DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
+			DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView(DEVICE_HW::XRAY::HW.pBaseZB, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
 #else
-			HW.pRenderDevice->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
-			HW.pRenderDevice->ClearRenderTargetView(rt_Accumulator->pRT, ColorRGBA);
-			HW.pRenderDevice->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
-			HW.pRenderDevice->ClearDepthStencilView(HW.pBaseZB, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
+			DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
+			DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(rt_Accumulator->pRT, ColorRGBA);
+			DEVICE_HW::XRAY::HW.pRenderDevice->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
+			DEVICE_HW::XRAY::HW.pRenderDevice->ClearDepthStencilView(DEVICE_HW::XRAY::HW.pBaseZB, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
 #endif
 		}
 	}
@@ -71,20 +71,20 @@ void	CRenderTarget::phase_scene_prepare	()
 		//	TODO: DX10: Check if we need to set RT here.
 		if (!RImplementation.o.dx10_msaa)
 		{
-			u_setrt(Device.dwWidth, Device.dwHeight, HW.pBaseRT, NULL, NULL, HW.pBaseZB);
+			u_setrt(Device.dwWidth, Device.dwHeight, DEVICE_HW::XRAY::HW.pBaseRT, NULL, NULL, DEVICE_HW::XRAY::HW.pBaseZB);
 #ifdef USE_DX11
-			HW.pRenderContext->ClearDepthStencilView(HW.pBaseZB, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
+			DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView(DEVICE_HW::XRAY::HW.pBaseZB, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
 #else
-			HW.pRenderDevice->ClearDepthStencilView(HW.pBaseZB, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
+			DEVICE_HW::XRAY::HW.pRenderDevice->ClearDepthStencilView(DEVICE_HW::XRAY::HW.pBaseZB, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
 #endif
 		}
 		else
 		{
-			u_setrt(Device.dwWidth, Device.dwHeight, HW.pBaseRT, NULL, NULL, rt_MSAADepth->pZRT);
+			u_setrt(Device.dwWidth, Device.dwHeight, DEVICE_HW::XRAY::HW.pBaseRT, NULL, NULL, rt_MSAADepth->pZRT);
 #ifdef USE_DX11
-			HW.pRenderContext->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
+			DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
 #else
-			HW.pRenderDevice->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
+			DEVICE_HW::XRAY::HW.pRenderDevice->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
 #endif
 		}
 		}
@@ -100,7 +100,7 @@ void	CRenderTarget::phase_scene_begin	()
 	// Enable ANISO
 	SSManager.SetMaxAnisotropy(ps_r__tf_Anisotropic);
 
-   ID3DDepthStencilView* pZB = HW.pBaseZB;
+   ID3DDepthStencilView* pZB = DEVICE_HW::XRAY::HW.pBaseZB;
 
    if( RImplementation.o.dx10_msaa )
       pZB = rt_MSAADepth->pZRT;
@@ -114,7 +114,7 @@ void	CRenderTarget::phase_scene_begin	()
 
 	// Misc		- draw only front-faces
 	//	TODO: DX10: siable two-sided stencil here
-	//CHK_DX(HW.pDevice->SetRenderState	( D3DRS_TWOSIDEDSTENCILMODE,FALSE				));
+	//CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_TWOSIDEDSTENCILMODE,FALSE				));
 	RCache.set_CullMode					( CULL_CCW );
 	RCache.set_ColorWriteEnable			( );
 }
@@ -133,7 +133,7 @@ void	CRenderTarget::phase_scene_end		()
 
 	// transfer from "rt_Accumulator" into "rt_Color"
    if( !RImplementation.o.dx10_msaa )
-   	u_setrt								( rt_Color,	0,	0,	HW.pBaseZB	);
+   	u_setrt								( rt_Color,	0,	0,	DEVICE_HW::XRAY::HW.pBaseZB	);
    else
       u_setrt								( rt_Color,	0,	0,	rt_MSAADepth->pZRT	);
 	RCache.set_CullMode					( CULL_NONE );

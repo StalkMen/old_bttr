@@ -20,8 +20,8 @@ void CBackend::CreateQuadIB		()
 	u16		IndexBuffer[dwIdxCount];
 	u16		*Indices		= IndexBuffer;
 	//u32		dwUsage			= D3DUSAGE_WRITEONLY;
-	//if (HW.Caps.geometry.bSoftware)	dwUsage|=D3DUSAGE_SOFTWAREPROCESSING;
-	//R_CHK(HW.pDevice->CreateIndexBuffer(dwIdxCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&QuadIB,NULL));
+	//if (DEVICE_HW::XRAY::HW.Caps.geometry.bSoftware)	dwUsage|=D3DUSAGE_SOFTWAREPROCESSING;
+	//R_CHK(DEVICE_HW::XRAY::HW.pDevice->CreateIndexBuffer(dwIdxCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&QuadIB,NULL));
 
 	D3D_BUFFER_DESC desc;
 	desc.ByteWidth = dwIdxCount*2;
@@ -53,9 +53,9 @@ void CBackend::CreateQuadIB		()
 	}
 	//R_CHK(QuadIB->Unlock());
 
-	//R_CHK(HW.pDevice->CreateIndexBuffer(dwIdxCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&QuadIB,NULL));
-	R_CHK(HW.pRenderDevice->CreateBuffer		( &desc, &subData, &QuadIB));
-	HW.stats_manager.increment_stats_ib	( QuadIB);
+	//R_CHK(DEVICE_HW::XRAY::HW.pDevice->CreateIndexBuffer(dwIdxCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&QuadIB,NULL));
+	R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateBuffer		( &desc, &subData, &QuadIB));
+	DEVICE_HW::XRAY::HW.stats_manager.increment_stats_ib	( QuadIB);
 }
 
 // Device dependance
@@ -78,7 +78,7 @@ void CBackend::OnDeviceDestroy()
 	Vertex.Destroy		();
 
 	// Quad
-	HW.stats_manager.decrement_stats_ib	(QuadIB);
+	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_ib	(QuadIB);
 	_RELEASE							(QuadIB);
 
 }

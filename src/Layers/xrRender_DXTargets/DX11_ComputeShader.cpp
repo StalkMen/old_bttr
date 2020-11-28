@@ -79,20 +79,20 @@ void ComputeShader::Dispatch(u32 dimx, u32 dimy, u32 dimz)
 		if (Cs->handler)	Cs->handler->setup(Cs);
 	}
 
-	HW.pRenderContext->CSSetConstantBuffers(0, count, tempBuffer);
+	DEVICE_HW::XRAY::HW.pRenderContext->CSSetConstantBuffers(0, count, tempBuffer);
 
 	if (!m_Textures.empty())
-		HW.pRenderContext->CSSetShaderResources(0, m_Textures.size(), &m_Textures[0]);
+		DEVICE_HW::XRAY::HW.pRenderContext->CSSetShaderResources(0, m_Textures.size(), &m_Textures[0]);
 
 	if (!m_Samplers.empty())
-		HW.pRenderContext->CSSetSamplers(0, m_Samplers.size(), &m_Samplers[0]);
+		DEVICE_HW::XRAY::HW.pRenderContext->CSSetSamplers(0, m_Samplers.size(), &m_Samplers[0]);
 
 	if (!m_Outputs.empty())
 	{
 		UINT num = 0;
-		HW.pRenderContext->CSSetUnorderedAccessViews(0, m_Outputs.size(), &m_Outputs[0], &num);
+		DEVICE_HW::XRAY::HW.pRenderContext->CSSetUnorderedAccessViews(0, m_Outputs.size(), &m_Outputs[0], &num);
 	}
 
-	HW.pRenderContext->Dispatch(dimx, dimy, dimz);
+	DEVICE_HW::XRAY::HW.pRenderContext->Dispatch(dimx, dimy, dimz);
 }
 

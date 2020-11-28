@@ -6,13 +6,13 @@
 
 void CGammaControl::Update() 
 {
-	if (HW.pRenderDevice)
+	if (DEVICE_HW::XRAY::HW.pRenderDevice)
 	{
 		DXGI_GAMMA_CONTROL_CAPABILITIES GC;
 		DXGI_GAMMA_CONTROL				G;
 		IDXGIOutput *pOutput;
 
-		CHK_DX (HW.m_pSwapChain->GetContainingOutput(&pOutput));
+		CHK_DX (DEVICE_HW::XRAY::HW.m_pSwapChain->GetContainingOutput(&pOutput));
 		HRESULT hr = pOutput->GetGammaControlCapabilities(&GC);
 		if (SUCCEEDED(hr))
 		{
@@ -65,11 +65,11 @@ IC u16 clr2gamma(float c)
 
 void CGammaControl::Update() 
 {
-	if (HW.pDevice) 
+	if (DEVICE_HW::XRAY::HW.pDevice) 
 	{
 		D3DGAMMARAMP G;
 		GenLUT(G);
-		HW.pDevice->SetGammaRamp(0,D3DSGR_NO_CALIBRATION,&G);
+		DEVICE_HW::XRAY::HW.pDevice->SetGammaRamp(0,D3DSGR_NO_CALIBRATION,&G);
 	}
 }
 void CGammaControl::GenLUT(D3DGAMMARAMP &G)
