@@ -1,10 +1,9 @@
 #include "stdafx.h"
-#include "blender_gasmask.h"
 
-CBlender_gasmask::CBlender_gasmask()	{ description.CLS = 0; }
-CBlender_gasmask::~CBlender_gasmask()	{	}
+BLENDER::GAME::CBlender_gasmask::CBlender_gasmask()	{ description.CLS = 0; }
+BLENDER::GAME::CBlender_gasmask::~CBlender_gasmask()	{	}
 
-void	CBlender_gasmask::Compile(CBlender_Compile& C)
+void	BLENDER::GAME::CBlender_gasmask::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile(C);
 

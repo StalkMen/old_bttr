@@ -2,9 +2,8 @@
 #pragma hdrstop
 
 #include "../xrRender/uber_deffer.h"
-#include "Blender_deffer_aref.h"
 
-CBlender_deffer_aref::CBlender_deffer_aref	(bool _lmapped) : lmapped(_lmapped)	{	
+BLENDER::CBlender_deffer_aref::CBlender_deffer_aref	(bool _lmapped) : lmapped(_lmapped)	{	
 	description.CLS		= B_DEFAULT_AREF;
 	oAREF.value			= 200;
 	oAREF.min			= 0;
@@ -12,15 +11,15 @@ CBlender_deffer_aref::CBlender_deffer_aref	(bool _lmapped) : lmapped(_lmapped)	{
 	oBlend.value		= FALSE;
 	description.version	= 1;
 }
-CBlender_deffer_aref::~CBlender_deffer_aref	()	{	}
+BLENDER::CBlender_deffer_aref::~CBlender_deffer_aref	()	{	}
 
-void	CBlender_deffer_aref::Save	(	IWriter& fs )
+void	BLENDER::CBlender_deffer_aref::Save	(	IWriter& fs )
 {
 	IBlender::Save	(fs);
 	xrPWRITE_PROP	(fs,"Alpha ref",	xrPID_INTEGER,	oAREF);
 	xrPWRITE_PROP	(fs,"Alpha-blend",	xrPID_BOOL,		oBlend);
 }
-void	CBlender_deffer_aref::Load	(	IReader& fs, u16 version )
+void	BLENDER::CBlender_deffer_aref::Load	(	IReader& fs, u16 version )
 {
 	IBlender::Load	(fs,version);
 	if (1==version)	{
@@ -29,7 +28,7 @@ void	CBlender_deffer_aref::Load	(	IReader& fs, u16 version )
 	}
 }
 
-void	CBlender_deffer_aref::Compile(CBlender_Compile& C)
+void	BLENDER::CBlender_deffer_aref::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile		(C);
 

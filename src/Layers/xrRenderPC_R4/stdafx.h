@@ -46,6 +46,8 @@
 #include "../../build_render_config.h"
 #include "../../xrEngine/ExternalData.h"
 
+#include "../../Layers/xrRender_DXTargets/Blenders/blenders_namespaces.h"
+
 /*
 #ifdef RENDER_DX11_BUILD
 #define RENDER_API __declspec(dllexport)

@@ -2,9 +2,8 @@
 #pragma hdrstop
 
 #include "../xrRender/uber_deffer.h"
-#include "Blender_deffer_model.h"
 
-CBlender_deffer_model::CBlender_deffer_model	()	{	
+BLENDER::CBlender_deffer_model::CBlender_deffer_model	()	{	
 	description.CLS		= B_MODEL;	
 	description.version	= 2;
 	oTessellation.Count         = 4;
@@ -14,9 +13,9 @@ CBlender_deffer_model::CBlender_deffer_model	()	{
 	oAREF.max			= 255;
 	oBlend.value		= FALSE;
 }
-CBlender_deffer_model::~CBlender_deffer_model	()	{	}
+BLENDER::CBlender_deffer_model::~CBlender_deffer_model	()	{	}
 
-void	CBlender_deffer_model::Save	(	IWriter& fs )
+void	BLENDER::CBlender_deffer_model::Save	(	IWriter& fs )
 {
 	IBlender::Save		(fs);
 	xrPWRITE_PROP		(fs,"Use alpha-channel",	xrPID_BOOL,		oBlend);
@@ -28,7 +27,7 @@ void	CBlender_deffer_model::Save	(	IWriter& fs )
 	I.ID = 2; xr_strcpy(I.str,"TESS_HM");	fs.w		(&I,sizeof(I));
 	I.ID = 3; xr_strcpy(I.str,"TESS_PN+HM");	fs.w		(&I,sizeof(I));
 }
-void	CBlender_deffer_model::Load	(	IReader& fs, u16 version )
+void	BLENDER::CBlender_deffer_model::Load	(	IReader& fs, u16 version )
 {
 	IBlender::Load		(fs,version);
 
@@ -52,7 +51,7 @@ void	CBlender_deffer_model::Load	(	IReader& fs, u16 version )
 	}
 }
 
-void	CBlender_deffer_model::Compile(CBlender_Compile& C)
+void	BLENDER::CBlender_deffer_model::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile		(C);
 

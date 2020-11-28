@@ -2,9 +2,8 @@
 #pragma hdrstop
 
 #include "../xrRender/uber_deffer.h"
-#include "Blender_deffer_flat.h"
 
-CBlender_deffer_flat::CBlender_deffer_flat	()
+BLENDER::CBlender_deffer_flat::CBlender_deffer_flat	()
 {
 	description.CLS		= B_DEFAULT;
 	description.version         = 1;
@@ -12,9 +11,9 @@ CBlender_deffer_flat::CBlender_deffer_flat	()
 	oTessellation.IDselected	= 0;
 }
 
-CBlender_deffer_flat::~CBlender_deffer_flat	()	{	}
+BLENDER::CBlender_deffer_flat::~CBlender_deffer_flat	()	{	}
 
-void	CBlender_deffer_flat::Save	(	IWriter& fs )
+void	BLENDER::CBlender_deffer_flat::Save	(	IWriter& fs )
 {
 	IBlender::Save	(fs);
 	xrP_TOKEN::Item	I;
@@ -24,7 +23,7 @@ void	CBlender_deffer_flat::Save	(	IWriter& fs )
 	I.ID = 2; xr_strcpy(I.str,"TESS_HM");	fs.w(&I,sizeof(I));
 	I.ID = 3; xr_strcpy(I.str,"TESS_PN+HM");	fs.w(&I,sizeof(I));
 }
-void	CBlender_deffer_flat::Load	(	IReader& fs, u16 version )
+void	BLENDER::CBlender_deffer_flat::Load	(	IReader& fs, u16 version )
 {
 	IBlender::Load	(fs,version);
 	if (version>0)
@@ -33,7 +32,7 @@ void	CBlender_deffer_flat::Load	(	IReader& fs, u16 version )
 	}
 }
 
-void	CBlender_deffer_flat::Compile(CBlender_Compile& C)
+void	BLENDER::CBlender_deffer_flat::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile		(C);
 #ifdef USE_DX11	

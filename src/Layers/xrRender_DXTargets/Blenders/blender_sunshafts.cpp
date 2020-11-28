@@ -1,12 +1,10 @@
 #include "stdafx.h"
 #pragma hdrstop
 
-#include "Blender_sunshafts.h"
+BLENDER::GAME::CBlender_sunshafts::CBlender_sunshafts() { description.CLS = 0; }
+BLENDER::GAME::CBlender_sunshafts::~CBlender_sunshafts() {	}
 
-CBlender_sunshafts::CBlender_sunshafts() { description.CLS = 0; }
-CBlender_sunshafts::~CBlender_sunshafts() {	}
-
-void	CBlender_sunshafts::Compile(CBlender_Compile& C)
+void	BLENDER::GAME::CBlender_sunshafts::Compile(CBlender_Compile& C)
 {
     IBlender::Compile(C);
 

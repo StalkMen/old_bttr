@@ -657,11 +657,6 @@
     <ClInclude Include="..\xrRender\Light_Render_Direct.h" />
     <ClInclude Include="..\xrRender\light_smapvis.h" />
     <ClInclude Include="..\xrRender\DX_SMAP_Allocator.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_bloom_build.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_combine.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_deffer_aref.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_deffer_flat.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_deffer_model.h" />
     <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_direct.h" />
     <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_mask.h" />
     <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_occq.h" />
@@ -682,6 +677,7 @@
     <ClInclude Include="..\xrRender_DXTargets\DX.h" />
     <ClInclude Include="..\xrRender_DXTargets\DXMinMaxSMBlender.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX_rendertarget_wallmarks.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blenders_namespaces.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1107,7 +1103,6 @@
     <ClCompile Include="..\xrRender\Debug\dxPixEventWrapper.cpp">
       <Filter>Debug</Filter>
     </ClCompile>
-    <ClCompile Include="dx10_shaders.cpp" />
     <ClCompile Include="..\xrRenderDX10\dx10TextureDDS.cpp" />
     <ClCompile Include="..\xrRender\light_GI.cpp" />
     <ClCompile Include="..\xrRender\Light_Render_Direct.cpp" />
@@ -1176,6 +1171,7 @@
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_ScreenQuad.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\xrRender_DX.cpp" />
+    <ClCompile Include="DX10_core.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

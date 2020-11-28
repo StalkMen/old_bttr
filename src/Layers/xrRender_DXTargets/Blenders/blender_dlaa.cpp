@@ -1,11 +1,9 @@
 #include "stdafx.h"
 
-#include "blender_dlaa.h"
+BLENDER::AA::CBlender_dlaa::CBlender_dlaa() { description.CLS = 0; }
+BLENDER::AA::CBlender_dlaa::~CBlender_dlaa() { }
 
-CBlender_dlaa::CBlender_dlaa() { description.CLS = 0; }
-CBlender_dlaa::~CBlender_dlaa() { }
-
-void CBlender_dlaa::Compile(CBlender_Compile& C)
+void BLENDER::AA::CBlender_dlaa::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile(C);
 

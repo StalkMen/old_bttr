@@ -1,11 +1,10 @@
 #include "stdafx.h"
 #pragma hdrstop
-#include "Blender_gamma.h"
 
-CBlender_gamma::CBlender_gamma() { description.CLS = 0; }
-CBlender_gamma::~CBlender_gamma() { }
+BLENDER::GAME::CBlender_gamma::CBlender_gamma() { description.CLS = 0; }
+BLENDER::GAME::CBlender_gamma::~CBlender_gamma() { }
 
-void CBlender_gamma::Compile(CBlender_Compile& C)
+void BLENDER::GAME::CBlender_gamma::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile(C);
 

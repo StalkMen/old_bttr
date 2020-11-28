@@ -1,12 +1,10 @@
 #include "stdafx.h"
 #pragma hdrstop
 
-#include "blender_smaa.h"
+BLENDER::AA::CBlender_SMAA::CBlender_SMAA() { description.CLS = 0; }
+BLENDER::AA::CBlender_SMAA::~CBlender_SMAA() { }
 
-CBlender_SMAA::CBlender_SMAA() { description.CLS = 0; }
-CBlender_SMAA::~CBlender_SMAA() { }
-
-void CBlender_SMAA::Compile(CBlender_Compile& C)
+void BLENDER::AA::CBlender_SMAA::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile(C);
 

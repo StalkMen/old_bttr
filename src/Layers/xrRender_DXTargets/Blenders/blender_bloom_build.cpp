@@ -1,12 +1,10 @@
 #include "stdafx.h"
 #pragma hdrstop
 
-#include "Blender_bloom_build.h"
-
-CBlender_bloom_build::CBlender_bloom_build	()	{	description.CLS		= 0;	}
-CBlender_bloom_build::~CBlender_bloom_build	()	{	}
+BLENDER::CBlender_bloom_build::CBlender_bloom_build	()	{	description.CLS		= 0;	}
+BLENDER::CBlender_bloom_build::~CBlender_bloom_build	()	{	}
  
-void	CBlender_bloom_build::Compile			(CBlender_Compile& C)
+void	BLENDER::CBlender_bloom_build::Compile			(CBlender_Compile& C)
 {
 	IBlender::Compile		(C);
 
@@ -50,10 +48,10 @@ void	CBlender_bloom_build::Compile			(CBlender_Compile& C)
 	}
 }
 
-CBlender_bloom_build_msaa::CBlender_bloom_build_msaa	()	{	description.CLS		= 0;	}
-CBlender_bloom_build_msaa::~CBlender_bloom_build_msaa	()	{	}
+BLENDER::CBlender_bloom_build_msaa::CBlender_bloom_build_msaa	()	{	description.CLS		= 0;	}
+BLENDER::CBlender_bloom_build_msaa::~CBlender_bloom_build_msaa	()	{	}
 
-void	CBlender_bloom_build_msaa::Compile			(CBlender_Compile& C)
+void	BLENDER::CBlender_bloom_build_msaa::Compile			(CBlender_Compile& C)
 {
    IBlender::Compile		(C);
 
@@ -97,10 +95,10 @@ void	CBlender_bloom_build_msaa::Compile			(CBlender_Compile& C)
    }
 }
 
-CBlender_postprocess_msaa::CBlender_postprocess_msaa	()	{	description.CLS		= 0;	}
-CBlender_postprocess_msaa::~CBlender_postprocess_msaa	()	{	}
+BLENDER::CBlender_postprocess_msaa::CBlender_postprocess_msaa	()	{	description.CLS		= 0;	}
+BLENDER::CBlender_postprocess_msaa::~CBlender_postprocess_msaa	()	{	}
 
-void	CBlender_postprocess_msaa::Compile			(CBlender_Compile& C)
+void	BLENDER::CBlender_postprocess_msaa::Compile			(CBlender_Compile& C)
 {
 	IBlender::Compile		(C);
 

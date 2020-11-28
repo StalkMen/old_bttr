@@ -1,10 +1,9 @@
 #include "stdafx.h"
-#include "blender_fxaa.h"
 
-CBlender_FXAA::CBlender_FXAA()	{ description.CLS = 0; }
-CBlender_FXAA::~CBlender_FXAA()	{	}
+BLENDER::AA::CBlender_FXAA::CBlender_FXAA()	{ description.CLS = 0; }
+BLENDER::AA::CBlender_FXAA::~CBlender_FXAA()	{	}
 
-void	CBlender_FXAA::Compile(CBlender_Compile& C)
+void	BLENDER::AA::CBlender_FXAA::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile(C);
 

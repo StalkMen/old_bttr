@@ -1,12 +1,10 @@
 #include "stdafx.h"
 #pragma hdrstop
 
-#include "Blender_combine.h"
+BLENDER::CBlender_combine::CBlender_combine	()	{	description.CLS		= 0;	}
+BLENDER::CBlender_combine::~CBlender_combine	()	{	}
 
-CBlender_combine::CBlender_combine	()	{	description.CLS		= 0;	}
-CBlender_combine::~CBlender_combine	()	{	}
-
-void	CBlender_combine::Compile(CBlender_Compile& C)
+void	BLENDER::CBlender_combine::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile		(C);
 
@@ -96,11 +94,11 @@ void	CBlender_combine::Compile(CBlender_Compile& C)
 	}
 }
 
-CBlender_combine_msaa::CBlender_combine_msaa	()	{	description.CLS		= 0;	}
-CBlender_combine_msaa::~CBlender_combine_msaa	()	{	}
+BLENDER::CBlender_combine_msaa::CBlender_combine_msaa	()	{	description.CLS		= 0;	}
+BLENDER::CBlender_combine_msaa::~CBlender_combine_msaa	()	{	}
 
 //	TODO: DX10: Implement CBlender_combine::Compile
-void	CBlender_combine_msaa::Compile(CBlender_Compile& C)
+void	BLENDER::CBlender_combine_msaa::Compile(CBlender_Compile& C)
 {
    IBlender::Compile		(C);
 

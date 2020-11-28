@@ -6,16 +6,7 @@
 #include "..\xrRender_DXTargets\Blenders\blender_light_point.h"
 #include "..\xrRender_DXTargets\Blenders\blender_light_spot.h"
 #include "..\xrRender_DXTargets\Blenders\blender_light_reflected.h"
-#include "..\xrRender_DXTargets\Blenders\blender_combine.h"
-#include "..\xrRender_DXTargets\Blenders\blender_bloom_build.h"
 #include "..\xrRender_DXTargets\Blenders\blender_luminance.h"
-#include "..\xrRender_DXTargets\Blenders\blender_ssao.h"
-#include "..\xrRender_DXTargets\Blenders\blender_fxaa.h"
-#include "..\xrRender_DXTargets\Blenders\blender_smaa.h"
-#include "..\xrRender_DXTargets\Blenders\blender_dlaa.h"
-#include "..\xrRender_DXTargets\Blenders\blender_sunshafts.h"
-#include "..\xrRender_DXTargets\Blenders\blender_gasmask.h"
-#include "..\xrRender_DXTargets\Blenders\blender_gamma.h"
 #include "..\xrRender_DXTargets\DXMinMaxSMBlender.h"
 #ifdef USE_DX11
 #include "..\xrRender_DXTargets\DX11_HDAOCSBlender.h"
@@ -343,15 +334,15 @@ CRenderTarget::CRenderTarget		()
 	b_accum_point			= xr_new<CBlender_accum_point>			();
 	b_accum_spot			= xr_new<CBlender_accum_spot>			();
 	b_accum_reflected		= xr_new<CBlender_accum_reflected>		();
-	b_bloom					= xr_new<CBlender_bloom_build>			();
+	b_bloom					= xr_new<BLENDER::CBlender_bloom_build>			();
 	if( RImplementation.o.dx10_msaa )
 	{
-		b_bloom_msaa			= xr_new<CBlender_bloom_build_msaa>		();
-		b_postprocess_msaa	= xr_new<CBlender_postprocess_msaa>	();
+		b_bloom_msaa			= xr_new<BLENDER::CBlender_bloom_build_msaa>		();
+		b_postprocess_msaa	= xr_new<BLENDER::CBlender_postprocess_msaa>	();
 	}
 	b_luminance				= xr_new<CBlender_luminance>		();
-	b_combine				= xr_new<CBlender_combine>			();
-	b_ssao					= xr_new<CBlender_SSAO_noMSAA>		();
+	b_combine				= xr_new<BLENDER::CBlender_combine>			();
+	b_ssao					= xr_new<BLENDER::AO::CBlender_SSAO_noMSAA>		();
 
 
 #ifdef USE_DX11
@@ -373,7 +364,7 @@ CRenderTarget::CRenderTarget		()
 		for( int i = 0; i < bound; ++i )
 		{
 			static LPCSTR SampleDefs[] = { "0","1","2","3","4","5","6","7" };
-			b_combine_msaa[i]							= xr_new<CBlender_combine_msaa>					();
+			b_combine_msaa[i]							= xr_new<BLENDER::CBlender_combine_msaa>					();
 			b_accum_mask_msaa[i]						= xr_new<CBlender_accum_direct_mask_msaa>		();
 			b_accum_direct_msaa[i]					= xr_new<CBlender_accum_direct_msaa>			();
 			b_accum_direct_volumetric_msaa[i]			= xr_new<CBlender_accum_direct_volumetric_msaa>	();
@@ -381,7 +372,7 @@ CRenderTarget::CRenderTarget		()
 			b_accum_volumetric_msaa[i]				= xr_new<CBlender_accum_volumetric_msaa>	();
 			b_accum_point_msaa[i]						= xr_new<CBlender_accum_point_msaa>			();
 			b_accum_reflected_msaa[i]					= xr_new<CBlender_accum_reflected_msaa>		();
-			b_ssao_msaa[i]							= xr_new<CBlender_SSAO_MSAA>				();
+			b_ssao_msaa[i]							= xr_new<BLENDER::AO::CBlender_SSAO_MSAA>				();
 			static_cast<CBlender_accum_direct_mask_msaa*>( b_accum_mask_msaa[i] )->SetDefine( "ISAMPLE", SampleDefs[i]);
 			static_cast<CBlender_accum_direct_volumetric_msaa*>(b_accum_direct_volumetric_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
 			static_cast<CBlender_accum_direct_msaa*>(b_accum_direct_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
@@ -389,8 +380,8 @@ CRenderTarget::CRenderTarget		()
 			static_cast<CBlender_accum_spot_msaa*>(b_accum_spot_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
 			static_cast<CBlender_accum_point_msaa*>(b_accum_point_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
 			static_cast<CBlender_accum_reflected_msaa*>(b_accum_reflected_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
-			static_cast<CBlender_combine_msaa*>(b_combine_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
-			static_cast<CBlender_SSAO_MSAA*>(b_ssao_msaa[i])->SetDefine("ISAMPLE", SampleDefs[i]);
+			static_cast<BLENDER::CBlender_combine_msaa*>(b_combine_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
+			static_cast<BLENDER::AO::CBlender_SSAO_MSAA*>(b_ssao_msaa[i])->SetDefine("ISAMPLE", SampleDefs[i]);
 		}
 	}
 
@@ -463,13 +454,13 @@ CRenderTarget::CRenderTarget		()
 	
 	//FXAA
 	{
-		b_fxaa = xr_new<CBlender_FXAA>();
+		b_fxaa = xr_new<BLENDER::AA::CBlender_FXAA>();
 		s_fxaa.create(b_fxaa, "r3\\fxaa");
 	}
 
 	//DLAA
 	{
-		b_dlaa = xr_new<CBlender_dlaa>();
+		b_dlaa = xr_new<BLENDER::AA::CBlender_dlaa>();
 		s_dlaa.create(b_dlaa, "r3\\dlaa_main");
 	}
 
@@ -478,7 +469,7 @@ CRenderTarget::CRenderTarget		()
 		u32	w = Device.dwWidth;
 		u32 h = Device.dwHeight;	
 			
-		b_smaa = xr_new<CBlender_SMAA>();
+		b_smaa = xr_new<BLENDER::AA::CBlender_SMAA>();
 		s_smaa.create(b_smaa, "r3\\smaa");		
 		
 		rt_smaa_edgetex.create(r2_RT_smaa_edgetex, w, h, D3DFMT_A8R8G8B8);
@@ -490,7 +481,7 @@ CRenderTarget::CRenderTarget		()
 		u32	w = Device.dwWidth;
 		u32 h = Device.dwHeight;	
 		
-		b_sunshafts = xr_new<CBlender_sunshafts>();
+		b_sunshafts = xr_new<BLENDER::GAME::CBlender_sunshafts>();
 		s_sunshafts.create(b_sunshafts, "r2\\sunshafts");
 		
 		rt_sunshafts_0.create(r2_RT_sunshafts0, w, h, D3DFMT_A8R8G8B8);
@@ -499,13 +490,13 @@ CRenderTarget::CRenderTarget		()
 
 	//Gasmask
 	{
-		b_gasmask = xr_new<CBlender_gasmask>();
+		b_gasmask = xr_new<BLENDER::GAME::CBlender_gasmask>();
 		s_gasmask.create(b_gasmask, "r2\\gasmask");
 	}
 	
 	//Gamma correction
 	{
-		b_gamma = xr_new<CBlender_gamma>();
+		b_gamma = xr_new<BLENDER::GAME::CBlender_gamma>();
 		s_gamma.create(b_gamma);
 	}
 	
