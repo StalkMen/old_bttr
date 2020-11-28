@@ -381,30 +381,6 @@ void	CRenderTarget::phase_combine	()
 	//Gamma
 	phase_gamma();
 
-	/*
-		nv color = rgb.brightness
-		nv postprocessing = noise, flickering, scanlines, radius
-	*/
-	switch (render_nightvision)
-	{
-		case 0:
-			RCache.set_c("nv_color", 0.f, 0.f, 0.f, 0.f);
-			RCache.set_c("nv_postprocessing", 0.f, 0.f, 0.f, 0.f);
-			break;
-		case 1:
-			RCache.set_c("nv_color", 0.45f, 0.9f, 0.55f, 7.f);
-			RCache.set_c("nv_postprocessing", 0.175f, 0.009f, 0.025f, 0.8f);
-			break;
-		case 2:
-			RCache.set_c("nv_color", 0.40f, 0.99f, 0.83f, 10.f);
-			RCache.set_c("nv_postprocessing", 0.125f, 0.005f, 0.0125f, 0.9f);
-			break;
-		case 3:
-			RCache.set_c("nv_color", 0.8f, 0.8f, 0.8f, 15.f);
-			RCache.set_c("nv_postprocessing", 0.075f, 0.0025f, 0.005f, 1.f);
-			break;
-	}
-
 	// PP enabled ?
 	//	Render to RT texture to be able to copy RT even in windowed mode.
 	BOOL	PP_Complex		= u_need_PP	() | (BOOL)RImplementation.m_bMakeAsyncSS;
@@ -495,6 +471,30 @@ void	CRenderTarget::phase_combine	()
         RCache.set_c				("dof_kernel", vDofKernel.x, vDofKernel.y, kernel_size, 0);
 		RCache.set_c				("dof_kernel",	vDofKernel.x, vDofKernel.y, ps_r2_dof_kernel_size, 0);
 		RCache.set_c				("vibrance", xrRenderFilteringSaturationImage, 0, 0, 0);
+
+		/*
+			nv color = rgb.brightness
+			nv postprocessing = noise, flickering, scanlines, radius
+		*/
+		switch (render_nightvision)
+		{
+			case 0:
+				RCache.set_c("nv_color", 0.f, 0.f, 0.f, 0.f);
+				RCache.set_c("nv_postprocessing", 0.f, 0.f, 0.f, 0.f);
+				break;
+			case 1:
+				RCache.set_c("nv_color", 0.4f, 0.9f, 0.3f, 8.f);
+				RCache.set_c("nv_postprocessing", 0.175f, 0.009f, 0.025f, 0.8f);
+				break;
+			case 2:
+				RCache.set_c("nv_color", 0.40f, 0.99f, 0.83f, 10.f);
+				RCache.set_c("nv_postprocessing", 0.125f, 0.005f, 0.0125f, 0.9f);
+				break;
+			case 3:
+				RCache.set_c("nv_color", 0.8f, 0.8f, 0.8f, 15.f);
+				RCache.set_c("nv_postprocessing", 0.075f, 0.0025f, 0.005f, 1.f);
+				break;
+		}
 
 		RCache.set_Geometry			(g_aa_AA);
 		RCache.Render				(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
