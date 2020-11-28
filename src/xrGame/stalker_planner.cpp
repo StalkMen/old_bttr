@@ -27,6 +27,9 @@ using namespace StalkerDecisionSpace;
 
 CStalkerPlanner::CStalkerPlanner	()
 {
+#ifdef OGSR_FIX_PLANNER_NPC
+	m_active				= true;
+#endif
 	m_affect_cover			= false;
 }
 
@@ -69,10 +72,19 @@ void CStalkerPlanner::setup			(CAI_Stalker *object)
 	set_target_state			(target);
 
 	m_affect_cover				= false;
+
+#ifdef OGSR_FIX_PLANNER_NPC
+	m_active = true;
+#endif
 }
 
 void CStalkerPlanner::update			(u32 time_delta)
 {
+#ifdef OGSR_FIX_PLANNER_NPC
+	if (!active())
+		return;
+#endif
+
 #ifdef LOG_ACTION
 	if ((psAI_Flags.test(aiGOAP) && !m_use_log) || (!psAI_Flags.test(aiGOAP) && m_use_log))
 		set_use_log			(!!psAI_Flags.test(aiGOAP));

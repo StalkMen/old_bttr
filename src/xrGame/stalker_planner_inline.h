@@ -8,12 +8,9 @@
 
 #pragma once
 
-IC	void CStalkerPlanner::affect_cover	(bool value)
-{
-	m_affect_cover	= value;
-}
-
-IC	bool CStalkerPlanner::affect_cover	() const
-{
-	return			(m_affect_cover);
-}
+IC void CStalkerPlanner::affect_cover	(bool value)	{m_affect_cover	= value;}
+IC bool CStalkerPlanner::affect_cover	() const		{ return (m_affect_cover); }
+#ifdef OGSR_FIX_PLANNER_NPC
+IC void CStalkerPlanner::active			(bool value)	{ m_active = value; }
+IC bool CStalkerPlanner::active() 		const			{ return m_active; }
+#endif

@@ -23,6 +23,9 @@ protected:
 	typedef CActionPlannerActionScript<CAI_Stalker>		CActionPlannerAction;
 
 private:
+#ifdef OGSR_FIX_PLANNER_NPC
+	bool					m_active;
+#endif
 	bool					m_affect_cover;
 
 protected:
@@ -41,7 +44,10 @@ public:
 	virtual	void			update				(u32 time_delta);
 	IC		void			affect_cover		(bool value);
 	IC		bool			affect_cover		() const;
-
+#ifdef OGSR_FIX_PLANNER_NPC
+	IC		void			active				(bool);
+	IC		bool			active				() const;
+#endif
 #ifdef LOG_ACTION
 	virtual	LPCSTR			object_name			() const;
 #endif

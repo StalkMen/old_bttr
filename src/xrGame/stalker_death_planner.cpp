@@ -51,7 +51,11 @@ void CStalkerDeathPlanner::add_actions		()
 	add_effect				(action,eWorldPropertyDead,			true);
 	add_operator			(eWorldOperatorDying,				action);
 
+#ifndef OGSR_FIX_PLANNER_NPC
 	action					= xr_new<CStalkerActionBase>		(m_object,"dead");
+#else
+	action					= xr_new<CStalkerActionAlreadyDead> (m_object, "dead");
+#endif
 	add_condition			(action,eWorldPropertyDead,			true);
 	add_effect				(action,eWorldPropertyPuzzleSolved,	true);
 	add_operator			(eWorldOperatorDead,				action);

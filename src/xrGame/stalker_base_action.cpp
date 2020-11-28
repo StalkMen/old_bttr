@@ -38,3 +38,13 @@ void CStalkerActionBase::finalize			()
 	inherited::finalize								();
 	object().animation().clear_script_animations	();
 }
+
+#ifdef OGSR_FIX_PLANNER_NPC
+CStalkerActionAlreadyDead::CStalkerActionAlreadyDead(CAI_Stalker* object, LPCSTR action_name) : inherited(object, action_name) {}
+
+void CStalkerActionAlreadyDead::execute() 
+{
+	inherited::execute();
+	object().brain().active(false);
+}
+#endif
