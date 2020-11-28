@@ -98,6 +98,8 @@ public:
     virtual void	net_Import(NET_Packet& P);
 
     virtual void	OnH_A_Chield();
+    virtual void	OnH_B_Independent(bool);
+    virtual void	RemoveZoomInertionEffector();
 
     virtual bool	Attach(PIItem pIItem, bool b_send_event);
     virtual bool	Detach(const char* item_section_name, bool b_spawn_item);
