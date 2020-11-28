@@ -346,14 +346,13 @@ void CRenderDevice::on_idle()
     tlastf = std::chrono::high_resolution_clock::now();
 #endif
 
-#ifndef DEDICATED_SERVER
     Statistic->RenderTOTAL_Real.FrameStart();
     Statistic->RenderTOTAL_Real.Begin();
 	
     if (b_is_Active && Begin())
     {
 		seqRender.Process(rp_Render);
-		if (psDeviceFlags.test(rsCameraPos) || psDeviceFlags.test(rsStatistic) || Statistic->errors.size())
+		if (psDeviceFlags.test(rsCameraPos) || psDeviceFlags.test(rsStatistic) || Statistic->errors.size() || psDeviceFlags.test(rsRenderInfo))
 			Statistic->Show();
 
         Statistic->Show_HW_Stats();
@@ -363,7 +362,7 @@ void CRenderDevice::on_idle()
     Statistic->RenderTOTAL_Real.End();
     Statistic->RenderTOTAL_Real.FrameEnd();
     Statistic->RenderTOTAL.accum = Statistic->RenderTOTAL_Real.accum;
-#endif // #ifndef DEDICATED_SERVER
+
     // *** Suspend threads
     // Capture startup point
     // Release end point - allow thread to wait for startup point

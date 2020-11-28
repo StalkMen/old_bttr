@@ -1059,11 +1059,9 @@ void CApplication::LoadBegin()
         g_bootComplete = FALSE;
         //-AVO
 
-#ifndef DEDICATED_SERVER
         _InitializeFont(pFontSystem, "ui_font_letterica18_russian", 0);
-
         m_pRender->LoadBegin();
-#endif
+
         phase_timer.Start();
         load_stage = 0;
 
