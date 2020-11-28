@@ -1219,6 +1219,22 @@ float CScriptGameObject::GetArtefactSleepRestoreSpeed()
 	return artefact->GetSleepPower();
 }
 
+float CScriptGameObject::GetArtefactArtefReactionRestoreSpeed()
+{
+	CArtefact* artefact = smart_cast<CArtefact*>(&object());
+	THROW(artefact);
+
+	return artefact->GetArtefReactionPower();
+}
+
+void CScriptGameObject::SetArtefactArtefReactionRestoreSpeed(float value)
+{
+	CArtefact* artefact = smart_cast<CArtefact*>(&object());
+	THROW(artefact);
+
+	artefact->SetArtefReactionPower(value);
+}
+
 void CScriptGameObject::SetArtefactThirstRestoreSpeed(float value)
 {
 	CArtefact* artefact = smart_cast<CArtefact*>(&object());

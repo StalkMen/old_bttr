@@ -897,6 +897,8 @@ float RandomFloat2(float min, float max)
 	return rondo;
 }
 
+float GetArtefactReaction() { return Actor()->fArtReac; }
+
 #pragma optimize("s",on)
 void CLevel::script_register(lua_State *L)
 {
@@ -1007,6 +1009,7 @@ void CLevel::script_register(lua_State *L)
 		def("set_pp_effector_factor",			&set_pp_effector_factor),
 		def("set_pp_effector_factor",			&set_pp_effector_factor2),
 		def("remove_pp_effector",				&remove_pp_effector),
+		def("GetArtefactReactionSumm",			GetArtefactReaction),
 
 		def("add_complex_effector",				&add_complex_effector),
 		def("remove_complex_effector",			&remove_complex_effector),

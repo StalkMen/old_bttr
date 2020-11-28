@@ -67,6 +67,7 @@ LPCSTR af_restore_section_names[] =
 	"radiation_restore_speed",
 	"thirst_restore_speed",
 	"sleep_restore_speed",
+	"artefact_reaction",
 };
 
 LPCSTR af_immunity_caption[] =
@@ -91,6 +92,7 @@ LPCSTR af_restore_caption[] =
 	"ui_inv_radiation",
 	"ui_af_inv_thirst",
 	"ui_af_inv_sleep",
+	"ui_inv_artefact_reaction",
 };
 
 void CUIArtefactParams::InitFromXml( CUIXml& xml )

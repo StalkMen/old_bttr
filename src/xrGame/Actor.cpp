@@ -1548,20 +1548,9 @@ void CActor::RenderIndicator(Fvector dpos, float r1, float r2, const ui_shader &
     UIRender->PushPoint(a.x + pos.x, a.y + pos.y, a.z + pos.z, 0xffffffff, 0.f, 0.f);
     UIRender->PushPoint(c.x + pos.x, c.y + pos.y, c.z + pos.z, 0xffffffff, 1.f, 1.f);
     UIRender->PushPoint(b.x + pos.x, b.y + pos.y, b.z + pos.z, 0xffffffff, 1.f, 0.f);
-    //pv->set         (d.x+pos.x,d.y+pos.y,d.z+pos.z, 0xffffffff, 0.f,1.f);        pv++;
-    //pv->set         (a.x+pos.x,a.y+pos.y,a.z+pos.z, 0xffffffff, 0.f,0.f);        pv++;
-    //pv->set         (c.x+pos.x,c.y+pos.y,c.z+pos.z, 0xffffffff, 1.f,1.f);        pv++;
-    //pv->set         (b.x+pos.x,b.y+pos.y,b.z+pos.z, 0xffffffff, 1.f,0.f);        pv++;
-    // render	
-    //dwCount 				= u32(pv-pv_start);
-    //RCache.Vertex.Unlock	(dwCount,hFriendlyIndicator->vb_stride);
-
+    
     UIRender->CacheSetXformWorld(Fidentity);
-    //RCache.set_xform_world		(Fidentity);
     UIRender->SetShader(*IndShader);
-    //RCache.set_Shader			(IndShader);
-    //RCache.set_Geometry			(hFriendlyIndicator);
-    //RCache.Render	   			(D3DPT_TRIANGLESTRIP,dwOffset,0, dwCount, 0, 2);
     UIRender->FlushPrimitive();
 };
 
@@ -1627,15 +1616,6 @@ void CActor::SetPhPosition(const Fmatrix &transform)
 
 void CActor::ForceTransform(const Fmatrix& m)
 {
-    //if( !g_Alive() )
-    //			return;
-    //VERIFY(_valid(m));
-    //XFORM().set( m );
-    //if( character_physics_support()->movement()->CharacterExist() )
-    //		character_physics_support()->movement()->EnableCharacter();
-    //character_physics_support()->set_movement_position( m.c );
-    //character_physics_support()->movement()->SetVelocity( 0, 0, 0 );
-
     character_physics_support()->ForceTransform(m);
     const float block_damage_time_seconds = 2.f;
     if (!IsGameTypeSingle())
@@ -1780,9 +1760,10 @@ void CActor::MoveArtefactBelt(const CArtefact* artefact, bool on_belt)
 
 void CActor::UpdateArtefactsOnBeltAndOutfit()
 {
-    static float update_time = 0;
+    static float update_time = 0.0f;
 
-    float f_update_time = 0;
+    float f_update_time = 0.0f;
+    fArtReac = 0.f;
 
     if (update_time < ARTEFACTS_UPDATE_TIME)
     {
@@ -1808,6 +1789,10 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
 			conditions().ChangeSatiety((artefact->m_fSatietyRestoreSpeed*art_cond)   * f_update_time);
 			conditions().ChangeSleep((artefact->m_fSleepRestoreSpeed*art_cond)   * f_update_time);
 			conditions().ChangeThirst((artefact->m_fThirstRestoreSpeed*art_cond)   * f_update_time);
+
+            fArtReac += artefact->m_fArtefReactionRestoreSpeed * art_cond;
+            conditions().ChangeArtefReaction(fArtReac);
+
 			if ((artefact->m_fRadiationRestoreSpeed*art_cond) > 0.0f)
             {
 				float val = (artefact->m_fRadiationRestoreSpeed*art_cond) - conditions().GetBoostRadiationImmunity();
@@ -1819,6 +1804,8 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
         }
     }
 	
+    Msg("Artefact reaction summ: [%f]", fArtReac);
+
     CCustomOutfit* outfit = GetOutfit();
     CHelmet* pHelmet = smart_cast<CHelmet*>(inventory().ItemFromSlot(HELMET_SLOT));
 

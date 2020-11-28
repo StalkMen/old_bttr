@@ -22,8 +22,6 @@
 #include "ui/UIStatic.h"
 #include "CustomOutfit.h"
 
-#define MAX_SATIETY					1.0f
-#define START_SATIETY				0.5f
 extern ENGINE_API Flags32 p_engine_flags32;
 
 BOOL	GodMode	()	
@@ -50,6 +48,7 @@ CActorCondition::CActorCondition(CActor *object) :
 	m_fSleep					= 1.0f;
 	m_fThirst					= 1.0f;
 	m_fKurr						= 1.0f;
+	m_fArtefReaction			= 0.0f;
 
 //	m_vecBoosts.clear();
 
@@ -141,6 +140,12 @@ void CActorCondition::LoadCondition(LPCSTR entity_section)
 	m_fV_Kurr					= READ_IF_EXISTS(pSettings, r_float, section, "kurr_v", 0.0f);
 	m_fV_KurrPower				= READ_IF_EXISTS(pSettings, r_float, section, "kurr_power_v", 0.0f);
 	m_fV_KurrHealth				= READ_IF_EXISTS(pSettings, r_float, section, "kurr_health_v", 0.0f);
+
+	m_fArtefReactionCritical	= NULL;
+	clamp						(m_fArtefReactionCritical, 0.0f, 1.0f);
+	m_fV_ArtefReaction			= NULL;
+	m_fV_ArtefReactionPower		= NULL;
+	m_fV_ArtefReactionHealth	= NULL;
 
 	m_MaxWalkWeight				= pSettings->r_float(section,"max_walk_weight");
 
@@ -634,6 +639,7 @@ void CActorCondition::save(NET_Packet &output_packet)
 	save_data			(m_fSleep, output_packet);	
 	save_data			(m_fThirst, output_packet);
 	save_data			(m_fKurr, output_packet);
+	save_data			(m_fArtefReaction, output_packet);
 
 	save_data			(m_curr_medicine_influence.fHealth, output_packet);
 	save_data			(m_curr_medicine_influence.fPower, output_packet);
@@ -666,6 +672,7 @@ void CActorCondition::load(IReader &input_packet)
 	load_data			(m_fSleep, input_packet);
 	load_data			(m_fThirst, input_packet);		
 	load_data			(m_fKurr, input_packet);
+	load_data			(m_fArtefReaction, input_packet);
 
 	load_data			(m_curr_medicine_influence.fHealth, input_packet);
 	load_data			(m_curr_medicine_influence.fPower, input_packet);
@@ -699,8 +706,9 @@ void CActorCondition::reinit	()
 	m_fSleep  					= 1.f;
 	m_fThirst  					= 1.f;
 	m_fKurr						= 1.f;
+	m_fArtefReaction			= 0.f;
 }
-
+	
 void CActorCondition::ChangeAlcohol	(float value)
 {
 	m_fAlcohol += value;

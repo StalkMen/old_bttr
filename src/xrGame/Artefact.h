@@ -44,7 +44,8 @@ public:
 				float	GetSatietyPower						()					{return m_fSatietyRestoreSpeed;}
 				float	GetPowerPower						()					{return m_fPowerRestoreSpeed;}
 				float	GetBleedingPower						()					{return m_fBleedingRestoreSpeed;} 
-				
+				float   GetArtefReactionPower				() const			{ return m_fArtefReactionRestoreSpeed; }
+
 				float	GetSleepPower						()					{return m_fSleepRestoreSpeed;}
 				void	SetSleepPower						(float value)					{m_fSleepRestoreSpeed = value;}
 				float	GetThirstPower						()					{return m_fThirstRestoreSpeed;}		
@@ -55,7 +56,8 @@ public:
 				void	SetSatietyPower						(float value)					{m_fSatietyRestoreSpeed = value;}
 				void	SetPowerPower						(float value)					{m_fPowerRestoreSpeed = value;}
 				void	SetBleedingPower						(float value)					{m_fBleedingRestoreSpeed = value;}                                  
-				
+				void	SetArtefReactionPower				(const float value) { m_fArtefReactionRestoreSpeed = value; }
+
 				float 	m_fJumpSpeed;
 				float 	m_fWalkAccel;
 				
@@ -101,6 +103,8 @@ public:
 	float 							m_fThirstRestoreSpeed;
 	float							m_fPowerRestoreSpeed;
 	float							m_fBleedingRestoreSpeed;
+	float							m_fArtefReactionRestoreSpeed;
+
 	HitImmunity::HitTypeSVec		m_ArtefactHitImmunities;
 public:
 	enum EAFHudStates {
