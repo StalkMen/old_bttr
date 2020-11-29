@@ -203,7 +203,7 @@ static void full_memory_stats()
 	Msg("~ PageFile usage: %I64dMB, Peak PageFile usage: %I64dMB,", memCounters.PagefileUsage / (1024 * 1024),
 		memCounters.PeakPagefileUsage / (1024 * 1024));
 	Log("--------------------------------------------------------------------------------");
-	Log("# CryRay Engine. Especially for the clean version of Call Of Chernobyl, Improved Weapons Pack and modification Back to the Roots");
+	Log("# CryRay Engine. Especially for the clean version of Call Of Chernobyl 1.4.22, Improved Weapons Pack and modification Back to the Roots");
 	Log("--------------------------------------------------------------------------------");
 }
 
