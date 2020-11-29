@@ -440,11 +440,9 @@ static INT_PTR CALLBACK logDlgProc(HWND hw, UINT msg, WPARAM wp, LPARAM lp)
     return TRUE;
 }
 
-extern void testbed(void);
-
-#define dwStickyKeysStructSize sizeof( STICKYKEYS )
-#define dwFilterKeysStructSize sizeof( FILTERKEYS )
-#define dwToggleKeysStructSize sizeof( TOGGLEKEYS )
+static constexpr auto dwStickyKeysStructSize = sizeof(STICKYKEYS);
+static constexpr auto dwFilterKeysStructSize = sizeof(FILTERKEYS);
+static constexpr auto dwToggleKeysStructSize = sizeof(TOGGLEKEYS);
 
 struct damn_keys_filter
 {
@@ -546,53 +544,6 @@ struct damn_keys_filter
     }
 };
 
-#undef dwStickyKeysStructSize
-#undef dwFilterKeysStructSize
-#undef dwToggleKeysStructSize
-
-// Фунция для тупых требований THQ и тупых американских пользователей
-BOOL IsOutOfVirtualMemory()
-{
-#define VIRT_ERROR_SIZE 256
-#define VIRT_MESSAGE_SIZE 512
-
-    //SECUROM_MARKER_HIGH_SECURITY_ON(1)
-
-    MEMORYSTATUSEX statex;
-    DWORD dwPageFileInMB = 0;
-    DWORD dwPhysMemInMB = 0;
-    HINSTANCE hApp = 0;
-    char pszError[VIRT_ERROR_SIZE];
-    char pszMessage[VIRT_MESSAGE_SIZE];
-
-    ZeroMemory(&statex, sizeof(MEMORYSTATUSEX));
-    statex.dwLength = sizeof(MEMORYSTATUSEX);
-
-    if (!GlobalMemoryStatusEx(&statex))
-        return 0;
-
-    dwPageFileInMB = (DWORD)(statex.ullTotalPageFile / (1024 * 1024));
-    dwPhysMemInMB = (DWORD)(statex.ullTotalPhys / (1024 * 1024));
-
-    // Довольно отфонарное условие
-    if ((dwPhysMemInMB > 500) && ((dwPageFileInMB + dwPhysMemInMB) > 2500))
-        return 0;
-
-    hApp = GetModuleHandle(NULL);
-
-    if (!LoadString(hApp, RC_VIRT_MEM_ERROR, pszError, VIRT_ERROR_SIZE))
-        return 0;
-
-    if (!LoadString(hApp, RC_VIRT_MEM_TEXT, pszMessage, VIRT_MESSAGE_SIZE))
-        return 0;
-
-    MessageBox(NULL, pszMessage, pszError, MB_OK | MB_ICONHAND);
-
-    //SECUROM_MARKER_HIGH_SECURITY_OFF(1)
-
-    return 1;
-}
-
 #include "xr_ioc_cmd.h"
 
 ENGINE_API bool g_dedicated_server = false;
@@ -633,10 +584,6 @@ int APIENTRY WinMain_impl(HINSTANCE hInstance,
         }
     }
 
-
-    // Check for virtual memory
-    if ((strstr(lpCmdLine, "--skipmemcheck") == NULL) && IsOutOfVirtualMemory())
-        return 0;
 
     // Check for another instance
 #ifdef NO_MULTI_INSTANCES
@@ -716,11 +663,9 @@ int APIENTRY WinMain_impl(HINSTANCE hInstance,
         xr_strcpy(Core.CompName, sizeof(Core.CompName), "Computer");
     }
 
-#ifndef DEDICATED_SERVER
     {
         damn_keys_filter filter;
         (void)filter;
-#endif // DEDICATED_SERVER
 
         FPU::m24r();
         InitEngine();
@@ -754,13 +699,6 @@ int APIENTRY WinMain_impl(HINSTANCE hInstance,
             return 0;
         }
 
-        if (strstr(lpCmdLine, "-launcher"))
-        {
-            int l_res = doLauncher();
-            if (l_res != 0)
-                return 0;
-        };
-
         //. InitInput ( );
         Engine.External.Initialize();
         Console->Execute("stat_memory");
@@ -783,15 +721,13 @@ int APIENTRY WinMain_impl(HINSTANCE hInstance,
                           temp_wf, &si, &pi);
 
         }
-#ifndef DEDICATED_SERVER
+
 #ifdef NO_MULTI_INSTANCES
         // Delete application presence mutex
         CloseHandle(hCheckPresenceMutex);
 #endif
     }
     // here damn_keys_filter class instanse will be destroyed
-#endif // DEDICATED_SERVER
-
     return 0;
 }
 
@@ -1310,40 +1246,6 @@ void CApplication::LoadAllArchives()
         Level_Scan();
         g_pGamePersistent->OnAssetsChanged();
     }
-}
-
-//launcher stuff----------------------------
-extern "C" {
-    typedef int __cdecl LauncherFunc(int);
-}
-HMODULE hLauncher = NULL;
-LauncherFunc* pLauncher = NULL;
-
-void InitLauncher()
-{
-    if (hLauncher)
-        return;
-    hLauncher = LoadLibrary("xrLauncher.dll");
-    if (0 == hLauncher) R_CHK(GetLastError());
-    R_ASSERT2(hLauncher, "xrLauncher DLL raised exception during loading or there is no xrLauncher.dll at all");
-
-    pLauncher = (LauncherFunc*)GetProcAddress(hLauncher, "RunXRLauncher");
-    R_ASSERT2(pLauncher, "Cannot obtain RunXRLauncher function from xrLauncher.dll");
-};
-
-void FreeLauncher()
-{
-    if (hLauncher)
-    {
-        FreeLibrary(hLauncher);
-        hLauncher = NULL;
-        pLauncher = NULL;
-    };
-}
-
-int doLauncher()
-{
-    return 0;
 }
 
 void doBenchmark(LPCSTR name)
