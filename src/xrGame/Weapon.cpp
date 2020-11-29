@@ -354,19 +354,19 @@ void CWeapon::ForceUpdateFireParticles()
 void CWeapon::Load(LPCSTR section)
 {
     ////////////////////////////////////////////
-    //--#SM+# Begin—
+    //--#SM+# Beginâ€”
     string16 _prefix = { "" };
     string128 val_name;
 
-    // Ñìåùåíèå â ñòðåéôå
+    // Ð¡Ð¼ÐµÑ‰ÐµÐ½Ð¸Ðµ Ð² ÑÑ‚Ñ€ÐµÐ¹Ñ„Ðµ
     m_strafe_offset[0][0] = READ_IF_EXISTS(pSettings, r_fvector3, section, strconcat(sizeof(val_name), val_name, "strafe_hud_offset_pos", _prefix), Fvector().set(0.015f, 0.f, 0.f));
     m_strafe_offset[1][0] = READ_IF_EXISTS(pSettings, r_fvector3, section, strconcat(sizeof(val_name), val_name, "strafe_hud_offset_rot", _prefix), Fvector().set(0.f, 0.f, 4.5f));
 
-    // Ïîâîðîò â ñòðåéôå
+    // ÐŸÐ¾Ð²Ð¾Ñ€Ð¾Ñ‚ Ð² ÑÑ‚Ñ€ÐµÐ¹Ñ„Ðµ
     m_strafe_offset[0][1] = READ_IF_EXISTS(pSettings, r_fvector3, section, strconcat(sizeof(val_name), val_name, "strafe_aim_hud_offset_pos", _prefix), Fvector().set(0.005f, 0.f, 0.f));
     m_strafe_offset[1][1] = READ_IF_EXISTS(pSettings, r_fvector3, section, strconcat(sizeof(val_name), val_name, "strafe_aim_hud_offset_rot", _prefix), Fvector().set(0.f, 0.f, 2.5f));
 
-    // Ïàðàìåòðû ñòðåéôà
+    // ÐŸÐ°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹ ÑÑ‚Ñ€ÐµÐ¹Ñ„Ð°
     float fFullStrafeTime = READ_IF_EXISTS(pSettings, r_float, section, "strafe_transition_time", 0.25f);
     float fFullStrafeTime_aim = READ_IF_EXISTS(pSettings, r_float, section, "strafe_aim_transition_time", 0.15f);
     bool bStrafeEnabled = READ_IF_EXISTS(pSettings, r_bool, section, "strafe_enabled", true);
@@ -374,7 +374,7 @@ void CWeapon::Load(LPCSTR section)
 
     m_strafe_offset[2][0].set(bStrafeEnabled, fFullStrafeTime, 0.f); // normal
     m_strafe_offset[2][1].set(bStrafeEnabled_aim, fFullStrafeTime_aim, 0.f); // aim-GL
-    //--#SM+# End—
+    //--#SM+# Endâ€”
     ////////////////////////////////////////////
 
     inherited::Load(section);
@@ -405,8 +405,8 @@ void CWeapon::Load(LPCSTR section)
     UniqueOptionNV = READ_IF_EXISTS(pSettings, r_u8, section, "UniqueOptionNV", 0);
     UniqueOptionNV_enable = READ_IF_EXISTS(pSettings, r_bool, section, "UniqueOptionNV_enable", false);
     ////////////////////////////////////////////////////
-    // äèñïåðñèÿ ñòðåëüáû
-    //ïîäáðàñûâàíèå êàìåðû âî âðåìÿ îòäà÷è
+    // Ð´Ð¸ÑÐ¿ÐµÑ€ÑÐ¸Ñ ÑÑ‚Ñ€ÐµÐ»ÑŒÐ±Ñ‹
+    //Ð¿Ð¾Ð´Ð±Ñ€Ð°ÑÑ‹Ð²Ð°Ð½Ð¸Ðµ ÐºÐ°Ð¼ÐµÑ€Ñ‹ Ð²Ð¾ Ð²Ñ€ÐµÐ¼Ñ Ð¾Ñ‚Ð´Ð°Ñ‡Ð¸
     u8 rm = READ_IF_EXISTS(pSettings, r_u8, section, "cam_return", 1);
     cam_recoil.ReturnMode = (rm == 1);
 
@@ -456,8 +456,8 @@ void CWeapon::Load(LPCSTR section)
 
     cam_recoil.DispersionFrac = _abs(READ_IF_EXISTS(pSettings, r_float, section, "cam_dispersion_frac", 0.7f));
 
-    //ïîäáðàñûâàíèå êàìåðû âî âðåìÿ îòäà÷è â ðåæèìå zoom ==> ironsight or scope
-    //zoom_cam_recoil.Clone( cam_recoil ); ==== íåëüçÿ !!!!!!!!!!
+    //Ð¿Ð¾Ð´Ð±Ñ€Ð°ÑÑ‹Ð²Ð°Ð½Ð¸Ðµ ÐºÐ°Ð¼ÐµÑ€Ñ‹ Ð²Ð¾ Ð²Ñ€ÐµÐ¼Ñ Ð¾Ñ‚Ð´Ð°Ñ‡Ð¸ Ð² Ñ€ÐµÐ¶Ð¸Ð¼Ðµ zoom ==> ironsight or scope
+    //zoom_cam_recoil.Clone( cam_recoil ); ==== Ð½ÐµÐ»ÑŒÐ·Ñ !!!!!!!!!!
     zoom_cam_recoil.RelaxSpeed = cam_recoil.RelaxSpeed;
     zoom_cam_recoil.RelaxSpeed_AI = cam_recoil.RelaxSpeed_AI;
     zoom_cam_recoil.DispersionFrac = cam_recoil.DispersionFrac;
@@ -548,7 +548,7 @@ void CWeapon::Load(LPCSTR section)
     m_fMinRadius = pSettings->r_float(section, "min_radius");
     m_fMaxRadius = pSettings->r_float(section, "max_radius");
 
-    // èíôîðìàöèÿ î âîçìîæíûõ àïãðåéäàõ è èõ âèçóàëèçàöèè â èíâåíòàðå
+    // Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð¾ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ñ‹Ñ… Ð°Ð¿Ð³Ñ€ÐµÐ¹Ð´Ð°Ñ… Ð¸ Ð¸Ñ… Ð²Ð¸Ð·ÑƒÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ Ð² Ð¸Ð½Ð²ÐµÐ½Ñ‚Ð°Ñ€Ðµ
     m_eScopeStatus = (ALife::EWeaponAddonStatus)pSettings->r_s32(section, "scope_status");
     m_eSilencerStatus = (ALife::EWeaponAddonStatus)pSettings->r_s32(section, "silencer_status");
     m_eGrenadeLauncherStatus = (ALife::EWeaponAddonStatus)pSettings->r_s32(section, "grenade_launcher_status");
@@ -679,20 +679,20 @@ void CWeapon::LoadModParams(LPCSTR section)
 	m_nearwall_target_hud_fov = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_target_hud_fov", 0.27f);
 	m_nearwall_speed_mod = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_speed_mod", 10.f);
 	
-	// Íàñòðîéêè ñòðåéôà (áîêîâàÿ õîäüáà)
+	// ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÑ‚Ñ€ÐµÐ¹Ñ„Ð° (Ð±Ð¾ÐºÐ¾Ð²Ð°Ñ Ñ…Ð¾Ð´ÑŒÐ±Ð°)
 	const Fvector vZero = { 0.f, 0.f, 0.f };
 	Fvector vDefStrafeValue;
 	vDefStrafeValue.set(vZero);
 
-	//--> Ñìåùåíèå â ñòðåéôå
+	//--> Ð¡Ð¼ÐµÑ‰ÐµÐ½Ð¸Ðµ Ð² ÑÑ‚Ñ€ÐµÐ¹Ñ„Ðµ
 	m_strafe_offset[0][0]		= READ_IF_EXISTS(pSettings, r_fvector3, section, "strafe_hud_offset_pos",		vDefStrafeValue);
 	m_strafe_offset[1][0]		= READ_IF_EXISTS(pSettings, r_fvector3, section, "strafe_hud_offset_rot",		vDefStrafeValue);
 
-	//--> Ïîâîðîò â ñòðåéôå
+	//--> ÐŸÐ¾Ð²Ð¾Ñ€Ð¾Ñ‚ Ð² ÑÑ‚Ñ€ÐµÐ¹Ñ„Ðµ
 	m_strafe_offset[0][1]		= READ_IF_EXISTS(pSettings, r_fvector3, section, "strafe_aim_hud_offset_pos",	vDefStrafeValue);
 	m_strafe_offset[1][1]		= READ_IF_EXISTS(pSettings, r_fvector3, section, "strafe_aim_hud_offset_rot",	vDefStrafeValue);
 
-	// Ïàðàìåòðû ñòðåéôà
+	// ÐŸÐ°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹ ÑÑ‚Ñ€ÐµÐ¹Ñ„Ð°
 	bool  bStrafeEnabled		= READ_IF_EXISTS(pSettings, r_bool, section, "strafe_enabled", false);
 	bool  bStrafeEnabled_aim	= READ_IF_EXISTS(pSettings, r_bool, section, "strafe_aim_enabled", false);
 	float fFullStrafeTime		= READ_IF_EXISTS(pSettings, r_float, section, "strafe_transition_time", 0.01f);
@@ -897,7 +897,7 @@ void CWeapon::net_Destroy()
 {
     inherited::net_Destroy();
 
-    //óäàëèòü îáúåêòû ïàðòèêëîâ
+    //ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ Ð¾Ð±ÑŠÐµÐºÑ‚Ñ‹ Ð¿Ð°Ñ€Ñ‚Ð¸ÐºÐ»Ð¾Ð²
     StopFlameParticles();
     StopFlameParticles2();
     StopLight();
@@ -1110,7 +1110,7 @@ void CWeapon::OnActiveItem()
     //-
 
     inherited::OnActiveItem();
-    //åñëè ìû çàíðóæàåìñÿ è îðóæèå áûëî â ðóêàõ
+    //ÐµÑÐ»Ð¸ Ð¼Ñ‹ Ð·Ð°Ð½Ñ€ÑƒÐ¶Ð°ÐµÐ¼ÑÑ Ð¸ Ð¾Ñ€ÑƒÐ¶Ð¸Ðµ Ð±Ñ‹Ð»Ð¾ Ð² Ñ€ÑƒÐºÐ°Ñ…
     //.	SetState					(eIdle);
     //.	SetNextState				(eIdle);
 }
@@ -1190,10 +1190,10 @@ void CWeapon::UpdateCL()
 {
     inherited::UpdateCL();
     UpdateHUDAddonsVisibility();
-    //ïîäñâåòêà îò âûñòðåëà
+    //Ð¿Ð¾Ð´ÑÐ²ÐµÑ‚ÐºÐ° Ð¾Ñ‚ Ð²Ñ‹ÑÑ‚Ñ€ÐµÐ»Ð°
     UpdateLight();
 
-    //íàðèñîâàòü ïàðòèêëû
+    //Ð½Ð°Ñ€Ð¸ÑÐ¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð°Ñ€Ñ‚Ð¸ÐºÐ»Ñ‹
     UpdateFlameParticles();
     UpdateFlameParticles2();
 
@@ -1255,11 +1255,11 @@ void CWeapon::renderable_Render()
 {
     UpdateXForm();
 
-    //íàðèñîâàòü ïîäñâåòêó
+    //Ð½Ð°Ñ€Ð¸ÑÐ¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾Ð´ÑÐ²ÐµÑ‚ÐºÑƒ
 
     RenderLight();
 
-    //åñëè ìû â ðåæèìå ñíàéïåðêè, òî ñàì HUD ðèñîâàòü íå íàäî
+    //ÐµÑÐ»Ð¸ Ð¼Ñ‹ Ð² Ñ€ÐµÐ¶Ð¸Ð¼Ðµ ÑÐ½Ð°Ð¹Ð¿ÐµÑ€ÐºÐ¸, Ñ‚Ð¾ ÑÐ°Ð¼ HUD Ñ€Ð¸ÑÐ¾Ð²Ð°Ñ‚ÑŒ Ð½Ðµ Ð½Ð°Ð´Ð¾
     if (IsZoomed() && !IsRotatingToZoom() && ZoomTexture())
         RenderHud(FALSE);
     else
@@ -1309,7 +1309,7 @@ bool CWeapon::Action(u16 cmd, u32 flags)
 	}
     case kWPN_FIRE:
     {
-        //åñëè îðóæèå ÷åì-òî çàíÿòî, òî íè÷åãî íå äåëàòü
+        //ÐµÑÐ»Ð¸ Ð¾Ñ€ÑƒÐ¶Ð¸Ðµ Ñ‡ÐµÐ¼-Ñ‚Ð¾ Ð·Ð°Ð½ÑÑ‚Ð¾, Ñ‚Ð¾ Ð½Ð¸Ñ‡ÐµÐ³Ð¾ Ð½Ðµ Ð´ÐµÐ»Ð°Ñ‚ÑŒ
         {
             if (IsPending())
                 return				false;
@@ -1471,7 +1471,7 @@ int CWeapon::GetSuitableAmmoTotal(bool use_item_to_spawn) const
         return ae_count;
     }
 
-    //÷òîá íå äåëàòü ëèøíèõ ïåðåñ÷åòîâ
+    //Ñ‡Ñ‚Ð¾Ð± Ð½Ðµ Ð´ÐµÐ»Ð°Ñ‚ÑŒ Ð»Ð¸ÑˆÐ½Ð¸Ñ… Ð¿ÐµÑ€ÐµÑÑ‡ÐµÑ‚Ð¾Ð²
     if (m_pInventory->ModifyFrame() <= m_BriefInfo_CalcFrame)
     {
         return ae_count + m_iAmmoCurrentTotal;
@@ -2208,13 +2208,13 @@ void CWeapon::UpdateHudAdditonal(Fmatrix& trans)
 
         if (pActor->IsZoomAimingMode())
         {
-            const float targetHeight = 1.f;
+            const float targetHeight = 1.03f;
             const float dti = AimSpeed * Device.dwTimeDelta / 1000.0f;
             m_zoom_params.m_fZoomRotationFactor = (m_zoom_params.m_fZoomRotationFactor * (1.0f - dti)) + (targetHeight * dti);
         }
         else
         {
-            const float targetHeight = 0.f;
+            const float targetHeight = -0.03f;
             const float dti = AimSpeed * Device.dwTimeDelta / 1000.0f;
             m_zoom_params.m_fZoomRotationFactor = (m_zoom_params.m_fZoomRotationFactor * (1.0f - dti)) + (targetHeight * dti);
         }
