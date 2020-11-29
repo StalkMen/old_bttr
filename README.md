@@ -1,13 +1,10 @@
 ![CryRay Engine](bttr_logo.png)
 
-# S.T.A.L.K.E.R.: Back to the Roots
-### CryRay Engine
-### Дискорд канал:
-https://discord.gg/GGGm5p3
+# CryRay Engine
+### Описание:
+CryRay Engine, базируется на движке XRay 1.6.02. Copyright (C) GSC Game World.
+Специально для чистой версии Call Of Chernobyl, Улучшенного пака оружия и модификации Возращение к корням
 
-### Описание проекта:
-### CryRay Engine, базируется на движке XRay 1.6.02. Copyright (C) GSC Game World.
-
-### За авторством: ###
+### Авторы: ###
 * [oldSerpskiStalker](https://github.com/oldSerpskiStalker)
 * [LVutner](https://github.com/LVutner)
