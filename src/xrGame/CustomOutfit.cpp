@@ -172,9 +172,9 @@ float CCustomOutfit::HitThroughArmor(float hit_power, s16 element, float ap, boo
 		float BoneArmor = ba*GetCondition();
 		if (ap <= BoneArmor)
 		{
-			//пуля НЕ пробила бронь
+			//РїСѓР»СЏ РќР• РїСЂРѕР±РёР»Р° Р±СЂРѕРЅСЊ
 			NewHitPower *= m_boneProtection->m_fHitFracActor;
-			//add_wound = false; 	//раны нет
+			//add_wound = false; 	//СЂР°РЅС‹ РЅРµС‚
 		}
 		else
 		{
@@ -200,7 +200,7 @@ float CCustomOutfit::HitThroughArmor(float hit_power, s16 element, float ap, boo
 		if(NewHitPower < 0.f)
 			NewHitPower = 0.f;
 	}
-	//увеличить изношенность костюма
+	//СѓРІРµР»РёС‡РёС‚СЊ РёР·РЅРѕС€РµРЅРЅРѕСЃС‚СЊ РєРѕСЃС‚СЋРјР°
 	Hit(hit_power, hit_type);
 
 	return NewHitPower;
@@ -225,6 +225,8 @@ void	CCustomOutfit::OnMoveToSlot		(const SInvItemPlace& prev)
 					pActor->SwitchNightVision(true, false);
 			}
 			PIItem pHelmet = pActor->inventory().ItemFromSlot(HELMET_SLOT);
+			PIItem pOutfit = pActor->inventory().ItemFromSlot(OUTFIT_SLOT);
+
 			if(pHelmet && !bIsHelmetAvaliable)
 				pActor->inventory().Ruck(pHelmet, false);
 		}
@@ -270,6 +272,9 @@ void	CCustomOutfit::OnMoveToRuck		(const SInvItemPlace& prev)
 			ApplySkinModel(pActor, false, false);
 			if(!bIsHelmetAvaliable)
 				pActor->SwitchNightVision(false);
+
+			g_pGamePersistent->m_DataExport->helmet_condidion(0.f);
+			g_pGamePersistent->m_DataExport->outfit_condidion(0.f);
 		}
 	}
 };

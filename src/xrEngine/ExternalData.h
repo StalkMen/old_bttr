@@ -4,7 +4,7 @@
 class ExteranData
 {
 public:
-	// Фикс дофа в прицеле, конфликтует с погодным дофом
+	// Р¤РёРєСЃ РґРѕС„Р° РІ РїСЂРёС†РµР»Рµ, РєРѕРЅС„Р»РёРєС‚СѓРµС‚ СЃ РїРѕРіРѕРґРЅС‹Рј РґРѕС„РѕРј
 	bool					is_zoomed;
 
 	void					ZoomActive(bool zoom_only) 
@@ -17,7 +17,7 @@ public:
 		return is_zoomed;
 	};
 
-	// Подобная функция, сейчас мы перезаряжаемся
+	// РџРѕРґРѕР±РЅР°СЏ С„СѓРЅРєС†РёСЏ, СЃРµР№С‡Р°СЃ РјС‹ РїРµСЂРµР·Р°СЂСЏР¶Р°РµРјСЃСЏ
 	bool					is_reload;
 
 	void					ReloadActive(bool reload_only)
@@ -29,4 +29,16 @@ public:
 	{
 		return is_reload;
 	};
+
+	// РЎРѕСЃС‚РѕСЏРЅРёРµ Р±СЂРѕРЅРё 
+	float outfit_condidion(float condition)
+	{
+		return condition;
+	}
+
+	// РЎРѕСЃС‚РѕСЏРЅРёРµ С€Р»РµРјР°
+	float helmet_condidion(float condition)
+	{
+		return condition;
+	}
 };
