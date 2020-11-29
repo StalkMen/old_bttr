@@ -212,7 +212,7 @@ void CSnork::HitEntityInJump(const CEntity *pEntity)
 	{
 		LPCSTR _execute;
 		LUA_EXPORT m_function;
-		R_ASSERT(_SCRIPT_ENGINE("_export_touch_of_ray.CSnork_HitEntityInJump", m_function));
+		R_ASSERT(_SCRIPT_ENGINE("_export_cryray.CSnork_HitEntityInJump", m_function));
 		_execute = m_function();
 	}
 }

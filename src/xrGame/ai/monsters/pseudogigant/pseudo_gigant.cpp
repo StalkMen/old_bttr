@@ -318,7 +318,7 @@ void CPseudoGigant::on_threaten_execute()
 	{
 		LPCSTR _execute;
 		LUA_EXPORT m_function;
-		R_ASSERT(_SCRIPT_ENGINE("_export_touch_of_ray.CPseudoGigant_on_threaten_execute", m_function));
+		R_ASSERT(_SCRIPT_ENGINE("_export_cryray.CPseudoGigant_on_threaten_execute", m_function));
 		_execute = m_function();
 	}
 }

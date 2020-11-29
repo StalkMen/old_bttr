@@ -1149,7 +1149,7 @@ bool CGameObject::use(CGameObject* who_use)
 	{
 		LPCSTR animation_door;
 		LUA_EXPORT m_functor;
-		R_ASSERT(_SCRIPT_ENGINE("_export_touch_of_ray.animation_door_open", m_functor));
+		R_ASSERT(_SCRIPT_ENGINE("_export_cryray.animation_door_open", m_functor));
 		animation_door = m_functor();
 		Msg("# Actor open door");
 	}

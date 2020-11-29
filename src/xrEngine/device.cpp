@@ -419,7 +419,7 @@ void CRenderDevice::Run()
     // DUMP_PHASE;
     g_bLoaded = FALSE;
     Log("- Starting engine...");
-    thread_name("TouchOfRay Primary thread");
+    thread_name("CryRay Primary thread");
     // Startup timers and calculate timer delta
     dwTimeGlobal = 0;
     Timer_MM_Delta = 0;
@@ -433,7 +433,7 @@ void CRenderDevice::Run()
 
     mt_csEnter.Enter();
     mt_bMustExit = FALSE;
-    thread_spawn(mt_Thread, "TouchOfRay Secondary thread", 0, this);
+    thread_spawn(mt_Thread, "CryRay Secondary thread", 0, this);
     // Message cycle
     seqAppStart.Process(rp_AppStart);
 

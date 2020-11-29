@@ -114,7 +114,7 @@ void CControllerPsyHit::deactivate()
         {
             LPCSTR _execute;
             LUA_EXPORT m_function;
-            R_ASSERT(_SCRIPT_ENGINE("_export_touch_of_ray.CControllerPsyHit_deactivate", m_function));
+            R_ASSERT(_SCRIPT_ENGINE("_export_cryray.CControllerPsyHit_deactivate", m_function));
             _execute = m_function();
         }
     }

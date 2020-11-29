@@ -298,8 +298,8 @@ int out_of_memory_handler(size_t size)
         size_t process_heap = Memory.mem_usage();
         int eco_strings = (int) g_pStringContainer->stat_economy();
         int eco_smem = (int) g_pSharedMemoryContainer->stat_economy();
-        Msg("~ [TouchOfRay Engine x64]: process heap[%llu K]", process_heap / 1024, process_heap / 1024);
-        Msg("~ [TouchOfRay Engine x64]: economy: strings[%lld K], smem[%lld K]", eco_strings / 1024, eco_smem);
+        Msg("~ [CryRay Engine]: process heap[%llu K]", process_heap / 1024, process_heap / 1024);
+        Msg("~ [CryRay Engine]: economy: strings[%lld K], smem[%lld K]", eco_strings / 1024, eco_smem);
     }
 
     Debug.fatal(DEBUG_INFO, "Out of memory. Memory request: %lld K", size / 1024);

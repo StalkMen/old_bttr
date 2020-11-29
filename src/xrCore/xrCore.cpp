@@ -91,7 +91,7 @@ void xrCore::_initialize(LPCSTR _ApplicationName, LogCallback cb, BOOL init_fs, 
 #endif
         FS._initialize(flags, 0, fs_fname);
 //        Msg("'%s' build %d, %s\n", "xrCore", build_id, build_date);
-        Msg("[TouchOfRay Engine (%s)] build date: [" __DATE__ " " __TIME__ "]", GetBuildConfiguration());
+        Msg("[CryRay Engine (%s)] build date: [" __DATE__ " " __TIME__ "]", GetBuildConfiguration());
         EFS._initialize();
 //#ifdef DEBUG
         Msg("# Process heap 0x%08x", GetProcessHeap());

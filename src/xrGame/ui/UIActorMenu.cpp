@@ -196,7 +196,7 @@ void CUIActorMenu::Show(bool status)
 		{
 			LPCSTR status1;
 			LUA_EXPORT m_functor;
-			R_ASSERT(_SCRIPT_ENGINE("_export_touch_of_ray.actor_v_inv_status_true", m_functor));
+			R_ASSERT(_SCRIPT_ENGINE("_export_cryray.actor_v_inv_status_true", m_functor));
 			status1 = m_functor();
 		}
 	}
@@ -210,7 +210,7 @@ void CUIActorMenu::Show(bool status)
 		{
 			LPCSTR status0;
 			LUA_EXPORT m_functor;
-			R_ASSERT(_SCRIPT_ENGINE("_export_touch_of_ray.actor_v_inv_status_false", m_functor));
+			R_ASSERT(_SCRIPT_ENGINE("_export_cryray.actor_v_inv_status_false", m_functor));
 			status0 = m_functor();
 		}
 	}

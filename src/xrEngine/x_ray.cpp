@@ -246,7 +246,7 @@ PROTECT_API void InitSettings()
 
     InitConfig(pSettings, "system.ltx");
     InitConfig(pSettingsAuth, "system.ltx", true, true, true, false, 0, includeFilter);
-    InitConfig(pFFSettings, "touch_of_ray.export", false, true, true, false);
+    InitConfig(pFFSettings, "cryray.export", false, true, true, false);
     InitConfig(pGameIni, "game.ltx");
 
     pcstr gameMode = READ_IF_EXISTS(pFFSettings, r_string, "compatibility", "game_mode", "bttr");
@@ -705,7 +705,7 @@ int APIENTRY WinMain_impl(HINSTANCE hInstance,
     // g_temporary_stuff = &trivial_encryptor::decode;
 
     compute_build_id();
-    Core._initialize("TouchOfRay Engine x64", NULL, TRUE, fsgame[0] ? fsgame : NULL);
+    Core._initialize("CryRay Engine", NULL, TRUE, fsgame[0] ? fsgame : NULL);
 
     InitSettings();
 
