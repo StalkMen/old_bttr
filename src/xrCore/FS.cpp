@@ -360,6 +360,15 @@ IReader* IReader::open_chunk(u32 ID)
     }
     else return 0;
 };
+
+#if 0 
+void IReader::close()
+{
+    auto temp = this;
+    xr_delete(temp);
+}
+#endif
+
 void IReader::close()
 {
     //xr_delete((IReader*)this);

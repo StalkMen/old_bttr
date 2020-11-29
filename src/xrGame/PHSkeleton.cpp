@@ -146,25 +146,18 @@ void CPHSkeleton::Update(u32 dt)
 {
 	CPhysicsShellHolder* obj=PPhysicsShellHolder();
 	CPhysicsShell* pPhysicsShell=obj->PPhysicsShell();
-	if ( pPhysicsShell && pPhysicsShell->isFractured()) //!ai().get_alife() &&
+	if ( pPhysicsShell && pPhysicsShell->isFractured()) 
 	{
 		PHSplit();
 	}
 
 	if(b_removing&&
 		Device.dwTimeGlobal>m_remove_time&&
-		//(Device.dwTimeGlobal-m_unsplit_time)*phTimefactor>remove_time&&
+
 		m_unsplited_shels.empty()) 
 	{
 		if (obj->Local())	obj->DestroyObject	();
-/*
-		NET_Packet			P;
-		obj->u_EventGen		(P,GE_DESTROY,obj->ID());
-#ifdef DEBUG
-		Msg					("ge_destroy: [%d] - %s",obj->ID(),*(obj->cName()));
-#endif
-		if (obj->Local())	obj->u_EventSend			(P);
-*/
+
 		b_removing=false;
 	}
 
@@ -316,9 +309,6 @@ void CPHSkeleton::PHSplit()
 
 
 }
-
-
-
 
 void CPHSkeleton::UnsplitSingle(CPHSkeleton* SO)
 {
