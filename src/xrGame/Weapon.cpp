@@ -2208,13 +2208,13 @@ void CWeapon::UpdateHudAdditonal(Fmatrix& trans)
 
         if (pActor->IsZoomAimingMode())
         {
-            const float targetHeight = 1.03f;
+            const float targetHeight = 1.1f;
             const float dti = AimSpeed * Device.dwTimeDelta / 1000.0f;
             m_zoom_params.m_fZoomRotationFactor = (m_zoom_params.m_fZoomRotationFactor * (1.0f - dti)) + (targetHeight * dti);
         }
         else
         {
-            const float targetHeight = -0.03f;
+            const float targetHeight = -0.1f;
             const float dti = AimSpeed * Device.dwTimeDelta / 1000.0f;
             m_zoom_params.m_fZoomRotationFactor = (m_zoom_params.m_fZoomRotationFactor * (1.0f - dti)) + (targetHeight * dti);
         }
