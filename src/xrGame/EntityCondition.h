@@ -65,7 +65,6 @@ struct SMedicineInfluenceValues{
 	float fSleep;
 	float fThirst;
 	float fKurr;
-	float fArtefReaction;
 	float fRadiation;
 	float fWoundsHeal;
 	float fMaxPowerUp;
@@ -114,7 +113,6 @@ public:
 	IC float				GetRadiation			() const			{return m_fRadiation;}
 	IC float				GetPsyHealth			() const			{return m_fPsyHealth;}
 	IC float				GetSatiety				() const			{return 1.0f;}	
-	IC float				GetArtefReaction		() const			{return 0.0f;}
 
 	IC float 				GetEntityMorale			() const			{return m_fEntityMorale;}
 
@@ -136,7 +134,6 @@ public:
 	void 					ChangeRadiation			(const float value);
 	void 					ChangePsyHealth			(const float value);
 	virtual void 			ChangeAlcohol			(const float value){};
-	virtual void			ChangeArtefReaction		(const float value){};
 
 	IC void					MaxPower				()					{m_fPower = m_fPowerMax;};
 	IC void					SetMaxPower				(const float val)	{m_fPowerMax = val; clamp(m_fPowerMax,0.1f,1.0f);};

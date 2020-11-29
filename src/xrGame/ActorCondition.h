@@ -26,7 +26,6 @@ private:
 			eCriticalThirstReached 			=(1<<9),
 			eCriticalSleepReached 			=(1<<10),
 			eCriticalKurrReached			=(1<<11),
-			eCriticalArtefReactionReached	=(1<<12),
 			};
 	Flags16											m_condition_flags;
 private:
@@ -139,8 +138,6 @@ public:
 	IC		float const&	V_KurrHealth		    ()  { return m_fV_KurrHealth; }
 	IC		float const&	KurrCritical			()  { return m_fKurrCritical; }
 
-	IC		float const&	V_ArtefReaction			()	{ return m_fV_ArtefReaction; }
-	
 	float	GetZoneMaxPower							(ALife::EInfluenceType type) const;
 	float	GetZoneMaxPower							(ALife::EHitType hit_type) const;
 
@@ -184,12 +181,6 @@ protected:
 	float m_fV_KurrPower;
 	float m_fV_KurrHealth;
 	float m_fKurrCritical;
-
-	float m_fArtefReaction;
-	float m_fV_ArtefReaction;
-	float m_fV_ArtefReactionPower;
-	float m_fV_ArtefReactionHealth;
-	float m_fArtefReactionCritical;
 
 	float m_fPowerLeakSpeed;
 

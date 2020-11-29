@@ -116,16 +116,6 @@ CScriptIniFile *CScriptGameObject::spawn_ini() const
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
 
-float CScriptGameObject::GetArtefReaction() const
-{
-    return Actor()->conditions().GetArtefReaction();
-}
-
-void CScriptGameObject::ChangeArtefReaction(float fNewValue)
-{
-    Actor()->conditions().ChangeArtefReaction(fNewValue);
-}
-
 float CScriptGameObject::GetSatiety() const
 {
     return Actor()->conditions().GetSatiety();

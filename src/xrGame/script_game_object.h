@@ -187,7 +187,6 @@ public:
     _DECLARE_FUNCTION10	(GetSatiety			,			float);
     _DECLARE_FUNCTION10	(GetBleeding		,			float);
     _DECLARE_FUNCTION10	(GetMorale			,			float);
-    _DECLARE_FUNCTION10 (GetArtefReaction   ,           float);
 
     _DECLARE_FUNCTION10 (GetSleep           ,           float);
     _DECLARE_FUNCTION11 (ChangeSleep        , void,     float);
@@ -206,7 +205,6 @@ public:
     _DECLARE_FUNCTION11	(SetBleeding,		void, float);
     _DECLARE_FUNCTION11	(SetCircumspection,	void, float);
     _DECLARE_FUNCTION11	(SetMorale,			void, float);
-    _DECLARE_FUNCTION11 (ChangeArtefReaction, void, float);
 
             void				set_fov				(float new_fov);
             void				set_range			(float new_range);
@@ -895,7 +893,6 @@ public:
 			float				GetArtefactBleedingRestoreSpeed();
             float               GetArtefactSleepRestoreSpeed();
             float               GetArtefactThirstRestoreSpeed();
-            float               GetArtefactArtefReactionRestoreSpeed();
 
             void                SetArtefactThirstRestoreSpeed(float value);
             void                SetArtefactSleepRestoreSpeed(float value);
@@ -904,7 +901,6 @@ public:
 			void				SetArtefactSatietyRestoreSpeed(float value);
 			void				SetArtefactPowerRestoreSpeed(float value);
 			void				SetArtefactBleedingRestoreSpeed(float value);
-            void                SetArtefactArtefReactionRestoreSpeed(float value);
 
 			//Eatable items
 			void				SetRemainingUses(u8 value);
