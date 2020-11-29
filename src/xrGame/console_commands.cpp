@@ -194,7 +194,7 @@ static void full_memory_stats()
 	dump_file_mappings();
 #endif // DEBUG
 
-	Log("--------------------------------------------------------------------------------");
+	Log("---------------------------------------------------------------------------------------------------------------------------------------");
 	xrMemory::SProcessMemInfo memCounters;
 	::Memory.GetProcessMemInfo(memCounters);
 	Msg("~ %I64dMB physical memory installed, %I64dMB available, %ld percent of memory in use",
@@ -202,9 +202,9 @@ static void full_memory_stats()
 		memCounters.MemoryLoad);
 	Msg("~ PageFile usage: %I64dMB, Peak PageFile usage: %I64dMB,", memCounters.PagefileUsage / (1024 * 1024),
 		memCounters.PeakPagefileUsage / (1024 * 1024));
-	Log("--------------------------------------------------------------------------------");
+	Log("---------------------------------------------------------------------------------------------------------------------------------------");
 	Log("# CryRay Engine. Especially for the clean version of Call Of Chernobyl 1.4.22, Improved Weapons Pack and modification Back to the Roots");
-	Log("--------------------------------------------------------------------------------");
+	Log("---------------------------------------------------------------------------------------------------------------------------------------");
 }
 
 class CCC_MemStats : public IConsole_Command
