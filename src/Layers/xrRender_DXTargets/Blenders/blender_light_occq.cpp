@@ -1,12 +1,10 @@
 #include "stdafx.h"
 #pragma hdrstop
 
-#include "Blender_light_occq.h"
-
-CBlender_light_occq::CBlender_light_occq	()	{	description.CLS		= 0;	}
-CBlender_light_occq::~CBlender_light_occq	()	{	}
+BLENDER::CBlender_light_occq::CBlender_light_occq	()	{	description.CLS		= 0;	}
+BLENDER::CBlender_light_occq::~CBlender_light_occq	()	{	}
 //	TODO: DX10: if nesessary for NV stencil optimisation implement pass 1
-void	CBlender_light_occq::Compile(CBlender_Compile& C)
+void	BLENDER::CBlender_light_occq::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile	(C);
 

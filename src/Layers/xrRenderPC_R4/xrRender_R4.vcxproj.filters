@@ -267,9 +267,6 @@
     <ClInclude Include="..\xrRender\Blender_Particle.h">
       <Filter>Shading templates</Filter>
     </ClInclude>
-    <ClInclude Include="dx11HDAOCSBlender.h">
-      <Filter>Shading templates</Filter>
-    </ClInclude>
     <ClInclude Include="..\xrRender\uber_deffer.h">
       <Filter>Shading templates</Filter>
     </ClInclude>
@@ -365,12 +362,6 @@
     </ClInclude>
     <ClInclude Include="..\xrRender\R_DStreams.h">
       <Filter>Refactored\Backend</Filter>
-    </ClInclude>
-    <ClInclude Include="ComputeShader.h">
-      <Filter>Refactored\Execution &amp; 3D\Shaders\Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="CSCompiler.h">
-      <Filter>Refactored\Execution &amp; 3D\Shaders\Resources</Filter>
     </ClInclude>
     <ClInclude Include="..\xrRenderDX10\dx10ConstantBuffer.h">
       <Filter>Refactored\Execution &amp; 3D\Shaders\Resources</Filter>
@@ -673,31 +664,16 @@
     <ClInclude Include="..\xrRender\light_smapvis.h" />
     <ClInclude Include="..\xrRenderDX11\dx11_R_Backend_LOD.h" />
     <ClInclude Include="..\xrRender\DX_SMAP_Allocator.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_bloom_build.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_combine.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_deffer_aref.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_deffer_flat.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_deffer_model.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_direct.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_mask.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_occq.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_point.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_reflected.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_spot.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_luminance.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_ssao.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_fxaa.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_smaa.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_dlaa.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_sunshafts.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_gamma.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_gasmask.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX_R_sun_support.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX_rendertarget.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX_types.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX.h" />
     <ClInclude Include="..\xrRender_DXTargets\DXMinMaxSMBlender.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX_rendertarget_wallmarks.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blenders_namespaces.h" />
+    <ClInclude Include="..\xrRender_DXTargets\DX11_ComputeShader.h" />
+    <ClInclude Include="..\xrRender_DXTargets\DX11_CSCompiler.h" />
+    <ClInclude Include="..\xrRender_DXTargets\DX11_HDAOCSBlender.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -788,9 +764,6 @@
       <Filter>Shading templates</Filter>
     </ClCompile>
     <ClCompile Include="..\xrRender\Blender_Particle.cpp">
-      <Filter>Shading templates</Filter>
-    </ClCompile>
-    <ClCompile Include="dx11HDAOCSBlender.cpp">
       <Filter>Shading templates</Filter>
     </ClCompile>
     <ClCompile Include="..\xrRender\uber_deffer.cpp">
@@ -888,12 +861,6 @@
     </ClCompile>
     <ClCompile Include="..\xrRender\R_DStreams.cpp">
       <Filter>Refactored\Backend</Filter>
-    </ClCompile>
-    <ClCompile Include="ComputeShader.cpp">
-      <Filter>Refactored\Execution &amp; 3D\Shaders\Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="CSCompiler.cpp">
-      <Filter>Refactored\Execution &amp; 3D\Shaders\Resources</Filter>
     </ClCompile>
     <ClCompile Include="..\xrRenderDX10\dx10ConstantBuffer.cpp">
       <Filter>Refactored\Execution &amp; 3D\Shaders\Resources</Filter>
@@ -1134,8 +1101,6 @@
     <ClCompile Include="..\xrRender\Light_Render_Direct_ComputeXFS.cpp" />
     <ClCompile Include="..\xrRender\light_smapvis.cpp" />
     <ClCompile Include="..\xrRender\light_vis.cpp" />
-    <ClCompile Include="dx11_rendertarget_phase_hdao.cpp" />
-    <ClCompile Include="dx11_shaders.cpp" />
     <ClCompile Include="..\xrRenderDX11\dx11_R_Backend_LOD.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_bloom_build.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_combine.cpp" />
@@ -1199,5 +1164,10 @@
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_ScreenQuad.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\xrRender_DX.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\DX11_ComputeShader.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\DX11_CSCompiler.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\DX11_HDAOCSBlender.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\DX11_rendertarget_phase_hdao.cpp" />
+    <ClCompile Include="DX11_core.cpp" />
   </ItemGroup>
 </Project>

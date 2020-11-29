@@ -1,13 +1,11 @@
 #include "stdafx.h"
 #pragma hdrstop
 
-#include "Blender_light_mask.h"
-
-CBlender_accum_direct_mask::CBlender_accum_direct_mask	()	{	description.CLS		= 0;	}
-CBlender_accum_direct_mask::~CBlender_accum_direct_mask	()	{	}
+BLENDER::CBlender_accum_direct_mask::CBlender_accum_direct_mask	()	{	description.CLS		= 0;	}
+BLENDER::CBlender_accum_direct_mask::~CBlender_accum_direct_mask	()	{	}
 
 //	TODO: DX10:	implement CBlender_accum_direct_mask::Compile
-void	CBlender_accum_direct_mask::Compile(CBlender_Compile& C)
+void	BLENDER::CBlender_accum_direct_mask::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile		(C);
 
@@ -71,11 +69,11 @@ void	CBlender_accum_direct_mask::Compile(CBlender_Compile& C)
 	}
 }
 
-CBlender_accum_direct_mask_msaa::CBlender_accum_direct_mask_msaa	()	{	Name = 0; Definition = 0; description.CLS		= 0;	}
-CBlender_accum_direct_mask_msaa::~CBlender_accum_direct_mask_msaa	()	{	}
+BLENDER::CBlender_accum_direct_mask_msaa::CBlender_accum_direct_mask_msaa	()	{	Name = 0; Definition = 0; description.CLS		= 0;	}
+BLENDER::CBlender_accum_direct_mask_msaa::~CBlender_accum_direct_mask_msaa	()	{	}
 
 //	TODO: DX10:	implement CBlender_accum_direct_mask::Compile
-void	CBlender_accum_direct_mask_msaa::Compile(CBlender_Compile& C)
+void	BLENDER::CBlender_accum_direct_mask_msaa::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile		(C);
 

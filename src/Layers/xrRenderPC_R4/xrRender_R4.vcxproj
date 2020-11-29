@@ -336,14 +336,7 @@
     <ClInclude Include="..\xrRender\xrRender_console.h" />
     <ClInclude Include="..\xrRender\xrStripify.h" />
     <ClInclude Include="..\xrRender\xr_effgamma.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_direct.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_mask.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_occq.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_point.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_reflected.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_spot.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_luminance.h" />
-	<ClInclude Include="..\xrRender_DXTargets\Blenders\blenders_namespaces.h" />
+    <ClInclude Include="..\xrRender_DXTargets\Blenders\blenders_namespaces.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX_R_sun_support.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX_rendertarget.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX_types.h" />
@@ -520,14 +513,14 @@
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_ssao.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_fxaa.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_smaa.cpp" />
-	<ClCompile Include="..\xrRender_DXTargets\Blenders\blender_dlaa.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_dlaa.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_sunshafts.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_gamma.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_gasmask.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_fxaa.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_gasmask.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_smaa.cpp" />
-	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_dlaa.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_dlaa.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_sunshafts.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX11_ComputeShader.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX11_CSCompiler.cpp" />
@@ -575,7 +568,7 @@
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_ScreenQuad.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX11_rendertarget_phase_hdao.cpp" />
-	<ClCompile Include="DX11_core.cpp" />
+    <ClCompile Include="DX11_core.cpp" />
     <ClCompile Include="..\xrRenderDX11\dx11_R_Backend_LOD.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

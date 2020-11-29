@@ -333,13 +333,6 @@
     <ClInclude Include="..\xrRender\xrRender_console.h" />
     <ClInclude Include="..\xrRender\xrStripify.h" />
     <ClInclude Include="..\xrRender\xr_effgamma.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_direct.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_mask.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_occq.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_point.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_reflected.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_light_spot.h" />
-    <ClInclude Include="..\xrRender_DXTargets\Blenders\blender_luminance.h" />
     <ClInclude Include="..\xrRender_DXTargets\Blenders\blenders_namespaces.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX_R_sun_support.h" />
     <ClInclude Include="..\xrRender_DXTargets\DX_rendertarget.h" />

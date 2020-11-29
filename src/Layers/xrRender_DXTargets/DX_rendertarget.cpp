@@ -1,12 +1,5 @@
 #include "stdafx.h"
 #include "../xrRender/resourcemanager.h"
-#include "..\xrRender_DXTargets\Blenders\blender_light_occq.h"
-#include "..\xrRender_DXTargets\Blenders\blender_light_mask.h"
-#include "..\xrRender_DXTargets\Blenders\blender_light_direct.h"
-#include "..\xrRender_DXTargets\Blenders\blender_light_point.h"
-#include "..\xrRender_DXTargets\Blenders\blender_light_spot.h"
-#include "..\xrRender_DXTargets\Blenders\blender_light_reflected.h"
-#include "..\xrRender_DXTargets\Blenders\blender_luminance.h"
 #include "..\xrRender_DXTargets\DXMinMaxSMBlender.h"
 #ifdef USE_DX11
 #include "..\xrRender_DXTargets\DX11_HDAOCSBlender.h"
@@ -328,19 +321,19 @@ CRenderTarget::CRenderTarget		()
 	dxRenderDeviceRender::Instance().Resources->Evict			();
 
 	// Blenders
-	b_occq					= xr_new<CBlender_light_occq>			();
-	b_accum_mask			= xr_new<CBlender_accum_direct_mask>	();
-	b_accum_direct			= xr_new<CBlender_accum_direct>			();
-	b_accum_point			= xr_new<CBlender_accum_point>			();
-	b_accum_spot			= xr_new<CBlender_accum_spot>			();
-	b_accum_reflected		= xr_new<CBlender_accum_reflected>		();
+	b_occq					= xr_new<BLENDER::CBlender_light_occq>			();
+	b_accum_mask			= xr_new<BLENDER::CBlender_accum_direct_mask>	();
+	b_accum_direct			= xr_new<BLENDER::CBlender_accum_direct>			();
+	b_accum_point			= xr_new<BLENDER::CBlender_accum_point>			();
+	b_accum_spot			= xr_new<BLENDER::CBlender_accum_spot>			();
+	b_accum_reflected		= xr_new<BLENDER::CBlender_accum_reflected>		();
 	b_bloom					= xr_new<BLENDER::CBlender_bloom_build>			();
 	if( RImplementation.o.dx10_msaa )
 	{
 		b_bloom_msaa			= xr_new<BLENDER::CBlender_bloom_build_msaa>		();
 		b_postprocess_msaa	= xr_new<BLENDER::CBlender_postprocess_msaa>	();
 	}
-	b_luminance				= xr_new<CBlender_luminance>		();
+	b_luminance				= xr_new<BLENDER::CBlender_luminance>		();
 	b_combine				= xr_new<BLENDER::CBlender_combine>			();
 	b_ssao					= xr_new<BLENDER::AO::CBlender_SSAO_noMSAA>		();
 
@@ -365,21 +358,21 @@ CRenderTarget::CRenderTarget		()
 		{
 			static LPCSTR SampleDefs[] = { "0","1","2","3","4","5","6","7" };
 			b_combine_msaa[i]							= xr_new<BLENDER::CBlender_combine_msaa>					();
-			b_accum_mask_msaa[i]						= xr_new<CBlender_accum_direct_mask_msaa>		();
-			b_accum_direct_msaa[i]					= xr_new<CBlender_accum_direct_msaa>			();
-			b_accum_direct_volumetric_msaa[i]			= xr_new<CBlender_accum_direct_volumetric_msaa>	();
-			b_accum_spot_msaa[i]		 				= xr_new<CBlender_accum_spot_msaa>			();
-			b_accum_volumetric_msaa[i]				= xr_new<CBlender_accum_volumetric_msaa>	();
-			b_accum_point_msaa[i]						= xr_new<CBlender_accum_point_msaa>			();
-			b_accum_reflected_msaa[i]					= xr_new<CBlender_accum_reflected_msaa>		();
+			b_accum_mask_msaa[i]						= xr_new<BLENDER::CBlender_accum_direct_mask_msaa>		();
+			b_accum_direct_msaa[i]					= xr_new<BLENDER::CBlender_accum_direct_msaa>			();
+			b_accum_direct_volumetric_msaa[i]			= xr_new<BLENDER::CBlender_accum_direct_volumetric_msaa>	();
+			b_accum_spot_msaa[i]		 				= xr_new<BLENDER::CBlender_accum_spot_msaa>			();
+			b_accum_volumetric_msaa[i]				= xr_new<BLENDER::CBlender_accum_volumetric_msaa>	();
+			b_accum_point_msaa[i]						= xr_new<BLENDER::CBlender_accum_point_msaa>			();
+			b_accum_reflected_msaa[i]					= xr_new<BLENDER::CBlender_accum_reflected_msaa>		();
 			b_ssao_msaa[i]							= xr_new<BLENDER::AO::CBlender_SSAO_MSAA>				();
-			static_cast<CBlender_accum_direct_mask_msaa*>( b_accum_mask_msaa[i] )->SetDefine( "ISAMPLE", SampleDefs[i]);
-			static_cast<CBlender_accum_direct_volumetric_msaa*>(b_accum_direct_volumetric_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
-			static_cast<CBlender_accum_direct_msaa*>(b_accum_direct_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
-			static_cast<CBlender_accum_volumetric_msaa*>(b_accum_volumetric_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
-			static_cast<CBlender_accum_spot_msaa*>(b_accum_spot_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
-			static_cast<CBlender_accum_point_msaa*>(b_accum_point_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
-			static_cast<CBlender_accum_reflected_msaa*>(b_accum_reflected_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
+			static_cast<BLENDER::CBlender_accum_direct_mask_msaa*>( b_accum_mask_msaa[i] )->SetDefine( "ISAMPLE", SampleDefs[i]);
+			static_cast<BLENDER::CBlender_accum_direct_volumetric_msaa*>(b_accum_direct_volumetric_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
+			static_cast<BLENDER::CBlender_accum_direct_msaa*>(b_accum_direct_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
+			static_cast<BLENDER::CBlender_accum_volumetric_msaa*>(b_accum_volumetric_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
+			static_cast<BLENDER::CBlender_accum_spot_msaa*>(b_accum_spot_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
+			static_cast<BLENDER::CBlender_accum_point_msaa*>(b_accum_point_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
+			static_cast<BLENDER::CBlender_accum_reflected_msaa*>(b_accum_reflected_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
 			static_cast<BLENDER::CBlender_combine_msaa*>(b_combine_msaa[i])->SetDefine( "ISAMPLE", SampleDefs[i]);
 			static_cast<BLENDER::AO::CBlender_SSAO_MSAA*>(b_ssao_msaa[i])->SetDefine("ISAMPLE", SampleDefs[i]);
 		}
