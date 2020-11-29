@@ -5,7 +5,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_bloom_build : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "INTERNAL: combine to bloom target"; }
+		virtual		LPCSTR		getComment() { return "Combine to bloom target"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -18,7 +18,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_bloom_build_msaa : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "INTERNAL: combine to bloom target msaa"; }
+		virtual		LPCSTR		getComment() { return "Combine to bloom target msaa"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -31,7 +31,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_postprocess_msaa : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "INTERNAL: combine to bloom target msaa"; }
+		virtual		LPCSTR		getComment() { return "Combine to bloom target msaa"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -44,7 +44,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_combine : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "INTERNAL: combiner"; }
+		virtual		LPCSTR		getComment() { return "Combiner"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -57,7 +57,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_combine_msaa : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "INTERNAL: combiner"; }
+		virtual		LPCSTR		getComment() { return "Combiner"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -81,7 +81,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 		xrP_BOOL	oBlend;
 		bool		lmapped;
 	public:
-		virtual		LPCSTR		getComment() { return "LEVEL: defer-base-aref"; }
+		virtual		LPCSTR		getComment() { return "Defer-base-aref"; }
 		virtual		BOOL		canBeDetailed() { return TRUE; }
 		virtual		BOOL		canBeLMAPped() { return lmapped; }
 		virtual		BOOL		canUseSteepParallax() { return TRUE; }
@@ -97,7 +97,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_deffer_flat : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "LEVEL: defer-base-normal"; }
+		virtual		LPCSTR		getComment() { return "Defer-base-normal"; }
 		virtual		BOOL		canBeDetailed() { return TRUE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 		virtual		BOOL		canUseSteepParallax() { return TRUE; }
@@ -119,7 +119,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 		xrP_Integer	oAREF;
 		xrP_BOOL	oBlend;
 	public:
-		virtual		LPCSTR		getComment() { return "LEVEL: deffer-model-flat"; }
+		virtual		LPCSTR		getComment() { return "Deffer-model-flat"; }
 		virtual		BOOL		canBeDetailed() { return TRUE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -137,7 +137,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_luminance : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "INTERNAL: luminance estimate"; }
+		virtual		LPCSTR		getComment() { return "Luminance estimate"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -150,7 +150,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_accum_spot : public IBlender
 	{
 	public:
-		virtual		LPCSTR	getComment() { return "INTERNAL: accumulate spot light"; }
+		virtual		LPCSTR	getComment() { return "Accumulate spot light"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -163,7 +163,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_accum_spot_msaa : public IBlender
 	{
 	public:
-		virtual		LPCSTR	getComment() { return "INTERNAL: accumulate spot light msaa"; }
+		virtual		LPCSTR	getComment() { return "Accumulate spot light msaa"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -184,7 +184,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_accum_volumetric_msaa : public IBlender
 	{
 	public:
-		virtual		LPCSTR	getComment() { return "INTERNAL: accumulate spot light msaa"; }
+		virtual		LPCSTR	getComment() { return "Accumulate spot light msaa"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -205,7 +205,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_accum_reflected : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "INTERNAL: accumulate reflected light"; }
+		virtual		LPCSTR		getComment() { return "Accumulate reflected light"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -218,7 +218,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_accum_reflected_msaa : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "INTERNAL: accumulate reflected light"; }
+		virtual		LPCSTR		getComment() { return "Accumulate reflected light"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -238,7 +238,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_accum_point : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "INTERNAL: accumulate point light"; }
+		virtual		LPCSTR		getComment() { return "Accumulate point light"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -251,7 +251,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_accum_point_msaa : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "INTERNAL: accumulate point light msaa"; }
+		virtual		LPCSTR		getComment() { return "Accumulate point light msaa"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -271,7 +271,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_light_occq : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "INTERNAL: occlusion testing"; }
+		virtual		LPCSTR		getComment() { return "Occlusion"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -284,7 +284,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_accum_direct_mask : public IBlender
 	{
 	public:
-		virtual		LPCSTR		getComment() { return "INTERNAL: mask direct light"; }
+		virtual		LPCSTR		getComment() { return "Mask direct light"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -298,7 +298,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	{
 	public:
 
-		virtual		LPCSTR	getComment() { return "INTERNAL: mask direct light msaa"; }
+		virtual		LPCSTR	getComment() { return "Mask direct light msaa"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 		virtual  void     SetDefine(LPCSTR Name, LPCSTR Definition)
@@ -319,7 +319,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	class CBlender_accum_direct : public IBlender
 	{
 	public:
-		virtual		LPCSTR	getComment() { return "INTERNAL: accumulate direct light"; }
+		virtual		LPCSTR	getComment() { return "Accumulate direct light"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -333,7 +333,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	{
 	public:
 
-		virtual		LPCSTR	getComment() { return "INTERNAL: accumulate direct light"; }
+		virtual		LPCSTR	getComment() { return "Accumulate direct light"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -355,7 +355,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	{
 	public:
 
-		virtual		LPCSTR	getComment() { return "INTERNAL: accumulate direct light"; }
+		virtual		LPCSTR	getComment() { return "Accumulate direct light"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -376,7 +376,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 	{
 	public:
 
-		virtual		LPCSTR	getComment() { return "INTERNAL: accumulate direct light"; }
+		virtual		LPCSTR	getComment() { return "Accumulate direct light"; }
 		virtual		BOOL		canBeDetailed() { return FALSE; }
 		virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -440,7 +440,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 		class CBlender_SSAO_noMSAA : public IBlender
 		{
 		public:
-			virtual		LPCSTR		getComment() { return "INTERNAL: calc SSAO"; }
+			virtual		LPCSTR		getComment() { return "SSAO"; }
 			virtual		BOOL		canBeDetailed() { return FALSE; }
 			virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -453,7 +453,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 		class CBlender_SSAO_MSAA : public IBlender
 		{
 		public:
-			virtual		LPCSTR		getComment() { return "INTERNAL: calc SSAO"; }
+			virtual		LPCSTR		getComment() { return "SSAO MSAA"; }
 			virtual		BOOL		canBeDetailed() { return FALSE; }
 			virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -476,7 +476,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 		class CBlender_gamma : public IBlender
 		{
 		public:
-			virtual		LPCSTR		getComment() { return "gamma"; }
+			virtual		LPCSTR		getComment() { return "Gamma"; }
 			virtual		BOOL		canBeDetailed() { return FALSE; }
 			virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -489,7 +489,7 @@ namespace BLENDER // Пространство имен, общие бленде�
 		class CBlender_sunshafts : public IBlender
 		{
 		public:
-			virtual		LPCSTR		getComment() { return "OGSE: sunshafts"; }
+			virtual		LPCSTR		getComment() { return "Sunshafts"; }
 			virtual		BOOL		canBeDetailed() { return FALSE; }
 			virtual		BOOL		canBeLMAPped() { return FALSE; }
 
@@ -510,6 +510,19 @@ namespace BLENDER // Пространство имен, общие бленде�
 
 			CBlender_gasmask();
 			virtual ~CBlender_gasmask();
+		};
+
+		class CBlender_rain_drops : public IBlender
+		{
+		public:
+			virtual		LPCSTR		getComment() { return "Rain drops"; }
+			virtual		BOOL		canBeDetailed() { return FALSE; }
+			virtual		BOOL		canBeLMAPped() { return FALSE; }
+
+			virtual		void		Compile(CBlender_Compile& C);
+
+			CBlender_rain_drops();
+			virtual ~CBlender_rain_drops();
 		};
 	}
 }

@@ -41,6 +41,8 @@ void CRenderTarget::DoAsyncScreenshot()
 extern ENGINE_API u32 ps_r_type_aa;
 extern ENGINE_API u32 ps_r_ssao;
 extern ENGINE_API u32 ps_r_ssao_mode;
+extern BOOL rain_drops;
+
 float	hclip(float v, float dim)		{ return 2.f*v/dim - 1.f; }
 void	CRenderTarget::phase_combine	()
 {
@@ -380,6 +382,10 @@ void	CRenderTarget::phase_combine	()
 	
 	//Gamma
 	phase_gamma();
+
+	//Rain drops
+	if (rain_drops)
+		phase_rain_drops();
 
 	// PP enabled ?
 	//	Render to RT texture to be able to copy RT even in windowed mode.

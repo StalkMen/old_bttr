@@ -49,6 +49,7 @@ public:
 	IBlender*					b_sunshafts;
 	IBlender*					b_gasmask;
 	IBlender*					b_gamma;
+	IBlender*					b_rain_drops;
 
 #ifdef USE_DX11	
     // compute shader for hdao
@@ -96,12 +97,12 @@ public:
 	ref_rt						rt_LUM_8;			// 64bit, 8x8,		log-average in all components
 
 	ref_rt						rt_LUM_pool[CHWCaps::MAX_GPUS*2]	;	// 1xfp32,1x1,		exp-result -> scaler
-	ref_texture				t_LUM_src		;	// source
-	ref_texture				t_LUM_dest		;	// destination & usage for current frame
+	ref_texture					t_LUM_src		;	// source
+	ref_texture					t_LUM_dest		;	// destination & usage for current frame
 
 	// env
-	ref_texture				t_envmap_0		;	// env-0
-	ref_texture				t_envmap_1		;	// env-1
+	ref_texture					t_envmap_0		;	// env-0
+	ref_texture					t_envmap_1		;	// env-1
 
 	// smap
 	ref_rt						rt_smap_surf;	// 32bit,		color
@@ -111,15 +112,15 @@ public:
 //	IDirect3DSurface9*			rt_smap_ZB;		//
 
 	//	Igor: for async screenshots
-	ID3DTexture2D*			t_ss_async;				//32bit		(r,g,b,a) is situated in the system memory
+	ID3DTexture2D*				t_ss_async;				//32bit		(r,g,b,a) is situated in the system memory
 
 	// Textures
-	ID3DTexture3D*			t_material_surf;
+	ID3DTexture3D*				t_material_surf;
 	ref_texture					t_material;
 
-	ID3DTexture2D*			t_noise_surf	[TEX_jitter_count];
+	ID3DTexture2D*				t_noise_surf	[TEX_jitter_count];
 	ref_texture					t_noise				[TEX_jitter_count];
-	ID3DTexture2D*			t_noise_surf_mipped;
+	ID3DTexture2D*				t_noise_surf_mipped;
 	ref_texture					t_noise_mipped;
 private:
 	// OCCq
@@ -127,7 +128,8 @@ private:
 	ref_shader					s_occq;
 	ref_shader					s_sunshafts;
 	ref_shader					s_gasmask;
-		
+	ref_shader					s_rain_drops;
+
 	// SSAO
 	ref_rt						rt_ssao_temp;
 	ref_rt						rt_half_depth;
@@ -162,7 +164,7 @@ private:
 	ref_shader					s_rain;
 	
 	ref_shader					s_rain_msaa[8]	; // up to 8 shaders for DX10.0 support
-	ref_shader              s_accum_direct_volumetric_msaa[8];
+	ref_shader					s_accum_direct_volumetric_msaa[8];
 	ref_shader					s_accum_mask_msaa[8];
 	ref_shader					s_accum_direct_msaa[8];
    ref_shader					s_mark_msaa_edges;
@@ -171,34 +173,34 @@ private:
 	ref_shader					s_accum_reflected_msaa[8];
 	ref_shader					s_accum_volume_msaa[8];
 
-	ref_geom						g_accum_point	;
-	ref_geom						g_accum_spot	;
-	ref_geom						g_accum_omnipart;
-	ref_geom						g_accum_volumetric;
+	ref_geom					g_accum_point	;
+	ref_geom					g_accum_spot	;
+	ref_geom					g_accum_omnipart;
+	ref_geom					g_accum_volumetric;
 
-	ID3DVertexBuffer*		g_accum_point_vb;
-	ID3DIndexBuffer*		g_accum_point_ib;
+	ID3DVertexBuffer*			g_accum_point_vb;
+	ID3DIndexBuffer*			g_accum_point_ib;
 
-	ID3DVertexBuffer*		g_accum_omnip_vb;
-	ID3DIndexBuffer*		g_accum_omnip_ib;
+	ID3DVertexBuffer*			g_accum_omnip_vb;
+	ID3DIndexBuffer*			g_accum_omnip_ib;
 
-	ID3DVertexBuffer*		g_accum_spot_vb	;
-	ID3DIndexBuffer*		g_accum_spot_ib	;
-
-	ID3DVertexBuffer*		g_accum_volumetric_vb;
-	ID3DIndexBuffer*		g_accum_volumetric_ib;
+	ID3DVertexBuffer*			g_accum_spot_vb	;
+	ID3DIndexBuffer*			g_accum_spot_ib	;
+	
+	ID3DVertexBuffer*			g_accum_volumetric_vb;
+	ID3DIndexBuffer*			g_accum_volumetric_ib;
 
 	// Bloom
 	ref_geom					g_bloom_build;
 	ref_geom					g_bloom_filter;
-	ref_shader				s_bloom_dbg_1;
-	ref_shader				s_bloom_dbg_2;
-	ref_shader				s_bloom;
-   ref_shader				s_bloom_msaa;
-	float							f_bloom_factor;
+	ref_shader					s_bloom_dbg_1;
+	ref_shader					s_bloom_dbg_2;
+	ref_shader					s_bloom;
+   ref_shader					s_bloom_msaa;
+	float						f_bloom_factor;
 
 	// Luminance
-	ref_shader			s_luminance;
+	ref_shader					s_luminance;
 	float						f_luminance_adapt;
 
 	// Combine
@@ -209,17 +211,17 @@ private:
 	ref_geom					g_combine_cuboid;
 	ref_geom					g_aa_blur;
 	ref_geom					g_aa_AA;
-	ref_shader				s_combine_dbg_0;
-	ref_shader				s_combine_dbg_1;
-	ref_shader				s_combine_dbg_Accumulator;
-	ref_shader				s_combine;
-   ref_shader				s_combine_msaa[8];
-	ref_shader				s_combine_volumetric;
+	ref_shader					s_combine_dbg_0;
+	ref_shader					s_combine_dbg_1;
+	ref_shader					s_combine_dbg_Accumulator;
+	ref_shader					s_combine;
+   ref_shader					s_combine_msaa[8];
+	ref_shader					s_combine_volumetric;
 public:
-	ref_shader				s_postprocess;
-   ref_shader           s_postprocess_msaa;
+	ref_shader					s_postprocess;
+   ref_shader					s_postprocess_msaa;
 	ref_geom					g_postprocess;
-	ref_shader				s_menu;
+	ref_shader					s_menu;
 	ref_geom					g_menu;
 private:
 	float						im_noise_time;
@@ -328,6 +330,7 @@ public:
 	void						phase_combine			();
 	void						phase_combine_volumetric();
 	void						phase_pp				();
+	void						phase_rain_drops		();
 
 	virtual void				set_blur				(float	f)		{ param_blur=f;						}
 	virtual void				set_gray				(float	f)		{ param_gray=f;						}

@@ -628,7 +628,7 @@ float ps_r__geomDTextureDistF_  = 2.0f;
 int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
 int	  render_nightvision = 0;
-
+BOOL  rain_drops = 1;
 Fvector ps_r2_drops_control = { 0.000000f, 0.000000f, 0.000000f };
 
 //-----------------------------------------------------------------------
@@ -651,6 +651,8 @@ void		xrRender_initconsole()
 	CMD3(CCC_Mask,  "xrRenderDX11_shader_cache",		 &ps_r__common_flags,				RFLAGDX11_NO_SHADER_CACHE);
 #endif
 	CMD4(CCC_Integer, "xrRenderDX10_triple_buffering",	 &tbufer_renders,					0, 1);
+	CMD4(CCC_Integer, "xrRenderDX10_rain_drops",		 &rain_drops,						0, 1);
+
 	CMD3(CCC_Mask,  "xrRenderDX10_animMBlur_move",		 &ps_r__common_flags,				RFLAGDX10_MOTION_BLUR);
 
 	Fvector	tw_min, tw_max;
