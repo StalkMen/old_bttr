@@ -193,7 +193,10 @@ public:
 
     _DECLARE_FUNCTION10 (GetThirst          ,           float);
     _DECLARE_FUNCTION11 (ChangeThirst       , void,     float);
-
+	
+	_DECLARE_FUNCTION10 (GetAR          	,           float);
+    _DECLARE_FUNCTION11 (ChangeAR       	, void,     float);
+	
     _DECLARE_FUNCTION10 (GetKurr            ,           float);
     _DECLARE_FUNCTION11 (ChangeKurr         , void,     float);
 
@@ -893,7 +896,10 @@ public:
 			float				GetArtefactBleedingRestoreSpeed();
             float               GetArtefactSleepRestoreSpeed();
             float               GetArtefactThirstRestoreSpeed();
-
+			
+			float               GetArtefactARRestoreSpeed();
+            void                SetArtefactARRestoreSpeed(float value);
+			
             void                SetArtefactThirstRestoreSpeed(float value);
             void                SetArtefactSleepRestoreSpeed(float value);
 			void				SetArtefactHealthRestoreSpeed(float value);

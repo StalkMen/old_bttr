@@ -256,7 +256,10 @@ class_<CScriptGameObject> &script_register_game_object2(class_<CScriptGameObject
         .def("set_artefact_sleep",          &CScriptGameObject::SetArtefactSleepRestoreSpeed)
         .def("get_artefact_thirst",         &CScriptGameObject::GetArtefactThirstRestoreSpeed)
         .def("set_artefact_thirst",         &CScriptGameObject::SetArtefactThirstRestoreSpeed)
-
+		
+		.def("get_artefact_reaction",       &CScriptGameObject::GetArtefactARRestoreSpeed)
+        .def("set_artefact_reaction",       &CScriptGameObject::SetArtefactARRestoreSpeed)
+		
         .def("set_artefact_health",			&CScriptGameObject::SetArtefactHealthRestoreSpeed)
         .def("set_artefact_radiation",		&CScriptGameObject::SetArtefactRadiationRestoreSpeed)
         .def("set_artefact_satiety",		&CScriptGameObject::SetArtefactSatietyRestoreSpeed)

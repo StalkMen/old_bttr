@@ -644,7 +644,8 @@ bool CEntityCondition::ApplyInfluence(const SMedicineInfluenceValues& V, const s
 	ChangeSatiety	(V.fSatiety);
 	ChangeSleep		(V.fSleep);
 	ChangeThirst	(V.fThirst);
-	ChangeThirst	(V.fKurr);
+	ChangeAR		(V.fAR);
+	ChangeKurr		(V.fKurr);
 	ChangeRadiation	(V.fRadiation);
 	ChangeBleeding	(V.fWoundsHeal);
 	SetMaxPower		(GetMaxPower()+V.fMaxPowerUp);
@@ -664,6 +665,7 @@ void SMedicineInfluenceValues::Load(const shared_str& sect)
 	fSatiety		= pSettings->r_float(sect.c_str(), "eat_satiety");
 	fSleep 			= READ_IF_EXISTS(pSettings, r_float, sect.c_str(), "eat_sleep", 0.0f);
 	fThirst			= READ_IF_EXISTS(pSettings, r_float, sect.c_str(), "eat_thirst", 0.0f);
+	fAR				= READ_IF_EXISTS(pSettings, r_float, sect.c_str(), "eat_artefact_reaction", 0.0f);
 	fKurr			= READ_IF_EXISTS(pSettings, r_float, sect.c_str(), "eat_kurr", 0.0f);
 	fRadiation		= pSettings->r_float(sect.c_str(), "eat_radiation");
 	fWoundsHeal		= pSettings->r_float(sect.c_str(), "wounds_heal_perc");

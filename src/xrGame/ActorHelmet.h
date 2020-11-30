@@ -37,6 +37,7 @@ public:
 	float 					m_fSatietyRestoreSpeed;
 	float 					m_fSleepRestoreSpeed;
 	float 					m_fThirstRestoreSpeed;
+	float 					m_fARRestoreSpeed;
 	float					m_fPowerRestoreSpeed;
 	float					m_fBleedingRestoreSpeed;
 

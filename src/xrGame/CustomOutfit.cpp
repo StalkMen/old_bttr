@@ -110,6 +110,7 @@ void CCustomOutfit::Load(LPCSTR section)
 	m_fSatietyRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "satiety_restore_speed",   0.0f );
 	m_fSleepRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "sleep_restore_speed",   0.0f );
 	m_fThirstRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "thirst_restore_speed",   0.0f );	
+	m_fARRestoreSpeed			= READ_IF_EXISTS(pSettings, r_float, section, "artefact_reaction",   0.0f );	
 	m_fPowerRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "power_restore_speed",     0.0f );
 	m_fBleedingRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "bleeding_restore_speed",  0.0f );
 	
@@ -321,6 +322,7 @@ bool CCustomOutfit::install_upgrade_impl( LPCSTR section, bool test )
 	result |= process_if_exists( section, "radiation_restore_speed", &CInifile::r_float, m_fRadiationRestoreSpeed, test );
 	result |= process_if_exists( section, "satiety_restore_speed",   &CInifile::r_float, m_fSatietyRestoreSpeed,   test );
 	result |= process_if_exists( section, "thirst_restore_speed",   &CInifile::r_float, m_fThirstRestoreSpeed,   test );
+	result |= process_if_exists( section, "artefact_reaction",   &CInifile::r_float, m_fARRestoreSpeed,   test );
 	result |= process_if_exists( section, "sleep_restore_speed",   &CInifile::r_float, m_fSleepRestoreSpeed,   test );	
 	result |= process_if_exists( section, "power_restore_speed",     &CInifile::r_float, m_fPowerRestoreSpeed,     test );
 	result |= process_if_exists( section, "bleeding_restore_speed",  &CInifile::r_float, m_fBleedingRestoreSpeed,  test );

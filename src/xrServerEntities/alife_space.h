@@ -117,6 +117,7 @@ namespace ALife {
 		eRestoreTypeMax,
 		eSleepRestoreSpeed,
 		eThirstRestoreSpeed,
+		eARRestoreSpeed,
 		eKurrRestoreSpeed,
 	};
 

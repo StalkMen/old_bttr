@@ -1808,6 +1808,7 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
 			conditions().ChangeSatiety((artefact->m_fSatietyRestoreSpeed*art_cond)   * f_update_time);
 			conditions().ChangeSleep((artefact->m_fSleepRestoreSpeed*art_cond)   * f_update_time);
 			conditions().ChangeThirst((artefact->m_fThirstRestoreSpeed*art_cond)   * f_update_time);
+			conditions().ChangeAR((artefact->m_fARRestoreSpeed*art_cond)   * f_update_time);
 			if ((artefact->m_fRadiationRestoreSpeed*art_cond) > 0.0f)
             {
 				float val = (artefact->m_fRadiationRestoreSpeed*art_cond) - conditions().GetBoostRadiationImmunity();
@@ -1838,6 +1839,7 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
 		conditions().ChangeRadiation(((outfit ? outfit->m_fRadiationRestoreSpeed : 0.f) + (pHelmet ? pHelmet->m_fRadiationRestoreSpeed : 0.f)) * f_update_time);
 		conditions().ChangeSleep(((outfit ? outfit->m_fSleepRestoreSpeed : 0.f) + (pHelmet ? pHelmet->m_fSleepRestoreSpeed : 0.f)) * f_update_time);
 		conditions().ChangeThirst(((outfit ? outfit->m_fThirstRestoreSpeed : 0.f) + (pHelmet ? pHelmet->m_fThirstRestoreSpeed : 0.f)) *f_update_time);
+		conditions().ChangeAR(((outfit ? outfit->m_fARRestoreSpeed : 0.f) + (pHelmet ? pHelmet->m_fARRestoreSpeed : 0.f)) *f_update_time);
     }
 }
 
@@ -2082,10 +2084,6 @@ float CActor::GetRestoreSpeed(ALife::EConditionRestoreType const& type)
 												    res += (artefact->m_fSatietyRestoreSpeed*artefact->GetCondition());
                                                 }
                                             }
-//                                          CCustomOutfit* outfit = GetOutfit();
-//										    CHelmet* pHelmet = (CHelmet*)inventory().ItemFromSlot(HELMET_SLOT);
-
-//										    res += ((outfit ? outfit->m_fSatietyRestoreSpeed : 0.f) + (pHelmet ? pHelmet->m_fSatietyRestoreSpeed : 0.f));
                                             break;
         }
 	    case ALife::eSleepRestoreSpeed:
@@ -2102,12 +2100,7 @@ float CActor::GetRestoreSpeed(ALife::EConditionRestoreType const& type)
 												    res += (artefact->m_fSleepRestoreSpeed*artefact->GetCondition());
 											    }
 										    }
-//										    CCustomOutfit* outfit = GetOutfit();
-//										    if (outfit)
-//										    {
-//											    res += outfit->m_fSleepRestoreSpeed;
-//										    }
-//										    break;
+										    break;
         }	
         case ALife::eThirstRestoreSpeed:
         {
@@ -2123,13 +2116,24 @@ float CActor::GetRestoreSpeed(ALife::EConditionRestoreType const& type)
 												    res += (artefact->m_fThirstRestoreSpeed*artefact->GetCondition());
 											    }
 										    }
-//										    CCustomOutfit* outfit = GetOutfit();
-//										    if (outfit)
-//										    {
-//											    res += outfit->m_fThirstRestoreSpeed;
-//										    }
 										    break;
-        }			
+        }		
+		case ALife::eARRestoreSpeed:
+        {
+										    res = conditions().V_AR();
+
+										    TIItemContainer::iterator itb = inventory().m_belt.begin();
+										    TIItemContainer::iterator ite = inventory().m_belt.end();
+										    for (; itb != ite; ++itb)
+										    {
+											    CArtefact*	artefact = smart_cast<CArtefact*>(*itb);
+											    if (artefact)
+											    {
+												    res += (artefact->m_fARRestoreSpeed*artefact->GetCondition());
+											    }
+										    }
+										    break;
+        }				
         case ALife::ePowerRestoreSpeed:
         {
                                           res = conditions().GetSatietyPower();

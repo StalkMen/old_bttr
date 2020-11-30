@@ -67,6 +67,7 @@ LPCSTR af_restore_section_names[] =
 	"bleeding_restore_speed",
 	"radiation_restore_speed",
 	"thirst_restore_speed",
+	"artefact_reaction",
 	"sleep_restore_speed",
 };
 
@@ -92,6 +93,7 @@ LPCSTR af_restore_caption[] =
 	"ui_inv_bleeding",
 	"ui_inv_radiation",
 	"ui_af_inv_thirst",
+	"ui_inv_artefact_reaction",
 	"ui_af_inv_sleep",
 };
 
