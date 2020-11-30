@@ -304,7 +304,6 @@
     <ClCompile Include="dump_string.cpp" />
     <ClCompile Include="FileCRC32.cpp" />
     <ClCompile Include="FileSystem.cpp" />
-    <ClCompile Include="FileSystem_borland.cpp" />
     <ClCompile Include="file_stream_reader.cpp" />
     <ClCompile Include="FS.cpp" />
     <ClCompile Include="FTimer.cpp" />
@@ -388,19 +387,6 @@
     <ClCompile Include="xrMemory_debug.cpp" />
     <ClCompile Include="xrMemory_POOL.cpp" />
     <ClCompile Include="xrMemoryUtils.cpp" />
-    <ClCompile Include="xrMemory_pso_Copy.cpp">
-      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">AssemblyAndSourceCode</AssemblerOutput>
-      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AssemblyAndSourceCode</AssemblerOutput>
-    </ClCompile>
-    <ClCompile Include="xrMemory_pso_Fill.cpp">
-      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">AssemblyAndSourceCode</AssemblerOutput>
-      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AssemblyAndSourceCode</AssemblerOutput>
-    </ClCompile>
-    <ClCompile Include="xrMemory_pso_Fill32.cpp">
-      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">AssemblyAndSourceCode</AssemblerOutput>
-      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AssemblyAndSourceCode</AssemblerOutput>
-    </ClCompile>
-    <ClCompile Include="xrMemory_subst_borland.cpp" />
     <ClCompile Include="xrMemory_subst_msvc.cpp" />
     <ClCompile Include="xrsharedmem.cpp" />
     <ClCompile Include="xrstring.cpp" />
@@ -493,9 +479,7 @@
     <ClInclude Include="xrMemory_align.h" />
     <ClInclude Include="xrMEMORY_POOL.h" />
     <ClInclude Include="xrMemoryUtils.h" />
-    <ClInclude Include="xrMemory_pso.h" />
     <ClInclude Include="xrMemory_pure.h" />
-    <ClInclude Include="xrMemory_subst_borland.h" />
     <ClInclude Include="xrMemory_subst_msvc.h" />
     <ClInclude Include="xrPool.h" />
     <ClInclude Include="xrsharedmem.h" />

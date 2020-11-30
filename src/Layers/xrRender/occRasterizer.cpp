@@ -68,10 +68,14 @@ occRasterizer::~occRasterizer	()
 void occRasterizer::clear()
 {
 #ifndef FIX_CLEAR_OCC
-	u32 size = occ_dim * occ_dim;
+	std::size_t size = occ_dim * occ_dim;
 	float f = 1.f;
-	Memory.mem_fill32(bufFrame, 0, size * (sizeof(void*) / 4));
-	Memory.mem_fill32(bufDepth, *LPDWORD(&f), size);
+	std::memset(bufFrame, 0, size * 4); // fill32
+	u32 fillValue = *LPDWORD(&f);
+	for (std::size_t i = 0; i < size; i++) // fill32 TODO: SSE optimize
+	{
+		std::memcpy(reinterpret_cast<u8*>(bufDepth) + (i * sizeof(u32)), &fillValue, sizeof(u32));
+	}
 #else
 	for (u32 mit = 0; mit < occ_dim; mit++)
 	{

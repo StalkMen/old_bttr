@@ -16,13 +16,6 @@ bool shared_str_initialized = false;
 // XXX nitrocaster: to be removed
 XRCORE_API bool g_allow_heap_min = true;
 
-// Processor specific implementations
-extern pso_MemCopy xrMemCopy_MMX;
-extern pso_MemCopy xrMemCopy_x86;
-extern pso_MemFill xrMemFill_x86;
-extern pso_MemFill32 xrMemFill32_MMX;
-extern pso_MemFill32 xrMemFill32_x86;
-
 #ifdef DEBUG_MEMORY_MANAGER
 XRCORE_API void dump_phase()
 {
@@ -49,9 +42,6 @@ xrMemory::xrMemory()
     debug_mode = FALSE;
 
 #endif // DEBUG_MEMORY_MANAGER
-    mem_copy = xrMemCopy_x86;
-    mem_fill = xrMemFill_x86;
-    mem_fill32 = xrMemFill32_x86;
 }
 
 #ifdef DEBUG_MEMORY_MANAGER
@@ -67,19 +57,6 @@ void xrMemory::_initialize(BOOL bDebug)
 
     stat_calls = 0;
     stat_counter = 0;
-
-    if (CPU::ID.hasMMX())
-    {
-        mem_copy = xrMemCopy_MMX;
-        mem_fill = xrMemFill_x86;
-        mem_fill32 = xrMemFill32_MMX;
-    }
-    else 
-    {
-        mem_copy = xrMemCopy_x86;
-        mem_fill = xrMemFill_x86;
-        mem_fill32 = xrMemFill32_x86;
-    }
 
     if (!strstr(Core.Params, "-pure_alloc"))
     {
