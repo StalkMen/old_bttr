@@ -317,12 +317,10 @@ void					CRender::create					()
 	Msg("~ DX: Information about 'Sun Quality' with xrEngine, selected token: %i", ps_r_sun_quality);
 
 	//	TODO: fix hbao shader to allow to perform per-subsample effect!
+	// LV da da idi nahuy suka 
 #ifdef USE_DX11
-	o.hbao_vectorized = false;
 	if (o.ssao_hbao )
 	{
-		if (DEVICE_HW::XRAY::HW.Caps.id_vendor==0x1002)
-			o.hbao_vectorized = true;
 		o.ssao_opt_data = true;
 	}
 
@@ -333,13 +331,10 @@ void					CRender::create					()
 	o.dx11		= (renderer_value >= 2);
 	o.dx11		= o.dx11 && ( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 );
 #else
-	o.hbao_vectorized = false;
 	if (o.ssao_hdao )
 		o.ssao_opt_data = false;
     else if( o.ssao_hbao)
 	{
-		if (DEVICE_HW::XRAY::HW.Caps.id_vendor==0x1002)
-			o.hbao_vectorized = true;
 		o.ssao_opt_data = true;
 	}
 
