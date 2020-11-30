@@ -413,14 +413,7 @@ CRenderTarget::CRenderTarget		()
 		rt_Generic_1.create		(r2_RT_generic1,w,h,D3DFMT_A8R8G8B8, 1		);
 		rt_Generic.create		(r2_RT_generic, w, h, D3DFMT_A8R8G8B8, 1);
 		rt_secondVP.create		(r2_RT_secondVP,w,h,D3DFMT_A8R8G8B8, 1		); //--#SM+#-- +SecondVP+
-/////////////////////////////////////////////////////////////////////////////////
-		rt_smaa_edgetex.create(r2_RT_smaa_edgetex, w, h, D3DFMT_A8R8G8B8);
-		rt_smaa_blendtex.create(r2_RT_smaa_blendtex, w, h, D3DFMT_A8R8G8B8);
-		
-		// RT - KD
-		rt_sunshafts_0.create(r2_RT_sunshafts0, w, h, D3DFMT_A8R8G8B8);
-		rt_sunshafts_1.create(r2_RT_sunshafts1, w, h, D3DFMT_A8R8G8B8);															  
-/////////////////////////////////////////////////////////////////////////////////  
+
 		if( RImplementation.o.dx10_msaa )
 		{
 			rt_Generic_0_r.create			(r2_RT_generic0_r,w,h,D3DFMT_A8R8G8B8, SampleCount	);
@@ -439,6 +432,19 @@ CRenderTarget::CRenderTarget		()
 			rt_Generic_2.create			(r2_RT_generic2, w, h, D3DFMT_A8R8G8B8, SampleCount );
 	}
 	
+	
+	//SSSS
+	{
+		u32	w = Device.dwWidth;
+		u32 h = Device.dwHeight;	
+		
+		b_sunshafts = xr_new<BLENDER::GAME::CBlender_sunshafts>();
+		s_sunshafts.create(b_sunshafts);
+		
+		rt_sunshafts_0.create(r2_RT_sunshafts0, w, h, D3DFMT_A8R8G8B8);
+		rt_sunshafts_1.create(r2_RT_sunshafts1, w, h, D3DFMT_A8R8G8B8);
+	}
+
 	//FXAA
 	{
 		b_fxaa = xr_new<BLENDER::AA::CBlender_FXAA>();
@@ -461,23 +467,12 @@ CRenderTarget::CRenderTarget		()
 		
 		rt_smaa_edgetex.create(r2_RT_smaa_edgetex, w, h, D3DFMT_A8R8G8B8);
 		rt_smaa_blendtex.create(r2_RT_smaa_blendtex, w, h, D3DFMT_A8R8G8B8);
-	}	
-	
+	}
+
 	// Rain drops
 	{
 		b_rain_drops = xr_new<BLENDER::GAME::CBlender_rain_drops>();
 		s_rain_drops.create(b_rain_drops);
-	}
-	//SSSS
-	{
-		u32	w = Device.dwWidth;
-		u32 h = Device.dwHeight;	
-		
-		b_sunshafts = xr_new<BLENDER::GAME::CBlender_sunshafts>();
-		s_sunshafts.create(b_sunshafts);
-		
-		rt_sunshafts_0.create(r2_RT_sunshafts0, w, h, D3DFMT_A8R8G8B8);
-		rt_sunshafts_1.create(r2_RT_sunshafts1, w, h, D3DFMT_A8R8G8B8);
 	}
 
 	//Gasmask

@@ -380,12 +380,12 @@ void	CRenderTarget::phase_combine	()
 	//Gasmask kurwa mać
 	//phase_gasmask();
 	
+	//Rain drops
+	phase_rain_drops();
+
 	//Gamma
 	phase_gamma();
 
-	//Rain drops
-	if (rain_drops)
-		phase_rain_drops();
 
 	// PP enabled ?
 	//	Render to RT texture to be able to copy RT even in windowed mode.
