@@ -2,6 +2,10 @@
 
 void CRenderTarget::phase_gasmask()
 {
+	//Escape early
+	if(ps_r2_gasmask_control.x == 1)
+		return;
+	
 	//Constants
 	u32 Offset = 0;
 	u32 C = color_rgba(0, 0, 0, 255);
@@ -35,7 +39,7 @@ void CRenderTarget::phase_gasmask()
 	RCache.set_Element(s_gasmask->E[0]);
 
 	//Set paramterers
-	RCache.set_c("pp_gasmask", ps_r2_drops_control.x, ps_r2_drops_control.y, ps_r2_drops_control.z, 0);
+	RCache.set_c("pp_gasmask", 0, ps_r2_gasmask_control.y, ps_r2_gasmask_control.z, 0);
 
 	//Set geometry
 	RCache.set_Geometry(g_combine);

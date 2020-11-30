@@ -377,8 +377,8 @@ void	CRenderTarget::phase_combine	()
 		RCache.set_Stencil(FALSE);
 	}	
 	
-	//Gasmask kurwa mać
-	//phase_gasmask();
+	//Gasmask
+	phase_gasmask();
 	
 	//Rain drops
 	phase_rain_drops();

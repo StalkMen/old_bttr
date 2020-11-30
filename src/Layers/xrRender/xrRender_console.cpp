@@ -693,6 +693,12 @@ void		xrRender_initconsole()
 		tw_max.set(2, 3, 1);
 		CMD4(CCC_Vector3, "xrRenderDropsControl",		 &ps_r2_drops_control, tw_min, tw_max);
 	}
+	
+	{
+		tw_min.set(0, 1, 0);
+		tw_max.set(1, 10, 1);
+		CMD4(CCC_Vector3, "xrRenderGasmaskControl",		 &ps_r2_gasmask_control, tw_min, tw_max);
+	}	
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);
