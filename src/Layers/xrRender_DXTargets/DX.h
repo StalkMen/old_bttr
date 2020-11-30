@@ -63,7 +63,6 @@ public:
         u32		ssao_hbao			: 1;
         u32		ssao_hdao			: 1;
         u32		ssao_ultra			: 1;
-        u32		hbao_vectorized		: 1;
         u32		ssao_ssdo           : 1;
 
         u32		smapsize			: 16;

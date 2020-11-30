@@ -322,15 +322,8 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 		defines[def_it].Name		=	"USE_HBAO";
 		defines[def_it].Definition	=	"1";
 		def_it						++;
-		if (o.hbao_vectorized)
-		{
-			defines[def_it].Name		=	"VECTORIZED_CODE";
-			defines[def_it].Definition	=	"1";
-			def_it						++;
-		}
 	}
 	sh_name[len]='0'+char(o.ssao_hbao); ++len;
-	sh_name[len]='0'+char(o.ssao_hbao ? o.hbao_vectorized : 0); ++len;
 
 	if (o.ssao_opt_data)
 	{

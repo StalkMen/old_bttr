@@ -356,13 +356,6 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 			}
 			def_it						++;
 
-			if (o.hbao_vectorized)
-			{
-				defines[def_it].Name		=	"VECTORIZED_CODE";
-				defines[def_it].Definition	=	"1";
-				def_it						++;
-			}
-
 			defines[def_it].Name		=	"USE_HBAO";
 			defines[def_it].Definition	=	"1";
 			def_it						++;
