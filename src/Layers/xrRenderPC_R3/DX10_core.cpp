@@ -167,7 +167,7 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 	}
 
 /////////////////////////////////////////////////////////////////////////////////////////
-#pragma todo("OldSerpskiStalker. Новые дефайны для шейдеров")
+#pragma todo("OldSerpskiStalker. РќРѕРІС‹Рµ РґРµС„Р°Р№РЅС‹ РґР»СЏ С€РµР№РґРµСЂРѕРІ")
 	u32 DX10 = renderer_value;
 	u32	DX10_1 = renderer_value;
 
@@ -582,29 +582,29 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 	def_it							++;
 
 	// 
-	if (0==xr_strcmp(pFunctionName,"main"))	
+	if (0 == xr_strcmp(pFunctionName, "main"))
 	{
-		if ('v'==pTarget[0])
-      {
-		if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
-			pTarget = "vs_4_0";
-		else if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
-			pTarget = "vs_4_1";
-      }
-		else if ('p'==pTarget[0])
-      {
-		if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
-			pTarget = "ps_4_0";
-		else if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
-			pTarget = "ps_4_1";
-	  }
-		else if ('g'==pTarget[0])		
-      {
-		if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
-			pTarget = "gs_4_0";
-		else if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
-			pTarget = "gs_4_1";
-      }
+		if ('v' == pTarget[0])
+		{
+			if (DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0)
+				pTarget = "vs_4_0";
+			else if (DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1)
+				pTarget = "vs_4_1";
+		}
+		else if ('p' == pTarget[0])
+		{
+			if (DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0)
+				pTarget = "ps_4_0";
+			else if (DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1)
+				pTarget = "ps_4_1";
+		}
+		else if ('g' == pTarget[0])
+		{
+			if (DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0)
+				pTarget = "gs_4_0";
+			else if (DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1)
+				pTarget = "gs_4_1";
+		}
 	}
 
 	HRESULT		_result = E_FAIL;
