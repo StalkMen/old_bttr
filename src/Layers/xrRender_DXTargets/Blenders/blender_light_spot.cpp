@@ -109,9 +109,9 @@ void	BLENDER::CBlender_accum_spot_msaa::Compile(CBlender_Compile& C)
 	D3DBLEND	dest		= blend?D3DBLEND_ONE:D3DBLEND_ZERO;
 
    if( Name )
-      ::Render->m_MSAASample = atoi( Definition );
+	   EnvCryRay.Render->m_MSAASample = atoi( Definition );
    else
-      ::Render->m_MSAASample = -1;
+	   EnvCryRay.Render->m_MSAASample = -1;
 
 	switch (C.iElement)
 	{
@@ -194,7 +194,7 @@ void	BLENDER::CBlender_accum_spot_msaa::Compile(CBlender_Compile& C)
 		C.r_End				();
 		break;
 	}
-   ::Render->m_MSAASample = -1;
+	EnvCryRay.Render->m_MSAASample = -1;
 }
 
 BLENDER::CBlender_accum_volumetric_msaa::CBlender_accum_volumetric_msaa()	{	description.CLS		= 0;	}
@@ -205,9 +205,9 @@ void	BLENDER::CBlender_accum_volumetric_msaa::Compile(CBlender_Compile& C)
 	IBlender::Compile		(C);
 
    if( Name )
-      ::Render->m_MSAASample = atoi( Definition );
+	   EnvCryRay.Render->m_MSAASample = atoi( Definition );
    else
-      ::Render->m_MSAASample = -1;
+	   EnvCryRay.Render->m_MSAASample = -1;
 
 	switch (C.iElement)
 	{
@@ -224,6 +224,6 @@ void	BLENDER::CBlender_accum_volumetric_msaa::Compile(CBlender_Compile& C)
       C.r_End				();
 		break;
 	}
-   ::Render->m_MSAASample = -1;
+	EnvCryRay.Render->m_MSAASample = -1;
 }
 

@@ -189,7 +189,7 @@ void CSCompiler::compile(const char* name)
 
 	string_path					cname;
 
-	strconcat					(sizeof(cname), cname, ::Render->getShaderPath(), "cs_", name, ".hlsl");
+	strconcat					(sizeof(cname), cname, EnvCryRay.Render->getShaderPath(), "cs_", name, ".hlsl");
 
 	FS.update_path				(cname,	"$game_shaders$", cname);
 
@@ -200,7 +200,7 @@ void CSCompiler::compile(const char* name)
 	LPCSTR						c_target	= "cs_5_0";
 	LPCSTR						c_entry		= "main";
 
-	HRESULT const _hr 			= ::Render->shader_compile(name, file, c_entry,
+	HRESULT const _hr 			= EnvCryRay.Render->shader_compile(name, file, c_entry,
         c_target, D3D10_SHADER_PACK_MATRIX_ROW_MAJOR, (void*&)m_cs);
 		
 	FS.r_close					( file );

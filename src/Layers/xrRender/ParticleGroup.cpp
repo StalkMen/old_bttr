@@ -188,7 +188,7 @@ void CParticleGroup::SItem::Clear()
 	{
 	    //::Render->model_Delete(*it);
 		IRenderVisual *pVisual = smart_cast<IRenderVisual*>(*it);
-		::Render->model_Delete(pVisual);
+        EnvCryRay.Render->model_Delete(pVisual);
 		*it = 0;
 	}
 
@@ -274,14 +274,14 @@ void CParticleGroup::SItem::Stop(BOOL def_stop)
 		{
 			//::Render->model_Delete(*it);
 			IRenderVisual *pVisual = smart_cast<IRenderVisual*>(*it);
-			::Render->model_Delete(pVisual);
+            EnvCryRay.Render->model_Delete(pVisual);
 			*it = 0;
 		}
         for (it=_children_free.begin(); it!=_children_free.end(); it++)			
 		{
 			//::Render->model_Delete(*it);
 			IRenderVisual *pVisual = smart_cast<IRenderVisual*>(*it);
-			::Render->model_Delete(pVisual);
+            EnvCryRay.Render->model_Delete(pVisual);
 			*it = 0;
 		}
         _children_related.clear();
@@ -385,7 +385,7 @@ void CParticleGroup::SItem::OnFrame(u32 u_dt, const CPGDef::SEffect& def, Fbox& 
                 	rem_cnt++	;
 					//::Render->model_Delete(*it);
 					IRenderVisual *pVisual = smart_cast<IRenderVisual*>(*it);
-					::Render->model_Delete(pVisual);
+                    EnvCryRay.Render->model_Delete(pVisual);
 					*it = 0;                    
                 }
             }

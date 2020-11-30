@@ -146,7 +146,7 @@ void CDemoRecord::MakeScreenshotFace()
         psHUD_Flags.assign(0);
         break;
     case 1:
-        Render->Screenshot();
+        EnvCryRay.Render->Screenshot();
         psHUD_Flags.assign(s_hud_flag);
         m_bMakeScreenshot = FALSE;
         break;
@@ -235,7 +235,7 @@ void CDemoRecord::MakeLevelMapProcess()
             }
         }
 
-        Render->Screenshot(IRender_interface::SM_FOR_LEVELMAP, tmp);
+        EnvCryRay.Render->Screenshot(IRender_interface::SM_FOR_LEVELMAP, tmp);
 
         if (m_iLMScreenshotFragment == -1 || m_iLMScreenshotFragment == 4)
         {
@@ -279,10 +279,10 @@ void CDemoRecord::MakeCubeMapFace(Fvector& D, Fvector& N)
     case 5:
         N.set(cmNorm[m_Stage]);
         D.set(cmDir[m_Stage]);
-        Render->Screenshot(IRender_interface::SM_FOR_CUBEMAP, itoa(m_Stage, buf, 10));
+        EnvCryRay.Render->Screenshot(IRender_interface::SM_FOR_CUBEMAP, itoa(m_Stage, buf, 10));
         break;
     case 6:
-        Render->Screenshot(IRender_interface::SM_FOR_CUBEMAP, itoa(m_Stage, buf, 10));
+        EnvCryRay.Render->Screenshot(IRender_interface::SM_FOR_CUBEMAP, itoa(m_Stage, buf, 10));
         N.set(m_Camera.j);
         D.set(m_Camera.k);
         psHUD_Flags.assign(s_hud_flag);

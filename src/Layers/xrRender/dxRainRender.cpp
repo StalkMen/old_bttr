@@ -102,7 +102,7 @@ void dxRainRender::Render(CEffect_Rain &owner)
 		if (one.dwTime_Hit<Device.dwTimeGlobal)		owner.Hit (one.Phit);
 		if (one.dwTime_Life<Device.dwTimeGlobal)	owner.Born(one,source_radius);
 
-		// ïîñëåäíÿÿ äåëüòà ??
+		// Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÑÑ Ð´ÐµÐ»ÑŒÑ‚Ð° ??
 		//.		float xdt		= float(one.dwTime_Hit-Device.dwTimeGlobal)/1000.f;
 		//.		float dt		= Device.fTimeDelta;//xdt<Device.fTimeDelta?xdt:Device.fTimeDelta;
 		float dt		= Device.fTimeDelta;
@@ -158,7 +158,7 @@ void dxRainRender::Render(CEffect_Rain &owner)
 		sC.mul			(.5f);
 		sR				= sC.magnitude();
 		sC.add			(pos_trail);
-		if (!::Render->ViewBase.testSphere_dirty(sC,sR))	continue;
+		if (!EnvCryRay.Render->ViewBase.testSphere_dirty(sC,sR))	continue;
 
 		static Fvector2 UV[2][4]={
 			{{0,1},{0,0},{1,1},{1,0}},
@@ -221,7 +221,7 @@ void dxRainRender::Render(CEffect_Rain &owner)
 			}
 
 			// Render
-			if (::Render->ViewBase.testSphere_dirty(P->bounds.P, P->bounds.R))
+			if (EnvCryRay.Render->ViewBase.testSphere_dirty(P->bounds.P, P->bounds.R))
 			{
 				// Build matrix
 				float scale			=	P->time / particles_time;

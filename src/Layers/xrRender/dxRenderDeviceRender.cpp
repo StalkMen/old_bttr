@@ -89,7 +89,7 @@ void dxRenderDeviceRender::OnDeviceCreate(LPCSTR shName)
     RCache.OnDeviceCreate		();
     m_Gamma.Update				();
     Resources->OnDeviceCreate	(shName);
-    ::Render->create			();
+    EnvCryRay.Render->create			();
     Device.Statistic->OnDeviceCreate	();
 
     if (!g_dedicated_server)

@@ -141,7 +141,7 @@ void IGame_Persistent::Prefetch()
     Log("Loading objects...");
     ObjectPool.prefetch();
     Log("Loading models...");
-    Render->models_Prefetch();
+    EnvCryRay.Render->models_Prefetch();
 
     Device.m_pRender->ResourcesDeferredUpload();
 
@@ -155,7 +155,7 @@ void IGame_Persistent::Prefetch()
 void IGame_Persistent::OnGameEnd()
 {
     ObjectPool.clear();
-    Render->models_Clear(TRUE);
+    EnvCryRay.Render->models_Clear(TRUE);
 }
 
 void IGame_Persistent::OnFrame()

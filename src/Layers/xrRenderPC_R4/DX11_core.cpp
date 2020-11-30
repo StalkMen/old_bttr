@@ -127,7 +127,7 @@ public:
 	HRESULT __stdcall	Open	(D3D10_INCLUDE_TYPE IncludeType, LPCSTR pFileName, LPCVOID pParentData, LPCVOID *ppData, UINT *pBytes)
 	{
 		string_path				pname;
-		strconcat				(sizeof(pname),pname,::Render->getShaderPath(),pFileName);
+		strconcat				(sizeof(pname),pname, EnvCryRay.Render->getShaderPath(),pFileName);
 		IReader*		R		= FS.r_open	("$game_shaders$",pname);
 		if (0==R)				
 		{
@@ -185,7 +185,7 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	}
 
 /////////////////////////////////////////////////////////////////////////////////////////
-#pragma todo("OldSerpskiStalker. Íîâûå äåôàéíû äëÿ øåéäåðîâ")
+#pragma todo("OldSerpskiStalker. ÐÐ¾Ð²Ñ‹Ðµ Ð´ÐµÑ„Ð°Ð¹Ð½Ñ‹ Ð´Ð»Ñ ÑˆÐµÐ¹Ð´ÐµÑ€Ð¾Ð²")
 	u32 DX11 = renderer_value;
 
 	if (DX11 == 2)
@@ -677,7 +677,7 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	}
 	
 	string_path shadersFolder;
-    FS.update_path(shadersFolder, "$game_shaders$", ::Render->getShaderPath());
+    FS.update_path(shadersFolder, "$game_shaders$", EnvCryRay.Render->getShaderPath());
 
     u32 fileCrc = 0;
     getFileCrc32(fs, shadersFolder, fileCrc);

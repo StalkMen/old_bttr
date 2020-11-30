@@ -18,7 +18,7 @@ void IGame_ObjectPool::prefetch()
     R_ASSERT(m_PrefetchObjects.empty());
 
     int p_count = 0;
-    ::Render->model_Logging(FALSE);
+    EnvCryRay.Render->model_Logging(FALSE);
 
     string256 section;
     // prefetch objects
@@ -36,7 +36,7 @@ void IGame_ObjectPool::prefetch()
     }
 
     // out statistic
-    ::Render->model_Logging(TRUE);
+    EnvCryRay.Render->model_Logging(TRUE);
 }
 
 void IGame_ObjectPool::clear()

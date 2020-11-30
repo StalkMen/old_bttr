@@ -80,7 +80,7 @@ CObjectSpace*	__stdcall	mesh_create_object_space(Fvector* verts, CDB::TRI* tris,
 }
 void			__stdcall	set_mtl_lib(CGameMtlLibrary * l)
 {
-	PGMLib = l;
+	EnvCryRay.PGMLib = l;
 }
 void __stdcall destroy_object_space(CObjectSpace* &os)
 {
@@ -270,7 +270,7 @@ void CPHWorld::SetGravity(float g)
 void CPHWorld::OnFrame()
 {
 	// Msg									("------------- physics: %d / %d",u32(Device.dwFrame),u32(m_steps_num));
-	//просчитать полет пуль
+	//РїСЂРѕСЃС‡РёС‚Р°С‚СЊ РїРѕР»РµС‚ РїСѓР»СЊ
 	/*
 	Device.Statistic->TEST0.Begin		();
 	Level().BulletManager().Update		();

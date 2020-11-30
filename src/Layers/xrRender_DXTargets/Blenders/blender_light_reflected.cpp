@@ -33,9 +33,9 @@ void BLENDER::CBlender_accum_reflected_msaa::Compile(CBlender_Compile& C)
 	D3DBLEND	dest		= blend?D3DBLEND_ONE:D3DBLEND_ZERO;
 	
    if( Name )
-      ::Render->m_MSAASample = atoi( Definition );
+	   EnvCryRay.Render->m_MSAASample = atoi( Definition );
    else
-      ::Render->m_MSAASample = -1;
+	   EnvCryRay.Render->m_MSAASample = -1;
 
 	C.r_Pass			("accum_volume",	"accum_indirect_msaa",false,	FALSE,FALSE,blend,D3DBLEND_ONE,dest);
 	
@@ -48,6 +48,6 @@ void BLENDER::CBlender_accum_reflected_msaa::Compile(CBlender_Compile& C)
 	C.r_dx10Sampler		("smp_material");
 	C.r_End				();
  
-   ::Render->m_MSAASample = -1;
+	EnvCryRay.Render->m_MSAASample = -1;
 }
 

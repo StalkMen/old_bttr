@@ -192,7 +192,7 @@ void dxEnvironmentRender::OnFrame(CEnvironment &env)
 {
     dxEnvDescriptorMixerRender &mixRen = *(dxEnvDescriptorMixerRender*)&*env.CurrentEnv->m_pDescriptorMixer;
 
-    if (::Render->get_generation()==IRender_interface::GENERATION_R2){
+    if (EnvCryRay.Render->get_generation()==IRender_interface::GENERATION_R2){
         //. very very ugly hack
         if (DEVICE_HW::XRAY::HW.Caps.raster_major >= 3 && DEVICE_HW::XRAY::HW.Caps.geometry.bVTF){
             // tonemapping in VS
@@ -243,7 +243,7 @@ void dxEnvironmentRender::RenderSky(CEnvironment &env)
         clouds_geom.create		(v_clouds_fvf,RCache.Vertex.Buffer(), RCache.Index.Buffer());
         env.bNeed_re_create_env		= FALSE;
     }
-    ::Render->rmFar				();
+    EnvCryRay.Render->rmFar				();
 
     dxEnvDescriptorMixerRender &mixRen = *(dxEnvDescriptorMixerRender*)&*env.CurrentEnv->m_pDescriptorMixer;
 
@@ -274,7 +274,7 @@ void dxEnvironmentRender::RenderSky(CEnvironment &env)
     RCache.Render				(D3DPT_TRIANGLELIST,v_offset,0,12,i_offset,20);
 
     // Sun
-    ::Render->rmNormal			();
+    EnvCryRay.Render->rmNormal			();
     //
     // This hack is done to make sure that the state is set for sure:
     // The state may be not set by RCache if the state is changed using API SetRenderState() function before 
@@ -288,7 +288,7 @@ void dxEnvironmentRender::RenderSky(CEnvironment &env)
 
 void dxEnvironmentRender::RenderClouds(CEnvironment &env)
 {
-    ::Render->rmFar				();
+    EnvCryRay.Render->rmFar				();
 
     Fmatrix						mXFORM, mScale;
     mScale.scale				(10,0.4f,10);
@@ -324,7 +324,7 @@ void dxEnvironmentRender::RenderClouds(CEnvironment &env)
     RCache.set_Textures			(&mixRen.clouds_r_textures);
     RCache.Render				(D3DPT_TRIANGLELIST,v_offset,0,env.CloudsVerts.size(),i_offset,env.CloudsIndices.size()/3);
 
-    ::Render->rmNormal			();
+    EnvCryRay.Render->rmNormal			();
 }
 
 void dxEnvironmentRender::OnDeviceCreate()

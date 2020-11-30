@@ -216,7 +216,7 @@ void CConsole::OutFont(LPCSTR text, float& pos_y)
         int ln = 0;
         PSTR one_line = (PSTR)_alloca((CONSOLE_BUF_SIZE + 1) * sizeof(char));
 
-        while (text[sz] && (ln + sz < CONSOLE_BUF_SIZE - 5))// перенос строк
+        while (text[sz] && (ln + sz < CONSOLE_BUF_SIZE - 5))// РїРµСЂРµРЅРѕСЃ СЃС‚СЂРѕРє
         {
             one_line[ln + sz] = text[sz];
             one_line[ln + sz + 1] = 0;
@@ -417,15 +417,15 @@ void CConsole::DrawBackgrounds(bool bGame)
     Frect r;
     r.set(0.0f, 0.0f, float(Device.dwWidth), ky * float(Device.dwHeight));
 
-    UIRender->SetShader(**m_hShader_back);
+    EnvCryRay.UIRender->SetShader(**m_hShader_back);
     // 6 = back, 12 = tips, (VIEW_TIPS_COUNT+1)*6 = highlight_words, 12 = scroll
-    UIRender->StartPrimitive(6 + 12 + (VIEW_TIPS_COUNT + 1) * 6 + 12, IUIRender::ptTriList, IUIRender::pttTL);
+    EnvCryRay.UIRender->StartPrimitive(6 + 12 + (VIEW_TIPS_COUNT + 1) * 6 + 12, IUIRender::ptTriList, IUIRender::pttTL);
 
     DrawRect(r, back_color);
 
     if (m_tips.size() == 0 || m_disable_tips)
     {
-        UIRender->FlushPrimitive();
+        EnvCryRay.UIRender->FlushPrimitive();
         return;
     }
 
@@ -551,18 +551,18 @@ void CConsole::DrawBackgrounds(bool bGame)
         DrawRect(rs, tips_scroll_pos_color);
     }
 
-    UIRender->FlushPrimitive();
+    EnvCryRay.UIRender->FlushPrimitive();
 }
 
 void CConsole::DrawRect(Frect const& r, u32 color)
 {
-    UIRender->PushPoint(r.x1, r.y1, 0.0f, color, 0.0f, 0.0f);
-    UIRender->PushPoint(r.x2, r.y1, 0.0f, color, 1.0f, 0.0f);
-    UIRender->PushPoint(r.x2, r.y2, 0.0f, color, 1.0f, 1.0f);
+    EnvCryRay.UIRender->PushPoint(r.x1, r.y1, 0.0f, color, 0.0f, 0.0f);
+    EnvCryRay.UIRender->PushPoint(r.x2, r.y1, 0.0f, color, 1.0f, 0.0f);
+    EnvCryRay.UIRender->PushPoint(r.x2, r.y2, 0.0f, color, 1.0f, 1.0f);
 
-    UIRender->PushPoint(r.x1, r.y1, 0.0f, color, 0.0f, 0.0f);
-    UIRender->PushPoint(r.x2, r.y2, 0.0f, color, 1.0f, 1.0f);
-    UIRender->PushPoint(r.x1, r.y2, 0.0f, color, 0.0f, 1.0f);
+    EnvCryRay.UIRender->PushPoint(r.x1, r.y1, 0.0f, color, 0.0f, 0.0f);
+    EnvCryRay.UIRender->PushPoint(r.x2, r.y2, 0.0f, color, 1.0f, 1.0f);
+    EnvCryRay.UIRender->PushPoint(r.x1, r.y2, 0.0f, color, 0.0f, 1.0f);
 }
 
 void CConsole::ExecuteCommand(LPCSTR cmd_str, bool record_cmd)

@@ -8,12 +8,12 @@
 
 void CRenderDevice::_Destroy(BOOL bKeepTextures)
 {
-    DU->OnDeviceDestroy();
+    EnvCryRay.DU->OnDeviceDestroy();
 
     // before destroy
     b_is_Ready = FALSE;
     Statistic->OnDeviceDestroy();
-    ::Render->destroy();
+    EnvCryRay.Render->destroy();
     m_pRender->OnDeviceDestroy(bKeepTextures);
     //Resources->OnDeviceDestroy (bKeepTextures);
     //RCache.OnDeviceDestroy ();
@@ -59,7 +59,7 @@ void CRenderDevice::Destroy(void)
     seqDeviceReset.R.clear();
     seqParallel.clear();
 
-    RenderFactory->DestroyRenderDeviceRender(m_pRender);
+    EnvCryRay.RenderFactory->DestroyRenderDeviceRender(m_pRender);
     m_pRender = 0;
     xr_delete(Statistic);
 }

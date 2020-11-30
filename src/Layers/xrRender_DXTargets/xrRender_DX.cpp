@@ -18,12 +18,12 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 	case DLL_PROCESS_ATTACH	:
 		//	Can't call CreateDXGIFactory from DllMain
 		//if (!xrRender_test_hw())	return FALSE;
-		::Render					= &RImplementation;
-		::RenderFactory				= &RenderFactoryImpl;
-		::DU						= &DUImpl;
+		EnvCryRay.Render					= &RImplementation;
+		EnvCryRay.RenderFactory				= &RenderFactoryImpl;
+		EnvCryRay.DU						= &DUImpl;
 		//::vid_mode_token			= inited by HW;
-		UIRender					= &UIRenderImpl;
-		DRender						= &DebugRenderImpl;
+		EnvCryRay.UIRender					= &UIRenderImpl;
+		EnvCryRay.DRender						= &DebugRenderImpl;
 		xrRender_initconsole		();
 		break	;
 	case DLL_THREAD_ATTACH	:

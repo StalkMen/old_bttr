@@ -212,7 +212,7 @@ void CRenderDevice::PreCache(u32 amount, bool b_draw_loadscreen, bool b_wait_use
     dwPrecacheFrame = dwPrecacheTotal = amount;
     if (amount && !precache_light && g_pGameLevel && g_loading_events.empty())
     {
-        precache_light = ::Render->light_create();
+        precache_light = EnvCryRay.Render->light_create();
         precache_light->set_shadow(false);
         precache_light->set_position(vCameraPosition);
         precache_light->set_color(255, 255, 255);

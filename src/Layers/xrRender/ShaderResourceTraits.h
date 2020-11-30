@@ -307,7 +307,7 @@ inline T* CResourceManager::CreateShader(const char* name, const char* filename 
         // Open file
         string_path cname;
         pcstr shaderExt = ShaderTypeTraits<T>::GetShaderExt();
-        strconcat(sizeof(cname), cname, ::Render->getShaderPath(), shaderExt, shName, ".hlsl");
+        strconcat(sizeof(cname), cname, EnvCryRay.Render->getShaderPath(), shaderExt, shName, ".hlsl");
         FS.update_path(cname, "$game_shaders$", cname);
 
         // duplicate and zero-terminate
@@ -323,7 +323,7 @@ inline T* CResourceManager::CreateShader(const char* name, const char* filename 
 
             Msg(tmp);
 
-            strconcat(sizeof(cname), cname, ::Render->getShaderPath(), "stub_default", shaderExt);
+            strconcat(sizeof(cname), cname, EnvCryRay.Render->getShaderPath(), "stub_default", shaderExt);
 
             FS.update_path(cname, "$game_shaders$", cname);
 
@@ -346,7 +346,7 @@ inline T* CResourceManager::CreateShader(const char* name, const char* filename 
         DWORD flags = D3D10_SHADER_PACK_MATRIX_ROW_MAJOR;
 
         // Compile
-        HRESULT const _hr = ::Render->shader_compile(name, file, c_entry, c_target, flags, (void*&)sh);
+        HRESULT const _hr = EnvCryRay.Render->shader_compile(name, file, c_entry, c_target, flags, (void*&)sh);
 		
 		FS.r_close(file);
 		

@@ -19,14 +19,14 @@ ENGINE_API Fvector2 g_current_font_scale = {1.0f, 1.0f};
 
 CGameFont::CGameFont(LPCSTR section, u32 flags)
 {
-    pFontRender = RenderFactory->CreateFontRender();
+    pFontRender = EnvCryRay.RenderFactory->CreateFontRender();
     fCurrentHeight = 0.0f;
     fXStep = 0.0f;
     fYStep = 0.0f;
     uFlags = flags;
     nNumChars = 0x100;
     TCMap = NULL;
-    //OldSerpskiStalker, ïðîáíîå ïåðåêëþ÷åíèå íà 4ê øðèôò â êîíñîëè ïðè ïåðåçàõîäå â èãðó
+    //OldSerpskiStalker, Ð¿Ñ€Ð¾Ð±Ð½Ð¾Ðµ Ð¿ÐµÑ€ÐµÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ Ð½Ð° 4Ðº ÑˆÑ€Ð¸Ñ„Ñ‚ Ð² ÐºÐ¾Ð½ÑÐ¾Ð»Ð¸ Ð¿Ñ€Ð¸ Ð¿ÐµÑ€ÐµÐ·Ð°Ñ…Ð¾Ð´Ðµ Ð² Ð¸Ð³Ñ€Ñƒ
     u32 h = Device.dwHeight;
     Initialize(pSettings->r_string(section, "shader"), pSettings->r_string(section, (h == 1440 || h == 1536 || h == 1600 || h == 2160) ? "texture4k": "texture"));
     if (pSettings->line_exist(section, "size"))
@@ -41,7 +41,7 @@ CGameFont::CGameFont(LPCSTR section, u32 flags)
 
 CGameFont::CGameFont(LPCSTR shader, LPCSTR texture, u32 flags)
 {
-    pFontRender = RenderFactory->CreateFontRender();
+    pFontRender = EnvCryRay.RenderFactory->CreateFontRender();
     fCurrentHeight = 0.0f;
     fXStep = 0.0f;
     fYStep = 0.0f;
@@ -65,7 +65,7 @@ void CGameFont::Initialize(LPCSTR cShader, LPCSTR cTextureName)
         xr_strcpy(cTexture, sizeof(cTexture), cTextureName);
 
     uFlags &= ~fsValid;
-    vTS.set(1.f, 1.f); // îáÿçàòåëüíî !!!
+    vTS.set(1.f, 1.f); // Ð¾Ð±ÑÐ·Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾ !!!
 
     eCurrentAlignment = alLeft;
     vInterval.set(1.f, 1.f);
@@ -185,11 +185,11 @@ CGameFont::~CGameFont()
         xr_free(TCMap);
 
     // Shading
-    RenderFactory->DestroyFontRender(pFontRender);
+    EnvCryRay.RenderFactory->DestroyFontRender(pFontRender);
 }
 
-#define DI2PX(x) float(iFloor((x+1)*float(::Render->getTarget()->get_width())*0.5f))
-#define DI2PY(y) float(iFloor((y+1)*float(::Render->getTarget()->get_height())*0.5f))
+#define DI2PX(x) float(iFloor((x+1)*float(EnvCryRay.Render->getTarget()->get_width())*0.5f))
+#define DI2PY(y) float(iFloor((y+1)*float(EnvCryRay.Render->getTarget()->get_height())*0.5f))
 
 void CGameFont::OutSet(float x, float y)
 {

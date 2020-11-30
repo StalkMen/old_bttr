@@ -40,7 +40,7 @@ IGame_Level::~IGame_Level()
     xr_delete(pLevel);
 
     // Render-level unload
-    Render->level_Unload();
+    EnvCryRay.Render->level_Unload();
     xr_delete(m_pCameras);
     // Unregister
     Device.seqParallel.clear_not_free();
@@ -129,9 +129,9 @@ bool IGame_Level::Load(u32 dwNum)
 
 #pragma todo("OldSerpskiStalker. Fix crash level")
     Msg("~ Fix level_unload");
-    Render->level_Unload();
+    EnvCryRay.Render->level_Unload();
     // Render-level Load
-    Render->level_Load(LL_Stream);
+    EnvCryRay.Render->level_Load(LL_Stream);
     // tscreate.FrameEnd ();
     // Msg ("* S-CREATE: %f ms, %d times",tscreate.result,tscreate.count);
 
@@ -177,8 +177,8 @@ void IGame_Level::OnRender()
     // Level render, only when no client output required
     if (!g_dedicated_server)
     {
-        Render->Calculate ();
-        Render->Render ();
+        EnvCryRay.Render->Calculate ();
+        EnvCryRay.Render->Render ();
     }
     else
     {

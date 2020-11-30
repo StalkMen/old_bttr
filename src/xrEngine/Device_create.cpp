@@ -55,7 +55,7 @@ void CRenderDevice::_Create(LPCSTR shName)
 void CRenderDevice::ConnectToRender()
 {
     if (!m_pRender)
-        m_pRender = RenderFactory->CreateRenderDeviceRender();
+        m_pRender = EnvCryRay.RenderFactory->CreateRenderDeviceRender();
 }
 
 extern u32 g_screenmode;
@@ -76,7 +76,7 @@ PROTECT_API void CRenderDevice::Create()
 #endif
 
     if (!m_pRender)
-        m_pRender = RenderFactory->CreateRenderDeviceRender();
+        m_pRender = EnvCryRay.RenderFactory->CreateRenderDeviceRender();
     SetupGPU(m_pRender);
     Log("Starting RENDER device...");
 

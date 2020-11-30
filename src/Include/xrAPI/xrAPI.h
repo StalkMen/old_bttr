@@ -7,22 +7,25 @@
 #endif
 
 class IRender_interface;
-extern XRAPI_API IRender_interface*	Render;
-
 class IRenderFactory;
-extern XRAPI_API IRenderFactory*	RenderFactory;
-
 class CDUInterface;
-extern XRAPI_API CDUInterface*	DU;
-
 struct xr_token;
-extern XRAPI_API xr_token*	vid_mode_token;
-
 class IUIRender;
-extern XRAPI_API IUIRender*	UIRender;
-
 class CGameMtlLibrary;
-extern XRAPI_API CGameMtlLibrary *			PGMLib;
-
 class IDebugRender;
-extern XRAPI_API IDebugRender*	DRender;
+
+namespace CRYRAY_ENV
+{
+	class XRAPI_API CRYRAY_ENVIRONMENT
+	{
+	public:
+		IRender_interface* Render;
+		IRenderFactory* RenderFactory;
+		CDUInterface* DU;
+		xr_token* vid_mode_token;
+		IUIRender* UIRender;
+		CGameMtlLibrary* PGMLib;
+		IDebugRender* DRender;
+	};
+}
+extern XRAPI_API CRYRAY_ENV::CRYRAY_ENVIRONMENT	EnvCryRay;

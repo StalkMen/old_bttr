@@ -54,9 +54,9 @@ void	BLENDER::AO::CBlender_SSAO_MSAA::Compile(CBlender_Compile& C)
 	IBlender::Compile		(C);
 
 	if( Name )
-		::Render->m_MSAASample = atoi( Definition );
+		EnvCryRay.Render->m_MSAASample = atoi( Definition );
 	else
-		::Render->m_MSAASample = -1;
+		EnvCryRay.Render->m_MSAASample = -1;
 
 	switch (C.iElement)
 	{
@@ -77,5 +77,5 @@ void	BLENDER::AO::CBlender_SSAO_MSAA::Compile(CBlender_Compile& C)
 		C.r_End				();
 		break;
 	}
-	::Render->m_MSAASample = -1;
+	EnvCryRay.Render->m_MSAASample = -1;
 }    

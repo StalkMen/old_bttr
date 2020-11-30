@@ -440,7 +440,7 @@ public:
     {
         xr_sprintf(S, sizeof(S), "%dx%d", psCurrentVidMode[0], psCurrentVidMode[1]);
     }
-    virtual xr_token* GetToken() { return vid_mode_token; }
+    virtual xr_token* GetToken() { return EnvCryRay.vid_mode_token; }
     virtual void Info(TInfo& I)
     {
         xr_strcpy(I, sizeof(I), "change screen resolution WxH");
@@ -1016,7 +1016,7 @@ public:
 
         switch (*value)
         {
-            case 0: // Сталкер
+            case 0: // РЎС‚Р°Р»РєРµСЂ
             {
                 p_engine_flags32.set(E_STALKER, true);
                 p_engine_flags32.set(E_BANDIT, false);
@@ -1029,7 +1029,7 @@ public:
                 p_engine_flags32.set(E_MONOLITH, false);
                 break;
             }
-            case 1: // Бандит
+            case 1: // Р‘Р°РЅРґРёС‚
             {
                 p_engine_flags32.set(E_STALKER, false);
                 p_engine_flags32.set(E_BANDIT, true);
@@ -1042,7 +1042,7 @@ public:
                 p_engine_flags32.set(E_MONOLITH, false);
                 break;
             }
-            case 2: // Чистое небо
+            case 2: // Р§РёСЃС‚РѕРµ РЅРµР±Рѕ
             {
                 p_engine_flags32.set(E_STALKER, false);
                 p_engine_flags32.set(E_BANDIT, false);
@@ -1055,7 +1055,7 @@ public:
                 p_engine_flags32.set(E_MONOLITH, false);
                 break;
             }
-            case 3: // Долг
+            case 3: // Р”РѕР»Рі
             {
                 p_engine_flags32.set(E_STALKER, false);
                 p_engine_flags32.set(E_BANDIT, false);
@@ -1068,7 +1068,7 @@ public:
                 p_engine_flags32.set(E_MONOLITH, false);
                 break;
             }
-            case 4: // Свобода
+            case 4: // РЎРІРѕР±РѕРґР°
             {
                 p_engine_flags32.set(E_STALKER, false);
                 p_engine_flags32.set(E_BANDIT, false);
@@ -1081,7 +1081,7 @@ public:
                 p_engine_flags32.set(E_MONOLITH, false);
                 break;
             }
-            case 5: // Наемник
+            case 5: // РќР°РµРјРЅРёРє
             {
                 p_engine_flags32.set(E_STALKER, false);
                 p_engine_flags32.set(E_BANDIT, false);
@@ -1094,7 +1094,7 @@ public:
                 p_engine_flags32.set(E_MONOLITH, false);
                 break;
             }
-            case 6: // Военные
+            case 6: // Р’РѕРµРЅРЅС‹Рµ
             {
                 p_engine_flags32.set(E_STALKER, false);
                 p_engine_flags32.set(E_BANDIT, false);
@@ -1107,7 +1107,7 @@ public:
                 p_engine_flags32.set(E_MONOLITH, false);
                 break;
             }
-            case 7: // Экологи
+            case 7: // Р­РєРѕР»РѕРіРё
             {
                 p_engine_flags32.set(E_STALKER, false);
                 p_engine_flags32.set(E_BANDIT, false);
@@ -1120,7 +1120,7 @@ public:
                 p_engine_flags32.set(E_MONOLITH, false);
                 break;
             }
-            case 8: // Монолит
+            case 8: // РњРѕРЅРѕР»РёС‚
             {
                 p_engine_flags32.set(E_STALKER, false);
                 p_engine_flags32.set(E_BANDIT, false);
@@ -1144,9 +1144,9 @@ ENGINE_API int m_sun_cascade_2_size = 192;
 #include "device.h"
 void CCC_Register()
 {
-#pragma TODO("OldSerpskiStalker. Новый команды тут")
+#pragma TODO("OldSerpskiStalker. РќРѕРІС‹Р№ РєРѕРјР°РЅРґС‹ С‚СѓС‚")
     CMD1(CCC_Screenmode, "monitor_mode");
-    //OldSerpskiStalker, переключение версий между BttR и 1.4.22
+    //OldSerpskiStalker, РїРµСЂРµРєР»СЋС‡РµРЅРёРµ РІРµСЂСЃРёР№ РјРµР¶РґСѓ BttR Рё 1.4.22
     {
         if (BttR_mode)
             p_engine_flags32.set(ITS_CLEAR_1_4_22, false);
@@ -1155,7 +1155,7 @@ void CCC_Register()
 
         CMD3(CCC_Mask, "_game_preset_clear_version_call_of_chernobyl", &p_engine_flags32, ITS_CLEAR_1_4_22);
     }
-    //Опции которые относятся к рендеру
+    //РћРїС†РёРё РєРѕС‚РѕСЂС‹Рµ РѕС‚РЅРѕСЃСЏС‚СЃСЏ Рє СЂРµРЅРґРµСЂСѓ
     const static bool xrRender_options = true;
     if (xrRender_options)
     {

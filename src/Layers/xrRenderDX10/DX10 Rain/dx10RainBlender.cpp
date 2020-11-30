@@ -147,9 +147,9 @@ void CBlender_rain_msaa::Compile(CBlender_Compile& C)
 	IBlender::Compile	(C);
 
    if( Name )
-	   ::Render->m_MSAASample = atoi( Definition );
+	   EnvCryRay.Render->m_MSAASample = atoi( Definition );
    else
-	   ::Render->m_MSAASample = -1;
+	   EnvCryRay.Render->m_MSAASample = -1;
 
    switch (C.iElement) 
 	{
@@ -252,6 +252,6 @@ void CBlender_rain_msaa::Compile(CBlender_Compile& C)
 
 		break;
 	}
-  ::Render->m_MSAASample = -1;
+	EnvCryRay.Render->m_MSAASample = -1;
 }
 

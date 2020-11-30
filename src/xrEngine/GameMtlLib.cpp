@@ -17,7 +17,7 @@ CGameMtlLibrary::CGameMtlLibrary()
 #ifndef _EDITOR
     material_count = 0;
 #endif
-    PGMLib = &GMLib;
+    EnvCryRay.PGMLib = &GMLib;
 }
 
 void SGameMtl::Load(IReader& fs)
