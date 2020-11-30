@@ -586,24 +586,24 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 	{
 		if ('v'==pTarget[0])
       {
-         if( DEVICE_HW::XRAY::HW.pDevice1 == 0 )
-            pTarget = D3D10GetVertexShaderProfile(DEVICE_HW::XRAY::HW.pRenderDevice);	// vertex	"vs_4_0"; //
-         else
-            pTarget = "vs_4_1";	// pixel	"ps_4_0"; //
+		if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
+			pTarget = "vs_4_0";
+		else if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
+			pTarget = "vs_4_1";
       }
 		else if ('p'==pTarget[0])
       {
-         if( DEVICE_HW::XRAY::HW.pDevice1 == 0 )
-            pTarget = D3D10GetPixelShaderProfile(DEVICE_HW::XRAY::HW.pRenderDevice);	// pixel	"ps_4_0"; //
-         else
-            pTarget = "ps_4_1";	// pixel	"ps_4_0"; //
-      }
+		if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
+			pTarget = "ps_4_0";
+		else if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
+			pTarget = "ps_4_1";
+	  }
 		else if ('g'==pTarget[0])		
       {
-         if( DEVICE_HW::XRAY::HW.pDevice1 == 0 )
-            pTarget = D3D10GetGeometryShaderProfile(DEVICE_HW::XRAY::HW.pRenderDevice);	// geometry	"gs_4_0"; //
-         else
-            pTarget = "gs_4_1";	// pixel	"ps_4_0"; //
+		if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
+			pTarget = "gs_4_0";
+		else if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
+			pTarget = "gs_4_1";
       }
 	}
 
