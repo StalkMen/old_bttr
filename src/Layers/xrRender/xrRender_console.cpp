@@ -629,6 +629,7 @@ int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
 int	  render_nightvision = 0;
 BOOL  rain_drops = 1;
+BOOL  mask_helmet = 1;
 Fvector ps_r2_drops_control = { 0.0f, 0.0f, 0.0f };
 Fvector ps_r2_gasmask_control = { 0.0f, 0.0f, 0.0f };
 //-----------------------------------------------------------------------
@@ -652,6 +653,7 @@ void		xrRender_initconsole()
 #endif
 	CMD4(CCC_Integer, "xrRenderDX10_triple_buffering",	 &tbufer_renders,					0, 1);
 	CMD4(CCC_Integer, "xrRenderDX10_rain_drops",		 &rain_drops,						0, 1);
+	CMD4(CCC_Integer, "xrRenderDX10_mask_helmet",		 &mask_helmet,						0, 1);
 
 	CMD3(CCC_Mask,  "xrRenderDX10_animMBlur_move",		 &ps_r__common_flags,				RFLAGDX10_MOTION_BLUR);
 

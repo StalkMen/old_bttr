@@ -2,6 +2,9 @@
 
 void CRenderTarget::phase_gasmask()
 {
+	if (mask_helmet == 0)
+		return;
+
 	//Escape early
 	if(ps_r2_gasmask_control.x == 1)
 		return;
