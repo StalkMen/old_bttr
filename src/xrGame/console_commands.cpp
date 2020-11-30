@@ -176,21 +176,21 @@ static void full_memory_stats()
 		Msg("~ [D3D11]: textures[%d K]", (m_base + m_lmaps) / 1024);
 
 #ifndef SEVERAL_ALLOCATORS
-	Msg("- [CryRay Engine x64]: process heap[%u K]", _process_heap / 1024);
+	Msg("- [CryRay Engine]: process heap[%u K]", _process_heap / 1024);
 #else // SEVERAL_ALLOCATORS
-//	Msg("- [CryRay Engine x64]: process heap[%u K], game lua[%d K], render[%d K]", _process_heap / 1024, _game_lua / 1024, _render / 1024);
+//	Msg("- [CryRay Engine]: process heap[%u K], game lua[%d K], render[%d K]", _process_heap / 1024, _game_lua / 1024, _render / 1024);
 	if (renderer_value == 0)
-		Msg("- [CryRay Engine x64]: process heap[%u K], xrRenderD3D10[%d K]", _process_heap / 1024, _render / 1024);
+		Msg("- [CryRay Engine]: process heap[%u K], xrRenderD3D10[%d K]", _process_heap / 1024, _render / 1024);
 	else if (renderer_value == 1)
-		Msg("- [CryRay Engine x64]: process heap[%u K], xrRenderD3D10_1[%d K]", _process_heap / 1024, _render / 1024);
+		Msg("- [CryRay Engine]: process heap[%u K], xrRenderD3D10_1[%d K]", _process_heap / 1024, _render / 1024);
 	else if (renderer_value == 2)
-		Msg("- [CryRay Engine x64]: process heap[%u K], xrRenderD3D11[%d K]", _process_heap / 1024, _render / 1024);
+		Msg("- [CryRay Engine]: process heap[%u K], xrRenderD3D11[%d K]", _process_heap / 1024, _render / 1024);
 #endif // SEVERAL_ALLOCATORS
 
-	Msg("- [CryRay Engine x64]: economy: strings[%d K], smem[%d K]", _eco_strings / 1024, _eco_smem);
+	Msg("- [CryRay Engine]: economy: strings[%d K], smem[%d K]", _eco_strings / 1024, _eco_smem);
 
 #ifdef FS_DEBUG
-	Msg("- [CryRay Engine x64]: file mapping: memory[%d K], count[%d]", g_file_mapped_memory / 1024, g_file_mapped_count);
+	Msg("- [CryRay Engine]: file mapping: memory[%d K], count[%d]", g_file_mapped_memory / 1024, g_file_mapped_count);
 	dump_file_mappings();
 #endif // DEBUG
 

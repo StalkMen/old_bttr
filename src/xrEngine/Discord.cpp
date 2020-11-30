@@ -1079,7 +1079,7 @@ void xrDiscordPresense::SetStatus(StatusId status)
     else
         presenseInfo.smallImageText = "S.T.A.L.K.E.R.: Call of Chernobyl";
 
-    presenseInfo.largeImageText = "CryRay Engine x64";
+    presenseInfo.largeImageText = "CryRay Engine";
 
     Discord_UpdatePresence(&presenseInfo);
 }

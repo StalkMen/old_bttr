@@ -109,8 +109,9 @@ extern ECORE_API float			ps_r2_ss_sunshafts_radius;
 
 extern ECORE_API float			render_gamma;
 extern ECORE_API Fvector		ps_r2_drops_control;
+extern ECORE_API Fvector		ps_r2_gasmask_control;
 extern ECORE_API int			render_nightvision;
-
+extern ECORE_API BOOL			rain_drops;
 enum
 {
 	R2FLAG_SUN					= (1<<0),

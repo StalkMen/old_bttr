@@ -1,7 +1,7 @@
 #pragma once
 //-' Глобальный конфиг для дефайнов по всему движку (включая рендеры)
 
-//-' CryRay Engine x64
+//-' CryRay Engine
 	#define CRASH_PROTECTION_OGSR(cond, ...) do { if (!(cond)) Msg(__VA_ARGS__); } while (0)	// Защита от вылета, когда аргумент равен нулю или исключению(DEBUG), OGSR +
 	#define LUA_EXPORT					luabind::functor<LPCSTR>								// Для экспорта С++ в LUA вызовы
 	#define _SCRIPT_ENGINE				ai().script_engine().functor							// ai().script_engine().functor

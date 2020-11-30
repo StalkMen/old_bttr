@@ -629,8 +629,8 @@ int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
 int	  render_nightvision = 0;
 BOOL  rain_drops = 1;
-Fvector ps_r2_drops_control = { 0.000000f, 0.000000f, 0.000000f };
-
+Fvector ps_r2_drops_control = { 0.0f, 0.0f, 0.0f };
+Fvector ps_r2_gasmask_control = { 0.0f, 0.0f, 0.0f };
 //-----------------------------------------------------------------------
 void		xrRender_initconsole()
 {
