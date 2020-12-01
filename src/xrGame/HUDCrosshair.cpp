@@ -1,4 +1,4 @@
-// HUDCrosshair.cpp:  êðåñòèê ïðèöåëà, îòîáðàæàþùèé òåêóùóþ äèñïåðñèþ
+// HUDCrosshair.cpp:  ÐºÑ€ÐµÑÑ‚Ð¸Ðº Ð¿Ñ€Ð¸Ñ†ÐµÐ»Ð°, Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°ÑŽÑ‰Ð¸Ð¹ Ñ‚ÐµÐºÑƒÑ‰ÑƒÑŽ Ð´Ð¸ÑÐ¿ÐµÑ€ÑÐ¸ÑŽ
 // 
 //////////////////////////////////////////////////////////////////////
 
@@ -27,15 +27,15 @@ CHUDCrosshair::~CHUDCrosshair	()
 
 void CHUDCrosshair::Load		()
 {
-	//âñå ðàçìåðû â ïðîöåíòàõ îò äëèíû ýêðàíà
-	//äëèíà êðåñòèêà 
+	//Ð²ÑÐµ Ñ€Ð°Ð·Ð¼ÐµÑ€Ñ‹ Ð² Ð¿Ñ€Ð¾Ñ†ÐµÐ½Ñ‚Ð°Ñ… Ð¾Ñ‚ Ð´Ð»Ð¸Ð½Ñ‹ ÑÐºÑ€Ð°Ð½Ð°
+	//Ð´Ð»Ð¸Ð½Ð° ÐºÑ€ÐµÑÑ‚Ð¸ÐºÐ° 
 	cross_length_perc = pSettings->r_float (HUD_CURSOR_SECTION, "cross_length");
 	min_radius_perc = pSettings->r_float (HUD_CURSOR_SECTION, "min_radius");
 	max_radius_perc = pSettings->r_float (HUD_CURSOR_SECTION, "max_radius");
 	cross_color = pSettings->r_fcolor (HUD_CURSOR_SECTION, "cross_color").get();
 }
 
-//âûñòàâëÿåò radius îò min_radius äî max_radius
+//Ð²Ñ‹ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ radius Ð¾Ñ‚ min_radius Ð´Ð¾ max_radius
 void CHUDCrosshair::SetDispersion	(float disp)
 { 
 	Fvector4 r;
@@ -43,7 +43,7 @@ void CHUDCrosshair::SetDispersion	(float disp)
 	Device.mProject.transform	(r,R);
 
 	Fvector2		scr_size;
-	scr_size.set	(float(::Render->getTarget()->get_width()), float(::Render->getTarget()->get_height()));
+	scr_size.set	(float(EnvCryRay.Render->getTarget()->get_width()), float(EnvCryRay.Render->getTarget()->get_height()));
 	float radius_pixels		= _abs(r.x)*scr_size.x/2.0f;
 	target_radius		= radius_pixels; 
 }
@@ -121,10 +121,10 @@ void CHUDCrosshair::OnRender()
 		VERIFY(g_bRendering);
 		Fvector2 center;
 		Fvector2 scr_size;
-		scr_size.set(float(::Render->getTarget()->get_width()), float(::Render->getTarget()->get_height()));
+		scr_size.set(float(EnvCryRay.Render->getTarget()->get_width()), float(EnvCryRay.Render->getTarget()->get_height()));
 		center.set(scr_size.x / 2.0f, scr_size.y / 2.0f);
 
-		UIRender->StartPrimitive(10, IUIRender::ptLineList, UI().m_currentPointType);
+		EnvCryRay.UIRender->StartPrimitive(10, IUIRender::ptLineList, UI().m_currentPointType);
 
 		float cross_length = cross_length_perc * scr_size.x;
 		float min_radius = min_radius_perc * scr_size.x;
@@ -139,25 +139,25 @@ void CHUDCrosshair::OnRender()
 		float y_max = x_max;
 
 		// 0
-		UIRender->PushPoint(center.x, center.y + y_min, 0, cross_color, 0, 0);
-		UIRender->PushPoint(center.x, center.y + y_max, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x, center.y + y_min, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x, center.y + y_max, 0, cross_color, 0, 0);
 		// 1
-		UIRender->PushPoint(center.x, center.y - y_min, 0, cross_color, 0, 0);
-		UIRender->PushPoint(center.x, center.y - y_max, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x, center.y - y_min, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x, center.y - y_max, 0, cross_color, 0, 0);
 		// 2
-		UIRender->PushPoint(center.x + x_min, center.y, 0, cross_color, 0, 0);
-		UIRender->PushPoint(center.x + x_max, center.y, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x + x_min, center.y, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x + x_max, center.y, 0, cross_color, 0, 0);
 		// 3
-		UIRender->PushPoint(center.x - x_min, center.y, 0, cross_color, 0, 0);
-		UIRender->PushPoint(center.x - x_max, center.y, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x - x_min, center.y, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x - x_max, center.y, 0, cross_color, 0, 0);
 
 		// point
-		UIRender->PushPoint(center.x - 0.5f, center.y, 0, cross_color, 0, 0);
-		UIRender->PushPoint(center.x + 0.5f, center.y, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x - 0.5f, center.y, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x + 0.5f, center.y, 0, cross_color, 0, 0);
 
 		// render
-		UIRender->SetShader(*hShader);
-		UIRender->FlushPrimitive();
+		EnvCryRay.UIRender->SetShader(*hShader);
+		EnvCryRay.UIRender->FlushPrimitive();
 	}
 	else
 	{
@@ -166,7 +166,7 @@ void CHUDCrosshair::OnRender()
 		Fvector4 v_res;
 		float x, y;
 
-		scr_size.set(float(::Render->getTarget()->get_width()), float(::Render->getTarget()->get_height()));
+		scr_size.set(float(EnvCryRay.Render->getTarget()->get_width()), float(EnvCryRay.Render->getTarget()->get_height()));
 
 		CWeapon* weapon = smart_cast<CWeapon*>(Actor()->inventory().ActiveItem());
 		CCameraBase* pCam = Actor()->cam_Active();
@@ -195,7 +195,7 @@ void CHUDCrosshair::OnRender()
 		else
 			center.set(scr_size.x / 2.0f, scr_size.y / 2.0f);
 
-		UIRender->StartPrimitive(10, IUIRender::ptLineList, UI().m_currentPointType);
+		EnvCryRay.UIRender->StartPrimitive(10, IUIRender::ptLineList, UI().m_currentPointType);
 
 		float cross_length = cross_length_perc * scr_size.x;
 		float min_radius = min_radius_perc * scr_size.x;
@@ -210,25 +210,25 @@ void CHUDCrosshair::OnRender()
 		float y_max = x_max;
 
 		// 0
-		UIRender->PushPoint(center.x, center.y + y_min, 0, cross_color, 0, 0);
-		UIRender->PushPoint(center.x, center.y + y_max, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x, center.y + y_min, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x, center.y + y_max, 0, cross_color, 0, 0);
 		// 1
-		UIRender->PushPoint(center.x, center.y - y_min, 0, cross_color, 0, 0);
-		UIRender->PushPoint(center.x, center.y - y_max, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x, center.y - y_min, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x, center.y - y_max, 0, cross_color, 0, 0);
 		// 2
-		UIRender->PushPoint(center.x + x_min, center.y, 0, cross_color, 0, 0);
-		UIRender->PushPoint(center.x + x_max, center.y, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x + x_min, center.y, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x + x_max, center.y, 0, cross_color, 0, 0);
 		// 3
-		UIRender->PushPoint(center.x - x_min, center.y, 0, cross_color, 0, 0);
-		UIRender->PushPoint(center.x - x_max, center.y, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x - x_min, center.y, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x - x_max, center.y, 0, cross_color, 0, 0);
 
 		// point
-		UIRender->PushPoint(center.x - 0.5f, center.y, 0, cross_color, 0, 0);
-		UIRender->PushPoint(center.x + 0.5f, center.y, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x - 0.5f, center.y, 0, cross_color, 0, 0);
+		EnvCryRay.UIRender->PushPoint(center.x + 0.5f, center.y, 0, cross_color, 0, 0);
 
 		// render
-		UIRender->SetShader(*hShader);
-		UIRender->FlushPrimitive();
+		EnvCryRay.UIRender->SetShader(*hShader);
+		EnvCryRay.UIRender->FlushPrimitive();
 
 	}
 

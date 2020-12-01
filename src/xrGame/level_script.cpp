@@ -716,7 +716,7 @@ u32 vertex_id	(Fvector position)
 
 u32 render_get_dx_level()
 {
-	return ::Render->get_dx_level();
+	return EnvCryRay.Render->get_dx_level();
 }
 
 CUISequencer* g_tutorial = NULL;
@@ -897,6 +897,11 @@ float RandomFloat2(float min, float max)
 	return rondo;
 }
 
+float get_reaction_artefact()
+{
+	return Actor()->fArtReac;
+}
+
 #pragma optimize("s",on)
 void CLevel::script_register(lua_State *L)
 {
@@ -949,7 +954,8 @@ void CLevel::script_register(lua_State *L)
 
 		def("set_game_difficulty",				set_game_difficulty),
 		def("get_game_difficulty",				get_game_difficulty),
-		
+		def("get_reaction_artefact",			get_reaction_artefact),
+
 		def("get_time_days",					get_time_days),
 		def("get_time_hours",					get_time_hours),
 		def("get_time_minutes",					get_time_minutes),

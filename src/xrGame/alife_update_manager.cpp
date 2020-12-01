@@ -25,6 +25,7 @@
 #include "../xrEngine/igame_persistent.h"
 #include "../xrEngine/Discord.h"
 #include "script_engine.h"
+#include "CryRayGameConstants.h"
 
 using namespace ALife;
 #ifdef	ENGINE_LUA_ALIFE_UPDAGE_MANAGER_CALLBACKS
@@ -64,11 +65,13 @@ CALifeUpdateManager::CALifeUpdateManager	(xrServer *server, LPCSTR section) :
 	CALifeStorageManager	(server,section),
 	CALifeSimulatorBase		(server,section)
 {
-	shedule.t_min			= pSettings->r_s32	(section,"schedule_min");
-	shedule.t_max			= pSettings->r_s32	(section,"schedule_max");
+	CryRayParams::CryRayClass cryray;
+
+	shedule.t_min			= cryray.alife_sheduler_min_factor();//pSettings->r_s32	(section,"schedule_min");
+	shedule.t_max			= cryray.alife_sheduler_max_factor();//pSettings->r_s32	(section,"schedule_max");
 	shedule_register		();
 
-	m_max_process_time		= pSettings->r_s32	(section,"process_time");
+	m_max_process_time		= cryray.alife_sheduler_process();//pSettings->r_s32	(section,"process_time");
 	m_update_monster_factor	= pSettings->r_float(section,"update_monster_factor");
 	m_objects_per_update	= pSettings->r_u32	(section,"objects_per_update");
 	m_changing_level		= false;

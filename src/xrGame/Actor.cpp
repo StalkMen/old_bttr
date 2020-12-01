@@ -131,7 +131,7 @@ CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
 	fFPCamYawMagnitude		= 0.0f; //--#SM+#--
 	fFPCamPitchMagnitude	= 0.0f; //--#SM+#--
 	
-    // эффекторы
+    // СЌС„С„РµРєС‚РѕСЂС‹
     pCamBobbing = 0;
 
     r_torso.yaw = 0;
@@ -171,7 +171,7 @@ CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
     Device.seqRender.Add	(this,REG_PRIORITY_LOW);
 #endif
 
-    //разрешить использование пояса в inventory
+    //СЂР°Р·СЂРµС€РёС‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РїРѕСЏСЃР° РІ inventory
     inventory().SetBeltUseful(true);
 
     m_pPersonWeLookingAt = NULL;
@@ -409,7 +409,7 @@ void CActor::Load(LPCSTR section)
     // sheduler
     shedule.t_min = shedule.t_max = 1;
 
-    // настройки дисперсии стрельбы
+    // РЅР°СЃС‚СЂРѕР№РєРё РґРёСЃРїРµСЂСЃРёРё СЃС‚СЂРµР»СЊР±С‹
     m_fDispBase = pSettings->r_float(section, "disp_base");
     m_fDispBase = deg2rad(m_fDispBase);
 
@@ -493,12 +493,12 @@ void	CActor::Hit(SHit* pHDS)
             if (Device.dwFrame != last_hit_frame &&
                 HDS.bone() != BI_NONE)
             {
-                // вычислить позицию и направленность партикла
+                // РІС‹С‡РёСЃР»РёС‚СЊ РїРѕР·РёС†РёСЋ Рё РЅР°РїСЂР°РІР»РµРЅРЅРѕСЃС‚СЊ РїР°СЂС‚РёРєР»Р°
                 Fmatrix pos;
 
                 CParticlesPlayer::MakeXFORM(this, HDS.bone(), HDS.dir, HDS.p_in_bone_space, pos);
 
-                // установить particles
+                // СѓСЃС‚Р°РЅРѕРІРёС‚СЊ particles
                 CParticlesObject* ps = NULL;
 
                 if (eacFirstEye == cam_active && this == Level().CurrentEntity())
@@ -755,7 +755,7 @@ void CActor::Die(CObject* who)
                 inventory().Ruck(item_in_slot);
         };
 
-        ///!!! чистка пояса
+        ///!!! С‡РёСЃС‚РєР° РїРѕСЏСЃР°
         TIItemContainer& l_blist = inventory().m_belt;
         while (!l_blist.empty())
             inventory().Ruck(l_blist.front());
@@ -770,7 +770,7 @@ void CActor::Die(CObject* who)
         m_DangerSnd.stop();
     }
 
-#pragma todo("OldSerpskiStalker: Перевел на консольную команду для отключения этой опции")
+#pragma todo("OldSerpskiStalker: РџРµСЂРµРІРµР» РЅР° РєРѕРЅСЃРѕР»СЊРЅСѓСЋ РєРѕРјР°РЅРґСѓ РґР»СЏ РѕС‚РєР»СЋС‡РµРЅРёСЏ СЌС‚РѕР№ РѕРїС†РёРё")
 #pragma todo("TEAM Epic: first person death view (Note: It's fixed to position and does not follow corpse)")
     if (actor_death_first_eye)
     {
@@ -1258,7 +1258,7 @@ void CActor::shedule_Update(u32 DT)
 
     inherited::shedule_Update(DT);
 
-    //эффектор включаемый при ходьбе
+    //СЌС„С„РµРєС‚РѕСЂ РІРєР»СЋС‡Р°РµРјС‹Р№ РїСЂРё С…РѕРґСЊР±Рµ
     if (!pCamBobbing)
     {
         pCamBobbing = xr_new<CEffectorBobbing>();
@@ -1266,7 +1266,7 @@ void CActor::shedule_Update(u32 DT)
     }
     pCamBobbing->SetState(mstate_real, conditions().IsLimping(), IsZoomAimingMode());
 
-    //звук тяжелого дыхания при уталости и хромании
+    //Р·РІСѓРє С‚СЏР¶РµР»РѕРіРѕ РґС‹С…Р°РЅРёСЏ РїСЂРё СѓС‚Р°Р»РѕСЃС‚Рё Рё С…СЂРѕРјР°РЅРёРё
     if (this == Level().CurrentControlEntity() && !g_dedicated_server)
     {
         if (conditions().IsLimping() && g_Alive() && !psActorFlags.test(AF_GODMODE_RT))
@@ -1334,11 +1334,11 @@ void CActor::shedule_Update(u32 DT)
             m_DangerSnd.stop();
     }
 
-    //если в режиме HUD, то сама модель актера не рисуется
+    //РµСЃР»Рё РІ СЂРµР¶РёРјРµ HUD, С‚Рѕ СЃР°РјР° РјРѕРґРµР»СЊ Р°РєС‚РµСЂР° РЅРµ СЂРёСЃСѓРµС‚СЃСЏ
     if (!character_physics_support()->IsRemoved())
         setVisible(!HUDview());
 
-    //что актер видит перед собой
+    //С‡С‚Рѕ Р°РєС‚РµСЂ РІРёРґРёС‚ РїРµСЂРµРґ СЃРѕР±РѕР№
     collide::rq_result& RQ = HUD().GetCurrentRayQuery();
 
 
@@ -1411,7 +1411,7 @@ void CActor::shedule_Update(u32 DT)
 
     //	UpdateSleep									();
 
-    //для свойст артефактов, находящихся на поясе
+    //РґР»СЏ СЃРІРѕР№СЃС‚ Р°СЂС‚РµС„Р°РєС‚РѕРІ, РЅР°С…РѕРґСЏС‰РёС…СЃСЏ РЅР° РїРѕСЏСЃРµ
     UpdateArtefactsOnBeltAndOutfit();
     m_pPhysics_support->in_shedule_Update(DT);
     Check_for_AutoPickUp();
@@ -1423,8 +1423,8 @@ void CActor::renderable_Render	()
     inherited::renderable_Render();
     //if(1/*!HUDview()*/) //Swartz: replaced by block below for actor shadow
 if ((cam_active==eacFirstEye && // first eye cam
-::Render->get_generation() == ::Render->GENERATION_R2 && // R2
-::Render->active_phase() == 1) // shadow map rendering on R2	
+EnvCryRay.Render->get_generation() == EnvCryRay.Render->GENERATION_R2 && // R2
+EnvCryRay.Render->active_phase() == 1) // shadow map rendering on R2	
 ||
 !(IsFocused() &&
 (cam_active==eacFirstEye) &&
@@ -1520,7 +1520,7 @@ void CActor::RenderIndicator(Fvector dpos, float r1, float r2, const ui_shader &
     if (!g_Alive()) return;
 
 
-    UIRender->StartPrimitive(4, IUIRender::ptTriStrip, IUIRender::pttLIT);
+    EnvCryRay.UIRender->StartPrimitive(4, IUIRender::ptTriStrip, IUIRender::pttLIT);
 
     CBoneInstance& BI = smart_cast<IKinematics*>(Visual())->LL_GetBoneInstance(u16(m_head));
     Fmatrix M;
@@ -1544,25 +1544,13 @@ void CActor::RenderIndicator(Fvector dpos, float r1, float r2, const ui_shader &
     c.invert(a);
     d.invert(b);
 
-    UIRender->PushPoint(d.x + pos.x, d.y + pos.y, d.z + pos.z, 0xffffffff, 0.f, 1.f);
-    UIRender->PushPoint(a.x + pos.x, a.y + pos.y, a.z + pos.z, 0xffffffff, 0.f, 0.f);
-    UIRender->PushPoint(c.x + pos.x, c.y + pos.y, c.z + pos.z, 0xffffffff, 1.f, 1.f);
-    UIRender->PushPoint(b.x + pos.x, b.y + pos.y, b.z + pos.z, 0xffffffff, 1.f, 0.f);
-    //pv->set         (d.x+pos.x,d.y+pos.y,d.z+pos.z, 0xffffffff, 0.f,1.f);        pv++;
-    //pv->set         (a.x+pos.x,a.y+pos.y,a.z+pos.z, 0xffffffff, 0.f,0.f);        pv++;
-    //pv->set         (c.x+pos.x,c.y+pos.y,c.z+pos.z, 0xffffffff, 1.f,1.f);        pv++;
-    //pv->set         (b.x+pos.x,b.y+pos.y,b.z+pos.z, 0xffffffff, 1.f,0.f);        pv++;
-    // render	
-    //dwCount 				= u32(pv-pv_start);
-    //RCache.Vertex.Unlock	(dwCount,hFriendlyIndicator->vb_stride);
-
-    UIRender->CacheSetXformWorld(Fidentity);
-    //RCache.set_xform_world		(Fidentity);
-    UIRender->SetShader(*IndShader);
-    //RCache.set_Shader			(IndShader);
-    //RCache.set_Geometry			(hFriendlyIndicator);
-    //RCache.Render	   			(D3DPT_TRIANGLESTRIP,dwOffset,0, dwCount, 0, 2);
-    UIRender->FlushPrimitive();
+    EnvCryRay.UIRender->PushPoint(d.x + pos.x, d.y + pos.y, d.z + pos.z, 0xffffffff, 0.f, 1.f);
+    EnvCryRay.UIRender->PushPoint(a.x + pos.x, a.y + pos.y, a.z + pos.z, 0xffffffff, 0.f, 0.f);
+    EnvCryRay.UIRender->PushPoint(c.x + pos.x, c.y + pos.y, c.z + pos.z, 0xffffffff, 1.f, 1.f);
+    EnvCryRay.UIRender->PushPoint(b.x + pos.x, b.y + pos.y, b.z + pos.z, 0xffffffff, 1.f, 0.f);
+    EnvCryRay.UIRender->CacheSetXformWorld(Fidentity);
+    EnvCryRay.UIRender->SetShader(*IndShader);
+    EnvCryRay.UIRender->FlushPrimitive();
 };
 
 static float mid_size = 0.097f;
@@ -1627,15 +1615,6 @@ void CActor::SetPhPosition(const Fmatrix &transform)
 
 void CActor::ForceTransform(const Fmatrix& m)
 {
-    //if( !g_Alive() )
-    //			return;
-    //VERIFY(_valid(m));
-    //XFORM().set( m );
-    //if( character_physics_support()->movement()->CharacterExist() )
-    //		character_physics_support()->movement()->EnableCharacter();
-    //character_physics_support()->set_movement_position( m.c );
-    //character_physics_support()->movement()->SetVelocity( 0, 0, 0 );
-
     character_physics_support()->ForceTransform(m);
     const float block_damage_time_seconds = 2.f;
     if (!IsGameTypeSingle())
@@ -1648,7 +1627,6 @@ float CActor::Radius()const
     float R = inherited::Radius();
     CWeapon* W = smart_cast<CWeapon*>(inventory().ActiveItem());
     if (W) R += W->Radius();
-    //	if (HUDview()) R *= 1.f/psHUD_FOV;
     return R;
 }
 
@@ -1760,7 +1738,7 @@ void CActor::MoveArtefactBelt(const CArtefact* artefact, bool on_belt)
 {
     VERIFY(artefact);
 
-    //повесить артефакт на пояс
+    //РїРѕРІРµСЃРёС‚СЊ Р°СЂС‚РµС„Р°РєС‚ РЅР° РїРѕСЏСЃ
     if (on_belt)
     {
         VERIFY(m_ArtefactsOnBelt.end() == std::find(m_ArtefactsOnBelt.begin(), m_ArtefactsOnBelt.end(), artefact));
@@ -1780,9 +1758,9 @@ void CActor::MoveArtefactBelt(const CArtefact* artefact, bool on_belt)
 
 void CActor::UpdateArtefactsOnBeltAndOutfit()
 {
-    static float update_time = 0;
-
-    float f_update_time = 0;
+    static float update_time    = 0.0f;
+           float f_update_time  = 0.0f;
+           /*float*/ fArtReac       = 0.0f;
 
     if (update_time < ARTEFACTS_UPDATE_TIME)
     {
@@ -1808,7 +1786,8 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
 			conditions().ChangeSatiety((artefact->m_fSatietyRestoreSpeed*art_cond)   * f_update_time);
 			conditions().ChangeSleep((artefact->m_fSleepRestoreSpeed*art_cond)   * f_update_time);
 			conditions().ChangeThirst((artefact->m_fThirstRestoreSpeed*art_cond)   * f_update_time);
-			conditions().ChangeAR((artefact->m_fARRestoreSpeed*art_cond)   * f_update_time);
+//			conditions().ChangeAR((artefact->m_fARRestoreSpeed*art_cond)   * f_update_time);
+
 			if ((artefact->m_fRadiationRestoreSpeed*art_cond) > 0.0f)
             {
 				float val = (artefact->m_fRadiationRestoreSpeed*art_cond) - conditions().GetBoostRadiationImmunity();
@@ -1817,9 +1796,13 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
             }
             else
 				conditions().ChangeRadiation((artefact->m_fRadiationRestoreSpeed*art_cond)	* f_update_time);
+
+            fArtReac += artefact->m_fARRestoreSpeed * art_cond;
         }
     }
-	
+
+    Msg("Artefact reaction summ: [%f]", fArtReac);
+
     CCustomOutfit* outfit = GetOutfit();
     CHelmet* pHelmet = smart_cast<CHelmet*>(inventory().ItemFromSlot(HELMET_SLOT));
 
@@ -1839,7 +1822,7 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
 		conditions().ChangeRadiation(((outfit ? outfit->m_fRadiationRestoreSpeed : 0.f) + (pHelmet ? pHelmet->m_fRadiationRestoreSpeed : 0.f)) * f_update_time);
 		conditions().ChangeSleep(((outfit ? outfit->m_fSleepRestoreSpeed : 0.f) + (pHelmet ? pHelmet->m_fSleepRestoreSpeed : 0.f)) * f_update_time);
 		conditions().ChangeThirst(((outfit ? outfit->m_fThirstRestoreSpeed : 0.f) + (pHelmet ? pHelmet->m_fThirstRestoreSpeed : 0.f)) *f_update_time);
-		conditions().ChangeAR(((outfit ? outfit->m_fARRestoreSpeed : 0.f) + (pHelmet ? pHelmet->m_fARRestoreSpeed : 0.f)) *f_update_time);
+//		conditions().ChangeAR(((outfit ? outfit->m_fARRestoreSpeed : 0.f) + (pHelmet ? pHelmet->m_fARRestoreSpeed : 0.f)) *f_update_time);
     }
 }
 
@@ -1926,9 +1909,9 @@ void CActor::UpdateMotionIcon(u32 mstate_rl)
             if (mstate_rl & mcCrouch)
             {
                 if (!isActorAccelerated(mstate_rl, IsZoomAimingMode()))
-                    (*motion_icon).ShowState(CUIMotionIcon::stCreep);  // В присяди с оружием
+                    (*motion_icon).ShowState(CUIMotionIcon::stCreep);  // Р’ РїСЂРёСЃСЏРґРё СЃ РѕСЂСѓР¶РёРµРј
                 else
-                    (*motion_icon).ShowState(CUIMotionIcon::stCrouch); // Крадемся с оружием
+                    (*motion_icon).ShowState(CUIMotionIcon::stCrouch); // РљСЂР°РґРµРјСЃСЏ СЃ РѕСЂСѓР¶РёРµРј
             }
             else
                 if (mstate_rl & mcSprint)
@@ -1937,7 +1920,7 @@ void CActor::UpdateMotionIcon(u32 mstate_rl)
                     if (mstate_rl & mcAnyMove && isActorAccelerated(mstate_rl, IsZoomAimingMode()))
                         (*motion_icon).ShowState(CUIMotionIcon::stRun);
                     else
-                        (*motion_icon).ShowState(CUIMotionIcon::stNormal); // Стоим 
+                        (*motion_icon).ShowState(CUIMotionIcon::stNormal); // РЎС‚РѕРёРј 
         }
     }
 }
@@ -1978,11 +1961,11 @@ bool CActor::can_attach(const CInventoryItem *inventory_item) const
     if (!item || /*!item->enabled() ||*/ !item->can_be_attached())
         return			(false);
 
-    //можно ли присоединять объекты такого типа
+    //РјРѕР¶РЅРѕ Р»Рё РїСЂРёСЃРѕРµРґРёРЅСЏС‚СЊ РѕР±СЉРµРєС‚С‹ С‚Р°РєРѕРіРѕ С‚РёРїР°
     if (m_attach_item_sections.end() == std::find(m_attach_item_sections.begin(), m_attach_item_sections.end(), inventory_item->object().cNameSect()))
         return false;
 
-    //если уже есть присоединненый объет такого типа 
+    //РµСЃР»Рё СѓР¶Рµ РµСЃС‚СЊ РїСЂРёСЃРѕРµРґРёРЅРЅРµРЅС‹Р№ РѕР±СЉРµС‚ С‚Р°РєРѕРіРѕ С‚РёРїР° 
     if (attached(inventory_item->object().cNameSect()))
         return false;
 
@@ -2120,18 +2103,18 @@ float CActor::GetRestoreSpeed(ALife::EConditionRestoreType const& type)
         }		
 		case ALife::eARRestoreSpeed:
         {
-										    res = conditions().V_AR();
+//										    res = conditions().V_AR();
 
-										    TIItemContainer::iterator itb = inventory().m_belt.begin();
-										    TIItemContainer::iterator ite = inventory().m_belt.end();
-										    for (; itb != ite; ++itb)
-										    {
-											    CArtefact*	artefact = smart_cast<CArtefact*>(*itb);
-											    if (artefact)
-											    {
-												    res += (artefact->m_fARRestoreSpeed*artefact->GetCondition());
-											    }
-										    }
+//										    TIItemContainer::iterator itb = inventory().m_belt.begin();
+//										    TIItemContainer::iterator ite = inventory().m_belt.end();
+//										    for (; itb != ite; ++itb)
+//										    {
+//											    CArtefact*	artefact = smart_cast<CArtefact*>(*itb);
+//											    if (artefact)
+//											    {
+//												    res += (artefact->m_fARRestoreSpeed*artefact->GetCondition());
+//											    }
+//										    }
 										    break;
         }				
         case ALife::ePowerRestoreSpeed:

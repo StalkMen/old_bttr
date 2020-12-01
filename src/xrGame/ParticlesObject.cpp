@@ -30,7 +30,7 @@ void CParticlesObject::Init	(LPCSTR p_name, IRender_Sector* S, BOOL bAutoRemove)
 	if(!g_dedicated_server)
 	{
 		// create visual
-		renderable.visual		= Render->model_CreateParticles(p_name);
+		renderable.visual		= EnvCryRay.Render->model_CreateParticles(p_name);
 		VERIFY					(renderable.visual);
 		IParticleCustom* V		= smart_cast<IParticleCustom*>(renderable.visual);  VERIFY(V);
 		time_limit				= V->GetTimeLimit();
@@ -249,8 +249,8 @@ void CParticlesObject::renderable_Render	()
 		dwLastTime			= Device.dwTimeGlobal;
 	}
 
-	::Render->set_Transform	(&renderable.xform);
-	::Render->add_Visual	(renderable.visual);
+	EnvCryRay.Render->set_Transform	(&renderable.xform);
+	EnvCryRay.Render->add_Visual	(renderable.visual);
 }
 
 bool CParticlesObject::IsAutoRemove			()
@@ -264,8 +264,8 @@ void CParticlesObject::SetAutoRemove		(bool auto_remove)
 	m_bAutoRemove = auto_remove;
 }
 
-//играются ли партиклы, отличается от PSI_Alive, тем что после
-//остановки Stop партиклы могут еще доигрывать анимацию IsPlaying = true
+//РёРіСЂР°СЋС‚СЃСЏ Р»Рё РїР°СЂС‚РёРєР»С‹, РѕС‚Р»РёС‡Р°РµС‚СЃСЏ РѕС‚ PSI_Alive, С‚РµРј С‡С‚Рѕ РїРѕСЃР»Рµ
+//РѕСЃС‚Р°РЅРѕРІРєРё Stop РїР°СЂС‚РёРєР»С‹ РјРѕРіСѓС‚ РµС‰Рµ РґРѕРёРіСЂС‹РІР°С‚СЊ Р°РЅРёРјР°С†РёСЋ IsPlaying = true
 bool CParticlesObject::IsPlaying()
 {
 	if(g_dedicated_server)		return false;

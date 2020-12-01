@@ -12,10 +12,10 @@
 
 CProjector::CProjector()
 {
-	light_render			= ::Render->light_create();
+	light_render			= EnvCryRay.Render->light_create();
 	light_render->set_type	(IRender_Light::SPOT);
 	light_render->set_shadow(true);
-	glow_render				= ::Render->glow_create();
+	glow_render				= EnvCryRay.Render->glow_create();
 	lanim					= 0;
 	bone_x.id				= BI_NONE;
 	bone_y.id				= BI_NONE;
@@ -142,7 +142,7 @@ void CProjector::UpdateCL	()
 		// calc color animator
 		if (lanim){
 			int frame;
-			// âîçâðàùàåò â ôîðìàòå BGR
+			// Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ Ð² Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ðµ BGR
 			u32 clr			= lanim->CalculateBGR(Device.fTimeGlobal,frame); 
 
 			Fcolor			fclr;

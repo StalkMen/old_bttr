@@ -101,7 +101,7 @@ BOOL CHangingLamp::net_Spawn(CSE_Abstract* DC)
 	clr.set					(lamp->color);						clr.a = 1.f;
 	clr.mul_rgb				(fBrightness);
 
-	light_render			= ::Render->light_create();
+	light_render			= EnvCryRay.Render->light_create();
 	light_render->set_shadow(!!lamp->flags.is(CSE_ALifeObjectHangingLamp::flCastShadow));
 	light_render->set_volumetric(!!lamp->flags.is(CSE_ALifeObjectHangingLamp::flVolumetric));
 	light_render->set_type	(lamp->flags.is(CSE_ALifeObjectHangingLamp::flTypeSpot)?IRender_Light::SPOT:IRender_Light::POINT);
@@ -116,7 +116,7 @@ BOOL CHangingLamp::net_Spawn(CSE_Abstract* DC)
 	light_render->set_volumetric_distance(lamp->m_volumetric_distance);	
 
 	if (lamp->glow_texture.size())	{
-		glow_render				= ::Render->glow_create();
+		glow_render				= EnvCryRay.Render->glow_create();
 		glow_render->set_texture(*lamp->glow_texture);
 		glow_render->set_color	(clr);
 		glow_render->set_radius	(lamp->glow_radius);
@@ -124,7 +124,7 @@ BOOL CHangingLamp::net_Spawn(CSE_Abstract* DC)
 
 	if (lamp->flags.is(CSE_ALifeObjectHangingLamp::flPointAmbient)){
 		ambient_power			= lamp->m_ambient_power;
-		light_ambient			= ::Render->light_create();
+		light_ambient			= EnvCryRay.Render->light_create();
 		light_ambient->set_type	(IRender_Light::POINT);
 		light_ambient->set_shadow(false);
 		clr.mul_rgb				(ambient_power);
@@ -249,7 +249,7 @@ void CHangingLamp::UpdateCL	()
 		
 		if (lanim){
 			int frame;
-			u32 clr					= lanim->CalculateBGR(Device.fTimeGlobal,frame); // âîçâðàùàåò â ôîðìàòå BGR
+			u32 clr					= lanim->CalculateBGR(Device.fTimeGlobal,frame); // Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ Ð² Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ðµ BGR
 			Fcolor					fclr;
 			fclr.set				((float)color_get_B(clr),(float)color_get_G(clr),(float)color_get_R(clr),1.f);
 			fclr.mul_rgb			(fBrightness/255.f);

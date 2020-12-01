@@ -89,7 +89,7 @@ ICF static BOOL pick_trace_callback(collide::rq_result& result, LPVOID params)
 		return FALSE;
 	}else
 	{
-		//получить треугольник и узнать его материал
+		//РїРѕР»СѓС‡РёС‚СЊ С‚СЂРµСѓРіРѕР»СЊРЅРёРє Рё СѓР·РЅР°С‚СЊ РµРіРѕ РјР°С‚РµСЂРёР°Р»
 		CDB::TRI* T		= Level().ObjectSpace.GetStaticTris()+result.element;
 		
 		SGameMtl* mtl = GMLib.GetMaterialByIdx(T->material);
@@ -277,11 +277,11 @@ void CHUDTarget::Render()
 #endif
 	}
 
-	//отрендерить кружочек или крестик
+	//РѕС‚СЂРµРЅРґРµСЂРёС‚СЊ РєСЂСѓР¶РѕС‡РµРє РёР»Рё РєСЂРµСЃС‚РёРє
 	if(!m_bShowCrosshair)
 	{
 		
-		UIRender->StartPrimitive	(6, IUIRender::ptTriList, UI().m_currentPointType);
+		EnvCryRay.UIRender->StartPrimitive	(6, IUIRender::ptTriList, UI().m_currentPointType);
 		
 		Fvector2		scr_size;
 		scr_size.set	(float(Device.dwWidth) ,float(Device.dwHeight));
@@ -299,20 +299,20 @@ void CHUDTarget::Render()
 
 		//	TODO: return code back to indexed rendering since we use quads
 		//	Tri 1
-		UIRender->PushPoint(cx - size_x, cy + size_y, 0, C, 0, 1);
-		UIRender->PushPoint(cx - size_x, cy - size_y, 0, C, 0, 0);
-		UIRender->PushPoint(cx + size_x, cy + size_y, 0, C, 1, 1);
+		EnvCryRay.UIRender->PushPoint(cx - size_x, cy + size_y, 0, C, 0, 1);
+		EnvCryRay.UIRender->PushPoint(cx - size_x, cy - size_y, 0, C, 0, 0);
+		EnvCryRay.UIRender->PushPoint(cx + size_x, cy + size_y, 0, C, 1, 1);
 		//	Tri 2
-		UIRender->PushPoint(cx + size_x, cy + size_y, 0, C, 1, 1);
-		UIRender->PushPoint(cx - size_x, cy - size_y, 0, C, 0, 0);
-		UIRender->PushPoint(cx + size_x, cy - size_y, 0, C, 1, 0);
+		EnvCryRay.UIRender->PushPoint(cx + size_x, cy + size_y, 0, C, 1, 1);
+		EnvCryRay.UIRender->PushPoint(cx - size_x, cy - size_y, 0, C, 0, 0);
+		EnvCryRay.UIRender->PushPoint(cx + size_x, cy - size_y, 0, C, 1, 0);
 
 		// unlock VB and Render it as triangle LIST
-		UIRender->SetShader(*hShader);
-		UIRender->FlushPrimitive();
+		EnvCryRay.UIRender->SetShader(*hShader);
+		EnvCryRay.UIRender->FlushPrimitive();
 
 	}else{
-		//отрендерить прицел
+		//РѕС‚СЂРµРЅРґРµСЂРёС‚СЊ РїСЂРёС†РµР»
 		HUDCrosshair.cross_color	= C;
 		HUDCrosshair.OnRender		();
 	}

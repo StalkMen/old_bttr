@@ -378,18 +378,18 @@ void CLevel::ProcessGameEvents()
             game_events->get(ID, dest, type, P);
             //AVO: spawn antifreeze implementation by alpet
 #ifdef SPAWN_ANTIFREEZE
-            // íå îòïðàâëÿòü ñîáûòèÿ íå çàñïàâíåííûì îáúåêòàì
+            // Ð½Ðµ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÑÑ‚ÑŒ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ñ Ð½Ðµ Ð·Ð°ÑÐ¿Ð°Ð²Ð½ÐµÐ½Ð½Ñ‹Ð¼ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°Ð¼
             if (g_bootComplete && M_EVENT == ID && PostponedSpawn(dest))
             {
                 spawn_events->insert(P);
                 continue;
             }
-            if (g_bootComplete && M_SPAWN == ID && Device.frame_elapsed() > work_limit) // alpet: ïîçâîëèò ïëàâíåå âûâîäèòü îáúåêòû â îíëàéí, áåç çàìåòíûõ ôðèçîâ
+            if (g_bootComplete && M_SPAWN == ID && Device.frame_elapsed() > work_limit) // alpet: Ð¿Ð¾Ð·Ð²Ð¾Ð»Ð¸Ñ‚ Ð¿Ð»Ð°Ð²Ð½ÐµÐµ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð¾Ð±ÑŠÐµÐºÑ‚Ñ‹ Ð² Ð¾Ð½Ð»Ð°Ð¹Ð½, Ð±ÐµÐ· Ð·Ð°Ð¼ÐµÑ‚Ð½Ñ‹Ñ… Ñ„Ñ€Ð¸Ð·Ð¾Ð²
             {
                 u16 parent_id;
                 GetSpawnInfo(P, parent_id);
                 //-------------------------------------------------				
-                if (parent_id < 0xffff) // îòêëàäûâàòü ñïàâí òîëüêî îáúåêòîâ â êîíòåéíåðû
+                if (parent_id < 0xffff) // Ð¾Ñ‚ÐºÐ»Ð°Ð´Ñ‹Ð²Ð°Ñ‚ÑŒ ÑÐ¿Ð°Ð²Ð½ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð² Ð² ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ñ‹
                 {
                     if (!spawn_events->available(svT))
                         Msg("* ProcessGameEvents, spawn event postponed. Events rest = %d", game_events->queue.size());
@@ -689,7 +689,7 @@ extern void draw_wnds_rects();
 
 void CLevel::OnRender()
 {
-	::Render->BeforeWorldRender();	//--#SM+#-- +SecondVP+
+    EnvCryRay.Render->BeforeWorldRender();	//--#SM+#-- +SecondVP+
 	
     inherited::OnRender();
     if (!game)
@@ -698,7 +698,7 @@ void CLevel::OnRender()
     //Device.Statistic->TEST1.Begin();
     BulletManager().Render();
 	
-	::Render->AfterWorldRender(); //--#SM+#-- +SecondVP+
+    EnvCryRay.Render->AfterWorldRender(); //--#SM+#-- +SecondVP+
 	
     //Device.Statistic->TEST1.End();
     HUD().RenderUI();

@@ -65,7 +65,7 @@ void CEliteDetector::render_item_3d_ui()
 	inherited::render_item_3d_ui();
 	ui().Draw();
 	//	Restore cull mode
-	UIRender->CacheSetCullMode(IUIRender::cmCCW);
+	EnvCryRay.UIRender->CacheSetCullMode(IUIRender::cmCCW);
 }
 
 void fix_ws_wnd_size(CUIWindow* w, float kx)
@@ -148,8 +148,8 @@ void CUIArtefactDetectorElite::Draw()
 
 	UI().m_currentPointType = IUIRender::pttLIT;
 
-	UIRender->CacheSetXformWorld(LM);
-	UIRender->CacheSetCullMode(IUIRender::cmNONE);
+	EnvCryRay.UIRender->CacheSetXformWorld(LM);
+	EnvCryRay.UIRender->CacheSetCullMode(IUIRender::cmNONE);
 
 	CUIWindow::Draw();
 
@@ -213,7 +213,7 @@ void CUIArtefactDetectorElite::RegisterItemToDraw(const Fvector& p, const shared
 	xr_map<shared_str, CUIStatic*>::iterator it = m_palette.find(palette_idx);
 	if (it == m_palette.end())
 	{
-#pragma todo("OldSerpskiStalker. Глупая хрень теперь отключена.")
+#pragma todo("OldSerpskiStalker. Р“Р»СѓРїР°СЏ С…СЂРµРЅСЊ С‚РµРїРµСЂСЊ РѕС‚РєР»СЋС‡РµРЅР°.")
 		//		Msg("! RegisterItemToDraw. static not found for [%s]", palette_idx.c_str());
 		return;
 	}

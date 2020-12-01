@@ -270,7 +270,7 @@ void CArtefact::StartLights()
 	if(!m_bLightsEnabled)		return;
 
 	VERIFY						(m_pTrailLight == NULL);
-	m_pTrailLight				= ::Render->light_create();
+	m_pTrailLight				= EnvCryRay.Render->light_create();
 	bool const b_light_shadow	= !!pSettings->r_bool(cNameSect(), "idle_light_shadow");
 
 	m_pTrailLight->set_shadow	(b_light_shadow);

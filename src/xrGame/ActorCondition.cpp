@@ -213,7 +213,7 @@ void CActorCondition::UpdateCondition()
 		UpdateBoosters();
 		UpdateSleep();
 		UpdateThirst();	
-		UpdateAR();
+//		UpdateAR();
 		UpdateKurr();
 		
 		m_fAlcohol		+= m_fV_Alcohol*m_fDeltaTime;
@@ -308,7 +308,7 @@ void CActorCondition::UpdateCondition()
 	UpdateSatiety();
 	UpdateKurr();
 	UpdateThirst();
-	UpdateAR();
+//	UpdateAR();
 	UpdateSleep();
 	UpdateBoosters();
 	inherited::UpdateCondition();
@@ -467,12 +467,6 @@ void CActorCondition::UpdateRadiation()
 
 void CActorCondition::UpdateSleep()
 {
- 	if (!IsGameTypeSingle()) 
-	{
-		m_fDeltaPower += m_fV_SleepPower * m_fDeltaTime;
- 		return;
-	}
-
 	if(m_fSleep>0)
 	{
 		m_fSleep -= m_fV_Sleep*m_fDeltaTime;
@@ -489,12 +483,6 @@ void CActorCondition::UpdateSleep()
 
 void CActorCondition::UpdateKurr()
 {
-	if (!IsGameTypeSingle())
-	{
-		m_fDeltaPower += m_fV_KurrPower * m_fDeltaTime;
-		return;
-	}
-
 	if (m_fKurr > 0)
 	{
 		m_fKurr -= m_fV_Kurr * m_fDeltaTime;
@@ -511,12 +499,6 @@ void CActorCondition::UpdateKurr()
 
 void CActorCondition::UpdateThirst()
 {
- 	if (!IsGameTypeSingle()) 
-	{
-		m_fDeltaPower += m_fV_ThirstPower * m_fDeltaTime;
-		return;
-	}
-
 	if(m_fThirst>0)
 	{
 		m_fThirst -= m_fV_Thirst*m_fDeltaTime;
@@ -533,34 +515,22 @@ void CActorCondition::UpdateThirst()
 
 void CActorCondition::UpdateAR()
 {
- 	if (!IsGameTypeSingle()) 
-	{
-		m_fDeltaPower += m_fV_ARPower * m_fDeltaTime;
-		return;
-	}
-
-	if(m_fAR>0)
-	{
-		m_fAR -= m_fV_AR*m_fDeltaTime;
-		clamp(m_fAR, 0.0f, 1.0f);
-	}
+//	if(m_fAR>0)
+//	{
+//		m_fAR -= m_fV_AR*m_fDeltaTime;
+//		clamp(m_fAR, 0.0f, 1.0f);
+//	}
 		
-	float ar_health_koef = (m_fAR-m_fARCritical)/(m_fAR>=m_fARCritical?1-m_fARCritical:m_fARCritical);
-	if(CanBeHarmed() && !psActorFlags.test(AF_GODMODE_RT) )
-	{
-		m_fDeltaHealth += m_fV_ARHealth*ar_health_koef*m_fDeltaTime;
-		m_fDeltaPower += m_fV_ARPower*m_fAR*m_fDeltaTime;
-	}
+//	float ar_health_koef = (m_fAR-m_fARCritical)/(m_fAR>=m_fARCritical?1-m_fARCritical:m_fARCritical);
+//	if(CanBeHarmed() && !psActorFlags.test(AF_GODMODE_RT) )
+//	{
+//		m_fDeltaHealth += m_fV_ARHealth*ar_health_koef*m_fDeltaTime;
+//		m_fDeltaPower += m_fV_ARPower*m_fAR*m_fDeltaTime;
+//	}
 }
 
 void CActorCondition::UpdateSatiety()
 {
- 	if (!IsGameTypeSingle()) 
-	{
-		m_fDeltaPower += m_fV_SatietyPower * m_fDeltaTime;
- 		return;
-	}
-
 	if(m_fSatiety>0)
 	{
 		m_fSatiety -= m_fV_Satiety*m_fDeltaTime;
@@ -762,8 +732,8 @@ void CActorCondition::ChangeThirst(float value)
 
 void CActorCondition::ChangeAR(float value)
 {
-	m_fAR += value;
-	clamp		(m_fAR, 0.0f, 1.0f);
+//	m_fAR += value;
+//	clamp		(m_fAR, 0.0f, 1.0f);
 }
 
 void CActorCondition::ChangeKurr(float value)

@@ -28,15 +28,15 @@ static bool				stalker_use_dynamic_lights	= false;
 
 CTorch::CTorch(void): m_current_battery_state(0)
 {
-	light_render				= ::Render->light_create();
+	light_render				= EnvCryRay.Render->light_create();
 	light_render->set_type		(IRender_Light::SPOT);
 	light_render->set_shadow	(true);
-	light_omni					= ::Render->light_create();
+	light_omni					= EnvCryRay.Render->light_create();
 	light_omni->set_type		(IRender_Light::POINT);
 	light_omni->set_shadow		(false);
 
 	m_switched_on				= false;
-	glow_render					= ::Render->glow_create();
+	glow_render					= EnvCryRay.Render->glow_create();
 	lanim						= 0;
 	fBrightness					= 1.f;
 	
@@ -221,7 +221,7 @@ BOOL CTorch::net_Spawn(CSE_Abstract* DC)
 	light_render->set_volumetric_intensity						(READ_IF_EXISTS(pSettings, r_float, "torch_definition", "volumetric_intensity", 0.1f));
 	light_render->set_volumetric_quality						(READ_IF_EXISTS(pSettings, r_float, "torch_definition", "volumetric_quality", 0.15f));
 
-	//âêëþ÷èòü/âûêëþ÷èòü ôîíàðèê
+	//Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ/Ð²Ñ‹ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ„Ð¾Ð½Ð°Ñ€Ð¸Ðº
 	Switch					(torch->m_active);
 	VERIFY					(!torch->m_active || (torch->ID_Parent != 0xffff));
 	
@@ -408,7 +408,7 @@ void CTorch::UpdateCL()
 	if (!lanim)							return;
 
 	int						frame;
-	// âîçâðàùàåò â ôîðìàòå BGR
+	// Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ Ð² Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ðµ BGR
 	u32 clr					= lanim->CalculateBGR(Device.fTimeGlobal,frame); 
 
 	Fcolor					fclr;

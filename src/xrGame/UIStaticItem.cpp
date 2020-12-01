@@ -5,12 +5,12 @@
 
 void CreateUIGeom()
 {
-	UIRender->CreateUIGeom();
+	EnvCryRay.UIRender->CreateUIGeom();
 }
 
 void DestroyUIGeom()
 {
-	UIRender->DestroyUIGeom();
+	EnvCryRay.UIRender->DestroyUIGeom();
 }
 
 CUIStaticItem::CUIStaticItem()
@@ -48,7 +48,7 @@ void CUIStaticItem::RenderInternal(const Fvector2& in_pos)
 	UI().AlignPixel				(pos.y);
 
 	Fvector2		ts;
-	UIRender->GetActiveTextureResolution(ts);
+	EnvCryRay.UIRender->GetActiveTextureResolution(ts);
 
 	if(!uFlags.test(flValidSize))
 		SetSize(ts);
@@ -58,13 +58,13 @@ void CUIStaticItem::RenderInternal(const Fvector2& in_pos)
 
 	Fvector2 LTp,RBp;
 	Fvector2 LTt,RBt;
-	//координаты на экране в пикселях
+	//РєРѕРѕСЂРґРёРЅР°С‚С‹ РЅР° СЌРєСЂР°РЅРµ РІ РїРёРєСЃРµР»СЏС…
 	LTp.set						(pos);
 
 	UI().ClientToScreenScaled	(RBp, vSize.x, vSize.y);
 	RBp.add						(pos);
 
-	//текстурные координаты
+	//С‚РµРєСЃС‚СѓСЂРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹
 	LTt.set			( TextureRect.x1/ts.x, TextureRect.y1/ts.y);
 	RBt.set			( TextureRect.x2/ts.x, TextureRect.y2/ts.y);
 
@@ -100,9 +100,9 @@ void CUIStaticItem::RenderInternal(const Fvector2& in_pos)
 	{
 		for (u32 k=0; k<R->size()-2; ++k)
 		{
-			UIRender->PushPoint((*R)[0+0].pt.x, (*R)[0+0].pt.y,	0, dwColor, (*R)[0+0].uv.x, (*R)[0+0].uv.y);
-			UIRender->PushPoint((*R)[k+1].pt.x, (*R)[k+1].pt.y,	0, dwColor, (*R)[k+1].uv.x, (*R)[k+1].uv.y);
-			UIRender->PushPoint((*R)[k+2].pt.x, (*R)[k+2].pt.y,	0, dwColor, (*R)[k+2].uv.x, (*R)[k+2].uv.y);
+			EnvCryRay.UIRender->PushPoint((*R)[0+0].pt.x, (*R)[0+0].pt.y,	0, dwColor, (*R)[0+0].uv.x, (*R)[0+0].uv.y);
+			EnvCryRay.UIRender->PushPoint((*R)[k+1].pt.x, (*R)[k+1].pt.y,	0, dwColor, (*R)[k+1].uv.x, (*R)[k+1].uv.y);
+			EnvCryRay.UIRender->PushPoint((*R)[k+2].pt.x, (*R)[k+2].pt.y,	0, dwColor, (*R)[k+2].uv.x, (*R)[k+2].uv.y);
 		}
 	}
 }
@@ -112,7 +112,7 @@ void CUIStaticItem::RenderInternal(float angle)
 	Fvector2		ts;
 	Fvector2		hp;
 
-	UIRender->GetActiveTextureResolution(ts);
+	EnvCryRay.UIRender->GetActiveTextureResolution(ts);
 	hp.set			(0.5f/ts.x,0.5f/ts.y);
 
 	if(!uFlags.test(flValidSize))
@@ -172,9 +172,9 @@ void CUIStaticItem::RenderInternal(float angle)
 	if (R&&R->size()){
 		for (u32 k=0; k<R->size()-2; k++)
 		{
-			UIRender->PushPoint((*R)[0+0].pt.x, (*R)[0+0].pt.y,	0, dwColor, (*R)[0+0].uv.x, (*R)[0+0].uv.y);
-			UIRender->PushPoint((*R)[k+1].pt.x, (*R)[k+1].pt.y,	0, dwColor, (*R)[k+1].uv.x, (*R)[k+1].uv.y);
-			UIRender->PushPoint((*R)[k+2].pt.x, (*R)[k+2].pt.y,	0, dwColor, (*R)[k+2].uv.x, (*R)[k+2].uv.y);
+			EnvCryRay.UIRender->PushPoint((*R)[0+0].pt.x, (*R)[0+0].pt.y,	0, dwColor, (*R)[0+0].uv.x, (*R)[0+0].uv.y);
+			EnvCryRay.UIRender->PushPoint((*R)[k+1].pt.x, (*R)[k+1].pt.y,	0, dwColor, (*R)[k+1].uv.x, (*R)[k+1].uv.y);
+			EnvCryRay.UIRender->PushPoint((*R)[k+2].pt.x, (*R)[k+2].pt.y,	0, dwColor, (*R)[k+2].uv.x, (*R)[k+2].uv.y);
 		}
 	}
 }
@@ -184,20 +184,20 @@ void CUIStaticItem::RenderInternal(float angle)
 void CUIStaticItem::Render()
 {
 	VERIFY						(g_bRendering);
-	UIRender->SetShader			(*hShader);
-	UIRender->StartPrimitive	(8, IUIRender::ptTriList, UI().m_currentPointType);
+	EnvCryRay.UIRender->SetShader			(*hShader);
+	EnvCryRay.UIRender->StartPrimitive	(8, IUIRender::ptTriList, UI().m_currentPointType);
 	RenderInternal				(vPos);
-	UIRender->FlushPrimitive	();
+	EnvCryRay.UIRender->FlushPrimitive	();
 }
 
 void CUIStaticItem::Render(float angle)
 {
 	VERIFY						(g_bRendering);
 
-	UIRender->SetShader			(*hShader);
-	UIRender->StartPrimitive	(32, IUIRender::ptTriList, UI().m_currentPointType);
+	EnvCryRay.UIRender->SetShader			(*hShader);
+	EnvCryRay.UIRender->StartPrimitive	(32, IUIRender::ptTriList, UI().m_currentPointType);
 	RenderInternal				(angle);
-	UIRender->FlushPrimitive	();
+	EnvCryRay.UIRender->FlushPrimitive	();
 }
 
 

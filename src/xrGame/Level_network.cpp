@@ -88,9 +88,9 @@ void CLevel::remove_objects	()
 	stalker_animation_data_storage().clear		();
 	
 	VERIFY										(Render);
-	Render->models_Clear						(FALSE);
+	EnvCryRay.Render->models_Clear						(FALSE);
 	
-	Render->clear_static_wallmarks				();
+	EnvCryRay.Render->clear_static_wallmarks				();
 
 #ifdef DEBUG
 	if(!g_dedicated_server)
@@ -188,7 +188,7 @@ void CLevel::ClientSend(bool bForce)
 		cur_index++;
 		if (cur_index >= object_count)
 			cur_index = 0;
-#pragma TODO("OldSerpskiStalker. Òóò âîò áûâàåò âûëåò ïî 126 îøèáêå, íà íàéäåí ïóòü. Åñëè áóäåò ñíîâà, âåðíóòü íà îðèãèíàë.")
+#pragma TODO("OldSerpskiStalker. Ð¢ÑƒÑ‚ Ð²Ð¾Ñ‚ Ð±Ñ‹Ð²Ð°ÐµÑ‚ Ð²Ñ‹Ð»ÐµÑ‚ Ð¿Ð¾ 126 Ð¾ÑˆÐ¸Ð±ÐºÐµ, Ð½Ð° Ð½Ð°Ð¹Ð´ÐµÐ½ Ð¿ÑƒÑ‚ÑŒ. Ð•ÑÐ»Ð¸ Ð±ÑƒÐ´ÐµÑ‚ ÑÐ½Ð¾Ð²Ð°, Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒ Ð½Ð° Ð¾Ñ€Ð¸Ð³Ð¸Ð½Ð°Ð».")
 		if (pO && !pO->getDestroy() && pO->net_Relevant())
 		{
 			NET_Packet P;

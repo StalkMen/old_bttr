@@ -1,5 +1,5 @@
-// Level_Bullet_Manager.cpp:	äëÿ îáåñïå÷åíèÿ ïîëåòà ïóëè ïî òðàåêòîðèè
-//								âñå ïóëè è îñêîëêè ïåðåäàþòñÿ ñþäà
+// Level_Bullet_Manager.cpp:	Ð´Ð»Ñ Ð¾Ð±ÐµÑÐ¿ÐµÑ‡ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð»ÐµÑ‚Ð° Ð¿ÑƒÐ»Ð¸ Ð¿Ð¾ Ñ‚Ñ€Ð°ÐµÐºÑ‚Ð¾Ñ€Ð¸Ð¸
+//								Ð²ÑÐµ Ð¿ÑƒÐ»Ð¸ Ð¸ Ð¾ÑÐºÐ¾Ð»ÐºÐ¸ Ð¿ÐµÑ€ÐµÐ´Ð°ÑŽÑ‚ÑÑ ÑÑŽÐ´Ð°
 //////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
@@ -715,14 +715,14 @@ BOOL CBulletManager::firetrace_callback	(collide::rq_result& result, LPVOID para
 	if ( fis_zero(data.collide_time) )
 		return						(TRUE);
 
-	//ñòàòè÷åñêèé îáúåêò
+	//ÑÑ‚Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ð¹ Ð¾Ð±ÑŠÐµÐºÑ‚
 	if (!result.O) {
 		CDB::TRI const& triangle	= *(Level().ObjectSpace.GetStaticTris() + result.element);
 		bullet_manager.RegisterEvent(EVENT_HIT, FALSE, &bullet, collide_position, result, triangle.material);
 		return						(FALSE);
 	}
 
-	//äèíàìè÷åñêèé îáúåêò
+	//Ð´Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ¸Ð¹ Ð¾Ð±ÑŠÐµÐºÑ‚
 	VERIFY							( !(result.O->ID() == bullet.parent_id &&  bullet.fly_dist < parent_ignore_distance) );
 	IKinematics* const kinematics	= smart_cast<IKinematics*>(result.O->Visual());
 	if (!kinematics)
@@ -943,9 +943,9 @@ void CBulletManager::Render	()
 	else
 		m_bullet_points.clear_not_free	();
 
-	//0-ðèêîøåò
-	//1-çàñòðÿâàíèå ïóëè â ìàòåðèàëå
-	//2-ïðîáèâàíèå ìàòåðèàëà
+	//0-Ñ€Ð¸ÐºÐ¾ÑˆÐµÑ‚
+	//1-Ð·Ð°ÑÑ‚Ñ€ÑÐ²Ð°Ð½Ð¸Ðµ Ð¿ÑƒÐ»Ð¸ Ð² Ð¼Ð°Ñ‚ÐµÑ€Ð¸Ð°Ð»Ðµ
+	//2-Ð¿Ñ€Ð¾Ð±Ð¸Ð²Ð°Ð½Ð¸Ðµ Ð¼Ð°Ñ‚ÐµÑ€Ð¸Ð°Ð»Ð°
 	if (g_bDrawBulletHit) {
 		extern FvectorVec g_hit[];
 		FvectorIt it;
@@ -964,7 +964,7 @@ void CBulletManager::Render	()
 	//u32	vOffset			=	0	;
 	u32 bullet_num		=	m_BulletsRendered.size();
 
-	UIRender->StartPrimitive((u32)bullet_num*12, IUIRender::ptTriList, IUIRender::pttLIT);
+	EnvCryRay.UIRender->StartPrimitive((u32)bullet_num*12, IUIRender::ptTriList, IUIRender::pttLIT);
 
 	for(BulletVecIt it = m_BulletsRendered.begin(); it!=m_BulletsRendered.end(); it++){
 		SBullet* bullet					= &(*it);
@@ -1012,11 +1012,11 @@ void CBulletManager::Render	()
 		tracers.Render			(bullet->bullet_pos, center, tracer_direction, length, width, bullet->m_u8ColorID, bullet->speed, bActor);
 	}
 	
-	UIRender->CacheSetCullMode		(IUIRender::cmNONE);
-	UIRender->CacheSetXformWorld	(Fidentity);
-	UIRender->SetShader				(*tracers.sh_Tracer);
-	UIRender->FlushPrimitive		();
-	UIRender->CacheSetCullMode		(IUIRender::cmCCW);
+	EnvCryRay.UIRender->CacheSetCullMode		(IUIRender::cmNONE);
+	EnvCryRay.UIRender->CacheSetXformWorld	(Fidentity);
+	EnvCryRay.UIRender->SetShader				(*tracers.sh_Tracer);
+	EnvCryRay.UIRender->FlushPrimitive		();
+	EnvCryRay.UIRender->CacheSetCullMode		(IUIRender::cmCCW);
 }
 
 void CBulletManager::CommitRenderSet		()	// @ the end of frame

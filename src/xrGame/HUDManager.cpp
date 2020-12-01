@@ -174,10 +174,10 @@ void CHUDManager::Render_First()
     if (A && !A->HUDview())			return;
 
     // only shadow
-    ::Render->set_Invisible(TRUE);
-    ::Render->set_Object(O->H_Root());
+    EnvCryRay.Render->set_Invisible(TRUE);
+    EnvCryRay.Render->set_Object(O->H_Root());
     O->renderable_Render();
-    ::Render->set_Invisible(FALSE);
+    EnvCryRay.Render->set_Invisible(FALSE);
 }
 
 bool need_render_hud()
@@ -205,10 +205,10 @@ void CHUDManager::Render_Last()
 
     CObject*	O = g_pGameLevel->CurrentViewEntity();
     // hud itself
-    ::Render->set_HUD(TRUE);
-    ::Render->set_Object(O->H_Root());
+    EnvCryRay.Render->set_HUD(TRUE);
+    EnvCryRay.Render->set_Object(O->H_Root());
     O->OnHUDDraw(this);
-    ::Render->set_HUD(FALSE);
+    EnvCryRay.Render->set_HUD(FALSE);
 }
 
 //Swartz: actor shadow
@@ -221,7 +221,7 @@ void CHUDManager::Render_Actor_Shadow() // added by KD
     if (!A) return;
     if (A->active_cam() != eacFirstEye) return; // KD: we need to render actor shadow only in first eye cam mode because
     // in other modes actor model already in scene graph and renders well
-    ::Render->set_Object(O->H_Root());
+    EnvCryRay.Render->set_Object(O->H_Root());
     O->renderable_Render();
 }
 //-Swartz
@@ -248,7 +248,7 @@ void   CHUDManager::RenderActiveItemUI()
 }
 
 extern ENGINE_API BOOL bShowPauseString;
-//отрисовка элементов интерфейса
+//РѕС‚СЂРёСЃРѕРІРєР° СЌР»РµРјРµРЅС‚РѕРІ РёРЅС‚РµСЂС„РµР№СЃР°
 void  CHUDManager::RenderUI()
 {
     if (!psHUD_Flags.is(HUD_DRAW_RT2))

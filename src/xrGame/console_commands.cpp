@@ -156,7 +156,7 @@ static void full_memory_stats()
 	size_t	_process_heap = ::Memory.mem_usage();
 #ifdef SEVERAL_ALLOCATORS
 	u32		_game_lua = game_lua_memory_usage();
-	u32		_render = ::Render->memory_usage();
+	u32		_render = EnvCryRay.Render->memory_usage();
 #endif // SEVERAL_ALLOCATORS
 	int		_eco_strings = (int)g_pStringContainer->stat_economy();
 	int		_eco_smem = (int)g_pSharedMemoryContainer->stat_economy();

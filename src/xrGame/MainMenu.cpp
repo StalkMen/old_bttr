@@ -298,7 +298,7 @@ void	CMainMenu::IR_OnKeyboardPress(int dik)
 		return;
 	}
 	if (DIK_F12 == dik){
-		Render->Screenshot();
+		EnvCryRay.Render->Screenshot();
 		return;
 	}
 
@@ -340,9 +340,9 @@ void CMainMenu::OnRender	()
 		return;
 
 	if(g_pGameLevel)
-		Render->Calculate			();
+		EnvCryRay.Render->Calculate			();
 
-	Render->Render				();
+	EnvCryRay.Render->Render				();
 	if(!OnRenderPPUI_query())
 	{
 		DoRenderDialogs();
@@ -407,7 +407,7 @@ void CMainMenu::OnFrame()
 	if(m_Flags.test(flGameSaveScreenshot) && Device.dwFrame > m_screenshotFrame  )
 	{
 		m_Flags.set					(flGameSaveScreenshot,FALSE);
-		::Render->Screenshot		(IRender_interface::SM_FOR_GAMESAVE, m_screenshot_name);
+		EnvCryRay.Render->Screenshot		(IRender_interface::SM_FOR_GAMESAVE, m_screenshot_name);
 		
 		if(g_pGameLevel && m_Flags.test(flActive))
 		{
@@ -440,7 +440,7 @@ void CMainMenu::Screenshot(IRender_interface::ScreenshotMode mode, LPCSTR name)
 {
 	if(mode != IRender_interface::SM_FOR_GAMESAVE)
 	{
-		::Render->Screenshot		(mode,name);
+		EnvCryRay.Render->Screenshot		(mode,name);
 	}else{
 		m_Flags.set					(flGameSaveScreenshot, TRUE);
 		xr_strcpy(m_screenshot_name,name);

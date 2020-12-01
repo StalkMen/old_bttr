@@ -64,7 +64,7 @@ void CHudItem::PlaySound(LPCSTR alias, const Fvector& position, u8 index)
 void CHudItem::renderable_Render()
 {
     UpdateXForm();
-    BOOL _hud_render = ::Render->get_HUD() && GetHUDmode();
+    BOOL _hud_render = EnvCryRay.Render->get_HUD() && GetHUDmode();
 
     if (_hud_render  && !IsHidden())
     {

@@ -56,7 +56,7 @@ void CHelmet::Load(LPCSTR section)
 	m_fSatietyRestoreSpeed			= READ_IF_EXISTS(pSettings, r_float, section, "satiety_restore_speed",   0.0f );
 	m_fSleepRestoreSpeed			= READ_IF_EXISTS(pSettings, r_float, section, "sleep_restore_speed",  	 0.0f );
 	m_fThirstRestoreSpeed			= READ_IF_EXISTS(pSettings, r_float, section, "thirst_restore_speed",   0.0f );
-	m_fARRestoreSpeed				= READ_IF_EXISTS(pSettings, r_float, section, "artefact_reaction_koef",   0.0f );
+//	m_fARRestoreSpeed				= READ_IF_EXISTS(pSettings, r_float, section, "artefact_reaction_koef",   0.0f );
 	m_fPowerRestoreSpeed			= READ_IF_EXISTS(pSettings, r_float, section, "power_restore_speed",     0.0f );
 	m_fBleedingRestoreSpeed			= READ_IF_EXISTS(pSettings, r_float, section, "bleeding_restore_speed",  0.0f );
 	m_fPowerLoss					= READ_IF_EXISTS(pSettings, r_float, section, "power_loss",    1.0f );
@@ -185,7 +185,7 @@ bool CHelmet::install_upgrade_impl( LPCSTR section, bool test )
 	result |= process_if_exists( section, "satiety_restore_speed",   &CInifile::r_float, m_fSatietyRestoreSpeed,   test );
 	result |= process_if_exists( section, "sleep_restore_speed",   &CInifile::r_float, m_fSleepRestoreSpeed,   test );	
 	result |= process_if_exists( section, "thirst_restore_speed",   &CInifile::r_float, m_fThirstRestoreSpeed,   test );
-	result |= process_if_exists( section, "artefact_reaction_koef",   &CInifile::r_float, m_fARRestoreSpeed,   test );
+//	result |= process_if_exists( section, "artefact_reaction_koef",   &CInifile::r_float, m_fARRestoreSpeed,   test );
 	result |= process_if_exists( section, "power_restore_speed",     &CInifile::r_float, m_fPowerRestoreSpeed,     test );
 	result |= process_if_exists( section, "bleeding_restore_speed",  &CInifile::r_float, m_fBleedingRestoreSpeed,  test );
 
@@ -229,9 +229,9 @@ float CHelmet::HitThroughArmor(float hit_power, s16 element, float ap, bool& add
 		float BoneArmor = ba*GetCondition();
 		if (ap <= BoneArmor)
 		{
-			//пуля НЕ пробила бронь
+			//РїСѓР»СЏ РќР• РїСЂРѕР±РёР»Р° Р±СЂРѕРЅСЊ
 			NewHitPower *= m_boneProtection->m_fHitFracActor;
-			//add_wound = false; 	//раны нет
+			//add_wound = false; 	//СЂР°РЅС‹ РЅРµС‚
 		}
 		else 
 		{
@@ -257,7 +257,7 @@ float CHelmet::HitThroughArmor(float hit_power, s16 element, float ap, bool& add
 		if(NewHitPower < 0.f)
 			NewHitPower = 0.f;
 	}
-	//увеличить изношенность шлема
+	//СѓРІРµР»РёС‡РёС‚СЊ РёР·РЅРѕС€РµРЅРЅРѕСЃС‚СЊ С€Р»РµРјР°
 	Hit(hit_power, hit_type);
 
 	return NewHitPower;

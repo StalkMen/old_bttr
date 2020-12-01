@@ -111,7 +111,7 @@ void CLevel::IR_OnMouseMove(int dx, int dy)
     }
 }
 
-// Îáğàáîòêà íàæàòèÿ êëàâèø
+// ĞĞ±Ñ€Ğ°Ğ±Ğ¾Ñ‚ĞºĞ° Ğ½Ğ°Ğ¶Ğ°Ñ‚Ğ¸Ñ ĞºĞ»Ğ°Ğ²Ğ¸Ñˆ
 extern bool g_block_pause;
 
 // Lain: added TEMP!!!
@@ -167,7 +167,7 @@ void CLevel::IR_OnKeyboardPress(int key)
     switch (_curr)
     {
     case kSCREENSHOT:
-        Render->Screenshot();
+        EnvCryRay.Render->Screenshot();
         return;
         break;
 
