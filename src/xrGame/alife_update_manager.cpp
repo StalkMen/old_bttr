@@ -67,13 +67,13 @@ CALifeUpdateManager::CALifeUpdateManager	(xrServer *server, LPCSTR section) :
 {
 	CryRayParams::CryRayClass cryray;
 
-	shedule.t_min			= cryray.alife_sheduler_min_factor();//pSettings->r_s32	(section,"schedule_min");
-	shedule.t_max			= cryray.alife_sheduler_max_factor();//pSettings->r_s32	(section,"schedule_max");
+	shedule.t_min			= cryray.alife_sheduler_min_factor();
+	shedule.t_max			= cryray.alife_sheduler_max_factor();
 	shedule_register		();
 
-	m_max_process_time		= cryray.alife_sheduler_process();//pSettings->r_s32	(section,"process_time");
-	m_update_monster_factor	= pSettings->r_float(section,"update_monster_factor");
-	m_objects_per_update	= pSettings->r_u32	(section,"objects_per_update");
+	m_max_process_time		= cryray.alife_sheduler_process();
+	m_update_monster_factor = cryray.alife_update_monser();
+	m_objects_per_update	= cryray.alife_worldtime_factor();
 	m_changing_level		= false;
 	m_first_time			= true;
 }
