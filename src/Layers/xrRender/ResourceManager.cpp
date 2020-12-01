@@ -15,6 +15,7 @@
 #include "tss.h"
 #include "blenders\blender.h"
 #include "blenders\blender_recorder.h"
+#include "../../xrCore/FTimer.h"
 
 //	Already defined in Texture.cpp
 void fix_texture_name(LPSTR fn);
@@ -41,13 +42,12 @@ IBlender* CResourceManager::_GetBlender		(LPCSTR Name)
 	if (I==m_blenders.end())	return 0;
 #else
 //	TODO: DX10: When all shaders are ready switch to common path
-#if defined(USE_DX10) || defined(USE_DX11)
+
 	if (I==m_blenders.end())	
 	{
 		Msg("DX10: Shader '%s' not found in library.",Name); 
 		return 0;
 	}
-#endif
 	if (I==m_blenders.end())	{ Debug.fatal(DEBUG_INFO,"Shader '%s' not found in library.",Name); return 0; }
 #endif
 	else					return I->second;
@@ -96,7 +96,6 @@ void	CResourceManager::_ParseList(sh_list& dest, LPCSTR names)
 			strlwr		(N.begin());
 
 			fix_texture_name( N.begin() );
-//. andy			if (strext(N.begin())) *strext(N.begin())=0;
 			dest.push_back(N.begin());
 			N.clear		();
 		} else {
@@ -111,7 +110,6 @@ void	CResourceManager::_ParseList(sh_list& dest, LPCSTR names)
 		strlwr		(N.begin());
 
 		fix_texture_name( N.begin() );
-//. andy		if (strext(N.begin())) *strext(N.begin())=0;
 		dest.push_back(N.begin());
 	}
 }
@@ -143,9 +141,6 @@ Shader*	CResourceManager::_cpp_Create	(IBlender* B, LPCSTR s_shader, LPCSTR s_te
 	CBlender_Compile	C;
 	Shader				S;
 
-	//.
-	// if (strstr(s_shader,"transparent"))	__asm int 3;
-
 	// Access to template
 	C.BT				= B;
 	C.bEditor			= FALSE;
@@ -164,7 +159,6 @@ Shader*	CResourceManager::_cpp_Create	(IBlender* B, LPCSTR s_shader, LPCSTR s_te
 	{
 		C.iElement			= 0;
 		C.bDetail			= m_textures_description.GetDetailTexture(C.L_textures[0],C.detail_texture,C.detail_scaler);
-//.		C.bDetail			= _GetDetailTexture(*C.L_textures[0],C.detail_texture,C.detail_scaler);
 		ShaderElement		E;
 		C._cpp_Compile		(&E);
 		S.E[0]				= _CreateElement	(E);
@@ -173,7 +167,6 @@ Shader*	CResourceManager::_cpp_Create	(IBlender* B, LPCSTR s_shader, LPCSTR s_te
 	// Compile element	(LOD1)
 	{
 		C.iElement			= 1;
-//.		C.bDetail			= _GetDetailTexture(*C.L_textures[0],C.detail_texture,C.detail_scaler);
 		C.bDetail			= m_textures_description.GetDetailTexture(C.L_textures[0],C.detail_texture,C.detail_scaler);
 		ShaderElement		E;
 		C._cpp_Compile		(&E);
@@ -235,13 +228,9 @@ Shader*	CResourceManager::_cpp_Create	(LPCSTR s_shader, LPCSTR s_textures, LPCST
 #endif    
 	{
 		//	TODO: DX10: When all shaders are ready switch to common path
-#if defined(USE_DX10) || defined(USE_DX11)
 		IBlender	*pBlender = _GetBlender(s_shader?s_shader:"null");
 		if (!pBlender) return NULL;
 		return	_cpp_Create(pBlender ,s_shader,s_textures,s_constants,s_matrices);
-#else	//	USE_DX10
-		return	_cpp_Create(_GetBlender(s_shader?s_shader:"null"),s_shader,s_textures,s_constants,s_matrices);
-#endif	//	USE_DX10
 //#else
 	}
 #ifndef _EDITOR
@@ -280,7 +269,6 @@ Shader*		CResourceManager::Create	(LPCSTR s_shader,	LPCSTR s_textures,	LPCSTR s_
 #endif
 	{
 		//	TODO: DX10: When all shaders are ready switch to common path
-#if defined(USE_DX10) || defined(USE_DX11)
 		if	(_lua_HasShader(s_shader))		
 			return	_lua_Create	(s_shader,s_textures);
 		else								
@@ -299,14 +287,6 @@ Shader*		CResourceManager::Create	(LPCSTR s_shader,	LPCSTR s_textures,	LPCSTR s_
 				}
 			}
 		}
-#else	//	USE_DX10
-#ifndef _EDITOR
-		if	(_lua_HasShader(s_shader))		
-			return	_lua_Create	(s_shader,s_textures);
-		else								
-#endif
-			return	_cpp_Create	(s_shader,s_textures,s_constants,s_matrices);
-#endif	//	USE_DX10
 	}
 //#else
 #ifndef _EDITOR
@@ -327,8 +307,15 @@ void CResourceManager::Delete(const Shader* S)
 
 void CResourceManager::DeferredUpload()
 {
-	if (!RDEVICE.b_is_Ready) return;
+	if (!RDEVICE.b_is_Ready) 
+		return;
+
+	CTimer timer;
+	timer.Start();
+
 	tbb::parallel_for_each(m_textures, [&](struct std::pair<const char*, CTexture*> m_tex) { m_tex.second->Load(); });
+
+	Msg("# [CryRay Engine] Texture loading time (%d): %.2f s.", m_textures.size(), timer.GetElapsed_sec());
 }
 
 #ifdef _EDITOR
