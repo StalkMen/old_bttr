@@ -72,8 +72,8 @@ CALifeUpdateManager::CALifeUpdateManager	(xrServer *server, LPCSTR section) :
 	shedule_register		();
 
 	m_max_process_time		= cryray.alife_sheduler_process();
-	m_update_monster_factor = cryray.alife_update_monser();
-	m_objects_per_update	= cryray.alife_worldtime_factor();
+	m_update_monster_factor = cryray.alife_update_monster();
+	m_objects_per_update    = cryray.alife_object_per();
 	m_changing_level		= false;
 	m_first_time			= true;
 }

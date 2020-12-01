@@ -4,9 +4,9 @@
 #include "script_engine.h"
 #include "level.h"
 #include "xrMessages.h"
+#include "CryRayGameConstants.h"
 
 u64		g_qwStartGameTime		= 12*60*60*1000;
-float	g_fTimeFactor			= pSettings->r_float("alife","time_factor");
 u64		g_qwEStartGameTime		= 12*60*60*1000;
 
 ENGINE_API	bool g_dedicated_server;
@@ -118,6 +118,7 @@ game_TeamState::game_TeamState()
 
 game_GameState::game_GameState()
 {
+	CryRayParams::CryRayClass	cryray;
 	m_type						= eGameIDSingle;//EGameIDs(u32(0));
 	m_phase						= GAME_PHASE_NONE;
 	m_round						= -1;
@@ -126,7 +127,7 @@ game_GameState::game_GameState()
 	VERIFY						(g_pGameLevel);
 	m_qwStartProcessorTime		= Level().timeServer_Async();
 	m_qwStartGameTime			= g_qwStartGameTime;
-	m_fTimeFactor				= g_fTimeFactor;
+	m_fTimeFactor				= cryray.alife_worldtime_factor();
 	m_qwEStartProcessorTime		= m_qwStartProcessorTime;	
 	m_qwEStartGameTime			= g_qwEStartGameTime	;
 	m_fETimeFactor				= m_fTimeFactor			;
