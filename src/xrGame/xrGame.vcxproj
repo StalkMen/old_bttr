@@ -1050,7 +1050,7 @@
     <ClInclude Include="filetransfer_common.h" />
     <ClInclude Include="filetransfer_node.h" />
     <ClInclude Include="file_transfer.h" />
-	<ClInclude Include="firedeps.h" />
+    <ClInclude Include="firedeps.h" />
     <ClInclude Include="fire_disp_controller.h" />
     <ClInclude Include="first_bullet_controller.h" />
     <ClInclude Include="flare.h" />
@@ -1207,7 +1207,7 @@
     <ClInclude Include="material_manager_inline.h" />
     <ClInclude Include="medkit.h" />
     <ClInclude Include="battery.h" />
-	<ClInclude Include="flash_card.h" />
+    <ClInclude Include="flash_card.h" />
     <ClInclude Include="member_corpse.h" />
     <ClInclude Include="member_corpse_inline.h" />
     <ClInclude Include="member_enemy.h" />
@@ -1360,7 +1360,7 @@
     <ClInclude Include="queued_async_method.h" />
     <ClInclude Include="RadioactiveZone.h" />
     <ClInclude Include="random32.h" />
-	<ClInclude Include="raypick.h" />
+    <ClInclude Include="raypick.h" />
     <ClInclude Include="refreshable_obstacles_query.h" />
     <ClInclude Include="refreshable_obstacles_query_inline.h" />
     <ClInclude Include="relation_registry.h" />
@@ -1626,7 +1626,7 @@
     <ClInclude Include="traffic_optimization.h" />
     <ClInclude Include="trajectories.h" />
     <ClInclude Include="UICursor.h" />
-	<ClInclude Include="XRayGameConstants.h" />
+    <ClInclude Include="CryRayGameConstants.h" />
     <ClInclude Include="UIDialogHolder.h" />
     <ClInclude Include="UIGameCustom.h" />
     <ClInclude Include="UIGameSP.h" />
@@ -1639,7 +1639,7 @@
     <ClInclude Include="ui\uiabstract.h" />
     <ClInclude Include="ui\UIAchievements.h" />
     <ClInclude Include="ui\UIPdaSpot.h" />
-	<ClInclude Include="ui\UIArtefactPanel.h" />
+    <ClInclude Include="ui\UIArtefactPanel.h" />
     <ClInclude Include="ui\UIRankingsCoC.h" />
     <ClInclude Include="ui\UIActorMenu.h" />
     <ClInclude Include="ui\UIActorStateInfo.h" />
@@ -2850,7 +2850,7 @@
     <ClCompile Include="material_manager.cpp" />
     <ClCompile Include="medkit.cpp" />
     <ClCompile Include="battery.cpp" />
-	<ClCompile Include="flash_card.cpp" />
+    <ClCompile Include="flash_card.cpp" />
     <ClCompile Include="memory_manager.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
@@ -3498,7 +3498,7 @@
     <ClCompile Include="traffic_optimization.cpp" />
     <ClCompile Include="trajectories.cpp" />
     <ClCompile Include="UICursor.cpp" />
-	<ClCompile Include="XRayGameConstants.cpp" />
+    <ClCompile Include="CryRayGameConstants.cpp" />
     <ClCompile Include="UIDialogHolder.cpp" />
     <ClCompile Include="UIGameCustom.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
@@ -3523,7 +3523,7 @@
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="ui\UIPdaSpot.cpp" />
-	<ClCompile Include="ui\UIArtefactPanel.cpp" />
+    <ClCompile Include="ui\UIArtefactPanel.cpp" />
     <ClCompile Include="ui\UIRankingsCoC.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>

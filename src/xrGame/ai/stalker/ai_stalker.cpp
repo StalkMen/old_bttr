@@ -60,7 +60,7 @@
 #include "smart_cover_animation_selector.h"
 #include "smart_cover_animation_planner.h"
 #include "smart_cover_planner_target_selector.h"
-#include "../../XRayGameConstants.h"
+#include "../../CryRayGameConstants.h"
 
 #ifdef DEBUG
 #	include "../../alife_simulator.h"
@@ -117,7 +117,7 @@ void CAI_Stalker::reinit			()
 	animation().reinit				();
 //	movement().reinit				();
 
-	//загрузка спецевической звуковой схемы для сталкера согласно m_SpecificCharacter
+	//Р·Р°РіСЂСѓР·РєР° СЃРїРµС†РµРІРёС‡РµСЃРєРѕР№ Р·РІСѓРєРѕРІРѕР№ СЃС…РµРјС‹ РґР»СЏ СЃС‚Р°Р»РєРµСЂР° СЃРѕРіР»Р°СЃРЅРѕ m_SpecificCharacter
 	sound().sound_prefix			(SpecificCharacter().sound_voice_prefix());
 
 #ifdef DEBUG_MEMORY_MANAGER
@@ -491,7 +491,7 @@ void CAI_Stalker::Die				(CObject* who)
 
 	inherited::Die					(who);
 	
-	//запретить использование слотов в инвенторе
+	//Р·Р°РїСЂРµС‚РёС‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ СЃР»РѕС‚РѕРІ РІ РёРЅРІРµРЅС‚РѕСЂРµ
 	inventory().SetSlotsUseful		(false);
 
 	if (inventory().GetActiveSlot() == NO_ACTIVE_SLOT)
@@ -539,14 +539,15 @@ void CAI_Stalker::Load				(LPCSTR section)
 int CAI_Stalker::GetTalkingChanceWhenFighting()
 {
 	CInventoryOwner* owner = cast_inventory_owner();
+	CryRayParams::CryRayClass cryray;
 
 	if (owner)
 	{
-		if (owner->Rank() >= GameConstants::GetMasterRankStart())
+		if (owner->Rank() >= cryray.GetMasterRankStart())
 			return masterSayPraseChance_;
-		else if (owner->Rank() >= GameConstants::GetVeteranRankStart())
+		else if (owner->Rank() >= cryray.GetVeteranRankStart())
 			return veteranSayPraseChance_;
-		else if (owner->Rank() >= GameConstants::GetExperiencesRankStart())
+		else if (owner->Rank() >= cryray.GetExperiencesRankStart())
 			return experiencedSayPraseChance_;
 		else
 			return noviceSayPraseChance_;
@@ -620,7 +621,7 @@ BOOL CAI_Stalker::net_Spawn			(CSE_Abstract* DC)
 	if (!g_Alive())
 		sound().set_sound_mask(u32(eStalkerSoundMaskDie));
 
-	//загрузить иммунитеты из модельки сталкера
+	//Р·Р°РіСЂСѓР·РёС‚СЊ РёРјРјСѓРЅРёС‚РµС‚С‹ РёР· РјРѕРґРµР»СЊРєРё СЃС‚Р°Р»РєРµСЂР°
 	IKinematics* pKinematics = smart_cast<IKinematics*>(Visual()); VERIFY(pKinematics);
 	CInifile* ini = pKinematics->LL_UserData();
 	if(ini)
@@ -637,7 +638,7 @@ BOOL CAI_Stalker::net_Spawn			(CSE_Abstract* DC)
 		}
 	}
 
-	//вычислить иммунета в зависимости от ранга
+	//РІС‹С‡РёСЃР»РёС‚СЊ РёРјРјСѓРЅРµС‚Р° РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ СЂР°РЅРіР°
 	static float novice_rank_immunity			= pSettings->r_float("ranks_properties", "immunities_novice_k");
 	static float expirienced_rank_immunity		= pSettings->r_float("ranks_properties", "immunities_experienced_k");
 

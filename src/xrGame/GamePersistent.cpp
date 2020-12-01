@@ -187,13 +187,15 @@ void CGamePersistent::Disconnect()
 }
 
 #include "xr_level_controller.h"
-#include "XRayGameConstants.h"
+#include "CryRayGameConstants.h"
 
 void CGamePersistent::OnGameStart()
 {
     __super::OnGameStart();
     UpdateGameType();
-    GameConstants::LoadConstants();
+
+    CryRayParams::CryRayClass cryray;
+    cryray.LoadParameters();
 }
 
 LPCSTR GameTypeToString(EGameIDs gt, bool bShort)
