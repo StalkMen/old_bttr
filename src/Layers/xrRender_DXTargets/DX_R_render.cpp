@@ -434,7 +434,11 @@ void CRender::Render		()
 	}
 
 	// Directional light - fucking sun
-	if (bSUN)	
+#ifdef DELAYED_SHADOWMAPPING	
+	if (bSUN && Device.dwFrame%1)
+#else
+	if (bSUN)
+#endif		
 	{
 		PIX_EVENT(DEFER_SUN);
 		RImplementation.stats.l_visible		++;
