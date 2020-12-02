@@ -1158,6 +1158,8 @@
     <ClCompile Include="..\xrRender_DXTargets\DX_ScreenQuad.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\xrRender_DX.cpp" />
     <ClCompile Include="DX10_core.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_rain_drops.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_rain_drops.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

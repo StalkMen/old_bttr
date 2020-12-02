@@ -132,6 +132,7 @@
       <AdditionalOptions>-Zm113 /Zo %(AdditionalOptions)</AdditionalOptions>
       <UndefinePreprocessorDefinitions>USE_LUAJIT_ONE</UndefinePreprocessorDefinitions>
       <DisableSpecificWarnings>4005;4099</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>dxguid.lib;d3dx11.lib;$(SolutionDir)..\lib\$(Platform)\$(Configuration)\oalib.lib;D3DCompiler.lib;d3d11.lib;dxgi.lib;nvapi.lib;d3d10.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -517,7 +518,7 @@
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_sunshafts.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_gamma.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_gasmask.cpp" />
-	<ClCompile Include="..\xrRender_DXTargets\Blenders\blender_rain_drops.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_rain_drops.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_fxaa.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_gasmask.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_smaa.cpp" />
@@ -556,7 +557,7 @@
     <ClCompile Include="..\xrRender_DXTargets\DX_blenders.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_occq.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_rain.cpp" />
-	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_rain_drops.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_rain_drops.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_scene.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_create_minmaxSM.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_draw_volume.cpp" />

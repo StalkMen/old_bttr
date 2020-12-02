@@ -1169,5 +1169,7 @@
     <ClCompile Include="..\xrRender_DXTargets\DX11_HDAOCSBlender.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX11_rendertarget_phase_hdao.cpp" />
     <ClCompile Include="DX11_core.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_rain_drops.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_rain_drops.cpp" />
   </ItemGroup>
 </Project>
