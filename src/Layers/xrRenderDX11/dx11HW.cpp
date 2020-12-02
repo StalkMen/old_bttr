@@ -144,6 +144,7 @@ namespace DEVICE_HW
 				D3D_FEATURE_LEVEL_11_1,
 				D3D_FEATURE_LEVEL_11_0,
 			};
+
 			constexpr auto count = std::size(featureLevels);
 
 			const auto createDevice = [&](const D3D_FEATURE_LEVEL* level, const u32 levels)

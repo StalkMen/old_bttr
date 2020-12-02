@@ -129,7 +129,6 @@ struct ShaderTypeTraits<SGS>
         else if (DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0)
             return "gs_5_0";
 #endif
-        NODEFAULT;
         return "gs_4_0";
     }
 	
