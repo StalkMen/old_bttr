@@ -272,6 +272,9 @@ void CRender::Render		()
 		Target->phase_scene_prepare					();
 	}
 
+//	if(Device.m_SecondViewport.IsSVPFrame())
+//		Target->phase_svp;
+
 	//*******
 	// Sync point
 	Device.Statistic->RenderDUMP_Wait_S.Begin	();
