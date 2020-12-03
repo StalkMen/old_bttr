@@ -1,21 +1,24 @@
 #pragma once
-//-' Глобальный конфиг для дефайнов по всему движку (включая рендеры)
+//-' Р“Р»РѕР±Р°Р»СЊРЅС‹Р№ РєРѕРЅС„РёРі РґР»СЏ РґРµС„Р°Р№РЅРѕРІ РїРѕ РІСЃРµРјСѓ РґРІРёР¶РєСѓ (РІРєР»СЋС‡Р°СЏ СЂРµРЅРґРµСЂС‹)
 
 //-' CryRay Engine
-	#define CRASH_PROTECTION_OGSR(cond, ...) do { if (!(cond)) Msg(__VA_ARGS__); } while (0)	// Защита от вылета, когда аргумент равен нулю или исключению(DEBUG), OGSR +
-	#define LUA_EXPORT					luabind::functor<LPCSTR>								// Для экспорта С++ в LUA вызовы
+	#define CRASH_PROTECTION_OGSR(cond, ...) do { if (!(cond)) Msg(__VA_ARGS__); } while (0)	// Р—Р°С‰РёС‚Р° РѕС‚ РІС‹Р»РµС‚Р°, РєРѕРіРґР° Р°СЂРіСѓРјРµРЅС‚ СЂР°РІРµРЅ РЅСѓР»СЋ РёР»Рё РёСЃРєР»СЋС‡РµРЅРёСЋ(DEBUG), OGSR +
+	#define LUA_EXPORT					luabind::functor<LPCSTR>								// Р”Р»СЏ СЌРєСЃРїРѕСЂС‚Р° РЎ++ РІ LUA РІС‹Р·РѕРІС‹
 	#define _SCRIPT_ENGINE				ai().script_engine().functor							// ai().script_engine().functor
-	#define NEW_AI_POLTER																		// Новая логика полтергейста ЧН
-//	#define ACTIVE_VERIFY																	    // Активировать режим точности ошибок в релизе
+	#define NEW_AI_POLTER																		// РќРѕРІР°СЏ Р»РѕРіРёРєР° РїРѕР»С‚РµСЂРіРµР№СЃС‚Р° Р§Рќ
+//	#define ACTIVE_VERIFY																	    // РђРєС‚РёРІРёСЂРѕРІР°С‚СЊ СЂРµР¶РёРј С‚РѕС‡РЅРѕСЃС‚Рё РѕС€РёР±РѕРє РІ СЂРµР»РёР·Рµ
 	#define NEW_CPU_LOAD												  					    // Mini-rework choice of processor cores
-	#define MULTICORE_ENGINE													  		        // Многоядерность процессора, снятие ограничения привязки на 1 ядро
-	#define FPS_LIMIT																			// Новый лимит FPS
+	#define MULTICORE_ENGINE													  		        // РњРЅРѕРіРѕСЏРґРµСЂРЅРѕСЃС‚СЊ РїСЂРѕС†РµСЃСЃРѕСЂР°, СЃРЅСЏС‚РёРµ РѕРіСЂР°РЅРёС‡РµРЅРёСЏ РїСЂРёРІСЏР·РєРё РЅР° 1 СЏРґСЂРѕ
+	#define FPS_LIMIT																			// РќРѕРІС‹Р№ Р»РёРјРёС‚ FPS
 	#define FIX_GAME_INFO																		// Fix crash for fake section 'game_info'
 	#define ALIFE_VERSION				0x0895													// Alife
-	#define CONSOLE_SHOW																		// Скрыть консоль при выходе из игры
-	#define OGSR_FIX_PLANNER_NPC																// Тестовая остановка планировщика для нпс
+	#define CONSOLE_SHOW																		// РЎРєСЂС‹С‚СЊ РєРѕРЅСЃРѕР»СЊ РїСЂРё РІС‹С…РѕРґРµ РёР· РёРіСЂС‹
+	#define OGSR_FIX_PLANNER_NPC																// РўРµСЃС‚РѕРІР°СЏ РѕСЃС‚Р°РЅРѕРІРєР° РїР»Р°РЅРёСЂРѕРІС‰РёРєР° РґР»СЏ РЅРїСЃ
 
-	//-' Миниреворк загрузочных сообщений
+// РџРѕРєРґР»СЋС‡РµРЅРёРµ РґР»СЏ С„СѓРЅРєС†РёР№ C++17:
+// РЎСЂРµРґСЃС‚РІР° -> Р”РёСЃРїРµС‚С‡РµСЂ РїР°РєРµС‚РѕРІ NuGet -> РЈРїСЂР°РІР»РµРЅРёРµ РїР°РєРµС‚Р°РјРё NuGet РґР»СЏ СЂРµС€РµРЅРёСЏ -> РћР±Р·РѕСЂ -> РЅР°Р№С‚Рё boost, СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РґР»СЏ СЂРµС€РµРЅРёСЏ.
+
+	//-' РњРёРЅРёСЂРµРІРѕСЂРє Р·Р°РіСЂСѓР·РѕС‡РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№
 	#define STAGE_1					"st_loading_saved_game_solyanka"			  // xrGame	+
 	#define STAGE_2					"st_creating_new_game_solyanka"				  // xrGame +
 	#define STAGE_3					"st_loading_alife_simulator_solyanka"		  // xrGame +

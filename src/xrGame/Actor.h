@@ -210,7 +210,6 @@ public:
     virtual void		UpdateArtefactsOnBeltAndOutfit();
             float		HitArtefactsOnBelt		(float hit_power, ALife::EHitType hit_type);
             float		GetProtection_ArtefactsOnBelt(ALife::EHitType hit_type);
-            float       fArtReac;
 protected:
     //звук тяжелого дыхания
     ref_sound			m_HeavyBreathSnd;

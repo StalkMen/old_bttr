@@ -1760,7 +1760,8 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
 {
     static float update_time    = 0.0f;
            float f_update_time  = 0.0f;
-           /*float*/ fArtReac       = 0.0f;
+           float fArtReac       = 0.0f;
+           float PsyFloat       = conditions().GetPsyHealth();
 
     if (update_time < ARTEFACTS_UPDATE_TIME)
     {
@@ -1798,10 +1799,12 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
 				conditions().ChangeRadiation((artefact->m_fRadiationRestoreSpeed*art_cond)	* f_update_time);
 
             fArtReac += artefact->m_fARRestoreSpeed * art_cond;
+
+            
         }
     }
 
-    Msg("Artefact reaction summ: [%f]", fArtReac);
+    Msg("~ Artefact reaction summ: [%f], [%f]", fArtReac, PsyFloat);
 
     CCustomOutfit* outfit = GetOutfit();
     CHelmet* pHelmet = smart_cast<CHelmet*>(inventory().ItemFromSlot(HELMET_SLOT));
