@@ -22,7 +22,7 @@
 #include "boost/mpl/aux_/void_spec.hpp"
 #include "boost/mpl/aux_/lambda_support.hpp"
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 template<
       typename BOOST_MPL_AUX_VOID_SPEC_PARAM(T)
@@ -35,6 +35,6 @@ struct sizeof_
 
 BOOST_MPL_AUX_VOID_SPEC(1, sizeof_)
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #endif // BOOST_MPL_SIZEOF_HPP_INCLUDED

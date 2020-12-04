@@ -32,7 +32,7 @@
 #include <boost/config.hpp>
 #include <boost/property_map.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   //: indirect_cmp
   //
@@ -45,8 +45,8 @@ namespace boost {
   template <class ReadablePropertyMap, class Compare>
   class indirect_cmp {
   public:
-    typedef typename boost::property_traits<ReadablePropertyMap>::value_type T;
-    typedef typename boost::property_traits<ReadablePropertyMap>::key_type K;
+    typedef typename boost_cryray::property_traits<ReadablePropertyMap>::value_type T;
+    typedef typename boost_cryray::property_traits<ReadablePropertyMap>::key_type K;
     typedef K first_argument_type;
     typedef K second_argument_type;
     typedef T result_type;
@@ -74,8 +74,8 @@ namespace boost {
   template <class ReadablePropertyMap>
   class indirect_pmap {
   public:
-    typedef typename boost::property_traits<ReadablePropertyMap>::value_type T;
-    typedef typename boost::property_traits<ReadablePropertyMap>::key_type K;
+    typedef typename boost_cryray::property_traits<ReadablePropertyMap>::value_type T;
+    typedef typename boost_cryray::property_traits<ReadablePropertyMap>::key_type K;
     typedef K argument_type;
     typedef T result_type;
     inline indirect_pmap(const ReadablePropertyMap& df)
@@ -96,7 +96,7 @@ namespace boost {
   }
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // GGCL_INDIRECT_CMP_HPP

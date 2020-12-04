@@ -24,7 +24,7 @@
 #ifndef BOOST_GRAPH_SELECTORS_HPP
 #define BOOST_GRAPH_SELECTORS_HPP
 
-namespace boost {
+namespace boost_cryray {
 
   //===========================================================================
   // Selectors for the Directed template parameter of adjacency_list
@@ -45,6 +45,6 @@ namespace boost {
     typedef true_type is_bidir_t;
   };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_SELECTORS_HPP

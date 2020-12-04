@@ -26,7 +26,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost
+namespace boost_cryray
 {
     namespace spirit
     {
@@ -239,7 +239,7 @@ namespace boost
         parser<DerivedT> const& p);
 
     } // namespace spirit
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

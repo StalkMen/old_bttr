@@ -20,7 +20,7 @@
 
 #include <boost/operators.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 // must be in boost namespace, otherwise the inline friend trick fails
 template<class Generator, class ResultType>
@@ -45,6 +45,6 @@ private:
   value_type v;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_ITERATOR_MIXIN_HPP

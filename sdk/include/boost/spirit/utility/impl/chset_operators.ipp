@@ -17,7 +17,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -339,20 +339,20 @@ operator^(chlit<CharT> const& a, chset<CharT> const& b)
 namespace impl {
 
     template <typename CharT>
-    inline boost::spirit::range<CharT> const&
+    inline boost_cryray::spirit::range<CharT> const&
     full()
     {
-        static boost::spirit::range<CharT> full_(
+        static boost_cryray::spirit::range<CharT> full_(
             std::numeric_limits<CharT>::min(),
             std::numeric_limits<CharT>::max());
         return full_;
     }
 
     template <typename CharT>
-    inline boost::spirit::range<CharT> const&
+    inline boost_cryray::spirit::range<CharT> const&
     empty()
     {
-        static boost::spirit::range<CharT> empty_;
+        static boost_cryray::spirit::range<CharT> empty_;
         return empty_;
     }
 }
@@ -497,7 +497,7 @@ operator^(nothing_parser, chset<CharT> const& b)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

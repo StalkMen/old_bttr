@@ -61,7 +61,7 @@
 #endif
 
 
-namespace boost {
+namespace boost_cryray {
   namespace detail {
     template <class EdgeList> struct val_out_edge_ret;
     template <class EdgeList> struct val_out_edge_iter;
@@ -70,7 +70,7 @@ namespace boost {
 }
 
 #if !defined BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
-namespace boost {
+namespace boost_cryray {
 
   struct vector_as_graph_traversal_tag
     : public vertex_list_graph_tag,
@@ -97,7 +97,7 @@ namespace boost {
 }
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -110,10 +110,10 @@ namespace boost {
       typedef std::pair<V,V> type;
     };
 
-    // need rewrite this using boost::iterator_adaptor
+    // need rewrite this using boost_cryray::iterator_adaptor
     template <class V, class Iter>
     class val_out_edge_iterator
-      : public boost::iterator<std::input_iterator_tag, std::pair<V,V> >
+      : public boost_cryray::iterator<std::input_iterator_tag, std::pair<V,V> >
     {
       typedef val_out_edge_iterator self;
       typedef std::pair<V,V> Edge;
@@ -177,13 +177,13 @@ namespace boost {
   // source() and target() already provided for pairs in graph_traits.hpp
 
   template <class EdgeList, class Alloc>
-  std::pair<typename boost::integer_range<typename EdgeList::value_type>
+  std::pair<typename boost_cryray::integer_range<typename EdgeList::value_type>
               ::iterator,
-            typename boost::integer_range<typename EdgeList::value_type>
+            typename boost_cryray::integer_range<typename EdgeList::value_type>
               ::iterator >
   vertices(const std::vector<EdgeList, Alloc>& v)
   {
-    typedef typename boost::integer_range<typename EdgeList::value_type>
+    typedef typename boost_cryray::integer_range<typename EdgeList::value_type>
       ::iterator Iter;
     return std::make_pair(Iter(0), Iter(v.size()));
   }
@@ -286,6 +286,6 @@ namespace boost {
     assert(!"implemented");
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_VECTOR_AS_GRAPH_HPP

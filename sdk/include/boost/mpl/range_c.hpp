@@ -26,7 +26,7 @@
 #include "boost/mpl/aux_/range_c/iterator.hpp"
 #include "boost/mpl/aux_/range_c/tag.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -47,6 +47,6 @@ struct range_c
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_RANGE_C_HPP_INCLUDED

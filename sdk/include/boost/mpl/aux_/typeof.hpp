@@ -27,7 +27,7 @@
 #   include "boost/config.hpp"
 #   include "boost/mpl/aux_/config/nttp.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // the implementation below is based on "A Portable typeof Operator" article
@@ -39,20 +39,20 @@ template< BOOST_MPL_AUX_NTTP_DECL(long, S) > struct typeof_c;
 }
 
 #define BOOST_MPL_AUX_REGISTER_TYPE(index, T) \
-namespace boost { namespace mpl { namespace aux { \
+namespace boost_cryray { namespace mpl { namespace aux { \
 template<> struct typeof_c<index> { typedef T type; }; \
 typeof_answer<index>::type& type_index(T const&); \
 }}} \
 /**/
 
 #define BOOST_MPL_AUX_TYPEOF(T,x) \
-typename boost::mpl::aux::typeof_c< \
-    sizeof(::boost::mpl::aux::type_index(x)) \
+typename boost_cryray::mpl::aux::typeof_c< \
+    sizeof(::boost_cryray::mpl::aux::type_index(x)) \
     >::type \
 /**/
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 BOOST_MPL_AUX_REGISTER_TYPE(1, bool)
 BOOST_MPL_AUX_REGISTER_TYPE(2, signed char)

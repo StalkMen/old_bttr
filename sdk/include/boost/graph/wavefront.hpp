@@ -34,7 +34,7 @@
 #include <cmath>
 #include <vector>
 
-namespace boost {
+namespace boost_cryray {
 
   template <typename Graph, typename VertexIndexMap>
   typename graph_traits<Graph>::vertices_size_type
@@ -143,6 +143,6 @@ namespace boost {
   }
  
   
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_WAVEFRONT_HPP

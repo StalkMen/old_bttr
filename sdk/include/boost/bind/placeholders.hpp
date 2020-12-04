@@ -26,39 +26,39 @@ namespace
 
 #if defined(__BORLANDC__)
 
-static inline boost::arg<1> _1() { return boost::arg<1>(); }
-static inline boost::arg<2> _2() { return boost::arg<2>(); }
-static inline boost::arg<3> _3() { return boost::arg<3>(); }
-static inline boost::arg<4> _4() { return boost::arg<4>(); }
-static inline boost::arg<5> _5() { return boost::arg<5>(); }
-static inline boost::arg<6> _6() { return boost::arg<6>(); }
-static inline boost::arg<7> _7() { return boost::arg<7>(); }
-static inline boost::arg<8> _8() { return boost::arg<8>(); }
-static inline boost::arg<9> _9() { return boost::arg<9>(); }
+static inline boost_cryray::arg<1> _1() { return boost_cryray::arg<1>(); }
+static inline boost_cryray::arg<2> _2() { return boost_cryray::arg<2>(); }
+static inline boost_cryray::arg<3> _3() { return boost_cryray::arg<3>(); }
+static inline boost_cryray::arg<4> _4() { return boost_cryray::arg<4>(); }
+static inline boost_cryray::arg<5> _5() { return boost_cryray::arg<5>(); }
+static inline boost_cryray::arg<6> _6() { return boost_cryray::arg<6>(); }
+static inline boost_cryray::arg<7> _7() { return boost_cryray::arg<7>(); }
+static inline boost_cryray::arg<8> _8() { return boost_cryray::arg<8>(); }
+static inline boost_cryray::arg<9> _9() { return boost_cryray::arg<9>(); }
 
 #elif (defined(BOOST_MSVC) && BOOST_MSVC <= 1300) || (defined(__DECCXX_VER) && __DECCXX_VER <= 60590031) || defined(__MWERKS__)
 
-static boost::arg<1> _1;
-static boost::arg<2> _2;
-static boost::arg<3> _3;
-static boost::arg<4> _4;
-static boost::arg<5> _5;
-static boost::arg<6> _6;
-static boost::arg<7> _7;
-static boost::arg<8> _8;
-static boost::arg<9> _9;
+static boost_cryray::arg<1> _1;
+static boost_cryray::arg<2> _2;
+static boost_cryray::arg<3> _3;
+static boost_cryray::arg<4> _4;
+static boost_cryray::arg<5> _5;
+static boost_cryray::arg<6> _6;
+static boost_cryray::arg<7> _7;
+static boost_cryray::arg<8> _8;
+static boost_cryray::arg<9> _9;
 
 #else
 
-boost::arg<1> _1;
-boost::arg<2> _2;
-boost::arg<3> _3;
-boost::arg<4> _4;
-boost::arg<5> _5;
-boost::arg<6> _6;
-boost::arg<7> _7;
-boost::arg<8> _8;
-boost::arg<9> _9;
+boost_cryray::arg<1> _1;
+boost_cryray::arg<2> _2;
+boost_cryray::arg<3> _3;
+boost_cryray::arg<4> _4;
+boost_cryray::arg<5> _5;
+boost_cryray::arg<6> _6;
+boost_cryray::arg<7> _7;
+boost_cryray::arg<8> _8;
+boost_cryray::arg<9> _9;
 
 #endif
 

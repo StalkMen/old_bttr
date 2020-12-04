@@ -29,7 +29,7 @@ namespace effects
 
 class effect;
 
-class manager : private boost::noncopyable
+class manager : private boost_cryray::noncopyable
 {
 public:
     manager(::editor::environment::manager* environment);

@@ -35,7 +35,7 @@
 #include <boost/pending/is_heap.hpp>
 #include <boost/graph/detail/array_binary_tree.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   // The mutable queue whose elements are indexed
   // 

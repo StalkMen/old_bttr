@@ -28,7 +28,7 @@
 //
 // For an example see libs/python/test/opaque.cpp
 //
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
     namespace detail {
         template <class R>
         struct opaque_pointer_converter_requires_a_pointer_type
@@ -84,7 +84,7 @@ public:
         return (result);
     }
 
-    static typename ::boost::remove_pointer<ptr_type>::type&
+    static typename ::boost_cryray::remove_pointer<ptr_type>::type&
     execute(instance &p_)
     {
         return *p_.x;
@@ -109,16 +109,16 @@ PyTypeObject opaque_pointer_converter<Pointer>::type_object =
     0,
     sizeof(typename opaque_pointer_converter<Pointer>::instance),
     0,
-    ::boost::python::detail::dealloc
+    ::boost_cryray::python::detail::dealloc
 };
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 # if BOOST_WORKAROUND(BOOST_MSVC, <= 1300)
 // MSC works without this workaround, but needs another one ...
 # define BOOST_PYTHON_OPAQUE_SPECIALIZED_TYPE_ID(Pointee)  \
 BOOST_BROKEN_COMPILER_TYPE_TRAITS_SPECIALIZATION(Pointee)
 # elif BOOST_WORKAROUND(__GNUC__, < 3)
 # define BOOST_PYTHON_OPAQUE_SPECIALIZED_TYPE_ID(Pointee)  \
-namespace boost { namespace python {                       \
+namespace boost_cryray { namespace python {                       \
     template<>                                             \
     inline type_info type_id<Pointee>() {                  \
         return type_info (typeid (Pointee *));             \
@@ -130,14 +130,14 @@ namespace boost { namespace python {                       \
 }}
 # else
 # define BOOST_PYTHON_OPAQUE_SPECIALIZED_TYPE_ID(Pointee) \
-namespace boost { namespace python {                      \
+namespace boost_cryray { namespace python {                      \
     template<>                                            \
-    inline type_info type_id(boost::type<Pointee>*) {     \
+    inline type_info type_id(boost_cryray::type<Pointee>*) {     \
         return type_info (typeid (Pointee *));            \
     }                                                     \
     template<>                                            \
     inline type_info type_id(                             \
-        boost::type<const volatile Pointee &>*) {         \
+        boost_cryray::type<const volatile Pointee &>*) {         \
         return type_info (typeid (Pointee *));            \
     }                                                     \
 }}

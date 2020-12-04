@@ -18,7 +18,7 @@
 
 #include <pthread.h>
 
-namespace boost
+namespace boost_cryray
 {
 
 namespace detail
@@ -80,6 +80,6 @@ public:
 
 } // namespace detail
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // #ifndef BOOST_DETAIL_LWM_PTHREADS_HPP_INCLUDED

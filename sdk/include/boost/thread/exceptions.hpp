@@ -23,7 +23,7 @@
 
 #include <stdexcept>
 
-namespace boost {
+namespace boost_cryray {
 
 class BOOST_THREAD_DECL lock_error : public std::logic_error
 {
@@ -37,7 +37,7 @@ public:
     thread_resource_error();
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 // Change log:
 //    3 Jan 03  WEKEMPF Modified for DLL implementation.

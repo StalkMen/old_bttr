@@ -21,7 +21,7 @@
 #include "boost/mpl/begin_end.hpp"
 #include "boost/mpl/aux_/void_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -45,6 +45,6 @@ struct joint_view
 BOOST_MPL_AUX_VOID_SPEC(2, joint_view)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_JOINT_VIEW_HPP_INCLUDED

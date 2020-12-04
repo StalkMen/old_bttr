@@ -8,10 +8,10 @@
 # include <boost/python/detail/config.hpp>
 # include <boost/python/detail/wrap_python.hpp>
 
-namespace boost { namespace python { namespace objects { 
+namespace boost_cryray { namespace python { namespace objects { 
 
 BOOST_PYTHON_DECL PyObject* make_nurse_and_patient(PyObject* nurse, PyObject* patient);
 
-}}} // namespace boost::python::object
+}}} // namespace boost_cryray::python::object
 
 #endif // LIFE_SUPPORT_DWA200222_HPP

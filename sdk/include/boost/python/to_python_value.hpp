@@ -23,7 +23,7 @@
 # include <boost/mpl/if.hpp>
 # include <boost/mpl/or.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -118,6 +118,6 @@ namespace detail
   }
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // TO_PYTHON_VALUE_DWA200221_HPP

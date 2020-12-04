@@ -9,7 +9,7 @@
 # include <boost/python/default_call_policies.hpp>
 # include <boost/python/object/life_support.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 template <std::size_t custodian, std::size_t ward, class BasePolicy_ = default_call_policies>
 struct with_custodian_and_ward : BasePolicy_
@@ -73,6 +73,6 @@ PyObject* with_custodian_and_ward_postcall<custodian,ward,BasePolicy_>::postcall
     return result;
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // WITH_CUSTODIAN_AND_WARD_DWA2002131_HPP

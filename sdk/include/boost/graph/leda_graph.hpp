@@ -46,7 +46,7 @@
 
 // Warning: this implementation is in alpha and has not been tested
 
-namespace boost {
+namespace boost_cryray {
   
   struct leda_out_edge_iterator_policies
   {
@@ -138,10 +138,10 @@ namespace boost {
     const LedaGraph* m_g;
   };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #if !defined BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
-namespace boost {
+namespace boost_cryray {
 
   struct leda_graph_traversal_category : 
     public virtual bidirectional_graph_tag,
@@ -153,31 +153,31 @@ namespace boost {
     typedef leda_node vertex_descriptor;
     typedef leda_edge edge_descriptor;
 
-    typedef boost::iterator_adaptor<leda_edge,
-      boost::leda_adjacency_iterator_policies, 
+    typedef boost_cryray::iterator_adaptor<leda_edge,
+      boost_cryray::leda_adjacency_iterator_policies, 
       leda_node, leda_node, const leda_node*,
-      boost::multi_pass_input_iterator_tag,
+      boost_cryray::multi_pass_input_iterator_tag,
       std::ptrdiff_t
     > adjacency_iterator;
 
-    typedef boost::iterator_adaptor<leda_edge,
-      boost::leda_out_edge_iterator_policies,
+    typedef boost_cryray::iterator_adaptor<leda_edge,
+      boost_cryray::leda_out_edge_iterator_policies,
       leda_edge, const leda_edge&, const leda_edge*,
       std::forward_iterator_tag,
       std::ptrdiff_t
     > out_edge_iterator;
 
-    typedef boost::iterator_adaptor<leda_edge,
-      boost::leda_in_edge_iterator_policies, 
+    typedef boost_cryray::iterator_adaptor<leda_edge,
+      boost_cryray::leda_in_edge_iterator_policies, 
       leda_edge, const leda_edge&, const leda_edge*,
       std::forward_iterator_tag,
       std::ptrdiff_t
     > in_edge_iterator;
 
-    typedef boost::iterator_adaptor<leda_node,
-      boost::leda_vertex_iterator_policies< GRAPH<vtype,etype> >, 
+    typedef boost_cryray::iterator_adaptor<leda_node,
+      boost_cryray::leda_vertex_iterator_policies< GRAPH<vtype,etype> >, 
       leda_node, leda_node, const leda_node*,
-      boost::multi_pass_input_iterator_tag,
+      boost_cryray::multi_pass_input_iterator_tag,
       std::ptrdiff_t
     > vertex_iterator;
 
@@ -199,10 +199,10 @@ namespace boost {
     typedef etype type;
   };
 
-} // namespace boost
+} // namespace boost_cryray
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
   template <class vtype, class etype>
   typename graph_traits< GRAPH<vtype,etype> >::vertex_descriptor
@@ -379,7 +379,7 @@ namespace boost {
   {
     typename graph_traits< GRAPH<vtype,etype> >::out_edge_iterator 
       i,iend;
-    for (boost::tie(i,iend) = out_edges(u,g); i != iend; ++i)
+    for (boost_cryray::tie(i,iend) = out_edges(u,g); i != iend; ++i)
       if (target(*i,g) == v)
         g.del_edge(*i);
   }
@@ -564,8 +564,8 @@ namespace boost {
 
   template <class vtype, class etype, class PropertyTag, class Key>
   inline
-  typename boost::property_traits<
-    typename boost::property_map<GRAPH<vtype, etype>,PropertyTag>::const_type
+  typename boost_cryray::property_traits<
+    typename boost_cryray::property_map<GRAPH<vtype, etype>,PropertyTag>::const_type
   >::value_type
   get(PropertyTag p, const GRAPH<vtype, etype>& g, const Key& key) {
     return get(get(p, g), key);
@@ -581,7 +581,7 @@ namespace boost {
     put(pmap, key, value);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_GRAPH_LEDA_HPP

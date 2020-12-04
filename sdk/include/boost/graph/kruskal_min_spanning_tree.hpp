@@ -46,7 +46,7 @@
 #include <boost/pending/indirect_cmp.hpp>
 
 
-namespace boost {
+namespace boost_cryray {
 
   // Kruskal's algorithm for Minimum Spanning Tree
   //
@@ -82,7 +82,7 @@ namespace boost {
       disjoint_sets<Rank, Parent>  dset(rank, parent);
 
       typename graph_traits<Graph>::vertex_iterator ui, uiend;
-      for (boost::tie(ui, uiend) = vertices(G); ui != uiend; ++ui)
+      for (boost_cryray::tie(ui, uiend) = vertices(G); ui != uiend; ++ui)
         dset.make_set(*ui);
 
       typedef indirect_cmp<Weight, std::greater<W_value> > weight_greater;
@@ -90,7 +90,7 @@ namespace boost {
       std::priority_queue<Edge, std::vector<Edge>, weight_greater> Q(wl);
       /*push all edge into Q*/
       typename graph_traits<Graph>::edge_iterator ei, eiend;
-      for (boost::tie(ei, eiend) = edges(G); ei != eiend; ++ei) 
+      for (boost_cryray::tie(ei, eiend) = edges(G); ei != eiend; ++ei) 
         Q.push(*ei);
 
       while (! Q.empty()) {
@@ -161,7 +161,7 @@ namespace boost {
        choose_const_pmap(get_param(params, edge_weight), g, edge_weight));
   }
     
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_GRAPH_MST_KRUSKAL_HPP

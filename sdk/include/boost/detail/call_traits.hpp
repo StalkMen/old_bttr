@@ -30,7 +30,7 @@
 #include <boost/type_traits/composite_traits.hpp>
 #endif
 
-namespace boost{
+namespace boost_cryray{
 
 namespace detail{
 
@@ -81,8 +81,8 @@ public:
    // of ct_imp to handle the logic. (JM)
    typedef typename detail::ct_imp<
       T,
-      ::boost::is_pointer<T>::value,
-      ::boost::is_arithmetic<T>::value
+      ::boost_cryray::is_pointer<T>::value,
+      ::boost_cryray::is_arithmetic<T>::value
    >::param_type param_type;
 };
 

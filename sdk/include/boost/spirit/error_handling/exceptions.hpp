@@ -17,7 +17,7 @@
 #include "boost/spirit/core/composite/composite.hpp"
 #include <exception>
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -71,7 +71,7 @@ namespace boost { namespace spirit {
 
         virtual const char*
         what() const throw()
-        { return "boost::spirit::parser_error"; }
+        { return "boost_cryray::spirit::parser_error"; }
 
         IteratorT const   where;
         ErrorDescrT const descriptor;
@@ -82,7 +82,7 @@ namespace boost { namespace spirit {
     inline void
     throw_(IteratorT where, ErrorDescrT descriptor)
     {
-         boost::throw_exception(
+         boost_cryray::throw_exception(
             parser_error<ErrorDescrT, IteratorT>(where, descriptor));
     }
 
@@ -335,7 +335,7 @@ namespace boost { namespace spirit {
         }
     };
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #include "boost/spirit/error_handling/impl/exceptions.ipp"
 #endif

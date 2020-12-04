@@ -27,7 +27,7 @@
 #include <boost/cstdint.hpp>     // uint32_t
 
 
-namespace boost {
+namespace boost_cryray {
 namespace random {
 
 template<class URNG1, int s1, class URNG2, int s2,
@@ -129,6 +129,6 @@ const bool xor_combine<URNG1, s1, URNG2, s2, val>::has_fixed_range;
 #endif
 
 } // namespace random
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_XOR_COMBINE_HPP

@@ -32,7 +32,7 @@ namespace std {
 }
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
 #if defined(__GNUC__) && (__GNUC__ < 3)
 // Special gcc workaround: gcc 2.95.x ignores using-declarations
@@ -110,6 +110,6 @@ private:
   normal_distribution<base_type, result_type, adaptor_type> _rng;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_LOGNORMAL_DISTRIBUTION_HPP

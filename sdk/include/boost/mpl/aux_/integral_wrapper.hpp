@@ -36,7 +36,7 @@
 #   define AUX_WRAPPER_INST(value) mpl::AUX_WRAPPER_NAME< value >
 #endif
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 template< AUX_WRAPPER_PARAMS(N) >
 struct AUX_WRAPPER_NAME
@@ -78,7 +78,7 @@ struct AUX_WRAPPER_NAME
     operator AUX_WRAPPER_VALUE_TYPE() const { return this->value; } 
 };
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #undef AUX_WRAPPER_NAME
 #undef AUX_WRAPPER_PARAMS

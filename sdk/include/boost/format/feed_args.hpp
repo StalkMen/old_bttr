@@ -27,7 +27,7 @@
 #include "boost/format/msvc_disambiguater.hpp"
 #include "boost/throw_exception.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace io {
 namespace detail {
 namespace  { 
@@ -227,7 +227,7 @@ void distribute(basic_format<Ch,Tr>& self, T x)
   if(self.cur_arg_ >= self.num_args_)
     {
       if( self.exceptions() & too_many_args_bit )
-        boost::throw_exception(too_many_args()); // too many variables have been supplied !
+        boost_cryray::throw_exception(too_many_args()); // too many variables have been supplied !
       else return;
     }
   for(unsigned long i=0; i < self.items_.size(); ++i)
@@ -259,7 +259,7 @@ basic_format<Ch, Tr>&  feed(basic_format<Ch,Tr>& self, T x)
 
 } // namespace detail
 } // namespace io
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif //  BOOST_FORMAT_FEED_ARGS_HPP

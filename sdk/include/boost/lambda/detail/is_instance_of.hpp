@@ -39,7 +39,7 @@
 // with gcc.3.0.2 and 3.0.3 compilers, which didn't think regard
 // is_instance_of_N<...>::value was a constant.
 // John Maddock suggested the way around this problem by building 
-// is_instance_of templates using boost::is_convertible.
+// is_instance_of templates using boost_cryray::is_convertible.
 // Now we only have one version of is_instance_of templates, which delagate
 // all the nasty compiler tricks to is_convertible. 
 
@@ -53,7 +53,7 @@
 
 #define BOOST_LAMBDA_ARG_LIST(n, NAME) BOOST_PP_REPEAT(n, BOOST_LAMBDA_ARG, NAME)
 
-namespace boost {
+namespace boost_cryray {
 namespace lambda {
 
 #define BOOST_LAMBDA_IS_INSTANCE_OF_TEMPLATE(INDEX)                         \
@@ -73,7 +73,7 @@ template <class From, template <BOOST_LAMBDA_CLASS_LIST(INDEX,T)> class To> \
 struct BOOST_PP_CAT(is_instance_of_,INDEX)                                  \
 {                                                                           \
  private:                                                                   \
-   typedef ::boost::is_convertible<                                         \
+   typedef ::boost_cryray::is_convertible<                                         \
      From,                                                                  \
      BOOST_PP_CAT(detail::conversion_tester_,INDEX)<To>                     \
    > helper_type;                                                           \

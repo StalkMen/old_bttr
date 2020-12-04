@@ -25,7 +25,7 @@
 #include <string>
 #include <sstream>
 
-namespace boost {
+namespace boost_cryray {
 namespace io {
 namespace detail {
 

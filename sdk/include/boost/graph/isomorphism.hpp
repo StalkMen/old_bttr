@@ -25,7 +25,7 @@
 #include <boost/graph/iteration_macros.hpp>
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -421,7 +421,7 @@ namespace boost {
     return true;
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #ifdef BOOST_ISO_INCLUDED_ITER_MACROS
 #undef BOOST_ISO_INCLUDED_ITER_MACROS

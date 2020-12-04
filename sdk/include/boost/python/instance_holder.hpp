@@ -11,7 +11,7 @@
 # include <boost/python/type_id.hpp>
 # include <cstddef>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 // Base class for all holders
 struct BOOST_PYTHON_DECL instance_holder : private noncopyable
@@ -52,6 +52,6 @@ inline instance_holder* instance_holder::next() const
     return m_next;
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // INSTANCE_HOLDER_DWA2002517_HPP

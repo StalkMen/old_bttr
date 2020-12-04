@@ -21,7 +21,7 @@
 #include "boost/type.hpp"
 #include <cassert>
 
-namespace boost {
+namespace boost_cryray {
 namespace detail {
 namespace multi_array {
 
@@ -63,6 +63,6 @@ void copy_array (Array1& source, Array2& dest) {
 
 } // namespace multi_array
 } // namespace detail
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // COPY_ARRAY_RG092101_HPP

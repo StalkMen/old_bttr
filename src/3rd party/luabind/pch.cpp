@@ -1,7 +1,7 @@
 #include "pch.h"
 
 #ifndef LUABIND_NO_EXCEPTIONS
-namespace boost
+namespace boost_cryray
 {
 	void throw_exception(const std::exception &){}
 }

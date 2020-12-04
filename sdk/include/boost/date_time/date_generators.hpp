@@ -10,7 +10,7 @@
 
 #include "boost/date_time/date.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
   
@@ -193,7 +193,7 @@ namespace date_time {
   //! Calculate something like "First Sunday after Jan 1,2002
   /*! Date generator that takes a date and finds kday after
    *@code
-      typedef boost::date_time::first_kday_after<date> firstkdayafter;
+      typedef boost_cryray::date_time::first_kday_after<date> firstkdayafter;
       firstkdayafter fkaf(Monday);
       fkaf.get_date(date(2002,Feb,1));
     @endcode
@@ -226,7 +226,7 @@ namespace date_time {
   //! Calculate something like "First Sunday before Jan 1,2002
   /*! Date generator that takes a date and finds kday after
    *@code
-      typedef boost::date_time::first_kday_before<date> firstkdaybefore;
+      typedef boost_cryray::date_time::first_kday_before<date> firstkdaybefore;
       firstkdaybefore fkbf(Monday);
       fkbf.get_date(date(2002,Feb,1));
     @endcode

@@ -25,7 +25,7 @@
 #include "boost/mpl/vector/aux_/tag.hpp"
 #include "boost/mpl/aux_/config/vector.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 #if defined(BOOST_MPL_TYPEOF_BASED_VECTOR_IMPL)
@@ -56,6 +56,6 @@ template<> struct vector0<void_>
 #endif // BOOST_MPL_TYPEOF_BASED_VECTOR_IMPL
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_VECTOR_AUX_VECTOR0_HPP_INCLUDED

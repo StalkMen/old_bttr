@@ -4,7 +4,7 @@
 #include <utility> // for std::pair
 #include <boost/type_traits/same_traits.hpp> // for is_same
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -136,7 +136,7 @@ namespace boost {
         enum { match = same_property<Tag1,Tag2>::value };
         typedef typename TagValueAList::second_type Next;
         typedef typename ev_selector<Next>::type Extractor;
-        typedef typename boost::ct_if< match, Value, 
+        typedef typename boost_cryray::ct_if< match, Value, 
           typename Extractor::template bind_<Next,Tag1>::type
         >::type type;
       };
@@ -150,6 +150,6 @@ namespace boost {
 #endif //!defined BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
   } // namespace detail 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_DETAIL_PROPERTY_HPP

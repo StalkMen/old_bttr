@@ -13,7 +13,7 @@
 #include <boost/static_assert.hpp>
 #include <boost/type_traits/ice.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 namespace details {
 namespace pool {
@@ -37,9 +37,9 @@ struct ct_gcd_helper<A, B, false>
 {
   BOOST_STATIC_CONSTANT(unsigned, A_mod_B_ = A % B);
   BOOST_STATIC_CONSTANT(unsigned, value =
-      (::boost::details::pool::details::ct_gcd_helper<
+      (::boost_cryray::details::pool::details::ct_gcd_helper<
         B, static_cast<unsigned>(A_mod_B_),
-        ::boost::type_traits::ice_eq<A_mod_B_, 0>::value
+        ::boost_cryray::type_traits::ice_eq<A_mod_B_, 0>::value
         >::value) );
 };
 template <unsigned A, unsigned B>
@@ -54,7 +54,7 @@ struct ct_gcd
 {
   BOOST_STATIC_ASSERT(A != 0 && B != 0);
   BOOST_STATIC_CONSTANT(unsigned, value =
-      (::boost::details::pool::details::ct_gcd_helper<A, B, false>::value) );
+      (::boost_cryray::details::pool::details::ct_gcd_helper<A, B, false>::value) );
 };
 
 #else
@@ -94,12 +94,12 @@ template <unsigned A, unsigned B>
 struct ct_lcm
 {
   BOOST_STATIC_CONSTANT(unsigned, value =
-      (A / ::boost::details::pool::ct_gcd<A, B>::value * B) );
+      (A / ::boost_cryray::details::pool::ct_gcd<A, B>::value * B) );
 };
 
 } // namespace pool
 } // namespace details
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

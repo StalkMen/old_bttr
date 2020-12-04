@@ -471,7 +471,7 @@ int ret = call_function&lt;int&gt;(
 <a class="reference" href="http://www.boost.org/doc/html/ref.html">Boost.Ref</a>.</p>
 <p>Like this:</p>
 <pre class="literal-block">
-int ret = call_function(L, &quot;fun&quot;, boost::ref(val));
+int ret = call_function(L, &quot;fun&quot;, boost_cryray::ref(val));
 </pre>
 </div>
 <div class="section" id="using-lua-threads">
@@ -774,17 +774,17 @@ be able to implicitly cast pointers between the types.</div>
 <div class="section" id="smart-pointers">
 <h2><a name="smart-pointers">8.6   Smart pointers</a></h2>
 <p>When you register a class you can tell luabind that all instances of that class
-should be held by some kind of smart pointer (boost::shared_ptr for instance).
+should be held by some kind of smart pointer (boost_cryray::shared_ptr for instance).
 You do this by giving the holder type as an extra template parameter to
 the <tt class="literal"><span class="pre">class_</span></tt> you are constructing, like this:</p>
 <pre class="literal-block">
 module(L)
 [
-    class_&lt;A, boost::shared_ptr&lt;A&gt; &gt;(&quot;A&quot;)
+    class_&lt;A, boost_cryray::shared_ptr&lt;A&gt; &gt;(&quot;A&quot;)
 ];
 </pre>
 <p>You also have to supply two functions for your smart pointer. One that returns
-the type of const version of the smart pointer type (boost::shared_ptr&lt;const A&gt;
+the type of const version of the smart pointer type (boost_cryray::shared_ptr&lt;const A&gt;
 in this case). And one function that extracts the raw pointer from the smart
 pointer. The first function is needed because luabind has to allow the
 non-const -&gt; conversion when passing values from Lua to C++. The second
@@ -795,14 +795,14 @@ raw_pointer conversion from Lua to C++. They look like this:</p>
 namespace luabind {
 
     template&lt;class T&gt;
-    T* get_pointer(boost::shared_ptr&lt;T&gt; const&amp; p) 
+    T* get_pointer(boost_cryray::shared_ptr&lt;T&gt; const&amp; p) 
     {
         return p.get(); 
     }
 
     template&lt;class A&gt;
-    boost::shared_ptr&lt;const A&gt;* 
-    get_const_holder(boost::shared_ptr&lt;A&gt;*)
+    boost_cryray::shared_ptr&lt;const A&gt;* 
+    get_const_holder(boost_cryray::shared_ptr&lt;A&gt;*)
     {
         return 0;
     }
@@ -1106,8 +1106,8 @@ associated Lua table.</p>
 T object_cast&lt;T&gt;(object const&amp;);
 T object_cast&lt;T&gt;(object const&amp;, Policies);
 
-boost::optional&lt;T&gt; object_cast_nothrow&lt;T&gt;(object const&amp;);
-boost::optional&lt;T&gt; object_cast_nothrow&lt;T&gt;(object const&amp;, Policies);
+boost_cryray::optional&lt;T&gt; object_cast_nothrow&lt;T&gt;(object const&amp;);
+boost_cryray::optional&lt;T&gt; object_cast_nothrow&lt;T&gt;(object const&amp;, Policies);
 </pre>
 </div>
 <div class="section" id="functor">

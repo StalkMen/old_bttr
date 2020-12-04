@@ -22,7 +22,7 @@
 #include <boost/config.hpp>
 #include <boost/get_pointer.hpp>
 
-namespace boost
+namespace boost_cryray
 {
 
 #if defined(BOOST_NO_VOID_RETURNS)
@@ -314,6 +314,6 @@ template<class R, class T> _mfi::dm<R, T> mem_fn(R T::*f)
     return _mfi::dm<R, T>(f);
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // #ifndef BOOST_MEM_FN_HPP_INCLUDED

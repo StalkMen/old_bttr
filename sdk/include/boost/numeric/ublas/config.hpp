@@ -304,7 +304,7 @@ static bool disable_type_check = false;
 
 
 // Forward declarations
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     template<class T>
     class unbounded_array;

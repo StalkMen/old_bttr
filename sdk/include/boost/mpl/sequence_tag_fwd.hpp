@@ -17,13 +17,13 @@
 #ifndef BOOST_MPL_SEQUENCE_TAG_FWD_HPP_INCLUDED
 #define BOOST_MPL_SEQUENCE_TAG_FWD_HPP_INCLUDED
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 struct nested_begin_end_tag;
 struct non_sequence_tag;
 
 template< typename Sequence > struct sequence_tag;
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #endif // BOOST_MPL_SEQUENCE_TAG_FWD_HPP_INCLUDED

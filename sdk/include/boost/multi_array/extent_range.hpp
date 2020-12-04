@@ -15,7 +15,7 @@
 
 #include <utility>
 
-namespace boost {
+namespace boost_cryray {
 namespace detail {
 namespace multi_array {
 
@@ -43,7 +43,7 @@ public:
 
 } // namespace multi_array
 } // namespace detail 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_EXTENT_RANGE_RG071801_HPP

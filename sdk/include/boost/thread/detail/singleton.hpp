@@ -14,7 +14,7 @@
 #ifndef BOOST_SINGLETON_MJM012402_HPP
 #define BOOST_SINGLETON_MJM012402_HPP
 
-namespace boost {
+namespace boost_cryray {
 
 namespace detail {
 
@@ -58,7 +58,7 @@ template<class T>
 
 } // namespace detail
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_SINGLETON_MJM012402_HPP

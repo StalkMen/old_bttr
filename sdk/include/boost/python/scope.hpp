@@ -10,7 +10,7 @@
 # include <boost/python/refcount.hpp>
 # include <boost/utility.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 class BOOST_PYTHON_DECL scope
     : public object
@@ -71,6 +71,6 @@ inline scope::scope(scope const& new_scope)
     current_scope = python::incref(new_scope.ptr());
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // SCOPE_DWA2002724_HPP

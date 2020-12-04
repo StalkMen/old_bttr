@@ -29,7 +29,7 @@
 
 #include <iterator>
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 

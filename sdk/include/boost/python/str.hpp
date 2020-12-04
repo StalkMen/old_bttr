@@ -18,7 +18,7 @@
 #undef isalnum
 #undef isupper
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 class str;
 
@@ -395,6 +395,6 @@ namespace converter
   };
 }
 
-}}  // namespace boost::python
+}}  // namespace boost_cryray::python
 
 #endif // STR_20020703_HPP

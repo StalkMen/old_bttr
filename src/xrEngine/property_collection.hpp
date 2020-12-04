@@ -16,7 +16,7 @@
 template <typename container_type, typename holder_type>
 class property_collection :
     public editor::property_holder_collection,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 public:
     typedef editor::property_holder property_holder;

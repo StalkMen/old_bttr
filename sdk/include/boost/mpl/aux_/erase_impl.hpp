@@ -23,7 +23,7 @@
 #include "boost/mpl/iterator_range.hpp"
 #include "boost/mpl/aux_/void_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // default implementation; conrete sequences might override it by 
@@ -69,6 +69,6 @@ struct erase_traits
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_ERASE_IMPL_HPP_INCLUDED

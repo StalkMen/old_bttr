@@ -36,7 +36,7 @@
 #include <cassert>
 #include <boost/limits.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template <class BucketType, class ValueType, class Bucket, 
             class ValueIndexMap>

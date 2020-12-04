@@ -33,7 +33,7 @@
 #include <boost/limits.hpp>
 
 
-namespace boost{
+namespace boost_cryray{
    namespace re_detail{
 
 #ifdef __BORLANDC__
@@ -181,8 +181,8 @@ template <class iterator, class Allocator>
 class _priv_match_data
 {
 public:
-   typedef typename boost::detail::rebind_allocator<int, Allocator>::type i_alloc;
-   typedef typename boost::detail::rebind_allocator<iterator, Allocator>::type it_alloc;
+   typedef typename boost_cryray::detail::rebind_allocator<int, Allocator>::type i_alloc;
+   typedef typename boost_cryray::detail::rebind_allocator<iterator, Allocator>::type it_alloc;
    typedef typename regex_iterator_traits<iterator>::difference_type difference_type;
 
    match_results_base<iterator, Allocator> temp_match;
@@ -271,7 +271,7 @@ void _priv_match_data<iterator, Allocator>::m_free()
       i_alloc temp1(temp_match.allocator());
       temp1.deallocate(accumulators, caccumulators);
       for(unsigned i = 0; i < caccumulators; ++i)
-         ::boost::re_detail::pointer_destroy(loop_starts + i);
+         ::boost_cryray::re_detail::pointer_destroy(loop_starts + i);
       it_alloc temp2(temp_match.allocator());
       temp2.deallocate(loop_starts, caccumulators);
    }
@@ -1998,7 +1998,7 @@ inline unsigned int regex_grep(bool (*foo)(const match_results<std::basic_string
   #pragma option pop
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif   // BOOST_REGEX_MATCH_HPP
 

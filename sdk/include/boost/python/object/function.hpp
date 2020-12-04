@@ -14,7 +14,7 @@
 # include <boost/python/object_core.hpp>
 # include <boost/python/object/py_function.hpp>
 
-namespace boost { namespace python { namespace objects { 
+namespace boost_cryray { namespace python { namespace objects { 
 
 struct BOOST_PYTHON_DECL function : PyObject
 {
@@ -75,6 +75,6 @@ inline object const& function::name() const
     return this->m_name;
 }
   
-}}} // namespace boost::python::objects
+}}} // namespace boost_cryray::python::objects
 
 #endif // FUNCTION_DWA20011214_HPP

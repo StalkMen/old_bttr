@@ -17,7 +17,7 @@
   *   LOCATION:    see http://www.boost.org/libs/regex for documentation.
   *   FILE         regex.cpp
   *   VERSION      see <boost/version.hpp>
-  *   DESCRIPTION: Declares boost::reg_expression<> and associated
+  *   DESCRIPTION: Declares boost_cryray::reg_expression<> and associated
   *                functions and classes. This header is the main
   *                entry point for the template regex code.
   */

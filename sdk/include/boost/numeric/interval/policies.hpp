@@ -18,7 +18,7 @@
 
 #include <boost/numeric/interval/interval.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 
@@ -75,7 +75,7 @@ public:
 
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_NUMERIC_INTERVAL_POLICIES_HPP

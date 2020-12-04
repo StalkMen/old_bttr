@@ -106,7 +106,7 @@ namespace luabind { namespace detail {
 		template<class T, class Direction>
 		struct generate_converter
 		{
-			typedef typename boost::mpl::if_<boost::is_same<lua_to_cpp, Direction>
+			typedef typename boost_cryray::mpl::if_<boost_cryray::is_same<lua_to_cpp, Direction>
 				, container_converter_lua_to_cpp<Policies>
 				, container_converter_cpp_to_lua<Policies>
 			>::type type;
@@ -119,11 +119,11 @@ namespace luabind
 {
 	template<int N>
 	detail::policy_cons<detail::container_policy<N, detail::null_type>, detail::null_type> 
-	container(boost::arg<N>) { return detail::policy_cons<detail::container_policy<N, detail::null_type>, detail::null_type>(); }
+	container(boost_cryray::arg<N>) { return detail::policy_cons<detail::container_policy<N, detail::null_type>, detail::null_type>(); }
 
 	template<int N, class Policies>
 	detail::policy_cons<detail::container_policy<N, Policies>, detail::null_type> 
-	container(boost::arg<N>, const Policies&) { return detail::policy_cons<detail::container_policy<N, Policies>, detail::null_type>(); }
+	container(boost_cryray::arg<N>, const Policies&) { return detail::policy_cons<detail::container_policy<N, Policies>, detail::null_type>(); }
 }
 
 #endif // LUABIND_CONTAINER_POLICY_HPP_INCLUDED

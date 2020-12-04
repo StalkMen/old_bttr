@@ -13,7 +13,7 @@
 #if !defined(TREE_TO_XML_HPP)
 #define TREE_TO_XML_HPP
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -65,7 +65,7 @@ namespace boost { namespace spirit {
     void tree_to_xml (std::ostream &ostrm, TreeNodeT const &tree,
         std::string const &input_line = "");
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #include "boost/spirit/tree/impl/tree_to_xml.ipp"
 

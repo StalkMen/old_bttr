@@ -9,7 +9,7 @@
 #include "boost/limits.hpp" //work around compilers without limits
 #include "boost/date_time/special_defs.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
 //! Adapter to create integer types with +-infinity, and not a value

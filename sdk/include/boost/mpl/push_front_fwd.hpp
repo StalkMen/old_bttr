@@ -17,13 +17,13 @@
 #ifndef BOOST_MPL_PUSH_FRONT_FWD_HPP_INCLUDED
 #define BOOST_MPL_PUSH_FRONT_FWD_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename Tag > struct push_front_traits;
 template< typename Sequence, typename T > struct push_front;
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_PUSH_FRONT_FWD_HPP_INCLUDED

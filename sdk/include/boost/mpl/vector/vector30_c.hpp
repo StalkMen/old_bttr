@@ -37,7 +37,7 @@
 #   include "boost/preprocessor/iterate.hpp"
 #   include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 #   define BOOST_PP_ITERATION_PARAMS_1 \
@@ -45,7 +45,7 @@ namespace mpl {
 #   include BOOST_PP_ITERATE()
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_USE_PREPROCESSED_HEADERS
 

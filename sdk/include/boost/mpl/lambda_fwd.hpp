@@ -20,7 +20,7 @@
 #include "boost/mpl/aux_/lambda_arity_param.hpp"
 #include "boost/mpl/aux_/config/lambda.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 #if !defined(BOOST_MPL_NO_FULL_LAMBDA_SUPPORT)
@@ -31,6 +31,6 @@ template< typename T, bool Protect > struct lambda;
 #endif
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_LAMBDA_FWD_HPP_INCLUDED

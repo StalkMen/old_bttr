@@ -60,23 +60,23 @@ namespace luabind
 		struct push_args_from_tuple
 		{
 			template<class H, class T, class Policies>
-			inline static void apply(lua_State* L, const boost::tuples::cons<H, T>& x, const Policies& p) 
+			inline static void apply(lua_State* L, const boost_cryray::tuples::cons<H, T>& x, const Policies& p) 
 			{
 				convert_to_lua_p<Index>(L, *x.get_head(), p);
 				push_args_from_tuple<Index+1>::apply(L, x.get_tail(), p);
 			}
 
 			template<class H, class T>
-			inline static void apply(lua_State* L, const boost::tuples::cons<H, T>& x) 
+			inline static void apply(lua_State* L, const boost_cryray::tuples::cons<H, T>& x) 
 			{
 				convert_to_lua(L, *x.get_head());
 				push_args_from_tuple<Index+1>::apply(L, x.get_tail());
 			}
 
 			template<class Policies>
-			inline static void apply(lua_State*, const boost::tuples::null_type&, const Policies&) {};
+			inline static void apply(lua_State*, const boost_cryray::tuples::null_type&, const Policies&) {};
 
-			inline static void apply(lua_State*, const boost::tuples::null_type&) {};
+			inline static void apply(lua_State*, const boost_cryray::tuples::null_type&) {};
 
 		};
 
@@ -118,7 +118,7 @@ namespace luabind
 				lua_State* L = m_obj->lua_state();
 				m_obj->pushvalue();
 				detail::push_args_from_tuple<1>::apply(L, m_args, p);
-				if (pcall(L, boost::tuples::length<Tuple>::value, 1))
+				if (pcall(L, boost_cryray::tuples::length<Tuple>::value, 1))
 				{ 
 #ifndef LUABIND_NO_EXCEPTIONS
 					throw error(L);
@@ -1199,7 +1199,7 @@ private:
 			lua_State* L = m_obj->lua_state();
 			m_obj->pushvalue();
 			detail::push_args_from_tuple<1>::apply(L, m_args, p);
-			if (pcall(L, boost::tuples::length<Tuple>::value, 1))
+			if (pcall(L, boost_cryray::tuples::length<Tuple>::value, 1))
 			{ 
 #ifndef LUABIND_NO_EXCEPTIONS
 				throw error(L);
@@ -1321,7 +1321,7 @@ private:
 			m_obj->pushvalue();
 
 			push_args_from_tuple<1>::apply(L, m_args);
-			if (pcall(L, boost::tuples::length<Tuple>::value, 0))
+			if (pcall(L, boost_cryray::tuples::length<Tuple>::value, 0))
 			{ 
 #ifndef LUABIND_NO_EXCEPTIONS
 				throw luabind::error(L);
@@ -1344,7 +1344,7 @@ private:
 			m_obj->pushvalue();
 
 			push_args_from_tuple<1>::apply(L, m_args);
-			if (pcall(L, boost::tuples::length<Tuple>::value, 1))
+			if (pcall(L, boost_cryray::tuples::length<Tuple>::value, 1))
 			{ 
 #ifndef LUABIND_NO_EXCEPTIONS
 				throw luabind::error(L);
@@ -1491,10 +1491,10 @@ namespace std
 #if BOOST_PP_ITERATION() > 0
 	template<BOOST_PP_ENUM_PARAMS(BOOST_PP_ITERATION(), class A)>
 #endif
-	detail::proxy_caller<boost::tuples::tuple<BOOST_PP_ENUM(BOOST_PP_ITERATION(), LUABIND_TUPLE_PARAMS, _)> >
+	detail::proxy_caller<boost_cryray::tuples::tuple<BOOST_PP_ENUM(BOOST_PP_ITERATION(), LUABIND_TUPLE_PARAMS, _)> >
 	operator()(BOOST_PP_ENUM(BOOST_PP_ITERATION(), LUABIND_OPERATOR_PARAMS, _)) const
 	{
-		typedef boost::tuples::tuple<BOOST_PP_ENUM(BOOST_PP_ITERATION(), LUABIND_TUPLE_PARAMS, _)> tuple_t;
+		typedef boost_cryray::tuples::tuple<BOOST_PP_ENUM(BOOST_PP_ITERATION(), LUABIND_TUPLE_PARAMS, _)> tuple_t;
 #if BOOST_PP_ITERATION() == 0
 		tuple_t args;
 #else

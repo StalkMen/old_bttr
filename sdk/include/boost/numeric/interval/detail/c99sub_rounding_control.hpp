@@ -19,7 +19,7 @@
 
 #include <fenv.h>      // ISO C 99 rounding mode control
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 namespace detail {
@@ -44,6 +44,6 @@ struct c99_rounding
 } // namespace detail
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_DETAIL_C99SUB_ROUBDING_CONTROL_HPP

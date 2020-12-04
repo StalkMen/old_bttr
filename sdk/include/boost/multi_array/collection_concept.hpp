@@ -15,7 +15,7 @@
 
 #include "boost/concept_check.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace detail {
 namespace multi_array {
 
@@ -35,9 +35,9 @@ namespace multi_array {
     typedef typename Collection::size_type size_type;
 
     void constraints() {
-      boost::function_requires<boost::InputIteratorConcept<iterator> >();
-      boost::function_requires<boost::InputIteratorConcept<const_iterator> >();
-      boost::function_requires<boost::CopyConstructibleConcept<value_type> >();
+      boost_cryray::function_requires<boost_cryray::InputIteratorConcept<iterator> >();
+      boost_cryray::function_requires<boost_cryray::InputIteratorConcept<const_iterator> >();
+      boost_cryray::function_requires<boost_cryray::CopyConstructibleConcept<value_type> >();
       const_constraints(c);
       i = c.begin();
       i = c.end();

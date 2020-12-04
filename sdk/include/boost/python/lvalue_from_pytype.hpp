@@ -10,7 +10,7 @@
 # include <boost/python/converter/registry.hpp>
 # include <boost/python/detail/void_ptr.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace detail
 {
@@ -31,9 +31,9 @@ namespace detail
   {
       static inline void* execute(PyObject* op)
       {
-          typedef typename boost::add_reference<U>::type param;
+          typedef typename boost_cryray::add_reference<U>::type param;
           return &Extractor::execute(
-              boost::python::detail::void_ptr_to_reference(
+              boost_cryray::python::detail::void_ptr_to_reference(
                   op, (param(*)())0 )
               );
       }
@@ -99,6 +99,6 @@ struct lvalue_from_pytype
     }
 };
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // LVALUE_FROM_PYTYPE_DWA2002130_HPP

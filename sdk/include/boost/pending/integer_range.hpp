@@ -14,7 +14,7 @@
 #include <boost/config.hpp>
 #include <boost/counting_iterator.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 //=============================================================================
 // Counting Iterator and Integer Range Class
@@ -54,6 +54,6 @@ make_integer_range(IntegerType first, IntegerType last)
   return integer_range<IntegerType>(first, last);
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_INTEGER_RANGE_HPP_

@@ -38,9 +38,9 @@
 //
 // We therefore include the following header
 #include <boost/iterator.hpp>
-// and use namespace boost instead of std.
+// and use namespace boost_cryray instead of std.
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
 #ifdef BOOST_UBLAS_NEED_CONVERSION
     template<class C>
@@ -119,7 +119,7 @@ namespace boost { namespace numeric { namespace ublas {
 
     template<class IC, class I, class T>
     struct forward_iterator_base:
-        public boost::iterator<IC, T> {
+        public boost_cryray::iterator<IC, T> {
         typedef I derived_iterator_type;
         typedef T derived_value_type;
 
@@ -162,7 +162,7 @@ namespace boost { namespace numeric { namespace ublas {
 
     template<class IC, class I, class T>
     struct bidirectional_iterator_base:
-        public boost::iterator<IC, T> {
+        public boost_cryray::iterator<IC, T> {
         typedef I derived_iterator_type;
         typedef T derived_value_type;
 
@@ -229,7 +229,7 @@ namespace boost { namespace numeric { namespace ublas {
 
     template<class IC, class I, class T, class D = std::ptrdiff_t>
     struct random_access_iterator_base:
-        public boost::iterator<IC, T> {
+        public boost_cryray::iterator<IC, T> {
         typedef I derived_iterator_type;
         typedef T derived_value_type;
         typedef D derived_difference_type;

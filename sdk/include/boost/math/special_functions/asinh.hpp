@@ -22,7 +22,7 @@
 
 // This is the inverse of the hyperbolic sine function.
 
-namespace boost
+namespace boost_cryray
 {
     namespace math
     {

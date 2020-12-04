@@ -6,7 +6,7 @@
 #ifndef CHAR_ARRAY_DWA2002129_HPP
 # define CHAR_ARRAY_DWA2002129_HPP
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 // This little package is used to transmit the number of arguments
 // from the helper functions below to the sizeof() expression below.
@@ -18,6 +18,6 @@ struct char_array
     char elements[n+1];
 };
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // CHAR_ARRAY_DWA2002129_HPP

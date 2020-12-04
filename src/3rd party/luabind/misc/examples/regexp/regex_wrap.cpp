@@ -11,12 +11,12 @@ extern "C"
 
 namespace
 {
-	bool match(boost::RegEx& r, const char* s)
+	bool match(boost_cryray::RegEx& r, const char* s)
 	{
 		return r.Match(s);
 	}
 
-	bool search(boost::RegEx& r, const char* s)
+	bool search(boost_cryray::RegEx& r, const char* s)
 	{
 		return r.Search(s);
 	}
@@ -25,7 +25,7 @@ namespace
 
 void wrap_regex(lua_State* L)
 {
-	using boost::RegEx;
+	using boost_cryray::RegEx;
 	using namespace luabind;
 
 	module(L)

@@ -6,7 +6,7 @@
 #ifndef BASE_TYPE_TRAITS_DWA2002614_HPP
 # define BASE_TYPE_TRAITS_DWA2002614_HPP
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -31,6 +31,6 @@ struct base_type_traits<PyTypeObject>
     typedef PyObject type;
 };
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // BASE_TYPE_TRAITS_DWA2002614_HPP

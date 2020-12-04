@@ -25,7 +25,7 @@
 #include <boost/limits.hpp>
 #include <boost/static_assert.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 // Because it is so commonly used: uniform distribution on the real [0..1)
 // range.  This allows for specializations to avoid a costly int -> float
@@ -100,6 +100,6 @@ template<class UniformRandomNumberGenerator, class RealType>
 const bool uniform_01<UniformRandomNumberGenerator, RealType>::has_fixed_range;
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_UNIFORM_01_HPP

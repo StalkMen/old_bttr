@@ -34,7 +34,7 @@
 #include <boost/type_traits/conversion_traits.hpp>
 #include <boost/static_assert.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   //==========================================================================
   // This is Tarjan's algorithm for strongly connected components
@@ -267,7 +267,7 @@ namespace boost {
   }
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include <queue>
 #include <vector>
@@ -275,7 +275,7 @@ namespace boost {
 #include <boost/pending/indirect_cmp.hpp>
 #include <boost/graph/connected_components.hpp> // for components_recorder
 
-namespace boost {
+namespace boost_cryray {
 
   //==========================================================================
   // This is the version of strongly connected components from
@@ -345,6 +345,6 @@ namespace boost {
     return c_count;
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_STRONG_COMPONENTS_HPP

@@ -23,7 +23,7 @@
 #   include <pthread.h>
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
 #if defined(BOOST_HAS_PTHREADS)
 
@@ -39,7 +39,7 @@ typedef long once_flag;
 
 void BOOST_THREAD_DECL call_once(void (*func)(), once_flag& flag);
 
-} // namespace boost
+} // namespace boost_cryray
 
 // Change Log:
 //   1 Aug 01  WEKEMPF Initial version.

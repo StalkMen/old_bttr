@@ -33,7 +33,7 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/property_map.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
     // The following version of the plus functor prevents
     // problems due to overflow at positive infinity.
@@ -94,6 +94,6 @@ namespace boost {
       return relax(e, g, w, p, d, Combine(), Compare());
     }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif /* BOOST_GRAPH_RELAX_HPP */

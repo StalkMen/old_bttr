@@ -3,7 +3,7 @@
 
 #include <deque>
 
-namespace boost {
+namespace boost_cryray {
 
 template <class _Tp, 
           class _Sequence = std::deque<_Tp> >
@@ -97,6 +97,6 @@ operator>=(const queue<_Tp, _Sequence>& __x, const queue<_Tp, _Sequence>& __y)
 }
 
 
-} /* namespace boost */
+} /* namespace boost_cryray */
 
 #endif /* BOOST_QUEUE_HPP */

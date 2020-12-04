@@ -25,7 +25,7 @@
 #   include "boost/mpl/aux_/type_wrapper.hpp"
 #   include "boost/mpl/vector/aux_/tag.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -46,7 +46,7 @@ struct vector_node
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_TYPEOF_BASED_VECTOR_IMPL
 

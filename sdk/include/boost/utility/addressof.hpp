@@ -22,7 +22,7 @@
 #  include <boost/type_traits/add_pointer.hpp>
 # endif
 
-namespace boost {
+namespace boost_cryray {
 
 // Do not make addressof() inline. Breaks MSVC 7. (Peter Dimov)
 

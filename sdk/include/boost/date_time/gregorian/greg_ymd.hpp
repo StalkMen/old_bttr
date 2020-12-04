@@ -11,7 +11,7 @@
 #include "boost/date_time/gregorian/greg_year.hpp"
 #include "boost/date_time/gregorian/greg_month.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace gregorian {
   
   typedef date_time::year_month_day_base<greg_year, 

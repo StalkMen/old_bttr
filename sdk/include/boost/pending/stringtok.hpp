@@ -67,7 +67,7 @@ namespace {
     }
 }
 
-namespace boost {
+namespace boost_cryray {
 
 /*****************************************************************
  * Simplistic and quite Standard, but a bit slow.  This should be
@@ -103,4 +103,4 @@ stringtok (Container &l, std::string const &s, char const * const ws = " \t\n")
 }
 
 
-} // namespace boost
+} // namespace boost_cryray

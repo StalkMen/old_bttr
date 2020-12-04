@@ -27,7 +27,7 @@
 //
 //    void foo(std::string<char>);
 //
-//    namespace boost { namespace mpl {
+//    namespace boost_cryray { namespace mpl {
 //    template< int > struct arg;
 //    }}
 //
@@ -41,7 +41,7 @@
 #include "boost/preprocessor/cat.hpp"
 
 #if !defined(BOOST_MPL_PREPROCESSING_MODE)
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 typedef int     nttp_int;
 typedef long    nttp_long;
 }}

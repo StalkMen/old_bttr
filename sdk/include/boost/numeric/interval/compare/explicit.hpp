@@ -19,7 +19,7 @@
 
 #include <boost/numeric/interval/detail/interval_prototype.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 
@@ -249,6 +249,6 @@ bool posne(const T& x, const interval<T, Policies>& y)
 
 } // namespace interval_lib
 } // namespace numeric
-} //namespace boost
+} //namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_COMPARE_EXPLICIT_HPP

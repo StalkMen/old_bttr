@@ -8,15 +8,15 @@
 
 #include <boost/operators.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
   
 
   //! Duration type with date level resolution
   template<class duration_rep>
   class date_duration : private
-      boost::less_than_comparable<date_duration< duration_rep> 
-    , boost::equality_comparable< date_duration< duration_rep> 
+      boost_cryray::less_than_comparable<date_duration< duration_rep> 
+    , boost_cryray::equality_comparable< date_duration< duration_rep> 
     > >
   {
   public:

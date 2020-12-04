@@ -27,7 +27,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -52,9 +52,9 @@ namespace boost { namespace spirit {
     public:
 
         typedef T attr_t;
-        typedef typename boost::call_traits<T>::param_type      param_type;
-        typedef typename boost::call_traits<T>::reference       reference;
-        typedef typename boost::call_traits<T>::const_reference const_reference;
+        typedef typename boost_cryray::call_traits<T>::param_type      param_type;
+        typedef typename boost_cryray::call_traits<T>::reference       reference;
+        typedef typename boost_cryray::call_traits<T>::const_reference const_reference;
 
         match()
         : len(-1), val(impl::match_attr<T>::get_default()) {}
@@ -160,7 +160,7 @@ namespace boost { namespace spirit {
         int len;
     };
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

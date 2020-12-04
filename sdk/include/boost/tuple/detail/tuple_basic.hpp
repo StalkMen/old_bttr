@@ -43,7 +43,7 @@
 #include "boost/type_traits/cv_traits.hpp"
 #include "boost/type_traits/function_traits.hpp"
     
-namespace boost {
+namespace boost_cryray {
 namespace tuples {
 
 // -- null_type --------------------------------------------------------
@@ -160,12 +160,12 @@ private:
   typedef typename T::tail_type Next;
   typedef typename element<N-1, Next>::type unqualified_type;
 public:
-  typedef typename boost::add_const<unqualified_type>::type type;
+  typedef typename boost_cryray::add_const<unqualified_type>::type type;
 };
 template<class T>
 struct element<0,const T>
 {
-  typedef typename boost::add_const<typename T::head_type>::type type;
+  typedef typename boost_cryray::add_const<typename T::head_type>::type type;
 };
 
 // -get function templates -----------------------------------------------
@@ -181,7 +181,7 @@ template <class T> struct access_traits {
   typedef const T& const_type;
   typedef T& non_const_type;
 
-  typedef const typename boost::remove_cv<T>::type& parameter_type;
+  typedef const typename boost_cryray::remove_cv<T>::type& parameter_type;
 
 // used as the tuple constructors parameter types
 // Rationale: non-reference tuple element types can be cv-qualified.
@@ -242,7 +242,7 @@ template <class T> class non_storeable_type {
 
 template <class T> struct wrap_non_storeable_type {
   typedef typename IF<
-    ::boost::is_function<T>::value, non_storeable_type<T>, T
+    ::boost_cryray::is_function<T>::value, non_storeable_type<T>, T
   >::RET type;
 };
 template <> struct wrap_non_storeable_type<void> {
@@ -330,7 +330,7 @@ struct cons {
              typename element<N, cons<HT, TT> >::type
            >::non_const_type
   get() {
-    return boost::tuples::get<N>(*this); // delegate to non-member get
+    return boost_cryray::tuples::get<N>(*this); // delegate to non-member get
   }
 
   template <int N>
@@ -338,7 +338,7 @@ struct cons {
              typename element<N, cons<HT, TT> >::type
            >::const_type
   get() const {
-    return boost::tuples::get<N>(*this); // delegate to non-member get
+    return boost_cryray::tuples::get<N>(*this); // delegate to non-member get
   }
 };
 
@@ -398,7 +398,7 @@ struct cons<HT, null_type> {
              typename element<N, self_type>::type
             >::non_const_type
   get(BOOST_TUPLE_SINGLE_DUMMY_PARM) {
-    return boost::tuples::get<N>(*this);
+    return boost_cryray::tuples::get<N>(*this);
   }
 
   template <int N>
@@ -406,7 +406,7 @@ struct cons<HT, null_type> {
              typename element<N, self_type>::type
            >::const_type
   get(BOOST_TUPLE_SINGLE_DUMMY_PARM) const {
-    return boost::tuples::get<N>(*this);
+    return boost_cryray::tuples::get<N>(*this);
   }
 
 };
@@ -627,7 +627,7 @@ struct make_tuple_traits {
 
   // commented away, see below  (JJ)
   //  typedef typename IF<                 
-  //  boost::is_function<T>::value,
+  //  boost_cryray::is_function<T>::value,
   //  T&,
   //  T>::RET type;
 
@@ -873,7 +873,7 @@ tie(T1& t1, T2& t2, T3& t3, T4& t4, T5& t5, T6& t6, T7& t7, T8& t8,
 }
 
 } // end of namespace tuples
-} // end of namespace boost
+} // end of namespace boost_cryray
 
 #undef BOOST_TUPLE_DUMMY_PARM
 #undef BOOST_TUPLE_SINGLE_DUMMY_PARM

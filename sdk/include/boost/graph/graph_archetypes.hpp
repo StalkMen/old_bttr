@@ -27,7 +27,7 @@
 #include <boost/property_map.hpp>
 #include <boost/concept_archetype.hpp>
 
-namespace boost { // should use a different namespace for this
+namespace boost_cryray { // should use a different namespace for this
 
   namespace detail {
     struct null_graph_archetype : public null_archetype<> {
@@ -258,7 +258,7 @@ namespace boost { // should use a different namespace for this
   put(P p, property_graph_archetype<G, P, V>& g, 
       const Key& key, const V& value)
   {
-    typedef typename boost::property_map<property_graph_archetype<G, P, V>, P>::type Map;
+    typedef typename boost_cryray::property_map<property_graph_archetype<G, P, V>, P>::type Map;
     Map pmap = get(p, g);
     put(pmap, key, value);
   }
@@ -298,7 +298,7 @@ namespace boost { // should use a different namespace for this
     bool empty() const { return true; }
   };
   
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_GRAPH_ARCHETYPES_HPP

@@ -24,7 +24,7 @@
 // Iterators based on ideas of Jeremy Siek
 // Hermitian matrices are square. Thanks to Peter Schmitteckert for spotting this.
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     template<class M>
     bool is_hermitian (const M &m) {
@@ -1118,28 +1118,28 @@ namespace boost { namespace numeric { namespace ublas {
 #else
         // FIXME: no better way to not return the address of a temporary?
         // typedef typename M::const_reference const_reference;
-        // typedef typename boost::mpl::if_c<boost::is_const<M>::value,
+        // typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<M>::value,
         //                                   typename M::const_reference,
         //                                   typename M::reference>::type reference;
         typedef typename M::value_type const_reference;
 #ifndef BOOST_UBLAS_STRICT_HERMITIAN
-        typedef typename boost::mpl::if_c<boost::is_const<M>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<M>::value,
                                           typename M::value_type,
                                           typename M::reference>::type reference;
 #else
-        typedef typename boost::mpl::if_c<boost::is_const<M>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<M>::value,
                                           typename M::value_type,
                                           hermitian_matrix_element<const hermitian_adaptor<M, F> > >::type reference;
 #endif
         typedef typename M::const_pointer const_pointer;
-        typedef typename boost::mpl::if_c<boost::is_const<M>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<M>::value,
                                           typename M::const_pointer,
                                           typename M::pointer>::type pointer;
 #endif
 #ifndef BOOST_UBLAS_CT_PROXY_CLOSURE_TYPEDEFS
         typedef typename M::closure_type matrix_closure_type;
 #else
-        typedef typename boost::mpl::if_c<boost::is_const<M>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<M>::value,
                                           typename M::const_closure_type,
                                           typename M::closure_type>::type matrix_closure_type;
 #endif
@@ -1154,11 +1154,11 @@ namespace boost { namespace numeric { namespace ublas {
         typedef typename M::iterator2 iterator2_type;
 #else
         typedef typename M::const_iterator1 const_iterator1_type;
-        typedef typename boost::mpl::if_c<boost::is_const<M>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<M>::value,
                                           typename M::const_iterator1,
                                           typename M::iterator1>::type iterator1_type;
         typedef typename M::const_iterator2 const_iterator2_type;
-        typedef typename boost::mpl::if_c<boost::is_const<M>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<M>::value,
                                           typename M::const_iterator2,
                                           typename M::iterator2>::type iterator2_type;
 #endif

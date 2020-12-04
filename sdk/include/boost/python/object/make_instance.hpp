@@ -10,7 +10,7 @@
 # include <boost/python/converter/registered.hpp>
 # include <boost/python/detail/decref_guard.hpp>
 
-namespace boost { namespace python { namespace objects { 
+namespace boost_cryray { namespace python { namespace objects { 
 
 template <class T, class Holder, class Derived>
 struct make_instance_impl
@@ -66,6 +66,6 @@ struct make_instance
 };
   
 
-}}} // namespace boost::python::object
+}}} // namespace boost_cryray::python::object
 
 #endif // MAKE_INSTANCE_DWA200296_HPP

@@ -15,16 +15,16 @@
 //  This software is provided "as is" without express or implied
 //  warranty, and with no claim as to its suitability for any purpose.
 //
-//  typedef <unspecified> boost::detail::lightweight_mutex;
+//  typedef <unspecified> boost_cryray::detail::lightweight_mutex;
 //
-//  boost::detail::lightweight_mutex meets a subset of the Mutex concept
+//  boost_cryray::detail::lightweight_mutex meets a subset of the Mutex concept
 //  requirements: http://www.boost.org/libs/thread/doc/mutex_concept.html#Mutex
 //
 //  * Used by the smart pointer library
 //  * Performance oriented
 //  * Header-only implementation
 //  * Small memory footprint
-//  * Not a general purpose mutex, use boost::mutex, CRITICAL_SECTION or
+//  * Not a general purpose mutex, use boost_cryray::mutex, CRITICAL_SECTION or
 //    pthread_mutex instead.
 //  * Never spin in a tight lock/do-something/unlock loop, since
 //    lightweight_mutex does not guarantee fairness.

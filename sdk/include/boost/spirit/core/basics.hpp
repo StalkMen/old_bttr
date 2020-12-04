@@ -32,11 +32,11 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     struct nil_t {};
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

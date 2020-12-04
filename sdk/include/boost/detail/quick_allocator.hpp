@@ -26,7 +26,7 @@
 #include <new>              // ::operator new, ::operator delete
 #include <cstddef>          // std::size_t
 
-namespace boost
+namespace boost_cryray
 {
 
 namespace detail
@@ -34,7 +34,7 @@ namespace detail
 
 template<unsigned size, unsigned align_> union freeblock
 {
-    typedef typename boost::type_with_alignment<align_>::type aligner_type;
+    typedef typename boost_cryray::type_with_alignment<align_>::type aligner_type;
     aligner_type aligner;
     char bytes[size];
     freeblock * next;
@@ -176,12 +176,12 @@ template<unsigned size, unsigned align_>
   unsigned allocator_impl<size, align_>::last = allocator_impl<size, align_>::items_per_page;
 
 template<class T>
-struct quick_allocator: public allocator_impl< sizeof(T), boost::alignment_of<T>::value >
+struct quick_allocator: public allocator_impl< sizeof(T), boost_cryray::alignment_of<T>::value >
 {
 };
 
 } // namespace detail
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // #ifndef BOOST_DETAIL_QUICK_ALLOCATOR_HPP_INCLUDED

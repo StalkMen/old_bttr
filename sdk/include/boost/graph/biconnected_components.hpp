@@ -19,7 +19,7 @@
 #include <boost/graph/graph_concepts.hpp>
 #include <boost/property_map.hpp>
 
-namespace boost
+namespace boost_cryray
 {
   namespace detail
   {
@@ -107,6 +107,6 @@ namespace boost
 
   }
 
-}                               // namespace boost
+}                               // namespace boost_cryray
 
 #endif  /* BOOST_GRAPH_BICONNECTED_COMPONENTS_HPP */

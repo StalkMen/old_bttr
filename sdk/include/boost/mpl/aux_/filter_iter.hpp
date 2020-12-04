@@ -24,7 +24,7 @@
 #include "boost/mpl/aux_/config/ctps.hpp"
 #include "boost/type_traits/is_same.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -130,7 +130,7 @@ template<
     >
 struct filter_iter
     : filter_iter_impl<
-          ::boost::is_same<Iterator,LastIterator>::value
+          ::boost_cryray::is_same<Iterator,LastIterator>::value
         >::template result_< Iterator,LastIterator,Predicate >
 {
 };
@@ -142,6 +142,6 @@ struct filter_iter
 BOOST_MPL_AUX_PASS_THROUGH_LAMBDA_SPEC(3, aux::filter_iter)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_FILTER_ITER_HPP_INCLUDED

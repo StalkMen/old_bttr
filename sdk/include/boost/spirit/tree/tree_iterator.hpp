@@ -24,7 +24,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -102,7 +102,7 @@ private:
     node_stack nodes;
 };
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #undef BOOST_SPIRIT_IT_NS
 #endif // BOOST_SPIRIT_TREE_TREE_ITERATOR_HPP

@@ -32,7 +32,7 @@
 
 // OBSOLETE
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
     // EdgeDir tags

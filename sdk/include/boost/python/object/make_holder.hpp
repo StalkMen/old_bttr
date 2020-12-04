@@ -27,7 +27,7 @@
 
 #  include <cstddef>
 
-namespace boost { namespace python { namespace objects {
+namespace boost_cryray { namespace python { namespace objects {
 
 template <int nargs> struct make_holder;
 
@@ -39,7 +39,7 @@ template <int nargs> struct make_holder;
 
 #  undef BOOST_PYTHON_DO_FORWARD_ARG
 
-}}} // namespace boost::python::objects
+}}} // namespace boost_cryray::python::objects
 
 # endif // MAKE_HOLDER_DWA20011215_HPP
 

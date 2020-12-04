@@ -12,7 +12,7 @@
 //  warranty, and with no claim as to its suitability for any purpose.
 //
 
-namespace boost
+namespace boost_cryray
 {
 
 namespace _bi
@@ -140,6 +140,6 @@ template<class F> _bi::protected_bind_t<F> protect(F f)
     return _bi::protected_bind_t<F>(f);
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // #ifndef BOOST_BIND_PROTECT_HPP_INCLUDED

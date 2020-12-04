@@ -21,7 +21,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 // forward declaration, needed by 'is_pod_array_helper' template below
 template< typename T > struct is_POD;
@@ -34,9 +34,9 @@ template <typename T> struct is_pod_impl
 { 
     BOOST_STATIC_CONSTANT(
         bool, value =
-        (::boost::type_traits::ice_or<
-            ::boost::is_scalar<T>::value,
-            ::boost::is_void<T>::value,
+        (::boost_cryray::type_traits::ice_or<
+            ::boost_cryray::is_scalar<T>::value,
+            ::boost_cryray::is_void<T>::value,
             BOOST_IS_POD(T)
          >::value));
 };
@@ -56,9 +56,9 @@ struct is_pod_helper
     {
         BOOST_STATIC_CONSTANT(
             bool, value =
-            (::boost::type_traits::ice_or<
-                ::boost::is_scalar<T>::value,
-                ::boost::is_void<T>::value,
+            (::boost_cryray::type_traits::ice_or<
+                ::boost_cryray::is_scalar<T>::value,
+                ::boost_cryray::is_void<T>::value,
                 BOOST_IS_POD(T)
             >::value));
     };
@@ -67,19 +67,19 @@ struct is_pod_helper
 template <bool b>
 struct bool_to_yes_no_type
 {
-    typedef ::boost::type_traits::no_type type;
+    typedef ::boost_cryray::type_traits::no_type type;
 };
 
 template <>
 struct bool_to_yes_no_type<true>
 {
-    typedef ::boost::type_traits::yes_type type;
+    typedef ::boost_cryray::type_traits::yes_type type;
 };
 
 template <typename ArrayType>
 struct is_pod_array_helper
 {
-    enum { is_pod = ::boost::is_POD<ArrayType>::value }; // MSVC workaround
+    enum { is_pod = ::boost_cryray::is_POD<ArrayType>::value }; // MSVC workaround
     typedef typename bool_to_yes_no_type<is_pod>::type type;
     type instance() const;
 };
@@ -94,7 +94,7 @@ struct is_pod_helper<true>
     {
         static T& help();
         BOOST_STATIC_CONSTANT(bool, value =
-            sizeof(is_POD_array(help()).instance()) == sizeof(::boost::type_traits::yes_type)
+            sizeof(is_POD_array(help()).instance()) == sizeof(::boost_cryray::type_traits::yes_type)
             );
     };
 };
@@ -104,8 +104,8 @@ template <typename T> struct is_pod_impl
 { 
    BOOST_STATIC_CONSTANT(
        bool, value = (
-           ::boost::detail::is_pod_helper<
-              ::boost::is_array<T>::value
+           ::boost_cryray::detail::is_pod_helper<
+              ::boost_cryray::is_array<T>::value
            >::template result_<T>::value
            )
        );
@@ -124,10 +124,10 @@ BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,void const volatile,true)
 
 } // namespace detail
 
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_POD,T,::boost::detail::is_pod_impl<T>::value)
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_pod,T,::boost::is_POD<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_POD,T,::boost_cryray::detail::is_pod_impl<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_pod,T,::boost_cryray::is_POD<T>::value)
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

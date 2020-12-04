@@ -30,7 +30,7 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/dijkstra_shortest_paths.hpp>
 
-namespace boost {
+namespace boost_cryray {
   
   namespace detail {
     // this should be somewhere else in boost...
@@ -102,6 +102,6 @@ namespace boost {
        get(edge_weight, g));
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_MST_PRIM_HPP

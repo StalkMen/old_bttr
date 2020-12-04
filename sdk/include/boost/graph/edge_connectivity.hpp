@@ -34,7 +34,7 @@
 #include <algorithm>
 #include <boost/graph/edmunds_karp_max_flow.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -192,6 +192,6 @@ namespace boost {
     return c;
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_EDGE_CONNECTIVITY

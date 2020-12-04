@@ -92,7 +92,7 @@ namespace luabind
 }
 
 #ifdef LUABIND_NO_EXCEPTIONS
-	namespace boost {
+	namespace boost_cryray {
 	inline void throw_exception(const std::exception &){}
 	}
 #endif // LUABIND_NO_EXCEPTIONS

@@ -31,7 +31,7 @@
 #include <boost/random/linear_congruential.hpp>
 
 
-namespace boost {
+namespace boost_cryray {
 namespace random {
 
 # if BOOST_WORKAROUND(_MSC_FULL_VER, BOOST_TESTED_AT(13102292)) && BOOST_MSVC > 1300
@@ -426,6 +426,6 @@ RealType subtract_with_carry_01<RealType, w, s, r, val>::compute(unsigned int in
 
 
 } // namespace random
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_SUBTRACT_WITH_CARRY_HPP

@@ -10,7 +10,7 @@
 # include <boost/python/detail/wrap_python.hpp>
 # include <boost/python/cast.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 BOOST_PYTHON_DECL PyObject* checked_downcast_impl(PyObject*, PyTypeObject*);
 
@@ -32,6 +32,6 @@ struct pyobject_type
     }
 };
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // PYOBJECT_TYPE_DWA2002720_HPP

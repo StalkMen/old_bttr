@@ -21,7 +21,7 @@
 #include "boost/mpl/aux_/msvc_never_true.hpp"
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -57,6 +57,6 @@ struct iter_distance
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_ITER_DISTANCE_HPP_INCLUDED

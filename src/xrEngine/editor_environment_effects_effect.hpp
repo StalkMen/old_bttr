@@ -30,7 +30,7 @@ class manager;
 class effect :
     public CEnvAmbient::SEffect,
     public editor::property_holder_holder,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 public:
     effect(manager const& manager, shared_str const& id);

@@ -17,7 +17,7 @@
 #include <boost/type_traits/is_function.hpp>
 #include <boost/type_traits/add_pointer.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 namespace detail {

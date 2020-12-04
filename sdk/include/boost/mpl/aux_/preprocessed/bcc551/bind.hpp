@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/bind.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 namespace aux {
@@ -420,5 +420,5 @@ struct bind2nd
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

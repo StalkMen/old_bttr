@@ -25,7 +25,7 @@
 #include <cassert>
 #include <boost/random/uniform_01.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 // triangle distribution, with a smallest, b most probable, and c largest
 // value.
@@ -113,6 +113,6 @@ private:
   result_type d1, d2, d3, q1, p1;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_TRIANGLE_DISTRIBUTION_HPP

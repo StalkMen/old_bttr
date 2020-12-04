@@ -32,7 +32,7 @@ class manager;
 class channel :
     public CEnvAmbient::SSndChannel,
     public editor::property_holder_holder,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 private:
     typedef CEnvAmbient::SSndChannel inherited;

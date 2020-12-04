@@ -99,7 +99,7 @@
 //        reverse_iterator_pair_generator (more such culling to come)
 //      Improved comments
 //      Changed all uses of std::iterator_traits as default arguments
-//        to boost::detail::iterator_traits for improved utility in
+//        to boost_cryray::detail::iterator_traits for improved utility in
 //        non-generic contexts
 //      Fixed naming convention of non-template parameter names
 //
@@ -109,7 +109,7 @@
 //      Renamed single-type generators -> xxx_generator
 //      Renamed const/nonconst iterator generators -> xxx_pair_generator
 //      Added make_transform_iterator(iter, function)
-//      The existence of boost::detail::iterator_traits allowed many
+//      The existence of boost_cryray::detail::iterator_traits allowed many
 //        template arguments to be defaulted. Some arguments had to be
 //        moved to accomplish it.
 //
@@ -135,7 +135,7 @@
 #  define BOOST_RELOPS_AMBIGUITY_BUG 1
 # endif
 
-namespace boost {
+namespace boost_cryray {
 
 //============================================================================
 // Concept checking classes that express the requirements for iterator
@@ -371,9 +371,9 @@ namespace detail {
   {
       typedef operator_arrow_proxy<Value> proxy;
       // Borland chokes unless it's an actual enum (!)
-      enum { use_proxy = !boost::is_reference<Reference>::value };
+      enum { use_proxy = !boost_cryray::is_reference<Reference>::value };
 
-      typedef typename boost::detail::if_true<(use_proxy)>::template
+      typedef typename boost_cryray::detail::if_true<(use_proxy)>::template
       then<
         proxy,
    // else
@@ -395,8 +395,8 @@ namespace detail {
        {
            // The assumption is that iterator_traits can deduce these types
            // properly as long as the iterator is not a pointer.
-           typedef typename boost::detail::iterator_traits<Iterator>::pointer pointer;
-           typedef typename boost::detail::iterator_traits<Iterator>::reference reference;
+           typedef typename boost_cryray::detail::iterator_traits<Iterator>::pointer pointer;
+           typedef typename boost_cryray::detail::iterator_traits<Iterator>::reference reference;
        };
    };
 
@@ -417,7 +417,7 @@ namespace detail {
    template <class Iterator,class Value>
    struct iterator_defaults
    {
-       BOOST_STATIC_CONSTANT(bool, is_ptr = boost::is_pointer<Iterator>::value);
+       BOOST_STATIC_CONSTANT(bool, is_ptr = boost_cryray::is_pointer<Iterator>::value);
 
        typedef typename iterator_defaults_select<is_ptr>::template traits<Iterator,Value> traits;
        typedef typename traits::pointer pointer;
@@ -430,14 +430,14 @@ namespace detail {
        // Trying to factor the common is_same expression into an enum or a
        // static bool constant confused Borland.
        typedef typename if_true<(
-               ::boost::is_same<Value,typename iterator_traits<Iterator>::value_type>::value
+               ::boost_cryray::is_same<Value,typename iterator_traits<Iterator>::value_type>::value
            )>::template then<
                 typename iterator_traits<Iterator>::pointer,
                 Value*
        >::type pointer;
 
        typedef typename if_true<(
-               ::boost::is_same<Value,typename iterator_traits<Iterator>::value_type>::value
+               ::boost_cryray::is_same<Value,typename iterator_traits<Iterator>::value_type>::value
            )>::template then<
                 typename iterator_traits<Iterator>::reference,
                 Value&
@@ -463,7 +463,7 @@ namespace detail {
   struct default_value_type {
     template <class Base, class Traits>
     struct select {
-      typedef typename boost::detail::iterator_traits<Base>::value_type type;
+      typedef typename boost_cryray::detail::iterator_traits<Base>::value_type type;
     };
   };
   template <> struct default_generator<default_value_type>
@@ -472,7 +472,7 @@ namespace detail {
   struct default_difference_type {
     template <class Base, class Traits>
     struct select {
-      typedef typename boost::detail::iterator_traits<Base>::difference_type type;
+      typedef typename boost_cryray::detail::iterator_traits<Base>::difference_type type;
     };
   };
   template <> struct default_generator<default_difference_type>
@@ -481,7 +481,7 @@ namespace detail {
   struct default_iterator_category {
     template <class Base, class Traits>
     struct select {
-      typedef typename boost::detail::iterator_traits<Base>::iterator_category type;
+      typedef typename boost_cryray::detail::iterator_traits<Base>::iterator_category type;
     };
   };
   template <> struct default_generator<default_iterator_category>
@@ -491,7 +491,7 @@ namespace detail {
     template <class Base, class Traits>
     struct select {
       typedef typename Traits::value_type Value;
-      typedef typename boost::detail::iterator_defaults<Base,Value>::pointer
+      typedef typename boost_cryray::detail::iterator_defaults<Base,Value>::pointer
         type;
     };
   };
@@ -502,7 +502,7 @@ namespace detail {
     template <class Base, class Traits>
     struct select {
       typedef typename Traits::value_type Value;
-      typedef typename boost::detail::iterator_defaults<Base,Value>::reference
+      typedef typename boost_cryray::detail::iterator_defaults<Base,Value>::reference
         type;
     };
   };
@@ -709,7 +709,7 @@ namespace detail {
     typedef typename find_param<ArgList, pointer_tag>::type Ptr;
     typedef typename find_param<ArgList, reference_tag>::type Ref;
 
-    typedef boost::iterator<Category, Value, Distance, Pointer, Reference>
+    typedef boost_cryray::iterator<Category, Value, Distance, Pointer, Reference>
       Traits0;
 
     // Compute the defaults if necessary
@@ -721,7 +721,7 @@ namespace detail {
     typedef typename resolve_default<Cat, default_iterator_category, Base,
       Traits0>::type iterator_category;
 
-    typedef boost::iterator<iterator_category, value_type, difference_type,
+    typedef boost_cryray::iterator<iterator_category, value_type, difference_type,
       Pointer, Reference> Traits1;
 
     // Compute the defaults for pointer and reference. This is done as a
@@ -733,7 +733,7 @@ namespace detail {
       reference;
 
   public:
-    typedef boost::iterator<iterator_category,
+    typedef boost_cryray::iterator<iterator_category,
       typename remove_const<value_type>::type,
       difference_type, pointer, reference> type;
   };
@@ -745,8 +745,8 @@ namespace detail {
   {
       BOOST_STATIC_CONSTANT(
           bool, is_input_or_output_iter
-          = (boost::is_convertible<Category*,std::input_iterator_tag*>::value
-             | boost::is_convertible<Category*,std::output_iterator_tag*>::value));
+          = (boost_cryray::is_convertible<Category*,std::input_iterator_tag*>::value
+             | boost_cryray::is_convertible<Category*,std::output_iterator_tag*>::value));
 
       // Iterators should satisfy one of the known categories
       BOOST_STATIC_ASSERT(is_input_or_output_iter);
@@ -755,9 +755,9 @@ namespace detail {
       // as required by the C++ standard requirements in Table 74.
       BOOST_STATIC_CONSTANT(
           bool, forward_iter_with_real_reference
-          = ((!boost::is_convertible<Category*,std::forward_iterator_tag*>::value)
-             | boost::is_same<Reference,Value&>::value
-             | boost::is_same<Reference,typename add_const<Value>::type&>::value));
+          = ((!boost_cryray::is_convertible<Category*,std::forward_iterator_tag*>::value)
+             | boost_cryray::is_same<Reference,Value&>::value
+             | boost_cryray::is_same<Reference,typename add_const<Value>::type&>::value));
 
       BOOST_STATIC_ASSERT(forward_iter_with_real_reference);
   };
@@ -807,11 +807,11 @@ namespace detail {
 //   Distance - the difference_type of the resulting iterator. If not
 //      supplied, iterator_traits<Base>::difference_type is used.
 template <class Base, class Policies,
-    class Value = ::boost::detail::default_argument,
-    class Reference = ::boost::detail::default_argument,
-    class Pointer = ::boost::detail::default_argument,
-    class Category = ::boost::detail::default_argument,
-    class Distance = ::boost::detail::default_argument
+    class Value = ::boost_cryray::detail::default_argument,
+    class Reference = ::boost_cryray::detail::default_argument,
+    class Pointer = ::boost_cryray::detail::default_argument,
+    class Category = ::boost_cryray::detail::default_argument,
+    class Distance = ::boost_cryray::detail::default_argument
          >
 struct iterator_adaptor :
 #ifdef BOOST_RELOPS_AMBIGUITY_BUG
@@ -878,7 +878,7 @@ struct iterator_adaptor :
 # pragma warning( disable : 4284 )
 #endif
 
-    typename boost::detail::operator_arrow_result_generator<value_type,reference,pointer>::type
+    typename boost_cryray::detail::operator_arrow_result_generator<value_type,reference,pointer>::type
     operator->() const
         { return detail::operator_arrow(*this, iterator_category()); }
 
@@ -1094,7 +1094,7 @@ make_transform_iterator(
 // iterator.
 
 // We tried to implement this with transform_iterator, but that required
-// using boost::remove_ref, which is not compiler portable.
+// using boost_cryray::remove_ref, which is not compiler portable.
 
 struct indirect_iterator_policies : public default_iterator_policies
 {
@@ -1107,10 +1107,10 @@ namespace detail {
 # if !BOOST_WORKAROUND(BOOST_MSVC, <= 1300) // strangely instantiated even when unused! Maybe try a recursive template someday ;-)
   template <class T>
   struct traits_of_value_type {
-      typedef typename boost::detail::iterator_traits<T>::value_type outer_value;
-      typedef typename boost::detail::iterator_traits<outer_value>::value_type value_type;
-      typedef typename boost::detail::iterator_traits<outer_value>::reference reference;
-      typedef typename boost::detail::iterator_traits<outer_value>::pointer pointer;
+      typedef typename boost_cryray::detail::iterator_traits<T>::value_type outer_value;
+      typedef typename boost_cryray::detail::iterator_traits<outer_value>::value_type value_type;
+      typedef typename boost_cryray::detail::iterator_traits<outer_value>::reference reference;
+      typedef typename boost_cryray::detail::iterator_traits<outer_value>::pointer pointer;
   };
 # endif
 }
@@ -1128,7 +1128,7 @@ template <class OuterIterator,      // Mutable or Immutable, does not matter
 #else
                 = Value &
 #endif
-          , class Category = BOOST_ARG_DEPENDENT_TYPENAME boost::detail::iterator_traits<
+          , class Category = BOOST_ARG_DEPENDENT_TYPENAME boost_cryray::detail::iterator_traits<
                         OuterIterator>::iterator_category
           , class Pointer
 #if !BOOST_WORKAROUND(BOOST_MSVC, <= 1300)
@@ -1158,7 +1158,7 @@ template <class OuterIterator,      // Mutable or Immutable, does not matter
                 = Value &
 #endif
           , class ConstReference = Value const&
-          , class Category = BOOST_ARG_DEPENDENT_TYPENAME boost::detail::iterator_traits<
+          , class Category = BOOST_ARG_DEPENDENT_TYPENAME boost_cryray::detail::iterator_traits<
                 OuterIterator>::iterator_category
           , class Pointer
 #if !BOOST_WORKAROUND(BOOST_MSVC, <= 1300)
@@ -1195,7 +1195,7 @@ struct reverse_iterator_policies : public default_iterator_policies
 {
     template <class IteratorAdaptor>
     typename IteratorAdaptor::reference dereference(const IteratorAdaptor& x) const
-        { return *boost::prior(x.base()); }
+        { return *boost_cryray::prior(x.base()); }
 
     template <class BidirectionalIterator>
     void increment(BidirectionalIterator& x) const
@@ -1220,11 +1220,11 @@ struct reverse_iterator_policies : public default_iterator_policies
 };
 
 template <class BidirectionalIterator,
-    class Value = BOOST_ARG_DEPENDENT_TYPENAME boost::detail::iterator_traits<BidirectionalIterator>::value_type,
-    class Reference = BOOST_ARG_DEPENDENT_TYPENAME boost::detail::iterator_defaults<BidirectionalIterator,Value>::reference,
-    class Pointer = BOOST_ARG_DEPENDENT_TYPENAME boost::detail::iterator_defaults<BidirectionalIterator,Value>::pointer,
-    class Category = BOOST_ARG_DEPENDENT_TYPENAME boost::detail::iterator_traits<BidirectionalIterator>::iterator_category,
-    class Distance = BOOST_ARG_DEPENDENT_TYPENAME boost::detail::iterator_traits<BidirectionalIterator>::difference_type
+    class Value = BOOST_ARG_DEPENDENT_TYPENAME boost_cryray::detail::iterator_traits<BidirectionalIterator>::value_type,
+    class Reference = BOOST_ARG_DEPENDENT_TYPENAME boost_cryray::detail::iterator_defaults<BidirectionalIterator,Value>::reference,
+    class Pointer = BOOST_ARG_DEPENDENT_TYPENAME boost_cryray::detail::iterator_defaults<BidirectionalIterator,Value>::pointer,
+    class Category = BOOST_ARG_DEPENDENT_TYPENAME boost_cryray::detail::iterator_traits<BidirectionalIterator>::iterator_category,
+    class Distance = BOOST_ARG_DEPENDENT_TYPENAME boost_cryray::detail::iterator_traits<BidirectionalIterator>::difference_type
          >
 struct reverse_iterator_generator
 {
@@ -1354,7 +1354,7 @@ namespace detail {
   struct reduce_to_base_class
   {
       typedef typename if_true<(
-            ::boost::is_convertible<T*,Base*>::value
+            ::boost_cryray::is_convertible<T*,Base*>::value
           )>::template then<Base,T>::type type;
   };
 
@@ -1372,15 +1372,15 @@ namespace detail {
       // For some reason, putting this assertion in filter_iterator_generator fails inexplicably under MSVC
       BOOST_STATIC_CONSTANT(
           bool, is_bidirectional
-          = (!boost::is_convertible<type*, std::bidirectional_iterator_tag*>::value));
+          = (!boost_cryray::is_convertible<type*, std::bidirectional_iterator_tag*>::value));
       BOOST_STATIC_ASSERT(is_bidirectional);
 # else
       // is_convertible doesn't work with MWERKS
       typedef typename iterator_traits<Iterator>::iterator_category input_category;
   public:
       typedef typename if_true<(
-          boost::is_same<input_category,std::random_access_iterator_tag>::value
-          || boost::is_same<input_category,std::bidirectional_iterator_tag>::value
+          boost_cryray::is_same<input_category,std::random_access_iterator_tag>::value
+          || boost_cryray::is_same<input_category,std::bidirectional_iterator_tag>::value
         )>::template then<
           std::forward_iterator_tag,
           input_category
@@ -1390,15 +1390,15 @@ namespace detail {
 }
 
 template <class Predicate, class Iterator,
-    class Value = BOOST_ARG_DEPENDENT_TYPENAME boost::detail::iterator_traits<Iterator>::value_type,
-    class Reference = BOOST_ARG_DEPENDENT_TYPENAME boost::detail::iterator_defaults<Iterator,Value>::reference,
-    class Pointer = BOOST_ARG_DEPENDENT_TYPENAME boost::detail::iterator_defaults<Iterator,Value>::pointer,
-    class Category = BOOST_ARG_DEPENDENT_TYPENAME boost::detail::non_bidirectional_category<Iterator>::type,
-    class Distance = BOOST_ARG_DEPENDENT_TYPENAME boost::detail::iterator_traits<Iterator>::difference_type
+    class Value = BOOST_ARG_DEPENDENT_TYPENAME boost_cryray::detail::iterator_traits<Iterator>::value_type,
+    class Reference = BOOST_ARG_DEPENDENT_TYPENAME boost_cryray::detail::iterator_defaults<Iterator,Value>::reference,
+    class Pointer = BOOST_ARG_DEPENDENT_TYPENAME boost_cryray::detail::iterator_defaults<Iterator,Value>::pointer,
+    class Category = BOOST_ARG_DEPENDENT_TYPENAME boost_cryray::detail::non_bidirectional_category<Iterator>::type,
+    class Distance = BOOST_ARG_DEPENDENT_TYPENAME boost_cryray::detail::iterator_traits<Iterator>::difference_type
          >
 class filter_iterator_generator {
     BOOST_STATIC_CONSTANT(bool, is_bidirectional
-        = (boost::is_convertible<Category*, std::bidirectional_iterator_tag*>::value));
+        = (boost_cryray::is_convertible<Category*, std::bidirectional_iterator_tag*>::value));
 #if !BOOST_WORKAROUND(BOOST_MSVC, <= 1300) // I don't have any idea why this occurs, but it doesn't seem to hurt too badly.
     BOOST_STATIC_ASSERT(!is_bidirectional);
 #endif
@@ -1413,7 +1413,7 @@ class filter_iterator_generator {
 namespace detail {
   template <class Predicate, class Iterator>
   struct filter_generator {
-    typedef typename boost::filter_iterator_generator<Predicate,Iterator>::type type;
+    typedef typename boost_cryray::filter_iterator_generator<Predicate,Iterator>::type type;
   };
 }
 
@@ -1427,7 +1427,7 @@ make_filter_iterator(Iterator first, Iterator last, const Predicate& p = Predica
   return result_t(first, policies_t(p, last));
 }
 
-} // namespace boost
+} // namespace boost_cryray
 # undef BOOST_ARG_DEPENDENT_TYPENAME
 
 

@@ -21,7 +21,7 @@
 #include "boost/config.hpp" // make sure 'size_t' is placed into 'std'
 #include <cstddef>
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 template< std::size_t N > struct size_t;
 }}
 

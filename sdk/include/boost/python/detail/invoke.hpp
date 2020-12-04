@@ -39,7 +39,7 @@
 //   - The arg_from_python converters for each of the arguments to be
 //   passed to the function being invoked.
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 // This "result converter" is really just used as a dispatch tag to
 // invoke(...), selecting the appropriate implementation
@@ -67,7 +67,7 @@ struct invoke_tag
         (3, (0, BOOST_PYTHON_MAX_ARITY, <boost/python/detail/invoke.hpp>))
 #  include BOOST_PP_ITERATE()
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 # endif // INVOKE_DWA20021122_HPP
 #else 

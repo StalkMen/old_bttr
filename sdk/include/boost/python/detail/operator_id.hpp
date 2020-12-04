@@ -6,7 +6,7 @@
 #ifndef OPERATOR_ID_DWA2002531_HPP
 # define OPERATOR_ID_DWA2002531_HPP
 
-namespace boost { namespace python { namespace detail {
+namespace boost_cryray { namespace python { namespace detail {
 
 enum operator_id
 { 
@@ -50,6 +50,6 @@ enum operator_id
     op_complex
 };
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // OPERATOR_ID_DWA2002531_HPP

@@ -55,7 +55,7 @@
 #   include "boost/preprocessor/inc.hpp"
 #   include "boost/preprocessor/cat.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // local macros, #undef-ined at the end of the header
@@ -183,7 +183,7 @@ struct lambda_impl< bind2nd<F,T>, Protect AUX_ARITY_PARAM(int_<2>) >
 #   undef AUX_LAMBDA_PARAMS
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_USE_PREPROCESSED_HEADERS
 #endif // BOOST_MPL_AUX_FULL_LAMBDA_HPP_INCLUDED

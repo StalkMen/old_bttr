@@ -38,7 +38,7 @@
 #include <boost/graph/visitors.hpp>
 #include <boost/graph/named_function_params.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template <class Visitor, class Graph>
   struct BFSVisitorConcept {
@@ -108,7 +108,7 @@ namespace boost {
     // Initialization
     typedef typename property_traits<ColorMap>::value_type ColorValue;
     typedef color_traits<ColorValue> Color;
-    typename boost::graph_traits<VertexListGraph>::vertex_iterator i, i_end;
+    typename boost_cryray::graph_traits<VertexListGraph>::vertex_iterator i, i_end;
     for (tie(i, i_end) = vertices(g); i != i_end; ++i) {
       put(color, *i, Color::white());
       vis.initialize_vertex(*i, g);
@@ -184,7 +184,7 @@ namespace boost {
       typedef graph_traits<VertexListGraph> Traits;
       // Buffer default
       typedef typename Traits::vertex_descriptor Vertex;
-      typedef boost::queue<Vertex> queue_t;
+      typedef boost_cryray::queue<Vertex> queue_t;
       queue_t Q;
       detail::wrap_ref<queue_t> Qref(Q);
       breadth_first_search
@@ -279,7 +279,7 @@ namespace boost {
     typedef graph_traits<IncidenceGraph> Traits;
     // Buffer default
     typedef typename Traits::vertex_descriptor vertex_descriptor;
-    typedef boost::queue<vertex_descriptor> queue_t;
+    typedef boost_cryray::queue<vertex_descriptor> queue_t;
     queue_t Q;
     detail::wrap_ref<queue_t> Qref(Q);
 
@@ -292,7 +292,7 @@ namespace boost {
        );
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_BREADTH_FIRST_SEARCH_HPP
 

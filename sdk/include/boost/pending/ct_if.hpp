@@ -19,7 +19,7 @@
   problem.
 */
 
-namespace boost {
+namespace boost_cryray {
 
   struct ct_if_error { };
 
@@ -106,7 +106,7 @@ namespace boost {
 
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_CT_IF_HPP
 

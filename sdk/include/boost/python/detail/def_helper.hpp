@@ -19,7 +19,7 @@
 # include <boost/tuple/tuple.hpp>
 # include <boost/python/detail/not_specified.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 struct default_call_policies;
 
@@ -149,7 +149,7 @@ namespace detail
       // A tuple type which begins with references to the supplied
       // arguments and ends with actual representatives of the default
       // types.
-      typedef boost::tuples::tuple<
+      typedef boost_cryray::tuples::tuple<
           T1 const&
           , T2 const&
           , T3 const&
@@ -207,6 +207,6 @@ namespace detail
   };
 }
 
-}} // namespace boost::python::detail
+}} // namespace boost_cryray::python::detail
 
 #endif // DEF_HELPER_DWA200287_HPP

@@ -18,7 +18,7 @@
 #ifndef BOOST_LAMBDA_ACTIONS_HPP
 #define BOOST_LAMBDA_ACTIONS_HPP
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
 
@@ -79,7 +79,7 @@ template<class T> class function_action<1, T> {
 public:
   template<class RET, class A1>
   static RET apply(A1& a1) {
-    return function_adaptor<typename boost::remove_cv<A1>::type>::
+    return function_adaptor<typename boost_cryray::remove_cv<A1>::type>::
       template apply<RET>(a1);
   }
 };
@@ -88,7 +88,7 @@ template<class T> class function_action<2, T> {
 public:
   template<class RET, class A1, class A2>
   static RET apply(A1& a1, A2& a2) {
-    return function_adaptor<typename boost::remove_cv<A1>::type>::
+    return function_adaptor<typename boost_cryray::remove_cv<A1>::type>::
       template apply<RET>(a1, a2);
   }
 };
@@ -97,7 +97,7 @@ template<class T> class function_action<3, T> {
 public:
   template<class RET, class A1, class A2, class A3>
   static RET apply(A1& a1, A2& a2, A3& a3) {
-    return function_adaptor<typename boost::remove_cv<A1>::type>::
+    return function_adaptor<typename boost_cryray::remove_cv<A1>::type>::
       template apply<RET>(a1, a2, a3);
   }
 };
@@ -106,7 +106,7 @@ template<class T> class function_action<4, T> {
 public:
   template<class RET, class A1, class A2, class A3, class A4>
   static RET apply(A1& a1, A2& a2, A3& a3, A4& a4) {
-    return function_adaptor<typename boost::remove_cv<A1>::type>::
+    return function_adaptor<typename boost_cryray::remove_cv<A1>::type>::
       template apply<RET>(a1, a2, a3, a4);
   }
 };
@@ -115,7 +115,7 @@ template<class T> class function_action<5, T> {
 public:
   template<class RET, class A1, class A2, class A3, class A4, class A5>
   static RET apply(A1& a1, A2& a2, A3& a3, A4& a4, A5& a5) {
-    return function_adaptor<typename boost::remove_cv<A1>::type>::
+    return function_adaptor<typename boost_cryray::remove_cv<A1>::type>::
       template apply<RET>(a1, a2, a3, a4, a5);
   }
 };
@@ -125,7 +125,7 @@ public:
   template<class RET, class A1, class A2, class A3, class A4, class A5, 
            class A6>
   static RET apply(A1& a1, A2& a2, A3& a3, A4& a4, A5& a5, A6& a6) {
-    return function_adaptor<typename boost::remove_cv<A1>::type>::
+    return function_adaptor<typename boost_cryray::remove_cv<A1>::type>::
       template apply<RET>(a1, a2, a3, a4, a5, a6);
   }
 };
@@ -135,7 +135,7 @@ public:
   template<class RET, class A1, class A2, class A3, class A4, class A5,  
            class A6, class A7>
   static RET apply(A1& a1, A2& a2, A3& a3, A4& a4, A5& a5, A6& a6, A7& a7) {
-    return function_adaptor<typename boost::remove_cv<A1>::type>::
+    return function_adaptor<typename boost_cryray::remove_cv<A1>::type>::
       template apply<RET>(a1, a2, a3, a4, a5, a6, a7);
   }
 };
@@ -146,7 +146,7 @@ public:
            class A6, class A7, class A8>
   static RET apply(A1& a1, A2& a2, A3& a3, A4& a4, A5& a5, A6& a6, A7& a7, 
                    A8& a8) {
-    return function_adaptor<typename boost::remove_cv<A1>::type>::
+    return function_adaptor<typename boost_cryray::remove_cv<A1>::type>::
       template apply<RET>(a1, a2, a3, a4, a5, a6, a7, a8);
   }
 };
@@ -157,7 +157,7 @@ public:
            class A6, class A7, class A8, class A9>
   static RET apply(A1& a1, A2& a2, A3& a3, A4& a4, A5& a5, A6& a6, A7& a7, 
                    A8& a8, A9& a9) {
-    return function_adaptor<typename boost::remove_cv<A1>::type>::
+    return function_adaptor<typename boost_cryray::remove_cv<A1>::type>::
       template apply<RET>(a1, a2, a3, a4, a5, a6, a7, a8, a9);
   }
 };
@@ -168,12 +168,12 @@ public:
            class A6, class A7, class A8, class A9, class A10>
   static RET apply(A1& a1, A2& a2, A3& a3, A4& a4, A5& a5, A6& a6, A7& a7, 
                    A8& a8, A9& a9, A10& a10) {
-    return function_adaptor<typename boost::remove_cv<A1>::type>::
+    return function_adaptor<typename boost_cryray::remove_cv<A1>::type>::
       template apply<RET>(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10);
   }
 };
 
 } // namespace lambda
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

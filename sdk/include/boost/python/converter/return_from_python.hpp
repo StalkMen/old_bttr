@@ -17,7 +17,7 @@
 # include <boost/mpl/and.hpp>
 # include <boost/mpl/bool.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 template <class T> struct is_object_manager;
 
@@ -156,6 +156,6 @@ namespace detail
   }
 }
   
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // RETURN_FROM_PYTHON_DWA200265_HPP

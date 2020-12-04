@@ -6,7 +6,7 @@
 #ifndef VOID_PTR_DWA200239_HPP
 # define VOID_PTR_DWA200239_HPP
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 template <class U>
 inline U& void_ptr_to_reference(void const volatile* p, U&(*)())
@@ -29,6 +29,6 @@ inline void write_void_ptr_reference(void const volatile* storage, void* ptr, U&
     write_void_ptr(storage, ptr, u_stripped(0));
 }
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // VOID_PTR_DWA200239_HPP

@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/apply.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -136,7 +136,7 @@ template<
     >
 struct apply1
     : aux::apply_impl1<
-          ::boost::mpl::aux::arity< F,1 >::value
+          ::boost_cryray::mpl::aux::arity< F,1 >::value
         , F
         , T1
         >::type
@@ -247,7 +247,7 @@ template<
     >
 struct apply2
     : aux::apply_impl2<
-          ::boost::mpl::aux::arity< F,2 >::value
+          ::boost_cryray::mpl::aux::arity< F,2 >::value
         , F
         , T1, T2
         >::type
@@ -340,7 +340,7 @@ template<
     >
 struct apply3
     : aux::apply_impl3<
-          ::boost::mpl::aux::arity< F,3 >::value
+          ::boost_cryray::mpl::aux::arity< F,3 >::value
         , F
         , T1, T2, T3
         >::type
@@ -415,7 +415,7 @@ template<
     >
 struct apply4
     : aux::apply_impl4<
-          ::boost::mpl::aux::arity< F,4 >::value
+          ::boost_cryray::mpl::aux::arity< F,4 >::value
         , F
         , T1, T2, T3, T4
         >::type
@@ -475,7 +475,7 @@ template<
     >
 struct apply5
     : aux::apply_impl5<
-          ::boost::mpl::aux::arity< F,5 >::value
+          ::boost_cryray::mpl::aux::arity< F,5 >::value
         , F
         , T1, T2, T3, T4, T5
         >::type
@@ -505,5 +505,5 @@ struct apply
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

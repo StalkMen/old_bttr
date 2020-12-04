@@ -20,7 +20,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -240,7 +240,7 @@ basic_chset_8bit<CharT>::operator^=(basic_chset_8bit const& x)
 }
 
 #endif
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

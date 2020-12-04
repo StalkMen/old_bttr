@@ -19,7 +19,7 @@
 #include <string>     // for std::char_traits
 
 
-namespace boost
+namespace boost_cryray
 {
 namespace io
 {
@@ -355,7 +355,7 @@ private:
 
 
 }  // namespace io
-}  // namespace boost
+}  // namespace boost_cryray
 
 
 #endif  // BOOST_IO_IOS_STATE_HPP

@@ -429,7 +429,7 @@ __ http://www.boost.org/doc/html/ref.html
 
 Like this::
 
-	int ret = call_function(L, "fun", boost::ref(val));
+	int ret = call_function(L, "fun", boost_cryray::ref(val));
 
 
 Using Lua threads
@@ -777,17 +777,17 @@ Smart pointers
 --------------
 
 When you register a class you can tell luabind that all instances of that class
-should be held by some kind of smart pointer (boost::shared_ptr for instance).
+should be held by some kind of smart pointer (boost_cryray::shared_ptr for instance).
 You do this by giving the holder type as an extra template parameter to
 the ``class_`` you are constructing, like this::
 
     module(L)
     [
-        class_<A, boost::shared_ptr<A> >("A")
+        class_<A, boost_cryray::shared_ptr<A> >("A")
     ];
 
 You also have to supply two functions for your smart pointer. One that returns
-the type of const version of the smart pointer type (boost::shared_ptr<const A>
+the type of const version of the smart pointer type (boost_cryray::shared_ptr<const A>
 in this case). And one function that extracts the raw pointer from the smart
 pointer. The first function is needed because luabind has to allow the
 non-const -> conversion when passing values from Lua to C++. The second
@@ -798,14 +798,14 @@ raw_pointer conversion from Lua to C++. They look like this::
     namespace luabind {
 
         template<class T>
-        T* get_pointer(boost::shared_ptr<T> const& p) 
+        T* get_pointer(boost_cryray::shared_ptr<T> const& p) 
         {
             return p.get(); 
         }
 
         template<class A>
-        boost::shared_ptr<const A>* 
-        get_const_holder(boost::shared_ptr<A>*)
+        boost_cryray::shared_ptr<const A>* 
+        get_const_holder(boost_cryray::shared_ptr<A>*)
         {
             return 0;
         }
@@ -1085,8 +1085,8 @@ There are a couple of functions related to objects and tables. ::
     T object_cast<T>(object const&);
     T object_cast<T>(object const&, Policies);
 
-    boost::optional<T> object_cast_nothrow<T>(object const&);
-    boost::optional<T> object_cast_nothrow<T>(object const&, Policies);
+    boost_cryray::optional<T> object_cast_nothrow<T>(object const&);
+    boost_cryray::optional<T> object_cast_nothrow<T>(object const&, Policies);
 
 
 Functor

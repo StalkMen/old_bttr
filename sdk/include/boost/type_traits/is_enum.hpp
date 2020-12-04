@@ -24,7 +24,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 #if !(defined(__BORLANDC__) && (__BORLANDC__ <= 0x551))
 
@@ -50,42 +50,42 @@ template <>
 struct is_enum_helper<false>
 {
     template <typename T> struct type
-        : ::boost::is_convertible<T,::boost::detail::int_convertible>
+        : ::boost_cryray::is_convertible<T,::boost_cryray::detail::int_convertible>
     {
     };
 };
 
 template <typename T> struct is_enum_impl
 {
-   typedef ::boost::add_reference<T> ar_t;
+   typedef ::boost_cryray::add_reference<T> ar_t;
    typedef typename ar_t::type r_type;
        
 #if defined(BOOST_TT_HAS_CONFORMING_IS_CLASS_IMPLEMENTATION)
    BOOST_STATIC_CONSTANT(bool, selector =
-      (::boost::type_traits::ice_or<
-           ::boost::is_arithmetic<T>::value
-         , ::boost::is_reference<T>::value
+      (::boost_cryray::type_traits::ice_or<
+           ::boost_cryray::is_arithmetic<T>::value
+         , ::boost_cryray::is_reference<T>::value
        // We MUST do this on conforming compilers in order to
        // correctly deduce that noncopyable types are not enums (dwa
        // 2002/04/15)...
-         , ::boost::is_class<T>::value
+         , ::boost_cryray::is_class<T>::value
       >::value));
 #else 
    BOOST_STATIC_CONSTANT(bool, selector =
-      (::boost::type_traits::ice_or<
-           ::boost::is_arithmetic<T>::value
-         , ::boost::is_reference<T>::value
+      (::boost_cryray::type_traits::ice_or<
+           ::boost_cryray::is_arithmetic<T>::value
+         , ::boost_cryray::is_reference<T>::value
        // However, not doing this on non-conforming compilers prevents
        // a dependency recursion.
       >::value));
 #endif
 
 #ifdef __BORLANDC__
-    typedef ::boost::detail::is_enum_helper<
-          ::boost::detail::is_enum_impl<T>::selector
+    typedef ::boost_cryray::detail::is_enum_helper<
+          ::boost_cryray::detail::is_enum_impl<T>::selector
         > se_t;
 #else
-    typedef ::boost::detail::is_enum_helper<selector> se_t;
+    typedef ::boost_cryray::detail::is_enum_helper<selector> se_t;
 #endif
     typedef typename se_t::template type<r_type> helper;
     BOOST_STATIC_CONSTANT(bool, value = helper::value);
@@ -105,7 +105,7 @@ BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_enum,void const volatile,false)
 
 } // namespace detail
 
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_enum,T,::boost::detail::is_enum_impl<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_enum,T,::boost_cryray::detail::is_enum_impl<T>::value)
 
 #else // __BORLANDC__
 //
@@ -115,7 +115,7 @@ BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_enum,T,false)
 
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

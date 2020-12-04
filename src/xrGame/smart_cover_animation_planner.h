@@ -25,7 +25,7 @@ class target_selector;
 
 class animation_planner : 
 	public CActionPlannerScript<CAI_Stalker>,
-	private boost::noncopyable,
+	private boost_cryray::noncopyable,
 	private debug::make_final<animation_planner>
 {
 private:

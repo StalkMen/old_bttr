@@ -26,7 +26,7 @@
 #include <cstddef>
 #include <functional>
 
-namespace boost {
+namespace boost_cryray {
 namespace detail {
 namespace multi_array {
 
@@ -37,9 +37,9 @@ namespace multi_array {
 //    interface.
 template <typename T, std::size_t NumDims, typename TPtr>
 class const_sub_array :
-  public boost::detail::multi_array::multi_array_impl_base<T,NumDims>
+  public boost_cryray::detail::multi_array::multi_array_impl_base<T,NumDims>
 {
-  typedef boost::detail::multi_array::multi_array_impl_base<T,NumDims> super_type;
+  typedef boost_cryray::detail::multi_array::multi_array_impl_base<T,NumDims> super_type;
 public: 
   typedef typename super_type::value_type value_type;
   typedef typename super_type::const_reference const_reference;
@@ -55,12 +55,12 @@ public:
   // template typedefs
   template <std::size_t NDims>
   struct const_array_view {
-    typedef boost::detail::multi_array::const_multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::const_multi_array_view<T,NDims> type;
   };
 
   template <std::size_t NDims>
   struct array_view {
-    typedef boost::detail::multi_array::multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::multi_array_view<T,NDims> type;
   };
 
   // Allow default copy constructor as well.
@@ -74,13 +74,13 @@ public:
   // const_sub_array always returns const types, regardless of its own
   // constness.
   const_reference operator[](index idx) const {
-    return super_type::access(boost::type<const_reference>(),
+    return super_type::access(boost_cryray::type<const_reference>(),
                               idx,base_,shape(),strides(),index_bases());
   }
   
   template <typename IndexList>
   const element& operator()(const IndexList& indices) const {
-    return super_type::access_element(boost::type<const element&>(),
+    return super_type::access_element(boost_cryray::type<const element&>(),
                                       origin(),
                                       indices,strides());
   }
@@ -92,12 +92,12 @@ public:
   template <int NumDims, int NDims> // else ICE
 #endif // BOOST_MSVC
   typename const_array_view<NDims>::type 
-  operator[](const boost::detail::multi_array::
+  operator[](const boost_cryray::detail::multi_array::
              index_gen<NumDims,NDims>& indices)
     const {
     typedef typename const_array_view<NDims>::type return_type;
     return
-      super_type::generate_array_view(boost::type<return_type>(),
+      super_type::generate_array_view(boost_cryray::type<return_type>(),
                                       indices,
                                       shape(),
                                       strides(),
@@ -220,18 +220,18 @@ public:
   // template typedefs
   template <std::size_t NDims>
   struct const_array_view {
-    typedef boost::detail::multi_array::const_multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::const_multi_array_view<T,NDims> type;
   };
 
   template <std::size_t NDims>
   struct array_view {
-    typedef boost::detail::multi_array::multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::multi_array_view<T,NDims> type;
   };
 
   // Assignment from other ConstMultiArray types.
   template <typename ConstMultiArray>
   sub_array& operator=(const ConstMultiArray& other) {
-    function_requires< boost::detail::multi_array::ConstMultiArrayConcept< 
+    function_requires< boost_cryray::detail::multi_array::ConstMultiArrayConcept< 
         ConstMultiArray, NumDims> >();
 
     // make sure the dimensions agree
@@ -260,7 +260,7 @@ public:
   const T* origin() const { return this->base_; }
 
   reference operator[](index idx) {
-    return super_type::access(boost::type<reference>(),
+    return super_type::access(boost_cryray::type<reference>(),
                               idx,this->base_,this->shape(),this->strides(),
                               this->index_bases());
   }
@@ -272,11 +272,11 @@ public:
   template <int NumDims, int NDims> // else ICE
 #endif // BOOST_MSVC
   typename array_view<NDims>::type 
-  operator[](const boost::detail::multi_array::
+  operator[](const boost_cryray::detail::multi_array::
              index_gen<NumDims,NDims>& indices) {
     typedef typename array_view<NDims>::type return_type;
     return
-      super_type::generate_array_view(boost::type<return_type>(),
+      super_type::generate_array_view(boost_cryray::type<return_type>(),
                                       indices,
                                       this->shape(),
                                       this->strides(),
@@ -286,7 +286,7 @@ public:
 
   template <class IndexList>
   element& operator()(const IndexList& indices) {
-    return super_type::access_element(boost::type<element&>(),
+    return super_type::access_element(boost_cryray::type<element&>(),
                                       origin(),
                                       indices,this->strides());
   }
@@ -332,7 +332,7 @@ public:
   template <int NumDims, int NDims> // else ICE
 #endif // BOOST_MSVC
   typename const_array_view<NDims>::type 
-  operator[](const boost::detail::multi_array::
+  operator[](const boost_cryray::detail::multi_array::
              index_gen<NumDims,NDims>& indices)
     const {
     return super_type::operator[](indices);
@@ -379,15 +379,15 @@ template <typename Array, int N>
 class subarray_gen {
   typedef typename Array::element element;
 public:
-  typedef boost::detail::multi_array::sub_array<element,N> type;
+  typedef boost_cryray::detail::multi_array::sub_array<element,N> type;
 };
 
 template <typename Array, int N>
 class const_subarray_gen {
   typedef typename Array::element element;
 public:
-  typedef boost::detail::multi_array::const_sub_array<element,N> type;  
+  typedef boost_cryray::detail::multi_array::const_sub_array<element,N> type;  
 };
-} // namespace boost
+} // namespace boost_cryray
   
 #endif // SUBARRAY_RG071801_HPP

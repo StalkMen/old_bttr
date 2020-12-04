@@ -18,7 +18,7 @@
 
 # if defined(BOOST_MSVC) && BOOST_MSVC <= 1300 || defined(BOOST_INTEL_CXX_VERSION) && BOOST_INTEL_CXX_VERSION <= 700
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 typedef std::type_info const& typeinfo;
 
@@ -49,10 +49,10 @@ template< typename T > T&(* is_ref_tester1(type<T>) )(type<T>) { return 0; }
 inline char BOOST_TT_DECL is_ref_tester1(...) { return 0; }
 
 template <class T>
-inline typeinfo msvc_typeid(boost::type<T>* = 0)
+inline typeinfo msvc_typeid(boost_cryray::type<T>* = 0)
 {
     return detail::typeid_ref(
-        (boost::type<T>*)0, detail::is_ref_tester1(type<T>())
+        (boost_cryray::type<T>*)0, detail::is_ref_tester1(type<T>())
         );
 }
 
@@ -63,7 +63,7 @@ inline typeinfo assert_array_typeid_compiles()
 }
 #  endif
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 # endif // BOOST_MSVC
 #endif // MSVC_TYPEINFO_DWA200222_HPP

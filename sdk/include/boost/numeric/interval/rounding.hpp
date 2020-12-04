@@ -16,7 +16,7 @@
 #ifndef BOOST_NUMERIC_INTERVAL_ROUNDING_HPP
 #define BOOST_NUMERIC_INTERVAL_ROUNDING_HPP
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 
@@ -102,6 +102,6 @@ struct rounded_math: save_state_nothing<rounded_arith_exact<T> >
 
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_ROUNDING_HPP

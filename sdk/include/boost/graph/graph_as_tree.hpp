@@ -35,7 +35,7 @@
 #include <boost/graph/breadth_first_search.hpp>
 #include <boost/graph/visitors.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template <class Graph, class Node, class ChIt, class Derived>
   class graph_as_tree_base
@@ -55,7 +55,7 @@ namespace boost {
     
     template<class N>
     friend Node parent(N n, const Tree& t) { 
-      return boost::get(t.parent_pa(), n); 
+      return boost_cryray::get(t.parent_pa(), n); 
     }
     
     Graph& _g;
@@ -86,7 +86,7 @@ namespace boost {
     graph_as_tree(Graph& g, Node root, ParentMap p) : super(g, root), _p(p) { 
       breadth_first_search(g, root, 
                            visitor(make_bfs_visitor
-                   (record_predecessors(p, boost::on_tree_edge()))));
+                   (record_predecessors(p, boost_cryray::on_tree_edge()))));
     }
     ParentMap parent_pa() const { return _p; }
     typedef graph_as_tree_tag graph_tag; // for property_map
@@ -165,6 +165,6 @@ namespace boost {
     put(p, g._g, k, val);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif //  BOOST_GRAPH_GRAPH_AS_TREE_HPP

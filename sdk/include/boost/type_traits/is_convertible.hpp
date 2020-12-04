@@ -29,7 +29,7 @@
 // should be always the last #include directive
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 // is one type convertable to another?
 //
@@ -50,8 +50,8 @@ namespace detail {
 // This workaround is necessary to handle when From is void
 // which is normally taken care of by the partial specialization
 // of the is_convertible typename.
-using ::boost::type_traits::yes_type;
-using ::boost::type_traits::no_type;
+using ::boost_cryray::type_traits::yes_type;
+using ::boost_cryray::type_traits::no_type;
 
 template< typename From >
 struct does_conversion_exist
@@ -70,7 +70,7 @@ struct does_conversion_exist<void>
 {
     template< typename To > struct result_
     {
-        enum { value = ::boost::is_void<To>::value };
+        enum { value = ::boost_cryray::is_void<To>::value };
     };
 };
 
@@ -94,13 +94,13 @@ struct is_convertible_impl
     // so we only use it for Borland.
     template <typename T> struct checker
     {
-        static ::boost::type_traits::no_type BOOST_TT_DECL _m_check(...);
-        static ::boost::type_traits::yes_type BOOST_TT_DECL _m_check(T);
+        static ::boost_cryray::type_traits::no_type BOOST_TT_DECL _m_check(...);
+        static ::boost_cryray::type_traits::yes_type BOOST_TT_DECL _m_check(T);
     };
 
     static From _m_from;
     static bool const value = sizeof( checker<To>::_m_check(_m_from) ) 
-        == sizeof(::boost::type_traits::yes_type);
+        == sizeof(::boost_cryray::type_traits::yes_type);
 #pragma option pop
 };
 
@@ -116,8 +116,8 @@ struct any_conversion
 
 template <typename T> struct checker
 {
-    static boost::type_traits::no_type _m_check(any_conversion ...);
-    static boost::type_traits::yes_type _m_check(T, int);
+    static boost_cryray::type_traits::no_type _m_check(any_conversion ...);
+    static boost_cryray::type_traits::yes_type _m_check(T, int);
 };
 
 template <typename From, typename To>
@@ -125,7 +125,7 @@ struct is_convertible_basic_impl
 {
     static From _m_from;
     static bool const value = sizeof( detail::checker<To>::_m_check(_m_from, 0) ) 
-        == sizeof(::boost::type_traits::yes_type);
+        == sizeof(::boost_cryray::type_traits::yes_type);
 };
 
 #elif (defined(BOOST_MSVC) && (BOOST_MSVC > 1310)) \
@@ -147,12 +147,12 @@ struct any_conversion
 template <typename From, typename To>
 struct is_convertible_basic_impl
 {
-    static ::boost::type_traits::no_type BOOST_TT_DECL _m_check(any_conversion ...);
-    static ::boost::type_traits::yes_type BOOST_TT_DECL _m_check(To, int);
+    static ::boost_cryray::type_traits::no_type BOOST_TT_DECL _m_check(any_conversion ...);
+    static ::boost_cryray::type_traits::yes_type BOOST_TT_DECL _m_check(To, int);
 	    static From _m_from;
 
     BOOST_STATIC_CONSTANT(bool, value = 
-        sizeof( _m_check(_m_from, 0) ) == sizeof(::boost::type_traits::yes_type)
+        sizeof( _m_check(_m_from, 0) ) == sizeof(::boost_cryray::type_traits::yes_type)
         );
 };
 
@@ -165,12 +165,12 @@ struct is_convertible_basic_impl
 template <typename From, typename To>
 struct is_convertible_basic_impl
 {
-    static ::boost::type_traits::no_type BOOST_TT_DECL _m_check(...);
-    static ::boost::type_traits::yes_type BOOST_TT_DECL _m_check(To);
+    static ::boost_cryray::type_traits::no_type BOOST_TT_DECL _m_check(...);
+    static ::boost_cryray::type_traits::yes_type BOOST_TT_DECL _m_check(To);
     static From _m_from;
 
     BOOST_STATIC_CONSTANT(bool, value =
-        sizeof( _m_check(_m_from) ) == sizeof(::boost::type_traits::yes_type)
+        sizeof( _m_check(_m_from) ) == sizeof(::boost_cryray::type_traits::yes_type)
         );
 };
 
@@ -182,10 +182,10 @@ struct is_convertible_impl
 {
     typedef typename add_reference<From>::type ref_type;
     BOOST_STATIC_CONSTANT(bool, value =
-        (::boost::type_traits::ice_and<
-            ::boost::detail::is_convertible_basic_impl<ref_type,To>::value,
-            ::boost::type_traits::ice_not<
-               ::boost::is_array<To>::value
+        (::boost_cryray::type_traits::ice_and<
+            ::boost_cryray::detail::is_convertible_basic_impl<ref_type,To>::value,
+            ::boost_cryray::type_traits::ice_not<
+               ::boost_cryray::is_array<To>::value
             >::value
         >::value)
         );
@@ -236,7 +236,7 @@ BOOST_TT_AUX_BOOL_TRAIT_IMPL_PARTIAL_SPEC2_1(typename From,is_convertible,From,v
 
 } // namespace detail
 
-BOOST_TT_AUX_BOOL_TRAIT_DEF2(is_convertible,From,To,(::boost::detail::is_convertible_impl<From,To>::value))
+BOOST_TT_AUX_BOOL_TRAIT_DEF2(is_convertible,From,To,(::boost_cryray::detail::is_convertible_impl<From,To>::value))
 
 
 #if defined(__GNUC__)
@@ -280,7 +280,7 @@ TT_AUX_IS_CONVERTIBLE_FROM_FLOAT_CV_SPEC(long double)
 
 #endif // __GNUC__
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

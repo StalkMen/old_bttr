@@ -37,7 +37,7 @@
 #include <boost/graph/properties.hpp>
 #include <boost/iterator_adaptors.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   struct subgraph_tag { };
 
@@ -775,6 +775,6 @@ namespace boost {
     return vertex(n, g.m_graph);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_SUBGRAPH_HPP

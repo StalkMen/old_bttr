@@ -1033,7 +1033,7 @@ void CPHShell::SetCallbacks( )
     };
     std::for_each( elements.begin(), elements.end(), set_bone_callback() );
 
-    struct set_bone_reference: private boost::noncopyable
+    struct set_bone_reference: private boost_cryray::noncopyable
     {
         IKinematics &K;
         set_bone_reference( IKinematics &K_ ): K( K_ ){}

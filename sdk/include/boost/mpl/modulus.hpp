@@ -26,7 +26,7 @@
 #include "boost/mpl/aux_/config/eti.hpp"
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -68,6 +68,6 @@ struct modulus
 BOOST_MPL_AUX_VOID_SPEC(2,modulus)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_MODULUS_HPP_INCLUDED

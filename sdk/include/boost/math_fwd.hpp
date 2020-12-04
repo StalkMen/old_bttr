@@ -12,7 +12,7 @@
 #define BOOST_MATH_FWD_HPP
 
 
-namespace boost
+namespace boost_cryray
 {
 namespace math
 {
@@ -97,7 +97,7 @@ template < typename IntegerType >
 
 
 }  // namespace math
-}  // namespace boost
+}  // namespace boost_cryray
 
 
 #endif  // BOOST_MATH_FWD_HPP

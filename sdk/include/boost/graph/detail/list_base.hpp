@@ -34,7 +34,7 @@
     functions that do not require the container object!
  */
 
-namespace boost {
+namespace boost_cryray {
   namespace detail {
 
     //=========================================================================
@@ -229,6 +229,6 @@ namespace boost {
     };
 
   } // namespace detail
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_LIST_BASE_HPP

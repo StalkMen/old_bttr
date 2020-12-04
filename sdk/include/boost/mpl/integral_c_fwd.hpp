@@ -20,7 +20,7 @@
 
 #include "boost/mpl/aux_/config/workaround.hpp"
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 #if BOOST_WORKAROUND(__HP_aCC, BOOST_TESTED_AT(53800))
 // the type of non-type template arguments may not depend on template arguments
 template< typename T, long N > struct integral_c;

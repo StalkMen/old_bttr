@@ -27,15 +27,15 @@ bool dostring(lua_State* L, const char* str)
 template<class T>
 struct convert_any
 {
-	static void convert(lua_State* L, const boost::any& a)
+	static void convert(lua_State* L, const boost_cryray::any& a)
 	{
 		typename luabind::detail::default_policy::template generate_converter<T, luabind::detail::cpp_to_lua>::type conv;
 
-		conv.apply(L, *boost::any_cast<T>(&a));
+		conv.apply(L, *boost_cryray::any_cast<T>(&a));
 	}
 };
 
-std::map<const std::type_info*, void(*)(lua_State*, const boost::any&)> any_converters;
+std::map<const std::type_info*, void(*)(lua_State*, const boost_cryray::any&)> any_converters;
 
 template<class T>
 void register_any_converter()
@@ -47,19 +47,19 @@ namespace luabind
 {
 	namespace converters
 	{
-		yes_t is_user_defined(by_value<boost::any>);
-		yes_t is_user_defined(by_const_reference<boost::any>);
+		yes_t is_user_defined(by_value<boost_cryray::any>);
+		yes_t is_user_defined(by_const_reference<boost_cryray::any>);
 
-		void convert_cpp_to_lua(lua_State* L, const boost::any& a)
+		void convert_cpp_to_lua(lua_State* L, const boost_cryray::any& a)
 		{
-			typedef void(*conv_t)(lua_State* L, const boost::any&);
+			typedef void(*conv_t)(lua_State* L, const boost_cryray::any&);
 			conv_t conv = any_converters[&a.type()];
 			conv(L, a);
 		}
 	}
 }
 
-boost::any f(bool b)
+boost_cryray::any f(bool b)
 {
 	if (b) return "foobar";
 	else return "3.5f";
@@ -87,7 +87,7 @@ int main()
 	dostring(L, "print( f(false) )");
 	dostring(L, "function update(p) print(p) end");
 
-	boost::any param = string_class("foo");
+	boost_cryray::any param = string_class("foo");
 
 	luabind::call_function<void>(L, "update", param);
 

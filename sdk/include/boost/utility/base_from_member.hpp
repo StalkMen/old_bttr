@@ -14,7 +14,7 @@
 #include <boost/utility_fwd.hpp>  // required for parameter defaults
 
 
-namespace boost
+namespace boost_cryray
 {
 
 //  Base-from-member class template  -----------------------------------------//
@@ -51,9 +51,9 @@ protected:
         : member( x1, x2, x3 ) 
         {}
 
-};  // boost::base_from_member
+};  // boost_cryray::base_from_member
 
-}  // namespace boost
+}  // namespace boost_cryray
 
 
 #endif  // BOOST_UTILITY_BASE_FROM_MEMBER_HPP

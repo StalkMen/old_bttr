@@ -20,7 +20,7 @@
 # include <boost/config.hpp>
 # include <boost/mpl/bool.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 template<class Ptr> class pointer_wrapper
 { 
@@ -68,11 +68,11 @@ class unwrap_pointer<pointer_wrapper<T> >
 };
 # else // no partial specialization
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #include <boost/type.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace detail
 {
@@ -82,7 +82,7 @@ namespace detail
   no_pointer_wrapper_t is_pointer_wrapper_test(...);
 
   template<typename T>
-  yes_pointer_wrapper_t is_pointer_wrapper_test(boost::type< pointer_wrapper<T> >);
+  yes_pointer_wrapper_t is_pointer_wrapper_test(boost_cryray::type< pointer_wrapper<T> >);
 
   template<bool wrapped>
   struct pointer_unwrapper
@@ -111,7 +111,7 @@ class is_pointer_wrapper
  public:
     BOOST_STATIC_CONSTANT(
         bool, value = (
-        sizeof(detail::is_pointer_wrapper_test(boost::type<T>()))
+        sizeof(detail::is_pointer_wrapper_test(boost_cryray::type<T>()))
             == sizeof(detail::yes_pointer_wrapper_t)));
     typedef mpl::bool_<value> type;
 };
@@ -125,6 +125,6 @@ class unwrap_pointer
 
 # endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // #ifndef PTR_DWA20020601_HPP

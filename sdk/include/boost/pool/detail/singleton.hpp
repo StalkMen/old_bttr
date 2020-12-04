@@ -49,7 +49,7 @@
 //  static code, even if that code is called before the file-scope objects
 //  in this file have been initialized.
 
-namespace boost {
+namespace boost_cryray {
 
 namespace details {
 namespace pool {
@@ -98,7 +98,7 @@ singleton_default<T>::create_object;
 } // namespace pool
 } // namespace details
 
-} // namespace boost
+} // namespace boost_cryray
 
 // The following code might be put into some Boost.Config header in a later revision
 #ifdef __BORLANDC__

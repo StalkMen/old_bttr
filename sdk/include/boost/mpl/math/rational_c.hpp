@@ -19,7 +19,7 @@
 
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -37,6 +37,6 @@ struct rational_c
 };
 
 } // namespace mpl
-} // namespace boost 
+} // namespace boost_cryray 
 
 #endif // BOOST_MPL_RATIONAL_C_HPP_INCLUDED

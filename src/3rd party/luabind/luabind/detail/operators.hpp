@@ -170,16 +170,16 @@ namespace luabind { namespace detail {
 
 	template<class Policies, class id, class Self, class L, class R = null_type>
 	struct operator_unwrapper :
-		::boost::mpl::if_<
-			::boost::is_same<detail::null_type, R>,
+		::boost_cryray::mpl::if_<
+			::boost_cryray::is_same<detail::null_type, R>,
 			// if this is true, it is a unary operator
 			typename unary_operator<id>::template impl<
 				Policies,
-				typename ::boost::mpl::if_<
-					boost::is_same<detail::self_t, L>,
+				typename ::boost_cryray::mpl::if_<
+					boost_cryray::is_same<detail::self_t, L>,
 					Self&,
-					typename ::boost::mpl::if_<
-						::boost::is_same<detail::const_self_t, L>,
+					typename ::boost_cryray::mpl::if_<
+						::boost_cryray::is_same<detail::const_self_t, L>,
 						const Self&,
 						typename unwrap_other<L>::type
 					>::type
@@ -190,20 +190,20 @@ namespace luabind { namespace detail {
 				Policies,
 				// extract the left type and substitute self_t and const_self_t with the real self type
 				// also, unwrap the type if it's wrapped in other<>
-				typename ::boost::mpl::if_<
-					boost::is_same<detail::self_t, L>,
+				typename ::boost_cryray::mpl::if_<
+					boost_cryray::is_same<detail::self_t, L>,
 					Self&,
-					typename ::boost::mpl::if_<
-						::boost::is_same<detail::const_self_t, L>,
+					typename ::boost_cryray::mpl::if_<
+						::boost_cryray::is_same<detail::const_self_t, L>,
 						const Self&,
 						typename unwrap_other<L>::type>::type
 					>::type,
 				// same thing but with the right type
-				typename ::boost::mpl::if_<
-					boost::is_same<detail::self_t, R>,
+				typename ::boost_cryray::mpl::if_<
+					boost_cryray::is_same<detail::self_t, R>,
 					Self&,
-					typename ::boost::mpl::if_<
-						::boost::is_same<detail::const_self_t, R>,
+					typename ::boost_cryray::mpl::if_<
+						::boost_cryray::is_same<detail::const_self_t, R>,
 						const Self&,
 						typename unwrap_other<R>::type
 					>::type
@@ -457,12 +457,12 @@ namespace luabind
 						const constructor<BOOST_PP_ENUM_PARAMS(LUABIND_MAX_ARITY, A)>*)
 			{
 				// TODO: use policies here, instead of default_policy, or shouldn't we?
-				typename boost::mpl::apply_if_c<Constant,
+				typename boost_cryray::mpl::apply_if_c<Constant,
 					LUABIND_MSVC6_NO_TYPENAME default_policy::template generate_converter<const Self_&, lua_to_cpp>,
 					LUABIND_MSVC6_NO_TYPENAME default_policy::template generate_converter<Self_&, lua_to_cpp>
 				>::type conv_self;
 
-				typedef typename boost::mpl::if_c<Constant,
+				typedef typename boost_cryray::mpl::if_c<Constant,
 					const Self_,
 					Self_
 				>::type Self;

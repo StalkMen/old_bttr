@@ -12,7 +12,7 @@
 #  include <iostream> // this works around a problem in KCC 4.0f
 # endif 
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 extern "C"
 {
@@ -21,7 +21,7 @@ extern "C"
 
 void aix_init_module(so_load_function, char const* name, void (*init_module)());
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 # endif
 
 #endif // AIX_INIT_MODULE_DWA2002529_HPP

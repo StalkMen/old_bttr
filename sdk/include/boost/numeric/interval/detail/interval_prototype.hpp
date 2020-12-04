@@ -16,7 +16,7 @@
 #ifndef BOOST_NUMERIC_INTERVAL_DETAIL_INTERVAL_PROTOTYPE_HPP
 #define BOOST_NUMERIC_INTERVAL_DETAIL_INTERVAL_PROTOTYPE_HPP
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 
 namespace interval_lib {
@@ -42,6 +42,6 @@ template<class T, class Policies = typename interval_lib::default_policies<T>::t
 class interval;  
 
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_DETAIL_INTERVAL_PROTOTYPE_HPP

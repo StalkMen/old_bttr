@@ -20,7 +20,7 @@
 #include "boost/mpl/size_fwd.hpp"
 #include "boost/mpl/list/aux_/tag.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<>
@@ -33,6 +33,6 @@ struct size_traits< aux::list_tag >
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_LIST_AUX_SIZE_HPP_INCLUDED

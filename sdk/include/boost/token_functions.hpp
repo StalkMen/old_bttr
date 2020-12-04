@@ -51,7 +51,7 @@ namespace std{
 }
 #endif
 
-namespace boost{
+namespace boost_cryray{
 
   //===========================================================================
   // The escaped_list_separator class. Which is a model of TokenizerFunction
@@ -475,7 +475,7 @@ namespace boost{
   };
 
 
-} //namespace boost
+} //namespace boost_cryray
 
 
 #endif 

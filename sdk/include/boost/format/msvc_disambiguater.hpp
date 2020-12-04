@@ -26,7 +26,7 @@
 #include "boost/format/group.hpp"
 #include <ostream>
 
-namespace boost {
+namespace boost_cryray {
 namespace io {
 namespace detail {
 
@@ -54,7 +54,7 @@ struct disambiguater
 
 } // namespace detail
 } // namespace io
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // -BOOST_MSVC
 

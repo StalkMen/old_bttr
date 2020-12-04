@@ -19,7 +19,7 @@
 
 #include "boost/mpl/vector/vector0.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename T > struct vector0_c
@@ -29,6 +29,6 @@ template< typename T > struct vector0_c
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_VECTOR_VECTOR0_C_HPP_INCLUDED

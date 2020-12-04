@@ -7,7 +7,7 @@
 
 #include "boost/date_time/posix_time/posix_time_config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace posix_time {
 
   //! Allows expression of durations as an hour count

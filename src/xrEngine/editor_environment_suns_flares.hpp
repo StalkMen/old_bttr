@@ -28,7 +28,7 @@ namespace suns
 class manager;
 class flare;
 
-class flares : private boost::noncopyable
+class flares : private boost_cryray::noncopyable
 {
 public:
     flares();

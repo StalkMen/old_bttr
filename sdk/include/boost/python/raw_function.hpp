@@ -12,7 +12,7 @@
 
 # include <cstddef>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -42,6 +42,6 @@ object raw_function(F f, std::size_t min_args = 0)
     return detail::make_raw_function(detail::raw_dispatcher<F>(f), min_args);
 }
     
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // RAW_FUNCTION_DWA200336_HPP

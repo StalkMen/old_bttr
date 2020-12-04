@@ -10,7 +10,7 @@
 # include <boost/function/function0.hpp>
 # include <boost/function/function2.hpp>
 
-namespace boost { namespace python { namespace detail {
+namespace boost_cryray { namespace python { namespace detail {
 
 struct BOOST_PYTHON_DECL exception_handler;
 
@@ -44,6 +44,6 @@ inline bool exception_handler::handle(function0<void> const& f) const
 
 BOOST_PYTHON_DECL void register_exception_handler(handler_function const& f);
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // EXCEPTION_HANDLER_DWA2002810_HPP

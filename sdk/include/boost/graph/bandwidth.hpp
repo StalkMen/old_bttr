@@ -14,7 +14,7 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/detail/numeric_traits.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template <typename Graph, typename VertexIndexMap>
   typename graph_traits<Graph>::vertices_size_type
@@ -78,6 +78,6 @@ namespace boost {
     return sum;
   }
   
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_BANDWIDTH_HPP

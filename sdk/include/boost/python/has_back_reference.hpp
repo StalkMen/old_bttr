@@ -11,7 +11,7 @@
 #endif
 #include <boost/config.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 // traits class which users can specialize to indicate that a class
 // contains a back-reference to its owning PyObject*
@@ -22,6 +22,6 @@ struct has_back_reference
 };
 
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // HAS_BACK_REFERENCE_DWA2002323_HPP

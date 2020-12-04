@@ -24,7 +24,7 @@
 # include <exception>
 #endif
 
-namespace boost
+namespace boost_cryray
 {
 
 #ifdef BOOST_NO_EXCEPTIONS
@@ -40,6 +40,6 @@ template<class E> void throw_exception(E const & e)
 
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // #ifndef BOOST_THROW_EXCEPTION_HPP_INCLUDED

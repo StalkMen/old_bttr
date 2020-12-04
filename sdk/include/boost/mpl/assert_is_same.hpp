@@ -20,7 +20,7 @@
 #include "boost/static_assert.hpp"
 #include "boost/type_traits/same_traits.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // the following macros are shortcuts for some often-used but verbose forms 
@@ -33,14 +33,14 @@ namespace mpl {
 // conform to the standard here
 
 #define BOOST_MPL_ASSERT_IS_SAME(type1, type2) \
-    BOOST_STATIC_ASSERT((::boost::is_same< type1, type2 >::value)) \
+    BOOST_STATIC_ASSERT((::boost_cryray::is_same< type1, type2 >::value)) \
 /**/
 
 #define BOOST_MPL_ASSERT_NOT_SAME(type1, type2) \
-    BOOST_STATIC_ASSERT(!(::boost::is_same< type1, type2 >::value)) \
+    BOOST_STATIC_ASSERT(!(::boost_cryray::is_same< type1, type2 >::value)) \
 /**/
 
 } // namespace mpl
-} // namespace boost 
+} // namespace boost_cryray 
 
 #endif // BOOST_MPL_ASSERT_IS_SAME_HPP_INCLUDED

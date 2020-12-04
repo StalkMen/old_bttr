@@ -15,7 +15,7 @@
 #include <vector>
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit { namespace impl {
+namespace boost_cryray { namespace spirit { namespace impl {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -25,7 +25,7 @@ namespace boost { namespace spirit { namespace impl {
     //      the implementation of the range_run class.
     //
     //      { Low level implementation detail }
-    //      { Not to be confused with boost::spirit::range }
+    //      { Not to be confused with boost_cryray::spirit::range }
     //
     ///////////////////////////////////////////////////////////////////////////
     template <typename CharT>
@@ -103,7 +103,7 @@ namespace boost { namespace spirit { namespace impl {
         run_t run;
     };
 
-}}} // namespace boost::spirit::impl
+}}} // namespace boost_cryray::spirit::impl
 
 #endif
 

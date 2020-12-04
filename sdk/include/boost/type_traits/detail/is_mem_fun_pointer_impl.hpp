@@ -21,7 +21,7 @@
 #   include "boost/preprocessor/comma_if.hpp"
 #endif
 
-namespace boost {
+namespace boost_cryray {
 namespace type_traits {
 
 template <typename T>
@@ -329,7 +329,7 @@ struct is_mem_fun_pointer_impl<R (T::*)( T0 , T1 , T2 , T3 , T4 , T5 , T6 , T7 ,
 #endif // BOOST_TT_PREPROCESSING_MODE
 
 } // namespace type_traits
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_TT_DETAIL_IS_MEM_FUN_POINTER_IMPL_HPP_INCLUDED
 

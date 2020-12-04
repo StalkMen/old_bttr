@@ -15,7 +15,7 @@ class CAI_Rat;
 
 namespace steering_behaviour {
 
-class base : private boost::noncopyable {
+class base : private boost_cryray::noncopyable {
 public:
 						base		(CAI_Rat const *object);
 	virtual				~base		() {}

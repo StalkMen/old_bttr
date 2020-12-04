@@ -16,7 +16,7 @@
 #include "boost/spirit/core/parser.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -64,6 +64,6 @@ namespace boost { namespace spirit {
         }
     };
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif

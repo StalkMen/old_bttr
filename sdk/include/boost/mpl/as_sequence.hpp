@@ -24,7 +24,7 @@
 #include "boost/mpl/aux_/lambda_support.hpp"
 #include "boost/mpl/aux_/config/eti.hpp"
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 template<
       typename BOOST_MPL_AUX_VOID_SPEC_PARAM(T)
@@ -44,6 +44,6 @@ template<> struct as_sequence<int>
 
 BOOST_MPL_AUX_VOID_SPEC(1, as_sequence)
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #endif // BOOST_MPL_AS_SEQUENCE_HPP_INCLUDED

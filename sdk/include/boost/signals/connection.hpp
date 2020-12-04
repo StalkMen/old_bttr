@@ -24,8 +24,8 @@
 #include <cassert>
 #include <utility>
 
-namespace boost {
-  namespace BOOST_SIGNALS_NAMESPACE {
+namespace boost_cryray {
+  namespace boost_cryray_SIGNALS_NAMESPACE {
     class trackable;
 
     namespace detail {
@@ -285,7 +285,7 @@ namespace boost {
         bool auto_disconnect;
       };
     } // end namespace detail
-  } // end namespace BOOST_SIGNALS_NAMESPACE
-} // end namespace boost
+  } // end namespace boost_cryray_SIGNALS_NAMESPACE
+} // end namespace boost_cryray
 
 #endif // BOOST_SIGNALS_CONNECTION_HPP

@@ -8,7 +8,7 @@
 
 # include <boost/type_traits/object_traits.hpp>
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 template <bool is_ptr = true>
 struct pointee_impl
@@ -31,6 +31,6 @@ struct pointee
 {
 };
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // POINTEE_DWA2002323_HPP

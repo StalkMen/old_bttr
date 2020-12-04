@@ -338,7 +338,7 @@ private:
     closure_frame_ref(closure_frame_t** frame_ = 0)
     {
 #ifdef PHOENIX_THREADSAFE
-        static boost::thread_specific_ptr<closure_frame_t **> tsp_frame;
+        static boost_cryray::thread_specific_ptr<closure_frame_t **> tsp_frame;
         if (!tsp_frame.get())
             tsp_frame.reset(new closure_frame_t **(0));
         closure_frame_t **& frame = *tsp_frame;

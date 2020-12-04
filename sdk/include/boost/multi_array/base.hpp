@@ -32,7 +32,7 @@
 #include <cstddef>
 #include <memory>
 
-namespace boost {
+namespace boost_cryray {
 
 /////////////////////////////////////////////////////////////////////////
 // class declarations
@@ -44,9 +44,9 @@ class multi_array;
 
 // This is a public interface for use by end users!
 namespace multi_array_types {
-  typedef boost::detail::multi_array::size_type size_type;
+  typedef boost_cryray::detail::multi_array::size_type size_type;
   typedef std::ptrdiff_t difference_type;
-  typedef boost::detail::multi_array::index index;
+  typedef boost_cryray::detail::multi_array::index index;
   typedef detail::multi_array::index_range<index,size_type> index_range;
   typedef detail::multi_array::extent_range<index,size_type> extent_range;
   typedef detail::multi_array::index_gen<0,0> index_gen;
@@ -54,7 +54,7 @@ namespace multi_array_types {
 }
 
 
-// boost::extents and boost::indices are now a part of the public
+// boost_cryray::extents and boost_cryray::indices are now a part of the public
 // interface.  That way users don't necessarily have to create their 
 // own objects.  On the other hand, one may not want the overhead of 
 // object creation in small-memory environments.  Thus, the objects
@@ -134,14 +134,14 @@ public:
   // public typedefs used by classes that inherit from this base
   //
   typedef T element;
-  typedef boost::multi_array<T,NumDims-1> value_type;
+  typedef boost_cryray::multi_array<T,NumDims-1> value_type;
   typedef sub_array<T,NumDims-1> reference;
   typedef const_sub_array<T,NumDims-1> const_reference;
 
 protected:
   // used by array operator[] and iterators to get reference types.
   template <typename Reference, typename TPtr>
-  Reference access(boost::type<Reference>,index idx,TPtr base,
+  Reference access(boost_cryray::type<Reference>,index idx,TPtr base,
                    const size_type* extents,
                    const index* strides,
                    const index* index_base) const {
@@ -179,7 +179,7 @@ public:
 protected:
   // used by array operator[] and iterators to get reference types.
   template <typename Reference, typename TPtr>
-  Reference access(boost::type<Reference>,index idx,TPtr base,
+  Reference access(boost_cryray::type<Reference>,index idx,TPtr base,
                    const size_type*,
                    const index* strides,
                    const index*) const {
@@ -265,23 +265,23 @@ public:
 
   template <std::size_t NDims>
   struct subarray {
-    typedef boost::detail::multi_array::sub_array<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::sub_array<T,NDims> type;
   };
 
   template <std::size_t NDims>
   struct const_subarray {
-    typedef boost::detail::multi_array::const_sub_array<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::const_sub_array<T,NDims> type;
   };
 
   template <std::size_t NDims>
   struct array_view {
-    typedef boost::detail::multi_array::multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::multi_array_view<T,NDims> type;
   };
 
   template <std::size_t NDims>
   struct const_array_view {
   public:
-    typedef boost::detail::multi_array::const_multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::const_multi_array_view<T,NDims> type;
   };
 
   //
@@ -315,7 +315,7 @@ protected:
 
   // Used by operator() in our array classes
   template <typename Reference, typename IndexList, typename TPtr>
-  Reference access_element(boost::type<Reference>, TPtr base,
+  Reference access_element(boost_cryray::type<Reference>, TPtr base,
                            const IndexList& indices,
                            const index* strides) const {
     index offset = 0;
@@ -404,16 +404,16 @@ protected:
   // error message if you screw up in your slicing code.
   template <typename ArrayRef, int NDims, typename TPtr>
   ArrayRef
-  generate_array_view(boost::type<ArrayRef>,
-                      const boost::detail::multi_array::
+  generate_array_view(boost_cryray::type<ArrayRef>,
+                      const boost_cryray::detail::multi_array::
                       index_gen<NumDims,NDims>& indices,
                       const size_type* extents,
                       const index* strides,
                       const index* index_bases,
                       TPtr base) const {
 
-    boost::array<index,NDims> new_strides;
-    boost::array<index,NDims> new_extents;
+    boost_cryray::array<index,NDims> new_strides;
+    boost_cryray::array<index,NDims> new_extents;
 
     index offset = 0;
     size_type dim = 0;
@@ -455,6 +455,6 @@ protected:
 } // namespace multi_array
 } // namespace detail
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BASE_RG071801_HPP

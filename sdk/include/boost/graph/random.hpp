@@ -47,7 +47,7 @@
 
 #include <iostream>
 
-namespace boost {
+namespace boost_cryray {
 
   // grab a random vertex from the graph's vertex set
   template <class Graph, class RandomNumGen>
@@ -108,7 +108,7 @@ namespace boost {
     // but that's task for later.
     if (!allow_parallel) {
 
-      typedef typename boost::graph_traits<MutableGraph>::directed_category dir;      
+      typedef typename boost_cryray::graph_traits<MutableGraph>::directed_category dir;      
       typedef typename mpl::if_<is_convertible<dir, directed_tag>,
           directedS, undirectedS>::type select;
       adjacency_list<setS, vecS, select> g2;

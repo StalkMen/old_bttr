@@ -36,7 +36,7 @@
 #include <boost/limits.hpp>
 #include <boost/graph/detail/is_same.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   // This is a bit more convenient than std::numeric_limits because
   // you don't have to explicitly provide type T.
@@ -259,6 +259,6 @@ namespace boost {
     return property_writer<PA, OutputIterator, Tag>(pa, out);
   }
 
-} /* namespace boost */
+} /* namespace boost_cryray */
 
 #endif

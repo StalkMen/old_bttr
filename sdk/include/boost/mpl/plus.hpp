@@ -25,7 +25,7 @@
 #include "boost/mpl/aux_/lambda_support.hpp"
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -66,6 +66,6 @@ struct plus
 BOOST_MPL_AUX_VOID_SPEC_EXT(2,5,plus)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_PLUS_HPP_INCLUDED

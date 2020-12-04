@@ -27,7 +27,7 @@
 #   include "scoped_critical_region.hpp"
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
 struct xtime;
 
@@ -167,7 +167,7 @@ private:
 #endif
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 // Change Log:
 //    8 Feb 01  WEKEMPF Initial version.

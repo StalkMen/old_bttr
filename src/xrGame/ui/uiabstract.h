@@ -38,7 +38,7 @@ enum EWindowAlignment{
 	waCenter	=16
 };
 
-class CUISimpleWindow : public boost::noncopyable
+class CUISimpleWindow : public boost_cryray::noncopyable
 {
 public:
 							CUISimpleWindow		()											{m_alignment=waNone; m_wndPos.set(0,0); m_wndSize.set(0,0);m_bShowMe=false;}

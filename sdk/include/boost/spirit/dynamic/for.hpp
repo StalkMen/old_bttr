@@ -25,7 +25,7 @@
 #endif
 ////////////////////////////////////////////////////////////////////////////////
 
-namespace boost { namespace spirit
+namespace boost_cryray { namespace spirit
 {
     namespace impl
     {
@@ -34,7 +34,7 @@ namespace boost { namespace spirit
         struct for_functor : private subject_type<FuncT, nil_t>::type
         {
             typedef typename subject_type<FuncT, nil_t>::type       base_t;
-            typedef typename boost::call_traits<FuncT>::param_type  param_t;
+            typedef typename boost_cryray::call_traits<FuncT>::param_type  param_t;
             typedef typename base_t::return_t                       return_t;
 
             for_functor(param_t f) : base_t(f) {}
@@ -143,7 +143,7 @@ namespace boost { namespace spirit
                     this->step();
                 }
 
-                boost::spirit::nil_t attr;
+                boost_cryray::spirit::nil_t attr;
                 return scan.create_match
                     (length, attr, save, scan.first);
             }
@@ -189,6 +189,6 @@ namespace boost { namespace spirit
             (init_f, condition, step_f);
     }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif // BOOST_SPIRIT_FOR_HPP

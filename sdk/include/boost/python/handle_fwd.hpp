@@ -8,10 +8,10 @@
 
 # include <boost/python/detail/wrap_python.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 template <class T = PyObject> class handle;
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // HANDLE_FWD_DWA2002615_HPP

@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/vector/vector20.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -150,5 +150,5 @@ struct vector20
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

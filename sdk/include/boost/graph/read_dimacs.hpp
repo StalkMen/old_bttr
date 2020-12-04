@@ -36,7 +36,7 @@
 #include <vector>
 #include <stdio.h>
 
-namespace boost {
+namespace boost_cryray {
 
 template <class Graph, class CapacityMap, class ReverseEdgeMap>
 int read_dimacs_max_flow(Graph& g,
@@ -291,4 +291,4 @@ int read_dimacs_max_flow(Graph& g,
 }
 /* --------------------   end of parser  -------------------*/
 
-} // namespace boost
+} // namespace boost_cryray

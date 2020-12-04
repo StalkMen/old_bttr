@@ -20,7 +20,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 namespace detail {
 
@@ -136,7 +136,7 @@ template<typename B, typename D>
 struct is_base_and_derived_impl2
 {
     BOOST_STATIC_CONSTANT(bool, value =
-        (::boost::is_convertible<D*,B*>::value));
+        (::boost_cryray::is_convertible<D*,B*>::value));
 };
 
 #define BOOST_BROKEN_IS_BASE_AND_DERIVED
@@ -176,9 +176,9 @@ struct is_base_and_derived_impl
     typedef typename remove_cv<D>::type ncvD;
 
     typedef is_base_and_derived_select<
-       ::boost::is_class<B>::value,
-       ::boost::is_class<D>::value,
-       ::boost::is_same<B,D>::value> selector;
+       ::boost_cryray::is_class<B>::value,
+       ::boost_cryray::is_class<D>::value,
+       ::boost_cryray::is_same<B,D>::value> selector;
     typedef typename selector::template rebind<ncvB,ncvD> binder;
     typedef typename binder::type bound_type;
 
@@ -191,7 +191,7 @@ BOOST_TT_AUX_BOOL_TRAIT_DEF2(
       is_base_and_derived
     , Base
     , Derived
-    , (::boost::detail::is_base_and_derived_impl<Base,Derived>::value)
+    , (::boost_cryray::detail::is_base_and_derived_impl<Base,Derived>::value)
     )
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
@@ -200,7 +200,7 @@ BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC2_2(typename Base,typename Derived,is_base_a
 BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC2_2(typename Base,typename Derived,is_base_and_derived,Base&,Derived&,false)
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

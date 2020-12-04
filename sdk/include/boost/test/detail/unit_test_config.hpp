@@ -23,7 +23,7 @@
 #include <iterator>     // for std::distance
 #include <cstddef>      // for std::ptrdiff_t
 
-namespace boost {
+namespace boost_cryray {
 
 namespace unit_test_framework {
 
@@ -50,7 +50,7 @@ using std::distance;
 
 } // namespace unit_test_framework
 
-} // namespace boost
+} // namespace boost_cryray
 
 // ***************************************************************************
 //  Revision History :

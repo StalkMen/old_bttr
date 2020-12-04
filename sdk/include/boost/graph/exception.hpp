@@ -26,7 +26,7 @@
 
 #include <stdexcept>
 
-namespace boost {
+namespace boost_cryray {
 
   struct bad_graph : public std::invalid_argument {
     bad_graph(const std::string& what_arg)
@@ -52,6 +52,6 @@ namespace boost {
       : bad_graph("The graph must be connected.") { }
   };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_EXCEPTION_HPP

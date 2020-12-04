@@ -21,7 +21,7 @@
 # include <stdexcept>
 # include <iterator>
 
-namespace boost {
+namespace boost_cryray {
 
 namespace detail {
 
@@ -77,7 +77,7 @@ namespace detail {
       static const Incrementable choose(const Incrementable& start, const Incrementable& finish)
       {
           return finish_chooser<(
-              ::boost::is_convertible<Category*,std::random_access_iterator_tag*>::value
+              ::boost_cryray::is_convertible<Category*,std::random_access_iterator_tag*>::value
               )>::template rebind<Incrementable>::choose(start, finish);
       }
   };
@@ -90,7 +90,7 @@ struct half_open_range
     typedef typename counting_iterator_generator<Incrementable>::type iterator;
 
  private: // utility type definitions
-    // Using iter_t prevents compiler confusion with boost::iterator
+    // Using iter_t prevents compiler confusion with boost_cryray::iterator
     typedef typename counting_iterator_generator<Incrementable>::type iter_t;
 
     typedef std::less<Incrementable> less_value;
@@ -157,12 +157,12 @@ struct half_open_range
     iterator end() const { return iterator(m_finish); }
     
     Incrementable front() const { assert(!this->empty()); return m_start; }
-    Incrementable back() const { assert(!this->empty()); return boost::prior(m_finish); }
+    Incrementable back() const { assert(!this->empty()); return boost_cryray::prior(m_finish); }
                                      
     Incrementable start() const { return m_start; }
     Incrementable finish() const { return m_finish; }
     
-    size_type size() const { return boost::detail::distance(begin(), end()); }
+    size_type size() const { return boost_cryray::detail::distance(begin(), end()); }
 
     bool empty() const
     {
@@ -179,19 +179,19 @@ struct half_open_range
     // REQUIRES: x is reachable from this->front()
     bool contains(const value_type& x) const
     {
-        BOOST_STATIC_ASSERT((boost::is_same<category, std::random_access_iterator_tag>::value));
+        BOOST_STATIC_ASSERT((boost_cryray::is_same<category, std::random_access_iterator_tag>::value));
         return !less_value()(x, m_start) && less_value()(x, m_finish);
     }
 
     bool contains(const half_open_range& x) const
     {
-        BOOST_STATIC_ASSERT((boost::is_same<category, std::random_access_iterator_tag>::value));
+        BOOST_STATIC_ASSERT((boost_cryray::is_same<category, std::random_access_iterator_tag>::value));
         return x.empty() || !less_value()(x.m_start, m_start) && !less_value()(m_finish, x.m_finish);
     }
 
     bool intersects(const half_open_range& x) const
     {
-        BOOST_STATIC_ASSERT((boost::is_same<category, std::random_access_iterator_tag>::value));
+        BOOST_STATIC_ASSERT((boost_cryray::is_same<category, std::random_access_iterator_tag>::value));
         return less_value()(
             less_value()(this->m_start, x.m_start) ? x.m_start : this->m_start,
             less_value()(this->m_finish, x.m_finish) ? this->m_finish : x.m_finish);
@@ -199,7 +199,7 @@ struct half_open_range
 
     half_open_range& operator&=(const half_open_range& x)
     {
-        BOOST_STATIC_ASSERT((boost::is_same<category, std::random_access_iterator_tag>::value));
+        BOOST_STATIC_ASSERT((boost_cryray::is_same<category, std::random_access_iterator_tag>::value));
         
         if (less_value()(this->m_start, x.m_start))
             this->m_start = x.m_start;
@@ -215,7 +215,7 @@ struct half_open_range
 
     half_open_range& operator|=(const half_open_range& x)
     {
-        BOOST_STATIC_ASSERT((boost::is_same<category, std::random_access_iterator_tag>::value));
+        BOOST_STATIC_ASSERT((boost_cryray::is_same<category, std::random_access_iterator_tag>::value));
 
         if (!x.empty())
         {
@@ -238,7 +238,7 @@ struct half_open_range
     // REQUIRES: x is reachable from this->front()
     const_iterator find(const value_type& x) const
     {
-        BOOST_STATIC_ASSERT((boost::is_same<category, std::random_access_iterator_tag>::value));
+        BOOST_STATIC_ASSERT((boost_cryray::is_same<category, std::random_access_iterator_tag>::value));
         
         return const_iterator(this->contains(x) ? x : m_finish);
     }
@@ -317,19 +317,19 @@ bool contains(
     return x.contains(y);
 }
     
-} // namespace boost
+} // namespace boost_cryray
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
 namespace std {
-template <class Incrementable> struct less<boost::half_open_range<Incrementable> >
+template <class Incrementable> struct less<boost_cryray::half_open_range<Incrementable> >
         : binary_function<
-            boost::half_open_range<Incrementable>,
-            boost::half_open_range<Incrementable>,bool>
+            boost_cryray::half_open_range<Incrementable>,
+            boost_cryray::half_open_range<Incrementable>,bool>
 {
     bool operator()(
-        const boost::half_open_range<Incrementable>& x,
-        const boost::half_open_range<Incrementable>& y) const
+        const boost_cryray::half_open_range<Incrementable>& x,
+        const boost_cryray::half_open_range<Incrementable>& y) const
     {
         less<Incrementable> cmp;
         return !y.empty() && (
@@ -339,45 +339,45 @@ template <class Incrementable> struct less<boost::half_open_range<Incrementable>
     }
 };
 
-template <class Incrementable> struct less_equal<boost::half_open_range<Incrementable> >
+template <class Incrementable> struct less_equal<boost_cryray::half_open_range<Incrementable> >
         : binary_function<
-            boost::half_open_range<Incrementable>,
-            boost::half_open_range<Incrementable>,bool>
+            boost_cryray::half_open_range<Incrementable>,
+            boost_cryray::half_open_range<Incrementable>,bool>
 {
     bool operator()(
-        const boost::half_open_range<Incrementable>& x,
-        const boost::half_open_range<Incrementable>& y) const
+        const boost_cryray::half_open_range<Incrementable>& x,
+        const boost_cryray::half_open_range<Incrementable>& y) const
     {
-        typedef boost::half_open_range<Incrementable> range;
+        typedef boost_cryray::half_open_range<Incrementable> range;
         less<range> cmp;
         return !cmp(y,x);
     }
 };
-template <class Incrementable> struct greater<boost::half_open_range<Incrementable> >
+template <class Incrementable> struct greater<boost_cryray::half_open_range<Incrementable> >
         : binary_function<
-            boost::half_open_range<Incrementable>,
-            boost::half_open_range<Incrementable>,bool>
+            boost_cryray::half_open_range<Incrementable>,
+            boost_cryray::half_open_range<Incrementable>,bool>
 {
     bool operator()(
-        const boost::half_open_range<Incrementable>& x,
-        const boost::half_open_range<Incrementable>& y) const
+        const boost_cryray::half_open_range<Incrementable>& x,
+        const boost_cryray::half_open_range<Incrementable>& y) const
     {
-        typedef boost::half_open_range<Incrementable> range;
+        typedef boost_cryray::half_open_range<Incrementable> range;
         less<range> cmp;
         return cmp(y,x);
     }
 };
 
-template <class Incrementable> struct greater_equal<boost::half_open_range<Incrementable> >
+template <class Incrementable> struct greater_equal<boost_cryray::half_open_range<Incrementable> >
         : binary_function<
-            boost::half_open_range<Incrementable>,
-            boost::half_open_range<Incrementable>,bool>
+            boost_cryray::half_open_range<Incrementable>,
+            boost_cryray::half_open_range<Incrementable>,bool>
 {
     bool operator()(
-        const boost::half_open_range<Incrementable>& x,
-        const boost::half_open_range<Incrementable>& y) const
+        const boost_cryray::half_open_range<Incrementable>& x,
+        const boost_cryray::half_open_range<Incrementable>& y) const
     {
-        typedef boost::half_open_range<Incrementable> range;
+        typedef boost_cryray::half_open_range<Incrementable> range;
         less<range> cmp;
         return !cmp(x,y);
     }
@@ -386,7 +386,7 @@ template <class Incrementable> struct greater_equal<boost::half_open_range<Incre
 
 #else
 
-namespace boost {
+namespace boost_cryray {
 // Can't partially specialize std::less et al, so we must provide the operators
 template <class Incrementable>
 bool operator<(const half_open_range<Incrementable>& x,
@@ -418,7 +418,7 @@ bool operator>=(const half_open_range<Incrementable>& x,
 {
     return !(x < y);
 }
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
     

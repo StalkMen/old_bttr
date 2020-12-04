@@ -24,7 +24,7 @@
 #include <cmath>
 #include <boost/random/uniform_01.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 #if defined(__GNUC__) && (__GNUC__ < 3)
 // Special gcc workaround: gcc 2.95.x ignores using-declarations
@@ -57,7 +57,7 @@ public:
 
   result_type operator()()
   {
-    // Can we have a boost::mathconst please?
+    // Can we have a boost_cryray::mathconst please?
     const result_type pi = result_type(3.14159265358979323846);
 #ifndef BOOST_NO_STDC_NAMESPACE
     using std::tan;
@@ -101,6 +101,6 @@ private:
   result_type _median, _sigma;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_CAUCHY_DISTRIBUTION_HPP

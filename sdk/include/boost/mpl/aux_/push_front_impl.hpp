@@ -20,7 +20,7 @@
 #include "boost/mpl/push_front_fwd.hpp"
 #include "boost/mpl/aux_/traits_lambda_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // no default implementation; the definition is needed to make MSVC happy
@@ -34,6 +34,6 @@ struct push_front_traits
 BOOST_MPL_ALGORITM_TRAITS_LAMBDA_SPEC(2,push_front_traits)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_PUSH_FRONT_IMPL_HPP_INCLUDED

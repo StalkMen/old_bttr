@@ -21,14 +21,14 @@
 
 #include "boost/lambda/detail/control_constructs_common.hpp"
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
 typedef lambda_functor<placeholder<EXCEPTION> > placeholderE_type;
 
 namespace {
-  boost::lambda::placeholderE_type freeE;
-  boost::lambda::placeholderE_type& _e = freeE;        
+  boost_cryray::lambda::placeholderE_type freeE;
+  boost_cryray::lambda::placeholderE_type& _e = freeE;        
 }
 
 // -- exception related actions -------------------
@@ -137,15 +137,15 @@ struct throws_for_sure_phase2<
 {
   static const bool value =
     throws_for_sure_phase2<
-      typename boost::tuples::element<0, Args>::type>::value
+      typename boost_cryray::tuples::element<0, Args>::type>::value
     ||  
     (
        throws_for_sure_phase2<
-         typename boost::tuples::element<1, Args>::type
+         typename boost_cryray::tuples::element<1, Args>::type
        >::value
        && 
        throws_for_sure_phase2<
-         typename boost::tuples::element<2, Args>::type
+         typename boost_cryray::tuples::element<2, Args>::type
        >::value
     );
 };
@@ -159,11 +159,11 @@ struct throws_for_sure_phase2<
 {
   static const bool value =
     throws_for_sure_phase2<
-      typename boost::tuples::element<0, Args>::type
+      typename boost_cryray::tuples::element<0, Args>::type
     >::value
     || 
     throws_for_sure_phase2<
-      typename boost::tuples::element<1, Args>::type
+      typename boost_cryray::tuples::element<1, Args>::type
     >::value;
 };
 
@@ -222,7 +222,7 @@ struct return_or_throw {
 
     return 
       return_or_throw_phase2<
-        ::boost::is_convertible<RT, RET>::value
+        ::boost_cryray::is_convertible<RT, RET>::value
       >::template call<RET>(arg, CALL_ACTUAL_ARGS);
   }
 };
@@ -728,7 +728,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -738,13 +738,13 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);
     }
     catch (Catch1& e)
     {                
       return 
-       detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+       detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
   }
 };
@@ -761,7 +761,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -771,13 +771,13 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (...)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS);
     }
   }
 };
@@ -794,7 +794,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -804,19 +804,19 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     { 
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e)
     {          
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
   }
 };
@@ -831,7 +831,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -841,19 +841,19 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (...)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS);
     }
   }
 };
@@ -869,7 +869,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -879,27 +879,27 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
 
     }
     catch (Catch2& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
 
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
   }
 };
@@ -914,7 +914,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -924,25 +924,25 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (...)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS);
     }
   }
 };
@@ -958,7 +958,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -968,31 +968,31 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e) 
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch4& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
   }
 };
@@ -1007,7 +1007,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -1017,31 +1017,31 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e) 
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (...)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<4>(args), CALL_ACTUAL_ARGS);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<4>(args), CALL_ACTUAL_ARGS);
     }
   }
 };
@@ -1057,7 +1057,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -1067,37 +1067,37 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e) 
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch4& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch5& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
   }
 };
@@ -1112,7 +1112,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -1122,37 +1122,37 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e) 
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch4& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (...)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<5, Args>::type>
-               ::call(::boost::tuples::get<5>(args), CALL_ACTUAL_ARGS);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<5, Args>::type>
+               ::call(::boost_cryray::tuples::get<5>(args), CALL_ACTUAL_ARGS);
     }
   }
 };
@@ -1168,7 +1168,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -1178,43 +1178,43 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e) 
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch4& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch5& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<5, Args>::type>
-               ::call(::boost::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<5, Args>::type>
+               ::call(::boost_cryray::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch6& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<6, Args>::type>
-               ::call(::boost::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<6, Args>::type>
+               ::call(::boost_cryray::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
   }
 };
@@ -1229,7 +1229,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -1239,43 +1239,43 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e) 
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch4& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch5& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<5, Args>::type>
-               ::call(::boost::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<5, Args>::type>
+               ::call(::boost_cryray::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (...)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<6, Args>::type>
-               ::call(::boost::tuples::get<6>(args), CALL_ACTUAL_ARGS);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<6, Args>::type>
+               ::call(::boost_cryray::tuples::get<6>(args), CALL_ACTUAL_ARGS);
     }
   }
 };
@@ -1292,7 +1292,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -1302,49 +1302,49 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e) 
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch4& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch5& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<5, Args>::type>
-               ::call(::boost::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<5, Args>::type>
+               ::call(::boost_cryray::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch6& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<6, Args>::type>
-               ::call(::boost::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<6, Args>::type>
+               ::call(::boost_cryray::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch7& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<7, Args>::type>
-               ::call(::boost::tuples::get<7>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<7, Args>::type>
+               ::call(::boost_cryray::tuples::get<7>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
   }
 };
@@ -1360,7 +1360,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -1370,49 +1370,49 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e) 
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch4& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch5& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<5, Args>::type>
-               ::call(::boost::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<5, Args>::type>
+               ::call(::boost_cryray::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch6& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<6, Args>::type>
-               ::call(::boost::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<6, Args>::type>
+               ::call(::boost_cryray::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (...)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<7, Args>::type>
-               ::call(::boost::tuples::get<7>(args), CALL_ACTUAL_ARGS);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<7, Args>::type>
+               ::call(::boost_cryray::tuples::get<7>(args), CALL_ACTUAL_ARGS);
     }
   }
 };
@@ -1430,7 +1430,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -1440,55 +1440,55 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e) 
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch4& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch5& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<5, Args>::type>
-               ::call(::boost::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<5, Args>::type>
+               ::call(::boost_cryray::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch6& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<6, Args>::type>
-               ::call(::boost::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<6, Args>::type>
+               ::call(::boost_cryray::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch7& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<7, Args>::type>
-               ::call(::boost::tuples::get<7>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<7, Args>::type>
+               ::call(::boost_cryray::tuples::get<7>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch8& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<8, Args>::type>
-               ::call(::boost::tuples::get<8>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<8, Args>::type>
+               ::call(::boost_cryray::tuples::get<8>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
   }
 };
@@ -1505,7 +1505,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -1515,55 +1515,55 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e) 
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch4& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch5& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<5, Args>::type>
-               ::call(::boost::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<5, Args>::type>
+               ::call(::boost_cryray::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch6& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<6, Args>::type>
-               ::call(::boost::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<6, Args>::type>
+               ::call(::boost_cryray::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch7& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<7, Args>::type>
-               ::call(::boost::tuples::get<7>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<7, Args>::type>
+               ::call(::boost_cryray::tuples::get<7>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (...)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<8, Args>::type>
-               ::call(::boost::tuples::get<8>(args), CALL_ACTUAL_ARGS);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<8, Args>::type>
+               ::call(::boost_cryray::tuples::get<8>(args), CALL_ACTUAL_ARGS);
     }
   }
 };
@@ -1581,7 +1581,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -1591,61 +1591,61 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e) 
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch4& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch5& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<5, Args>::type>
-               ::call(::boost::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<5, Args>::type>
+               ::call(::boost_cryray::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch6& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<6, Args>::type>
-               ::call(::boost::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<6, Args>::type>
+               ::call(::boost_cryray::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch7& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<7, Args>::type>
-               ::call(::boost::tuples::get<7>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<7, Args>::type>
+               ::call(::boost_cryray::tuples::get<7>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch8& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<8, Args>::type>
-               ::call(::boost::tuples::get<8>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<8, Args>::type>
+               ::call(::boost_cryray::tuples::get<8>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch9& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<9, Args>::type>
-               ::call(::boost::tuples::get<9>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<9, Args>::type>
+               ::call(::boost_cryray::tuples::get<9>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
   }
 };
@@ -1662,7 +1662,7 @@ public:
   template <class SigArgs> struct sig {
     typedef typename 
       as_lambda_functor<
-            typename boost::tuples::element<0, Args>::type 
+            typename boost_cryray::tuples::element<0, Args>::type 
       >::type lf_type;
 
     typedef typename lf_type::inherited::template sig<SigArgs>::type type;  
@@ -1672,68 +1672,68 @@ public:
   RET call(CALL_FORMAL_ARGS) const {
     try 
     {
-      return detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
+      return detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS);  
     }
     catch (Catch1& e)
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<1, Args>::type>
-               ::call(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<1, Args>::type>
+               ::call(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch2& e) 
     {                
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<2, Args>::type>
-               ::call(::boost::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<2, Args>::type>
+               ::call(::boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch3& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<3, Args>::type>
-               ::call(::boost::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<3, Args>::type>
+               ::call(::boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch4& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<4, Args>::type>
-               ::call(::boost::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<4, Args>::type>
+               ::call(::boost_cryray::tuples::get<4>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch5& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<5, Args>::type>
-               ::call(::boost::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<5, Args>::type>
+               ::call(::boost_cryray::tuples::get<5>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch6& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<6, Args>::type>
-               ::call(::boost::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<6, Args>::type>
+               ::call(::boost_cryray::tuples::get<6>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch7& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<7, Args>::type>
-               ::call(::boost::tuples::get<7>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<7, Args>::type>
+               ::call(::boost_cryray::tuples::get<7>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (Catch8& e)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<8, Args>::type>
-               ::call(::boost::tuples::get<8>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<8, Args>::type>
+               ::call(::boost_cryray::tuples::get<8>(args), CALL_ACTUAL_ARGS_NO_ENV, e);
     }
     catch (...)
     {
       return 
-        detail::return_or_throw<RET, typename ::boost::tuples::element<9, Args>::type>
-               ::call(::boost::tuples::get<9>(args), CALL_ACTUAL_ARGS);
+        detail::return_or_throw<RET, typename ::boost_cryray::tuples::element<9, Args>::type>
+               ::call(::boost_cryray::tuples::get<9>(args), CALL_ACTUAL_ARGS);
     }
   }
 };
 
 
 } // namespace lambda 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif

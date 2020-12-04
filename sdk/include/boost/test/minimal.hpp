@@ -19,17 +19,17 @@
 #define BOOST_CHECK(exp)       \
   ( (exp)                      \
       ? static_cast<void>(0)   \
-      : boost::minimal_test::the_monitor->report_error(#exp,__FILE__,__LINE__, BOOST_CURRENT_FUNCTION) )
+      : boost_cryray::minimal_test::the_monitor->report_error(#exp,__FILE__,__LINE__, BOOST_CURRENT_FUNCTION) )
 
 #define BOOST_REQUIRE(exp)     \
   ( (exp)                      \
       ? static_cast<void>(0)   \
-      : boost::minimal_test::the_monitor->report_critical_error(#exp,__FILE__,__LINE__,BOOST_CURRENT_FUNCTION))
+      : boost_cryray::minimal_test::the_monitor->report_critical_error(#exp,__FILE__,__LINE__,BOOST_CURRENT_FUNCTION))
 
 #define BOOST_ERROR( msg_ )    \
-        boost::minimal_test::the_monitor->report_error( (msg_),__FILE__,__LINE__, BOOST_CURRENT_FUNCTION, true )
+        boost_cryray::minimal_test::the_monitor->report_error( (msg_),__FILE__,__LINE__, BOOST_CURRENT_FUNCTION, true )
 #define BOOST_FAIL( msg_ )     \
-        boost::minimal_test::the_monitor->report_critical_error( (msg_),__FILE__,__LINE__, BOOST_CURRENT_FUNCTION, true )
+        boost_cryray::minimal_test::the_monitor->report_critical_error( (msg_),__FILE__,__LINE__, BOOST_CURRENT_FUNCTION, true )
 
 //____________________________________________________________________________//
 
@@ -57,10 +57,10 @@
 
 int test_main( int argc, char* argv[] );  // prototype for user's test_main()
 
-namespace boost {
+namespace boost_cryray {
 namespace minimal_test {
 
-class monitor : public boost::execution_monitor {
+class monitor : public boost_cryray::execution_monitor {
     typedef unit_test_framework::c_string_literal c_string_literal;
 public:
     // constructor
@@ -92,7 +92,7 @@ public:
     void        report_critical_error( const char* msg_, const char* file_, int line_, c_string_literal func_name_, bool is_msg_ = false )
     {
         report_error( msg_, file_, line_, func_name_, is_msg_ );
-        throw boost::execution_exception( boost::execution_exception::no_error, "" );
+        throw boost_cryray::execution_exception( boost_cryray::execution_exception::no_error, "" );
     }
 
     // public properties
@@ -107,39 +107,39 @@ private:
 monitor* the_monitor;
 
 } // namespace minimal_test
-} // namespace boost
+} // namespace boost_cryray
 
 //____________________________________________________________________________//
 
 int main( int argc, char* argv[] )
 {
-    using boost::minimal_test::the_monitor;
+    using boost_cryray::minimal_test::the_monitor;
 
-    the_monitor = new boost::minimal_test::monitor( argc, argv );
+    the_monitor = new boost_cryray::minimal_test::monitor( argc, argv );
 
     try {
-        int run_result = boost::minimal_test::the_monitor->execute();
+        int run_result = boost_cryray::minimal_test::the_monitor->execute();
 
-        BOOST_CHECK( run_result == 0 || run_result == boost::exit_success );
+        BOOST_CHECK( run_result == 0 || run_result == boost_cryray::exit_success );
     }
-    catch( boost::execution_exception const& exex ) {
-        if( exex.code() != boost::execution_exception::no_error )
+    catch( boost_cryray::execution_exception const& exex ) {
+        if( exex.code() != boost_cryray::execution_exception::no_error )
             BOOST_ERROR( (std::string( "exception \"" ) + exex.what() + "\" caught").c_str() );
         std::cerr << "\n**** Testing aborted.";
     }
 
-    if( boost::minimal_test::the_monitor->p_errors_counter != 0 ) {
+    if( boost_cryray::minimal_test::the_monitor->p_errors_counter != 0 ) {
         std::cerr << "\n**** " << the_monitor->p_errors_counter.get()
                   << " error" << (the_monitor->p_errors_counter > 1 ? "s" : "" ) << " detected\n";
 
         delete the_monitor;
-        return boost::exit_test_failure;
+        return boost_cryray::exit_test_failure;
     }
 
     std::cout << "\n**** no errors detected\n";
     
     delete the_monitor;
-    return boost::exit_success;
+    return boost_cryray::exit_success;
 }
 
 // ***************************************************************************

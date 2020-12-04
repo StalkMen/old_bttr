@@ -12,7 +12,7 @@
 #define BOOST_SPIRIT_FUNDAMENTAL_IPP
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 #if defined(BOOST_MSVC) && (BOOST_MSVC <= 1300)
     BOOST_SPIRIT_DEPENDENT_TEMPLATE_WRAPPER2(count_wrapper, count);
@@ -301,6 +301,6 @@ namespace impl
 }   // namespace impl
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif // !defined(BOOST_SPIRIT_FUNDAMENTAL_IPP)

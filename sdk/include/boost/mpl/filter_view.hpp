@@ -22,7 +22,7 @@
 #include "boost/mpl/aux_/filter_iter.hpp"
 #include "boost/mpl/aux_/void_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -46,6 +46,6 @@ struct filter_view
 BOOST_MPL_AUX_VOID_SPEC(2, filter_view)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_FILTER_VIEW_HPP_INCLUDED

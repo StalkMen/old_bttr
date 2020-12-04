@@ -15,7 +15,7 @@
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-namespace boost {
+namespace boost_cryray {
 namespace detail {
 
 // implementation helper:
@@ -55,7 +55,7 @@ struct cv_traits_imp<const volatile T*>
 };
 
 } // namespace detail
-} // namespace boost 
+} // namespace boost_cryray 
 
 #endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 

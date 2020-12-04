@@ -24,7 +24,7 @@
 #include "boost/mpl/aux_/lambda_support.hpp"
 #include "boost/type_traits/is_same.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -43,6 +43,6 @@ struct contains
 BOOST_MPL_AUX_VOID_SPEC(2, contains)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_CONTAINS_HPP_INCLUDED

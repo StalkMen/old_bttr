@@ -17,7 +17,7 @@
 
 #include <boost/pool/poolfwd.hpp>
 
-// boost::singleton_pool
+// boost_cryray::singleton_pool
 #include <boost/pool/singleton_pool.hpp>
 
 // The following code will be put into Boost.Config in a later revision
@@ -26,7 +26,7 @@
  #define BOOST_NO_PROPER_STL_DEALLOCATE
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
 struct pool_allocator_tag { };
 
@@ -215,6 +215,6 @@ class fast_pool_allocator
     }
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

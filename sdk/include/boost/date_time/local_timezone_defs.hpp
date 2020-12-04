@@ -7,7 +7,7 @@
 
 #include "boost/date_time/dst_rules.hpp"
 
-namespace boost {
+namespace boost_cryray {
   namespace date_time {
 
     // Configurations for common dst rules cases:
@@ -18,10 +18,10 @@ namespace boost {
     /*! This class is used to configure dst_calc_engine template typically
         as follows:
         @code
-          using namespace boost::gregorian;
-          using namespace boost::posix_time;
+          using namespace boost_cryray::gregorian;
+          using namespace boost_cryray::posix_time;
           typedef us_dst_trait<date> us_dst_traits;
-          typedef boost::date_time::dst_calc_engine<date, time_duration, 
+          typedef boost_cryray::date_time::dst_calc_engine<date, time_duration, 
                                                     us_dst_traits>  
                                                     us_dst_calc;
           //calculate the 2002 transition day of USA April 7 2002
@@ -34,7 +34,7 @@ namespace boost {
           //are yes, no, invalid time label, ambiguous
           ptime t(...some time...);  
           if (us_dst::local_is_dst(t.date(), t.time_of_day()) 
-              == boost::date_time::is_not_in_dst) 
+              == boost_cryray::date_time::is_not_in_dst) 
           {
 
           }
@@ -122,7 +122,7 @@ namespace boost {
 
 
 
-} } //namespace boost::date_time
+} } //namespace boost_cryray::date_time
 
 /* Copyright (c) 2002
  * CrystalClear Software, Inc.

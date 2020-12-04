@@ -17,7 +17,7 @@
 #ifndef BOOST_UBLAS_BLAS_H
 #define BOOST_UBLAS_BLAS_H
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     namespace blas_1 {
 

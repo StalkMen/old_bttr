@@ -26,7 +26,7 @@
 #include "boost/mpl/aux_/yes_no.hpp"
 #include "boost/mpl/aux_/config/workaround.hpp"
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 // agurt, 27/nov/02: have to use a simplistic 'sequence_tag' implementation
 // on MSVC to avoid dreadful "internal structure overflow" error
@@ -111,8 +111,8 @@ template<
     >
 struct sequence_tag
     : aux::sequence_tag_impl<
-          ::boost::mpl::aux::has_tag<Sequence>::value
-        , ::boost::mpl::aux::has_begin<Sequence>::value
+          ::boost_cryray::mpl::aux::has_tag<Sequence>::value
+        , ::boost_cryray::mpl::aux::has_begin<Sequence>::value
         >::template result2_<Sequence>
 {
 };
@@ -128,6 +128,6 @@ template<> struct sequence_tag<int>
 
 BOOST_MPL_AUX_VOID_SPEC(1, sequence_tag)
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #endif // BOOST_MPL_SEQUENCE_TAG_HPP_INCLUDED

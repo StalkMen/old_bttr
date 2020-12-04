@@ -27,7 +27,7 @@
 #include "boost/mpl/lambda.hpp"
 #include "boost/mpl/aux_/void_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 namespace aux {
@@ -70,6 +70,6 @@ BOOST_MPL_AUX_AGLORITHM_NAMESPACE_END
 BOOST_MPL_AUX_ALGORITHM_VOID_SPEC(2, remove_if)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_REMOVE_IF_HPP_INCLUDED

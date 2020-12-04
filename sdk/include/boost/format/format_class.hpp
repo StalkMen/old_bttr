@@ -28,7 +28,7 @@
 
 #include <boost/format/internals.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 template<class Ch, class Tr>
 class basic_format 
@@ -142,7 +142,7 @@ private:
 }; // class basic_format
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_FORMAT_CLASS_HPP

@@ -22,7 +22,7 @@
 #include "boost/mpl/aux_/arity_spec.hpp"
 #include "boost/mpl/aux_/lambda_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename Value >
@@ -43,6 +43,6 @@ BOOST_MPL_AUX_ARITY_SPEC(1,always)
 BOOST_MPL_AUX_PASS_THROUGH_LAMBDA_SPEC(1,always)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_ALWAYS_HPP_INCLUDED

@@ -7,7 +7,7 @@
 # define RETURN_VALUE_POLICY_DWA2002131_HPP
 # include <boost/python/default_call_policies.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 template <class ResultConverterGenerator, class BasePolicy_ = default_call_policies>
 struct return_value_policy : BasePolicy_
@@ -15,6 +15,6 @@ struct return_value_policy : BasePolicy_
     typedef ResultConverterGenerator result_converter;
 };
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // RETURN_VALUE_POLICY_DWA2002131_HPP

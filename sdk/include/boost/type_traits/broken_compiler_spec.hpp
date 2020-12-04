@@ -17,7 +17,7 @@
 
 #else
 
-namespace boost { namespace detail {
+namespace boost_cryray { namespace detail {
 template< typename T > struct remove_const_impl     { typedef T type; };
 template< typename T > struct remove_volatile_impl  { typedef T type; };
 template< typename T > struct remove_pointer_impl   { typedef T type; };
@@ -65,7 +65,7 @@ template<> struct trait##_impl<spec> \
     /**/
 
 #   define BOOST_TT_BROKEN_COMPILER_SPEC(T)                                         \
-    namespace boost { namespace detail {                                            \
+    namespace boost_cryray { namespace detail {                                            \
     BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T)                                          \
     BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T)                                          \
     BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T*)                                         \

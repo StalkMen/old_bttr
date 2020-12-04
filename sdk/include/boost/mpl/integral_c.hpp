@@ -38,7 +38,7 @@
 
 #if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) \
  && !BOOST_WORKAROUND(__BORLANDC__, <= 0x551)
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 // 'bool' constant doesn't have 'next'/'prior' members
 template< bool C >
 struct integral_c<bool, C>

@@ -13,7 +13,7 @@
 #include <algorithm>
 #include <boost/graph/detail/shadow_iterator.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 template <class Iter1, class Iter2>
 void permute_serial(Iter1 permuter, Iter1 last, Iter2 result)
@@ -201,6 +201,6 @@ inline void sortv(Iter first, Iter last, IterP p, Cmp cmp, Alloc alloc)
 }
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_PERMUTATION_HPP

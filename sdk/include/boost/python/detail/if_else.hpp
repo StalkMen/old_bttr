@@ -7,7 +7,7 @@
 # define IF_ELSE_DWA2002322_HPP
 # include <boost/config.hpp>
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 template <class T> struct elif_selected;
 
@@ -112,6 +112,6 @@ struct if_<false>
     };
 };
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // IF_ELSE_DWA2002322_HPP

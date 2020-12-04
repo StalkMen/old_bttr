@@ -8,7 +8,7 @@
 #include "boost/date_time/c_time.hpp"
 #ifdef BOOST_DATE_TIME_HAS_GETTIMEOFDAY_HIGH_PRECISION_CLOCK
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
 
@@ -41,7 +41,7 @@ namespace date_time {
   private:
     static time_type create_time(timeval* tv) {
       time_t t = tv->tv_sec;
-      boost::uint32_t fs = tv->tv_usec;
+      boost_cryray::uint32_t fs = tv->tv_usec;
       ::std::time(&t); 
       tm* curr = localtime(&t);
       date_type d(curr->tm_year + 1900, 

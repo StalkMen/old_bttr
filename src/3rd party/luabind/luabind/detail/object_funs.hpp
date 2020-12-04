@@ -85,12 +85,12 @@ namespace luabind
 		}
 
 		template<class T, class Obj, class Policies>
-		boost::optional<T> object_cast_nothrow_impl(const Obj& obj, const Policies&)
+		boost_cryray::optional<T> object_cast_nothrow_impl(const Obj& obj, const Policies&)
 		{
 			typedef typename detail::find_conversion_policy<0, Policies>::type converter_policy;
 			typename converter_policy::template generate_converter<T, lua_to_cpp>::type converter;
 
-			if (obj.lua_state() == 0) return boost::optional<T>();
+			if (obj.lua_state() == 0) return boost_cryray::optional<T>();
 			LUABIND_CHECK_STACK(obj.lua_state());
 
 			obj.pushvalue();
@@ -101,10 +101,10 @@ namespace luabind
 #ifndef LUABIND_NO_ERROR_CHECKING
 
 			if (converter.match(L, LUABIND_DECORATE_TYPE(T), -1) < 0)
-				return boost::optional<T>();
+				return boost_cryray::optional<T>();
 #endif
 
-			return boost::optional<T>(converter.apply(L, LUABIND_DECORATE_TYPE(T), -1));
+			return boost_cryray::optional<T>(converter.apply(L, LUABIND_DECORATE_TYPE(T), -1));
 		}
 	}
 	
@@ -117,11 +117,11 @@ namespace luabind
 	{ return detail::object_cast_impl<T>(obj, p); }
 	
 	template<class T>
-	boost::optional<T> object_cast_nothrow(const object& obj)
+	boost_cryray::optional<T> object_cast_nothrow(const object& obj)
 	{ return detail::object_cast_nothrow_impl<T>(obj, detail::null_type()); }
 
 	template<class T, class Policies>
-	boost::optional<T> object_cast_nothrow(const object& obj, const Policies& p)
+	boost_cryray::optional<T> object_cast_nothrow(const object& obj, const Policies& p)
 	{ return detail::object_cast_nothrow_impl<T>(obj, p); }
 	
 
@@ -134,11 +134,11 @@ namespace luabind
 	{ return detail::object_cast_impl<T>(obj, p); }
 	
 	template<class T>
-	boost::optional<T> object_cast_nothrow(const detail::proxy_object& obj)
+	boost_cryray::optional<T> object_cast_nothrow(const detail::proxy_object& obj)
 	{ return detail::object_cast_nothrow_impl<T>(obj, detail::null_type()); }
 	
 	template<class T, class Policies>
-	boost::optional<T> object_cast_nothrow(const detail::proxy_object& obj, const Policies& p)
+	boost_cryray::optional<T> object_cast_nothrow(const detail::proxy_object& obj, const Policies& p)
 	{ return detail::object_cast_nothrow_impl<T>(obj, p); }
 
 	
@@ -151,11 +151,11 @@ namespace luabind
 	{ return detail::object_cast_impl<T>(obj, p); }
 
 	template<class T>
-	boost::optional<T> object_cast_nothrow(const detail::proxy_raw_object& obj)
+	boost_cryray::optional<T> object_cast_nothrow(const detail::proxy_raw_object& obj)
 	{ return detail::object_cast_nothrow_impl<T>(obj, detail::null_type()); }
 
 	template<class T, class Policies>
-	boost::optional<T> object_cast_nothrow(const detail::proxy_raw_object& obj, const Policies& p)
+	boost_cryray::optional<T> object_cast_nothrow(const detail::proxy_raw_object& obj, const Policies& p)
 	{ return detail::object_cast_nothrow_impl<T>(obj, p); }
 
 	
@@ -168,11 +168,11 @@ namespace luabind
 	{ return detail::object_cast_impl<T>(obj, p); }
 	
 	template<class T>
-	boost::optional<T> object_cast_nothrow(const detail::proxy_array_object& obj)
+	boost_cryray::optional<T> object_cast_nothrow(const detail::proxy_array_object& obj)
 	{ return detail::object_cast_nothrow_impl<T>(obj, detail::null_type()); }
 	
 	template<class T, class Policies>
-	boost::optional<T> object_cast_nothrow(const detail::proxy_array_object& obj, const Policies& p)
+	boost_cryray::optional<T> object_cast_nothrow(const detail::proxy_array_object& obj, const Policies& p)
 	{ return detail::object_cast_nothrow_impl<T>(obj, p); }
 
 

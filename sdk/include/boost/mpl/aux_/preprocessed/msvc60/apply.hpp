@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/apply.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename F >
@@ -278,5 +278,5 @@ struct apply5< int,int,int,int,int,int >
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

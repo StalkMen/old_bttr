@@ -20,7 +20,7 @@ class animation_planner;
 
 class target_selector : 
 	public CActionPlannerAction<animation_planner>,
-	private boost::noncopyable,
+	private boost_cryray::noncopyable,
 	private debug::make_final<target_selector>
 {
 private:

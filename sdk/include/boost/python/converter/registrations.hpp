@@ -16,7 +16,7 @@
 
 # include <boost/detail/workaround.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 struct lvalue_from_python_chain
 {
@@ -80,6 +80,6 @@ inline bool operator<(registration const& lhs, registration const& rhs)
     return lhs.target_type < rhs.target_type;
 }
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // REGISTRATIONS_DWA2002223_HPP

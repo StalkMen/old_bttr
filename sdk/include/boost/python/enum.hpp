@@ -10,7 +10,7 @@
 # include <boost/python/converter/rvalue_from_python_data.hpp>
 # include <boost/python/converter/registered.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 template <class T>
 struct enum_ : public objects::enum_base
@@ -96,6 +96,6 @@ inline enum_<T>& enum_<T>::export_values()
     return *this;
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // ENUM_DWA200298_HPP

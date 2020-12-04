@@ -21,7 +21,7 @@ class object;
 
 class loophole : 
 	private debug::make_final<loophole>, 
-	private boost::noncopyable 
+	private boost_cryray::noncopyable 
 {
 private:
 	class action_predicate {

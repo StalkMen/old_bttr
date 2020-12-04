@@ -17,15 +17,15 @@
 // should be the last #include
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 namespace detail {
 
 template <typename T> 
 struct is_fundamental_impl
-    : ::boost::type_traits::ice_or< 
-          ::boost::is_arithmetic<T>::value
-        , ::boost::is_void<T>::value
+    : ::boost_cryray::type_traits::ice_or< 
+          ::boost_cryray::is_arithmetic<T>::value
+        , ::boost_cryray::is_void<T>::value
         >
 { 
 };
@@ -33,9 +33,9 @@ struct is_fundamental_impl
 } // namespace detail
 
 //* is a type T a fundamental type described in the standard (3.9.1)
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_fundamental,T,::boost::detail::is_fundamental_impl<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_fundamental,T,::boost_cryray::detail::is_fundamental_impl<T>::value)
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

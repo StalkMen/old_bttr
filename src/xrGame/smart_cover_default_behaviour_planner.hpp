@@ -19,7 +19,7 @@ class animation_planner;
 
 class default_behaviour_planner : 
 	public CActionPlannerAction<animation_planner>,
-	private boost::noncopyable,
+	private boost_cryray::noncopyable,
 	private debug::make_final<default_behaviour_planner>
 {
 private:

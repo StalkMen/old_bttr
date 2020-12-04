@@ -122,15 +122,15 @@ namespace luabind
 			{
 				static inline int apply(lua_State* L, int nret)
 				{
-					return ret(L, nret, boost::mpl::bool_<has_yield<Policies>::value>());
+					return ret(L, nret, boost_cryray::mpl::bool_<has_yield<Policies>::value>());
 				}
 
-				static inline int ret(lua_State* L, int nret, boost::mpl::bool_<true>)
+				static inline int ret(lua_State* L, int nret, boost_cryray::mpl::bool_<true>)
 				{
 					return lua_yield(L, nret);
 				}
 
-				static inline int ret(lua_State*, int nret, boost::mpl::bool_<false>)
+				static inline int ret(lua_State*, int nret, boost_cryray::mpl::bool_<false>)
 				{
 					return nret;
 				}

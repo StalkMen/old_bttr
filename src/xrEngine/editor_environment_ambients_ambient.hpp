@@ -41,7 +41,7 @@ class sound_id;
 class ambient :
     public CEnvAmbient,
     public editor::property_holder_holder,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 private:
     typedef CEnvAmbient inherited;

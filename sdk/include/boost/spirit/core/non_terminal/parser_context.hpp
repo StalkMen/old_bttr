@@ -13,7 +13,7 @@
 #define BOOST_SPIRIT_PARSER_CONTEXT_HPP
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost
+namespace boost_cryray
 {
     namespace spirit
     {
@@ -150,6 +150,6 @@ namespace boost
             return context_wrap.post_parse(hit, this_, scan_wrap);
 
     } // namespace spirit
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

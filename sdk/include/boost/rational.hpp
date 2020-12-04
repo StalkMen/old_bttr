@@ -43,12 +43,12 @@
 #include <iomanip>               // for std::noskipws
 #include <stdexcept>             // for std::domain_error
 #include <string>                // for std::string implicit constructor
-#include <boost/operators.hpp>   // for boost::addable etc
+#include <boost/operators.hpp>   // for boost_cryray::addable etc
 #include <cstdlib>               // for std::abs
-#include <boost/call_traits.hpp> // for boost::call_traits
+#include <boost/call_traits.hpp> // for boost_cryray::call_traits
 #include <boost/config.hpp>      // for BOOST_NO_STDC_NAMESPACE, BOOST_MSVC
 
-namespace boost {
+namespace boost_cryray {
 
 // Note: We use n and m as temporaries in this function, so there is no value
 // in using const IntType& as we would only need to make a copy anyway...
@@ -129,7 +129,7 @@ class rational :
     > > > > > > > > > > > > > > > >
 {
     typedef IntType int_type;
-    typedef typename boost::call_traits<IntType>::param_type param_type;
+    typedef typename boost_cryray::call_traits<IntType>::param_type param_type;
 
 public:
     rational() : num(0), den(1) {}
@@ -518,7 +518,7 @@ inline rational<IntType> abs(const rational<IntType>& r)
     return rational<IntType>(-r.numerator(), r.denominator());
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // BOOST_RATIONAL_HPP
 

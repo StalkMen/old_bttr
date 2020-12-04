@@ -25,7 +25,7 @@
 #include "boost/mpl/aux_/lambda_support.hpp"
 #include "boost/mpl/aux_/config/msvc_typename.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 namespace aux {
@@ -55,6 +55,6 @@ struct erase
 BOOST_MPL_AUX_VOID_SPEC_EXT(2,3,erase)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_ERASE_HPP_INCLUDED

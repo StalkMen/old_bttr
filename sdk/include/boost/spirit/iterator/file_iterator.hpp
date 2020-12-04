@@ -59,7 +59,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 namespace impl {
@@ -83,7 +83,7 @@ namespace impl {
 } // namespace impl
 
 ///////////////////////////////////////////////////////////////////////////////
-// warning C4284: return type for 'boost::spirit::file_iterator<char>::operator ->'
+// warning C4284: return type for 'boost_cryray::spirit::file_iterator<char>::operator ->'
 // is 'const char *'
 #if defined BOOST_MSVC
 #pragma warning ( push )
@@ -93,7 +93,7 @@ namespace impl {
 ///////////////////////////////////////////////////////////////////////////////
 template <typename CharT = char>
 class file_iterator
- : public boost::iterator <
+ : public boost_cryray::iterator <
       std::random_access_iterator_tag,
       CharT,
       impl::off_t,
@@ -292,7 +292,7 @@ bool operator >= (
    );
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 ///////////////////////////////////////////////////////////////////////////////
 #if defined BOOST_MSVC

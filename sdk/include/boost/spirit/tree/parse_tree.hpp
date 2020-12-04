@@ -15,7 +15,7 @@
 #include "boost/spirit/core/scanner/scanner.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 template <typename MatchPolicyT, typename NodeFactoryT>
 struct pt_tree_policy;
@@ -243,7 +243,7 @@ pt_parse(
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

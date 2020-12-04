@@ -24,7 +24,7 @@
 
 #   include "boost/mpl/bool.hpp"
 
-namespace boost { namespace mpl { namespace aux {
+namespace boost_cryray { namespace mpl { namespace aux {
 
 template< typename C >
 struct bool_value_wknd
@@ -38,9 +38,9 @@ struct bool_value_wknd<int>
 {
 };
 
-}}} // namespace boost::mpl::aux
+}}} // namespace boost_cryray::mpl::aux
 
-#   define BOOST_MPL_AUX_BOOL_VALUE_WKND(C) ::boost::mpl::aux::bool_value_wknd<C>
+#   define BOOST_MPL_AUX_BOOL_VALUE_WKND(C) ::boost_cryray::mpl::aux::bool_value_wknd<C>
 
 #else
 

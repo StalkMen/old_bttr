@@ -11,7 +11,7 @@
 # include <boost/type_traits/transform_traits.hpp>
 # include <boost/type_traits/cv_traits.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 struct registration;
 
@@ -49,6 +49,6 @@ namespace detail
   registration const& registered_base<T>::converters
      = registry::lookup(type_id<T>());
 }
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // REGISTERED_DWA2002710_HPP

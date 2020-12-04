@@ -9,7 +9,7 @@
 # include <boost/python/detail/config.hpp>
 # include <boost/python/object_fwd.hpp>
 
-namespace boost { namespace python { namespace objects { 
+namespace boost_cryray { namespace python { namespace objects { 
 
 //
 // A setattr that's "smart" about function overloading (and docstrings).
@@ -20,6 +20,6 @@ BOOST_PYTHON_DECL void add_to_namespace(
 BOOST_PYTHON_DECL void add_to_namespace(
     object const& name_space, char const* name, object const& attribute, char const* doc);
 
-}}} // namespace boost::python::objects
+}}} // namespace boost_cryray::python::objects
 
 #endif // ADD_TO_NAMESPACE_DWA200286_HPP

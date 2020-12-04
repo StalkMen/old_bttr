@@ -34,7 +34,7 @@ class thunderbolt;
 class thunderbolt_id;
 class collection;
 
-class manager : private boost::noncopyable
+class manager : private boost_cryray::noncopyable
 {
 public:
     manager(::editor::environment::manager* environment);

@@ -16,7 +16,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/type_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 // * convert a type T to const type - add_const<T>
 // this is not required since the result is always
@@ -41,7 +41,7 @@ BOOST_TT_AUX_TYPE_TRAIT_DEF1(add_const,T,T const)
 BOOST_TT_AUX_TYPE_TRAIT_PARTIAL_SPEC1_1(typename T,add_const,T&,T&)
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/type_trait_undef.hpp"
 

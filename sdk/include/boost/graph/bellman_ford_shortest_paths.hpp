@@ -46,7 +46,7 @@
 #include <boost/graph/visitors.hpp>
 #include <boost/graph/named_function_params.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template <class Visitor, class Graph>
   struct BellmanFordVisitorConcept {
@@ -194,6 +194,6 @@ namespace boost {
     return bellman_ford_shortest_paths(g, N, params);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_BELLMAN_FORD_SHORTEST_PATHS_HPP

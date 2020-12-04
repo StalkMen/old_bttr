@@ -22,7 +22,7 @@
 #pragma option push -Vx- -Ve-
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
 template <typename T> struct alignment_of;
 
@@ -49,7 +49,7 @@ template< typename T >
 struct alignment_of_impl
 {
     BOOST_STATIC_CONSTANT(std::size_t, value =
-        (::boost::detail::alignment_logic<
+        (::boost_cryray::detail::alignment_logic<
             sizeof(detail::alignment_of_hack<T>) - sizeof(T),
             sizeof(T)
         >::value));
@@ -57,7 +57,7 @@ struct alignment_of_impl
 
 } // namespace detail
 
-BOOST_TT_AUX_SIZE_T_TRAIT_DEF1(alignment_of,T,::boost::detail::alignment_of_impl<T>::value)
+BOOST_TT_AUX_SIZE_T_TRAIT_DEF1(alignment_of,T,::boost_cryray::detail::alignment_of_impl<T>::value)
 
 // references have to be treated specially, assume
 // that a reference is just a special pointer:
@@ -84,7 +84,7 @@ BOOST_TT_AUX_SIZE_T_TRAIT_SPEC1(alignment_of,void volatile,0)
 BOOST_TT_AUX_SIZE_T_TRAIT_SPEC1(alignment_of,void const volatile,0)
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #ifdef __BORLANDC__
 #pragma option pop

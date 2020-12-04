@@ -10,7 +10,7 @@
 # include <boost/python/detail/indirect_traits.hpp>
 # include <boost/type_traits/cv_traits.hpp>
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 struct decorated_type_info : totally_ordered<decorated_type_info>
 {
@@ -33,7 +33,7 @@ struct decorated_type_info : totally_ordered<decorated_type_info>
 };
 
 template <class T>
-inline decorated_type_info decorated_type_id(boost::type<T>* = 0)
+inline decorated_type_info decorated_type_id(boost_cryray::type<T>* = 0)
 {
     return decorated_type_info(
         type_id<T>()
@@ -72,6 +72,6 @@ inline decorated_type_info::operator type_info const&() const
 
 BOOST_PYTHON_DECL std::ostream& operator<<(std::ostream&, decorated_type_info const&);
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // DECORATED_TYPE_ID_DWA2002517_HPP

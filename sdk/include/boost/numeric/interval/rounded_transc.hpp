@@ -20,7 +20,7 @@
 #include <boost/numeric/interval/detail/bugs.hpp>
 #include <cmath>
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 
@@ -141,6 +141,6 @@ struct rounded_transc_opp: Rounding
   
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_ROUNDED_TRANSC_HPP

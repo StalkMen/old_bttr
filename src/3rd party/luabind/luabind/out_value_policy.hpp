@@ -147,8 +147,8 @@ namespace luabind { namespace detail
 		template<class T, class Direction>
 		struct generate_converter
 		{
-			typedef typename boost::mpl::if_<boost::is_same<lua_to_cpp, Direction>
-				, typename boost::mpl::if_<boost::mpl::or_<is_nonconst_reference<T>, is_nonconst_pointer<T> >
+			typedef typename boost_cryray::mpl::if_<boost_cryray::is_same<lua_to_cpp, Direction>
+				, typename boost_cryray::mpl::if_<boost_cryray::mpl::or_<is_nonconst_reference<T>, is_nonconst_pointer<T> >
 					, out_value_converter<indirect_sizeof<T>::value, Policies>
 					, only_accepts_nonconst_references_or_pointers
 					>::type
@@ -220,8 +220,8 @@ namespace luabind { namespace detail
 		template<class T, class Direction>
 		struct generate_converter
 		{
-			typedef typename boost::mpl::if_<boost::is_same<lua_to_cpp, Direction>
-				, typename boost::mpl::if_<boost::mpl::or_<is_nonconst_reference<T>, is_nonconst_pointer<T> >
+			typedef typename boost_cryray::mpl::if_<boost_cryray::is_same<lua_to_cpp, Direction>
+				, typename boost_cryray::mpl::if_<boost_cryray::mpl::or_<is_nonconst_reference<T>, is_nonconst_pointer<T> >
 					, pure_out_value_converter<indirect_sizeof<T>::value, Policies>
 					, only_accepts_nonconst_references_or_pointers
 					>::type
@@ -236,19 +236,19 @@ namespace luabind
 {
 	template<int N>
 	detail::policy_cons<detail::out_value_policy<N>, detail::null_type> 
-	out_value(boost::arg<N>) { return detail::policy_cons<detail::out_value_policy<N>, detail::null_type>(); }
+	out_value(boost_cryray::arg<N>) { return detail::policy_cons<detail::out_value_policy<N>, detail::null_type>(); }
 
 	template<int N, class Policies>
 	detail::policy_cons<detail::out_value_policy<N, Policies>, detail::null_type> 
-	out_value(boost::arg<N>, const Policies&) { return detail::policy_cons<detail::out_value_policy<N, Policies>, detail::null_type>(); }
+	out_value(boost_cryray::arg<N>, const Policies&) { return detail::policy_cons<detail::out_value_policy<N, Policies>, detail::null_type>(); }
 
 	template<int N>
 	detail::policy_cons<detail::pure_out_value_policy<N>, detail::null_type> 
-	pure_out_value(boost::arg<N>) { return detail::policy_cons<detail::pure_out_value_policy<N>, detail::null_type>(); }
+	pure_out_value(boost_cryray::arg<N>) { return detail::policy_cons<detail::pure_out_value_policy<N>, detail::null_type>(); }
 
 	template<int N, class Policies>
 	detail::policy_cons<detail::pure_out_value_policy<N, Policies>, detail::null_type> 
-	pure_out_value(boost::arg<N>, const Policies&) { return detail::policy_cons<detail::pure_out_value_policy<N, Policies>, detail::null_type>(); }
+	pure_out_value(boost_cryray::arg<N>, const Policies&) { return detail::policy_cons<detail::pure_out_value_policy<N, Policies>, detail::null_type>(); }
 }
 
 #endif // LUABIND_OUT_VALUE_POLICY_HPP_INCLUDED

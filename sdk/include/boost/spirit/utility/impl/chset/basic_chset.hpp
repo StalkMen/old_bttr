@@ -17,7 +17,7 @@
 
 #include "boost/spirit/utility/impl/chset/range_run.hpp"
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -98,7 +98,7 @@ namespace boost { namespace spirit {
 
 #endif
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

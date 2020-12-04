@@ -20,7 +20,7 @@
 #include "boost/mpl/integral_c.hpp"
 #include "boost/mpl/list/aux_/tag.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -46,6 +46,6 @@ struct null_node
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_LIST_AUX_NODE_HPP_INCLUDED

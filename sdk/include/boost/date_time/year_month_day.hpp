@@ -5,7 +5,7 @@
  * Author: Jeff Garland 
  */
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
   //! Allow rapid creation of ymd triples of different types

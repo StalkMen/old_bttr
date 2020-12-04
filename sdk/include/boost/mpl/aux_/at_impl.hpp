@@ -22,7 +22,7 @@
 #include "boost/mpl/aux_/deref_wknd.hpp"
 #include "boost/mpl/aux_/traits_lambda_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // default implementation; conrete sequences might override it by 
@@ -45,6 +45,6 @@ struct at_traits
 BOOST_MPL_ALGORITM_TRAITS_LAMBDA_SPEC(2,at_traits)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_AT_IMPL_HPP_INCLUDED

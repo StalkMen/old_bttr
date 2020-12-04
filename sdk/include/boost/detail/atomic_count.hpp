@@ -15,7 +15,7 @@
 //  This software is provided "as is" without express or implied
 //  warranty, and with no claim as to its suitability for any purpose.
 //
-//  typedef <implementation-defined> boost::detail::atomic_count;
+//  typedef <implementation-defined> boost_cryray::detail::atomic_count;
 //
 //  atomic_count a(n);
 //
@@ -79,7 +79,7 @@
 
 #ifndef BOOST_HAS_THREADS
 
-namespace boost
+namespace boost_cryray
 {
 
 namespace detail

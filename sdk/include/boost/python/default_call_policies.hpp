@@ -10,7 +10,7 @@
 # include <boost/python/to_python_value.hpp>
 # include <boost/type_traits/transform_traits.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 template <class T> struct to_python_value;
 
@@ -53,7 +53,7 @@ struct default_result_converter
         typedef typename mpl::if_c<
             is_illegal
             , detail::specify_a_return_value_policy_to_wrap_functions_returning<R>
-            , boost::python::to_python_value<
+            , boost_cryray::python::to_python_value<
                 typename add_reference<typename add_const<R>::type>::type
                 >
         >::type type;
@@ -64,15 +64,15 @@ struct default_result_converter
 template <>
 struct default_result_converter::apply<char const*>
 {
-    typedef boost::python::to_python_value<char const*const&> type;
+    typedef boost_cryray::python::to_python_value<char const*const&> type;
 };
 
 template <>
 struct default_result_converter::apply<PyObject*>
 {
-    typedef boost::python::to_python_value<PyObject*const&> type;
+    typedef boost_cryray::python::to_python_value<PyObject*const&> type;
 };
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // DEFAULT_CALL_POLICIES_DWA2002131_HPP

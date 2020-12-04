@@ -30,7 +30,7 @@
 #endif
 
 
-namespace boost{
+namespace boost_cryray{
    namespace re_detail{
 
 #ifdef __BORLANDC__
@@ -49,17 +49,17 @@ struct kmp_info
 template <class charT, class Allocator>
 void kmp_free(kmp_info<charT>* pinfo, const Allocator& a)
 {
-   typedef typename boost::detail::rebind_allocator<char, Allocator>::type atype;
+   typedef typename boost_cryray::detail::rebind_allocator<char, Allocator>::type atype;
    atype(a).deallocate(reinterpret_cast<char*>(pinfo), pinfo->size);
 }
 
 template <class iterator, class charT, class Trans, class Allocator>
 kmp_info<charT>* kmp_compile(iterator first, iterator last, charT, Trans translate, const Allocator& a) 
 {    
-   typedef typename boost::detail::rebind_allocator<char, Allocator>::type atype;
+   typedef typename boost_cryray::detail::rebind_allocator<char, Allocator>::type atype;
    int i, j, m;
    i = 0;
-   m = static_cast<int>(boost::re_detail::distance(first, last));
+   m = static_cast<int>(boost_cryray::re_detail::distance(first, last));
    ++m;
    unsigned int size = sizeof(kmp_info<charT>) + sizeof(int)*m + sizeof(charT)*m;
    --m;
@@ -103,7 +103,7 @@ kmp_info<charT>* kmp_compile(iterator first, iterator last, charT, Trans transla
 #endif
 
    } // namepsace re_detail
-} // namespace boost
+} // namespace boost_cryray
 
 #endif   // BOOST_REGEX_KMP_HPP
 

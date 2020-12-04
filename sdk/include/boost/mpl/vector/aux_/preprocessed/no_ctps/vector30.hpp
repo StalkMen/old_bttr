@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/vector/vector30.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -1635,5 +1635,5 @@ struct clear_traits< aux::vector_tag< 30> >
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

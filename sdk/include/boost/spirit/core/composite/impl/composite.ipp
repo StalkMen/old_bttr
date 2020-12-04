@@ -17,7 +17,7 @@
 #include <boost/spirit/core/basics.hpp>
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     namespace impl
     {
@@ -31,7 +31,7 @@ namespace boost { namespace spirit {
         template <typename T, typename BaseT>
         struct empty_subject : public BaseT
         {
-            typedef typename boost::call_traits<T>::param_type  param_t;
+            typedef typename boost_cryray::call_traits<T>::param_type  param_t;
             typedef T                                           return_t;
 
                             empty_subject()
@@ -59,8 +59,8 @@ namespace boost { namespace spirit {
         template <typename T, typename BaseT>
         struct non_empty_subject : public BaseT
         {
-            typedef typename boost::call_traits<T>::param_type      param_t;
-            typedef typename boost::call_traits<T>::const_reference return_t;
+            typedef typename boost_cryray::call_traits<T>::param_type      param_t;
+            typedef typename boost_cryray::call_traits<T>::const_reference return_t;
 
                             non_empty_subject()
                             : BaseT(), s() {}
@@ -108,7 +108,7 @@ namespace boost { namespace spirit {
         struct subject : subject_type<T, BaseT>::type
         {
             typedef typename subject_type<T, BaseT>::type       base_t;
-            typedef typename boost::call_traits<T>::param_type  param_t;
+            typedef typename boost_cryray::call_traits<T>::param_type  param_t;
             typedef typename base_t::return_t                   return_t;
 
             subject() : base_t() {}
@@ -122,7 +122,7 @@ namespace boost { namespace spirit {
         struct left_subject : subject_type<T, BaseT>::type
         {
             typedef typename subject_type<T, BaseT>::type       base_t;
-            typedef typename boost::call_traits<T>::param_type  param_t;
+            typedef typename boost_cryray::call_traits<T>::param_type  param_t;
             typedef typename base_t::return_t                   return_t;
 
             left_subject() : base_t() {}
@@ -139,7 +139,7 @@ namespace boost { namespace spirit {
         struct right_subject : subject_type<T, BaseT>::type
         {
             typedef typename subject_type<T, BaseT>::type       base_t;
-            typedef typename boost::call_traits<T>::param_type  param_t;
+            typedef typename boost_cryray::call_traits<T>::param_type  param_t;
             typedef typename base_t::return_t                   return_t;
 
             right_subject() : base_t() {}
@@ -151,6 +151,6 @@ namespace boost { namespace spirit {
             right() const { return base_t::get(); }
         };
     }
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif

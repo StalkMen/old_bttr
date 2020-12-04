@@ -19,7 +19,7 @@
 #if !defined(BOOST_CONTROL_CONSTRUCTS_COMMON_HPP)
 #define BOOST_CONTROL_CONSTRUCTS_COMMON_HPP
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
   // special types of lambda functors, used with control structures

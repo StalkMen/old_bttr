@@ -19,7 +19,7 @@
 
 #include "boost/type_traits/same_traits.hpp"
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
 template <class Func> struct function_adaptor {
@@ -99,23 +99,23 @@ struct function_adaptor<T Object::*> {
   // We get the return type by adding const, if the object through which
   // the data member is accessed is const, and finally adding a reference
   template<class Args> class sig { 
-    typedef typename boost::tuples::element<1, Args>::type argument_type;
+    typedef typename boost_cryray::tuples::element<1, Args>::type argument_type;
 
-    typedef typename detail::IF<boost::is_const<argument_type>::value,
-      typename boost::add_const<T>::type,
+    typedef typename detail::IF<boost_cryray::is_const<argument_type>::value,
+      typename boost_cryray::add_const<T>::type,
       T
     >::RET properly_consted_return_type;
 
     typedef typename detail::IF<
-        boost::is_volatile<properly_consted_return_type>::value,
-      typename boost::add_volatile<properly_consted_return_type>::type,
+        boost_cryray::is_volatile<properly_consted_return_type>::value,
+      typename boost_cryray::add_volatile<properly_consted_return_type>::type,
       properly_consted_return_type
     >::RET properly_cvd_return_type;
 
 
   public:
     typedef typename 
-      boost::add_reference<properly_cvd_return_type>::type type;
+      boost_cryray::add_reference<properly_cvd_return_type>::type type;
   };
 
   template <class RET>
@@ -627,7 +627,7 @@ struct function_adaptor<Result (*)(Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg
 };
 
 } // namespace lambda
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

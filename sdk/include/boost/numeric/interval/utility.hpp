@@ -26,7 +26,7 @@
  * Implementation of simple functions
  */
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 
 /*
@@ -317,6 +317,6 @@ interval<T, Policies> min(const T& x, const interval<T, Policies>& y)
 }
 
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_UTILITY_HPP

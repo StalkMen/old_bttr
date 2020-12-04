@@ -7,7 +7,7 @@
 namespace file_transfer
 {
 
-class file_reader : private boost::noncopyable
+class file_reader : private boost_cryray::noncopyable
 {
 public:
 					file_reader			() {};

@@ -24,7 +24,7 @@
 
 #   include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -39,7 +39,7 @@ struct arity
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_BROKEN_DEFAULT_TEMPLATE_PARAMETERS_IN_NESTED_TEMPLATES
 

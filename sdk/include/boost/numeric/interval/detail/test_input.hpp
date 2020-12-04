@@ -18,7 +18,7 @@
 
 #include <boost/numeric/interval/detail/interval_prototype.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 namespace detail {
@@ -73,6 +73,6 @@ bool test_input(const T& x, const T& y) {
 } // namespace detail
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_DETAIL_TEST_INPUT_HPP

@@ -12,7 +12,7 @@
 #define BOOST_SPIRIT_SKIPPER_IPP
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     struct space_parser;
     template <typename BaseT>
@@ -172,7 +172,7 @@ parse(
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

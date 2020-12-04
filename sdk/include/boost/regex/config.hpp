@@ -185,7 +185,7 @@
 #define MB_CUR_MAX 10
 #endif
 
-namespace boost{ namespace re_detail{
+namespace boost_cryray{ namespace re_detail{
 #ifdef BOOST_NO_STD_DISTANCE
 template <class T>
 std::ptrdiff_t distance(const T& x, const T& y)
@@ -384,7 +384,7 @@ using std::dec;
 #     define jm_instrument jm_trace(__FILE__<<"#"<<__LINE__)
 #  endif
 
-namespace boost{
+namespace boost_cryray{
    namespace re_detail{
 class debug_guard
 {
@@ -399,11 +399,11 @@ public:
    ~debug_guard();
 };
 
-#  define BOOST_RE_GUARD_STACK boost::re_detail::debug_guard sg(__FILE__, __LINE__);
-#  define BOOST_RE_GUARD_GLOBAL(x) const char g1##x[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, }; char g2##x[32]; boost::debug_guard g3##x(__FILE__, __LINE__, g1##x, g2##x);
+#  define BOOST_RE_GUARD_STACK boost_cryray::re_detail::debug_guard sg(__FILE__, __LINE__);
+#  define BOOST_RE_GUARD_GLOBAL(x) const char g1##x[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, }; char g2##x[32]; boost_cryray::debug_guard g3##x(__FILE__, __LINE__, g1##x, g2##x);
 
    } // namespace re_detail
-} // namespace boost
+} // namespace boost_cryray
 
 #else
 
@@ -616,7 +616,7 @@ namespace std{
  ****************************************************************************/
 
 #ifdef __cplusplus
-namespace boost{ namespace re_detail{
+namespace boost_cryray{ namespace re_detail{
 
 #ifdef BOOST_MSVC
 #pragma warning (push)

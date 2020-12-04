@@ -17,7 +17,7 @@
   *   LOCATION:    see http://www.boost.org for most recent version.
   *   FILE         regex_fwd.cpp
   *   VERSION      see <boost/version.hpp>
-  *   DESCRIPTION: Forward declares boost::reg_expression<> and
+  *   DESCRIPTION: Forward declares boost_cryray::reg_expression<> and
   *                associated typedefs.
   */
 
@@ -47,7 +47,7 @@
 #  define BOOST_NO_WREGEX
 #endif
 
-namespace boost{
+namespace boost_cryray{
 
 template <class charT>
 class regex_traits;
@@ -60,7 +60,7 @@ typedef reg_expression<char, regex_traits<char>, BOOST_DEFAULT_ALLOCATOR(char) >
 typedef reg_expression<wchar_t, regex_traits<wchar_t>, BOOST_DEFAULT_ALLOCATOR(wchar_t) > wregex;
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // BOOST_REGEX_NO_FWD
 

@@ -10,7 +10,7 @@ class CBlend;
 
 class animation_movement_controller : 
 	public  IBlendDestroyCallback, 
-	private boost::noncopyable
+	private boost_cryray::noncopyable
 {
 	Fmatrix&			m_pObjXForm;
 	Fmatrix				m_startObjXForm;

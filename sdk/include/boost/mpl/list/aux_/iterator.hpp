@@ -21,7 +21,7 @@
 #include "boost/mpl/list/aux_/node.hpp"
 #include "boost/mpl/aux_/lambda_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename Node >
@@ -41,6 +41,6 @@ struct list_iterator<null_node>
 BOOST_MPL_AUX_PASS_THROUGH_LAMBDA_SPEC(1,list_iterator)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_LIST_AUX_ITERATOR_HPP_INCLUDED

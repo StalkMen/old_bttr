@@ -12,7 +12,7 @@
 #define BOOST_SPIRIT_RULE_IPP
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     namespace impl
@@ -105,6 +105,6 @@ namespace boost { namespace spirit {
         return TagT::id(*this);
     }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif

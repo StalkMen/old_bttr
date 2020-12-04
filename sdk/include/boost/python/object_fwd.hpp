@@ -6,12 +6,12 @@
 #ifndef OBJECT_FWD_DWA2002724_HPP
 # define OBJECT_FWD_DWA2002724_HPP
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 namespace api
 {
   class object;
 }
 using api::object;
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // OBJECT_FWD_DWA2002724_HPP

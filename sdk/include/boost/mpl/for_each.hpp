@@ -27,7 +27,7 @@
 #include "boost/type_traits/is_same.hpp"
 #include "boost/utility/value_init.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 namespace aux {
@@ -73,10 +73,10 @@ struct for_each_impl<false>
         // dwa 2002/9/10 -- make sure not to invoke undefined behavior
         // when we pass arg.
         value_initialized<arg> x;
-        aux::unwrap(f, 0)(boost::get(x));
+        aux::unwrap(f, 0)(boost_cryray::get(x));
         
         typedef typename Iterator::next iter;
-        for_each_impl<boost::is_same<iter,LastIterator>::value>::execute(
+        for_each_impl<boost_cryray::is_same<iter,LastIterator>::value>::execute(
             (iter*)0, (LastIterator*)0, (TransformFunc*)0, f);
     }
 };
@@ -97,7 +97,7 @@ void for_each(F f, Sequence* = 0, TransformOp* = 0)
     typedef typename end<Sequence>::type last;
     typedef typename lambda<TransformOp>::type transform_op;
 
-    aux::for_each_impl< boost::is_same<first,last>::value >::execute(
+    aux::for_each_impl< boost_cryray::is_same<first,last>::value >::execute(
         (first*)0, (last*)0, (transform_op*)0, f);
 }
 
@@ -112,6 +112,6 @@ void for_each(F f, Sequence* = 0)
 }
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_FOR_EACH_HPP_INCLUDED

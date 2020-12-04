@@ -65,7 +65,7 @@
 #   undef LONG_MAX
 #endif
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 #   define AUX_LIST_C(i) \
@@ -165,7 +165,7 @@ struct list_c
 #   undef AUX_LIST_C
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_USE_PREPROCESSED_HEADERS
 #endif // BOOST_MPL_LIST_C_HPP_INCLUDED

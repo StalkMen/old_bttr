@@ -27,7 +27,7 @@
 #include "boost/spirit/core/non_terminal/impl/subrule.ipp"
 #endif
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -310,7 +310,7 @@ namespace boost { namespace spirit {
         subrule& operator=(subrule<ID2, ContextT2> const&);
     };
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

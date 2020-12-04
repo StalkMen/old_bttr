@@ -6,7 +6,7 @@
 
 # ifndef BOOST_PYTHON_DETAIL_DEALLOC_HPP_
 # define BOOST_PYTHON_DETAIL_DEALLOC_HPP_
-namespace boost { namespace python { namespace detail {
+namespace boost_cryray { namespace python { namespace detail {
     extern "C"
     {
         inline void dealloc(PyObject* self)
@@ -14,5 +14,5 @@ namespace boost { namespace python { namespace detail {
           PyObject_Del(self);
         }
     }
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 # endif	// BOOST_PYTHON_DETAIL_DEALLOC_HPP_

@@ -15,11 +15,11 @@
 // should be the last #include
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(has_nothrow_copy,T,::boost::has_trivial_copy<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(has_nothrow_copy,T,::boost_cryray::has_trivial_copy<T>::value)
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

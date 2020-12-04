@@ -17,7 +17,7 @@
 
 # include <boost/mpl/for_each.hpp>
 
-namespace boost { namespace python { namespace objects { 
+namespace boost_cryray { namespace python { namespace objects { 
 
 //////////////////////////////////////////////////////////////////////
 //
@@ -80,6 +80,6 @@ inline void register_class_from_python(Derived* = 0, Bases* = 0)
     mpl::for_each(register_base_of<Derived>(), (Bases*)0, (add_pointer<mpl::_>*)0);
 }
 
-}}} // namespace boost::python::object
+}}} // namespace boost_cryray::python::object
 
 #endif // CLASS_CONVERTERS_DWA2002119_HPP

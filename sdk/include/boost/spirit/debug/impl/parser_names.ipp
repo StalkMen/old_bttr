@@ -35,7 +35,7 @@ std::string BOOST_SPIRIT_GETSTRING(std::strstream& ss)
 #define BOOST_SPIRIT_SSTREAM std::stringstream
 #endif
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 //  from actions.hpp
@@ -505,7 +505,7 @@ namespace boost { namespace spirit {
     }
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #undef BOOST_SPIRIT_SSTREAM
 #undef BOOST_SPIRIT_GETSTRING

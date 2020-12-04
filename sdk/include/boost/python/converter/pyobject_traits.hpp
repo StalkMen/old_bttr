@@ -9,7 +9,7 @@
 # include <boost/python/detail/wrap_python.hpp>
 # include <boost/python/converter/pyobject_type.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 template <class> struct pyobject_traits;
 
@@ -37,6 +37,6 @@ BOOST_PYTHON_BUILTIN_OBJECT_TRAITS(Long);
 BOOST_PYTHON_BUILTIN_OBJECT_TRAITS(Dict);
 BOOST_PYTHON_BUILTIN_OBJECT_TRAITS(Tuple);
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // PYOBJECT_TRAITS_DWA2002720_HPP

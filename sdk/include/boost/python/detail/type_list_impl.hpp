@@ -17,7 +17,7 @@
 #  include <boost/preprocessor/iterate.hpp>
 #  include <boost/preprocessor/repetition/enum_trailing.hpp>
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 template <BOOST_PP_ENUM_PARAMS_WITH_A_DEFAULT(BOOST_PYTHON_LIST_SIZE, class T, mpl::void_)>
 struct type_list
@@ -30,7 +30,7 @@ struct type_list
 #  include BOOST_PP_ITERATE()
 
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 # endif // TYPE_LIST_IMPL_DWA2002913_HPP
 

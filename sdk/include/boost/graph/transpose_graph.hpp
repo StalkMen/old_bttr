@@ -33,7 +33,7 @@
 #include <boost/graph/copy.hpp>
 
 
-namespace boost {
+namespace boost_cryray {
 
   template <class VertexListGraph, class MutableGraph> 
   void transpose_graph(const VertexListGraph& G, MutableGraph& G_T)
@@ -51,6 +51,6 @@ namespace boost {
     copy_graph(Rev, G_T, params);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_TRANSPOSE_HPP

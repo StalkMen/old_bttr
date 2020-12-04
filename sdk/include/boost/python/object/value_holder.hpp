@@ -29,7 +29,7 @@
 #  include <boost/preprocessor/repetition/enum_params.hpp>
 #  include <boost/preprocessor/repetition/enum_binary_params.hpp>
 
-namespace boost { namespace python { namespace objects { 
+namespace boost_cryray { namespace python { namespace objects { 
 
 #  define BOOST_PYTHON_UNFORWARD_LOCAL(z, n, _) BOOST_PP_COMMA_IF(n) (typename unforward<A##n>::type)(a##n)
 
@@ -90,7 +90,7 @@ void* value_holder_back_reference<Held,BackReferenceType>::holds(
         return find_static_type(x, src_t, dst_t);
 }
 
-}}} // namespace boost::python::objects
+}}} // namespace boost_cryray::python::objects
 
 # endif // VALUE_HOLDER_DWA20011215_HPP
 

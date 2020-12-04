@@ -21,7 +21,7 @@
 # include <boost/python/detail/referent_storage.hpp>
 # include <boost/python/converter/obj_mgr_arg_from_python.hpp>
 
-namespace boost { namespace python
+namespace boost_cryray { namespace python
 {
   template <class T> struct arg_from_python;
 }}
@@ -29,7 +29,7 @@ namespace boost { namespace python
 // This header defines Python->C++ function argument converters,
 // parametrized on the argument type.
 
-namespace boost { namespace python { namespace converter {
+namespace boost_cryray { namespace python { namespace converter {
 
 //
 // lvalue converters
@@ -102,7 +102,7 @@ struct reference_arg_from_python : arg_lvalue_from_python_base
 template <class T>
 struct arg_rvalue_from_python
 {
-    typedef typename boost::add_reference<
+    typedef typename boost_cryray::add_reference<
         T
         // We can't add_const here, or it would be impossible to pass
         // auto_ptr<U> args from Python to C++
@@ -127,14 +127,14 @@ struct arg_rvalue_from_python
 // back to the Python object
 template <class T>
 struct back_reference_arg_from_python
-    : boost::python::arg_from_python<typename T::type>
+    : boost_cryray::python::arg_from_python<typename T::type>
 {
     typedef T result_type;
     
     back_reference_arg_from_python(PyObject*);
     T operator()(PyObject*);
  private:
-    typedef boost::python::arg_from_python<typename T::type> base;
+    typedef boost_cryray::python::arg_from_python<typename T::type> base;
 };
 
 
@@ -156,19 +156,19 @@ struct select_arg_from_python
     
     BOOST_STATIC_CONSTANT(
         bool, ptr_cref
-            = boost::python::detail::is_reference_to_pointer<T>::value
-            && boost::python::detail::is_reference_to_const<T>::value
-            && !boost::python::detail::is_reference_to_volatile<T>::value);
+            = boost_cryray::python::detail::is_reference_to_pointer<T>::value
+            && boost_cryray::python::detail::is_reference_to_const<T>::value
+            && !boost_cryray::python::detail::is_reference_to_volatile<T>::value);
 
     
     BOOST_STATIC_CONSTANT(
         bool, ref =
-            boost::python::detail::is_reference_to_non_const<T>::value
-        || boost::python::detail::is_reference_to_volatile<T>::value);
+            boost_cryray::python::detail::is_reference_to_non_const<T>::value
+        || boost_cryray::python::detail::is_reference_to_volatile<T>::value);
 
     BOOST_STATIC_CONSTANT(
         bool, back_ref =
-        boost::python::is_back_reference<T>::value);
+        boost_cryray::python::is_back_reference<T>::value);
 
     typedef typename mpl::if_c<
         obj_mgr
@@ -336,6 +336,6 @@ back_reference_arg_from_python<T>::operator()(PyObject* x)
     return T(x, base::operator()(x));
 }
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // ARG_FROM_PYTHON_DWA2002127_HPP

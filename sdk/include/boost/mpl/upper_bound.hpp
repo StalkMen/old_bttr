@@ -45,7 +45,7 @@
 
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 #if defined(BOOST_MPL_CFG_STRIPPED_DOWN_UPPER_BOUND_IMPL)
@@ -149,6 +149,6 @@ BOOST_MPL_AUX_AGLORITHM_NAMESPACE_END
 BOOST_MPL_AUX_ALGORITHM_VOID_SPEC(2, upper_bound)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_UPPER_BOUND_HPP_INCLUDED

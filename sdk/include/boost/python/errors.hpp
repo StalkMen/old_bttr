@@ -13,7 +13,7 @@
 # include <boost/python/detail/wrap_python.hpp>
 # include <boost/function/function0.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 struct BOOST_PYTHON_DECL error_already_set {};
 struct BOOST_PYTHON_DECL argument_error : error_already_set {};
@@ -25,7 +25,7 @@ BOOST_PYTHON_DECL bool handle_exception_impl(function0<void>);
 template <class T>
 bool handle_exception(T f)
 {
-    return handle_exception_impl(function0<void>(boost::ref(f)));
+    return handle_exception_impl(function0<void>(boost_cryray::ref(f)));
 }
 
 namespace detail { inline void rethrow() { throw; } }
@@ -50,6 +50,6 @@ inline T* expect_non_null(T* x)
 // exception otherwise.
 BOOST_PYTHON_DECL PyObject* pytype_check(PyTypeObject* pytype, PyObject* source);
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // ERRORS_DWA052500_H_

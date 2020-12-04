@@ -9,7 +9,7 @@
 # include <boost/python/detail/config.hpp>
 # include <boost/python/handle_fwd.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace api
 {
@@ -48,6 +48,6 @@ using api::getslice;
 using api::setslice;
 using api::delslice;
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // OBJECT_PROTOCOL_CORE_DWA2002615_HPP

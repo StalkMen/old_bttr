@@ -10,7 +10,7 @@
 #include "boost/date_time/gregorian/greg_calendar.hpp"
 #include "boost/date_time/gregorian/greg_duration.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace gregorian {
 
   //bring special enum values into the namespace

@@ -37,9 +37,9 @@
 
 #if defined(__sgi) && defined(_COMPILER_VERSION) && _COMPILER_VERSION <= 730 && !defined(BOOST_STRICT_CONFIG)
 // Work around a compiler bug.
-// boost::python::objects::function has to be seen by the compiler before the
-// boost::function class template.
-namespace boost { namespace python { namespace objects {
+// boost_cryray::python::objects::function has to be seen by the compiler before the
+// boost_cryray::function class template.
+namespace boost_cryray { namespace python { namespace objects {
   class function;
 }}}
 #endif
@@ -74,7 +74,7 @@ namespace boost { namespace python { namespace objects {
 #endif
 
 #if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION)
-namespace boost {
+namespace boost_cryray {
 
 #if defined(__sgi) && defined(_COMPILER_VERSION) && _COMPILER_VERSION <= 730 && !defined(BOOST_STRICT_CONFIG)
 // The library shipping with MIPSpro 7.3.1.3m has a broken allocator<void>
@@ -95,10 +95,10 @@ inline void swap(function<Signature, Allocator>& f1,
   f1.swap(f2);
 }
 
-} // end namespace boost
+} // end namespace boost_cryray
 #endif // have partial specialization
 
-namespace boost {
+namespace boost_cryray {
   namespace detail {
     namespace function {
       /**
@@ -354,19 +354,19 @@ public: // should be protected, but GCC 2.95.3 will fail to allow access
 };
 
 /**
- * The bad_function_call exception class is thrown when a boost::function
+ * The bad_function_call exception class is thrown when a boost_cryray::function
  * object is invoked
  */
 class bad_function_call : public std::runtime_error
 {
 public:
-  bad_function_call() : std::runtime_error("call to empty boost::function") {}
+  bad_function_call() : std::runtime_error("call to empty boost_cryray::function") {}
 };
 
 /* Poison comparison between Boost.Function objects (because it is
  * meaningless). The comparisons would otherwise be allowed because of the
  * conversion required to allow syntax such as:
- *   boost::function<int, int> f;
+ *   boost_cryray::function<int, int> f;
  *   if (f) { f(5); }
  */
 void operator==(const function_base&, const function_base&);
@@ -411,6 +411,6 @@ namespace detail {
     }
   } // end namespace function
 } // end namespace detail
-} // end namespace boost
+} // end namespace boost_cryray
 
 #endif // BOOST_FUNCTION_BASE_HEADER

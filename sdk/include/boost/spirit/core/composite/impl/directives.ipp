@@ -17,7 +17,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "boost/spirit/core/scanner/skipper.hpp"
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     template <typename BaseT>
     struct no_skipper_iteration_policy;
@@ -366,7 +366,7 @@ namespace boost { namespace spirit {
 #endif
     }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

@@ -41,7 +41,7 @@
 #   include "boost/preprocessor/iterate.hpp"
 #   include "boost/preprocessor/cat.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // watch out for GNU gettext users, who #define _(x)
@@ -49,7 +49,7 @@ namespace mpl {
 typedef arg<-1> _;
 
 namespace placeholders {
-using boost::mpl::_;
+using boost_cryray::mpl::_;
 }
 #endif
 
@@ -60,7 +60,7 @@ using boost::mpl::_;
 #include BOOST_PP_ITERATE()
 
 } // namespace mpl
-} // namespace boost 
+} // namespace boost_cryray 
 
 #endif // BOOST_MPL_USE_PREPROCESSED_HEADERS
 #endif // BOOST_MPL_PLACEHOLDERS_HPP_INCLUDED
@@ -73,7 +73,7 @@ using boost::mpl::_;
 typedef arg<i> BOOST_PP_CAT(_,i);
 
 namespace placeholders {
-using boost::mpl::BOOST_PP_CAT(_,i);
+using boost_cryray::mpl::BOOST_PP_CAT(_,i);
 }
 
 #undef i

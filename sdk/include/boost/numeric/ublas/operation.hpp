@@ -20,7 +20,7 @@
 // axpy-based products
 // Alexei Novakov had a lot of ideas to improve these. Thanks.
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     template<class V, class T1, class IA1, class TA1, class E2>
     BOOST_UBLAS_INLINE

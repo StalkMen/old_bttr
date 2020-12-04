@@ -20,7 +20,7 @@
 
 #include <numeric>
 
-namespace boost {
+namespace boost_cryray {
   namespace lambda {
 
 namespace ll {
@@ -31,8 +31,8 @@ struct accumulate {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<3, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<3, Args>::type 
      >::type type; 
   };
 
@@ -53,8 +53,8 @@ struct inner_product {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<4, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<4, Args>::type 
      >::type type; 
   };
 
@@ -76,8 +76,8 @@ struct partial_sum {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<3, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<3, Args>::type 
      >::type type; 
   };
 
@@ -98,8 +98,8 @@ struct adjacent_difference {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<3, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<3, Args>::type 
      >::type type; 
   };
 

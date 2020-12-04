@@ -19,7 +19,7 @@
 
 #include "boost/mpl/push_front.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -37,6 +37,6 @@ struct iter_push_front
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_ITER_PUSH_FRONT_HPP_INCLUDED

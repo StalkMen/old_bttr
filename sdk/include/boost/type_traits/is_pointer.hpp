@@ -27,7 +27,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
@@ -56,10 +56,10 @@ template< typename T >
 struct is_pointer_impl
 {
     BOOST_STATIC_CONSTANT(bool, value = 
-        (::boost::type_traits::ice_and<
-              ::boost::detail::is_pointer_helper<T>::value
-            , ::boost::type_traits::ice_not<
-                ::boost::is_member_pointer<T>::value
+        (::boost_cryray::type_traits::ice_and<
+              ::boost_cryray::detail::is_pointer_helper<T>::value
+            , ::boost_cryray::type_traits::ice_not<
+                ::boost_cryray::is_member_pointer<T>::value
                 >::value
             >::value)
         );
@@ -67,7 +67,7 @@ struct is_pointer_impl
 
 } // namespace detail
 
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_pointer,T,::boost::detail::is_pointer_impl<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_pointer,T,::boost_cryray::detail::is_pointer_impl<T>::value)
 
 #if defined(__BORLANDC__) && !defined(__COMO__)
 BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC1_1(typename T,is_pointer,T&,false)
@@ -90,7 +90,7 @@ no_type BOOST_TT_DECL is_pointer_tester(...);
 
 template <bool>
 struct is_pointer_select
-    : ::boost::type_traits::false_result
+    : ::boost_cryray::type_traits::false_result
 {
 };
 
@@ -101,7 +101,7 @@ struct is_pointer_select<false>
     {
         static T& make_t();
         BOOST_STATIC_CONSTANT(bool, value =
-                (::boost::type_traits::ice_or<
+                (::boost_cryray::type_traits::ice_or<
                     (1 == sizeof(is_pointer_tester(make_t()))),
                     (1 == sizeof(type_traits::is_function_ptr_tester(make_t())))
                 >::value));
@@ -111,9 +111,9 @@ struct is_pointer_select<false>
 template <typename T>
 struct is_pointer_impl
     : is_pointer_select<
-          ::boost::type_traits::ice_or<
-              ::boost::is_reference<T>::value
-            , ::boost::is_array<T>::value
+          ::boost_cryray::type_traits::ice_or<
+              ::boost_cryray::is_reference<T>::value
+            , ::boost_cryray::is_array<T>::value
             >::value
         >::template result_<T>
 {
@@ -128,11 +128,11 @@ BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pointer,void const volatile,false)
 
 } // namespace detail
 
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_pointer,T,::boost::detail::is_pointer_impl<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_pointer,T,::boost_cryray::detail::is_pointer_impl<T>::value)
 
 #endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

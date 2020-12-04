@@ -19,7 +19,7 @@
 #include "boost/spirit/utility/impl/chset/basic_chset.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 namespace impl {
 
@@ -27,7 +27,7 @@ namespace impl {
     // template functions.  And we don't want to put the whole algorithm
     // in the chset constructor in the class definition.
     template <typename CharT, typename CharT2>
-    void construct_chset(boost::shared_ptr<basic_chset<CharT> >& ptr,
+    void construct_chset(boost_cryray::shared_ptr<basic_chset<CharT> >& ptr,
             CharT2 const* definition);
 }
 
@@ -75,7 +75,7 @@ public:
 
 private:
 
-    boost::shared_ptr<basic_chset<CharT> > ptr;
+    boost_cryray::shared_ptr<basic_chset<CharT> > ptr;
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -158,7 +158,7 @@ chset_p(unsigned long long ch)
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

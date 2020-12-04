@@ -25,7 +25,7 @@
 
 #include <boost/regex/config.hpp>
 
-namespace boost{
+namespace boost_cryray{
 
 #ifdef __BORLANDC__
    #pragma option push -a8 -b -Vx -Ve -pc
@@ -57,7 +57,7 @@ public:
   #pragma option pop
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

@@ -36,7 +36,7 @@
 
 // Concept checks based on ideas of Jeremy Siek
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     template<class T>
     void ignore_unused_variable_warning (const T &t) {}

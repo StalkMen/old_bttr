@@ -19,7 +19,7 @@
 #include <boost/assert.hpp>
 #include <boost/config.hpp>
 
-namespace boost
+namespace boost_cryray
 {
 
 template<class T> class enable_shared_from_this
@@ -44,6 +44,6 @@ public:
     weak_ptr<_internal_element_type> _internal_weak_this;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // #ifndef BOOST_ENABLE_SHARED_FROM_THIS_HPP_INCLUDED

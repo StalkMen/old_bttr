@@ -11,16 +11,16 @@
 # include <boost/python/detail/translate_exception.hpp>
 # include <boost/python/detail/exception_handler.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 template <class ExceptionType, class Translate>
-void register_exception_translator(Translate const& translate, boost::type<ExceptionType>* = 0)
+void register_exception_translator(Translate const& translate, boost_cryray::type<ExceptionType>* = 0)
 {
     detail::register_exception_handler(
         bind<bool>(detail::translate_exception<ExceptionType,Translate>(), _1, _2, translate)
         );
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // EXCEPTION_TRANSLATOR_DWA2002810_HPP

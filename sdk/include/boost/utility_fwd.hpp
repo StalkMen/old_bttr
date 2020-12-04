@@ -12,7 +12,7 @@
 #define BOOST_UTILITY_FWD_HPP
 
 
-namespace boost
+namespace boost_cryray
 {
 
 
@@ -28,7 +28,7 @@ class noncopyable;
 
 // Also has a few function templates
 
-}  // namespace boost
+}  // namespace boost_cryray
 
 
 #endif  // BOOST_UTILITY_FWD_HPP

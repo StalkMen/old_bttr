@@ -26,7 +26,7 @@ namespace suns
 
 class manager;
 
-class blend : private boost::noncopyable
+class blend : private boost_cryray::noncopyable
 {
 public:
     blend();

@@ -17,7 +17,7 @@
 #include<utility>
 #include<cassert>
 
-namespace boost {
+namespace boost_cryray {
     namespace detail{
         // The base "iterator" for iterator adapter
         template<class It>
@@ -91,10 +91,10 @@ namespace boost {
         typedef Type value_type;
         typedef detail::tokenizer_policy<Type, TokenizerFunc> policies;
         typedef detail::token_iterator_base<Iterator> base;
-        typedef typename boost::detail::non_bidirectional_category<
+        typedef typename boost_cryray::detail::non_bidirectional_category<
             Iterator>::type category;
     public:
-        typedef boost::iterator_adaptor<base,policies,value_type, 
+        typedef boost_cryray::iterator_adaptor<base,policies,value_type, 
             const value_type&,const value_type*,category,std::ptrdiff_t> type;
     };
     
@@ -111,6 +111,6 @@ namespace boost {
         return ret_type(b,f);
     }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

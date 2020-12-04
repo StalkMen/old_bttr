@@ -12,7 +12,7 @@
 # include <boost/python/detail/indirect_traits.hpp>
 # include <boost/mpl/if.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
     namespace detail {
         template <class Pointer>
         struct opaque_conversion_holder {
@@ -47,5 +47,5 @@ namespace boost { namespace python {
             >::type type;
         };
     };
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 # endif // RETURN_OPAQUE_POINTER_HPP_

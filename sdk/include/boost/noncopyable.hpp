@@ -11,7 +11,7 @@
 #ifndef BOOST_NONCOPYABLE_HPP_INCLUDED
 #define BOOST_NONCOPYABLE_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 
 //  Private copy constructor and copy assignment ensure classes derived from
 //  class noncopyable cannot be copied.
@@ -28,6 +28,6 @@ class noncopyable
     const noncopyable& operator=( const noncopyable& );
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // BOOST_NONCOPYABLE_HPP_INCLUDED

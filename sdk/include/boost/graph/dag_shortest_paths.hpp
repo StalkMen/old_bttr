@@ -29,7 +29,7 @@
 
 // single-source shortest paths for a Directed Acyclic Graph (DAG)
 
-namespace boost {
+namespace boost_cryray {
 
   // Initalize distances and call depth first search
   template <class VertexListGraph, class DijkstraVisitor, 
@@ -158,6 +158,6 @@ namespace boost {
        params);
   }
   
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_DAG_SHORTEST_PATHS_HPP

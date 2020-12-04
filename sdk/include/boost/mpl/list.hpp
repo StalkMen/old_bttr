@@ -61,7 +61,7 @@
 
 #   include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 #   define AUX_LIST_PARAMS(param) \
@@ -152,7 +152,7 @@ struct list
 #   undef AUX_LIST_PARAMS
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_USE_PREPROCESSED_HEADERS
 #endif // BOOST_MPL_LIST_HPP_INCLUDED

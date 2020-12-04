@@ -13,7 +13,7 @@
 
 #include <cassert>
 
-namespace boost {
+namespace boost_cryray {
 
 //  min_rand  ----------------------------------------------------------------//
 
@@ -66,6 +66,6 @@ class min_rand {
 
   }; // min_rand
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // BOOST_MIN_RAND_HPP

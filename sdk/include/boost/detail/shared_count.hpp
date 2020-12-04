@@ -42,7 +42,7 @@
 # pragma warn -8027     // Functions containing try are not expanded inline
 #endif
 
-namespace boost
+namespace boost_cryray
 {
 
 // Debug hooks
@@ -74,7 +74,7 @@ public:
 
     virtual char const * what() const throw()
     {
-        return "boost::bad_weak_ptr";
+        return "boost_cryray::bad_weak_ptr";
     }
 };
 
@@ -120,7 +120,7 @@ public:
 #if defined(BOOST_HAS_THREADS)
         mutex_type::scoped_lock lock(mtx_);
 #endif
-        if(use_count_ == 0 && weak_count_ != 0) boost::throw_exception(boost::bad_weak_ptr());
+        if(use_count_ == 0 && weak_count_ != 0) boost_cryray::throw_exception(boost_cryray::bad_weak_ptr());
         ++use_count_;
         ++weak_count_;
     }
@@ -196,12 +196,12 @@ private:
 
 template<class T> void cbi_call_constructor_hook(sp_counted_base * pn, T * px, checked_deleter<T> const &, int)
 {
-    boost::sp_scalar_constructor_hook(px, sizeof(T), pn);
+    boost_cryray::sp_scalar_constructor_hook(px, sizeof(T), pn);
 }
 
 template<class T> void cbi_call_constructor_hook(sp_counted_base *, T * px, checked_array_deleter<T> const &, int)
 {
-    boost::sp_array_constructor_hook(px);
+    boost_cryray::sp_array_constructor_hook(px);
 }
 
 template<class P, class D> void cbi_call_constructor_hook(sp_counted_base *, P const &, D const &, long)
@@ -210,12 +210,12 @@ template<class P, class D> void cbi_call_constructor_hook(sp_counted_base *, P c
 
 template<class T> void cbi_call_destructor_hook(sp_counted_base * pn, T * px, checked_deleter<T> const &, int)
 {
-    boost::sp_scalar_destructor_hook(px, sizeof(T), pn);
+    boost_cryray::sp_scalar_destructor_hook(px, sizeof(T), pn);
 }
 
 template<class T> void cbi_call_destructor_hook(sp_counted_base *, T * px, checked_array_deleter<T> const &, int)
 {
-    boost::sp_array_destructor_hook(px);
+    boost_cryray::sp_array_destructor_hook(px);
 }
 
 template<class P, class D> void cbi_call_destructor_hook(sp_counted_base *, P const &, D const &, long)
@@ -350,7 +350,7 @@ public:
         if(pi_ == 0)
         {
             d(p); // delete p
-            boost::throw_exception(std::bad_alloc());
+            boost_cryray::throw_exception(std::bad_alloc());
         }
 
 #endif
@@ -536,13 +536,13 @@ inline shared_count::shared_count(weak_count const & r): pi_(r.pi_)
     }
     else
     {
-        boost::throw_exception(boost::bad_weak_ptr());
+        boost_cryray::throw_exception(boost_cryray::bad_weak_ptr());
     }
 }
 
 } // namespace detail
 
-} // namespace boost
+} // namespace boost_cryray
 
 #ifdef __BORLANDC__
 # pragma warn .8027     // Functions containing try are not expanded inline

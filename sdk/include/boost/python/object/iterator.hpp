@@ -22,7 +22,7 @@
 # include <boost/type_traits/add_reference.hpp>
 # include <boost/type_traits/add_const.hpp>
 
-namespace boost { namespace python { namespace objects {
+namespace boost_cryray { namespace python { namespace objects {
 
 // CallPolicies for the next() method of iterators. We don't want
 // users to have to explicitly specify that the references returned by
@@ -164,11 +164,11 @@ namespace detail
 
   template <class NextPolicies, class Target, class Iterator, class Accessor1, class Accessor2>
   inline object make_iterator_function(
-      Accessor1 const& get_start, Accessor2 const& get_finish, Iterator const& (*)(), boost::type<Target>*, NextPolicies*, int)
+      Accessor1 const& get_start, Accessor2 const& get_finish, Iterator const& (*)(), boost_cryray::type<Target>*, NextPolicies*, int)
   {
       return 
           objects::function_object(
-              boost::bind(
+              boost_cryray::bind(
                   &make_iterator_help<
                       Target,Iterator,Accessor1,Accessor2,NextPolicies
                   >::create
@@ -178,11 +178,11 @@ namespace detail
 
   template <class NextPolicies, class Target, class Iterator, class Accessor1, class Accessor2>
   inline object make_iterator_function(
-      Accessor1 const& get_start, Accessor2 const& get_finish, Iterator& (*)(), boost::type<Target>*, NextPolicies*, ...)
+      Accessor1 const& get_start, Accessor2 const& get_finish, Iterator& (*)(), boost_cryray::type<Target>*, NextPolicies*, ...)
   {
       return make_iterator_function(
           get_start, get_finish, (Iterator const&(*)())0
-          , (boost::type<Target>*)0, (NextPolicies*)0, 0);
+          , (boost_cryray::type<Target>*)0, (NextPolicies*)0, 0);
   }
 
 }
@@ -196,7 +196,7 @@ namespace detail
 template <class NextPolicies, class Target, class Accessor1, class Accessor2>
 inline object make_iterator_function(
     Accessor1 const& get_start, Accessor2 const& get_finish
-    , boost::type<Target>* = 0, NextPolicies* = 0)
+    , boost_cryray::type<Target>* = 0, NextPolicies* = 0)
 {
     typedef typename Accessor1::result_type iterator;
     typedef typename add_const<iterator>::type iterator_const;
@@ -205,7 +205,7 @@ inline object make_iterator_function(
     return detail::make_iterator_function(
         get_start, get_finish
         , (iterator_cref(*)())0
-        , (boost::type<Target>*)0
+        , (boost_cryray::type<Target>*)0
         , (NextPolicies*)0
         , 0
         );
@@ -221,6 +221,6 @@ inline iterator_range<NextPolicies,Iterator>::iterator_range(
 {
 }
 
-}}} // namespace boost::python::objects
+}}} // namespace boost_cryray::python::objects
 
 #endif // ITERATOR_DWA2002510_HPP

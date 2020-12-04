@@ -21,7 +21,7 @@
 
 #include <boost/test/detail/unit_test_config.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 namespace unit_test_framework {
 
@@ -46,7 +46,7 @@ std::string retrieve_framework_parameter( c_string_literal parameter_name_, int*
 
 } // namespace unit_test_framework
 
-} // namespace boost
+} // namespace boost_cryray
 
 // ***************************************************************************
 //  Revision History :

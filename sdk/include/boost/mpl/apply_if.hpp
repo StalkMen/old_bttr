@@ -22,7 +22,7 @@
 #include "boost/mpl/aux_/void_spec.hpp"
 #include "boost/mpl/aux_/lambda_support.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -59,6 +59,6 @@ struct apply_if_c
 BOOST_MPL_AUX_VOID_SPEC(3, apply_if)
  
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_APPLY_IF_HPP_INCLUDED

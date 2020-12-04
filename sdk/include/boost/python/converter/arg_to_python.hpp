@@ -33,7 +33,7 @@
 
 # include <boost/mpl/or.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 template <class T> struct is_object_manager;
 
@@ -257,6 +257,6 @@ inline arg_to_python<T>::arg_to_python(T const& x)
     : base(x)
 {}
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // ARG_TO_PYTHON_DWA200265_HPP

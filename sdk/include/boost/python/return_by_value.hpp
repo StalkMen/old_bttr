@@ -10,7 +10,7 @@
 # include <boost/type_traits/add_reference.hpp>
 # include <boost/type_traits/add_const.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 struct return_by_value
 {
@@ -25,6 +25,6 @@ struct return_by_value
     };
 };
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // BY_VALUE_DWA20021015_HPP

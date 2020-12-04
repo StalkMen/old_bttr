@@ -53,7 +53,7 @@
 
 #endif
 
-namespace boost {
+namespace boost_cryray {
 namespace tuples {
 
 namespace detail {
@@ -523,7 +523,7 @@ operator>>(std::basic_istream<CharType, CharTrait>& is, cons<T1, T2>& t1) {
 #endif // BOOST_NO_TEMPLATED_STREAMS
 
 } // end of namespace tuples
-} // end of namespace boost
+} // end of namespace boost_cryray
 
 #endif // BOOST_TUPLE_IO_HPP
 

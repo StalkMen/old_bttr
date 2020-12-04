@@ -12,7 +12,7 @@
 
 #include <boost/iterator_adaptors.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template < typename IndexIterator >
   struct permutation_iterator_policies : public default_iterator_policies
@@ -54,7 +54,7 @@ namespace boost {
   template < typename ElementIterator, typename IndexIterator >
   struct permutation_iterator_generator
   {
-    typedef boost::iterator_adaptor
+    typedef boost_cryray::iterator_adaptor
     < ElementIterator,
       permutation_iterator_policies< IndexIterator > 
     > type;
@@ -68,7 +68,7 @@ namespace boost {
     return result_t( base, order );
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // boost_permutation_iterator_hpp
 

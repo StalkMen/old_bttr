@@ -23,7 +23,7 @@
 #include "boost/mpl/aux_/void_spec.hpp"
 #include "boost/mpl/aux_/lambda_support.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // agurt, 13/sep/02: switched from inheritance to typedef; MSVC is more
@@ -55,6 +55,6 @@ BOOST_MPL_AUX_VOID_SPEC(1, begin)
 BOOST_MPL_AUX_VOID_SPEC(1, end)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_BEGIN_END_HPP_INCLUDED

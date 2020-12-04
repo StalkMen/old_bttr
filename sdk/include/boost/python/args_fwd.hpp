@@ -11,7 +11,7 @@
 # include <cstddef>
 # include <utility>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -42,6 +42,6 @@ namespace detail
   }
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // ARGS_FWD_DWA2002927_HPP

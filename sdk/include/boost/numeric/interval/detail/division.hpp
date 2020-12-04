@@ -21,7 +21,7 @@
 #include <boost/numeric/interval/rounded_arith.hpp>
 #include <algorithm>
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 namespace detail {
@@ -193,6 +193,6 @@ interval<T, Policies> div_zero_part2(const interval<T, Policies>& x,
 } // namespace detail
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_DETAIL_DIVISION_HPP

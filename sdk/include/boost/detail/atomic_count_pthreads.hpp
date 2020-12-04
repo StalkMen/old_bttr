@@ -22,7 +22,7 @@
 //  Users can detect this situation by checking BOOST_AC_USE_PTHREADS.
 //
 
-namespace boost
+namespace boost_cryray
 {
 
 namespace detail
@@ -92,6 +92,6 @@ private:
 
 } // namespace detail
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // #ifndef BOOST_DETAIL_ATOMIC_COUNT_PTHREADS_HPP_INCLUDED

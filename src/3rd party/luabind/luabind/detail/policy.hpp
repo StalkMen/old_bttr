@@ -105,13 +105,13 @@ namespace luabind
 		{
 			BOOST_STATIC_CONSTANT(bool, is_specialized = false);
 
-			std::pair<int,int> match(lua_State*, detail::type<T>, boost::mpl::int_<N>, int)
+			std::pair<int,int> match(lua_State*, detail::type<T>, boost_cryray::mpl::int_<N>, int)
 			{
 				return make_pair(-1,-1);
 			}
 
 			template<int I>
-			void convert(lua_State*, detail::type<T>, boost::mpl::int_<N>, int) {}
+			void convert(lua_State*, detail::type<T>, boost_cryray::mpl::int_<N>, int) {}
 		};
 
 		no_t is_implicit_conversion(...);
@@ -187,11 +187,11 @@ namespace luabind { namespace detail
 	struct indirect_type
 	{
 		typedef typename
-			boost::mpl::if_<is_primitive<T>
+			boost_cryray::mpl::if_<is_primitive<T>
 				, const type<T>&
-				, typename boost::mpl::apply_if<boost::mpl::or_<boost::is_reference<T>, boost::is_pointer<T> >
+				, typename boost_cryray::mpl::apply_if<boost_cryray::mpl::or_<boost_cryray::is_reference<T>, boost_cryray::is_pointer<T> >
 					, identity<T>
-					, boost::add_reference<T>
+					, boost_cryray::add_reference<T>
 				>::type
 			>::type result_type;
 
@@ -245,7 +245,7 @@ namespace luabind { namespace detail
 		BOOST_STATIC_CONSTANT(bool, value = 
 			sizeof(is_policy_cons_test(t)) == sizeof(yes_t));
 
-		typedef boost::mpl::bool_<value> type;
+		typedef boost_cryray::mpl::bool_<value> type;
 	};	
 
 	template<bool>
@@ -263,63 +263,63 @@ namespace luabind { namespace detail
 	
 
 	template<class T>
-	struct is_primitive/*: boost::mpl::bool_c<false>*/ 
+	struct is_primitive/*: boost_cryray::mpl::bool_c<false>*/ 
 	{
 		static T t;
 
 		BOOST_STATIC_CONSTANT(bool, value =
-				sizeof(is_string_literal<boost::is_array<T>::value>::helper(t)) == sizeof(yes_t));
+				sizeof(is_string_literal<boost_cryray::is_array<T>::value>::helper(t)) == sizeof(yes_t));
 	};
 
 #define LUABIND_INTEGER_TYPE(type) \
-	template<> struct is_primitive<type> : boost::mpl::true_ {}; \
-	template<> struct is_primitive<type const> : boost::mpl::true_ {}; \
-	template<> struct is_primitive<type const&> : boost::mpl::true_ {}; \
-	template<> struct is_primitive<unsigned type> : boost::mpl::true_ {}; \
-	template<> struct is_primitive<unsigned type const> : boost::mpl::true_ {}; \
-	template<> struct is_primitive<unsigned type const&> : boost::mpl::true_ {};
+	template<> struct is_primitive<type> : boost_cryray::mpl::true_ {}; \
+	template<> struct is_primitive<type const> : boost_cryray::mpl::true_ {}; \
+	template<> struct is_primitive<type const&> : boost_cryray::mpl::true_ {}; \
+	template<> struct is_primitive<unsigned type> : boost_cryray::mpl::true_ {}; \
+	template<> struct is_primitive<unsigned type const> : boost_cryray::mpl::true_ {}; \
+	template<> struct is_primitive<unsigned type const&> : boost_cryray::mpl::true_ {};
 
 	LUABIND_INTEGER_TYPE(char)
 	LUABIND_INTEGER_TYPE(short)
 	LUABIND_INTEGER_TYPE(int)
 	LUABIND_INTEGER_TYPE(long)
 
-	template<> struct is_primitive<signed char> : boost::mpl::true_ {}; \
-	template<> struct is_primitive<signed char const> : boost::mpl::true_ {}; \
-	template<> struct is_primitive<signed char const&> : boost::mpl::true_ {}; \
+	template<> struct is_primitive<signed char> : boost_cryray::mpl::true_ {}; \
+	template<> struct is_primitive<signed char const> : boost_cryray::mpl::true_ {}; \
+	template<> struct is_primitive<signed char const&> : boost_cryray::mpl::true_ {}; \
 	
 #undef LUABIND_INTEGER_TYPE
 	
-	template<> struct is_primitive<luabind::object>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const luabind::object>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const luabind::object&>: boost::mpl::bool_<true> {};
+	template<> struct is_primitive<luabind::object>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const luabind::object>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const luabind::object&>: boost_cryray::mpl::bool_<true> {};
 
-	template<> struct is_primitive<luabind::weak_ref>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const luabind::weak_ref>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const luabind::weak_ref&>: boost::mpl::bool_<true> {};
+	template<> struct is_primitive<luabind::weak_ref>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const luabind::weak_ref>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const luabind::weak_ref&>: boost_cryray::mpl::bool_<true> {};
 	
-	template<> struct is_primitive<float>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<double>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<long double>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<char*>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<bool>: boost::mpl::bool_<true> {};
+	template<> struct is_primitive<float>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<double>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<long double>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<char*>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<bool>: boost_cryray::mpl::bool_<true> {};
 
-	template<> struct is_primitive<const float>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const double>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const long double>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const char*>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const char* const>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const bool>: boost::mpl::bool_<true> {};
+	template<> struct is_primitive<const float>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const double>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const long double>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const char*>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const char* const>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const bool>: boost_cryray::mpl::bool_<true> {};
 
 	// TODO: add more
-	template<> struct is_primitive<const float&>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const double&>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const long double&>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const bool&>: boost::mpl::bool_<true> {};
+	template<> struct is_primitive<const float&>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const double&>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const long double&>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const bool&>: boost_cryray::mpl::bool_<true> {};
 
-	template<> struct is_primitive<const string_class&>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<string_class>: boost::mpl::bool_<true> {};
-	template<> struct is_primitive<const string_class>: boost::mpl::bool_<true> {};
+	template<> struct is_primitive<const string_class&>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<string_class>: boost_cryray::mpl::bool_<true> {};
+	template<> struct is_primitive<const string_class>: boost_cryray::mpl::bool_<true> {};
 
 
 	template<class Direction> struct primitive_converter;
@@ -771,7 +771,7 @@ namespace luabind { namespace detail
 			void* obj_rep;
 			void* held;
 
-			boost::tie(obj_rep,held) = crep->allocate(L);
+			boost_cryray::tie(obj_rep,held) = crep->allocate(L);
 
 			void* object_ptr;
 			void(*destructor)(void*);
@@ -1036,7 +1036,7 @@ namespace luabind { namespace detail
 			void* obj_rep;
 			void* held;
 
-			boost::tie(obj_rep,held) = crep->allocate(L);
+			boost_cryray::tie(obj_rep,held) = crep->allocate(L);
 
 			void* object_ptr;
 			void(*destructor)(void*);
@@ -1249,23 +1249,23 @@ namespace luabind { namespace detail
 		template<class T, class Direction>
 		struct generate_converter
 		{
-			typedef typename boost::mpl::if_<is_user_defined<T>
+			typedef typename boost_cryray::mpl::if_<is_user_defined<T>
 						, user_defined_converter<Direction>
-//						, typename boost::mpl::if_<is_implicit_conversion<T>
+//						, typename boost_cryray::mpl::if_<is_implicit_conversion<T>
 //							, implicit_converter<Direction>
-							, typename boost::mpl::if_<is_primitive<T>
+							, typename boost_cryray::mpl::if_<is_primitive<T>
 								, primitive_converter<Direction>
-								, typename boost::mpl::if_<is_lua_functor<T>
+								, typename boost_cryray::mpl::if_<is_lua_functor<T>
 									, functor_converter<Direction>
-									, typename boost::mpl::if_<boost::is_enum<T>
+									, typename boost_cryray::mpl::if_<boost_cryray::is_enum<T>
 										, enum_converter<Direction>
-										, typename boost::mpl::if_<is_nonconst_pointer<T>
+										, typename boost_cryray::mpl::if_<is_nonconst_pointer<T>
 											, pointer_converter<Direction>
-											, typename boost::mpl::if_<is_const_pointer<T>
+											, typename boost_cryray::mpl::if_<is_const_pointer<T>
 												, const_pointer_converter<Direction>
-												, typename boost::mpl::if_<is_nonconst_reference<T>
+												, typename boost_cryray::mpl::if_<is_nonconst_reference<T>
 													, ref_converter<Direction>
-													, typename boost::mpl::if_<is_const_reference<T>
+													, typename boost_cryray::mpl::if_<is_const_reference<T>
 														, const_ref_converter<Direction>
 														, value_converter<Direction>
 			>::type>::type>::type>::type>::type>::type>::type>::type type;
@@ -1284,7 +1284,7 @@ namespace luabind { namespace detail
 			typedef typename U::head head;
 			typedef typename U::tail tail;
 			
-			typedef typename boost::mpl::if_<boost::mpl::equal_to<boost::mpl::integral_c<int, head::index>, boost::mpl::integral_c<int, N> >
+			typedef typename boost_cryray::mpl::if_<boost_cryray::mpl::equal_to<boost_cryray::mpl::integral_c<int, head::index>, boost_cryray::mpl::integral_c<int, N> >
 				,	policy_cons<head, typename get_policy_list_impl<N, tail>::type>
 				,	typename get_policy_list_impl<N, tail>::type
 			>::type type;
@@ -1308,7 +1308,7 @@ namespace luabind { namespace detail
 			typedef typename List::head head;
 			typedef typename List::tail tail;
 
-			typedef typename boost::mpl::if_<boost::mpl::equal_to<boost::mpl::integral_c<int, head::index>, boost::mpl::integral_c<int, N> >
+			typedef typename boost_cryray::mpl::if_<boost_cryray::mpl::equal_to<boost_cryray::mpl::integral_c<int, head::index>, boost_cryray::mpl::integral_c<int, N> >
 				,	policy_cons<head, typename get_policy_list_impl<tail>::template apply<N>::type>
 				,	typename get_policy_list_impl<tail>::template apply<N>::type
 			>::type type;
@@ -1362,7 +1362,7 @@ namespace luabind { namespace detail
 			BOOST_STATIC_CONSTANT(bool, found = (N == head::index));
 
 			typedef typename
-				boost::mpl::if_c<found
+				boost_cryray::mpl::if_c<found
 					, head
 					, typename find_conversion_policy<N, tail>::type
 				>::type type;
@@ -1375,7 +1375,7 @@ namespace luabind { namespace detail
 		template<int N>
 		struct apply
 			: find_conversion_impl<
-				boost::is_base_and_derived<conversion_policy_base, typename Policies::head>::value
+				boost_cryray::is_base_and_derived<conversion_policy_base, typename Policies::head>::value
 			>::template apply<N, Policies>
 		{
 		};
@@ -1484,7 +1484,7 @@ namespace luabind { namespace detail
 		template<class T>
 		struct apply
 		{
-			typedef typename boost::mpl::if_<boost::is_base_and_derived<converter_policy_tag, typename List::head>
+			typedef typename boost_cryray::mpl::if_<boost_cryray::is_base_and_derived<converter_policy_tag, typename List::head>
 				, only_one_converter_policy_can_be_used_per_index
 				, typename assert_converter_policy_impl<typename List::tail, T>::type
 			>::type type;
@@ -1513,7 +1513,7 @@ namespace luabind { namespace detail
 		typedef typename List::head head;
 		typedef typename List::tail tail;
 
-		typedef typename boost::mpl::if_<boost::is_base_and_derived<converter_policy_tag, head>
+		typedef typename boost_cryray::mpl::if_<boost_cryray::is_base_and_derived<converter_policy_tag, head>
 			, typename assert_converter_policy_impl<tail, head>::type
 			, typename find_converter_policy_impl<tail>::type
 		>::type type;
@@ -1535,7 +1535,7 @@ namespace luabind { namespace detail
 			BOOST_STATIC_CONSTANT(bool, is_specialized = true);
 
 			template<class U, int N>
-			static U convert(lua_State* L, boost::mpl::int_<N>, detail::type<U>, int index)
+			static U convert(lua_State* L, boost_cryray::mpl::int_<N>, detail::type<U>, int index)
 			{
 				typename luabind::detail::default_policy
 					::generate_converter<T, detail::lua_to_cpp>::type c;
@@ -1544,7 +1544,7 @@ namespace luabind { namespace detail
 			}
 
 			template<class U>
-			static std::pair<int,int> match(lua_State* L, boost::mpl::int_<N>, detail::type<U>, int index)
+			static std::pair<int,int> match(lua_State* L, boost_cryray::mpl::int_<N>, detail::type<U>, int index)
 			{
 				typedef typename luabind::detail::default_policy
 					::generate_converter<T, detail::lua_to_cpp>::type c;
@@ -1552,7 +1552,7 @@ namespace luabind { namespace detail
 				int my_match = c::match(L, LUABIND_DECORATE_TYPE(T), index);
 
 				std::pair<int,int> result = TO<N + 1, U>
-					::match(L, boost::mpl::int_<N + 1>(), detail::type<U>(), index);
+					::match(L, boost_cryray::mpl::int_<N + 1>(), detail::type<U>(), index);
 
 				if (my_match < result.first() && my_match != -1)
 					return make_pair(my_match, N);
@@ -1567,8 +1567,8 @@ namespace luabind { namespace detail
 
 namespace luabind {	 namespace
 {
-	LUABIND_ANONYMOUS_FIX boost::arg<0> return_value;
-	LUABIND_ANONYMOUS_FIX boost::arg<0> result;
+	LUABIND_ANONYMOUS_FIX boost_cryray::arg<0> return_value;
+	LUABIND_ANONYMOUS_FIX boost_cryray::arg<0> result;
 }}
 
 #include <luabind/detail/object_funs.hpp>

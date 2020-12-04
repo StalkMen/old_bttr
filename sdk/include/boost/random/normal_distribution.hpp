@@ -25,7 +25,7 @@
 #include <cassert>
 #include <boost/random/uniform_01.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 // deterministic polar method, uses trigonometric functions
 template<class UniformRandomNumberGenerator, class RealType = double,
@@ -78,7 +78,7 @@ public:
     } else {
       _valid = false;
     }
-    // Can we have a boost::mathconst please?
+    // Can we have a boost_cryray::mathconst please?
     const result_type pi = result_type(3.14159265358979323846);
     
     return _cached_rho * (_valid ?
@@ -130,6 +130,6 @@ private:
   bool _valid;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_NORMAL_DISTRIBUTION_HPP

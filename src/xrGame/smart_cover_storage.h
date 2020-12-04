@@ -15,7 +15,7 @@ namespace smart_cover {
 
 class storage : 
 	private debug::make_final<storage>, 
-	private boost::noncopyable 
+	private boost_cryray::noncopyable 
 {
 public:
 	typedef xr_vector<smart_cover::description*>		Descriptions;

@@ -3,7 +3,7 @@
 
 #include <boost/pending/ct_if.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   struct no_property { 
     typedef no_property tag_type;
@@ -46,11 +46,11 @@ namespace boost {
     typedef false_type type; 
   };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include <boost/pending/detail/property.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template <class PropertyList, class Tag>
   struct property_value {

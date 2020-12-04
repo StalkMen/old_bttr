@@ -18,7 +18,7 @@ namespace smart_cover {
 
 class object : 
 	public CGameObject,
-	private boost::noncopyable
+	private boost_cryray::noncopyable
 {
 private:
 	typedef CGameObject	inherited;

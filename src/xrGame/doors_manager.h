@@ -18,7 +18,7 @@ namespace doors {
 class actor;
 class door;
 
-class manager : private boost::noncopyable {
+class manager : private boost_cryray::noncopyable {
 public:
 				manager					( Fbox const& bounding_box );
 				~manager				( );

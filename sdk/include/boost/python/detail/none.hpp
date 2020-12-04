@@ -12,10 +12,10 @@
 # include <boost/python/detail/config.hpp>
 # include <boost/python/detail/wrap_python.hpp>
 
-namespace boost { namespace python { namespace detail {
+namespace boost_cryray { namespace python { namespace detail {
 
 inline PyObject* none() { Py_INCREF(Py_None); return Py_None; }
     
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // NONE_DWA_052000_H_

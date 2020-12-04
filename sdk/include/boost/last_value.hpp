@@ -18,7 +18,7 @@
 
 #include <cassert>
 
-namespace boost {
+namespace boost_cryray {
   template<typename T>
   struct last_value {
     typedef T result_type;

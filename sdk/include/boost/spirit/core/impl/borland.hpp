@@ -12,7 +12,7 @@
 #define BOOST_SPIRIT_BORLAND_HPP
 
 #if defined(__BORLANDC__) && (__BORLANDC__ <= 0x561)
-namespace boost { namespace spirit { namespace borland_only {
+namespace boost_cryray { namespace spirit { namespace borland_only {
 
     //  Before including MPL, we define these dummy template
     //  functions. Borland complains when a template class
@@ -45,7 +45,7 @@ namespace boost { namespace spirit { namespace borland_only {
         template <typename T> struct do_ {};
     }
 
-}}} // namespace boost::spirit::borland_only
+}}} // namespace boost_cryray::spirit::borland_only
 #endif
 #endif
 

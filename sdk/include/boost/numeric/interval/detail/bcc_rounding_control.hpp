@@ -27,7 +27,7 @@
 
 #include <float.h>      // Borland C++ rounding control
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 namespace detail {
@@ -58,6 +58,6 @@ struct x86_rounding
 } // namespace detail
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif /* BOOST_NUMERIC_INTERVAL_DETAIL_BCC_ROUNDING_CONTROL_HPP */

@@ -8,7 +8,7 @@
 
 # include <boost/config.hpp>
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 struct void_return
 {
@@ -38,6 +38,6 @@ template <> struct returnable<const volatile void> : returnable<void> {};
 
 # endif // BOOST_NO_VOID_RETURNS
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // VOID_RETURN_DWA200274_HPP

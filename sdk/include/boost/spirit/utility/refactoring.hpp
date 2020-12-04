@@ -21,7 +21,7 @@
 #include "boost/spirit/utility/impl/refactoring.ipp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -58,7 +58,7 @@ public:
     //  the parser to refactor has to be at least a binary_parser_category
     //  parser
     BOOST_STATIC_ASSERT((
-        boost::is_convertible<typename BinaryT::parser_category_t,
+        boost_cryray::is_convertible<typename BinaryT::parser_category_t,
             binary_parser_category>::value
     ));
 
@@ -141,7 +141,7 @@ public:
     //  the parser to refactor has to be at least a binary_parser_category
     //  parser
     BOOST_STATIC_ASSERT((
-        boost::is_convertible<typename BinaryT::parser_category_t,
+        boost_cryray::is_convertible<typename BinaryT::parser_category_t,
             binary_parser_category>::value
     ));
 
@@ -223,7 +223,7 @@ public:
     //  the parser to refactor has to be at least a action_parser_category
     //  parser
     BOOST_STATIC_ASSERT((
-        boost::is_convertible<typename ActionT::parser_category_t,
+        boost_cryray::is_convertible<typename ActionT::parser_category_t,
             action_parser_category>::value
     ));
 
@@ -272,7 +272,7 @@ private:
 const attach_action_gen<> attach_action_d = attach_action_gen<>();
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif // BOOST_SPIRIT_REFACTORING_HPP
 

@@ -16,7 +16,7 @@
 #ifndef BOOST_NUMERIC_INTERVAL_EXT_X86_FAST_ROUNDING_CONTROL_HPP
 #define BOOST_NUMERIC_INTERVAL_EXT_X86_FAST_ROUNDING_CONTROL_HPP
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 
@@ -64,6 +64,6 @@ struct x86_fast_rounding_control<long double>: detail::x86_rounding
 
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_EXT_X86_FAST_ROUNDING_CONTROL_HPP

@@ -22,7 +22,7 @@
 
 // These are the the "Hyperbolic Sinus Cardinal" functions.
 
-namespace boost
+namespace boost_cryray
 {
     namespace math
     {

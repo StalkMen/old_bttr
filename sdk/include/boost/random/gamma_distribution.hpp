@@ -23,7 +23,7 @@
 #include <cassert>
 #include <boost/random/uniform_01.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 // Knuth
 // deterministic polar method, uses trigonometric functions
@@ -62,7 +62,7 @@ public:
     if(_alpha == result_type(1)) {
       return _exp();
     } else if(_alpha > result_type(1)) {
-      // Can we have a boost::mathconst please?
+      // Can we have a boost_cryray::mathconst please?
       const result_type pi = result_type(3.14159265358979323846);
       for(;;) {
         result_type y = tan(pi * _rng());
@@ -147,6 +147,6 @@ private:
   result_type _p;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_GAMMA_DISTRIBUTION_HPP

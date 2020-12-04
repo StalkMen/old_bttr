@@ -70,7 +70,7 @@ void CIKFoot::Create		(  IKinematics	*K, LPCSTR section, u16 bones[4] )
 }
 
 struct envc :
-private boost::noncopyable,
+private boost_cryray::noncopyable,
 public SEnumVerticesCallback
 {
 	Fvector &pos;

@@ -25,7 +25,7 @@
 #include "boost/spirit/dynamic/impl/conditions.ipp"
 #endif
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     namespace impl {
 
@@ -229,6 +229,6 @@ if_p(CondT const& cond)
     return impl::if_parser_gen<CondT>(cond);
 }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif // BOOST_SPIRIT_IF_HPP

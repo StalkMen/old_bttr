@@ -822,7 +822,7 @@ luabind::object CScriptStorage::name_space(LPCSTR namespace_name)
 
 #include <boost/noncopyable.hpp>
 
-struct raii_guard : private boost::noncopyable
+struct raii_guard : private boost_cryray::noncopyable
 {
     int m_error_code;
     LPCSTR const& m_error_description;

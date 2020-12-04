@@ -67,7 +67,7 @@
 #define BOOST_FUNCTION_GET_STATELESS_FUNCTION_OBJ_INVOKER \
   BOOST_JOIN(get_stateless_function_obj_invoker,BOOST_FUNCTION_NUM_ARGS)
 
-namespace boost {
+namespace boost_cryray {
   namespace detail {
     namespace function {
       template<
@@ -248,7 +248,7 @@ namespace boost {
   public:
     BOOST_STATIC_CONSTANT(int, args = BOOST_FUNCTION_NUM_ARGS);
 
-    // add signature for boost::lambda
+    // add signature for boost_cryray::lambda
     template<typename Args>
     struct sig
     {
@@ -282,7 +282,7 @@ namespace boost {
     BOOST_FUNCTION_FUNCTION(Functor BOOST_FUNCTION_TARGET_FIX(const &) f
 #ifndef BOOST_FUNCTION_NO_ENABLE_IF
                             ,typename detail::function::enable_if<
-                            (::boost::type_traits::ice_not<
+                            (::boost_cryray::type_traits::ice_not<
                              (is_same<Functor, int>::value)>::value),
                                         int>::type = 0
 #endif // BOOST_FUNCTION_NO_ENABLE_IF
@@ -314,7 +314,7 @@ namespace boost {
     result_type operator()(BOOST_FUNCTION_PARMS) const
     {
       if (this->empty())
-        boost::throw_exception(bad_function_call());
+        boost_cryray::throw_exception(bad_function_call());
 
       internal_result_type result = invoker(function_base::functor
                                             BOOST_FUNCTION_COMMA
@@ -335,7 +335,7 @@ namespace boost {
     template<typename Functor>
 #ifndef BOOST_FUNCTION_NO_ENABLE_IF
     typename detail::function::enable_if<
-               (::boost::type_traits::ice_not<
+               (::boost_cryray::type_traits::ice_not<
                  (is_same<Functor, int>::value)>::value),
                BOOST_FUNCTION_FUNCTION&>::type
 #else
@@ -469,7 +469,7 @@ namespace boost {
     template<typename FunctionObj>
     void assign_to(FunctionObj f, detail::function::function_obj_tag)
     {
-      if (!detail::function::has_empty_target(boost::addressof(f))) {
+      if (!detail::function::has_empty_target(boost_cryray::addressof(f))) {
         typedef
           typename detail::function::BOOST_FUNCTION_GET_FUNCTION_OBJ_INVOKER<
                                        FunctionObj,
@@ -593,7 +593,7 @@ public:
   function(Functor f
 #ifndef BOOST_FUNCTION_NO_ENABLE_IF
            ,typename detail::function::enable_if<
-                            (::boost::type_traits::ice_not<
+                            (::boost_cryray::type_traits::ice_not<
                           (is_same<Functor, int>::value)>::value),
                        int>::type = 0
 #endif
@@ -619,7 +619,7 @@ public:
   template<typename Functor>
 #ifndef BOOST_FUNCTION_NO_ENABLE_IF
   typename detail::function::enable_if<
-                            (::boost::type_traits::ice_not<
+                            (::boost_cryray::type_traits::ice_not<
                          (is_same<Functor, int>::value)>::value),
                       self_type&>::type
 #else
@@ -649,7 +649,7 @@ public:
 #undef BOOST_FUNCTION_PARTIAL_SPEC
 #endif // have partial specialization
 
-} // end namespace boost
+} // end namespace boost_cryray
 
 // Cleanup after ourselves...
 #undef BOOST_FUNCTION_DEFAULT_ALLOCATOR

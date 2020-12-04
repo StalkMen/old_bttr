@@ -24,7 +24,7 @@
 
 #include <iterator> // needed for operator&
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 namespace detail {
 
@@ -59,13 +59,13 @@ template <> struct promote_code<long double> { static const int value = 700; };
 
 } // namespace detail
 } // namespace lambda 
-} // namespace boost
+} // namespace boost_cryray
 
 namespace std {
   template<class T> class complex;
 }
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 namespace detail {
 
@@ -201,8 +201,8 @@ struct return_type_1<other_action<addressof_action>, A> {
   // If no user defined specialization for A, then return the
   // cv qualified pointer to A
   typedef typename detail::IF<
-    boost::is_same<type1, detail::unspecified>::value, 
-    typename boost::remove_reference<A>::type*,
+    boost_cryray::is_same<type1, detail::unspecified>::value, 
+    typename boost_cryray::remove_reference<A>::type*,
     type1
   >::RET type;
 };
@@ -238,7 +238,7 @@ template <class A> struct contentsof_type<const A> {
   // we do not want to make it a reference here either
     typedef typename detail::IF<
       is_reference<type1>::value, 
-      const typename boost::remove_reference<type1>::type &,
+      const typename boost_cryray::remove_reference<type1>::type &,
       const type1
   >::RET type;
 };
@@ -247,7 +247,7 @@ template <class A> struct contentsof_type<volatile A> {
   typedef typename contentsof_type<A>::type type1;
   typedef typename detail::IF<
     is_reference<type1>::value, 
-    volatile typename boost::remove_reference<type1>::type &,
+    volatile typename boost_cryray::remove_reference<type1>::type &,
     volatile type1
   >::RET type;
 };
@@ -256,7 +256,7 @@ template <class A> struct contentsof_type<const volatile A> {
   typedef typename contentsof_type<A>::type type1;
   typedef typename detail::IF<
     is_reference<type1>::value, 
-    const volatile typename boost::remove_reference<type1>::type &,
+    const volatile typename boost_cryray::remove_reference<type1>::type &,
     const volatile type1
   >::RET type;
 };
@@ -309,9 +309,9 @@ struct return_type_1<other_action<contentsof_action>, A> {
   // cv qualified pointer to A
   typedef typename 
   detail::IF_type<
-    boost::is_same<type1, detail::unspecified>::value, 
+    boost_cryray::is_same<type1, detail::unspecified>::value, 
     detail::contentsof_type<
-      typename boost::remove_reference<A>::type
+      typename boost_cryray::remove_reference<A>::type
     >,
     detail::identity_mapping<type1>
   >::type type;
@@ -346,12 +346,12 @@ template<class A, class B>
 struct pointer_arithmetic_traits<plus_action, A, B> { 
 
   typedef typename 
-    array_to_pointer<typename boost::remove_reference<A>::type>::type AP;
+    array_to_pointer<typename boost_cryray::remove_reference<A>::type>::type AP;
   typedef typename 
-    array_to_pointer<typename boost::remove_reference<B>::type>::type BP;
+    array_to_pointer<typename boost_cryray::remove_reference<B>::type>::type BP;
 
-  static const bool is_pointer_A = boost::is_pointer<AP>::value;
-  static const bool is_pointer_B = boost::is_pointer<BP>::value;  
+  static const bool is_pointer_A = boost_cryray::is_pointer<AP>::value;
+  static const bool is_pointer_B = boost_cryray::is_pointer<BP>::value;  
 
   static const bool value = is_pointer_A || is_pointer_B;
 
@@ -374,26 +374,26 @@ struct pointer_arithmetic_traits<plus_action, A, B> {
 template<class A, class B> 
 struct pointer_arithmetic_traits<minus_action, A, B> { 
   typedef typename 
-    array_to_pointer<typename boost::remove_reference<A>::type>::type AP;
+    array_to_pointer<typename boost_cryray::remove_reference<A>::type>::type AP;
   typedef typename 
-    array_to_pointer<typename boost::remove_reference<B>::type>::type BP;
+    array_to_pointer<typename boost_cryray::remove_reference<B>::type>::type BP;
 
-  static const bool is_pointer_A = boost::is_pointer<AP>::value;
-  static const bool is_pointer_B = boost::is_pointer<BP>::value;  
+  static const bool is_pointer_A = boost_cryray::is_pointer<AP>::value;
+  static const bool is_pointer_B = boost_cryray::is_pointer<BP>::value;  
 
   static const bool value = is_pointer_A || is_pointer_B;
 
   static const bool same_pointer_type =
     is_pointer_A && is_pointer_B && 
-    boost::is_same<
-      typename boost::remove_const<
-        typename boost::remove_pointer<
-          typename boost::remove_const<AP>::type
+    boost_cryray::is_same<
+      typename boost_cryray::remove_const<
+        typename boost_cryray::remove_pointer<
+          typename boost_cryray::remove_const<AP>::type
         >::type
       >::type,
-      typename boost::remove_const<
-        typename boost::remove_pointer<
-          typename boost::remove_const<BP>::type
+      typename boost_cryray::remove_const<
+        typename boost_cryray::remove_pointer<
+          typename boost_cryray::remove_const<BP>::type
         >::type
       >::type
     >::value;
@@ -442,7 +442,7 @@ struct return_type_2<arithmetic_action<Act>, A, B>
   // if user defined return type, do not enter the whole arithmetic deductions
   typedef typename 
     detail::IF_type<
-      boost::is_same<type1, detail::unspecified>::value, 
+      boost_cryray::is_same<type1, detail::unspecified>::value, 
       detail::return_type_2_arithmetic_phase_1<
          detail::pointer_arithmetic_traits<Act, A, B>::value, Act, A, B
       >,
@@ -543,7 +543,7 @@ struct return_type_2<bitwise_action<Act>, A, B>
   // if user defined return type, do not enter type deductions
   typedef typename 
     detail::IF_type<
-      boost::is_same<type1, detail::unspecified>::value, 
+      boost_cryray::is_same<type1, detail::unspecified>::value, 
       return_type_2<arithmetic_action<plus_action>, A, B>,
       plain_return_type_2<bitwise_action<Act>, plain_A, plain_B>
     >::type type;
@@ -556,7 +556,7 @@ struct return_type_2<bitwise_action<Act>, A, B>
   // bitwise operators not defined for floating point types
   // these test are not strictly needed here, since the error will be caught in
   // the apply function
-  BOOST_STATIC_ASSERT(!(boost::is_float<plain_A>::value && boost::is_float<plain_B>::value));
+  BOOST_STATIC_ASSERT(!(boost_cryray::is_float<plain_A>::value && boost_cryray::is_float<plain_B>::value));
 
 };
 
@@ -568,8 +568,8 @@ template<class A, class B>
 struct leftshift_type {
 
   typedef typename detail::IF<
-    boost::is_convertible<
-      typename boost::remove_reference<A>::type*,
+    boost_cryray::is_convertible<
+      typename boost_cryray::remove_reference<A>::type*,
       std::ostream*
     >::value,
     std::ostream&, 
@@ -582,8 +582,8 @@ struct rightshift_type {
 
   typedef typename detail::IF<
 
-    boost::is_convertible<
-      typename boost::remove_reference<A>::type*,
+    boost_cryray::is_convertible<
+      typename boost_cryray::remove_reference<A>::type*,
       std::istream*
     >::value, 
     std::istream&,
@@ -606,7 +606,7 @@ template <class T> struct get_istream_type {
 template<class A, class B>
 struct leftshift_type {
 private:
-  typedef typename boost::remove_reference<A>::type plainA;
+  typedef typename boost_cryray::remove_reference<A>::type plainA;
 public:
   typedef typename detail::IF_type<
     is_instance_of_2<plainA, std::basic_ostream>::value, 
@@ -618,7 +618,7 @@ public:
 template<class A, class B>
 struct rightshift_type {
 private:
-  typedef typename boost::remove_reference<A>::type plainA;
+  typedef typename boost_cryray::remove_reference<A>::type plainA;
 public:
   typedef typename detail::IF_type<
     is_instance_of_2<plainA, std::basic_istream>::value, 
@@ -645,7 +645,7 @@ struct return_type_2<bitwise_action<leftshift_action>, A, B>
   // if user defined return type, do not enter type deductions
   typedef typename 
     detail::IF_type<
-      boost::is_same<type1, detail::unspecified>::value, 
+      boost_cryray::is_same<type1, detail::unspecified>::value, 
       detail::leftshift_type<A, B>,
       plain_return_type_2<bitwise_action<leftshift_action>, plain_A, plain_B>
     >::type type;
@@ -664,7 +664,7 @@ struct return_type_2<bitwise_action<rightshift_action>, A, B>
   // if user defined return type, do not enter type deductions
   typedef typename 
     detail::IF_type<
-      boost::is_same<type1, detail::unspecified>::value, 
+      boost_cryray::is_same<type1, detail::unspecified>::value, 
       detail::rightshift_type<A, B>,
       plain_return_type_2<bitwise_action<rightshift_action>, plain_A, plain_B>
     >::type type;
@@ -729,8 +729,8 @@ struct return_type_2<arithmetic_assignment_action<Act>, A, B> {
   
   typedef typename 
     detail::IF<
-      boost::is_same<type1, detail::unspecified>::value, 
-      typename boost::add_reference<A>::type,
+      boost_cryray::is_same<type1, detail::unspecified>::value, 
+      typename boost_cryray::add_reference<A>::type,
       type1
     >::RET type;
 };
@@ -748,8 +748,8 @@ struct return_type_2<bitwise_assignment_action<Act>, A, B> {
   
   typedef typename 
     detail::IF<
-      boost::is_same<type1, detail::unspecified>::value, 
-      typename boost::add_reference<A>::type,
+      boost_cryray::is_same<type1, detail::unspecified>::value, 
+      typename boost_cryray::add_reference<A>::type,
       type1
     >::RET type;
 };
@@ -766,8 +766,8 @@ struct return_type_2<other_action<assignment_action>, A, B> {
   
   typedef typename 
     detail::IF<
-      boost::is_same<type1, detail::unspecified>::value, 
-      typename boost::add_reference<A>::type,
+      boost_cryray::is_same<type1, detail::unspecified>::value, 
+      typename boost_cryray::add_reference<A>::type,
       type1
     >::RET type;
 };
@@ -840,8 +840,8 @@ struct return_type_2<other_action<subscript_action>, A, B> {
   typedef typename detail::remove_reference_and_cv<A>::type plain_A;
   typedef typename detail::remove_reference_and_cv<B>::type plain_B;
 
-  typedef typename boost::remove_reference<A>::type nonref_A;
-  typedef typename boost::remove_reference<B>::type nonref_B;
+  typedef typename boost_cryray::remove_reference<A>::type nonref_A;
+  typedef typename boost_cryray::remove_reference<B>::type nonref_B;
 
   typedef typename 
     plain_return_type_2<
@@ -850,7 +850,7 @@ struct return_type_2<other_action<subscript_action>, A, B> {
   
   typedef typename 
     detail::IF_type<
-      boost::is_same<type1, detail::unspecified>::value, 
+      boost_cryray::is_same<type1, detail::unspecified>::value, 
       detail::subscript_type<nonref_A, nonref_B>,
       plain_return_type_2<other_action<subscript_action>, plain_A, plain_B>
     >::type type;
@@ -859,7 +859,7 @@ struct return_type_2<other_action<subscript_action>, A, B> {
 
 
 } // namespace lambda
-} // namespace boost
+} // namespace boost_cryray
 
 
 namespace std {
@@ -871,7 +871,7 @@ namespace std {
 }
 
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
 template<class Key, class T, class Cmp, class Allocator, class B> 
@@ -918,7 +918,7 @@ struct plain_return_type_2<other_action<subscript_action>, const std::basic_stri
 
 
 } // namespace lambda
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

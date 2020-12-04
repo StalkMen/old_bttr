@@ -31,7 +31,7 @@
 
 #include <cstring>
 
-namespace boost{
+namespace boost_cryray{
    namespace re_detail{
 
 #ifdef __BORLANDC__
@@ -124,7 +124,7 @@ inline void BOOST_REGEX_CALL re_strfree(charT* p)
 #endif
 
 } // namespace re_detail
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // BOOST_REGEX_CSTRING_HPP
 

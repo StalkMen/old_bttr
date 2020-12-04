@@ -25,7 +25,7 @@
 #include "boost/mpl/aux_/lambda_support.hpp"
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -58,6 +58,6 @@ struct bitor_
 BOOST_MPL_AUX_VOID_SPEC(2,bitor_)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_BITOR_HPP_INCLUDED

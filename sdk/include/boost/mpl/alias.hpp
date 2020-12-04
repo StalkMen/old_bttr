@@ -18,7 +18,7 @@
 #define BOOST_MPL_ALIAS_HPP_INCLUDED
 
 namespace {
-namespace mpl = boost::mpl;
+namespace mpl = boost_cryray::mpl;
 }
 
 #endif // BOOST_MPL_ALIAS_HPP_INCLUDED

@@ -48,7 +48,7 @@
 //    * T(detail::borrowed_reference(p))
 //        Manages p without checking its type
 //
-//    * get_managed_object(x, boost::python::tag)
+//    * get_managed_object(x, boost_cryray::python::tag)
 //        Convertible to PyObject*
 //
 // Additional requirements if T can be converted from_python:
@@ -63,7 +63,7 @@
 
 // Forward declarations
 //
-namespace boost { namespace python
+namespace boost_cryray { namespace python
 {
   namespace api
   {
@@ -71,7 +71,7 @@ namespace boost { namespace python
   }
 }}
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 
 // Specializations for handle<T>
@@ -226,6 +226,6 @@ struct is_reference_to_object_manager
 };
 # endif 
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // OBJECT_MANAGER_DWA2002614_HPP

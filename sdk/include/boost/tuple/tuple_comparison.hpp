@@ -37,7 +37,7 @@
 // -------------------------------------------------------------
 
 
-namespace boost {
+namespace boost_cryray {
 namespace tuples {
 
 inline bool operator==(const null_type&, const null_type&) { return true; }
@@ -174,7 +174,7 @@ inline bool operator>=(const cons<T1, T2>& lhs, const cons<S1, S2>& rhs)
 }
 
 } // end of namespace tuples
-} // end of namespace boost
+} // end of namespace boost_cryray
 
 
 #endif // BOOST_TUPLE_COMPARISON_HPP

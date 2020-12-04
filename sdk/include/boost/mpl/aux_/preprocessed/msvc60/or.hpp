@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/aux_/config/use_preprocessed.hpp' header
 // see the original for copyright information
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 namespace aux {
 
@@ -64,5 +64,5 @@ BOOST_MPL_AUX_VOID_SPEC_EXT(
     , or_
     )
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 

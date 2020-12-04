@@ -9,7 +9,7 @@
 # include <boost/mpl/if.hpp>
 # include <boost/python/to_python_value.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -37,6 +37,6 @@ struct copy_const_reference
 };
 
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // COPY_CONST_REFERENCE_DWA2002131_HPP

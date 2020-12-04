@@ -39,7 +39,7 @@ namespace luabind { namespace detail
 	struct has_yield
 	{
 		BOOST_STATIC_CONSTANT(bool,
-			value = (boost::is_same<yield_policy, typename T::head>::value ||
+			value = (boost_cryray::is_same<yield_policy, typename T::head>::value ||
 					  has_yield<typename T::tail>::value));
 	};
 

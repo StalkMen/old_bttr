@@ -24,9 +24,9 @@
 #include <list>
 #include <vector>
 
-namespace boost {
+namespace boost_cryray {
 
-namespace BOOST_SIGNALS_NAMESPACE {
+namespace boost_cryray_SIGNALS_NAMESPACE {
   // Base class for "trackable" objects that can be tracked when they are
   // bound in slot target functions. When a trackable object is destroyed,
   // the signal/slot connections are disconnected automatically.
@@ -186,8 +186,8 @@ namespace BOOST_SIGNALS_NAMESPACE {
       std::vector<const trackable*>& bound_objects;
     };
   } // end namespace detail
-} // end namespace BOOST_SIGNALS_NAMESPACE
+} // end namespace boost_cryray_SIGNALS_NAMESPACE
 
-} // end namespace boost
+} // end namespace boost_cryray
 
 #endif // BOOST_SIGNALS_TRACKABLE_HPP

@@ -28,12 +28,12 @@
 // should be the last #include
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
 //* is a type T  declared const - is_const<T>
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_const,T,::boost::detail::cv_traits_imp<T*>::is_const)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_const,T,::boost_cryray::detail::cv_traits_imp<T*>::is_const)
 BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC1_1(typename T,is_const,T&,false)
 
 #if defined(__BORLANDC__)
@@ -49,23 +49,23 @@ BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC1_1(typename T,is_const,T& const volatile,fa
 #if defined(__GNUC__) && (__GNUC__ < 3)
 // special case for gcc where illegally cv-qualified reference types can be
 // generated in some corner cases:
-BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC1_1(typename T,is_const,T const,!(::boost::is_reference<T>::value))
-BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC1_1(typename T,is_const,T volatile const,!(::boost::is_reference<T>::value))
+BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC1_1(typename T,is_const,T const,!(::boost_cryray::is_reference<T>::value))
+BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC1_1(typename T,is_const,T volatile const,!(::boost_cryray::is_reference<T>::value))
 #endif
 
 #else
 
 namespace detail {
 
-using ::boost::type_traits::yes_type;
-using ::boost::type_traits::no_type;
+using ::boost_cryray::type_traits::yes_type;
+using ::boost_cryray::type_traits::no_type;
 
 yes_type is_const_tester(const volatile void*);
 no_type is_const_tester(volatile void *);
 
 template <bool is_ref, bool array>
 struct is_const_helper
-    : ::boost::type_traits::false_result
+    : ::boost_cryray::type_traits::false_result
 {
 };
 
@@ -112,11 +112,11 @@ BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_const,void const volatile,true)
 } // namespace detail
 
 //* is a type T  declared const - is_const<T>
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_const,T,::boost::detail::is_const_impl<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_const,T,::boost_cryray::detail::is_const_impl<T>::value)
 
 #endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

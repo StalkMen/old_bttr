@@ -69,32 +69,32 @@ namespace luabind {
 
         static wrap_base const* extract(T const* ptr)
         {
-            return extract_impl(ptr, boost::mpl::bool_<value>());
+            return extract_impl(ptr, boost_cryray::mpl::bool_<value>());
         }
 
-        static wrap_base const* extract_impl(T const* ptr, boost::mpl::true_)
+        static wrap_base const* extract_impl(T const* ptr, boost_cryray::mpl::true_)
         {
             return dynamic_cast<wrap_base const*>(
                 get_pointer(*ptr));
         }
 
-        static wrap_base const* extract_impl(T const* ptr, boost::mpl::false_)
+        static wrap_base const* extract_impl(T const* ptr, boost_cryray::mpl::false_)
         {
             return dynamic_cast<wrap_base const*>(ptr);
         }
 
         static wrap_base* extract(T* ptr)
         {
-            return extract_impl(ptr, boost::mpl::bool_<value>());
+            return extract_impl(ptr, boost_cryray::mpl::bool_<value>());
         }
 
-        static wrap_base* extract_impl(T* ptr, boost::mpl::true_)
+        static wrap_base* extract_impl(T* ptr, boost_cryray::mpl::true_)
         {
             return dynamic_cast<wrap_base*>(
                 get_pointer(*ptr));
         }
 
-        static wrap_base* extract_impl(T* ptr, boost::mpl::false_)
+        static wrap_base* extract_impl(T* ptr, boost_cryray::mpl::false_)
         {
             return dynamic_cast<wrap_base*>(ptr);
         }
@@ -170,8 +170,8 @@ namespace luabind {
 
     template<class T>
     struct back_reference
-        : boost::mpl::if_<
-              boost::is_polymorphic<T>
+        : boost_cryray::mpl::if_<
+              boost_cryray::is_polymorphic<T>
             , detail::back_reference_impl<T>
             , detail::back_reference_do_nothing<T>
           >::type

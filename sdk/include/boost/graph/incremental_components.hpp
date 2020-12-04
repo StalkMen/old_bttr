@@ -31,7 +31,7 @@
 #include <boost/detail/iterator.hpp>
 #include <boost/graph/detail/incremental_components.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   // A connected component algorithm for the case when dynamically
   // adding (but not removing) edges is common.  The
@@ -83,7 +83,7 @@ namespace boost {
   }
   
   template <class ParentIterator>
-  typename boost::detail::iterator_traits<ParentIterator>::difference_type
+  typename boost_cryray::detail::iterator_traits<ParentIterator>::difference_type
   component_count(ParentIterator first, ParentIterator last)
   {
     std::ptrdiff_t count = 0;
@@ -181,6 +181,6 @@ namespace boost {
     
   };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_INCREMENTAL_COMPONENTS_HPP

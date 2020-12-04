@@ -49,7 +49,7 @@
 
 #if defined(BOOST_REGEX_FI_WIN32_DIR)
 
-namespace boost{
+namespace boost_cryray{
    namespace re_detail{
 
 typedef WIN32_FIND_DATAA _fi_find_data;
@@ -57,7 +57,7 @@ typedef HANDLE _fi_find_handle;
 
    } // namespace re_detail
 
-} // namespace boost
+} // namespace boost_cryray
 
 #define _fi_invalid_handle INVALID_HANDLE_VALUE
 #define _fi_dir FILE_ATTRIBUTE_DIRECTORY
@@ -79,7 +79,7 @@ using std::list;
 #define MAX_PATH 256
 #endif
 
-namespace boost{
+namespace boost_cryray{
    namespace re_detail{
 
 #ifdef __BORLANDC__
@@ -109,7 +109,7 @@ bool _fi_FindClose(_fi_find_handle hFindFile);
 #endif
 
    } // namespace re_detail
-} // namespace boost
+} // namespace boost_cryray
 
 #ifdef FindFirstFile
  #undef FindFirstFile
@@ -127,7 +127,7 @@ bool _fi_FindClose(_fi_find_handle hFindFile);
 
 #endif
 
-namespace boost{
+namespace boost_cryray{
    namespace re_detail{
 
 #ifdef __BORLANDC__
@@ -430,10 +430,10 @@ inline bool operator < (const directory_iterator&, const directory_iterator&)
 
 
 } // namespace re_detail
-using boost::re_detail::directory_iterator;
-using boost::re_detail::file_iterator;
-using boost::re_detail::mapfile;
-} // namespace boost
+using boost_cryray::re_detail::directory_iterator;
+using boost_cryray::re_detail::file_iterator;
+using boost_cryray::re_detail::mapfile;
+} // namespace boost_cryray
 
 #endif     // BOOST_REGEX_NO_FILEITER
 #endif     // BOOST_RE_FILEITER_HPP

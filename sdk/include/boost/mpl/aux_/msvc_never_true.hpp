@@ -21,7 +21,7 @@
 
 #if defined(BOOST_MSVC) && BOOST_MSVC <= 1300
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -33,7 +33,7 @@ struct msvc_never_true
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MSVC < 1300
 

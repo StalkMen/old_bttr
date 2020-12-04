@@ -36,7 +36,7 @@
 #include "boost/preprocessor/inc.hpp"
 #include "boost/preprocessor/cat.hpp"
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 // local macros, #undef-ined at the end of the header
 #   define AUX_LOGICAL_OP_PARAMS(param, sub) \
@@ -159,7 +159,7 @@ BOOST_MPL_AUX_VOID_SPEC_EXT(
     , AUX_LOGICAL_OP_NAME
     )
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #undef AUX_LOGICAL_OP_SPEC_PARAMS
 #undef AUX_LOGICAL_OP_SHIFTED_PARAMS

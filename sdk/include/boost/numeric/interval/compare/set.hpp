@@ -19,7 +19,7 @@
 #include <boost/numeric/interval/detail/interval_prototype.hpp>
 #include <boost/numeric/interval/utility.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 namespace compare {
@@ -65,6 +65,6 @@ bool operator!=(const interval<T, Policies1>& x, const interval<T, Policies2>& y
 } // namespace compare
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_COMPARE_SET_HPP

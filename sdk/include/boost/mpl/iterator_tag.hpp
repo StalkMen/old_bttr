@@ -17,7 +17,7 @@
 #ifndef BOOST_MPL_ITERATOR_TAG_HPP_INCLUDED
 #define BOOST_MPL_ITERATOR_TAG_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 struct input_iter_tag_;
@@ -31,6 +31,6 @@ typedef bi_iter_tag_    bidirectional_iterator_tag;
 typedef ra_iter_tag_    random_access_iterator_tag;
 
 } // namespace mpl
-} // namespace boost 
+} // namespace boost_cryray 
 
 #endif // BOOST_MPL_ITERATOR_TAG_HPP_INCLUDED

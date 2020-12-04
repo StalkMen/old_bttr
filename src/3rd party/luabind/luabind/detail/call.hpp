@@ -78,15 +78,15 @@ namespace luabind { namespace detail
 	{
 		static inline int apply(lua_State* L, int nret)
 		{
-			return ret(L, nret, boost::mpl::bool_<has_yield<Policies>::value>());
+			return ret(L, nret, boost_cryray::mpl::bool_<has_yield<Policies>::value>());
 		}
 
-		static inline int ret(lua_State* L, int nret, boost::mpl::bool_<true>)
+		static inline int ret(lua_State* L, int nret, boost_cryray::mpl::bool_<true>)
 		{
 			return lua_yield(L, nret);
 		}
 
-		static inline int ret(lua_State*, int nret, boost::mpl::bool_<false>)
+		static inline int ret(lua_State*, int nret, boost_cryray::mpl::bool_<false>)
 		{
 			return nret;
 		}
@@ -95,8 +95,8 @@ namespace luabind { namespace detail
 	template<class Class, class WrappedClass>
 	struct most_derived
 	{
-		typedef typename boost::mpl::if_<
-			boost::is_base_and_derived<Class, WrappedClass>
+		typedef typename boost_cryray::mpl::if_<
+			boost_cryray::is_base_and_derived<Class, WrappedClass>
 		  , WrappedClass
 		  , Class
 		>::type type;

@@ -13,7 +13,7 @@
 #include <boost/integer_fwd.hpp>  // self include
 
 #include <boost/config.hpp>   // for BOOST_STATIC_CONSTANT
-#include <boost/integer.hpp>  // for boost::uint_t
+#include <boost/integer.hpp>  // for boost_cryray::uint_t
 
 #include <climits>  // for UCHAR_MAX, etc.
 #include <cstddef>  // for std::size_t
@@ -21,7 +21,7 @@
 #include <boost/limits.hpp>  // for std::numeric_limits
 
 
-namespace boost
+namespace boost_cryray
 {
 
 
@@ -39,7 +39,7 @@ struct high_bit_mask_t
 
     BOOST_STATIC_CONSTANT( std::size_t, bit_position = Bit );
 
-};  // boost::high_bit_mask_t
+};  // boost_cryray::high_bit_mask_t
 
 
 //  Specified bit-block mask class declaration  ------------------------------//
@@ -57,7 +57,7 @@ struct low_bits_mask_t
 
     BOOST_STATIC_CONSTANT( std::size_t, bit_count = Bits );
 
-};  // boost::low_bits_mask_t
+};  // boost_cryray::low_bits_mask_t
 
 
 #define BOOST_LOW_BITS_MASK_SPECIALIZE( Type )                                  \
@@ -87,7 +87,7 @@ BOOST_LOW_BITS_MASK_SPECIALIZE( unsigned long );
 #undef BOOST_LOW_BITS_MASK_SPECIALIZE
 
 
-}  // namespace boost
+}  // namespace boost_cryray
 
 
 #endif  // BOOST_INTEGER_INTEGER_MASK_HPP

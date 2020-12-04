@@ -49,7 +49,7 @@
 
 #define SAW_SENTINAL -1
 
-namespace boost {
+namespace boost_cryray {
 
   template <class T1, class T2, class T3>
   struct triple {
@@ -161,7 +161,7 @@ namespace boost {
   class SAW_visitor
     : public bfs_visitor<>, public dfs_visitor<>
   {
-    typedef typename boost::property_traits<IteratorD>::value_type iter;
+    typedef typename boost_cryray::property_traits<IteratorD>::value_type iter;
     /*use boost shared_ptr*/
     typedef typename HList::element_type::value_type::second_type     Line;
   public:
@@ -190,7 +190,7 @@ namespace boost {
     template <class Edge, class Graph>
     bool tree_edge(Edge e, Graph& G) {
           using std::make_pair;
-      typedef typename boost::graph_traits<Graph>::vertex_descriptor Vertex;
+      typedef typename boost_cryray::graph_traits<Graph>::vertex_descriptor Vertex;
       Vertex tau = target(e, G);
       Vertex i   = source(e, G); 
 

@@ -77,7 +77,7 @@ extern "C" {
         // weight ==> Vertex::u.I
 }
 
-namespace boost {
+namespace boost_cryray {
   class sgb_edge;
 }
 
@@ -85,7 +85,7 @@ class sgb_out_edge_iterator;
 class sgb_adj_iterator;
 class sgb_vertex_iterator;
 
-namespace boost {
+namespace boost_cryray {
   typedef Graph* sgb_graph_ptr;
   typedef const Graph* sgb_const_graph_ptr;
 
@@ -96,7 +96,7 @@ namespace boost {
 
   template <> struct graph_traits<sgb_graph_ptr> {
     typedef Vertex* vertex_descriptor;
-    typedef boost::sgb_edge edge_descriptor;
+    typedef boost_cryray::sgb_edge edge_descriptor;
     typedef sgb_out_edge_iterator out_edge_iterator;
     typedef void in_edge_iterator;
     typedef sgb_adj_iterator adjacency_iterator;
@@ -111,7 +111,7 @@ namespace boost {
   };
   template <> struct graph_traits<sgb_const_graph_ptr> {
     typedef Vertex* vertex_descriptor;
-    typedef boost::sgb_edge edge_descriptor;
+    typedef boost_cryray::sgb_edge edge_descriptor;
     typedef sgb_out_edge_iterator out_edge_iterator;
     typedef void in_edge_iterator;
     typedef sgb_adj_iterator adjacency_iterator;
@@ -126,7 +126,7 @@ namespace boost {
   };
 }
 
-namespace boost {
+namespace boost_cryray {
 
   struct edge_length_t {
     typedef edge_property_tag kind;
@@ -157,18 +157,18 @@ namespace boost {
     Arc* _arc;
     Vertex* _src;
   };
-} // namespace boost
+} // namespace boost_cryray
 
   class sgb_out_edge_iterator
-    : public boost::forward_iterator_helper<
-        sgb_out_edge_iterator, boost::sgb_edge, 
-        std::ptrdiff_t, boost::sgb_edge*, boost::sgb_edge>
+    : public boost_cryray::forward_iterator_helper<
+        sgb_out_edge_iterator, boost_cryray::sgb_edge, 
+        std::ptrdiff_t, boost_cryray::sgb_edge*, boost_cryray::sgb_edge>
   {
     typedef sgb_out_edge_iterator self;
   public:
     sgb_out_edge_iterator() : _src(0), _arc(0) {}
     sgb_out_edge_iterator(Vertex* s, Arc* d) : _src(s), _arc(d) {}
-    boost::sgb_edge operator*() { return boost::sgb_edge(_arc, _src); }
+    boost_cryray::sgb_edge operator*() { return boost_cryray::sgb_edge(_arc, _src); }
     self& operator++() { _arc = _arc->next; return *this; }
     friend bool operator==(const self& x, const self& y) {
       return x._arc == y._arc; }
@@ -178,7 +178,7 @@ namespace boost {
   };
 
   class sgb_adj_iterator
-    : public boost::forward_iterator_helper<
+    : public boost_cryray::forward_iterator_helper<
         sgb_adj_iterator, Vertex*, std::ptrdiff_t, Vertex**,Vertex*>
   {
     typedef sgb_adj_iterator self;
@@ -198,7 +198,7 @@ namespace boost {
   // Vertex, which avoids problems with boost passing vertex descriptors
   // by value and how that interacts with the sgb_vertex_id_map.
   class sgb_vertex_iterator
-    : public boost::forward_iterator_helper<
+    : public boost_cryray::forward_iterator_helper<
         sgb_vertex_iterator, Vertex*, std::ptrdiff_t, Vertex**, Vertex*>
   {
     typedef sgb_vertex_iterator self;
@@ -213,7 +213,7 @@ namespace boost {
     Vertex* _v;
   };
 
-namespace boost {
+namespace boost_cryray {
 
   inline std::pair<sgb_vertex_iterator,sgb_vertex_iterator>
   vertices(sgb_const_graph_ptr g)
@@ -229,11 +229,11 @@ namespace boost {
                            sgb_out_edge_iterator(u, 0) );
   }
 
-  inline boost::graph_traits<sgb_graph_ptr>::degree_size_type
+  inline boost_cryray::graph_traits<sgb_graph_ptr>::degree_size_type
   out_degree(Vertex* u, sgb_const_graph_ptr g)
   {
-    boost::graph_traits<sgb_graph_ptr>::out_edge_iterator i, i_end;
-    boost::tie(i, i_end) = out_edges(u, g);
+    boost_cryray::graph_traits<sgb_graph_ptr>::out_edge_iterator i, i_end;
+    boost_cryray::tie(i, i_end) = out_edges(u, g);
     return std::distance(i, i_end);
   }
 
@@ -256,10 +256,10 @@ namespace boost {
 
   // Vertex ID
   class sgb_vertex_id_map
-    : public boost::put_get_helper<long, sgb_vertex_id_map>
+    : public boost_cryray::put_get_helper<long, sgb_vertex_id_map>
   {
   public:
-    typedef boost::readable_property_map_tag category;
+    typedef boost_cryray::readable_property_map_tag category;
     typedef long value_type;
     typedef long reference;
     typedef Vertex* key_type;
@@ -275,10 +275,10 @@ namespace boost {
 
   // Vertex Name  
   class sgb_vertex_name_map
-    : public boost::put_get_helper<char*, sgb_vertex_name_map>
+    : public boost_cryray::put_get_helper<char*, sgb_vertex_name_map>
   {
   public:
-    typedef boost::readable_property_map_tag category;
+    typedef boost_cryray::readable_property_map_tag category;
     typedef char* value_type;
     typedef char* reference;
     typedef Vertex* key_type;
@@ -332,10 +332,10 @@ namespace boost {
   // Vertex Utility Map
   template <class Tag, class Ref>
   class sgb_vertex_util_map
-    : public boost::put_get_helper<Ref, sgb_vertex_util_map<Tag, Ref> >
+    : public boost_cryray::put_get_helper<Ref, sgb_vertex_util_map<Tag, Ref> >
   {
   public:
-    typedef boost::lvalue_property_map_tag category;
+    typedef boost_cryray::lvalue_property_map_tag category;
     typedef typename Tag::type value_type;
     typedef Vertex* key_type;
     typedef Ref reference;
@@ -347,10 +347,10 @@ namespace boost {
   // Edge Utility Map
   template <class Tag, class Ref>
   class sgb_edge_util_map
-    : public boost::put_get_helper<Ref, sgb_edge_util_map<Tag, Ref> >
+    : public boost_cryray::put_get_helper<Ref, sgb_edge_util_map<Tag, Ref> >
   {
   public:
-    typedef boost::lvalue_property_map_tag category;
+    typedef boost_cryray::lvalue_property_map_tag category;
     typedef typename Tag::type value_type;
     typedef Vertex* key_type;
     typedef Ref reference;
@@ -388,10 +388,10 @@ namespace boost {
   // Edge Length Access
   template <class Ref>
   class sgb_edge_length_map
-    : public boost::put_get_helper<Ref, sgb_edge_length_map<Ref> >
+    : public boost_cryray::put_get_helper<Ref, sgb_edge_length_map<Ref> >
   {
   public:
-    typedef boost::lvalue_property_map_tag category;
+    typedef boost_cryray::lvalue_property_map_tag category;
     typedef long value_type;
     typedef sgb_edge key_type;
     typedef Ref reference;
@@ -576,6 +576,6 @@ namespace boost {
   SGB_UTIL_ACCESSOR(edge, a)
   SGB_UTIL_ACCESSOR(edge, b)
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_SGB_GRAPH_HPP

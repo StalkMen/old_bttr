@@ -12,7 +12,7 @@
 # include <boost/python/signature.hpp>
 # include <boost/python/arg_from_python.hpp>
 
-namespace boost { namespace python { namespace objects { 
+namespace boost_cryray { namespace python { namespace objects { 
 
 BOOST_PYTHON_DECL handle<> function_handle_impl(py_function const& f, unsigned min_args, unsigned max_args = 0);
 
@@ -39,6 +39,6 @@ handle<> make_function_handle(F f)
     return objects::function_handle(f, python::detail::get_signature(f));
 }
 
-}}} // namespace boost::python::objects
+}}} // namespace boost_cryray::python::objects
 
 #endif // FUNCTION_HANDLE_DWA2002725_HPP

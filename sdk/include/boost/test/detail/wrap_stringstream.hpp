@@ -24,7 +24,7 @@
 #include <sstream>          // for std::ostringstream
 #endif // BOOST_NO_STRINGSTREAM
 #include <string>           // std::string
-namespace boost {
+namespace boost_cryray {
 
 // ************************************************************************** //
 // **************               wrap_stringstream              ************** //
@@ -102,6 +102,6 @@ wrap_stringstream::str()
 
 //____________________________________________________________________________//
 
-}  // namespace boost
+}  // namespace boost_cryray
 
 #endif  // BOOST_WRAP_STRINGSTREAM_HPP

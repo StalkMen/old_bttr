@@ -16,7 +16,7 @@
 #include <boost/cstdint.hpp>
 #include <boost/thread/detail/config.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 enum
 {
@@ -49,7 +49,7 @@ inline int xtime_cmp(const xtime& xt1, const xtime& xt2)
     return res;
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 // Change Log:
 //   8 Feb 01  WEKEMPF Initial version.

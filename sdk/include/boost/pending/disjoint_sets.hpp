@@ -31,7 +31,7 @@
 #include <boost/graph/properties.hpp>
 #include <boost/pending/detail/disjoint_sets.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   struct find_with_path_halving {
     template <class ParentPA, class Vertex>
@@ -231,6 +231,6 @@ namespace boost {
     FindCompress rep;
   };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_DISJOINT_SETS_HPP

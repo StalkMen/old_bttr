@@ -8,7 +8,7 @@
  */
 
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
   //! An enumeration of weekday names

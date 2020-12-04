@@ -11,14 +11,14 @@
 #ifndef BOOST_NEXT_PRIOR_HPP_INCLUDED
 #define BOOST_NEXT_PRIOR_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 
 //  Helper functions for classes like bidirectional iterators not supporting
 //  operator+ and operator-
 //
 //  Usage:
 //    const std::list<T>::iterator p = get_some_iterator();
-//    const std::list<T>::iterator prev = boost::prior(p);
+//    const std::list<T>::iterator prev = boost_cryray::prior(p);
 
 //  Contributed by Dave Abrahams
 
@@ -28,6 +28,6 @@ inline T next(T x) { return ++x; }
 template <class T>
 inline T prior(T x) { return --x; }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // BOOST_NEXT_PRIOR_HPP_INCLUDED

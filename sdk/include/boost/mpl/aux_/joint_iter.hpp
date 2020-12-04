@@ -21,7 +21,7 @@
 #include "boost/mpl/aux_/config/ctps.hpp"
 #include "boost/type_traits/is_same.hpp"
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 namespace aux {
 
@@ -135,6 +135,6 @@ struct joint_iter
 
 BOOST_MPL_AUX_PASS_THROUGH_LAMBDA_SPEC(3, aux::joint_iter)
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #endif // BOOST_MPL_AUX_JOINT_ITER_HPP_INCLUDED

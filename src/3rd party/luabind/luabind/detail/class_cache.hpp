@@ -49,8 +49,8 @@ namespace luabind { namespace detail {
     template<class T>
     struct class_cache
         : class_cache_impl<
-              typename boost::add_reference<
-                  typename boost::add_const<
+              typename boost_cryray::add_reference<
+                  typename boost_cryray::add_const<
                       T
                   >::type
               >::type

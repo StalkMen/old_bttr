@@ -9,7 +9,7 @@
 #include <stdexcept>
 #include <string>
 
-namespace boost {
+namespace boost_cryray {
 namespace gregorian {
 
   //! Exception type for gregorian day of month (1..31)

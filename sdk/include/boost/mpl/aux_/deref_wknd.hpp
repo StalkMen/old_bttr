@@ -21,7 +21,7 @@
 
 #if defined(BOOST_MPL_MSVC_ETI_BUG)
 
-namespace boost { namespace mpl { namespace aux {
+namespace boost_cryray { namespace mpl { namespace aux {
 
 template< typename Iterator >
 struct deref_wknd
@@ -34,7 +34,7 @@ template<> struct deref_wknd<int>
     typedef int type;
 };
 
-}}} // namespace boost::mpl::aux
+}}} // namespace boost_cryray::mpl::aux
 
 #   define BOOST_MPL_AUX_DEREF_WNKD(iter) aux::deref_wknd<iter>::type
 

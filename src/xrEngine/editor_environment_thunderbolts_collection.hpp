@@ -32,7 +32,7 @@ class thunderbolt_id;
 class collection :
     public SThunderboltCollection,
     public editor::property_holder_holder,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 public:
     collection(manager const& manager, shared_str const& id);

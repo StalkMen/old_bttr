@@ -13,7 +13,7 @@
   reprsentations.
 */
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
   //!Defines some nice types for handling time level resolutions

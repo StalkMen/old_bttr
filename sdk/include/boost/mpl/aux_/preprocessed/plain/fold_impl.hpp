@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/aux_/fold_impl.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -173,5 +173,5 @@ struct fold_impl< -1,Last,Last,State,ForwardOp >
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

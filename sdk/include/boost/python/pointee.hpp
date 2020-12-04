@@ -9,7 +9,7 @@
 # include <boost/type_traits/object_traits.hpp>
 # include <boost/type_traits/remove_pointer.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace detail
 {
@@ -35,6 +35,6 @@ struct pointee
 {
 };
 
-}} // namespace boost::python::detail
+}} // namespace boost_cryray::python::detail
 
 #endif // POINTEE_DWA2002323_HPP

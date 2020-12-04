@@ -22,7 +22,7 @@
 // #include <iostream>
 #include <iosfwd>
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
 #ifdef BOOST_UBLAS_USE_BASIC_STREAM
 

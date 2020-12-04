@@ -34,13 +34,13 @@
 // except that some compilers erroneously allow conversions from
 // function pointers to void*.
 
-namespace boost {
+namespace boost_cryray {
 namespace detail {
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 template<bool is_ref = true>
 struct is_function_chooser
-    : ::boost::type_traits::false_result
+    : ::boost_cryray::type_traits::false_result
 {
 };
 
@@ -48,14 +48,14 @@ template <>
 struct is_function_chooser<false>
 {
     template< typename T > struct result_
-        : ::boost::type_traits::is_function_ptr_helper<T*>
+        : ::boost_cryray::type_traits::is_function_ptr_helper<T*>
     {
     };
 };
 
 template <typename T>
 struct is_function_impl
-    : is_function_chooser< ::boost::is_reference<T>::value >
+    : is_function_chooser< ::boost_cryray::is_reference<T>::value >
         ::template result_<T>
 {
 };
@@ -67,8 +67,8 @@ struct is_function_impl
 {
     static T* t;
     BOOST_STATIC_CONSTANT(
-        bool, value = sizeof(::boost::type_traits::is_function_ptr_tester(t))
-        == sizeof(::boost::type_traits::yes_type)
+        bool, value = sizeof(::boost_cryray::type_traits::is_function_ptr_tester(t))
+        == sizeof(::boost_cryray::type_traits::yes_type)
         );
 };
 
@@ -76,9 +76,9 @@ struct is_function_impl
 
 } // namespace detail
 
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_function,T,::boost::detail::is_function_impl<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_function,T,::boost_cryray::detail::is_function_impl<T>::value)
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

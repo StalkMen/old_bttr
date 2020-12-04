@@ -28,7 +28,7 @@
 #include <boost/mpl/next.hpp>
 #include <boost/mpl/apply.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace detail
 {
@@ -113,13 +113,13 @@ namespace detail
       }
   };
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 
 #define BOOST_PYTHON_TYPEDEF_GEN(z, index, data)                                \
-    typedef typename ::boost::mpl::next<BOOST_PP_CAT(iter, index)>::type        \
+    typedef typename ::boost_cryray::mpl::next<BOOST_PP_CAT(iter, index)>::type        \
         BOOST_PP_CAT(iter, BOOST_PP_INC(index));                                \
-    typedef typename ::boost::mpl::apply0<BOOST_PP_CAT(iter, index)>::type      \
+    typedef typename ::boost_cryray::mpl::apply0<BOOST_PP_CAT(iter, index)>::type      \
         BOOST_PP_CAT(T, index);
 
 #define BOOST_PYTHON_FUNC_WRAPPER_GEN(z, index, data)                   \
@@ -144,9 +144,9 @@ namespace detail
         template <typename SigT>                                                \
         struct gen                                                              \
         {                                                                       \
-            typedef typename ::boost::mpl::begin<SigT>::type rt_iter;           \
-            typedef typename ::boost::mpl::apply0<rt_iter>::type RT;            \
-            typedef typename ::boost::mpl::next<rt_iter>::type iter0;           \
+            typedef typename ::boost_cryray::mpl::begin<SigT>::type rt_iter;           \
+            typedef typename ::boost_cryray::mpl::apply0<rt_iter>::type RT;            \
+            typedef typename ::boost_cryray::mpl::next<rt_iter>::type iter0;           \
                                                                                 \
             BOOST_PP_REPEAT_2ND(                                                \
                 n_args,                                                         \
@@ -183,12 +183,12 @@ namespace detail
         template <typename SigT>                                                \
         struct gen                                                              \
         {                                                                       \
-            typedef typename ::boost::mpl::begin<SigT>::type rt_iter;           \
-            typedef typename ::boost::mpl::apply0<rt_iter>::type RT;            \
+            typedef typename ::boost_cryray::mpl::begin<SigT>::type rt_iter;           \
+            typedef typename ::boost_cryray::mpl::apply0<rt_iter>::type RT;            \
                                                                                 \
-            typedef typename ::boost::mpl::next<rt_iter>::type class_iter;      \
-            typedef typename ::boost::mpl::apply0<class_iter>::type ClassT;     \
-            typedef typename ::boost::mpl::next<class_iter>::type iter0;        \
+            typedef typename ::boost_cryray::mpl::next<rt_iter>::type class_iter;      \
+            typedef typename ::boost_cryray::mpl::apply0<class_iter>::type ClassT;     \
+            typedef typename ::boost_cryray::mpl::next<class_iter>::type iter0;        \
                                                                                 \
             BOOST_PP_REPEAT_2ND(                                                \
                 n_args,                                                         \
@@ -205,22 +205,22 @@ namespace detail
 
 #define BOOST_PYTHON_OVERLOAD_CONSTRUCTORS(fstubs_name, n_args, n_dflts)        \
     fstubs_name(char const* doc = 0)                                            \
-        : ::boost::python::detail::overloads_common<fstubs_name>(doc) {}        \
+        : ::boost_cryray::python::detail::overloads_common<fstubs_name>(doc) {}        \
     template <class Keywords>                                                   \
     fstubs_name(char const* doc, Keywords const& keywords)                      \
-        : ::boost::python::detail::overloads_common<fstubs_name>(               \
+        : ::boost_cryray::python::detail::overloads_common<fstubs_name>(               \
             doc, keywords.range())                                              \
     {                                                                           \
-        typedef typename ::boost::python::detail::                              \
+        typedef typename ::boost_cryray::python::detail::                              \
             error::more_keywords_than_function_arguments<                       \
                 Keywords::size,n_args>::too_many_keywords assertion;            \
     }                                                                           \
     template <class Keywords>                                                   \
     fstubs_name(Keywords const& keywords, char const* doc = 0)                  \
-        : ::boost::python::detail::overloads_common<fstubs_name>(               \
+        : ::boost_cryray::python::detail::overloads_common<fstubs_name>(               \
             doc, keywords.range())                                              \
     {                                                                           \
-        typedef typename ::boost::python::detail::                              \
+        typedef typename ::boost_cryray::python::detail::                              \
             error::more_keywords_than_function_arguments<                       \
                 Keywords::size,n_args>::too_many_keywords assertion;            \
     }
@@ -229,7 +229,7 @@ namespace detail
 
 #  define BOOST_PYTHON_GEN_FUNCTION_STUB(fname, fstubs_name, n_args, n_dflts)   \
     struct fstubs_name                                                          \
-        : public ::boost::python::detail::overloads_common<fstubs_name>         \
+        : public ::boost_cryray::python::detail::overloads_common<fstubs_name>         \
     {                                                                           \
         BOOST_PYTHON_GEN_FUNCTION(                                              \
             fname, non_void_return_type, n_args, n_dflts, return)               \
@@ -241,7 +241,7 @@ namespace detail
 
 #  define BOOST_PYTHON_GEN_MEM_FUNCTION_STUB(fname, fstubs_name, n_args, n_dflts)       \
     struct fstubs_name                                                                  \
-        : public ::boost::python::detail::overloads_common<fstubs_name>                 \
+        : public ::boost_cryray::python::detail::overloads_common<fstubs_name>                 \
     {                                                                                   \
         BOOST_PYTHON_GEN_MEM_FUNCTION(                                                  \
             fname, non_void_return_type, n_args, n_dflts, return)                       \
@@ -255,7 +255,7 @@ namespace detail
 
 #  define BOOST_PYTHON_GEN_FUNCTION_STUB(fname, fstubs_name, n_args, n_dflts)   \
     struct fstubs_name                                                          \
-        : public ::boost::python::detail::overloads_common<fstubs_name>         \
+        : public ::boost_cryray::python::detail::overloads_common<fstubs_name>         \
     {                                                                           \
         BOOST_PYTHON_GEN_FUNCTION(                                              \
             fname, non_void_return_type, n_args, n_dflts, return)               \
@@ -267,7 +267,7 @@ namespace detail
 
 #  define BOOST_PYTHON_GEN_MEM_FUNCTION_STUB(fname, fstubs_name, n_args, n_dflts)       \
     struct fstubs_name                                                                  \
-        : public ::boost::python::detail::overloads_common<fstubs_name>                 \
+        : public ::boost_cryray::python::detail::overloads_common<fstubs_name>                 \
     {                                                                                   \
         BOOST_PYTHON_GEN_MEM_FUNCTION(                                                  \
             fname, non_void_return_type, n_args, n_dflts, return)                       \
@@ -315,7 +315,7 @@ namespace detail
 //          template <typename SigT>
 //          struct gen
 //          {
-//              typedef typename ::boost::mpl::begin<SigT>::type    rt_iter;
+//              typedef typename ::boost_cryray::mpl::begin<SigT>::type    rt_iter;
 //              typedef typename rt_iter::type                      RT;
 //              typedef typename rt_iter::next                      iter0;
 //              typedef typename iter0::type                        T0;
@@ -342,13 +342,13 @@ namespace detail
 //      };
 //
 //      struct foo_overloads
-//          : public boost::python::detail::overloads_common<foo_overloads>
+//          : public boost_cryray::python::detail::overloads_common<foo_overloads>
 //      {
 //          typedef foo_overloadsNonVoid    non_void_return_type;
 //          typedef foo_overloadsNonVoid    void_return_type;
 //
 //          foo_overloads(char const* doc = 0)
-//             : boost::python::detail::overloads_common<foo_overloads>(doc) {}
+//             : boost_cryray::python::detail::overloads_common<foo_overloads>(doc) {}
 //      };
 //
 //      The typedefs non_void_return_type and void_return_type are

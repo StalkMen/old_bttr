@@ -26,7 +26,7 @@ namespace suns
 
 class manager;
 
-class gradient : private boost::noncopyable
+class gradient : private boost_cryray::noncopyable
 {
 public:
     gradient();

@@ -19,7 +19,7 @@
 #include "boost/spirit/core/non_terminal/parser_id.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     namespace impl
     {
@@ -43,7 +43,7 @@ namespace boost { namespace spirit {
     //      identification.
     //
     //      The definition of the rule (its right hand side, RHS) held by the
-    //      rule through a ::boost::scoped_ptr. When a rule is seen in the
+    //      rule through a ::boost_cryray::scoped_ptr. When a rule is seen in the
     //      the RHS of an assignment or copy construction EBNF expression,
     //      the rule is held by the LHS rule by reference.
     //
@@ -105,11 +105,11 @@ namespace boost { namespace spirit {
     private:
 
         typedef impl::abstract_parser<ScannerT, result_t> abstract_parser_t;
-        ::boost::scoped_ptr<abstract_parser_t> ptr;
+        ::boost_cryray::scoped_ptr<abstract_parser_t> ptr;
     };
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #include "boost/spirit/core/non_terminal/impl/rule.ipp"
 #endif

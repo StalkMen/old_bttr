@@ -12,7 +12,7 @@
 #if !defined(BOOST_SPIRIT_SUBRULE_IPP)
 #define BOOST_SPIRIT_SUBRULE_IPP
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     template <typename FirstT, typename RestT>
     struct subrule_list;
@@ -133,7 +133,7 @@ namespace boost { namespace spirit {
         //  otherwise it is equal to the dictated return value.
 
             typedef typename mpl::if_<
-                boost::is_same<T1, nil_t>, T2, T1
+                boost_cryray::is_same<T1, nil_t>, T2, T1
             >::type type;
         };
 
@@ -201,7 +201,7 @@ namespace boost { namespace spirit {
             }
         };
 
-}}} // namespace boost::spirit::impl
+}}} // namespace boost_cryray::spirit::impl
 
 #endif
 

@@ -15,7 +15,7 @@
 
 #include <boost/pool/poolfwd.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 template <typename SizeType>
 class simple_segregated_storage
@@ -261,6 +261,6 @@ void * simple_segregated_storage<SizeType>::malloc_n(const size_type n,
   return ret;
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

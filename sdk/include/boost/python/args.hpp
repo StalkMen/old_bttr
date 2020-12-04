@@ -27,7 +27,7 @@
 # include <cstddef>
 
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace detail
 {
@@ -106,7 +106,7 @@ inline detail::keywords<n> args(BOOST_PP_ENUM_PARAMS_Z(1, n, char const* name)) 
 #  define BOOST_PP_LOCAL_LIMITS (1, BOOST_PYTHON_MAX_ARITY)
 #  include BOOST_PP_LOCAL_ITERATE()
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 
 # endif // KEYWORDS_DWA2002323_HPP

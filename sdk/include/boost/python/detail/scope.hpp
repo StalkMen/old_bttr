@@ -8,10 +8,10 @@
 
 # include <boost/python/detail/config.hpp>
 
-namespace boost { namespace python { namespace detail {
+namespace boost_cryray { namespace python { namespace detail {
 
 void BOOST_PYTHON_DECL scope_setattr_doc(char const* name, object const& obj, char const* doc);
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // SCOPE_DWA2002927_HPP

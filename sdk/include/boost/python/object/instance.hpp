@@ -10,12 +10,12 @@
 # include <boost/type_traits/alignment_traits.hpp>
 # include <cstddef>
 
-namespace boost { namespace python
+namespace boost_cryray { namespace python
 {
   struct BOOST_PYTHON_DECL instance_holder;
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
-namespace boost { namespace python { namespace objects { 
+namespace boost_cryray { namespace python { namespace objects { 
 
 // Each extension instance will be one of these
 template <class Data = char>
@@ -46,6 +46,6 @@ struct additional_instance_size
                            - BOOST_PYTHON_OFFSETOF(instance_char,storage));
 };
 
-}}} // namespace boost::python::object
+}}} // namespace boost_cryray::python::object
 
 #endif // INSTANCE_DWA200295_HPP

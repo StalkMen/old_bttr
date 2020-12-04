@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/apply.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 namespace aux {
@@ -269,5 +269,5 @@ struct apply
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

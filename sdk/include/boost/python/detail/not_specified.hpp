@@ -6,10 +6,10 @@
 #ifndef NOT_SPECIFIED_DWA2002321_HPP
 # define NOT_SPECIFIED_DWA2002321_HPP
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
   struct not_specified {};
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // NOT_SPECIFIED_DWA2002321_HPP

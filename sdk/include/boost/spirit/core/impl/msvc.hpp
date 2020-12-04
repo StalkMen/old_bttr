@@ -17,7 +17,7 @@
     || (defined(BOOST_INTEL_CXX_VERSION) && !defined(_STLPORT_VERSION))
 #include <iterator>
 
-namespace boost { namespace spirit { namespace impl {
+namespace boost_cryray { namespace spirit { namespace impl {
 
  #if !defined(BOOST_INTEL_CXX_VERSION)
 
@@ -30,7 +30,7 @@ namespace boost { namespace spirit { namespace impl {
 
         // warning: not a well-formed C++
         // workaround for MSVC 6.5's "dependent template typedef bug"
-        // workaround by Aleksey Gurtovoy (from boost::mpl library)
+        // workaround by Aleksey Gurtovoy (from boost_cryray::mpl library)
 
         //////////////////////////////////
     #define BOOST_SPIRIT_DEPENDENT_TEMPLATE_WRAPPER(name, templ)            \
@@ -407,7 +407,7 @@ struct is_msvc_70_ETI_arg<int>
             typedef ptrdiff_t       difference_type;
         };
 
-}}} // namespace boost::spirit::impl
+}}} // namespace boost_cryray::spirit::impl
 
 #endif
 #endif

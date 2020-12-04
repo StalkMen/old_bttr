@@ -14,7 +14,7 @@
 # include <boost/python/type_id.hpp>
 # include <cstddef>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace objects { 
 
@@ -56,6 +56,6 @@ struct BOOST_PYTHON_DECL class_base : python::api::object
     void make_method_static(const char *method_name);
 };
 
-}}} // namespace boost::python::objects
+}}} // namespace boost_cryray::python::objects
 
 #endif // CLASS_DWA20011214_HPP

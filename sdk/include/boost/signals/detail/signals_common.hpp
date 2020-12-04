@@ -48,8 +48,8 @@
 #include <boost/type_traits/conversion_traits.hpp>
 #include <boost/ref.hpp>
 
-namespace boost {
-  namespace BOOST_SIGNALS_NAMESPACE {
+namespace boost_cryray {
+  namespace boost_cryray_SIGNALS_NAMESPACE {
     namespace detail {
       // The unusable class is a placeholder for unused function arguments
       // It is also completely unusable except that it constructable from
@@ -178,7 +178,7 @@ namespace boost {
       class bound_objects_visitor;
       class slot_base;
     } // end namespace detail
-  } // end namespace BOOST_SIGNALS_NAMESPACE
-} // end namespace boost
+  } // end namespace boost_cryray_SIGNALS_NAMESPACE
+} // end namespace boost_cryray
 
 #endif // BOOST_SIGNALS_COMMON_HEADER

@@ -19,7 +19,7 @@
 #include "boost/array.hpp"
 #include <algorithm>
 
-namespace boost {
+namespace boost_cryray {
 namespace detail {
 namespace multi_array {
 
@@ -27,8 +27,8 @@ namespace multi_array {
 template <std::size_t NumRanges>
 class extent_gen {
 public:
-  typedef boost::detail::multi_array::index index;
-  typedef boost::detail::multi_array::size_type size_type;
+  typedef boost_cryray::detail::multi_array::index index;
+  typedef boost_cryray::detail::multi_array::size_type size_type;
 private:
   typedef extent_range<index,size_type> range;
   typedef typename range_list_generator<range,NumRanges>::type range_list;
@@ -69,7 +69,7 @@ public:
 
 } // namespace multi_array
 } // namespace detail
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_EXTENT_GEN_RG071801_HPP

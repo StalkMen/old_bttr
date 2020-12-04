@@ -31,7 +31,7 @@ namespace ambients
 
 class sound_id :
     public editor::property_holder_holder,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 public:
     sound_id(sound_channels::manager const& manager, shared_str const& sound);

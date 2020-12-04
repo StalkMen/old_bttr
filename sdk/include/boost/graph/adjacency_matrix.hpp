@@ -41,7 +41,7 @@
 #include <boost/graph/properties.hpp>
 #include <boost/tuple/tuple.hpp>
 
-namespace boost {
+namespace boost_cryray {
   
   namespace detail {
 
@@ -244,9 +244,9 @@ namespace boost {
     typedef typename Directed::is_bidir_t is_bidir;
     typedef typename Directed::is_directed_t is_directed;
   public:
-    typedef typename boost::ct_if_t<is_bidir,
+    typedef typename boost_cryray::ct_if_t<is_bidir,
       bidirectional_tag,
-      typename boost::ct_if_t<is_directed,
+      typename boost_cryray::ct_if_t<is_directed,
         directed_tag, undirected_tag
       >::type
     >::type directed_category;
@@ -506,7 +506,7 @@ namespace boost {
       Graph& g = const_cast<Graph&>(cg);
       typedef typename Graph::adjacency_iterator adjacency_iterator;
       typename Graph::out_edge_iterator first, last;
-      boost::tie(first, last) = out_edges(u, g);
+      boost_cryray::tie(first, last) = out_edges(u, g);
       return std::make_pair(adjacency_iterator(first, &g),
                             adjacency_iterator(last, &g));
   }
@@ -684,7 +684,7 @@ namespace boost {
     typedef T value_type;
     typedef R reference;
     typedef Vertex key_type;
-    typedef boost::lvalue_property_map_tag category;
+    typedef boost_cryray::lvalue_property_map_tag category;
     adj_matrix_vertex_property_map() { }
     adj_matrix_vertex_property_map(GraphPtr g) : m_g(g) { }
     inline reference operator[](key_type v) const {
@@ -695,13 +695,13 @@ namespace boost {
 
   template <class Property, class Vertex>
   struct adj_matrix_vertex_id_map
-    : public boost::put_get_helper<Vertex,
+    : public boost_cryray::put_get_helper<Vertex,
         adj_matrix_vertex_id_map<Property, Vertex> >
   {
     typedef Vertex value_type;
     typedef Vertex reference;
     typedef Vertex key_type;
-    typedef boost::readable_property_map_tag category;
+    typedef boost_cryray::readable_property_map_tag category;
      adj_matrix_vertex_id_map() { }
     template <class Graph>
     inline adj_matrix_vertex_id_map(const Graph&) { }
@@ -714,7 +714,7 @@ namespace boost {
       template <class Tag, class Graph, class Property>
       struct bind_ {
         typedef typename property_value<Property,Tag>::type Value;
-        typedef typename boost::graph_traits<Graph>::vertex_descriptor Vertex;
+        typedef typename boost_cryray::graph_traits<Graph>::vertex_descriptor Vertex;
         
         typedef adj_matrix_vertex_property_map<Graph*, Vertex, Value, Value&,
           Tag> type;
@@ -778,7 +778,7 @@ namespace boost {
     typedef T value_type;
     typedef R reference;
     typedef detail::matrix_edge_desc_impl<Directed, Vertex> key_type;
-    typedef boost::lvalue_property_map_tag category;
+    typedef boost_cryray::lvalue_property_map_tag category;
     inline reference operator[](key_type e) const {
       Property& p = *(Property*)e.get_property();
       return get_property_value(p, Tag());
@@ -807,47 +807,47 @@ namespace boost {
 
     template <typename Property, typename D, typename VP, typename EP, 
               typename GP, typename A>
-    typename boost::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
+    typename boost_cryray::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
       Property>::type
     get_dispatch(adjacency_matrix<D,VP,EP,GP,A>& g, Property,
                  vertex_property_tag)
     {
       typedef adjacency_matrix<D,VP,EP,GP,A> Graph;
-      typedef typename boost::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
+      typedef typename boost_cryray::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
         Property>::type PA;
       return PA(&g);
     }
     template <typename Property, typename D, typename VP, typename EP, 
               typename GP, typename A>
-    typename boost::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
+    typename boost_cryray::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
       Property>::type
     get_dispatch(adjacency_matrix<D,VP,EP,GP,A>& g, Property,
                  edge_property_tag)
     {
-      typedef typename boost::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
+      typedef typename boost_cryray::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
         Property>::type PA;
       return PA();
     }
     template <typename Property, typename D, typename VP, typename EP, 
               typename GP, typename A>
-    typename boost::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
+    typename boost_cryray::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
       Property>::const_type
     get_dispatch(const adjacency_matrix<D,VP,EP,GP,A>& g, Property,
                  vertex_property_tag)
     {
       typedef adjacency_matrix<D,VP,EP,GP,A> Graph;
-      typedef typename boost::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
+      typedef typename boost_cryray::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
         Property>::const_type PA;
       return PA(&g);
     }
     template <typename Property, typename D, typename VP, typename EP, 
               typename GP, typename A>
-    typename boost::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
+    typename boost_cryray::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
       Property>::const_type
     get_dispatch(const adjacency_matrix<D,VP,EP,GP,A>& g, Property,
                  edge_property_tag)
     {
-      typedef typename boost::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
+      typedef typename boost_cryray::property_map<adjacency_matrix<D,VP,EP,GP,A>, 
         Property>::const_type PA;
       return PA();
     }
@@ -893,7 +893,7 @@ namespace boost {
       const Key& key, const Value& value)
   {
     typedef adjacency_matrix<D,VP,EP,GP,A> Graph;
-    typedef typename boost::property_map<Graph, Property>::type Map;
+    typedef typename boost_cryray::property_map<Graph, Property>::type Map;
     Map pmap = get(p, g);
     put(pmap, key, value);
   }
@@ -910,6 +910,6 @@ namespace boost {
   }
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_ADJACENCY_MATRIX_HPP

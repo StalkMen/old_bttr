@@ -13,11 +13,11 @@
 # include <boost/python/object_operators.hpp>
 # include <boost/python/converter/arg_to_python.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
     
   class type_; // XXX temporary work-around
   class string;
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // OBJECT_DWA2002612_HPP

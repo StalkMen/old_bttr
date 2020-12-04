@@ -27,7 +27,7 @@
 #include <boost/static_assert.hpp>
 #include <boost/random/uniform_01.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 // exponential distribution: p(x) = lambda * exp(-lambda * x)
 template<class UniformRandomNumberGenerator, class RealType = double,
@@ -94,6 +94,6 @@ private:
   result_type _lambda;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_EXPONENTIAL_DISTRIBUTION_HPP

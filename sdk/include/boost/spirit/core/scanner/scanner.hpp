@@ -46,7 +46,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -240,7 +240,7 @@ public:
         value_t;
     typedef typename BOOST_SPIRIT_IT_NS::iterator_traits<IteratorT>::reference
         ref_t;
-    typedef typename boost::call_traits<IteratorT>::param_type
+    typedef typename boost_cryray::call_traits<IteratorT>::param_type
         iter_param_t;
 
     scanner(
@@ -364,7 +364,7 @@ struct rebind_scanner_iterator
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 #undef BOOST_SPIRIT_IT_NS

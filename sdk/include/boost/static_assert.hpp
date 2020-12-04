@@ -23,7 +23,7 @@
 #define BOOST_BUGGY_INTEGRAL_CONSTANT_EXPRESSIONS
 #endif
 
-namespace boost{
+namespace boost_cryray{
 
 // HP aCC cannot deal with missing names for template value parameters
 template <bool x> struct STATIC_ASSERTION_FAILURE;
@@ -63,20 +63,20 @@ template<int x> struct static_assert_test{};
 // __LINE__ macro broken when -ZI is used see Q199057
 // fortunately MSVC ignores duplicate typedef's.
 #define BOOST_STATIC_ASSERT( B ) \
-   typedef ::boost::static_assert_test<\
-      sizeof(::boost::STATIC_ASSERTION_FAILURE< (bool)( B ) >)\
+   typedef ::boost_cryray::static_assert_test<\
+      sizeof(::boost_cryray::STATIC_ASSERTION_FAILURE< (bool)( B ) >)\
       > boost_static_assert_typedef_
 #elif defined(BOOST_INTEL_CXX_VERSION)
 // agurt 15/sep/02: a special care is needed to force Intel C++ issue an error 
 // instead of warning in case of failure
 # define BOOST_STATIC_ASSERT( B ) \
     typedef char BOOST_JOIN(boost_static_assert_typedef_, __LINE__) \
-        [ ::boost::STATIC_ASSERTION_FAILURE< (bool)( B ) >::value ]
+        [ ::boost_cryray::STATIC_ASSERTION_FAILURE< (bool)( B ) >::value ]
 #else
 // generic version
 #define BOOST_STATIC_ASSERT( B ) \
-   typedef ::boost::static_assert_test<\
-      sizeof(::boost::STATIC_ASSERTION_FAILURE< (bool)( B ) >)>\
+   typedef ::boost_cryray::static_assert_test<\
+      sizeof(::boost_cryray::STATIC_ASSERTION_FAILURE< (bool)( B ) >)>\
          BOOST_JOIN(boost_static_assert_typedef_, __LINE__)
 #endif
 
@@ -84,7 +84,7 @@ template<int x> struct static_assert_test{};
 // alternative enum based implementation:
 #define BOOST_STATIC_ASSERT( B ) \
    enum { BOOST_JOIN(boost_static_assert_enum_, __LINE__) \
-      = sizeof(::boost::STATIC_ASSERTION_FAILURE< (bool)( B ) >) }
+      = sizeof(::boost_cryray::STATIC_ASSERTION_FAILURE< (bool)( B ) >) }
 #endif
 
 

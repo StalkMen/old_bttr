@@ -24,7 +24,7 @@ namespace transitions {
 
 class description : 
 	private debug::make_final<description>, 
-	private boost::noncopyable, 
+	private boost_cryray::noncopyable, 
 	public  detail::intrusive_base_time
 {
 public:

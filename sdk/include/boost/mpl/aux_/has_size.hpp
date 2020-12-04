@@ -19,7 +19,7 @@
 
 #include "boost/mpl/aux_/has_xxx.hpp"
 
-namespace boost { namespace mpl { namespace aux {
+namespace boost_cryray { namespace mpl { namespace aux {
 BOOST_MPL_HAS_XXX_TRAIT_DEF(size)
 }}}
 

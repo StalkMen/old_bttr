@@ -7,7 +7,7 @@
 # define AS_TO_PYTHON_FUNCTION_DWA2002121_HPP
 # include <boost/python/converter/to_python_function_type.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 // Given a typesafe to_python conversion function, produces a
 // to_python_function_t which can be registered in the usual way.
@@ -45,6 +45,6 @@ struct as_to_python_function
     }
 };
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // AS_TO_PYTHON_FUNCTION_DWA2002121_HPP

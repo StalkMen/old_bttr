@@ -20,7 +20,7 @@
 #include "boost/mpl/apply.hpp"
 #include "boost/mpl/aux_/lambda_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -45,6 +45,6 @@ struct copy_op
 BOOST_MPL_AUX_PASS_THROUGH_LAMBDA_SPEC(1,aux::copy_op)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_COPY_OP_HPP_INCLUDED

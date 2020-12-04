@@ -10,7 +10,7 @@
 # include <boost/python/detail/indirect_traits.hpp>
 # include <boost/type_traits/object_traits.hpp>
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 template <class Generator, class U>
 inline typename Generator::result_type
@@ -133,7 +133,7 @@ struct unwind_helper2<reference_to_pointer_>
 // why bother?
 template <class Generator, class U>
 inline typename Generator::result_type
-unwind_type(boost::type<U>*p = 0, Generator* = 0)
+unwind_type(boost_cryray::type<U>*p = 0, Generator* = 0)
 {
     BOOST_STATIC_CONSTANT(int, indirection
                           = (is_pointer<U>::value ? pointer_ : 0)
@@ -146,6 +146,6 @@ unwind_type(boost::type<U>*p = 0, Generator* = 0)
     return unwind_helper2<indirection>::execute((U(*)())0,(Generator*)0);
 }
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // UNWIND_TYPE_DWA200222_HPP

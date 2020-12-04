@@ -31,7 +31,7 @@
 #   include <Multiprocessing.h>
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
 struct xtime;
 
@@ -80,11 +80,11 @@ private:
     mutex m_mutex;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 // Change Log:
 //    8 Feb 01  WEKEMPF Initial version.
-//    1 Jun 01  WEKEMPF Added boost::thread initial implementation.
-//    3 Jul 01  WEKEMPF Redesigned boost::thread to be noncopyable.
+//    1 Jun 01  WEKEMPF Added boost_cryray::thread initial implementation.
+//    3 Jul 01  WEKEMPF Redesigned boost_cryray::thread to be noncopyable.
 
 #endif // BOOST_THREAD_WEK070601_HPP

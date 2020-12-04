@@ -8,7 +8,7 @@
 #include "boost/date_time/posix_time/posix_time_system.hpp"
 #include "boost/date_time/time.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 namespace posix_time {
   

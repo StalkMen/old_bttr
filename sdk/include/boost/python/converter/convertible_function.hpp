@@ -6,10 +6,10 @@
 #ifndef CONVERTIBLE_FUNCTION_DWA200278_HPP
 # define CONVERTIBLE_FUNCTION_DWA200278_HPP
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 typedef void* (*convertible_function)(PyObject*);
     
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // CONVERTIBLE_FUNCTION_DWA200278_HPP

@@ -12,7 +12,7 @@
 // arg_from_python converters for Python type wrappers, to be used as
 // base classes for specializations.
 //
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 template <PyTypeObject* python_type>
 struct pytype_arg_from_python
@@ -94,6 +94,6 @@ Wrapper& pytype_wrapper_ref_arg_from_python<Wrapper,python_type>::operator()(
     return m_result;
 }
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // PYTYPE_ARG_FROM_PYTHON_DWA2002628_HPP

@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/quote.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename T, bool has_type_ = aux::has_type<T>::value >
@@ -94,5 +94,5 @@ struct quote5
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

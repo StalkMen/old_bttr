@@ -32,7 +32,7 @@
 #include "boost/spirit/core/primitives/impl/primitives.ipp"
 #endif
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -182,7 +182,7 @@ namespace boost { namespace spirit {
         typename parser_result<self_t, ScannerT>::type
         parse(ScannerT const& scan) const
         {
-            typedef typename boost::unwrap_reference<IteratorT>::type striter_t;
+            typedef typename boost_cryray::unwrap_reference<IteratorT>::type striter_t;
             typedef typename parser_result<self_t, ScannerT>::type result_t;
             return impl::string_parser_parse<result_t>(
                 striter_t(first),
@@ -573,6 +573,6 @@ namespace boost { namespace spirit {
     pizza_p(char const* your_favorite_pizza)
     { return your_favorite_pizza; }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif

@@ -28,7 +28,7 @@
 #include <boost/static_assert.hpp>
 #include <boost/random/uniform_01.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 // uniform distribution on a real range
 template<class UniformRandomNumberGenerator, class RealType = double,
@@ -99,6 +99,6 @@ template<class UniformRandomNumberGenerator, class RealType, class Adaptor>
 const bool uniform_real<UniformRandomNumberGenerator, RealType, Adaptor>::has_fixed_range;
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_UNIFORM_REAL_HPP

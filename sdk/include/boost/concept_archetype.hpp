@@ -19,7 +19,7 @@
 #include <boost/iterator.hpp>
 #include <functional>
 
-namespace boost {
+namespace boost_cryray {
 
   //===========================================================================
   // Basic Archetype Classes
@@ -424,19 +424,19 @@ namespace boost {
     bool operator!=(const self&) const { return true; }
     input_proxy<T> operator*() const { return input_proxy<T>(); }
   };
-} // namespace boost
+} // namespace boost_cryray
 
 #if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) && !defined(BOOST_NO_STD_ITERATOR_TRAITS)
 namespace std {
   template <class T>
-  struct iterator_traits< boost::trivial_iterator_archetype<T> >
+  struct iterator_traits< boost_cryray::trivial_iterator_archetype<T> >
   {
     typedef T value_type;
   };
 }
 #endif
 
-namespace boost {
+namespace boost_cryray {
   template <class T>
   struct input_output_proxy {
     input_output_proxy<T>& operator=(const T&) { return *this; }
@@ -460,19 +460,19 @@ namespace boost {
     bool operator!=(const self&) const { return true; }
     input_output_proxy<T> operator*() const { return input_output_proxy<T>(); }
   };
-} // namespace boost
+} // namespace boost_cryray
 
 #if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) && !defined(BOOST_NO_STD_ITERATOR_TRAITS)
 namespace std {
   template <class T>
-  struct iterator_traits< boost::mutable_trivial_iterator_archetype<T> >
+  struct iterator_traits< boost_cryray::mutable_trivial_iterator_archetype<T> >
   {
     typedef T value_type;
   };
 }
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
   template <class T>
   class input_iterator_archetype
@@ -686,6 +686,6 @@ namespace boost {
      const mutable_random_access_iterator_archetype<T>& x) 
     { return x; }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_CONCEPT_ARCHETYPES_H

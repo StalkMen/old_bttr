@@ -21,7 +21,7 @@
 #include "boost/mpl/equal_to.hpp"
 #include "boost/mpl/aux_/range_c/tag.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<>
@@ -37,6 +37,6 @@ struct empty_traits< aux::half_open_range_tag >
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_RANGE_C_EMPTY_HPP_INCLUDED

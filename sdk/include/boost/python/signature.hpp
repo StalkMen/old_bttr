@@ -30,7 +30,7 @@
    BOOST_PP_CAT(mpl::list, BOOST_PP_INC(n))
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace python { namespace detail {
+namespace boost_cryray { namespace python { namespace detail {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -68,7 +68,7 @@ namespace boost { namespace python { namespace detail {
 
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 
 # undef BOOST_PYTHON_LIST_INC

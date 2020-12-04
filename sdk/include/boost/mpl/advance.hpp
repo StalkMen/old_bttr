@@ -33,7 +33,7 @@
 #include "boost/mpl/aux_/config/nttp.hpp"
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 BOOST_MPL_AUX_COMMON_NAME_WKND(advance)
@@ -189,6 +189,6 @@ struct advance_c
 BOOST_MPL_AUX_ALGORITHM_VOID_SPEC(2, advance)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_ADVANCE_HPP_INCLUDED

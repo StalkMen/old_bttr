@@ -8,7 +8,7 @@
 
 # include <memory>
 
-namespace boost { 
+namespace boost_cryray { 
 
 // get_pointer(p) extracts a ->* capable pointer from p
 
@@ -25,6 +25,6 @@ template<class T> T * get_pointer(std::auto_ptr<T> const& p)
 }
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // GET_POINTER_DWA20021219_HPP

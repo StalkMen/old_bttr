@@ -23,7 +23,7 @@
 #include "boost/config.hpp"
 
 
-namespace boost {
+namespace boost_cryray {
 namespace io {
 
 namespace detail {
@@ -60,7 +60,7 @@ namespace detail {
 } // namespace detail
 
 } // namespace io
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif //  BOOST_FORMAT_INTERNAL_FWD_HPP

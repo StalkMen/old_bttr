@@ -20,9 +20,9 @@
 // Boost.Test
 #include <boost/test/unit_test.hpp>
 
-static boost::unit_test_framework::test_suite* test = BOOST_TEST_SUITE( "Auto Unit Test" );
+static boost_cryray::unit_test_framework::test_suite* test = BOOST_TEST_SUITE( "Auto Unit Test" );
 
-boost::unit_test_framework::test_suite*
+boost_cryray::unit_test_framework::test_suite*
 init_unit_test_suite( int /* argc */, char* /* argv */ [] ) {
     return test;
 }
@@ -31,7 +31,7 @@ init_unit_test_suite( int /* argc */, char* /* argv */ [] ) {
 // **************           auto_unit_test_registrar           ************** //
 // ************************************************************************** //
 
-namespace boost {
+namespace boost_cryray {
 
 namespace unit_test_framework {
 
@@ -43,7 +43,7 @@ struct auto_unit_test_registrar
 
 } // unit_test_framework
 
-} // namespace boost
+} // namespace boost_cryray
 
 // ************************************************************************** //
 // **************             BOOST_AUTO_UNIT_TEST             ************** //
@@ -51,7 +51,7 @@ struct auto_unit_test_registrar
 
 #define BOOST_AUTO_UNIT_TEST( func_name )                           \
 static void func_name();                                            \
-static boost::unit_test_framework::auto_unit_test_registrar         \
+static boost_cryray::unit_test_framework::auto_unit_test_registrar         \
     BOOST_JOIN( test_registrar, __LINE__)                           \
         ( BOOST_TEST_CASE( func_name ) );                           \
 static void func_name()                                             \

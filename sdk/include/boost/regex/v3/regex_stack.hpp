@@ -32,7 +32,7 @@
 #include <boost/regex/v3/regex_raw_buffer.hpp>
 #endif
 
-namespace boost{
+namespace boost_cryray{
    namespace re_detail{
 
 #ifdef __BORLANDC__
@@ -48,8 +48,8 @@ template <class T, class Allocator = BOOST_DEFAULT_ALLOCATOR(T) >
 class jstack
 {
 private:
-   typedef typename boost::detail::rebind_allocator<unsigned char, Allocator>::type allocator_type;
-   typedef typename boost::detail::rebind_allocator<T, Allocator>::type             T_alloc_type;
+   typedef typename boost_cryray::detail::rebind_allocator<unsigned char, Allocator>::type allocator_type;
+   typedef typename boost_cryray::detail::rebind_allocator<T, Allocator>::type             T_alloc_type;
    typedef typename T_alloc_type::size_type                              size_type;
    typedef T value_type;
    struct node
@@ -120,7 +120,7 @@ public:
    {
       if(m_stack->start == m_stack->end)
          pop_aux();
-      ::boost::re_detail::pointer_destroy(m_stack->end);
+      ::boost_cryray::re_detail::pointer_destroy(m_stack->end);
       ++(m_stack->end);
    }
 
@@ -129,7 +129,7 @@ public:
       if(m_stack->start == m_stack->end)
          pop_aux();
       t = *m_stack->end;
-      ::boost::re_detail::pointer_destroy(m_stack->end);
+      ::boost_cryray::re_detail::pointer_destroy(m_stack->end);
       ++(m_stack->end);
    }
 
@@ -212,7 +212,7 @@ jstack<T, Allocator>::~jstack()
 #endif
 
 } // namespace re_detail
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

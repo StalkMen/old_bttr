@@ -55,8 +55,8 @@
 #define BOOST_SIGNALS_ARGS_STRUCT_INST \
   BOOST_SIGNALS_NAMESPACE::detail::BOOST_SIGNALS_ARGS_STRUCT<BOOST_SIGNALS_TEMPLATE_ARGS>
 
-namespace boost {
-  namespace BOOST_SIGNALS_NAMESPACE {
+namespace boost_cryray {
+  namespace boost_cryray_SIGNALS_NAMESPACE {
     namespace detail {
       // Holds the arguments for a bound slot call in a single place
       template<BOOST_SIGNALS_TEMPLATE_PARMS
@@ -123,7 +123,7 @@ namespace boost {
         };
       };
     } // namespace detail
-  } // namespace BOOST_SIGNALS_NAMESPACE
+  } // namespace boost_cryray_SIGNALS_NAMESPACE
 
   // The actual signalN class
   template<
@@ -343,7 +343,7 @@ namespace boost {
                     BOOST_SIGNALS_NAMESPACE::detail::make_slot_call_iterator(
                       notification.impl->slots_.end(), impl->slots_.end(), f));
   }
-} // namespace boost
+} // namespace boost_cryray
 
 #undef BOOST_SIGNAL_FUNCTION_N_HEADER
 #undef BOOST_SIGNALS_ARGS_STRUCT_INST

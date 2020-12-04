@@ -17,7 +17,7 @@
 #  include <boost/preprocessor/iterate.hpp>
 #  include <boost/mpl/void.hpp>
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 template< typename T >
 struct is_list_arg
@@ -81,7 +81,7 @@ struct type_list
 #  undef BOOST_PYTHON_LIST_FORMAL_PARAMS
 #  undef BOOST_PYTHON_LIST_ACTUAL_PARAMS
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 # endif // TYPE_LIST_IMPL_NO_PTS_DWA2002913_HPP
 

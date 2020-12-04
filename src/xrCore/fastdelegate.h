@@ -1630,7 +1630,7 @@ private: // Invoker for static functions
 //      Fast Delegates, part 4:
 // 
 //    FastDelegate<> class (Original author: Jody Hagins)
-// Allows boost::function style syntax like:
+// Allows boost_cryray::function style syntax like:
 //   FastDelegate< double (int, long) >
 // instead of:
 //   FastDelegate2< int, long, double >

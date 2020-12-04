@@ -24,7 +24,7 @@
 #include "boost/mpl/aux_/config/workaround.hpp"
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 #if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION)
@@ -172,6 +172,6 @@ struct if_
 BOOST_MPL_AUX_VOID_SPEC(3, if_)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_IF_HPP_INCLUDED

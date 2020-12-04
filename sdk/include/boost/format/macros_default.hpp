@@ -30,7 +30,7 @@
 
 // **** Workaround for io streams, stlport and msvc.
 #ifdef BOOST_IO_NEEDS_USING_DECLARATION
-namespace boost {
+namespace boost_cryray {
   using std::char_traits;
   using std::basic_ostream;
   using std::basic_ostringstream;

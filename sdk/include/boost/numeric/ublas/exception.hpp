@@ -24,7 +24,7 @@
 
 #include <boost/numeric/ublas/config.hpp>
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     struct divide_by_zero:
         // Inherit from standard exceptions as requested during review.

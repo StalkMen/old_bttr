@@ -25,7 +25,7 @@
 
 // Promote traits borrowed from Todd Veldhuizen
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     template<class T>
     struct type_traits {
@@ -547,7 +547,7 @@ namespace boost { namespace numeric { namespace ublas {
     struct promote_traits {
         // Default promotion will badly fail, if the types are different.
         // Thanks to Kresimir Fresl for spotting this.
-        BOOST_STATIC_ASSERT ((boost::is_same<T1, T2>::value));
+        BOOST_STATIC_ASSERT ((boost_cryray::is_same<T1, T2>::value));
         typedef T1 promote_type;
     };
 
@@ -700,13 +700,13 @@ namespace boost { namespace numeric { namespace ublas {
 
 #ifdef BOOST_UBLAS_USE_INTERVAL
     template<>
-    struct type_traits<boost::numeric::interval<float> > {
-        typedef type_traits<boost::numeric::interval<float> > self_type;
-        typedef boost::numeric::interval<float> value_type;
-        typedef const boost::numeric::interval<float> &const_reference;
-        typedef boost::numeric::interval<float> &reference;
-        typedef boost::numeric::interval<float> real_type;
-        typedef boost::numeric::interval<double> precision_type;
+    struct type_traits<boost_cryray::numeric::interval<float> > {
+        typedef type_traits<boost_cryray::numeric::interval<float> > self_type;
+        typedef boost_cryray::numeric::interval<float> value_type;
+        typedef const boost_cryray::numeric::interval<float> &const_reference;
+        typedef boost_cryray::numeric::interval<float> &reference;
+        typedef boost_cryray::numeric::interval<float> real_type;
+        typedef boost_cryray::numeric::interval<double> precision_type;
 
         BOOST_STATIC_CONSTANT (std::size_t, plus_complexity = 1);
         BOOST_STATIC_CONSTANT (std::size_t, multiplies_complexity = 1);
@@ -730,12 +730,12 @@ namespace boost { namespace numeric { namespace ublas {
         static
         BOOST_UBLAS_INLINE
         real_type abs (const_reference t) {
-            return boost::numeric::abs (t);
+            return boost_cryray::numeric::abs (t);
         }
         static
         BOOST_UBLAS_INLINE
         value_type sqrt (const_reference t) {
-            return boost::numeric::sqrt (t);
+            return boost_cryray::numeric::sqrt (t);
         }
 
         static
@@ -766,16 +766,16 @@ namespace boost { namespace numeric { namespace ublas {
         }
     };
     template<>
-    struct type_traits<boost::numeric::interval<double> > {
-        typedef type_traits<boost::numeric::interval<double> > self_type;
-        typedef boost::numeric::interval<double> value_type;
-        typedef const boost::numeric::interval<double> &const_reference;
-        typedef boost::numeric::interval<double> &reference;
-        typedef boost::numeric::interval<double> real_type;
+    struct type_traits<boost_cryray::numeric::interval<double> > {
+        typedef type_traits<boost_cryray::numeric::interval<double> > self_type;
+        typedef boost_cryray::numeric::interval<double> value_type;
+        typedef const boost_cryray::numeric::interval<double> &const_reference;
+        typedef boost_cryray::numeric::interval<double> &reference;
+        typedef boost_cryray::numeric::interval<double> real_type;
 #ifndef BOOST_UBLAS_USE_LONG_DOUBLE
-        typedef boost::numeric::interval<double> precision_type;
+        typedef boost_cryray::numeric::interval<double> precision_type;
 #else
-        typedef boost::numeric::interval<boost::numeric::interval<long double> > precision_type;
+        typedef boost_cryray::numeric::interval<boost_cryray::numeric::interval<long double> > precision_type;
 #endif
 
         BOOST_STATIC_CONSTANT (std::size_t, plus_complexity = 1);
@@ -800,12 +800,12 @@ namespace boost { namespace numeric { namespace ublas {
         static
         BOOST_UBLAS_INLINE
         real_type abs (const_reference t) {
-            return boost::numeric::abs (t);
+            return boost_cryray::numeric::abs (t);
         }
         static
         BOOST_UBLAS_INLINE
         value_type sqrt (const_reference t) {
-            return boost::numeric::sqrt (t);
+            return boost_cryray::numeric::sqrt (t);
         }
 
         static
@@ -837,13 +837,13 @@ namespace boost { namespace numeric { namespace ublas {
     };
 #ifdef BOOST_UBLAS_USE_LONG_DOUBLE
     template<>
-    struct type_traits<boost::numeric::interval<long double> > {
-        typedef type_traits<boost::numeric::interval<long double> > self_type;
-        typedef boost::numeric::interval<long double> value_type;
-        typedef const boost::numeric::interval<long double> &const_reference;
-        typedef boost::numeric::interval<long double> &reference;
-        typedef boost::numeric::interval<long double> real_type;
-        typedef boost::numeric::interval<long double> precision_type;
+    struct type_traits<boost_cryray::numeric::interval<long double> > {
+        typedef type_traits<boost_cryray::numeric::interval<long double> > self_type;
+        typedef boost_cryray::numeric::interval<long double> value_type;
+        typedef const boost_cryray::numeric::interval<long double> &const_reference;
+        typedef boost_cryray::numeric::interval<long double> &reference;
+        typedef boost_cryray::numeric::interval<long double> real_type;
+        typedef boost_cryray::numeric::interval<long double> precision_type;
 
         BOOST_STATIC_CONSTANT (std::size_t, plus_complexity = 1);
         BOOST_STATIC_CONSTANT (std::size_t, multiplies_complexity = 1);
@@ -867,12 +867,12 @@ namespace boost { namespace numeric { namespace ublas {
         static
         BOOST_UBLAS_INLINE
         real_type abs (const_reference t) {
-            return boost::numeric::abs (t);
+            return boost_cryray::numeric::abs (t);
         }
         static
         BOOST_UBLAS_INLINE
         value_type sqrt (const_reference t) {
-            return boost::numeric::sqrt (t);
+            return boost_cryray::numeric::sqrt (t);
         }
 
         static
@@ -906,13 +906,13 @@ namespace boost { namespace numeric { namespace ublas {
 
 #ifdef BOOST_UBLAS_USE_BOOST_COMPLEX
     template<>
-    struct type_traits<boost::complex<boost::numeric::interval<float> > > {
-        typedef type_traits<boost::complex<boost::numeric::interval<float> > > self_type;
-        typedef boost::complex<boost::numeric::interval<float> > value_type;
-        typedef const boost::complex<boost::numeric::interval<float> > &const_reference;
-        typedef boost::complex<boost::numeric::interval<float> > &reference;
-        typedef boost::numeric::interval<float> real_type;
-        typedef boost::complex<double> precision_type;
+    struct type_traits<boost_cryray::complex<boost_cryray::numeric::interval<float> > > {
+        typedef type_traits<boost_cryray::complex<boost_cryray::numeric::interval<float> > > self_type;
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<float> > value_type;
+        typedef const boost_cryray::complex<boost_cryray::numeric::interval<float> > &const_reference;
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<float> > &reference;
+        typedef boost_cryray::numeric::interval<float> real_type;
+        typedef boost_cryray::complex<double> precision_type;
 
         BOOST_STATIC_CONSTANT (std::size_t, plus_complexity = 2);
         BOOST_STATIC_CONSTANT (std::size_t, multiplies_complexity = 6);
@@ -939,12 +939,12 @@ namespace boost { namespace numeric { namespace ublas {
         static
         BOOST_UBLAS_INLINE
         real_type abs (const_reference t) {
-                return boost::numeric::abs (t);
+                return boost_cryray::numeric::abs (t);
         }
         static
         BOOST_UBLAS_INLINE
         value_type sqrt (const_reference t) {
-                return boost::numeric::sqrt (t);
+                return boost_cryray::numeric::sqrt (t);
         }
 
         static
@@ -979,16 +979,16 @@ namespace boost { namespace numeric { namespace ublas {
         }
     };
     template<>
-    struct type_traits<boost::complex<double> > {
-        typedef type_traits<boost::complex<double> > self_type;
-        typedef boost::complex<double> value_type;
-        typedef const boost::complex<double> &const_reference;
-        typedef boost::complex<double> &reference;
+    struct type_traits<boost_cryray::complex<double> > {
+        typedef type_traits<boost_cryray::complex<double> > self_type;
+        typedef boost_cryray::complex<double> value_type;
+        typedef const boost_cryray::complex<double> &const_reference;
+        typedef boost_cryray::complex<double> &reference;
         typedef double real_type;
 #ifndef BOOST_UBLAS_USE_LONG_DOUBLE
-        typedef boost::complex<double> precision_type;
+        typedef boost_cryray::complex<double> precision_type;
 #else
-        typedef boost::complex<boost::numeric::interval<long double> > precision_type;
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > precision_type;
 #endif
 
         BOOST_STATIC_CONSTANT (std::size_t, plus_complexity = 2);
@@ -1016,12 +1016,12 @@ namespace boost { namespace numeric { namespace ublas {
         static
         BOOST_UBLAS_INLINE
         real_type abs (const_reference t) {
-                return boost::numeric::abs (t);
+                return boost_cryray::numeric::abs (t);
         }
         static
         BOOST_UBLAS_INLINE
         value_type sqrt (const_reference t) {
-                return boost::numeric::sqrt (t);
+                return boost_cryray::numeric::sqrt (t);
         }
 
         static
@@ -1057,13 +1057,13 @@ namespace boost { namespace numeric { namespace ublas {
     };
 #ifdef BOOST_UBLAS_USE_LONG_DOUBLE
     template<>
-    struct type_traits<boost::complex<boost::numeric::interval<long double> > > {
-        typedef type_traits<boost::complex<boost::numeric::interval<long double> > > self_type;
-        typedef boost::complex<boost::numeric::interval<long double> > value_type;
-        typedef const boost::complex<boost::numeric::interval<long double> > &const_reference;
-        typedef boost::complex<boost::numeric::interval<long double> > &reference;
-        typedef boost::numeric::interval<long double> real_type;
-        typedef boost::complex<boost::numeric::interval<long double> > precision_type;
+    struct type_traits<boost_cryray::complex<boost_cryray::numeric::interval<long double> > > {
+        typedef type_traits<boost_cryray::complex<boost_cryray::numeric::interval<long double> > > self_type;
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > value_type;
+        typedef const boost_cryray::complex<boost_cryray::numeric::interval<long double> > &const_reference;
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > &reference;
+        typedef boost_cryray::numeric::interval<long double> real_type;
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > precision_type;
 
         BOOST_STATIC_CONSTANT (std::size_t, plus_complexity = 2);
         BOOST_STATIC_CONSTANT (std::size_t, multiplies_complexity = 6);
@@ -1090,12 +1090,12 @@ namespace boost { namespace numeric { namespace ublas {
         static
         BOOST_UBLAS_INLINE
         real_type abs (const_reference t) {
-                return boost::numeric::abs (t);
+                return boost_cryray::numeric::abs (t);
         }
         static
         BOOST_UBLAS_INLINE
         value_type sqrt (const_reference t) {
-                return boost::numeric::sqrt (t);
+                return boost_cryray::numeric::sqrt (t);
         }
 
         static
@@ -1133,150 +1133,150 @@ namespace boost { namespace numeric { namespace ublas {
 #endif
 
     template<>
-    struct promote_traits<boost::numeric::interval<float>, boost::numeric::interval<double> > {
-        typedef boost::numeric::interval<double> promote_type;
+    struct promote_traits<boost_cryray::numeric::interval<float>, boost_cryray::numeric::interval<double> > {
+        typedef boost_cryray::numeric::interval<double> promote_type;
     };
     template<>
-    struct promote_traits<boost::numeric::interval<double>, boost::numeric::interval<float> > {
-        typedef boost::numeric::interval<double> promote_type;
+    struct promote_traits<boost_cryray::numeric::interval<double>, boost_cryray::numeric::interval<float> > {
+        typedef boost_cryray::numeric::interval<double> promote_type;
     };
 #ifdef BOOST_UBLAS_USE_LONG_DOUBLE
     template<>
-    struct promote_traits<boost::numeric::interval<float>, boost::numeric::interval<long double> > {
-        typedef boost::numeric::interval<long double> promote_type;
+    struct promote_traits<boost_cryray::numeric::interval<float>, boost_cryray::numeric::interval<long double> > {
+        typedef boost_cryray::numeric::interval<long double> promote_type;
     };
     template<>
-    struct promote_traits<boost::numeric::interval<long double>, boost::numeric::interval<float> > {
-        typedef boost::numeric::interval<long double> promote_type;
+    struct promote_traits<boost_cryray::numeric::interval<long double>, boost_cryray::numeric::interval<float> > {
+        typedef boost_cryray::numeric::interval<long double> promote_type;
     };
     template<>
-    struct promote_traits<boost::numeric::interval<double>, boost::numeric::interval<long double> > {
-        typedef boost::numeric::interval<long double> promote_type;
+    struct promote_traits<boost_cryray::numeric::interval<double>, boost_cryray::numeric::interval<long double> > {
+        typedef boost_cryray::numeric::interval<long double> promote_type;
     };
     template<>
-    struct promote_traits<boost::numeric::interval<long double>, boost::numeric::interval<double> > {
-        typedef boost::numeric::interval<long double> promote_type;
+    struct promote_traits<boost_cryray::numeric::interval<long double>, boost_cryray::numeric::interval<double> > {
+        typedef boost_cryray::numeric::interval<long double> promote_type;
     };
 #endif
 
 #ifdef BOOST_UBLAS_USE_BOOST_COMPLEX
     template<>
-    struct promote_traits<boost::numeric::interval<float>, boost::complex<boost::numeric::interval<float> > > {
-        typedef boost::complex<boost::numeric::interval<float> > promote_type;
+    struct promote_traits<boost_cryray::numeric::interval<float>, boost_cryray::complex<boost_cryray::numeric::interval<float> > > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<float> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<float> >, boost::numeric::interval<float> > {
-        typedef boost::complex<boost::numeric::interval<float> > promote_type;
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<float> >, boost_cryray::numeric::interval<float> > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<float> > promote_type;
     };
     template<>
-    struct promote_traits<boost::numeric::interval<float>, boost::complex<boost::numeric::interval<double> > > {
-        typedef boost::complex<boost::numeric::interval<double> > promote_type;
+    struct promote_traits<boost_cryray::numeric::interval<float>, boost_cryray::complex<boost_cryray::numeric::interval<double> > > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<double> >, boost::numeric::interval<float> > {
-        typedef boost::complex<boost::numeric::interval<double> > promote_type;
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<double> >, boost_cryray::numeric::interval<float> > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<double> > promote_type;
     };
 #ifdef BOOST_UBLAS_USE_LONG_DOUBLE
     template<>
-    struct promote_traits<boost::numeric::interval<float>, boost::complex<boost::numeric::interval<long double> > > {
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+    struct promote_traits<boost_cryray::numeric::interval<float>, boost_cryray::complex<boost_cryray::numeric::interval<long double> > > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<long double> >, boost::numeric::interval<float> > {
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<long double> >, boost_cryray::numeric::interval<float> > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
 #endif
 
     template<>
-    struct promote_traits<boost::numeric::interval<double>, boost::complex<boost::numeric::interval<float> > > {
+    struct promote_traits<boost_cryray::numeric::interval<double>, boost_cryray::complex<boost_cryray::numeric::interval<float> > > {
         // Here we'd better go the conservative way.
-        // typedef boost::complex<boost::numeric::interval<float> > promote_type;
-        typedef boost::complex<boost::numeric::interval<double> > promote_type;
+        // typedef boost_cryray::complex<boost_cryray::numeric::interval<float> > promote_type;
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<float> >, boost::numeric::interval<double> > {
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<float> >, boost_cryray::numeric::interval<double> > {
         // Here we'd better go the conservative way.
-        // typedef boost::complex<boost::numeric::interval<float> > promote_type;
-        typedef boost::complex<boost::numeric::interval<double> > promote_type;
+        // typedef boost_cryray::complex<boost_cryray::numeric::interval<float> > promote_type;
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::numeric::interval<double>, boost::complex<boost::numeric::interval<double> > > {
-        typedef boost::complex<boost::numeric::interval<double> > promote_type;
+    struct promote_traits<boost_cryray::numeric::interval<double>, boost_cryray::complex<boost_cryray::numeric::interval<double> > > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<double> >, boost::numeric::interval<double> > {
-        typedef boost::complex<boost::numeric::interval<double> > promote_type;
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<double> >, boost_cryray::numeric::interval<double> > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<double> > promote_type;
     };
 #ifdef BOOST_UBLAS_USE_LONG_DOUBLE
     template<>
-    struct promote_traits<boost::numeric::interval<double>, boost::complex<boost::numeric::interval<long double> > > {
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+    struct promote_traits<boost_cryray::numeric::interval<double>, boost_cryray::complex<boost_cryray::numeric::interval<long double> > > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<long double> >, boost::numeric::interval<double> > {
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<long double> >, boost_cryray::numeric::interval<double> > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
 #endif
 
 #ifdef BOOST_UBLAS_USE_LONG_DOUBLE
     template<>
-    struct promote_traits<boost::numeric::interval<long double>, boost::complex<boost::numeric::interval<float> > > {
+    struct promote_traits<boost_cryray::numeric::interval<long double>, boost_cryray::complex<boost_cryray::numeric::interval<float> > > {
         // Here we'd better go the conservative way.
-        // typedef boost::complex<boost::numeric::interval<float> > promote_type;
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+        // typedef boost_cryray::complex<boost_cryray::numeric::interval<float> > promote_type;
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<float> >, boost::numeric::interval<long double> > {
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<float> >, boost_cryray::numeric::interval<long double> > {
         // Here we'd better go the conservative way.
-        // typedef boost::complex<boost::numeric::interval<float> > promote_type;
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+        // typedef boost_cryray::complex<boost_cryray::numeric::interval<float> > promote_type;
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::numeric::interval<long double>, boost::complex<boost::numeric::interval<double> > > {
+    struct promote_traits<boost_cryray::numeric::interval<long double>, boost_cryray::complex<boost_cryray::numeric::interval<double> > > {
         // Here we'd better go the conservative way.
-        // typedef boost::complex<boost::numeric::interval<double> > promote_type;
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+        // typedef boost_cryray::complex<boost_cryray::numeric::interval<double> > promote_type;
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<double> >, boost::numeric::interval<long double> > {
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<double> >, boost_cryray::numeric::interval<long double> > {
         // Here we'd better go the conservative way.
-        // typedef boost::complex<boost::numeric::interval<double> > promote_type;
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+        // typedef boost_cryray::complex<boost_cryray::numeric::interval<double> > promote_type;
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::numeric::interval<long double>, boost::complex<boost::numeric::interval<long double> > > {
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+    struct promote_traits<boost_cryray::numeric::interval<long double>, boost_cryray::complex<boost_cryray::numeric::interval<long double> > > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<long double> >, boost::numeric::interval<long double> > {
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<long double> >, boost_cryray::numeric::interval<long double> > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
 #endif
 
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<float> >, boost::complex<boost::numeric::interval<double> > > {
-        typedef boost::complex<boost::numeric::interval<double> > promote_type;
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<float> >, boost_cryray::complex<boost_cryray::numeric::interval<double> > > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<double> >, boost::complex<boost::numeric::interval<float> > > {
-        typedef boost::complex<boost::numeric::interval<double> > promote_type;
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<double> >, boost_cryray::complex<boost_cryray::numeric::interval<float> > > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<double> > promote_type;
     };
 #ifdef BOOST_UBLAS_USE_LONG_DOUBLE
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<float> >, boost::complex<boost::numeric::interval<long double> > > {
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<float> >, boost_cryray::complex<boost_cryray::numeric::interval<long double> > > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<long double> >, boost::complex<boost::numeric::interval<float> > > {
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<long double> >, boost_cryray::complex<boost_cryray::numeric::interval<float> > > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<double> >, boost::complex<boost::numeric::interval<long double> > > {
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<double> >, boost_cryray::complex<boost_cryray::numeric::interval<long double> > > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
     template<>
-    struct promote_traits<boost::complex<boost::numeric::interval<long double> >, boost::complex<boost::numeric::interval<double> > > {
-        typedef boost::complex<boost::numeric::interval<long double> > promote_type;
+    struct promote_traits<boost_cryray::complex<boost_cryray::numeric::interval<long double> >, boost_cryray::complex<boost_cryray::numeric::interval<double> > > {
+        typedef boost_cryray::complex<boost_cryray::numeric::interval<long double> > promote_type;
     };
 #endif
 #endif

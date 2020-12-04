@@ -8,12 +8,12 @@
 
 # include <boost/python/type_id.hpp>
 
-namespace boost { namespace python { namespace objects { 
+namespace boost_cryray { namespace python { namespace objects { 
 
 // Given a type_id, find the instance data which corresponds to it, or
 // return 0 in case no such type is held.
 BOOST_PYTHON_DECL void* find_instance_impl(PyObject*, type_info);
 
-}}} // namespace boost::python::objects
+}}} // namespace boost_cryray::python::objects
 
 #endif // FIND_INSTANCE_DWA2002312_HPP

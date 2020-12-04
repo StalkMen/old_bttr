@@ -16,7 +16,7 @@ namespace text_editor
 enum key_state;
 class line_edit_control;
 
-class base : private boost::noncopyable
+class base : private boost_cryray::noncopyable
 {
 public:
     base();

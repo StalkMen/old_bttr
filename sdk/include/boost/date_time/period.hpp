@@ -16,7 +16,7 @@
 #include "boost/operators.hpp"
 
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
   //!Provides generalized period type useful in date-time systems
   /*!This template uses a class to represent a time point within the period
@@ -54,8 +54,8 @@ namespace date_time {
    */
   template<class point_rep, class duration_rep>
   class period : private
-      boost::less_than_comparable<period<point_rep, duration_rep> 
-    , boost::equality_comparable< period<point_rep, duration_rep> 
+      boost_cryray::less_than_comparable<period<point_rep, duration_rep> 
+    , boost_cryray::equality_comparable< period<point_rep, duration_rep> 
     > >
   {
   public:

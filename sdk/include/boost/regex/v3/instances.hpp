@@ -26,7 +26,7 @@
 //
 #ifndef BOOST_REGEX_NO_EXTERNAL_TEMPLATES
 
-namespace boost{
+namespace boost_cryray{
 
 //
 // this header can be included multiple times, each time with
@@ -119,8 +119,8 @@ template bool BOOST_REGEX_CALL reg_expression<BOOST_REGEX_CHAR_T>::probe_start_n
 template void BOOST_REGEX_CALL reg_expression<BOOST_REGEX_CHAR_T>::fixup_apply(re_detail::re_syntax_base* b, unsigned cbraces);
 template void BOOST_REGEX_CALL reg_expression<BOOST_REGEX_CHAR_T>::move_offsets(re_detail::re_syntax_base* j, unsigned size);
 template re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<BOOST_REGEX_CHAR_T>::compile_set(const BOOST_REGEX_CHAR_T*& first, const BOOST_REGEX_CHAR_T* last);
-template re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<BOOST_REGEX_CHAR_T>::compile_set_aux(re_detail::jstack<reg_expression<BOOST_REGEX_CHAR_T>::traits_string_type, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& singles, re_detail::jstack<reg_expression<BOOST_REGEX_CHAR_T>::traits_string_type, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& ranges, re_detail::jstack<boost::uint_fast32_t, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& classes, re_detail::jstack<reg_expression<BOOST_REGEX_CHAR_T>::traits_string_type, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& equivalents, bool isnot, const re_detail::_narrow_type&);
-template re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<BOOST_REGEX_CHAR_T>::compile_set_aux(re_detail::jstack<reg_expression<BOOST_REGEX_CHAR_T>::traits_string_type, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& singles, re_detail::jstack<reg_expression<BOOST_REGEX_CHAR_T>::traits_string_type, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& ranges, re_detail::jstack<boost::uint_fast32_t, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& classes, re_detail::jstack<reg_expression<BOOST_REGEX_CHAR_T>::traits_string_type, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& equivalents, bool isnot, const re_detail::_wide_type&);
+template re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<BOOST_REGEX_CHAR_T>::compile_set_aux(re_detail::jstack<reg_expression<BOOST_REGEX_CHAR_T>::traits_string_type, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& singles, re_detail::jstack<reg_expression<BOOST_REGEX_CHAR_T>::traits_string_type, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& ranges, re_detail::jstack<boost_cryray::uint_fast32_t, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& classes, re_detail::jstack<reg_expression<BOOST_REGEX_CHAR_T>::traits_string_type, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& equivalents, bool isnot, const re_detail::_narrow_type&);
+template re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<BOOST_REGEX_CHAR_T>::compile_set_aux(re_detail::jstack<reg_expression<BOOST_REGEX_CHAR_T>::traits_string_type, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& singles, re_detail::jstack<reg_expression<BOOST_REGEX_CHAR_T>::traits_string_type, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& ranges, re_detail::jstack<boost_cryray::uint_fast32_t, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& classes, re_detail::jstack<reg_expression<BOOST_REGEX_CHAR_T>::traits_string_type, BOOST_DEFAULT_ALLOCATOR(BOOST_REGEX_CHAR_T)>& equivalents, bool isnot, const re_detail::_wide_type&);
 template re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<BOOST_REGEX_CHAR_T>::compile_set_simple(re_detail::re_syntax_base* dat, unsigned long cls, bool isnot);
 template unsigned int BOOST_REGEX_CALL reg_expression<BOOST_REGEX_CHAR_T>::parse_inner_set(const BOOST_REGEX_CHAR_T*& first, const BOOST_REGEX_CHAR_T* last);
 template re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<BOOST_REGEX_CHAR_T>::add_simple(re_detail::re_syntax_base* dat, re_detail::syntax_element_type type, unsigned int size);
@@ -160,7 +160,7 @@ template void BOOST_REGEX_CALL match_results_base<iterator, Allocator>::cow();
 
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_REGEX_NO_EXTERNAL_TEMPLATES
  

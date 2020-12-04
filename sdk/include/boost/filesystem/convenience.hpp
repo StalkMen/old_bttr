@@ -18,7 +18,7 @@
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
 
-namespace boost
+namespace boost_cryray
 {
   namespace filesystem
   {
@@ -32,7 +32,7 @@ namespace boost
     void create_directories(const path& ph);
 
   } // namespace filesystem
-} // namespace boost
+} // namespace boost_cryray
 #endif // BOOST_FILESYSTEM_CONVENIENCE_HPP
 
 

@@ -19,7 +19,7 @@
 
 #include "boost/mpl/apply.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -48,6 +48,6 @@ struct iter_apply2
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_ITER_APPLY_HPP_INCLUDED

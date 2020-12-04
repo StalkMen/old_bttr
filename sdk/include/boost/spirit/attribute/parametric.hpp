@@ -16,7 +16,7 @@
 #include "boost/spirit/core/composite/composite.hpp"
 #include "boost/spirit/core/primitives/primitives.hpp"
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -137,6 +137,6 @@ namespace boost { namespace spirit {
     f_str_p(IterGenAT first, IterGenBT last)
     { return f_strlit<IterGenAT, IterGenBT>(first, last); }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif

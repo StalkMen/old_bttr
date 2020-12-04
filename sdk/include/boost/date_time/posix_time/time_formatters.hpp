@@ -11,7 +11,7 @@
 #include "boost/date_time/posix_time/posix_time_types.hpp"
 #include "boost/date_time/time_formatting_streams.hpp"
  
-namespace boost {
+namespace boost_cryray {
 
 namespace posix_time {
 
@@ -25,7 +25,7 @@ namespace posix_time {
     ss  << std::setw(2) << std::setfill('0') << td.seconds();
     //TODO the following is totally non-generic, yelling FIXME
 #if (defined(BOOST_MSVC) && (_MSC_VER <= 1200))  // 1200 == VC++ 6.0
-    boost::int64_t frac_sec = td.fractional_seconds();
+    boost_cryray::int64_t frac_sec = td.fractional_seconds();
 // JDG [7/6/02 VC++ compatibility]
     char buff[32];
     _i64toa(frac_sec, buff, 10);
@@ -56,7 +56,7 @@ namespace posix_time {
     ss  << std::setw(2) << std::setfill('0') << td.seconds();
     //TODO the following is totally non-generic, yelling FIXME
 #if (defined(BOOST_MSVC) && (_MSC_VER <= 1200))  // 1200 == VC++ 6.0
-    boost::int64_t frac_sec = td.fractional_seconds();
+    boost_cryray::int64_t frac_sec = td.fractional_seconds();
     // JDG [7/6/02 VC++ compatibility]
     char buff[32];
     _i64toa(frac_sec, buff, 10);
@@ -119,7 +119,7 @@ namespace posix_time {
   std::basic_ostream<charT, traits>&
   operator<<(std::basic_ostream<charT, traits>& os, const time_duration& td)
   {
-    typedef boost::date_time::ostream_time_duration_formatter<time_duration, charT> duration_formatter;
+    typedef boost_cryray::date_time::ostream_time_duration_formatter<time_duration, charT> duration_formatter;
     duration_formatter::duration_put(td, os);
     return os;
   }
@@ -130,7 +130,7 @@ namespace posix_time {
   std::basic_ostream<charT, traits>&
   operator<<(std::basic_ostream<charT, traits>& os, const ptime& t)
   {
-    typedef boost::date_time::ostream_time_formatter<ptime, charT> time_formatter;
+    typedef boost_cryray::date_time::ostream_time_formatter<ptime, charT> time_formatter;
     time_formatter::time_put(t, os);
     return os;
   }
@@ -141,7 +141,7 @@ namespace posix_time {
   std::basic_ostream<charT, traits>&
   operator<<(std::basic_ostream<charT, traits>& os, const time_period& tp)
   {
-    typedef boost::date_time::ostream_time_period_formatter<time_period, charT> period_formatter;
+    typedef boost_cryray::date_time::ostream_time_period_formatter<time_period, charT> period_formatter;
     period_formatter::period_put(tp, os);
     return os;
   }

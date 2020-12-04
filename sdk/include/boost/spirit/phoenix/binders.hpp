@@ -441,7 +441,7 @@ struct member_var_ptr_action {
     template <typename CT>
     struct result {
 
-        typedef char is_const[boost::is_const<CT>::value ? 1 : 2];
+        typedef char is_const[boost_cryray::is_const<CT>::value ? 1 : 2];
         typedef typename impl::if_t<is_const, T const&, T&>::type type;
     };
 

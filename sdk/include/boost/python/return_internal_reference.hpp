@@ -11,7 +11,7 @@
 # include <boost/python/with_custodian_and_ward.hpp>
 # include <boost/mpl/if.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -37,6 +37,6 @@ struct return_internal_reference
     >::type result_converter;
 };
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // RETURN_INTERNAL_REFERENCE_DWA2002131_HPP

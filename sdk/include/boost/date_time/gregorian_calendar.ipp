@@ -8,7 +8,7 @@
   #define BOOST_DATE_TIME_INLINE inline
 #endif
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
   //! Return the day of the week (0==Sunday, 1==Monday, etc)
   /*! Converts a the year-month-day into a day of the week number

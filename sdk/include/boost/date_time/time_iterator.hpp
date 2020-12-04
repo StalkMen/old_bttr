@@ -6,7 +6,7 @@
  */
 
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
   
 

@@ -3,7 +3,7 @@
 #ifndef BOOST_ANY_INCLUDED
 #define BOOST_ANY_INCLUDED
 
-// what:  variant type boost::any
+// what:  variant type boost_cryray::any
 // who:   contributed by Kevlin Henney,
 //        with features contributed and bugs found by
 //        Ed Brey, Mark Rodgers, Peter Dimov, and James Curran
@@ -15,7 +15,7 @@
 
 #include "boost/config.hpp"
 
-namespace boost
+namespace boost_cryray
 {
     class any
     {
@@ -147,8 +147,8 @@ namespace boost
     public:
         virtual const char * what() const throw()
         {
-            return "boost::bad_any_cast: "
-                   "failed conversion using boost::any_cast";
+            return "boost_cryray::bad_any_cast: "
+                   "failed conversion using boost_cryray::any_cast";
         }
     };
 

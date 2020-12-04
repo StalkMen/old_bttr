@@ -27,7 +27,7 @@
 
 # include <boost/bind.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -41,7 +41,7 @@ namespace detail
 
           // find the result converter
           typedef typename Policies::result_converter result_converter;
-          typedef typename boost::add_reference<Data>::type source;
+          typedef typename boost_cryray::add_reference<Data>::type source;
           typename mpl::apply1<result_converter,source>::type cr;
         
           if (!policies.precall(args_)) return 0;
@@ -101,7 +101,7 @@ object make_getter(D C::*pm)
     typedef typename detail::default_getter_policy<D>::type policy;
     
     return objects::function_object(
-        ::boost::bind(
+        ::boost_cryray::bind(
             &detail::member<D,C,policy>::get, pm, _1, _2
             , policy())
         , 1);
@@ -112,7 +112,7 @@ template <class C, class D, class Policies>
 object make_getter(D C::*pm, Policies const& policies)
 {
     return objects::function_object(
-            ::boost::bind(
+            ::boost_cryray::bind(
                 &detail::member<D,C,Policies>::get, pm, _1, _2
                 , policies)
         , 1);
@@ -122,7 +122,7 @@ template <class C, class D>
 object make_setter(D C::*pm)
 {
     return objects::function_object(
-        ::boost::bind(
+        ::boost_cryray::bind(
             &detail::member<D,C,default_call_policies>::set, pm, _1, _2
             , default_call_policies())
         , 2);
@@ -132,13 +132,13 @@ template <class C, class D, class Policies>
 object make_setter(D C::*pm, Policies const& policies)
 {
     return objects::function_object(
-        ::boost::bind(
+        ::boost_cryray::bind(
             &detail::member<D,C,Policies>::set, pm, _1, _2
             , policies)
         , 2);
 }
 
     
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // DATA_MEMBERS_DWA2002328_HPP

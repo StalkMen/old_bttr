@@ -26,11 +26,11 @@
 namespace std {
 
 template<class T, class Policies>
-class numeric_limits<boost::numeric::interval<T, Policies> >
+class numeric_limits<boost_cryray::numeric::interval<T, Policies> >
   : public numeric_limits<T>
 {
 private:
-  typedef boost::numeric::interval<T, Policies> I;
+  typedef boost_cryray::numeric::interval<T, Policies> I;
   typedef numeric_limits<T> bl;
 public:
   static I min() throw() { return I(bl::min(), bl::min()); }

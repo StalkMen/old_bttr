@@ -8,7 +8,7 @@
 # include <boost/python/object_core.hpp>
 # include <boost/python/object_operators.hpp>
 
-namespace boost { namespace python { namespace api {
+namespace boost_cryray { namespace python { namespace api {
 
 template <class Policies>
 class proxy : public object_operators<proxy<Policies> >
@@ -96,6 +96,6 @@ inline void proxy<Policies>::del() const
     Policies::del(m_target, m_key);
 }
 
-}}} // namespace boost::python::api
+}}} // namespace boost_cryray::python::api
 
 #endif // PROXY_DWA2002615_HPP

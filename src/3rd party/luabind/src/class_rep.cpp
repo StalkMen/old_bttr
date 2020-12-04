@@ -523,7 +523,7 @@ int luabind::detail::class_rep::constructor_dispatcher(lua_State* L)
 		void* obj_rep;
 		void* held;
 
-		boost::tie(obj_rep,held) = crep->allocate(L);
+		boost_cryray::tie(obj_rep,held) = crep->allocate(L);
 
 		weak_ref backref(L, -1);
 
@@ -1182,7 +1182,7 @@ int luabind::detail::class_rep::construct_lua_class_callback(lua_State* L)
 	void* obj_ptr;
 	void* held_storage;
 
-	boost::tie(obj_ptr, held_storage) = crep->allocate(L);
+	boost_cryray::tie(obj_ptr, held_storage) = crep->allocate(L);
 	(new(obj_ptr) object_rep(crep, flags, ref))->set_object(held_storage);
 
 	detail::getref(L, crep->metatable_ref());

@@ -18,7 +18,7 @@ namespace smart_cover {
 
 class target_provider : 
 	public	CActionBase<animation_planner>,
-	private boost::noncopyable
+	private boost_cryray::noncopyable
 {
 private:
 	typedef CActionBase<animation_planner> inherited;

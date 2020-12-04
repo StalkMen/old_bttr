@@ -27,13 +27,13 @@
 #include <boost/iterator_adaptors.hpp>
 #include <boost/graph/graph_traits.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
     template <class Graph>
     struct adjacency_iterator_policies : 
-      public boost::default_iterator_policies
+      public boost_cryray::default_iterator_policies
     {
       inline adjacency_iterator_policies() { }
       inline adjacency_iterator_policies(const Graph* g) : m_g(g) { }
@@ -52,12 +52,12 @@ namespace boost {
             class Vertex = typename graph_traits<Graph>::vertex_descriptor,
             class OutEdgeIter=typename graph_traits<Graph>::out_edge_iterator>
   class adjacency_iterator_generator {
-    typedef typename boost::detail::iterator_traits<OutEdgeIter>
+    typedef typename boost_cryray::detail::iterator_traits<OutEdgeIter>
       ::difference_type difference_type;
   public:
-    typedef boost::iterator_adaptor<OutEdgeIter, 
+    typedef boost_cryray::iterator_adaptor<OutEdgeIter, 
       detail::adjacency_iterator_policies<Graph>,
-      Vertex, Vertex, Vertex*, boost::multi_pass_input_iterator_tag,
+      Vertex, Vertex, Vertex*, boost_cryray::multi_pass_input_iterator_tag,
       difference_type
     > type;
   };
@@ -66,7 +66,7 @@ namespace boost {
 
     template <class Graph>
     struct inv_adjacency_iterator_policies : 
-      public boost::default_iterator_policies
+      public boost_cryray::default_iterator_policies
     {
       inline inv_adjacency_iterator_policies() { }
       inline inv_adjacency_iterator_policies(Graph* g) : m_g(g) { }
@@ -83,16 +83,16 @@ namespace boost {
 
   template <class Graph, class Vertex, class InEdgeIter>
   class inv_adjacency_iterator_generator {
-    typedef typename boost::detail::iterator_traits<InEdgeIter>
+    typedef typename boost_cryray::detail::iterator_traits<InEdgeIter>
       ::difference_type difference_type;
   public:
-    typedef boost::iterator_adaptor<InEdgeIter, 
+    typedef boost_cryray::iterator_adaptor<InEdgeIter, 
       detail::inv_adjacency_iterator_policies<Graph>,
-      Vertex, Vertex, Vertex*, boost::multi_pass_input_iterator_tag,
+      Vertex, Vertex, Vertex*, boost_cryray::multi_pass_input_iterator_tag,
       difference_type
     > type;
   };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_DETAIL_ADJACENCY_ITERATOR_HPP

@@ -29,7 +29,7 @@
 #include <boost/regex/config.hpp>
 #endif
 
-namespace boost{
+namespace boost_cryray{
    namespace re_detail{
 
 #ifdef __BORLANDC__
@@ -105,7 +105,7 @@ class raw_storage
 {
 public:
    typedef Allocator allocator_type;
-   typedef typename boost::detail::rebind_allocator<unsigned char, allocator_type>::type alloc_inst_type;
+   typedef typename boost_cryray::detail::rebind_allocator<unsigned char, allocator_type>::type alloc_inst_type;
    typedef typename alloc_inst_type::size_type                                size_type;
    typedef typename alloc_inst_type::pointer                                  pointer;
 private:
@@ -239,7 +239,7 @@ void* BOOST_REGEX_CALL raw_storage<Allocator>::insert(size_type pos, size_type n
 #endif
 
 } // namespace re_detail
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

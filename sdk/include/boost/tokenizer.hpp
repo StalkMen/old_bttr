@@ -20,7 +20,7 @@
 
 #include <boost/token_iterator.hpp>
 #include <cassert>
-namespace boost {
+namespace boost_cryray {
 
   
   //===========================================================================
@@ -96,6 +96,6 @@ namespace boost {
   };
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

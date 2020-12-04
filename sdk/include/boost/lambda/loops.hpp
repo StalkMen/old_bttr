@@ -21,7 +21,7 @@
 
 #include "boost/lambda/core.hpp"
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
 // -- loop control structure actions ----------------------
@@ -166,11 +166,11 @@ public:
 
   template<class RET, CALL_TEMPLATE_ARGS>
   RET call(CALL_FORMAL_ARGS) const {
-    for(detail::select(boost::tuples::get<0>(args), CALL_ACTUAL_ARGS); 
-        detail::select(boost::tuples::get<1>(args), CALL_ACTUAL_ARGS); 
-        detail::select(boost::tuples::get<2>(args), CALL_ACTUAL_ARGS))
+    for(detail::select(boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS); 
+        detail::select(boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS); 
+        detail::select(boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS))
       
-      detail::select(boost::tuples::get<3>(args), CALL_ACTUAL_ARGS);
+      detail::select(boost_cryray::tuples::get<3>(args), CALL_ACTUAL_ARGS);
   }
 };
 
@@ -186,9 +186,9 @@ public:
 
   template<class RET, CALL_TEMPLATE_ARGS>
   RET call(CALL_FORMAL_ARGS) const {
-    for(detail::select(boost::tuples::get<0>(args), CALL_ACTUAL_ARGS); 
-        detail::select(boost::tuples::get<1>(args), CALL_ACTUAL_ARGS); 
-        detail::select(boost::tuples::get<2>(args), CALL_ACTUAL_ARGS)) {}
+    for(detail::select(boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS); 
+        detail::select(boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS); 
+        detail::select(boost_cryray::tuples::get<2>(args), CALL_ACTUAL_ARGS)) {}
    }
 };
 
@@ -205,9 +205,9 @@ public:
 
   template<class RET, CALL_TEMPLATE_ARGS>
   RET call(CALL_FORMAL_ARGS) const {
-    while(detail::select(boost::tuples::get<0>(args), CALL_ACTUAL_ARGS))
+    while(detail::select(boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS))
       
-      detail::select(boost::tuples::get<1>(args), CALL_ACTUAL_ARGS);
+      detail::select(boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS);
   }
 };
 
@@ -223,7 +223,7 @@ public:
 
   template<class RET, CALL_TEMPLATE_ARGS>
   RET call(CALL_FORMAL_ARGS) const {
-          while(detail::select(boost::tuples::get<0>(args), CALL_ACTUAL_ARGS)) {}
+          while(detail::select(boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS)) {}
   }
 };
 
@@ -241,8 +241,8 @@ public:
   template<class RET, CALL_TEMPLATE_ARGS>
   RET call(CALL_FORMAL_ARGS) const {
     do {
-      detail::select(boost::tuples::get<1>(args), CALL_ACTUAL_ARGS);      
-    } while (detail::select(boost::tuples::get<0>(args), CALL_ACTUAL_ARGS) );
+      detail::select(boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS);      
+    } while (detail::select(boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS) );
   }
 };
 
@@ -258,7 +258,7 @@ public:
 
   template<class RET, CALL_TEMPLATE_ARGS>
   RET call(CALL_FORMAL_ARGS) const {
-          do {} while (detail::select(boost::tuples::get<0>(args), CALL_ACTUAL_ARGS) );
+          do {} while (detail::select(boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS) );
   }
 };
 

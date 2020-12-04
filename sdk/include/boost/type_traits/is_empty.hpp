@@ -32,7 +32,7 @@
 // should be always the last #include directive
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 namespace detail {
 
@@ -68,8 +68,8 @@ struct is_empty_impl
     typedef typename remove_cv<T>::type cvt;
     BOOST_STATIC_CONSTANT(
         bool, value = (
-            ::boost::type_traits::ice_or<
-              ::boost::detail::empty_helper<cvt,::boost::is_class<T>::value>::value
+            ::boost_cryray::type_traits::ice_or<
+              ::boost_cryray::detail::empty_helper<cvt,::boost_cryray::is_class<T>::value>::value
               , BOOST_IS_EMPTY(cvt)
             >::value
             ));
@@ -99,11 +99,11 @@ struct is_empty_impl
 
    BOOST_STATIC_CONSTANT(
        bool, value = (
-           ::boost::type_traits::ice_or<
-              ::boost::detail::empty_helper<
+           ::boost_cryray::type_traits::ice_or<
+              ::boost_cryray::detail::empty_helper<
                   cvt
-                , ::boost::is_class<T>::value
-                , ::boost::is_convertible< r_type,int>::value
+                , ::boost_cryray::is_class<T>::value
+                , ::boost_cryray::is_convertible< r_type,int>::value
               >::value
               , BOOST_IS_EMPTY(cvt)
            >::value));
@@ -157,16 +157,16 @@ struct empty_helper_chooser<true>
 template <typename T> 
 struct is_empty_impl
 { 
-   typedef ::boost::detail::empty_helper_chooser<
-      ::boost::type_traits::ice_and<
-         ::boost::type_traits::ice_not< ::boost::is_reference<T>::value >::value,
-         ::boost::type_traits::ice_not< ::boost::is_convertible<T,double>::value >::value,
-         ::boost::type_traits::ice_not< ::boost::is_pointer<T>::value >::value,
-         ::boost::type_traits::ice_not< ::boost::is_member_pointer<T>::value >::value,
-         ::boost::type_traits::ice_not< ::boost::is_array<T>::value >::value,
-         ::boost::type_traits::ice_not< ::boost::is_void<T>::value >::value,
-         ::boost::type_traits::ice_not<
-            ::boost::is_convertible<T,void const volatile*>::value
+   typedef ::boost_cryray::detail::empty_helper_chooser<
+      ::boost_cryray::type_traits::ice_and<
+         ::boost_cryray::type_traits::ice_not< ::boost_cryray::is_reference<T>::value >::value,
+         ::boost_cryray::type_traits::ice_not< ::boost_cryray::is_convertible<T,double>::value >::value,
+         ::boost_cryray::type_traits::ice_not< ::boost_cryray::is_pointer<T>::value >::value,
+         ::boost_cryray::type_traits::ice_not< ::boost_cryray::is_member_pointer<T>::value >::value,
+         ::boost_cryray::type_traits::ice_not< ::boost_cryray::is_array<T>::value >::value,
+         ::boost_cryray::type_traits::ice_not< ::boost_cryray::is_void<T>::value >::value,
+         ::boost_cryray::type_traits::ice_not<
+            ::boost_cryray::is_convertible<T,void const volatile*>::value
             >::value
       >::value > chooser;
 
@@ -174,7 +174,7 @@ struct is_empty_impl
    typedef typename result::type eh_type;
 
    BOOST_STATIC_CONSTANT(bool, value =
-      (::boost::type_traits::ice_or<eh_type::value, BOOST_IS_EMPTY(T)>::value)); 
+      (::boost_cryray::type_traits::ice_or<eh_type::value, BOOST_IS_EMPTY(T)>::value)); 
 };
 
 #else
@@ -198,9 +198,9 @@ BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_empty,void const volatile,false)
 
 } // namespace detail
 
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_empty,T,::boost::detail::is_empty_impl<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_empty,T,::boost_cryray::detail::is_empty_impl<T>::value)
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

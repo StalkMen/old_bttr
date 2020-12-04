@@ -116,7 +116,7 @@ void save_stack_trace ()
         *--J = 0;
     }
 
-    boost::crc_32_type temp;
+    boost_cryray::crc_32_type temp;
     temp.process_block (string,string + accumulator);
     u32 crc = temp.checksum();
 

@@ -20,7 +20,7 @@
 #  include <boost/preprocessor/enum_params.hpp>
 #  include <boost/preprocessor/repetition/enum_trailing_params.hpp>
 
-namespace boost { namespace python { namespace detail {
+namespace boost_cryray { namespace python { namespace detail {
 
 #  define BOOST_PP_ITERATION_PARAMS_1                                                                   \
     (4, (0, BOOST_PYTHON_MAX_ARITY, <boost/python/detail/target.hpp>, BOOST_PYTHON_FUNCTION_POINTER))
@@ -31,9 +31,9 @@ namespace boost { namespace python { namespace detail {
 #  include BOOST_PP_ITERATE()
 
 template <class R, class T>
-boost::type<T*>* target(R (T::*)) { return 0; }
+boost_cryray::type<T*>* target(R (T::*)) { return 0; }
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 # endif // TARGET_DWA2002521_HPP
 
@@ -44,7 +44,7 @@ boost::type<T*>* target(R (T::*)) { return 0; }
 # define N BOOST_PP_ITERATION()
 
 template <class R BOOST_PP_ENUM_TRAILING_PARAMS_Z(1, N, class A)>
-boost::type<BOOST_PP_IF(N, A0, void)>* target(R (*)(BOOST_PP_ENUM_PARAMS_Z(1, N, A)))
+boost_cryray::type<BOOST_PP_IF(N, A0, void)>* target(R (*)(BOOST_PP_ENUM_PARAMS_Z(1, N, A)))
 {
     return 0;
 }
@@ -66,7 +66,7 @@ boost::type<BOOST_PP_IF(N, A0, void)>* target(R (*)(BOOST_PP_ENUM_PARAMS_Z(1, N,
 # define Q BOOST_PYTHON_CV_QUALIFIER(BOOST_PP_RELATIVE_ITERATION(1))
 
 template <class R, class T BOOST_PP_ENUM_TRAILING_PARAMS_Z(1, N, class A)>
-boost::type<T Q*>* target(R (T::*)(BOOST_PP_ENUM_PARAMS_Z(1, N, A)) Q)
+boost_cryray::type<T Q*>* target(R (T::*)(BOOST_PP_ENUM_PARAMS_Z(1, N, A)) Q)
 {
     return 0;
 }

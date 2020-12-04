@@ -51,7 +51,7 @@
 #   include "boost/preprocessor/inc.hpp"
 #   include "boost/preprocessor/cat.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // local macro, #undef-ined at the end of the header
@@ -82,7 +82,7 @@ namespace mpl {
 BOOST_MPL_AUX_NONTYPE_ARITY_SPEC(1,int,arg)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_USE_PREPROCESSED_HEADERS
 #endif // BOOST_MPL_ARG_HPP_INCLUDED

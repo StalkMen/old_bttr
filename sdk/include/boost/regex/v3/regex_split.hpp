@@ -25,7 +25,7 @@
 #ifndef BOOST_REGEX_SPLIT_HPP
 #define BOOST_REGEX_SPLIT_HPP
 
-namespace boost{
+namespace boost_cryray{
 
 #ifdef __BORLANDC__
    #pragma option push -a8 -b -Vx -Ve -pc
@@ -145,7 +145,7 @@ inline std::size_t regex_split(OutputIterator out,
   #pragma option pop
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

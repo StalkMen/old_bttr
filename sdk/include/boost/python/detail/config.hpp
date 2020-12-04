@@ -24,9 +24,9 @@
 #  define BOOST_PYTHON_CONVERSION
 #  define BOOST_PYTHON_IMPORT_CONVERSION(x) using ::x
 # else
-#  define BOOST_PYTHON_BEGIN_CONVERSION_NAMESPACE namespace boost { namespace python {
-#  define BOOST_PYTHON_END_CONVERSION_NAMESPACE }} // namespace boost::python
-#  define BOOST_PYTHON_CONVERSION boost::python
+#  define BOOST_PYTHON_BEGIN_CONVERSION_NAMESPACE namespace boost_cryray { namespace python {
+#  define BOOST_PYTHON_END_CONVERSION_NAMESPACE }} // namespace boost_cryray::python
+#  define BOOST_PYTHON_CONVERSION boost_cryray::python
 #  define BOOST_PYTHON_IMPORT_CONVERSION(x) void never_defined() // so we can follow the macro with a ';'
 # endif
 

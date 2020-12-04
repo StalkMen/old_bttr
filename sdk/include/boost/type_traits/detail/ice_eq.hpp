@@ -12,7 +12,7 @@
 
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace type_traits {
 
 template <int b1, int b2>
@@ -33,6 +33,6 @@ template <int b1, int b2> bool const ice_ne<b1,b2>::value;
 #endif
 
 } // namespace type_traits
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_TT_DETAIL_ICE_EQ_HPP_INCLUDED

@@ -17,7 +17,7 @@
 #ifndef BOOST_LAMBDA_RET_HPP
 #define BOOST_LAMBDA_RET_HPP
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
   // TODO:
@@ -318,7 +318,7 @@ inline result_type_to_sig<F> std_functor(const F& f) { return f; }
 
 
 } // namespace lambda 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

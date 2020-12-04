@@ -22,7 +22,7 @@
 #include "boost/mpl/aux_/sequence_tag.hpp"
 #include "boost/mpl/aux_/void_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // returns sequence size if it's an O(1) operation; otherwise returns -1
@@ -38,6 +38,6 @@ struct O1_size
 BOOST_MPL_AUX_VOID_SPEC(1, O1_size)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_O1_SIZE_HPP_INCLUDED

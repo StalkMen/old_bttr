@@ -10,7 +10,7 @@
 # include <boost/python/object_core.hpp>
 # include <boost/python/object_protocol.hpp>
 
-namespace boost { namespace python { namespace api {
+namespace boost_cryray { namespace python { namespace api {
 
 struct const_attribute_policies
 {
@@ -62,6 +62,6 @@ inline void attribute_policies::del(
     python::delattr(target, key);
 }
 
-}}} // namespace boost::python::api
+}}} // namespace boost_cryray::python::api
 
 #endif // OBJECT_ATTRIBUTES_DWA2002615_HPP

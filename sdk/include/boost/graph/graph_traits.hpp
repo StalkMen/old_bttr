@@ -31,7 +31,7 @@
 #include <boost/tuple/tuple.hpp>
 #include <boost/pending/ct_if.hpp>
 
-namespace boost {
+namespace boost_cryray {
   
   template <typename G>
   struct graph_traits {
@@ -99,7 +99,7 @@ namespace boost {
   //?? not the right place ?? Lee
   struct multi_pass_input_iterator_tag : std::input_iterator_tag { };
 
-} // namespace boost
+} // namespace boost_cryray
 
 // Since pair is in namespace std, Koenig lookup will find source and
 // target if they are also defined in namespace std.  This is illegal,
@@ -121,7 +121,7 @@ namespace std {
 // For some reason g++ with STLport does not see the above definition
 // of source() and target() unless we bring them into the boost
 // namespace.
-namespace boost {
+namespace boost_cryray {
   using std::source;
   using std::target;
 }

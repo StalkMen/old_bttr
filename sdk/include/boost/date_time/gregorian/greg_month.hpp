@@ -11,7 +11,7 @@
 #include <string>
 
 
-namespace boost {
+namespace boost_cryray {
 namespace gregorian {
 
   typedef date_time::months_of_year months_of_year;

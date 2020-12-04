@@ -40,7 +40,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 template <typename T>
@@ -510,26 +510,26 @@ namespace impl {
 
     //////////////////////////////////
     template <typename T>
-    struct tree_match_attr<boost::reference_wrapper<T> >
+    struct tree_match_attr<boost_cryray::reference_wrapper<T> >
     {
         template <typename MatchT>
-        static boost::reference_wrapper<T>
+        static boost_cryray::reference_wrapper<T>
         get(MatchT const& m)
-        { return boost::reference_wrapper<T>(m.value()); }
+        { return boost_cryray::reference_wrapper<T>(m.value()); }
 
         template <typename IteratorT, typename NodeFactoryT>
-        static boost::reference_wrapper<T>
+        static boost_cryray::reference_wrapper<T>
         get(tree_match<IteratorT, NodeFactoryT, nil_t> const& /*m*/)
         {
             static T v;
-            return boost::reference_wrapper<T>(v);
+            return boost_cryray::reference_wrapper<T>(v);
         }
 
-        static boost::reference_wrapper<T>
+        static boost_cryray::reference_wrapper<T>
         get_default()
         {
             static T v;
-            return boost::reference_wrapper<T>(v);
+            return boost_cryray::reference_wrapper<T>(v);
         }
     };
 
@@ -555,8 +555,8 @@ namespace impl {
     inline void cp_swap(T& t1, T& t2)
     {
         using std::swap;
-        using boost::spirit::swap;
-        using boost::swap;
+        using boost_cryray::spirit::swap;
+        using boost_cryray::swap;
         swap(t1, t2);
     }
 }
@@ -574,9 +574,9 @@ public:
     typedef typename container_t::const_iterator const_tree_iterator;
 
     typedef T attr_t;
-    typedef typename boost::call_traits<T>::param_type      param_type;
-    typedef typename boost::call_traits<T>::reference       reference;
-    typedef typename boost::call_traits<T>::const_reference const_reference;
+    typedef typename boost_cryray::call_traits<T>::param_type      param_type;
+    typedef typename boost_cryray::call_traits<T>::reference       reference;
+    typedef typename boost_cryray::call_traits<T>::const_reference const_reference;
 
     tree_match()
     :   len(-1), trees(), val(impl::tree_match_attr<T>::get_default())
@@ -977,8 +977,8 @@ struct infix_node_op
         typedef typename MatchT::container_t::value_type value_t;
 
         using std::swap;
-        using boost::swap;
-        using boost::spirit::swap;
+        using boost_cryray::swap;
+        using boost_cryray::spirit::swap;
 
         // copying the tree nodes is expensive, since it may copy a whole
         // tree.  swapping them is cheap, so swap the nodes we want into
@@ -1017,8 +1017,8 @@ struct discard_first_node_op
         typedef typename MatchT::container_t::value_type value_t;
 
         using std::swap;
-        using boost::swap;
-        using boost::spirit::swap;
+        using boost_cryray::swap;
+        using boost_cryray::spirit::swap;
 
         // copying the tree nodes is expensive, since it may copy a whole
         // tree.  swapping them is cheap, so swap the nodes we want into
@@ -1062,8 +1062,8 @@ struct inner_node_op
         typedef typename MatchT::container_t::value_type value_t;
 
         using std::swap;
-        using boost::swap;
-        using boost::spirit::swap;
+        using boost_cryray::swap;
+        using boost_cryray::spirit::swap;
 
         // copying the tree nodes is expensive, since it may copy a whole
         // tree.  swapping them is cheap, so swap the nodes we want into
@@ -1341,8 +1341,8 @@ struct tree_parse_info {
         , trees()
     {
         using std::swap;
-        using boost::swap;
-        using boost::spirit::swap;
+        using boost_cryray::swap;
+        using boost_cryray::spirit::swap;
 
         // use auto_ptr like ownership for the trees data member
         swap(trees, pi.trees);
@@ -1361,15 +1361,15 @@ struct tree_parse_info {
         , trees()
     {
         using std::swap;
-        using boost::swap;
-        using boost::spirit::swap;
+        using boost_cryray::swap;
+        using boost_cryray::spirit::swap;
 
         // use auto_ptr like ownership for the trees data member
         swap(trees, trees_);
     }
 };
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #undef BOOST_SPIRIT_IT_NS
 #undef BOOST_SPIRIT_MP_TYPE_COMPUTER_ARGS

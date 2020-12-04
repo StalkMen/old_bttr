@@ -19,7 +19,7 @@
 # include <string>
 # include <complex>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -317,16 +317,16 @@ BOOST_PYTHON_UNARY_OPERATOR(complex, std::complex<double>, complex_)
 BOOST_PYTHON_UNARY_OPERATOR(str, lexical_cast<std::string>, str)
 # undef BOOST_PYTHON_UNARY_OPERATOR
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 # ifdef BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
-using boost::python::self_ns::abs;
-using boost::python::self_ns::int_;
-using boost::python::self_ns::long_;
-using boost::python::self_ns::float_;
-using boost::python::self_ns::complex_;
-using boost::python::self_ns::str;
-using boost::python::self_ns::pow;
+using boost_cryray::python::self_ns::abs;
+using boost_cryray::python::self_ns::int_;
+using boost_cryray::python::self_ns::long_;
+using boost_cryray::python::self_ns::float_;
+using boost_cryray::python::self_ns::complex_;
+using boost_cryray::python::self_ns::str;
+using boost_cryray::python::self_ns::pow;
 # endif
 
 #endif // OPERATORS_DWA2002530_HPP

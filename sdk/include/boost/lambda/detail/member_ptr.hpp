@@ -19,7 +19,7 @@
 #if !defined(BOOST_LAMBDA_MEMBER_PTR_HPP)
 #define BOOST_LAMBDA_MEMBER_PTR_HPP
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
 
@@ -32,7 +32,7 @@ namespace detail {
 // need to know more details.
 template<class T>
 struct member_pointer {
-  typedef typename boost::add_reference<T>::type type;
+  typedef typename boost_cryray::add_reference<T>::type type;
   typedef detail::unspecified class_type;
   typedef detail::unspecified qualified_class_type;
   BOOST_STATIC_CONSTANT(bool, is_data_member = false);
@@ -41,7 +41,7 @@ struct member_pointer {
 
 template<class T, class U>
 struct member_pointer<T U::*> {
-  typedef typename boost::add_reference<T>::type type;
+  typedef typename boost_cryray::add_reference<T>::type type;
   typedef U class_type;
   typedef U qualified_class_type;
   BOOST_STATIC_CONSTANT(bool, is_data_member = true);
@@ -50,7 +50,7 @@ struct member_pointer<T U::*> {
 
 template<class T, class U>
 struct member_pointer<const T U::*> {
-  typedef typename boost::add_reference<const T>::type type;
+  typedef typename boost_cryray::add_reference<const T>::type type;
   typedef U class_type;
   typedef const U qualified_class_type;
   BOOST_STATIC_CONSTANT(bool, is_data_member = true);
@@ -59,7 +59,7 @@ struct member_pointer<const T U::*> {
 
 template<class T, class U>
 struct member_pointer<volatile T U::*> {
-  typedef typename boost::add_reference<volatile T>::type type;
+  typedef typename boost_cryray::add_reference<volatile T>::type type;
   typedef U class_type;
   typedef volatile U qualified_class_type;
   BOOST_STATIC_CONSTANT(bool, is_data_member = true);
@@ -68,7 +68,7 @@ struct member_pointer<volatile T U::*> {
 
 template<class T, class U>
 struct member_pointer<const volatile T U::*> {
-  typedef typename boost::add_reference<const volatile T>::type type;
+  typedef typename boost_cryray::add_reference<const volatile T>::type type;
   typedef U class_type;
   typedef const volatile U qualified_class_type;
   BOOST_STATIC_CONSTANT(bool, is_data_member = true);
@@ -524,7 +524,7 @@ public:
 
     typedef typename detail::member_pointer<plainB>::type type0;
     // we remove the reference now, as we may have to add cv:s 
-    typedef typename boost::remove_reference<type0>::type type1;
+    typedef typename boost_cryray::remove_reference<type0>::type type1;
 
     // A is a reference to pointer
     // remove the top level cv qualifiers and reference
@@ -532,7 +532,7 @@ public:
       detail::remove_reference_and_cv<A>::type non_ref_A;
 
     // A is a pointer type, so take the type pointed to
-    typedef typename ::boost::remove_pointer<non_ref_A>::type non_pointer_A; 
+    typedef typename ::boost_cryray::remove_pointer<non_ref_A>::type non_pointer_A; 
 
   public:
     // For non-reference types, we must add const and/or volatile if
@@ -540,17 +540,17 @@ public:
     // If the member is a reference, these do not have any effect
     //   (cv T == T if T is a reference type)
     typedef typename detail::IF<
-      ::boost::is_const<non_pointer_A>::value, 
-      typename ::boost::add_const<type1>::type,
+      ::boost_cryray::is_const<non_pointer_A>::value, 
+      typename ::boost_cryray::add_const<type1>::type,
       type1
     >::RET type2;
     typedef typename detail::IF<
-      ::boost::is_volatile<non_pointer_A>::value, 
-      typename ::boost::add_volatile<type2>::type,
+      ::boost_cryray::is_volatile<non_pointer_A>::value, 
+      typename ::boost_cryray::add_volatile<type2>::type,
       type2
     >::RET type3;
     // add reference back
-    typedef typename ::boost::add_reference<type3>::type type;
+    typedef typename ::boost_cryray::add_reference<type3>::type type;
   };
 };
 
@@ -589,9 +589,9 @@ struct member_pointer_action_helper<false, true> {
 
   template<class RET, class A, class B>
   static RET apply(A& a, B& b) { 
-    typedef typename ::boost::remove_cv<B>::type plainB;
+    typedef typename ::boost_cryray::remove_cv<B>::type plainB;
     typedef typename detail::member_pointer<plainB>::type ret_t; 
-    typedef typename ::boost::remove_cv<A>::type plainA;
+    typedef typename ::boost_cryray::remove_cv<A>::type plainA;
 
     // we always strip cv:s to 
     // make the two routes (calling and type deduction)
@@ -617,12 +617,12 @@ public:
   template<class RET, class A, class B>
   static RET apply(A& a, B& b) {
     typedef typename 
-      ::boost::remove_cv<B>::type plainB;
+      ::boost_cryray::remove_cv<B>::type plainB;
 
     return detail::member_pointer_action_helper<
-        boost::is_pointer<A>::value && 
+        boost_cryray::is_pointer<A>::value && 
           detail::member_pointer<plainB>::is_data_member,
-        boost::is_pointer<A>::value && 
+        boost_cryray::is_pointer<A>::value && 
           detail::member_pointer<plainB>::is_function_member
       >::template apply<RET>(a, b); 
     }
@@ -662,12 +662,12 @@ public:
   // user can provide specializations on that level.
 template<class Args>
 struct return_type_N<other_action<member_pointer_action>, Args> {
-  typedef typename boost::tuples::element<0, Args>::type A;
-  typedef typename boost::tuples::element<1, Args>::type B;
+  typedef typename boost_cryray::tuples::element<0, Args>::type A;
+  typedef typename boost_cryray::tuples::element<1, Args>::type B;
   typedef typename 
     return_type_2<other_action<member_pointer_action>, 
-                  typename boost::remove_reference<A>::type, 
-                  typename boost::remove_reference<B>::type
+                  typename boost_cryray::remove_reference<A>::type, 
+                  typename boost_cryray::remove_reference<B>::type
                  >::type type;
 };
 
@@ -730,7 +730,7 @@ operator->*(const Arg1& a1, const lambda_functor<Arg2>& a2)
 
 
 } // namespace lambda 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif

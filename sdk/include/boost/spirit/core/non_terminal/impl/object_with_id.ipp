@@ -20,7 +20,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     namespace impl {
 
@@ -34,7 +34,7 @@ namespace boost { namespace spirit {
             object_with_id_base_supply() : max_id(object_id()) {}
 
 #ifdef BOOST_SPIRIT_THREADSAFE
-            boost::mutex        mutex;
+            boost_cryray::mutex        mutex;
 #endif
             object_id           max_id;
             id_vector           free_ids;
@@ -57,7 +57,7 @@ namespace boost { namespace spirit {
 
         private:
 
-            boost::shared_ptr<object_with_id_base_supply<IdT> > id_supply;
+            boost_cryray::shared_ptr<object_with_id_base_supply<IdT> > id_supply;
         };
 
         //////////////////////////////////
@@ -92,7 +92,7 @@ namespace boost { namespace spirit {
         object_with_id_base_supply<IdT>::acquire()
         {
 #ifdef BOOST_SPIRIT_THREADSAFE
-            boost::mutex::scoped_lock lock(mutex);
+            boost_cryray::mutex::scoped_lock lock(mutex);
 #endif
             if (free_ids.size())
             {
@@ -114,7 +114,7 @@ namespace boost { namespace spirit {
         object_with_id_base_supply<IdT>::release(IdT id)
         {
 #ifdef BOOST_SPIRIT_THREADSAFE
-            boost::mutex::scoped_lock lock(mutex);
+            boost_cryray::mutex::scoped_lock lock(mutex);
 #endif
             if (max_id == id)
                 max_id--;
@@ -129,10 +129,10 @@ namespace boost { namespace spirit {
         {
             {
 #ifdef BOOST_SPIRIT_THREADSAFE
-                static boost::mutex mutex;
-                boost::mutex::scoped_lock lock(mutex);
+                static boost_cryray::mutex mutex;
+                boost_cryray::mutex::scoped_lock lock(mutex);
 #endif
-                static boost::shared_ptr<object_with_id_base_supply<IdT> >
+                static boost_cryray::shared_ptr<object_with_id_base_supply<IdT> >
                     static_supply;
 
                 if (!static_supply.get())
@@ -154,6 +154,6 @@ namespace boost { namespace spirit {
     } // namespace impl
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif

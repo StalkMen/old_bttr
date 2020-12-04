@@ -29,7 +29,7 @@
 
 #include <boost/graph/depth_first_search.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -189,7 +189,7 @@ namespace boost {
   }
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif

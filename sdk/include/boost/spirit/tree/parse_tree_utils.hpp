@@ -18,7 +18,7 @@
 #include "boost/spirit/tree/parse_tree.hpp" // needed for parse tree generation
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost {
+namespace boost_cryray {
 namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ get_node_range (tree_node<T> const &node, parser_id node_to_search,
 
 ///////////////////////////////////////////////////////////////////////////////
 }   // namespace spirit
-}   // namespace boost
+}   // namespace boost_cryray
 
 #include "impl/parse_tree_utils.ipp"
 

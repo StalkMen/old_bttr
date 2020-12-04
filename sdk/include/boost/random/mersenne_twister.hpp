@@ -32,7 +32,7 @@
 #include <boost/random/linear_congruential.hpp>
 # include <boost/detail/workaround.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace random {
 
 // http://www.math.keio.ac.jp/matumoto/emt.html
@@ -293,6 +293,6 @@ typedef random::mersenne_twister<uint32_t,32,351,175,19,0xccab8ee7,11,
 typedef random::mersenne_twister<uint32_t,32,624,397,31,0x9908b0df,11,
   7,0x9d2c5680,15,0xefc60000,18, 3346425566U> mt19937;
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_MERSENNE_TWISTER_HPP

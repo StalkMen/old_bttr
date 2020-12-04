@@ -156,8 +156,8 @@ namespace phoenix {
 //
 ///////////////////////////////////////////////////////////////////////////////
 struct nil_t {};
-using boost::remove_reference;
-using boost::call_traits;
+using boost_cryray::remove_reference;
+using boost_cryray::call_traits;
 
 //////////////////////////////////
 namespace impl {

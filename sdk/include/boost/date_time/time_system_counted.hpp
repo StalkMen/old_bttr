@@ -12,7 +12,7 @@
 #include <string>
 
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
   //! Time representation that uses a single integer count

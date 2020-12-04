@@ -21,7 +21,7 @@
 #  include <boost/preprocessor/repetition/enum_params.hpp>
 #  include <boost/preprocessor/repetition/enum_trailing_params.hpp>
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 template <class S, class FT>
 struct cast_helper
@@ -83,7 +83,7 @@ struct member_function_cast
 {
 };
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 # endif // MEMBER_FUNCTION_CAST_DWA2002311_HPP
 

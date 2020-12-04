@@ -30,7 +30,7 @@ namespace thunderbolts
 
 class gradient :
     public SThunderboltDesc::SFlare,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 public:
     gradient();

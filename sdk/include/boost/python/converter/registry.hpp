@@ -13,7 +13,7 @@
 # include <boost/python/converter/constructor_function.hpp>
 # include <boost/python/converter/convertible_function.hpp>
 
-namespace boost { namespace python { namespace converter {
+namespace boost_cryray { namespace python { namespace converter {
 
 struct registration;
 
@@ -47,6 +47,6 @@ namespace registry
       );
 }
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // REGISTRY_DWA20011127_HPP

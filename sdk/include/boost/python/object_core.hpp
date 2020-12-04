@@ -24,7 +24,7 @@
 # include <boost/preprocessor/iterate.hpp>
 # include <boost/preprocessor/debug/line.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace converter
 {
@@ -73,13 +73,13 @@ namespace api
   typedef char yes_proxy;
   typedef char (&no_proxy)[2];
   template <class T>
-  yes_proxy is_proxy_helper(boost::type<proxy<T> >*);
+  yes_proxy is_proxy_helper(boost_cryray::type<proxy<T> >*);
   no_proxy is_proxy_helper(...);
   template <class T>
   struct is_proxy
   {
       BOOST_STATIC_CONSTANT(
-          bool, value = (sizeof(is_proxy_helper((boost::type<T>*)0))
+          bool, value = (sizeof(is_proxy_helper((boost_cryray::type<T>*)0))
                          == sizeof(yes_proxy)));
   };
 # endif 
@@ -384,6 +384,6 @@ inline PyObject* get_managed_object(object const& x, tag_t)
     return x.ptr();
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // OBJECT_CORE_DWA2002615_HPP

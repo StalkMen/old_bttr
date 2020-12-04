@@ -22,8 +22,8 @@
 #include <boost/visit_each.hpp>
 #include <cassert>
 
-namespace boost {
-  namespace BOOST_SIGNALS_NAMESPACE {
+namespace boost_cryray {
+  namespace boost_cryray_SIGNALS_NAMESPACE {
     namespace detail {
       class BOOST_SIGNALS_DECL slot_base {
         // We would have to enumerate all of the signalN classes here as
@@ -92,7 +92,7 @@ namespace boost {
       return tag;
     }
 
-  } // end namespace BOOST_SIGNALS_NAMESPACE
+  } // end namespace boost_cryray_SIGNALS_NAMESPACE
 
   template<typename SlotFunction>
   class slot : public BOOST_SIGNALS_NAMESPACE::detail::slot_base {
@@ -131,6 +131,6 @@ namespace boost {
 
     SlotFunction slot_function;
   };
-} // end namespace boost
+} // end namespace boost_cryray
 
 #endif // BOOST_SIGNALS_SLOT_HEADER

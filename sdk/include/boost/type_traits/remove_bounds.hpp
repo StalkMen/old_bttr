@@ -16,7 +16,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/type_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 BOOST_TT_AUX_TYPE_TRAIT_DEF1(remove_bounds,T,T)
 
@@ -27,7 +27,7 @@ BOOST_TT_AUX_TYPE_TRAIT_PARTIAL_SPEC1_2(typename T,std::size_t N,remove_bounds,T
 BOOST_TT_AUX_TYPE_TRAIT_PARTIAL_SPEC1_2(typename T,std::size_t N,remove_bounds,T const volatile[N],T const volatile type)
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/type_trait_undef.hpp"
 

@@ -92,7 +92,7 @@ namespace luabind
 {
 	template<int N>
 	detail::policy_cons<detail::COM_policy<N>, detail::null_type> 
-	COM_managed(boost::arg<N>) { return detail::policy_cons<detail::COM_policy<N>, detail::null_type>(); }
+	COM_managed(boost_cryray::arg<N>) { return detail::policy_cons<detail::COM_policy<N>, detail::null_type>(); }
 }
 
 #endif // LUABIND_COM_POLICY_HPP_INCLUDED

@@ -45,7 +45,7 @@
 
 #if !defined(BOOST_NO_TEMPLATE_TEMPLATE_PARAMETERS)
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 #if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION)
@@ -92,7 +92,7 @@ template<> struct quote_impl<false>
 #include BOOST_PP_ITERATE()
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NO_TEMPLATE_TEMPLATE_PARAMETERS
 

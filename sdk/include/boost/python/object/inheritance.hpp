@@ -13,7 +13,7 @@
 # include <boost/type_traits/is_polymorphic.hpp>
 # include <boost/detail/workaround.hpp>
 
-namespace boost { namespace python { namespace objects {
+namespace boost_cryray { namespace python { namespace objects {
 
 typedef type_info class_id;
 using python::type_id;
@@ -149,6 +149,6 @@ inline void register_conversion(
              , is_downcast);
 }
 
-}}} // namespace boost::python::object
+}}} // namespace boost_cryray::python::object
 
 #endif // INHERITANCE_DWA200216_HPP

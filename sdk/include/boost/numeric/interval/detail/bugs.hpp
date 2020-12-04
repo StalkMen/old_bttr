@@ -45,7 +45,7 @@
 // cf PR c++/1981 for a description of the bug
 #include <algorithm>
 #include <cmath>
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
   using std::min;
   using std::max;
@@ -74,7 +74,7 @@ namespace numeric {
 # define BOOST_NUMERIC_INTERVAL_using_ahyp(a)
 # endif
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 #endif
 
 #endif // BOOST_NUMERIC_INTERVAL_DETAIL_BUGS

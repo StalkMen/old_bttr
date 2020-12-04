@@ -17,7 +17,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -81,7 +81,7 @@ namespace boost { namespace spirit {
         >
         operator[](ParserT const &p) const
         {
-            typedef ::boost::spirit::as_parser<ParserT> as_parser_t;
+            typedef ::boost_cryray::spirit::as_parser<ParserT> as_parser_t;
             typedef typename as_parser_t::type parser_t;
 
             return scoped_lock_parser<mutex_t, parser_t>
@@ -106,5 +106,5 @@ namespace boost { namespace spirit {
         return scoped_lock_parser_gen<MutexT>(mutex);
     }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 #endif // BOOST_SPIRIT_UTILITY_SCOPED_LOCK_HPP

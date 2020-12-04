@@ -18,7 +18,7 @@
   *   FILE         cregex.cpp
   *   VERSION      see <boost/version.hpp>
   *   DESCRIPTION: Declares POSIX API functions
-  *                + boost::RegEx high level wrapper.
+  *                + boost_cryray::RegEx high level wrapper.
   */
 
 #ifndef BOOST_RE_CREGEX_HPP_INCLUDED
@@ -34,7 +34,7 @@
 
 /* include these defs only for POSIX compatablity */
 #ifdef __cplusplus
-namespace boost{
+namespace boost_cryray{
 extern "C" {
 #endif
 
@@ -202,7 +202,7 @@ enum match_flags
 #if defined(__cplusplus)
 #include <string>
 #include <vector>
-namespace boost{
+namespace boost_cryray{
 
 #ifdef __BORLANDC__
    #if __BORLANDC__ == 0x530
@@ -300,7 +300,7 @@ public:
   #pragma option pop
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

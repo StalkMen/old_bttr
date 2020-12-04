@@ -24,7 +24,7 @@
 #include "boost/mpl/aux_/config/vector.hpp"
 #include "boost/mpl/aux_/config/ctps.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 #if defined(BOOST_MPL_TYPEOF_BASED_VECTOR_IMPL)
@@ -71,6 +71,6 @@ struct at_traits< aux::vector_tag<S> >
 #endif // BOOST_MPL_TYPEOF_BASED_VECTOR_IMPL
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_VECTOR_AUX_AT_HPP_INCLUDED

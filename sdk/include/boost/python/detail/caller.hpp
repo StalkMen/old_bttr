@@ -27,7 +27,7 @@
 
 #  include <boost/python/detail/invoke.hpp>
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 // This "result converter" is really just used as
 // a dispatch tag to invoke(...), selecting the appropriate
@@ -122,7 +122,7 @@ struct caller
 };
 
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 # endif // CALLER_DWA20021121_HPP
 

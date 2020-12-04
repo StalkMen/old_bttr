@@ -24,7 +24,7 @@
 #include <cstddef>
 #include <iterator>
 
-namespace boost {
+namespace boost_cryray {
 namespace detail {
 namespace multi_array {
 
@@ -63,7 +63,7 @@ struct iterator_base : private multi_array_base {
 
 template<typename T, std::size_t NumDims>
 struct iterator_policies :
-  public boost::detail::multi_array::default_iterator_policies,
+  public boost_cryray::detail::multi_array::default_iterator_policies,
   private value_accessor_generator<T,NumDims>::type {
 private:
   typedef typename value_accessor_generator<T,NumDims>::type super_type;
@@ -72,7 +72,7 @@ public:
   typename IteratorAdaptor::reference
   dereference(const IteratorAdaptor& iter) const {
     typedef typename IteratorAdaptor::reference reference;
-    return super_type::access(boost::type<reference>(),
+    return super_type::access(boost_cryray::type<reference>(),
                               iter.base().idx_,
                               iter.base().base_,
                               iter.base().extents_,
@@ -117,7 +117,7 @@ private:
   typedef value_type* pointer_type;
   typedef tag category;
 public:
-  typedef boost::detail::multi_array::iterator_adaptor<base_type,policies,value_type,
+  typedef boost_cryray::detail::multi_array::iterator_adaptor<base_type,policies,value_type,
     reference_type,pointer_type,category,difference_type> type;
 };
 
@@ -150,7 +150,7 @@ private:
   typedef typename iterator_gen_helper<T,base_type,NumDims,value_type,
     reference_type,tag,difference_type>::type it_type;
 public:
-  typedef typename boost::reverse_iterator_generator<it_type>::type type;
+  typedef typename boost_cryray::reverse_iterator_generator<it_type>::type type;
 };
 
 template <typename T,  std::size_t NumDims, typename value_type,
@@ -161,11 +161,11 @@ private:
   typedef typename iterator_gen_helper<T,base_type,NumDims,value_type,
     reference_type,tag,difference_type>::type it_type;
 public:
-  typedef typename boost::reverse_iterator_generator<it_type>::type type;
+  typedef typename boost_cryray::reverse_iterator_generator<it_type>::type type;
 };
 
 } // namespace multi_array
 } // namespace detail
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // ITERATOR_RG071801_HPP

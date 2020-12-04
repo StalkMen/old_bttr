@@ -6,7 +6,7 @@
 #ifndef DECREF_GUARD_DWA20021220_HPP
 # define DECREF_GUARD_DWA20021220_HPP
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 struct decref_guard
 {
@@ -17,6 +17,6 @@ struct decref_guard
     PyObject* obj;
 };
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // DECREF_GUARD_DWA20021220_HPP

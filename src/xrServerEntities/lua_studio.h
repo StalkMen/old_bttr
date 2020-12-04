@@ -24,7 +24,7 @@ namespace luabind {
 
 class lua_studio_engine :
 	public cs::lua_studio::engine,
-	private boost::noncopyable
+	private boost_cryray::noncopyable
 {
 public:
 	virtual	int				CS_LUA_STUDIO_BACKEND_CALL	luaL_loadstring				(lua_State *L, const char *s);

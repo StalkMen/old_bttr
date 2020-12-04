@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/list/list50.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -220,5 +220,5 @@ struct list50
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

@@ -17,7 +17,7 @@
 #ifndef BOOST_MPL_AUX_DEBUG_PRINT_HPP_INCLUDED
 #define BOOST_MPL_AUX_DEBUG_PRINT_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -29,10 +29,10 @@ struct print_
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #define BOOST_MPL_AUX_DEBUG_PRINT(type) \
-enum { mpl_debug_print_##type = boost::mpl::aux::print_<type>::value } ;\
+enum { mpl_debug_print_##type = boost_cryray::mpl::aux::print_<type>::value } ;\
 /**/
 
 #endif // BOOST_MPL_AUX_DEBUG_PRINT_HPP_INCLUDED

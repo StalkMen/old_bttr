@@ -17,7 +17,7 @@
 //////////////////////////////////
 #include "boost/spirit/core.hpp"
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -231,7 +231,7 @@ namespace boost { namespace spirit {
     trace_parser(subrule<ID, ContextT> const& p);
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 //////////////////////////////////
 #if !defined(BOOST_SPIRIT_PARSER_NAMES_IPP)

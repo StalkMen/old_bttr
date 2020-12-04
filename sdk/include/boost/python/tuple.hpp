@@ -11,7 +11,7 @@
 #include <boost/preprocessor/enum_params.hpp>
 #include <boost/preprocessor/repetition/enum_binary_params.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace detail
 {
@@ -63,7 +63,7 @@ inline tuple make_tuple() { return tuple(); }
 # define BOOST_PP_ITERATION_PARAMS_1 (3, (1, BOOST_PYTHON_MAX_ARITY, <boost/python/detail/make_tuple.hpp>))
 # include BOOST_PP_ITERATE()
 
-}}  // namespace boost::python
+}}  // namespace boost_cryray::python
 
 #endif
 

@@ -30,7 +30,7 @@
 #include <boost/regex/v3/regex_cstring.hpp>
 #endif
 
-namespace boost{
+namespace boost_cryray{
 
 #ifdef __BORLANDC__
    #pragma option push -a8 -b -Vx -Ve -pc
@@ -169,7 +169,7 @@ protected:
    static unsigned short class_map[map_size];
    static char lower_case_map[map_size];
 
-   static boost::uint_fast32_t BOOST_REGEX_CALL do_lookup_class(const char* p);
+   static boost_cryray::uint_fast32_t BOOST_REGEX_CALL do_lookup_class(const char* p);
    static bool BOOST_REGEX_CALL do_lookup_collate(std::string& buf, const char* p);
    static void BOOST_REGEX_CALL do_update_ctype();
    static void BOOST_REGEX_CALL do_update_collate();
@@ -218,7 +218,7 @@ public:
       return false;
    }
    
-   static bool BOOST_REGEX_CALL is_class(char c, boost::uint_fast32_t f)
+   static bool BOOST_REGEX_CALL is_class(char c, boost_cryray::uint_fast32_t f)
    {
       return BOOST_REGEX_MAKE_BOOL(class_map[(size_type)(uchar_type)c] & f);
    }
@@ -226,7 +226,7 @@ public:
    static int BOOST_REGEX_CALL toi(char c);
    static int BOOST_REGEX_CALL toi(const char*& first, const char* last, int radix);
 
-   static boost::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const char* first, const char* last)
+   static boost_cryray::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const char* first, const char* last)
    {
       std::string s(first, last);
       return do_lookup_class(s.c_str());
@@ -298,7 +298,7 @@ public:
    static bool BOOST_REGEX_CALL is_combining(wchar_t c)
    { return re_detail::is_combining(c); }
    
-   static bool BOOST_REGEX_CALL is_class(wchar_t c, boost::uint_fast32_t f)
+   static bool BOOST_REGEX_CALL is_class(wchar_t c, boost_cryray::uint_fast32_t f)
    {
       return BOOST_REGEX_MAKE_BOOL(((uchar_type)c < 256) ? (re_detail::wide_unicode_classes[(size_type)(uchar_type)c] & f) : do_iswclass(c, f));
    }
@@ -306,7 +306,7 @@ public:
    static int BOOST_REGEX_CALL toi(wchar_t c);
    static int BOOST_REGEX_CALL toi(const wchar_t*& first, const wchar_t* last, int radix);
 
-   static boost::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const wchar_t* first, const wchar_t* last);
+   static boost_cryray::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const wchar_t* first, const wchar_t* last);
 
    static bool BOOST_REGEX_CALL lookup_collatename(std::basic_string<wchar_t>& s, const wchar_t* first, const wchar_t* last);
 
@@ -326,7 +326,7 @@ public:
    static std::size_t BOOST_REGEX_CALL strnarrow(char *s1, std::size_t len, const wchar_t *s2);
    static std::size_t BOOST_REGEX_CALL strwiden(wchar_t *s1, std::size_t len, const char *s2);
 private:
-   static bool BOOST_REGEX_CALL do_iswclass(wchar_t c, boost::uint_fast32_t f);
+   static bool BOOST_REGEX_CALL do_iswclass(wchar_t c, boost_cryray::uint_fast32_t f);
    static void BOOST_REGEX_CALL m_free();
    static void BOOST_REGEX_CALL init();
    static bool BOOST_REGEX_CALL do_lookup_collate(std::basic_string<wchar_t>& out, const wchar_t* first, const wchar_t* last);
@@ -377,7 +377,7 @@ protected:
    static unsigned short class_map[map_size];
    static char lower_case_map[map_size];
 
-   static boost::uint_fast32_t BOOST_REGEX_CALL do_lookup_class(const char* p);
+   static boost_cryray::uint_fast32_t BOOST_REGEX_CALL do_lookup_class(const char* p);
    static bool BOOST_REGEX_CALL do_lookup_collate(std::string& buf, const char* p);
    static void BOOST_REGEX_CALL do_free();
    static void BOOST_REGEX_CALL do_init();
@@ -429,7 +429,7 @@ public:
       return false;
    }
    
-   static bool BOOST_REGEX_CALL is_class(char c, boost::uint_fast32_t f)
+   static bool BOOST_REGEX_CALL is_class(char c, boost_cryray::uint_fast32_t f)
    {
       return BOOST_REGEX_MAKE_BOOL(class_map[(size_type)(uchar_type)c] & f);
    }
@@ -437,7 +437,7 @@ public:
    static int BOOST_REGEX_CALL toi(char c);
    static int BOOST_REGEX_CALL toi(const char*& first, const char* last, int radix);
 
-   static boost::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const char* first, const char* last)
+   static boost_cryray::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const char* first, const char* last)
    {
       std::string s(first, last);
       return do_lookup_class(s.c_str());
@@ -499,7 +499,7 @@ public:
    static bool BOOST_REGEX_CALL is_combining(wchar_t c)
    { return re_detail::is_combining(c); }
    
-   static bool BOOST_REGEX_CALL is_class(wchar_t c, boost::uint_fast32_t f)
+   static bool BOOST_REGEX_CALL is_class(wchar_t c, boost_cryray::uint_fast32_t f)
    {
       return BOOST_REGEX_MAKE_BOOL(((uchar_type)c < 256) ? (wide_unicode_classes[(size_type)(uchar_type)c] & f) : do_iswclass(c, f));
    }
@@ -507,7 +507,7 @@ public:
    static int BOOST_REGEX_CALL toi(wchar_t c);
    static int BOOST_REGEX_CALL toi(const wchar_t*& first, const wchar_t* last, int radix);
 
-   static boost::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const wchar_t* first, const wchar_t* last);
+   static boost_cryray::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const wchar_t* first, const wchar_t* last);
 
    static bool BOOST_REGEX_CALL lookup_collatename(std::basic_string<wchar_t>& s, const wchar_t* first, const wchar_t* last);
 
@@ -528,7 +528,7 @@ public:
    static std::size_t BOOST_REGEX_CALL strwiden(wchar_t *s1, std::size_t len, const char *s2);
 
 private:
-   static bool BOOST_REGEX_CALL do_iswclass(wchar_t c, boost::uint_fast32_t f);
+   static bool BOOST_REGEX_CALL do_iswclass(wchar_t c, boost_cryray::uint_fast32_t f);
    static bool BOOST_REGEX_CALL do_lookup_collate(std::basic_string<wchar_t>& out, const wchar_t* first, const wchar_t* last);
    static w32_regex_traits<wchar_t> init_;
    static wchar_t BOOST_REGEX_CALL wtolower(wchar_t c);
@@ -549,7 +549,7 @@ private:
    #pragma option push -a4 -b -Ve -pc
 #endif
 
-namespace boost{
+namespace boost_cryray{
 
 namespace re_detail
 {
@@ -655,7 +655,7 @@ public:
       return false;
    }
    
-   bool BOOST_REGEX_CALL is_class(char c, boost::uint_fast32_t f)const
+   bool BOOST_REGEX_CALL is_class(char c, boost_cryray::uint_fast32_t f)const
    {
       if(pctype->is((std::ctype<char>::mask)(f & char_class_all_base), c))
          return true;
@@ -669,7 +669,7 @@ public:
    int BOOST_REGEX_CALL toi(char c)const;
    int BOOST_REGEX_CALL toi(const char*& first, const char* last, int radix)const;
 
-   boost::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const char* first, const char* last)const;
+   boost_cryray::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const char* first, const char* last)const;
    bool BOOST_REGEX_CALL lookup_collatename(std::string& s, const char* first, const char* last)const;
 
    std::string BOOST_REGEX_CALL error_string(unsigned id)const;
@@ -739,7 +739,7 @@ public:
    static bool BOOST_REGEX_CALL is_combining(wchar_t c)
    { return re_detail::is_combining(c); }
    
-   bool BOOST_REGEX_CALL is_class(wchar_t c, boost::uint_fast32_t f)const
+   bool BOOST_REGEX_CALL is_class(wchar_t c, boost_cryray::uint_fast32_t f)const
    {
       if(pctype->is((std::ctype<wchar_t>::mask)(f & char_class_all_base), c))
          return true;
@@ -755,7 +755,7 @@ public:
    int BOOST_REGEX_CALL toi(wchar_t c)const;
    int BOOST_REGEX_CALL toi(const wchar_t*& first, const wchar_t* last, int radix)const;
 
-   boost::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const wchar_t* first, const wchar_t* last)const;
+   boost_cryray::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const wchar_t* first, const wchar_t* last)const;
    bool BOOST_REGEX_CALL lookup_collatename(std::basic_string<wchar_t>& s, const wchar_t* first, const wchar_t* last)const;
 
    std::string BOOST_REGEX_CALL error_string(unsigned id)const;
@@ -804,7 +804,7 @@ class regex_traits : public cpp_regex_traits<charT>
   #pragma option pop
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // include
 

@@ -24,7 +24,7 @@
 #include <boost/numeric/ublas/traits.hpp>
 #include <boost/numeric/ublas/duff.hpp>
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     // Scalar functors
 

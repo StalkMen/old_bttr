@@ -19,12 +19,12 @@
 
 #include <cstddef> // needed for the ptrdiff_t
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
-using ::boost::type_traits::ice_and;
-using ::boost::type_traits::ice_or;
-using ::boost::type_traits::ice_not;
+using ::boost_cryray::type_traits::ice_and;
+using ::boost_cryray::type_traits::ice_or;
+using ::boost_cryray::type_traits::ice_not;
 
 // Much of the type deduction code for standard arithmetic types 
 // from Gary Powell
@@ -109,15 +109,15 @@ namespace detail {
 
   template <class T>
   class protect_conversion {
-      typedef typename boost::remove_reference<T>::type non_ref_T;
+      typedef typename boost_cryray::remove_reference<T>::type non_ref_T;
     public:
 
   // add const to rvalues, so that all rvalues are stored as const in 
   // the args tuple
     typedef typename detail::IF_type<
-//      boost::is_reference<T>::value && !boost::is_const<non_ref_T>::value,
-      ice_and<boost::is_reference<T>::value,
-              ice_not<boost::is_const<non_ref_T>::value>::value>::value,
+//      boost_cryray::is_reference<T>::value && !boost_cryray::is_const<non_ref_T>::value,
+      ice_and<boost_cryray::is_reference<T>::value,
+              ice_not<boost_cryray::is_const<non_ref_T>::value>::value>::value,
       detail::identity_mapping<T>,
       const_copy_argument<non_ref_T> // handles funtion and array 
     >::type type;                      // types correctly
@@ -146,8 +146,8 @@ template <class Act, class A, class B> struct return_type_2_prot {
   // action type and code, and a copy compatible argument tuple.
 
 
-  typedef typename boost::remove_reference<A>::type non_ref_A;
-  typedef typename boost::remove_reference<B>::type non_ref_B;
+  typedef typename boost_cryray::remove_reference<A>::type non_ref_A;
+  typedef typename boost_cryray::remove_reference<B>::type non_ref_B;
 
 typedef typename 
   detail::IF<
@@ -185,8 +185,8 @@ template<class Act, class Other> struct return_type_2_prot<Act, null_type, Other
 template<class A, class B> 
 struct return_type_2_comma
 {
-  typedef typename boost::remove_reference<A>::type non_ref_A;
-  typedef typename boost::remove_reference<B>::type non_ref_B;
+  typedef typename boost_cryray::remove_reference<A>::type non_ref_A;
+  typedef typename boost_cryray::remove_reference<B>::type non_ref_B;
 
 typedef typename 
   detail::IF<
@@ -210,7 +210,7 @@ typedef typename
   // matches, then return the righthand argument
   typedef typename 
     detail::IF<
-      boost::is_same<type1, detail::unspecified>::value, 
+      boost_cryray::is_same<type1, detail::unspecified>::value, 
       B,
       type1
     >::RET type;
@@ -256,7 +256,7 @@ public:
 
 
 } // namespace lambda
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

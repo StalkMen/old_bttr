@@ -28,7 +28,7 @@
 
 #include <boost/graph/properties.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   struct distance_compare_t { };
   struct distance_combine_t { };
@@ -600,6 +600,6 @@ namespace boost {
     return Choice::apply(p, g, tag);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_NAMED_FUNCTION_PARAMS_HPP

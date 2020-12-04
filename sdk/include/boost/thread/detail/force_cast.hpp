@@ -14,7 +14,7 @@
 #ifndef BOOST_FORCE_CAST_MJM012402_HPP
 #define BOOST_FORCE_CAST_MJM012402_HPP
 
-namespace boost {
+namespace boost_cryray {
 
 namespace detail {
 
@@ -38,7 +38,7 @@ inline const Return_Type &force_cast(const Argument_Type &rSrc)
 
 } // namespace detail
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_FORCE_CAST_MJM012402_HPP

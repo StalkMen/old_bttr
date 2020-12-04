@@ -10,7 +10,7 @@
 
 #ifndef BOOST_DATE_TIME_NO_LOCALE
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
 

@@ -38,7 +38,7 @@ namespace luabind { namespace detail
 	template<class T>
 	struct is_const_type
 	{
-		typedef typename boost::mpl::if_<boost::is_const<T>
+		typedef typename boost_cryray::mpl::if_<boost_cryray::is_const<T>
 			, yes_t
 			, no_t
 		>::type type;
@@ -78,9 +78,9 @@ namespace luabind { namespace detail
 
 	template<class T>
 	struct is_const_reference
-		: is_const_reference_helper<boost::is_reference<T>::value>::template apply<T>
+		: is_const_reference_helper<boost_cryray::is_reference<T>::value>::template apply<T>
 	{
-		typedef boost::mpl::bool_<value> type;
+		typedef boost_cryray::mpl::bool_<value> type;
 	};
 
 #else
@@ -89,14 +89,14 @@ namespace luabind { namespace detail
 	struct is_const_reference
 	{
 		enum { value = false };
-		typedef boost::mpl::bool_<value> type;
+		typedef boost_cryray::mpl::bool_<value> type;
 	};
 
 	template<class T>
 	struct is_const_reference<const T&>
 	{
 		enum { value = true };
-		typedef boost::mpl::bool_<value> type;
+		typedef boost_cryray::mpl::bool_<value> type;
 	};
 
 #endif
@@ -107,9 +107,9 @@ namespace luabind { namespace detail
 	{
 		enum
 		{
-			value = boost::is_reference<T>::value && !is_const_reference<T>::value
+			value = boost_cryray::is_reference<T>::value && !is_const_reference<T>::value
 		};
-		typedef boost::mpl::bool_<value> type;
+		typedef boost_cryray::mpl::bool_<value> type;
 	};
 
 	template<class A>
@@ -120,7 +120,7 @@ namespace luabind { namespace detail
 	struct is_const_pointer
 	{
 		enum { value = sizeof(is_const_pointer_helper((void(*)(T))0)) == sizeof(yes_t) };
-		typedef boost::mpl::bool_<value> type;
+		typedef boost_cryray::mpl::bool_<value> type;
 	};
 
 	template<class A>
@@ -131,7 +131,7 @@ namespace luabind { namespace detail
 	struct is_nonconst_pointer
 	{
 		enum { value = sizeof(is_nonconst_pointer_helper((void(*)(T))0)) == sizeof(yes_t) && !is_const_pointer<T>::value };
-		typedef boost::mpl::bool_<value> type;
+		typedef boost_cryray::mpl::bool_<value> type;
 	};
 /*
 	template<class T>

@@ -29,7 +29,7 @@ namespace weathers
 
 class weather;
 
-class manager : private boost::noncopyable
+class manager : private boost_cryray::noncopyable
 {
 public:
     manager(environment::manager* manager);

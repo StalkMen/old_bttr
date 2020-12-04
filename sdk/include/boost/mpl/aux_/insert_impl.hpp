@@ -25,7 +25,7 @@
 #include "boost/mpl/aux_/traits_lambda_spec.hpp"
 #include "boost/type_traits/is_same.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // default implementation; conrete sequences might override it by 
@@ -68,6 +68,6 @@ struct insert_traits
 BOOST_MPL_ALGORITM_TRAITS_LAMBDA_SPEC(3,insert_traits)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_INSERT_IMPL_HPP_INCLUDED

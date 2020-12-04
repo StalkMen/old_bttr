@@ -8,7 +8,7 @@
 
 # include <boost/python/detail/config.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace api
 {
@@ -120,6 +120,6 @@ namespace detail {
 
 } // namespace detail
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // BOOST_PYTHON_OBJECT_PICKLE_SUPPORT_RWGK20020603_HPP

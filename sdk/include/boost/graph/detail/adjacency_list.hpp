@@ -79,7 +79,7 @@
 
 
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -116,7 +116,7 @@ namespace boost {
     void erase_from_incidence_list(EdgeList& el, vertex_descriptor v,
                                    allow_parallel_edge_tag)
     {
-      boost::erase_if(el, detail::target_is<vertex_descriptor>(v));
+      boost_cryray::erase_if(el, detail::target_is<vertex_descriptor>(v));
     }
     // O(log(E/V))
     template <class EdgeList, class vertex_descriptor>
@@ -131,7 +131,7 @@ namespace boost {
     // Out-Edge and In-Edge Iterator Implementation
 
     template <class VertexDescriptor>
-    struct out_edge_iter_policies : public boost::default_iterator_policies
+    struct out_edge_iter_policies : public boost_cryray::default_iterator_policies
     {
       inline out_edge_iter_policies() { }
       inline out_edge_iter_policies(const VertexDescriptor& src)
@@ -147,7 +147,7 @@ namespace boost {
       VertexDescriptor m_src;
     };
     template <class VertexDescriptor>
-    struct in_edge_iter_policies : public boost::default_iterator_policies
+    struct in_edge_iter_policies : public boost_cryray::default_iterator_policies
     {
       inline in_edge_iter_policies() { }
       inline in_edge_iter_policies(const VertexDescriptor& src) 
@@ -167,7 +167,7 @@ namespace boost {
     // Undirected Edge Iterator Implementation
 
     struct undirected_edge_iter_policies
-      : public boost::default_iterator_policies
+      : public boost_cryray::default_iterator_policies
     {
       template <class EdgeIter>
       inline typename EdgeIter::value_type
@@ -183,8 +183,8 @@ namespace boost {
 
     template <class Vertex>
     class stored_edge
-      : public boost::equality_comparable1< stored_edge<Vertex>,
-        boost::less_than_comparable1< stored_edge<Vertex> > >
+      : public boost_cryray::equality_comparable1< stored_edge<Vertex>,
+        boost_cryray::less_than_comparable1< stored_edge<Vertex> > >
     {
     public:
       typedef no_property property_type;
@@ -318,7 +318,7 @@ namespace boost {
       remove_directed_edge_if_dispatch(incidence_iterator first,
                                        incidence_iterator last, 
                                        EdgeList& el, Predicate pred,
-                                       boost::allow_parallel_edge_tag)
+                                       boost_cryray::allow_parallel_edge_tag)
       {
         // remove_if
         while (first != last && !pred(*first))
@@ -338,7 +338,7 @@ namespace boost {
                                        incidence_iterator last, 
                                        EdgeList& el, 
                                        Predicate pred,
-                                       boost::disallow_parallel_edge_tag)
+                                       boost_cryray::disallow_parallel_edge_tag)
       {
         for (incidence_iterator next = first;
              first != last; first = next) {
@@ -501,7 +501,7 @@ namespace boost {
       typedef typename Config::edge_parallel_category Cat;
       graph_type& g = static_cast<graph_type&>(g_);
       typename Config::vertex_iterator vi, viend;
-      for (boost::tie(vi, viend) = vertices(g); vi != viend; ++vi)
+      for (boost_cryray::tie(vi, viend) = vertices(g); vi != viend; ++vi)
         detail::erase_from_incidence_list(g.out_edge_list(*vi), u, Cat());
       g.out_edge_list(u).clear();
       // clear() should be a req of Sequence and AssociativeContainer,
@@ -530,7 +530,7 @@ namespace boost {
       const graph_type& g = static_cast<const graph_type&>(g_);
       typename Config::edges_size_type num_e = 0;
       typename Config::vertex_iterator vi, vi_end;
-      for (boost::tie(vi, vi_end) = vertices(g); vi != vi_end; ++vi)
+      for (boost_cryray::tie(vi, vi_end) = vertices(g); vi != vi_end; ++vi)
         num_e += out_degree(*vi, g);
       return num_e;
     }
@@ -549,7 +549,7 @@ namespace boost {
       graph_type& g = static_cast<graph_type&>(g_);
       typename Config::OutEdgeList::iterator i; 
       bool inserted;
-      boost::tie(i, inserted) = boost::push(g.out_edge_list(u), 
+      boost_cryray::tie(i, inserted) = boost_cryray::push(g.out_edge_list(u), 
                                             StoredEdge(v, p));
       return std::make_pair(edge_descriptor(u, v, &(*i).get_property()), 
                             inserted);
@@ -646,7 +646,7 @@ namespace boost {
       template <class Graph, class EdgeList, class Vertex>
       inline void
       remove_edge_and_property(Graph& g, EdgeList& el, Vertex v, 
-                               boost::allow_parallel_edge_tag cat)
+                               boost_cryray::allow_parallel_edge_tag cat)
       {
         typedef typename EdgeList::value_type StoredEdge;
         typename EdgeList::iterator i = el.begin(), end = el.end();
@@ -659,7 +659,7 @@ namespace boost {
       template <class Graph, class EdgeList, class Vertex>
       inline void
       remove_edge_and_property(Graph& g, EdgeList& el, Vertex v, 
-                               boost::disallow_parallel_edge_tag)
+                               boost_cryray::disallow_parallel_edge_tag)
       {
         typedef typename EdgeList::value_type StoredEdge;
         typename EdgeList::iterator i = el.find(StoredEdge(v)), end = el.end();
@@ -673,10 +673,10 @@ namespace boost {
 
     template <class Vertex, class EdgeProperty>
     struct list_edge // short name due to VC++ truncation and linker problems
-      : public boost::detail::edge_base<boost::undirected_tag, Vertex>
+      : public boost_cryray::detail::edge_base<boost_cryray::undirected_tag, Vertex>
     {
       typedef EdgeProperty property_type;
-      typedef boost::detail::edge_base<boost::undirected_tag, Vertex> Base;
+      typedef boost_cryray::detail::edge_base<boost_cryray::undirected_tag, Vertex> Base;
       list_edge(Vertex u, Vertex v, const EdgeProperty& p = EdgeProperty())
         : Base(u, v), m_property(p) { }
       EdgeProperty& get_property() { return m_property; }
@@ -844,12 +844,12 @@ namespace boost {
       typename Config::EdgeContainer::value_type e(u, v, p);
       g.m_edges.push_back(e);
       typename Config::EdgeContainer::iterator p_iter 
-        = boost::prior(g.m_edges.end());
+        = boost_cryray::prior(g.m_edges.end());
       typename Config::OutEdgeList::iterator i;
-      boost::tie(i, inserted) = boost::push(g.out_edge_list(u), 
+      boost_cryray::tie(i, inserted) = boost_cryray::push(g.out_edge_list(u), 
                                     StoredEdge(v, p_iter, &g.m_edges));
       if (inserted) {
-        boost::push(g.out_edge_list(v), StoredEdge(u, p_iter, &g.m_edges));
+        boost_cryray::push(g.out_edge_list(v), StoredEdge(u, p_iter, &g.m_edges));
         return std::make_pair(edge_descriptor(u, v, &p_iter->get_property()),
                               true);
       } else {
@@ -1190,12 +1190,12 @@ namespace boost {
       typename Config::EdgeContainer::value_type e(u, v, p);
       g.m_edges.push_back(e);
       typename Config::EdgeContainer::iterator p_iter 
-        = boost::prior(g.m_edges.end());
+        = boost_cryray::prior(g.m_edges.end());
       typename Config::OutEdgeList::iterator i;
-      boost::tie(i, inserted) = boost::push(g.out_edge_list(u), 
+      boost_cryray::tie(i, inserted) = boost_cryray::push(g.out_edge_list(u), 
                                         StoredEdge(v, p_iter, &g.m_edges));
       if (inserted) {
-        boost::push(in_edge_list(g, v), StoredEdge(u, p_iter, &g.m_edges));
+        boost_cryray::push(in_edge_list(g, v), StoredEdge(u, p_iter, &g.m_edges));
         return std::make_pair(edge_descriptor(u, v, &p_iter->m_property), 
                               true);
       } else {
@@ -1258,7 +1258,7 @@ namespace boost {
       inline std::pair<edge_descriptor,bool>      
       edge_dispatch(const AdjList& g, 
                     vertex_descriptor u, vertex_descriptor v, 
-                    boost::allow_parallel_edge_tag) const
+                    boost_cryray::allow_parallel_edge_tag) const
       {
         bool found;
         const typename Config::OutEdgeList& el = g.out_edge_list(u);
@@ -1276,7 +1276,7 @@ namespace boost {
       inline std::pair<edge_descriptor,bool>      
       edge_dispatch(const AdjList& g, 
                     vertex_descriptor u, vertex_descriptor v, 
-                    boost::disallow_parallel_edge_tag) const
+                    boost_cryray::disallow_parallel_edge_tag) const
       {
         bool found;
         typename Config::OutEdgeList::const_iterator 
@@ -1303,7 +1303,7 @@ namespace boost {
       AdjList& g = const_cast<AdjList&>(cg);
       typedef typename Config::adjacency_iterator adjacency_iterator;
       typename Config::out_edge_iterator first, last;
-      boost::tie(first, last) = out_edges(u, g);
+      boost_cryray::tie(first, last) = out_edges(u, g);
       return std::make_pair(adjacency_iterator(first, &g),
                             adjacency_iterator(last, &g));
     }
@@ -1318,7 +1318,7 @@ namespace boost {
       AdjList& g = const_cast<AdjList&>(cg);
       typedef typename Config::inv_adjacency_iterator inv_adjacency_iterator;
       typename Config::in_edge_iterator first, last;
-      boost::tie(first, last) = in_edges(u, g);
+      boost_cryray::tie(first, last) = in_edges(u, g);
       return std::make_pair(inv_adjacency_iterator(first, &g),
                             inv_adjacency_iterator(last, &g));
     }
@@ -1407,43 +1407,43 @@ namespace boost {
     namespace detail {
       template <class Config, class Base, class Property>
       inline
-      typename boost::property_map<typename Config::graph_type,
+      typename boost_cryray::property_map<typename Config::graph_type,
         Property>::type
       get_dispatch(adj_list_helper<Config,Base>&, Property, 
-                   boost::edge_property_tag) {
+                   boost_cryray::edge_property_tag) {
         typedef typename Config::graph_type Graph;
-        typedef typename boost::property_map<Graph, Property>::type PA;
+        typedef typename boost_cryray::property_map<Graph, Property>::type PA;
         return PA();
       }
       template <class Config, class Base, class Property>
       inline
-      typename boost::property_map<typename Config::graph_type, 
+      typename boost_cryray::property_map<typename Config::graph_type, 
         Property>::const_type
       get_dispatch(const adj_list_helper<Config,Base>&, Property, 
-                   boost::edge_property_tag) {
+                   boost_cryray::edge_property_tag) {
         typedef typename Config::graph_type Graph;
-        typedef typename boost::property_map<Graph, Property>::const_type PA;
+        typedef typename boost_cryray::property_map<Graph, Property>::const_type PA;
         return PA();
       }
 
       template <class Config, class Base, class Property>
       inline
-      typename boost::property_map<typename Config::graph_type, 
+      typename boost_cryray::property_map<typename Config::graph_type, 
         Property>::type
       get_dispatch(adj_list_helper<Config,Base>& g, Property, 
-                   boost::vertex_property_tag) {
+                   boost_cryray::vertex_property_tag) {
         typedef typename Config::graph_type Graph;
-        typedef typename boost::property_map<Graph, Property>::type PA;
+        typedef typename boost_cryray::property_map<Graph, Property>::type PA;
         return PA(&static_cast<Graph&>(g));
       }
       template <class Config, class Base, class Property>
       inline
-      typename boost::property_map<typename Config::graph_type,
+      typename boost_cryray::property_map<typename Config::graph_type,
         Property>::const_type
       get_dispatch(const adj_list_helper<Config, Base>& g, Property, 
-                   boost::vertex_property_tag) {
+                   boost_cryray::vertex_property_tag) {
         typedef typename Config::graph_type Graph;
-        typedef typename boost::property_map<Graph, Property>::const_type PA;
+        typedef typename boost_cryray::property_map<Graph, Property>::const_type PA;
         const Graph& cg = static_cast<const Graph&>(g);
         return PA(&cg);
       }
@@ -1453,14 +1453,14 @@ namespace boost {
     // Implementation of the PropertyGraph interface
     template <class Config, class Base, class Property>
     inline
-    typename boost::property_map<typename Config::graph_type, Property>::type
+    typename boost_cryray::property_map<typename Config::graph_type, Property>::type
     get(Property p, adj_list_helper<Config, Base>& g) {
       typedef typename property_kind<Property>::type Kind;
       return detail::get_dispatch(g, p, Kind());
     }
     template <class Config, class Base, class Property>
     inline
-    typename boost::property_map<typename Config::graph_type, 
+    typename boost_cryray::property_map<typename Config::graph_type, 
       Property>::const_type
     get(Property p, const adj_list_helper<Config, Base>& g) {
       typedef typename property_kind<Property>::type Kind;
@@ -1469,8 +1469,8 @@ namespace boost {
 
     template <class Config, class Base, class Property, class Key>
     inline
-    typename boost::property_traits<
-      typename boost::property_map<typename Config::graph_type, 
+    typename boost_cryray::property_traits<
+      typename boost_cryray::property_map<typename Config::graph_type, 
         Property>::const_type
     >::value_type
     get(Property p, const adj_list_helper<Config, Base>& g, const Key& key) {
@@ -1483,7 +1483,7 @@ namespace boost {
         const Key& key, const Value& value)
     {
       typedef typename Config::graph_type Graph;
-      typedef typename boost::property_map<Graph, Property>::type Map;
+      typedef typename boost_cryray::property_map<Graph, Property>::type Map;
       Map pmap = get(p, static_cast<Graph&>(g));
       put(pmap, key, value);
     }
@@ -1646,7 +1646,7 @@ namespace boost {
       stored_vertex* v = new stored_vertex;
       typename Config::StoredVertexList::iterator pos;
       bool inserted;
-      boost::tie(pos,inserted) = boost::push(g.m_vertices, v);
+      boost_cryray::tie(pos,inserted) = boost_cryray::push(g.m_vertices, v);
       v->m_position = pos;
       return v;
     }
@@ -1661,7 +1661,7 @@ namespace boost {
       stored_vertex* v = new stored_vertex(p);
       typename Config::StoredVertexList::iterator pos;
       bool inserted;
-      boost::tie(pos,inserted) = boost::push(g.m_vertices, v);
+      boost_cryray::tie(pos,inserted) = boost_cryray::push(g.m_vertices, v);
       v->m_position = pos;
       return v;
     }
@@ -1696,7 +1696,7 @@ namespace boost {
       template <class Graph, class vertex_descriptor>
       inline void 
       remove_vertex_dispatch(Graph& g, vertex_descriptor u, 
-                             boost::directed_tag)
+                             boost_cryray::directed_tag)
       {
         typedef typename Graph::edge_parallel_category edge_parallel_category;
         g.m_vertices.erase(g.m_vertices.begin() + u);
@@ -1708,7 +1708,7 @@ namespace boost {
       template <class Graph, class vertex_descriptor>
       inline void 
       remove_vertex_dispatch(Graph& g, vertex_descriptor u, 
-                             boost::undirected_tag)
+                             boost_cryray::undirected_tag)
       {
         typedef typename Graph::edge_parallel_category edge_parallel_category;
         g.m_vertices.erase(g.m_vertices.begin() + u);
@@ -1729,7 +1729,7 @@ namespace boost {
       template <class Graph, class vertex_descriptor>
       inline void 
       remove_vertex_dispatch(Graph& g, vertex_descriptor u, 
-                             boost::bidirectional_tag)
+                             boost_cryray::bidirectional_tag)
       {
         typedef typename Graph::edge_parallel_category edge_parallel_category;
         g.m_vertices.erase(g.m_vertices.begin() + u);
@@ -1756,7 +1756,7 @@ namespace boost {
       template <class EdgeList, class vertex_descriptor>
       inline void
       reindex_edge_list(EdgeList& el, vertex_descriptor u, 
-                        boost::allow_parallel_edge_tag)
+                        boost_cryray::allow_parallel_edge_tag)
       {
         typename EdgeList::iterator ei = el.begin(), e_end = el.end();
         for (; ei != e_end; ++ei)
@@ -1766,7 +1766,7 @@ namespace boost {
       template <class EdgeList, class vertex_descriptor>
       inline void
       reindex_edge_list(EdgeList& el, vertex_descriptor u, 
-                        boost::disallow_parallel_edge_tag)
+                        boost_cryray::disallow_parallel_edge_tag)
       {
         typename EdgeList::iterator ei = el.begin(), e_end = el.end();
         while (ei != e_end) {
@@ -1854,8 +1854,8 @@ namespace boost {
       }
 
       //    protected:
-      inline boost::integer_range<vertex_descriptor> vertex_set() const {
-        return boost::integer_range<vertex_descriptor>(0, m_vertices.size());
+      inline boost_cryray::integer_range<vertex_descriptor> vertex_set() const {
+        return boost_cryray::integer_range<vertex_descriptor>(0, m_vertices.size());
       }
       inline OutEdgeList& out_edge_list(vertex_descriptor v) {
         return m_vertices[v].m_out_edges;
@@ -2008,8 +2008,8 @@ namespace boost {
         // VertexList and vertex_iterator
         typedef typename container_gen<VertexListS, 
           vertex_ptr>::type SeqVertexList;
-        typedef boost::integer_range<std::size_t> RandVertexList;
-        typedef typename boost::ct_if_t<is_rand_access,
+        typedef boost_cryray::integer_range<std::size_t> RandVertexList;
+        typedef typename boost_cryray::ct_if_t<is_rand_access,
           RandVertexList, SeqVertexList>::type VertexList;
 
         typedef typename VertexList::iterator vertex_iterator;
@@ -2022,7 +2022,7 @@ namespace boost {
         typedef typename ct_and<DirectedT, 
              typename ct_not<BidirectionalT>::type >::type on_edge_storage;
 
-        typedef typename boost::ct_if_t<on_edge_storage,
+        typedef typename boost_cryray::ct_if_t<on_edge_storage,
           std::size_t, typename EdgeContainer::size_type
         >::type edges_size_type;
 
@@ -2030,9 +2030,9 @@ namespace boost {
 
         typedef typename detail::is_random_access<EdgeListS>::type is_edge_ra;
 
-        typedef typename boost::ct_if_t<on_edge_storage,
+        typedef typename boost_cryray::ct_if_t<on_edge_storage,
           stored_edge_property<vertex_descriptor, EdgeProperty>,
-          typename boost::ct_if_t<is_edge_ra,
+          typename boost_cryray::ct_if_t<is_edge_ra,
             stored_ra_edge_iter<vertex_descriptor, EdgeContainer, EdgeProperty>,
             stored_edge_iter<vertex_descriptor, EdgeIter, EdgeProperty>
           >::type
@@ -2045,14 +2045,14 @@ namespace boost {
         typedef typename OutEdgeList::size_type degree_size_type;
         typedef typename OutEdgeList::iterator OutEdgeIter;
 
-        typedef boost::detail::iterator_traits<OutEdgeIter> OutEdgeIterTraits;
+        typedef boost_cryray::detail::iterator_traits<OutEdgeIter> OutEdgeIterTraits;
         typedef typename OutEdgeIterTraits::iterator_category OutEdgeIterCat;
         typedef typename OutEdgeIterTraits::difference_type OutEdgeIterDiff;
 
         typedef iterator_adaptor<OutEdgeIter, 
           out_edge_iter_policies<vertex_descriptor>,
           edge_descriptor, edge_descriptor, edge_descriptor*, 
-          boost::multi_pass_input_iterator_tag,
+          boost_cryray::multi_pass_input_iterator_tag,
           OutEdgeIterDiff
         > out_edge_iterator;
 
@@ -2064,10 +2064,10 @@ namespace boost {
         typedef OutEdgeIterCat InEdgeIterCat;
         typedef OutEdgeIterDiff InEdgeIterDiff;
 
-        typedef boost::iterator_adaptor<InEdgeIter, 
+        typedef boost_cryray::iterator_adaptor<InEdgeIter, 
           in_edge_iter_policies<vertex_descriptor>,
           edge_descriptor, edge_descriptor, edge_descriptor*, 
-          boost::multi_pass_input_iterator_tag,
+          boost_cryray::multi_pass_input_iterator_tag,
           InEdgeIterDiff
         > in_edge_iterator;
 
@@ -2076,21 +2076,21 @@ namespace boost {
 
         // Edge Iterator
 
-        typedef boost::detail::iterator_traits<EdgeIter> EdgeIterTraits;
+        typedef boost_cryray::detail::iterator_traits<EdgeIter> EdgeIterTraits;
         typedef typename EdgeIterTraits::iterator_category EdgeIterCat;
         typedef typename EdgeIterTraits::difference_type EdgeIterDiff;
 
-        typedef boost::iterator_adaptor<EdgeIter,
+        typedef boost_cryray::iterator_adaptor<EdgeIter,
           undirected_edge_iter_policies,
           edge_descriptor, edge_descriptor, edge_descriptor*, 
-          boost::multi_pass_input_iterator_tag,
+          boost_cryray::multi_pass_input_iterator_tag,
           EdgeIterDiff          
         > UndirectedEdgeIter; // also used for bidirectional
 
         typedef adj_list_edge_iterator<vertex_iterator, out_edge_iterator, 
            graph_type> DirectedEdgeIter;
 
-        typedef typename boost::ct_if_t<on_edge_storage,
+        typedef typename boost_cryray::ct_if_t<on_edge_storage,
           DirectedEdgeIter, UndirectedEdgeIter>::type edge_iterator;
 
         // stored_vertex and StoredVertexList
@@ -2124,10 +2124,10 @@ namespace boost {
           InEdgeList m_in_edges;
           VertexProperty m_property;
         };
-        typedef typename boost::ct_if_t<is_rand_access,
-          typename boost::ct_if_t<BidirectionalT,
+        typedef typename boost_cryray::ct_if_t<is_rand_access,
+          typename boost_cryray::ct_if_t<BidirectionalT,
             bidir_rand_stored_vertex, rand_stored_vertex>::type,
-          typename boost::ct_if_t<BidirectionalT,
+          typename boost_cryray::ct_if_t<BidirectionalT,
             bidir_seq_stored_vertex, seq_stored_vertex>::type
         >::type StoredVertex;
         struct stored_vertex : public StoredVertex {
@@ -2137,20 +2137,20 @@ namespace boost {
 
         typedef typename container_gen<VertexListS, stored_vertex>::type
           RandStoredVertexList;
-        typedef typename boost::ct_if_t< is_rand_access,
+        typedef typename boost_cryray::ct_if_t< is_rand_access,
           RandStoredVertexList, SeqStoredVertexList>::type StoredVertexList;
       }; // end of config
 
 
-      typedef typename boost::ct_if_t<BidirectionalT,
+      typedef typename boost_cryray::ct_if_t<BidirectionalT,
         bidirectional_graph_helper_with_property<config>,
-        typename boost::ct_if_t<DirectedT,
+        typename boost_cryray::ct_if_t<DirectedT,
           directed_graph_helper<config>,
           undirected_graph_helper<config>
         >::type
       >::type DirectedHelper;
 
-      typedef typename boost::ct_if_t<is_rand_access,
+      typedef typename boost_cryray::ct_if_t<is_rand_access,
         vec_adj_list_impl<Graph, config, DirectedHelper>,
         adj_list_impl<Graph, config, DirectedHelper>
       >::type type;
@@ -2164,7 +2164,7 @@ namespace boost {
 
     template <class Graph, class ValueType, class Reference, class Tag>
     struct adj_list_vertex_property_map
-      : public boost::put_get_helper<
+      : public boost_cryray::put_get_helper<
           Reference,
           adj_list_vertex_property_map<Graph, ValueType, Reference, Tag>
         >
@@ -2173,7 +2173,7 @@ namespace boost {
       typedef ValueType value_type;
       typedef Reference reference;
       typedef typename Graph::vertex_descriptor key_type;
-      typedef boost::lvalue_property_map_tag category;
+      typedef boost_cryray::lvalue_property_map_tag category;
       inline adj_list_vertex_property_map() { }
       inline adj_list_vertex_property_map(const Graph*) { }
       inline Reference operator[](key_type v) const {
@@ -2187,7 +2187,7 @@ namespace boost {
 
     template <class Graph, class Property, class PropRef>
     struct adj_list_vertex_all_properties_map
-      : public boost::put_get_helper<PropRef,
+      : public boost_cryray::put_get_helper<PropRef,
           adj_list_vertex_all_properties_map<Graph, Property, PropRef>
         >
     {
@@ -2195,7 +2195,7 @@ namespace boost {
       typedef Property value_type;
       typedef PropRef reference;
       typedef typename Graph::vertex_descriptor key_type;
-      typedef boost::lvalue_property_map_tag category;
+      typedef boost_cryray::lvalue_property_map_tag category;
       inline adj_list_vertex_all_properties_map() { }
       inline adj_list_vertex_all_properties_map(const Graph*) { }
       inline PropRef operator[](key_type v) const {
@@ -2210,7 +2210,7 @@ namespace boost {
     template <class Graph, class GraphPtr, class ValueType, class Reference,
               class Tag>
     struct vec_adj_list_vertex_property_map
-      : public boost::put_get_helper<
+      : public boost_cryray::put_get_helper<
           Reference,
           vec_adj_list_vertex_property_map<Graph,GraphPtr,ValueType,Reference,
              Tag>
@@ -2218,8 +2218,8 @@ namespace boost {
     {
       typedef ValueType value_type;
       typedef Reference reference;
-      typedef typename boost::graph_traits<Graph>::vertex_descriptor key_type;
-      typedef boost::lvalue_property_map_tag category;
+      typedef typename boost_cryray::graph_traits<Graph>::vertex_descriptor key_type;
+      typedef boost_cryray::lvalue_property_map_tag category;
       vec_adj_list_vertex_property_map() { }
       vec_adj_list_vertex_property_map(GraphPtr g) : m_g(g) { }
       inline Reference operator[](key_type v) const {
@@ -2233,15 +2233,15 @@ namespace boost {
 
     template <class Graph, class GraphPtr, class Property, class PropertyRef>
     struct vec_adj_list_vertex_all_properties_map
-      : public boost::put_get_helper<PropertyRef,
+      : public boost_cryray::put_get_helper<PropertyRef,
           vec_adj_list_vertex_all_properties_map<Graph,GraphPtr,Property,
             PropertyRef>
         >
     {
       typedef Property value_type;
       typedef PropertyRef reference;
-      typedef typename boost::graph_traits<Graph>::vertex_descriptor key_type;
-      typedef boost::lvalue_property_map_tag category;
+      typedef typename boost_cryray::graph_traits<Graph>::vertex_descriptor key_type;
+      typedef boost_cryray::lvalue_property_map_tag category;
       vec_adj_list_vertex_all_properties_map() { }
       vec_adj_list_vertex_all_properties_map(GraphPtr g) : m_g(g) { }
       inline PropertyRef operator[](key_type v) const {
@@ -2279,14 +2279,14 @@ namespace boost {
 
     template <class Property, class Vertex>
     struct vec_adj_list_vertex_id_map
-      : public boost::put_get_helper<
+      : public boost_cryray::put_get_helper<
           Vertex, vec_adj_list_vertex_id_map<Property, Vertex>
         >
     {
       typedef Vertex value_type;
       typedef Vertex key_type;
       typedef Vertex reference;
-      typedef boost::read_write_property_map_tag category;
+      typedef boost_cryray::read_write_property_map_tag category;
       inline vec_adj_list_vertex_id_map() { }
       template <class Graph>
       inline vec_adj_list_vertex_id_map(const Graph&) { }
@@ -2379,7 +2379,7 @@ namespace boost {
       typedef Value value_type;
       typedef Ref reference;
       typedef detail::edge_desc_impl<Directed, Vertex> key_type;
-      typedef boost::lvalue_property_map_tag category;
+      typedef boost_cryray::lvalue_property_map_tag category;
       inline Ref operator[](key_type e) const {
         Property& p = *(Property*)e.get_property();
         return get_property_value(p, Tag());
@@ -2400,7 +2400,7 @@ namespace boost {
       typedef Property value_type;
       typedef PropRef reference;
       typedef detail::edge_desc_impl<Directed, Vertex> key_type;
-      typedef boost::lvalue_property_map_tag category;
+      typedef boost_cryray::lvalue_property_map_tag category;
       inline PropRef operator[](key_type e) const {
         return *(PropPtr)e.get_property();
       }
@@ -2501,10 +2501,10 @@ namespace boost {
     typedef vec_adj_list_vertex_property_selector type;
   };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #if !defined(BOOST_NO_HASH) && !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION)
-namespace BOOST_STD_EXTENSION_NAMESPACE {
+namespace boost_cryray_STD_EXTENSION_NAMESPACE {
 
   template <>
   struct hash< void* > // Need this when vertex_descriptor=void*
@@ -2514,30 +2514,30 @@ namespace BOOST_STD_EXTENSION_NAMESPACE {
   };
 
   template <typename V>
-  struct hash< boost::detail::stored_edge<V> > 
+  struct hash< boost_cryray::detail::stored_edge<V> > 
   {
     std::size_t
-    operator()(const boost::detail::stored_edge<V>& e) const
+    operator()(const boost_cryray::detail::stored_edge<V>& e) const
     {
       return hash<V>()(e.m_target);
     }
   };
 
   template <typename V, typename P>
-  struct hash< boost::detail::stored_edge_property <V,P> > 
+  struct hash< boost_cryray::detail::stored_edge_property <V,P> > 
   {
     std::size_t
-    operator()(const boost::detail::stored_edge_property<V,P>& e) const
+    operator()(const boost_cryray::detail::stored_edge_property<V,P>& e) const
     {
       return hash<V>()(e.m_target);
     }
   };
 
   template <typename V, typename I, typename P>
-  struct hash< boost::detail::stored_edge_iter<V,I, P> > 
+  struct hash< boost_cryray::detail::stored_edge_iter<V,I, P> > 
   {
     std::size_t
-    operator()(const boost::detail::stored_edge_iter<V,I,P>& e) const
+    operator()(const boost_cryray::detail::stored_edge_iter<V,I,P>& e) const
     {
       return hash<V>()(e.m_target);
     }

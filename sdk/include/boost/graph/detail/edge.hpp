@@ -33,7 +33,7 @@
 #include <iosfwd>
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
   namespace  detail {
 
@@ -83,14 +83,14 @@ namespace boost {
 
   } //namespace detail
   
-} // namespace boost
+} // namespace boost_cryray
 
 namespace std {
 
 #if __GNUC__ < 3
   template <class D, class V>
   std::ostream& 
-  operator<<(std::ostream& os, const boost::detail::edge_desc_impl<D,V>& e)
+  operator<<(std::ostream& os, const boost_cryray::detail::edge_desc_impl<D,V>& e)
   {
     return os << "(" << e.m_source << "," << e.m_target << ")";
   }
@@ -98,7 +98,7 @@ namespace std {
   template <class Char, class Traits, class D, class V>
   std::ostream<Char, Traits>& 
   operator<<(std::ostream<Char, Traits>& os,
-             const boost::detail::edge_desc_impl<D,V>& e)
+             const boost_cryray::detail::edge_desc_impl<D,V>& e)
   {
     return os << "(" << e.m_source << "," << e.m_target << ")";
   }

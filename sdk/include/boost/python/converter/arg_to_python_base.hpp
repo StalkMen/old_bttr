@@ -8,7 +8,7 @@
 # include <boost/python/detail/wrap_python.hpp>
 # include <boost/python/handle.hpp>
 
-namespace boost { namespace python { namespace converter {
+namespace boost_cryray { namespace python { namespace converter {
 
 struct registration;
 
@@ -29,6 +29,6 @@ namespace detail
   };
 }
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // ARG_TO_PYTHON_BASE_DWA200237_HPP

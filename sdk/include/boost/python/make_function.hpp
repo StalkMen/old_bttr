@@ -15,7 +15,7 @@
 # include <boost/mpl/size.hpp>
 # include <boost/mpl/int.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace detail
 {

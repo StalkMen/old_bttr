@@ -20,7 +20,7 @@
 #include "boost/mpl/clear_fwd.hpp"
 #include "boost/mpl/aux_/traits_lambda_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // no default implementation; the definition is needed to make MSVC happy
@@ -34,6 +34,6 @@ struct clear_traits
 BOOST_MPL_ALGORITM_TRAITS_LAMBDA_SPEC(1,clear_traits)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_CLEAR_IMPL_HPP_INCLUDED

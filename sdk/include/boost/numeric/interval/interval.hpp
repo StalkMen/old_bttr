@@ -19,7 +19,7 @@
 #include <stdexcept>
 #include <boost/numeric/interval/detail/interval_prototype.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 
 namespace interval_lib {
@@ -29,7 +29,7 @@ class comparison_error
 {
 public:
   comparison_error()
-    : std::runtime_error("boost::interval: uncertain comparison")
+    : std::runtime_error("boost_cryray::interval: uncertain comparison")
   { }
 };
 
@@ -355,6 +355,6 @@ bool interval<T, Policies>::operator!= (const number_holder& r) const
 }
 
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_INTERVAL_HPP

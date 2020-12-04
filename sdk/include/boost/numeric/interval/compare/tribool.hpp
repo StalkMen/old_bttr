@@ -20,7 +20,7 @@
 #include <boost/numeric/interval/detail/test_input.hpp>
 #include <boost/tribool.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 namespace compare {
@@ -138,7 +138,7 @@ tribool operator!=(const interval<T, Policies>& x, const T& y)
 } // namespace compare
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_NUMERIC_INTERVAL_COMPARE_TRIBOOL_HPP

@@ -24,7 +24,7 @@
 #ifndef BOOST_REGEX_COMPILE_HPP
 #define BOOST_REGEX_COMPILE_HPP
 
-namespace boost{
+namespace boost_cryray{
 #ifdef __BORLANDC__
    #pragma option push -a8 -b -Vx -Ve -pc  -w-8004
 #endif
@@ -657,7 +657,7 @@ re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Alloca
    typedef typename re_detail::is_byte<charT>::width_type width_type;
    re_detail::jstack<traits_string_type, Allocator> singles(64, data.allocator());
    re_detail::jstack<traits_string_type, Allocator> ranges(64, data.allocator());
-   re_detail::jstack<boost::uint_fast32_t, Allocator> classes(64, data.allocator());
+   re_detail::jstack<boost_cryray::uint_fast32_t, Allocator> classes(64, data.allocator());
    re_detail::jstack<traits_string_type, Allocator> equivalents(64, data.allocator());
    classes.push(cls);
    if(dat)
@@ -673,7 +673,7 @@ re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Alloca
 {
    re_detail::jstack<traits_string_type, Allocator> singles(64, data.allocator());
    re_detail::jstack<traits_string_type, Allocator> ranges(64, data.allocator());
-   re_detail::jstack<boost::uint_fast32_t, Allocator> classes(64, data.allocator());
+   re_detail::jstack<boost_cryray::uint_fast32_t, Allocator> classes(64, data.allocator());
    re_detail::jstack<traits_string_type, Allocator> equivalents(64, data.allocator());
    bool has_digraphs = false;
    jm_assert(traits_inst.syntax_type((traits_size_type)(traits_uchar_type)*first) == traits_type::syntax_open_set);
@@ -732,7 +732,7 @@ re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Alloca
                   fail(REG_ERANGE);
                   return 0;
                }
-               boost::uint_fast32_t id = traits_inst.lookup_classname(base+2, first-2);
+               boost_cryray::uint_fast32_t id = traits_inst.lookup_classname(base+2, first-2);
                if(_flags & regbase::icase)
                {
                   if((id == traits_type::char_class_upper) || (id == traits_type::char_class_lower))
@@ -988,13 +988,13 @@ re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Alloca
 }
 
 template <class charT, class traits, class Allocator>
-re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Allocator>::compile_set_aux(re_detail::jstack<traits_string_type, Allocator>& singles, re_detail::jstack<traits_string_type, Allocator>& ranges, re_detail::jstack<boost::uint_fast32_t, Allocator>& classes, re_detail::jstack<traits_string_type, Allocator>& equivalents, bool isnot, const re_detail::_wide_type&)
+re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Allocator>::compile_set_aux(re_detail::jstack<traits_string_type, Allocator>& singles, re_detail::jstack<traits_string_type, Allocator>& ranges, re_detail::jstack<boost_cryray::uint_fast32_t, Allocator>& classes, re_detail::jstack<traits_string_type, Allocator>& equivalents, bool isnot, const re_detail::_wide_type&)
 {
    size_type base = data.size();
    data.extend(sizeof(re_detail::re_set_long));
    unsigned int csingles = 0;
    unsigned int cranges = 0;
-   boost::uint_fast32_t cclasses = 0;
+   boost_cryray::uint_fast32_t cclasses = 0;
    unsigned int cequivalents = 0;
    bool nocollate_state = flags() & regbase::nocollate;
 
@@ -1026,7 +1026,7 @@ re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Alloca
          // be sure...
          // delay throw to later:
          #ifdef __BORLANDC__
-         boost::uint_fast32_t f = _flags;
+         boost_cryray::uint_fast32_t f = _flags;
          _flags &= ~regbase::use_except;
          #endif
          fail(REG_ERANGE);
@@ -1067,7 +1067,7 @@ re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Alloca
 }
 
 template <class charT, class traits, class Allocator>
-re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Allocator>::compile_set_aux(re_detail::jstack<traits_string_type, Allocator>& singles, re_detail::jstack<traits_string_type, Allocator>& ranges, re_detail::jstack<boost::uint_fast32_t, Allocator>& classes, re_detail::jstack<traits_string_type, Allocator>& equivalents, bool isnot, const re_detail::_narrow_type&)
+re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Allocator>::compile_set_aux(re_detail::jstack<traits_string_type, Allocator>& singles, re_detail::jstack<traits_string_type, Allocator>& ranges, re_detail::jstack<boost_cryray::uint_fast32_t, Allocator>& classes, re_detail::jstack<traits_string_type, Allocator>& equivalents, bool isnot, const re_detail::_narrow_type&)
 {
    re_detail::re_set* dat = reinterpret_cast<re_detail::re_set*>(data.extend(sizeof(re_detail::re_set)));
    std::memset(dat, 0, sizeof(re_detail::re_set));
@@ -1099,7 +1099,7 @@ re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Alloca
          // be sure...
          // delay throw to later:
          #ifdef __BORLANDC__
-         boost::uint_fast32_t f = _flags;
+         boost_cryray::uint_fast32_t f = _flags;
          _flags &= ~regbase::use_except;
          #endif
          fail(REG_ERANGE);
@@ -1132,7 +1132,7 @@ re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Alloca
       equivalents.pop();
    }
 
-   boost::uint_fast32_t flags = 0;
+   boost_cryray::uint_fast32_t flags = 0;
    while(classes.empty() == false)
    {
       flags |= classes.peek();
@@ -1174,7 +1174,7 @@ inline
 template <class charT, class traits, class Allocator>
 void BOOST_REGEX_CALL reg_expression<charT, traits, Allocator>::fixup_apply(re_detail::re_syntax_base* b, unsigned cbraces)
 {
-   typedef typename boost::detail::rebind_allocator<bool, Allocator>::type b_alloc;
+   typedef typename boost_cryray::detail::rebind_allocator<bool, Allocator>::type b_alloc;
    
    register unsigned char* base = reinterpret_cast<unsigned char*>(b);
    register re_detail::re_syntax_base* ptr = b;
@@ -2107,7 +2107,7 @@ void BOOST_REGEX_CALL reg_expression<charT, traits, Allocator>::fail(unsigned in
   #pragma option pop
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif   // BOOST_REGEX_COMPILE_HPP

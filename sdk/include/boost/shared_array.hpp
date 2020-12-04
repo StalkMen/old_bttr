@@ -30,7 +30,7 @@
 #include <algorithm>          // for std::swap
 #include <functional>         // for std::less
 
-namespace boost
+namespace boost_cryray
 {
 
 //
@@ -149,7 +149,7 @@ template<class T> void swap(shared_array<T> & a, shared_array<T> & b) // never t
     a.swap(b);
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // #if defined(BOOST_NO_MEMBER_TEMPLATES) && !defined(BOOST_MSVC6_MEMBER_TEMPLATES)
 

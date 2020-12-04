@@ -34,7 +34,7 @@
 #include <cassert>
 #define BOOST_ASSERT_THROW(expr, except) assert(expr)
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
     // structure to aid in counting bits
@@ -186,7 +186,7 @@ namespace boost {
 
       Derived& set(size_type pos, int val = true)
       {
-        BOOST_ASSERT_THROW(pos < size(), std::out_of_range("boost::bitset::set(pos,value)"));
+        BOOST_ASSERT_THROW(pos < size(), std::out_of_range("boost_cryray::bitset::set(pos,value)"));
         if (val)
           m_get_word(pos) |= s_mask_bit(pos);
         else
@@ -201,7 +201,7 @@ namespace boost {
       }
 
       Derived& reset(size_type pos) {
-        BOOST_ASSERT_THROW(pos < size(), std::out_of_range("boost::bitset::reset(pos)"));
+        BOOST_ASSERT_THROW(pos < size(), std::out_of_range("boost_cryray::bitset::reset(pos)"));
         m_get_word(pos) &= ~s_mask_bit(pos);
         return static_cast<Derived&>(*this);
       }
@@ -218,7 +218,7 @@ namespace boost {
         return static_cast<Derived&>(*this);
       }
       Derived& flip(size_type pos) {
-        BOOST_ASSERT_THROW(pos < size(), std::out_of_range("boost::bitset::flip(pos)"));
+        BOOST_ASSERT_THROW(pos < size(), std::out_of_range("boost_cryray::bitset::flip(pos)"));
         m_get_word(pos) ^= s_mask_bit(pos);
         return static_cast<Derived&>(*this);
       }
@@ -255,7 +255,7 @@ namespace boost {
       }
 
       bool test(size_type pos) const {
-        BOOST_ASSERT_THROW(pos < size(), std::out_of_range("boost::bitset::test(pos)"));
+        BOOST_ASSERT_THROW(pos < size(), std::out_of_range("boost_cryray::bitset::test(pos)"));
         return (m_get_word(pos) & s_mask_bit(pos))
           != static_cast<word_type>(0);
       }
@@ -292,7 +292,7 @@ namespace boost {
             break;
           default:
             throw std::invalid_argument
-              ("boost::bitset_base::m_copy_from_string(s, pos, n)");
+              ("boost_cryray::bitset_base::m_copy_from_string(s, pos, n)");
           }
         }
       }
@@ -658,7 +658,7 @@ namespace boost {
       typedef typename WordTraits::word_type word_type;
       typedef SizeType size_type;
       const std::overflow_error
-        overflow("boost::bit_set::operator unsigned long()");
+        overflow("boost_cryray::bit_set::operator unsigned long()");
 
       if (sizeof(word_type) >= sizeof(unsigned long)) {
         for (size_type i = 1; i < num_words(); ++i)
@@ -903,4 +903,4 @@ namespace boost {
 
   } // namespace detail
 
-} // namespace boost
+} // namespace boost_cryray

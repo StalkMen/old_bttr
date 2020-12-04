@@ -13,7 +13,7 @@
 # include <boost/python/base_type_traits.hpp>
 # include <boost/python/detail/convertible.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -61,14 +61,14 @@ namespace detail
   }
 
   template <class Target, class Source>
-  inline Target* downcast(Source* p, no_convertible, boost::type<Target>* = 0)
+  inline Target* downcast(Source* p, no_convertible, boost_cryray::type<Target>* = 0)
   {
       typedef typename base_type_traits<Source>::type base;
       return (Target*)detail::downcast<base>(p, convertible<Source*>::check((base*)0));
   }
 
   template <class T>
-  inline void assert_castable(boost::type<T>* = 0)
+  inline void assert_castable(boost_cryray::type<T>* = 0)
   {
       typedef char must_be_a_complete_type[sizeof(T)];
   }
@@ -101,6 +101,6 @@ inline Target* downcast(Source* x, Target* = 0)
     return detail::downcast<Target>(x, detail::convertible<Source*>::check((Target*)0));
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // CAST_DWA200269_HPP

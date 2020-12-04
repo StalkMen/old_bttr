@@ -25,7 +25,7 @@
 #include <cassert>
 #include <boost/random/uniform_01.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 #if defined(__GNUC__) && (__GNUC__ < 3)
 // Special gcc workaround: gcc 2.95.x ignores using-declarations
@@ -111,7 +111,7 @@ private:
   RealType _log_p;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_GEOMETRIC_DISTRIBUTION_HPP
 

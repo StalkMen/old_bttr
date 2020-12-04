@@ -25,7 +25,7 @@ class animation_planner;
 
 class action_base :
 	public CStalkerActionCombatBase,
-	private boost::noncopyable
+	private boost_cryray::noncopyable
 {
 private:
 	typedef CStalkerActionCombatBase inherited;

@@ -21,12 +21,12 @@
 
 #include <boost/limits.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace random {
 
 /*
  * Correctly compare two numbers whose types possibly differ in signedness.
- * See boost::numeric_cast<> for the general idea.
+ * See boost_cryray::numeric_cast<> for the general idea.
  * Most "if" statements involve only compile-time constants, so the
  * optimizing compiler can do its job easily.
  *
@@ -91,6 +91,6 @@ int lessthan_signed_unsigned(T1 x, T2 y)
 }
 
 } // namespace random
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_DETAIL_SIGNED_UNSIGNED_COMPARE

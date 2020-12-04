@@ -19,7 +19,7 @@
 
 #include <boost/test/execution_monitor.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 namespace unit_test_framework {
 
@@ -71,7 +71,7 @@ private:
 
 } // namespace unit_test_framework
 
-} // namespace boost
+} // namespace boost_cryray
 
 // ***************************************************************************
 //  Revision History :

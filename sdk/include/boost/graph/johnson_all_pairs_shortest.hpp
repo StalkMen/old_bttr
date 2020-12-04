@@ -46,7 +46,7 @@
 #include <boost/pending/ct_if.hpp>
 #include <boost/type_traits/same_traits.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template <class VertexAndEdgeListGraph, class DistanceMatrix,
             class VertexID, class Weight, class DistanceZero>
@@ -193,7 +193,7 @@ namespace boost {
       (g, D, params, get(edge_weight, g), get(vertex_index, g));
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_JOHNSON_HPP
 

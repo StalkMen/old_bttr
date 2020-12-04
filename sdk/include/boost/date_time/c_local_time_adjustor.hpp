@@ -13,7 +13,7 @@
 #include <stdexcept>
 #include "boost/date_time/c_time.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
   //! Adjust to / from utc using the C API

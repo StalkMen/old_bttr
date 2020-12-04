@@ -15,10 +15,10 @@
 // std::size_t
 #include <cstddef>
 
-// boost::details::pool::default_mutex
+// boost_cryray::details::pool::default_mutex
 #include <boost/pool/detail/mutex.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 //
 // Location: <boost/pool/simple_segregated_storage.hpp>
@@ -69,6 +69,6 @@ template <typename T,
     unsigned NextSize = 32>
 class fast_pool_allocator;
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

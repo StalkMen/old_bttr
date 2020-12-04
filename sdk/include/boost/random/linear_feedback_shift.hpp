@@ -25,7 +25,7 @@
 #include <boost/static_assert.hpp>
 #include <boost/limits.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace random {
 
 // Tausworte 1965
@@ -143,6 +143,6 @@ const int linear_feedback_shift<UIntType, w, k, q, s, val>::step_size;
 #endif
 
 } // namespace random
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_LINEAR_FEEDBACK_SHIFT_HPP

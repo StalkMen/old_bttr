@@ -20,7 +20,7 @@
 #include "boost/mpl/bool.hpp"
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 //  [JDG Feb-4-2003] made void_ a complete type to allow it to be
@@ -48,6 +48,6 @@ struct is_void_<void_>
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_VOID_HPP_INCLUDED

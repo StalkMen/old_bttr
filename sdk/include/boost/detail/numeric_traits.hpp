@@ -33,7 +33,7 @@
 //      are supplied.
 //
 //      6. Handling of numbers whose range of representation is at least as
-//      great as boost::intmax_t can cause some differences to be
+//      great as boost_cryray::intmax_t can cause some differences to be
 //      unrepresentable in difference_type:
 //
 //        Number    difference_type
@@ -72,7 +72,7 @@
 # include <boost/detail/select_type.hpp>
 # include <boost/limits.hpp>
 
-namespace boost { namespace detail {
+namespace boost_cryray { namespace detail {
 
   // Template class is_signed -- determine whether a numeric type is signed
   // Requires that T is constructable from the literals -1 and 0.  Compile-time
@@ -126,7 +126,7 @@ namespace boost { namespace detail {
 #endif
 
   // Template class integer_traits<Integer> -- traits of various integer types
-  // This should probably be rolled into boost::integer_traits one day, but I
+  // This should probably be rolled into boost_cryray::integer_traits one day, but I
   // need it to work without <limits>
   template <class Integer>
   struct integer_traits
@@ -149,7 +149,7 @@ namespace boost { namespace detail {
       if_true<(int(x::is_signed)
               && (!int(x::is_bounded)
                  // digits is the number of no-sign bits
-                  || (int(x::digits) + 1 >= digit_traits<boost::intmax_t>::digits)))>::template then<
+                  || (int(x::digits) + 1 >= digit_traits<boost_cryray::intmax_t>::digits)))>::template then<
         Integer,
           
       typename if_true<(int(x::digits) + 1 < digit_traits<signed int>::digits)>::template then<
@@ -162,7 +162,7 @@ namespace boost { namespace detail {
         intmax_t
       >::type>::type>::type difference_type;
 #else
-      BOOST_STATIC_ASSERT(boost::is_integral<Integer>::value);
+      BOOST_STATIC_ASSERT(boost_cryray::is_integral<Integer>::value);
 
       typedef typename
       if_true<(sizeof(Integer) >= sizeof(intmax_t))>::template then<

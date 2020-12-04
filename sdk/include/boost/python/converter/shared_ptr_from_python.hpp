@@ -9,7 +9,7 @@
 # include <boost/python/handle.hpp>
 # include <boost/python/converter/shared_ptr_deleter.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 template <class T>
 struct shared_ptr_from_python
@@ -48,6 +48,6 @@ struct shared_ptr_from_python
 template <class T>
 shared_ptr_from_python<T> const shared_ptr_from_python<T>::registration;
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // SHARED_PTR_FROM_PYTHON_DWA20021130_HPP

@@ -25,10 +25,10 @@
 // are then popped from the front of Q, and if that is empty the front
 // of PQ.
 
-namespace boost {
+namespace boost_cryray {
 
   template<class T, class Compare = std::less<T>, bool implicit_fence = true,
-           class Buffer = boost::queue<T> >
+           class Buffer = boost_cryray::queue<T> >
   class fenced_priority_queue {
   public:
     typedef T value_type;

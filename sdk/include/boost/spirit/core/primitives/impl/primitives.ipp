@@ -32,7 +32,7 @@
 #pragma warning(disable:4800)
 #endif
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     template <typename DrivedT> struct char_parser;
 
@@ -219,6 +219,6 @@ namespace boost { namespace spirit {
 
 #endif // !defined(BOOST_NO_CWCTYPE)
 
-}}} // namespace boost::spirit::impl
+}}} // namespace boost_cryray::spirit::impl
 
 #endif

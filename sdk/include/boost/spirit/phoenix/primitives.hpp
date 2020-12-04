@@ -115,7 +115,7 @@ actor<argument<14> > const arg15 = argument<14>();
 template <typename T>
 struct value {
 
-    typedef typename boost::remove_reference<T>::type plain_t;
+    typedef typename boost_cryray::remove_reference<T>::type plain_t;
 
     template <typename TupleT>
     struct result { typedef plain_t const type; };

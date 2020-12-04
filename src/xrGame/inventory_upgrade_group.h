@@ -16,7 +16,7 @@ namespace inventory
 namespace upgrade
 {
 
-class Group : private boost::noncopyable
+class Group : private boost_cryray::noncopyable
 {
 public:
 							Group();

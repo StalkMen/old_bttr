@@ -24,7 +24,7 @@
 
 #include <boost/config.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 template<class charT, class Traits = BOOST_IO_STD char_traits<charT> > class basic_format;
 
@@ -52,6 +52,6 @@ BOOST_IO_STD basic_ostream<Ch, Tr>&
 operator<<( BOOST_IO_STD basic_ostream<Ch, Tr>&, const basic_format<Ch, Tr>&);
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_FORMAT_FWD_HPP

@@ -15,7 +15,7 @@
 #include <boost/utility.hpp>
 #include <boost/thread/exceptions.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 class condition;
 struct xtime;
@@ -90,7 +90,7 @@ public:
     operator const void*() const { return m_locked ? this : 0; }
 
 private:
-    friend class boost::condition;
+    friend class boost_cryray::condition;
 
     Mutex& m_mutex;
     bool m_locked;
@@ -139,7 +139,7 @@ public:
     operator const void*() const { return m_locked ? this : 0; }
 
 private:
-    friend class boost::condition;
+    friend class boost_cryray::condition;
 
     TryMutex& m_mutex;
     bool m_locked;
@@ -188,7 +188,7 @@ public:
     operator const void*() const { return m_locked ? this : 0; }
 
 private:
-    friend class boost::condition;
+    friend class boost_cryray::condition;
 
     TimedMutex& m_mutex;
     bool m_locked;
@@ -196,12 +196,12 @@ private:
 
 } // namespace thread
 } // namespace detail
-} // namespace boost
+} // namespace boost_cryray
 
 // Change Log:
 //    8 Feb 01  WEKEMPF Initial version.
 //   22 May 01  WEKEMPF Modified to use xtime for time outs.
-//   30 Jul 01  WEKEMPF Moved lock types into boost::detail::thread. Renamed some types.
+//   30 Jul 01  WEKEMPF Moved lock types into boost_cryray::detail::thread. Renamed some types.
 //                      Added locked() methods.
 
 #endif // BOOST_XLOCK_WEK070601_HPP

@@ -11,7 +11,7 @@
 # include <boost/python/args_fwd.hpp>
 # include <boost/python/object/py_function.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace objects
 { 
@@ -38,6 +38,6 @@ namespace objects
       object const& name_space, char const* name, object const& attribute, char const* doc);
 }
 
-}} // namespace boost::python::objects
+}} // namespace boost_cryray::python::objects
 
 #endif // FUNCTION_OBJECT_DWA2002725_HPP

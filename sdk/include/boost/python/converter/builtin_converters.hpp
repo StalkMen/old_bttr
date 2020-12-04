@@ -18,7 +18,7 @@
 // lookups using explicit specializations of arg_to_python and
 // result_to_python.
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace converter
 {
@@ -127,6 +127,6 @@ namespace converter
 
 }
 
-}} // namespace boost::python::converter
+}} // namespace boost_cryray::python::converter
 
 #endif // BUILTIN_CONVERTERS_DWA2002124_HPP

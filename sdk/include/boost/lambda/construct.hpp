@@ -19,7 +19,7 @@
 #if !defined(BOOST_LAMBDA_CONSTRUCT_HPP)
 #define BOOST_LAMBDA_CONSTRUCT_HPP
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
   // constructor is used together with bind. constructor<A> creates a bindable
@@ -100,7 +100,7 @@ struct destructor_helper {
   template<class A1>
   static void exec(A1& a1) {
     // remove all the qualifiers, not sure whether it is necessary
-    typedef typename boost::remove_cv<A1>::type plainA1;
+    typedef typename boost_cryray::remove_cv<A1>::type plainA1;
      a1.~plainA1();
   }
 };
@@ -110,7 +110,7 @@ struct destructor_helper<true> {
 
   template<class A1>
   static void exec(A1* a1) {
-    typedef typename boost::remove_cv<A1>::type plainA1;
+    typedef typename boost_cryray::remove_cv<A1>::type plainA1;
     (*a1).~plainA1();
   }
 };
@@ -124,8 +124,8 @@ struct destructor {
 
   template<class A1>
   void operator()(A1& a1) const {
-    typedef typename boost::remove_cv<A1>::type plainA1;
-    detail::destructor_helper<boost::is_pointer<plainA1>::value>::exec(a1);
+    typedef typename boost_cryray::remove_cv<A1>::type plainA1;
+    detail::destructor_helper<boost_cryray::is_pointer<plainA1>::value>::exec(a1);
   }
 };
 
@@ -237,6 +237,6 @@ struct delete_array {
 
 
 } // namespace lambda 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

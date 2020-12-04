@@ -42,7 +42,7 @@
 #   include "boost/preprocessor/cat.hpp"
 #   include "boost/preprocessor/inc.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -77,7 +77,7 @@ struct advance_backward
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_USE_PREPROCESSED_HEADERS
 #endif // BOOST_MPL_AUX_ADVANCE_BACKWARD_HPP_INCLUDED

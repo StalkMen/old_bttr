@@ -56,7 +56,7 @@
 #include "boost/spirit/utility/impl/regex.ipp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 // rxstrlit class
@@ -74,7 +74,7 @@ struct rxstrlit : public parser<rxstrlit<CharT> > {
     typename parser_result<self_t, ScannerT>::type
     parse(ScannerT const& scan) const
     {
-    //  Due to limitations in the boost::regex library the iterators wrapped in
+    //  Due to limitations in the boost_cryray::regex library the iterators wrapped in
     //  the ScannerT object should be at least bidirectional iterators. Plain
     //  forward iterators do not work here.
         typedef typename ScannerT::iterator_t iterator_t;
@@ -83,7 +83,7 @@ struct rxstrlit : public parser<rxstrlit<CharT> > {
             iterator_category;
 
         BOOST_STATIC_ASSERT((
-            boost::is_convertible<iterator_category,
+            boost_cryray::is_convertible<iterator_category,
                 std::bidirectional_iterator_tag>::value
         ));
 
@@ -109,7 +109,7 @@ regex_p(CharT const *first, CharT const *last)
 { return rxstrlit<CharT>(first, last); }
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #undef BOOST_SPIRIT_IT_NS
 

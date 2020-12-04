@@ -29,7 +29,7 @@
 #include <boost/math/special_functions/sinhc.hpp>    // for the Hyperbolic Sinus cardinal
 
 
-namespace boost
+namespace boost_cryray
 {
     namespace math
     {
@@ -1788,7 +1788,7 @@ namespace boost
             using    ::std::exp;
             using    ::std::cos;
             
-            using    ::boost::math::sinc_pi;
+            using    ::boost_cryray::math::sinc_pi;
             
             T    u = exp(real(q));
             
@@ -1809,7 +1809,7 @@ namespace boost
             using    ::std::cos;
             using    ::std::cosh;
             
-            using    ::boost::math::sinhc_pi;
+            using    ::boost_cryray::math::sinhc_pi;
             
             T    z = abs(unreal(q));
             
@@ -1828,7 +1828,7 @@ namespace boost
             using    ::std::cos;
             using    ::std::cosh;
             
-            using    ::boost::math::sinhc_pi;
+            using    ::boost_cryray::math::sinhc_pi;
             
             T    z = abs(unreal(q));
             

@@ -58,7 +58,7 @@
 # include <boost/static_assert.hpp>
 # include <boost/limits.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 namespace detail {
 
@@ -76,7 +76,7 @@ namespace detail {
       struct traits
       {
        private:
-          typedef boost::detail::iterator_traits<Incrementable> x;
+          typedef boost_cryray::detail::iterator_traits<Incrementable> x;
        public:
           typedef typename x::iterator_category iterator_category;
           typedef typename x::difference_type difference_type;
@@ -91,7 +91,7 @@ namespace detail {
       struct traits
       {
           typedef typename
-            boost::detail::numeric_traits<Incrementable>::difference_type
+            boost_cryray::detail::numeric_traits<Incrementable>::difference_type
           difference_type;
           typedef std::random_access_iterator_tag iterator_category;
       };
@@ -111,7 +111,7 @@ namespace detail {
       template <class Distance, class Incrementable>
       struct policy {
           static Distance distance(Incrementable x, Incrementable y)
-              { return boost::detail::distance(x, y); }
+              { return boost_cryray::detail::distance(x, y); }
       };
   };
 
@@ -131,23 +131,23 @@ namespace detail {
   template <class T>
   struct is_numeric {
     // For a while, this wasn't true, but we rely on it below. This is a regression assert.
-    BOOST_STATIC_ASSERT(::boost::is_integral<char>::value);
+    BOOST_STATIC_ASSERT(::boost_cryray::is_integral<char>::value);
 # ifndef BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS
 #  if defined(BOOST_HAS_LONG_LONG)
     BOOST_STATIC_CONSTANT(bool,
                           value = (
                               std::numeric_limits<T>::is_specialized
-                              | boost::is_same<T,long long>::value
-                              | boost::is_same<T,unsigned long long>::value));
+                              | boost_cryray::is_same<T,long long>::value
+                              | boost_cryray::is_same<T,unsigned long long>::value));
 #  else
      BOOST_STATIC_CONSTANT(bool, value = std::numeric_limits<T>::is_specialized);
 #  endif
 # else
 #  if !defined(__BORLANDC__)
     BOOST_STATIC_CONSTANT(bool, value = (
-        boost::is_convertible<int,T>::value && boost::is_convertible<T,int>::value));
+        boost_cryray::is_convertible<int,T>::value && boost_cryray::is_convertible<T,int>::value));
 #  else
-    BOOST_STATIC_CONSTANT(bool, value = ::boost::is_arithmetic<T>::value);
+    BOOST_STATIC_CONSTANT(bool, value = ::boost_cryray::is_arithmetic<T>::value);
 #  endif
 # endif
   };
@@ -167,8 +167,8 @@ namespace detail {
 template <class Incrementable>
 struct counting_iterator_traits {
  private:
-    typedef ::boost::detail::counting_iterator_traits_select<(
-        ::boost::detail::is_numeric<Incrementable>::value
+    typedef ::boost_cryray::detail::counting_iterator_traits_select<(
+        ::boost_cryray::detail::is_numeric<Incrementable>::value
         )> binder;
     typedef typename binder::template traits<Incrementable> traits;
  public:
@@ -188,7 +188,7 @@ struct counting_iterator_policies : public default_iterator_policies
         const Iterator1& x, const Iterator2& y) const
     {
         typedef typename Iterator1::difference_type difference_type;
-        return boost::detail::any_distance<difference_type>(
+        return boost_cryray::detail::any_distance<difference_type>(
             x.base(), y.base());
     }
 };
@@ -197,7 +197,7 @@ struct counting_iterator_policies : public default_iterator_policies
 template <class Incrementable>
 struct counting_iterator_generator
 {
-    typedef typename boost::remove_const<
+    typedef typename boost_cryray::remove_const<
         Incrementable
     >::type value_type;
     
@@ -224,6 +224,6 @@ make_counting_iterator(Incrementable x)
 }
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_COUNTING_ITERATOR_HPP_DWA20000119

@@ -28,7 +28,7 @@
 #include <iosfwd>   // for std::ostream&
 #include <string>   // for std::string&; in fact need only forward declaration
 
-namespace boost {
+namespace boost_cryray {
 
 namespace unit_test_framework {
 
@@ -96,7 +96,7 @@ struct log_progress {
 
 class test_case;
 
-class unit_test_log : private boost::noncopyable { //!! Singleton
+class unit_test_log : private boost_cryray::noncopyable { //!! Singleton
 public:
     // Destructor
     ~unit_test_log();
@@ -144,17 +144,17 @@ private:
 
 // helper macros
 #define BOOST_UT_LOG_BEGIN( file_name, line_num, loglevel )                             \
-    boost::unit_test_framework::unit_test_log::instance()                               \
-                                     << boost::unit_test_framework::begin()             \
-                                     << boost::unit_test_framework::level( loglevel )   \
-                                     << boost::unit_test_framework::file( file_name )   \
-                                     << boost::unit_test_framework::line( line_num ) << \
+    boost_cryray::unit_test_framework::unit_test_log::instance()                               \
+                                     << boost_cryray::unit_test_framework::begin()             \
+                                     << boost_cryray::unit_test_framework::level( loglevel )   \
+                                     << boost_cryray::unit_test_framework::file( file_name )   \
+                                     << boost_cryray::unit_test_framework::line( line_num ) << \
 /**/
-#define BOOST_UT_LOG_END             << boost::unit_test_framework::end();
+#define BOOST_UT_LOG_END             << boost_cryray::unit_test_framework::end();
 
 } // namespace unit_test_framework
 
-} // namespace boost
+} // namespace boost_cryray
 
 // ***************************************************************************
 //  Revision History :

@@ -21,7 +21,7 @@
 #include "boost/mpl/aux_/void_spec.hpp"
 #include "boost/mpl/aux_/algorithm_namespace.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 BOOST_MPL_AUX_AGLORITHM_NAMESPACE_BEGIN
@@ -40,6 +40,6 @@ BOOST_MPL_AUX_AGLORITHM_NAMESPACE_END
 BOOST_MPL_AUX_ALGORITHM_VOID_SPEC(3, copy_backward)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_COPY_BACKWARD_HPP_INCLUDED

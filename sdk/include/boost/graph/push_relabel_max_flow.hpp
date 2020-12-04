@@ -37,7 +37,7 @@
 #include <boost/graph/graph_concepts.hpp>
 #include <boost/graph/named_function_params.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
     
@@ -653,7 +653,7 @@ namespace boost {
       distance_size_type max_distance;  // maximal distance
       distance_size_type max_active;    // maximal distance with active node
       distance_size_type min_active;    // minimal distance with active node
-      boost::queue<vertex_descriptor> Q;
+      boost_cryray::queue<vertex_descriptor> Q;
 
       // Statistics counters
       long push_count;
@@ -729,7 +729,7 @@ namespace boost {
     return push_relabel_max_flow(g, src, sink, params);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_PUSH_RELABEL_MAX_FLOW_HPP
 

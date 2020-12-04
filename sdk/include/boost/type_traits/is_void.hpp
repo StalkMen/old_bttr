@@ -15,7 +15,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 //* is a type T void - is_void<T>
 BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_void,T,false)
@@ -27,7 +27,7 @@ BOOST_TT_AUX_BOOL_TRAIT_SPEC1(is_void,void volatile,true)
 BOOST_TT_AUX_BOOL_TRAIT_SPEC1(is_void,void const volatile,true)
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

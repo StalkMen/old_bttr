@@ -41,7 +41,7 @@
 #include <boost/pending/indirect_cmp.hpp>
 #include <boost/graph/exception.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template <class Visitor, class Graph>
   struct DijkstraVisitorConcept {
@@ -288,6 +288,6 @@ namespace boost {
        params);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_DIJKSTRA_HPP

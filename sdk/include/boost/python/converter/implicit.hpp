@@ -12,7 +12,7 @@
 
 # include <boost/python/extract.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 template <class Source, class Target>
 struct implicit
@@ -38,6 +38,6 @@ struct implicit
     }
 };
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // IMPLICIT_DWA2002326_HPP

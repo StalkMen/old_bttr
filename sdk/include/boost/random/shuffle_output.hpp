@@ -30,7 +30,7 @@
 #include <boost/cstdint.hpp>
 #include <boost/random/linear_congruential.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace random {
 
 // Carter Bays and S.D. Durham 1979
@@ -174,6 +174,6 @@ typedef random::shuffle_output<
   97, 139726> kreutzer1986;
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_SHUFFLE_OUTPUT_HPP

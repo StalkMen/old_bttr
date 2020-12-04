@@ -10,7 +10,7 @@
 #include "boost/lexical_cast.hpp"
 
 
-namespace boost {
+namespace boost_cryray {
 
 namespace date_time {
 
@@ -23,9 +23,9 @@ namespace date_time {
     typedef typename date_type::year_type year_type;
     int pos = 0;
     typename date_type::ymd_type ymd(year_type::min(),1,1);
-    boost::tokenizer<boost::char_delimiters_separator<char> > tok(s);
-    for(boost::tokenizer<>::iterator beg=tok.begin(); beg!=tok.end();++beg){
-      int i = boost::lexical_cast<int>(*beg);
+    boost_cryray::tokenizer<boost_cryray::char_delimiters_separator<char> > tok(s);
+    for(boost_cryray::tokenizer<>::iterator beg=tok.begin(); beg!=tok.end();++beg){
+      int i = boost_cryray::lexical_cast<int>(*beg);
       switch(pos) {
       case 0: ymd.year = i; break;
       case 1: ymd.month = i; break;
@@ -45,10 +45,10 @@ namespace date_time {
     int pos = 0;
     typedef typename date_type::year_type year_type;
     typename date_type::ymd_type ymd(year_type::min(),1,1);
-    boost::offset_separator osf(offsets, offsets+3); 
-    boost::tokenizer<boost::offset_separator> tok(s, osf);
-    for(boost::tokenizer<boost::offset_separator>::iterator ti=tok.begin(); ti!=tok.end();++ti){
-      int i = boost::lexical_cast<int>(*ti);
+    boost_cryray::offset_separator osf(offsets, offsets+3); 
+    boost_cryray::tokenizer<boost_cryray::offset_separator> tok(s, osf);
+    for(boost_cryray::tokenizer<boost_cryray::offset_separator>::iterator ti=tok.begin(); ti!=tok.end();++ti){
+      int i = boost_cryray::lexical_cast<int>(*ti);
       //      std::cout << i << std::endl;
       switch(pos) {
       case 0: ymd.year = i; break;
@@ -65,14 +65,14 @@ namespace date_time {
   date_type
   parse_date2(const std::string& s)
   {
-    //using namespace boost;
+    //using namespace boost_cryray;
     int pos = 0;
     typedef typename date_type::year_type year_type;
     typename date_type::ymd_type ymd(year_type::min(),1,1);
-    boost::char_delimiters_separator<char> delim("DT");
-    boost::tokenizer<boost::char_delimiters_separator<char> > tok(s);
-    for(boost::tokenizer<>::iterator beg=tok.begin(); beg!=tok.end();++beg){
-      int i = boost::lexical_cast<int>(*beg);
+    boost_cryray::char_delimiters_separator<char> delim("DT");
+    boost_cryray::tokenizer<boost_cryray::char_delimiters_separator<char> > tok(s);
+    for(boost_cryray::tokenizer<>::iterator beg=tok.begin(); beg!=tok.end();++beg){
+      int i = boost_cryray::lexical_cast<int>(*beg);
       switch(pos) {
       case 0: ymd.year = i; break;
       case 1: ymd.month = i; break;

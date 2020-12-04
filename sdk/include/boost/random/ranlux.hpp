@@ -25,7 +25,7 @@
 #include <boost/random/subtract_with_carry.hpp>
 #include <boost/random/discard_block.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 namespace random {
   typedef subtract_with_carry<int, (1<<24), 10, 24, 0> ranlux_base;
@@ -50,6 +50,6 @@ typedef random::discard_block<random::ranlux64_base, 223, 24> ranlux64_3;
 typedef random::discard_block<random::ranlux64_base, 389, 24> ranlux64_4;
 #endif /* !BOOST_NO_INT64_T && !BOOST_NO_INTEGRAL_INT64_T */
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_LINEAR_CONGRUENTIAL_HPP

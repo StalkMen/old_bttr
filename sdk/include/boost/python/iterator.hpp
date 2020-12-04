@@ -12,7 +12,7 @@
 # include <boost/type_traits/cv_traits.hpp>
 # include <boost/type_traits/transform_traits.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -21,11 +21,11 @@ namespace detail
   // function and member data pointers.
   template <class NextPolicies, class Target, class Accessor1, class Accessor2>
   inline object make_iterator(
-      Accessor1 get_start, Accessor2 get_finish, boost::type<Target>* target = 0, NextPolicies* = 0)
+      Accessor1 get_start, Accessor2 get_finish, boost_cryray::type<Target>* target = 0, NextPolicies* = 0)
   {
       return objects::make_iterator_function<NextPolicies,Target>(
-          boost::protect(boost::bind(get_start, _1))
-          , boost::protect(boost::bind(get_finish, _1))
+          boost_cryray::protect(boost_cryray::bind(get_start, _1))
+          , boost_cryray::protect(boost_cryray::bind(get_finish, _1))
           );
   }
 
@@ -60,7 +60,7 @@ namespace detail
 template <class T>
 struct iterators
     : detail::iterators_impl<
-        boost::is_const<T>::value
+        boost_cryray::is_const<T>::value
       >::template apply<T>
 {
 };
@@ -87,7 +87,7 @@ object range(Accessor1 start, Accessor2 finish, NextPolicies* = 0)
 // Create an iterator-building function which uses the given accessors
 // and next() policies, operating on the given Target type
 template <class NextPolicies, class Target, class Accessor1, class Accessor2>
-object range(Accessor1 start, Accessor2 finish, NextPolicies* = 0, boost::type<Target>* = 0)
+object range(Accessor1 start, Accessor2 finish, NextPolicies* = 0, boost_cryray::type<Target>* = 0)
 {
     typedef typename add_reference<Target>::type target;
     return detail::make_iterator<NextPolicies, target>(start, finish);
@@ -110,6 +110,6 @@ struct iterator : object
     }
 };
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // ITERATOR_DWA2002512_HPP

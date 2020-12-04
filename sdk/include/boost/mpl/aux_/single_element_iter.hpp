@@ -27,7 +27,7 @@
 #include "boost/mpl/aux_/config/ctps.hpp"
 #include "boost/mpl/aux_/config/nttp.hpp"
 
-namespace boost { namespace mpl { 
+namespace boost_cryray { namespace mpl { 
 
 namespace aux {
 
@@ -118,6 +118,6 @@ struct single_element_iter
 
 //BOOST_MPL_AUX_PASS_THROUGH_LAMBDA_SPEC(1, aux::single_element_iter)
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #endif // BOOST_MPL_AUX_SINGLE_ELEMENT_ITER_HPP_INCLUDED

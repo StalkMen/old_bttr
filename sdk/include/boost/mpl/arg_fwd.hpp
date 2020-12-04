@@ -19,12 +19,12 @@
 
 #include "boost/mpl/aux_/config/nttp.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< BOOST_MPL_AUX_NTTP_DECL(int, N) > struct arg;
 
 } // namespace mpl
-} // namespace boost 
+} // namespace boost_cryray 
 
 #endif // BOOST_MPL_ARG_FWD_HPP_INCLUDED

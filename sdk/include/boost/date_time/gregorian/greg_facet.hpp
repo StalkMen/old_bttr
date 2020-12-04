@@ -12,20 +12,20 @@
 #ifndef BOOST_DATE_TIME_NO_LOCALE
 
 
-namespace boost {
+namespace boost_cryray {
 namespace gregorian {
 
   //! Configuration of the output facet template
   struct greg_facet_config
   {
-    typedef boost::gregorian::greg_month month_type;
-    typedef boost::date_time::special_values special_value_enum;
-    typedef boost::gregorian::months_of_year month_enum;
-    typedef boost::date_time::weekdays weekday_enum;
+    typedef boost_cryray::gregorian::greg_month month_type;
+    typedef boost_cryray::date_time::special_values special_value_enum;
+    typedef boost_cryray::gregorian::months_of_year month_enum;
+    typedef boost_cryray::date_time::weekdays weekday_enum;
   };
 
   //! Create the base facet type for gregorian::date
-  typedef boost::date_time::date_names_put<greg_facet_config> greg_base_facet;
+  typedef boost_cryray::date_time::date_names_put<greg_facet_config> greg_base_facet;
   
   //! ostream operator for gregorian::date
   /*! Uses the date facet to determine various output parameters including:
@@ -39,7 +39,7 @@ namespace gregorian {
   std::basic_ostream<charT, traits>&
   operator<<(std::basic_ostream<charT, traits>& os, const date& d)
   {
-    typedef boost::date_time::ostream_date_formatter<date, greg_base_facet, charT> greg_ostream_formatter;
+    typedef boost_cryray::date_time::ostream_date_formatter<date, greg_base_facet, charT> greg_ostream_formatter;
     greg_ostream_formatter::date_put(d, os);
     return os;
   }
@@ -54,7 +54,7 @@ namespace gregorian {
   std::basic_ostream<charT, traits>&
   operator<<(std::basic_ostream<charT, traits>& os, const greg_month& m)
   {
-    typedef boost::date_time::ostream_month_formatter<greg_base_facet, charT> greg_month_formatter;
+    typedef boost_cryray::date_time::ostream_month_formatter<greg_base_facet, charT> greg_month_formatter;
     std::locale locale = os.getloc();
     if (std::has_facet<greg_base_facet>(locale)) {
       const greg_base_facet& f = std::use_facet<greg_base_facet>(locale);
@@ -78,7 +78,7 @@ namespace gregorian {
   std::basic_ostream<charT, traits>&
   operator<<(std::basic_ostream<charT, traits>& os, const greg_weekday& wd)
   {
-    typedef boost::date_time::ostream_weekday_formatter<greg_weekday, greg_base_facet, charT> greg_weekday_formatter;
+    typedef boost_cryray::date_time::ostream_weekday_formatter<greg_weekday, greg_base_facet, charT> greg_weekday_formatter;
     std::locale locale = os.getloc();
     if (std::has_facet<greg_base_facet>(locale)) {
       const greg_base_facet& f = std::use_facet<greg_base_facet>(locale);

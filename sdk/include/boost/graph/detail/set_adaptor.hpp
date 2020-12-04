@@ -9,7 +9,7 @@
 
 #include <set>
 
-namespace boost {
+namespace boost_cryray {
 
     template <class K, class C, class A, class T>
     bool set_contains(const std::set<K,C,A>& s, const T& x) {
@@ -113,6 +113,6 @@ namespace boost {
       
     }
     
-} // namespace boost    
+} // namespace boost_cryray    
 
 #endif // BOOST_SET_ADAPTOR_HPP

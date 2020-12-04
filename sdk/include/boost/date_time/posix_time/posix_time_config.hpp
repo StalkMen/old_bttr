@@ -23,7 +23,7 @@
 #include <cmath>
 #include <cstdlib> //for MCW 7.2 std::abs(long long)
 
-namespace boost {
+namespace boost_cryray {
 namespace posix_time {
   
 //Remove the following line if you want 64 bit millisecond resolution time
@@ -34,21 +34,21 @@ namespace posix_time {
 #define BOOST_DATE_TIME_HAS_MILLISECONDS
 #define BOOST_DATE_TIME_HAS_MICROSECONDS
 #define BOOST_DATE_TIME_HAS_NANOSECONDS
-  typedef date_time::time_resolution_traits<boost::int64_t, boost::date_time::nano, 
+  typedef date_time::time_resolution_traits<boost_cryray::int64_t, boost_cryray::date_time::nano, 
                                             1000000000, 9 > time_res_traits;
 #else
   // set up conditional test compilations
 #define BOOST_DATE_TIME_HAS_MILLISECONDS
 #define BOOST_DATE_TIME_HAS_MICROSECONDS
 #undef  BOOST_DATE_TIME_HAS_NANOSECONDS
-  typedef date_time::time_resolution_traits<boost::int64_t, boost::date_time::micro, 
+  typedef date_time::time_resolution_traits<boost_cryray::int64_t, boost_cryray::date_time::micro, 
                                             1000000, 6 > time_res_traits;
 
 
 // #undef BOOST_DATE_TIME_HAS_MILLISECONDS
 // #undef BOOST_DATE_TIME_HAS_MICROSECONDS
 // #undef BOOST_DATE_TIME_HAS_NANOSECONDS
-//   typedef date_time::time_resolution_traits<boost::int64_t, boost::date_time::tenth, 
+//   typedef date_time::time_resolution_traits<boost_cryray::int64_t, boost_cryray::date_time::tenth, 
 //                                              10, 0 > time_res_traits;
 
 #endif
@@ -111,7 +111,7 @@ namespace posix_time {
     typedef time_res_traits resolution_traits;
 #if (defined(BOOST_DATE_TIME_NO_MEMBER_INIT)) //help bad compilers 
 #else
-    BOOST_STATIC_CONSTANT(boost::int64_t, tick_per_second = 1000000000);
+    BOOST_STATIC_CONSTANT(boost_cryray::int64_t, tick_per_second = 1000000000);
 #endif
   };
 
@@ -120,7 +120,7 @@ namespace posix_time {
   class millisec_posix_time_system_config 
   {
    public:
-    typedef boost::int64_t time_rep_type;
+    typedef boost_cryray::int64_t time_rep_type;
     typedef gregorian::date date_type;
     typedef gregorian::date_duration date_duration_type;
     typedef time_duration time_duration_type;
@@ -128,7 +128,7 @@ namespace posix_time {
     typedef time_res_traits resolution_traits;
 #if (defined(BOOST_DATE_TIME_NO_MEMBER_INIT)) //help bad compilers 
 #else
-    BOOST_STATIC_CONSTANT(boost::int64_t, tick_per_second = 1000000);
+    BOOST_STATIC_CONSTANT(boost_cryray::int64_t, tick_per_second = 1000000);
 #endif
   };
 

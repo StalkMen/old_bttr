@@ -27,11 +27,11 @@
 
 #include <boost/pool/poolfwd.hpp>
 
-// boost::details::pool::ct_lcm
+// boost_cryray::details::pool::ct_lcm
 #include <boost/pool/detail/ct_gcd_lcm.hpp>
-// boost::details::pool::lcm
+// boost_cryray::details::pool::lcm
 #include <boost/pool/detail/gcd_lcm.hpp>
-// boost::simple_segregated_storage
+// boost_cryray::simple_segregated_storage
 #include <boost/pool/simple_segregated_storage.hpp>
 
 #ifdef BOOST_NO_STDC_NAMESPACE
@@ -45,7 +45,7 @@
 //   parameter.
 // Thanks to Jens Maurer for pointing this out!
 
-namespace boost {
+namespace boost_cryray {
 
 struct default_user_allocator_new_delete
 {
@@ -140,7 +140,7 @@ class pool: protected simple_segregated_storage<
 
   private:
     BOOST_STATIC_CONSTANT(unsigned, min_alloc_size =
-        (::boost::details::pool::ct_lcm<sizeof(void *), sizeof(size_type)>::value) );
+        (::boost_cryray::details::pool::ct_lcm<sizeof(void *), sizeof(size_type)>::value) );
 
     // Returns 0 if out-of-memory
     // Called if malloc/ordered_malloc needs to resize the free list
@@ -561,6 +561,6 @@ pool<UserAllocator>::find_POD(void * const chunk) const
   return iter;
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

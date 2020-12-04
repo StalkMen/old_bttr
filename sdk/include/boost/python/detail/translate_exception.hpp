@@ -13,12 +13,12 @@
 
 # include <boost/function/function0.hpp>
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 // A ternary function object used to translate C++ exceptions of type
 // ExceptionType into Python exceptions by invoking an object of type
 // Translate. Typically the translate function will be curried with
-// boost::bind().
+// boost_cryray::bind().
 template <class ExceptionType, class Translate>
 struct translate_exception
 {
@@ -43,6 +43,6 @@ struct translate_exception
     }
 };
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // TRANSLATE_EXCEPTION_DWA2002810_HPP

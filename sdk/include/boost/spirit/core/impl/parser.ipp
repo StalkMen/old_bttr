@@ -12,7 +12,7 @@
 #define BOOST_SPIRIT_PARSER_IPP
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -50,7 +50,7 @@ namespace boost { namespace spirit {
         return parse(str, last, p);
     }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

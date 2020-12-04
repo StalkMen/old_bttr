@@ -46,7 +46,7 @@
 #define BOOST_OPTIONAL_NO_CONVERTING_COPY_CTOR
 #endif
 
-namespace boost
+namespace boost_cryray
 {
   namespace optional_detail
   {
@@ -58,7 +58,7 @@ namespace boost
          {
              char data[ sizeof(T) ];
              BOOST_DEDUCED_TYPENAME type_with_alignment<
-               ::boost::alignment_of<T>::value >::type aligner_;
+               ::boost_cryray::alignment_of<T>::value >::type aligner_;
          } dummy_ ;
 
       public:
@@ -311,7 +311,7 @@ template<class T> inline void swap ( optional<T>& x, optional<T>& y )
 }
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

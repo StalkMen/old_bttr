@@ -26,7 +26,7 @@
 #include "boost/mpl/aux_/config/eti.hpp"
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -74,6 +74,6 @@ struct divides
 BOOST_MPL_AUX_VOID_SPEC_EXT(2,5,divides)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_DIVIDES_HPP_INCLUDED

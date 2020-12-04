@@ -26,7 +26,7 @@
 #include <boost/mpl/and.hpp>
 #include <boost/spirit/core/primitives/primitives.hpp> // for iscntrl_
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -304,7 +304,7 @@ namespace impl {
 
 #endif // !defined(BOOST_SPIRIT_CLOSURE_CONTEXT_LINKER_DEFINED)
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif // defined(BOOST_SPIRIT_DEBUG)
 

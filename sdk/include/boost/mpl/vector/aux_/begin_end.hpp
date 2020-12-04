@@ -26,7 +26,7 @@
 #   include "boost/mpl/vector/aux_/iterator.hpp"
 #   include "boost/mpl/vector/aux_/tag.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<>
@@ -54,7 +54,7 @@ struct end_traits< aux::vector_tag >
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_TYPEOF_BASED_VECTOR_IMPL
 

@@ -18,7 +18,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 namespace detail {
 
@@ -26,17 +26,17 @@ template <typename T>
 struct has_trivial_dtor_impl
 {
    BOOST_STATIC_CONSTANT(bool, value =
-      (::boost::type_traits::ice_or<
-         ::boost::is_pod<T>::value,
+      (::boost_cryray::type_traits::ice_or<
+         ::boost_cryray::is_pod<T>::value,
          BOOST_HAS_TRIVIAL_DESTRUCTOR(T)
       >::value));
 };
 
 } // namespace detail
 
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(has_trivial_destructor,T,::boost::detail::has_trivial_dtor_impl<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(has_trivial_destructor,T,::boost_cryray::detail::has_trivial_dtor_impl<T>::value)
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

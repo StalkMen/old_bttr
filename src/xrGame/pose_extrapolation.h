@@ -47,7 +47,7 @@ namespace extrapolation
 
 	private:
 	static const u16 point_num = 2;
-		//typedef boost::array<pose,3>	container;
+		//typedef boost_cryray::array<pose,3>	container;
 		typedef CCycleConstStorage<extrapolation::point, point_num> container;
 	private:
 		u32			last_update;

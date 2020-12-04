@@ -26,12 +26,12 @@ namespace luabind
 {
 	namespace converters
 	{
-		// tell luabind that there is a converter for boost::intrusive_ptr<T>
+		// tell luabind that there is a converter for boost_cryray::intrusive_ptr<T>
 		template<class T>
-		yes_t is_user_defined(by_value<boost::intrusive_ptr<T> >);
+		yes_t is_user_defined(by_value<boost_cryray::intrusive_ptr<T> >);
 
 		template<class T>
-		yes_t is_user_defined(by_const_reference<boost::intrusive_ptr<T> >);
+		yes_t is_user_defined(by_const_reference<boost_cryray::intrusive_ptr<T> >);
 
 		// function used to destruct the object in lua
 		template<class T>
@@ -45,7 +45,7 @@ namespace luabind
 		};
 
 		template<class T>
-		void convert_cpp_to_lua(lua_State* L, const boost::intrusive_ptr<T>& ptr)
+		void convert_cpp_to_lua(lua_State* L, const boost_cryray::intrusive_ptr<T>& ptr)
 		{
 			if (!ptr)
 			{
@@ -73,29 +73,29 @@ namespace luabind
 		}
 
 		template<class T>
-		boost::intrusive_ptr<T>
-		convert_lua_to_cpp(lua_State* L, by_const_reference<boost::intrusive_ptr<T> >, int index)
+		boost_cryray::intrusive_ptr<T>
+		convert_lua_to_cpp(lua_State* L, by_const_reference<boost_cryray::intrusive_ptr<T> >, int index)
 		{
 			typename detail::default_policy::template generate_converter<T*, detail::lua_to_cpp>::type converter;
 			T* ptr = converter.apply(L, LUABIND_DECORATE_TYPE(T*), index);
-			return boost::intrusive_ptr<T>(ptr);
+			return boost_cryray::intrusive_ptr<T>(ptr);
 		}
 
 		template<class T>
-		boost::intrusive_ptr<T> convert_lua_to_cpp(lua_State* L, by_value<boost::intrusive_ptr<T> >, int index)
+		boost_cryray::intrusive_ptr<T> convert_lua_to_cpp(lua_State* L, by_value<boost_cryray::intrusive_ptr<T> >, int index)
 		{
-			return convert_lua_to_cpp(L, by_const_reference<boost::intrusive_ptr<T> >(), index);
+			return convert_lua_to_cpp(L, by_const_reference<boost_cryray::intrusive_ptr<T> >(), index);
 		}
 
 		template<class T>
-		int match_lua_to_cpp(lua_State* L, by_value<boost::intrusive_ptr<T> >, int index)
+		int match_lua_to_cpp(lua_State* L, by_value<boost_cryray::intrusive_ptr<T> >, int index)
 		{
 			typedef typename detail::default_policy::template generate_converter<T*, detail::lua_to_cpp>::type converter_t;
 			converter_t::match(L, LUABIND_DECORATE_TYPE(T*), index);
 		}
 
 		template<class T>
-		int match_lua_to_cpp(lua_State* L, by_const_reference<boost::intrusive_ptr<T> >, int index)
+		int match_lua_to_cpp(lua_State* L, by_const_reference<boost_cryray::intrusive_ptr<T> >, int index)
 		{
 			typedef typename detail::default_policy::template generate_converter<T*, detail::lua_to_cpp>::type converter_t;
 			converter_t::match(L, LUABIND_DECORATE_TYPE(T*), index);
@@ -128,14 +128,14 @@ void intrusive_ptr_release(A* ptr)
 	if (ptr->cnt == 0) delete ptr;
 }
 
-void f(boost::intrusive_ptr<A> ptr)
+void f(boost_cryray::intrusive_ptr<A> ptr)
 {
 	std::cout << "count: " << ptr->cnt << "\n";
 }
 
-boost::intrusive_ptr<A> factory()
+boost_cryray::intrusive_ptr<A> factory()
 {
-	return boost::intrusive_ptr<A>(new A());
+	return boost_cryray::intrusive_ptr<A>(new A());
 }
 
 int main()

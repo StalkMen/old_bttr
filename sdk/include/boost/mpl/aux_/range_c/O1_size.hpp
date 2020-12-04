@@ -21,7 +21,7 @@
 #include "boost/mpl/aux_/range_c/size.hpp"
 #include "boost/mpl/aux_/range_c/tag.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<>
@@ -31,6 +31,6 @@ struct O1_size_traits< aux::half_open_range_tag >
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_RANGE_C_O1_SIZE_HPP_INCLUDED

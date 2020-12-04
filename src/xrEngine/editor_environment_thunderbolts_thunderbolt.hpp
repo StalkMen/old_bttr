@@ -31,7 +31,7 @@ class manager;
 class thunderbolt :
     public SThunderboltDesc,
     public editor::property_holder_holder,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 private:
     typedef SThunderboltDesc inherited;

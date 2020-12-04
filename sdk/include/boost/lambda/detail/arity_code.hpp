@@ -21,7 +21,7 @@
 #include "boost/type_traits/cv_traits.hpp"
 #include "boost/type_traits/transform_traits.hpp"
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
 // These constants state, whether a lambda_functor instantiation results from 
@@ -51,7 +51,7 @@ template <class T> struct get_arity_;
 
 template <class T> struct get_arity {
 
-  BOOST_STATIC_CONSTANT(int, value = detail::get_arity_<typename boost::remove_cv<typename boost::remove_reference<T>::type>::type>::value);
+  BOOST_STATIC_CONSTANT(int, value = detail::get_arity_<typename boost_cryray::remove_cv<typename boost_cryray::remove_reference<T>::type>::type>::value);
 
 };
 
@@ -110,6 +110,6 @@ struct lacks_placeholder {
 
 
 } // namespace lambda
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

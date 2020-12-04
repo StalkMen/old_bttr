@@ -17,7 +17,7 @@
 #ifndef BOOST_UBLAS_OPERATION_BLOCKED_H
 #define BOOST_UBLAS_OPERATION_BLOCKED_H
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     template<class V, class E1, class E2>
     BOOST_UBLAS_INLINE

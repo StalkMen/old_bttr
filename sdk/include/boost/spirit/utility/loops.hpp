@@ -18,7 +18,7 @@
 #include "boost/spirit/core/composite/composite.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -279,7 +279,7 @@ namespace boost { namespace spirit {
         struct loop_traits
         {
             typedef typename mpl::if_<
-                boost::is_same<MaxT, more_t>,
+                boost_cryray::is_same<MaxT, more_t>,
                 infinite_loop<ParserT, MinT>,
                 finite_loop<ParserT, MinT, MaxT>
             >::type type;
@@ -323,6 +323,6 @@ namespace boost { namespace spirit {
         return nonfixed_loop_gen <MinT, MaxT> (min, max);
     }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif // #if !defined(BOOST_SPIRIT_LOOPS_HPP)

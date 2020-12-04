@@ -11,7 +11,7 @@
 #  include <memory>
 # endif
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 # if !defined(BOOST_NO_AUTO_PTR)
 
@@ -26,6 +26,6 @@ struct is_auto_ptr : mpl::false_
 
 # endif
     
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // IS_AUTO_PTR_DWA2003224_HPP

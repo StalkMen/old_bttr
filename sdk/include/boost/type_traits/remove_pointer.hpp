@@ -16,7 +16,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/type_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
@@ -32,7 +32,7 @@ BOOST_TT_AUX_TYPE_TRAIT_DEF1(remove_pointer,T,typename detail::remove_pointer_im
 
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/type_trait_undef.hpp"
 

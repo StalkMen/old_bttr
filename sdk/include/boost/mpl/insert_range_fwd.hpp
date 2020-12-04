@@ -17,13 +17,13 @@
 #ifndef BOOST_MPL_INSERT_RANGE_FWD_HPP_INCLUDED
 #define BOOST_MPL_INSERT_RANGE_FWD_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename Tag > struct insert_range_traits;
 template< typename Sequence, typename Pos, typename Range > struct insert_range;
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_INSERT_RANGE_FWD_HPP_INCLUDED

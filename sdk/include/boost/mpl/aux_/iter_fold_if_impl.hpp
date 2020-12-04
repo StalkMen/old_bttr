@@ -44,7 +44,7 @@
 #   include "boost/preprocessor/dec.hpp"
 #   include "boost/preprocessor/cat.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -212,7 +212,7 @@ struct iter_fold_if_impl
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_USE_PREPROCESSED_HEADERS
 #endif // BOOST_MPL_AUX_ITER_FOLD_IF_IMPL_HPP_INCLUDED

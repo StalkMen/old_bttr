@@ -24,7 +24,7 @@
  
 #   include "boost/mpl/int.hpp"
 
-namespace boost { namespace mpl { namespace aux {
+namespace boost_cryray { namespace mpl { namespace aux {
 
 template< typename C_ >
 struct value_wknd
@@ -40,14 +40,14 @@ struct value_wknd<int>
 };
 #endif
 
-}}} // namespace boost::mpl::aux
+}}} // namespace boost_cryray::mpl::aux
 
 #   if !defined(BOOST_MPL_MSVC_60_ETI_BUG)
-#       define BOOST_MPL_AUX_VALUE_WKND(C) ::boost::mpl::aux::value_wknd< C >
+#       define BOOST_MPL_AUX_VALUE_WKND(C) ::boost_cryray::mpl::aux::value_wknd< C >
 #       define BOOST_MPL_AUX_MSVC_VALUE_WKND(C) BOOST_MPL_AUX_VALUE_WKND(C)
 #   else
 #       define BOOST_MPL_AUX_VALUE_WKND(C) C
-#       define BOOST_MPL_AUX_MSVC_VALUE_WKND(C) ::boost::mpl::aux::value_wknd< C >
+#       define BOOST_MPL_AUX_MSVC_VALUE_WKND(C) ::boost_cryray::mpl::aux::value_wknd< C >
 #   endif
 
 #else

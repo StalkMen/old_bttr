@@ -14,7 +14,7 @@
 # include <boost/mpl/size.hpp>
 
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 // Think of this as a version of make_function without a compile-time
 // check that the size of kw is no greater than the expected arity of
@@ -50,6 +50,6 @@ object make_keyword_range_constructor(
         , kw);
 }
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // MAKE_KEYWORD_RANGE_FN_DWA2002927_HPP

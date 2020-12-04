@@ -1,7 +1,7 @@
 #ifndef BOOST_DETAIL_DISJOINT_SETS_HPP
 #define BOOST_DETAIL_DISJOINT_SETS_HPP
 
-namespace boost {
+namespace boost_cryray {
 
 namespace detail {
 
@@ -78,6 +78,6 @@ normalize_node(ParentPA p, Vertex i)
 }
 
   } // namespace detail
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_DETAIL_DISJOINT_SETS_HPP

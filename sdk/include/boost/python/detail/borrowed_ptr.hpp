@@ -13,7 +13,7 @@
 # include <boost/type_traits/cv_traits.hpp>
 # include <boost/python/tag.hpp>
 
-namespace boost { namespace python { namespace detail {
+namespace boost_cryray { namespace python { namespace detail {
 
 template<class T> class borrowed
 { 
@@ -82,7 +82,7 @@ typename mpl::if_c<
     , T
     , int
     >::type
-is_borrowed_ptr_test1(boost::type<T>);
+is_borrowed_ptr_test1(boost_cryray::type<T>);
 
 template<typename T>
 yes_borrowed_ptr_t is_borrowed_ptr_test(borrowed<T> const volatile*);
@@ -93,7 +93,7 @@ class is_borrowed_ptr
  public:
     BOOST_STATIC_CONSTANT(
         bool, value = (
-            sizeof(detail::is_borrowed_ptr_test(is_borrowed_ptr_test1(boost::type<T>())))
+            sizeof(detail::is_borrowed_ptr_test(is_borrowed_ptr_test1(boost_cryray::type<T>())))
             == sizeof(detail::yes_borrowed_ptr_t)));
 };
 
@@ -107,6 +107,6 @@ inline T* get_managed_object(detail::borrowed<T> const volatile* p, tag_t)
     return (T*)p;
 }
 
-}} // namespace boost::python::detail
+}} // namespace boost_cryray::python::detail
 
 #endif // #ifndef BORROWED_PTR_DWA20020601_HPP

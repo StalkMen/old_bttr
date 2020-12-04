@@ -66,7 +66,7 @@ namespace luabind {
 		detail::raw_policy<N>
 	  , detail::null_type
 	>
-	inline raw(boost::arg<N>) 
+	inline raw(boost_cryray::arg<N>) 
 	{ 
 		return detail::policy_cons<
 			detail::raw_policy<N>

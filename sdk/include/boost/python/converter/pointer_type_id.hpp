@@ -9,7 +9,7 @@
 # include <boost/python/type_id.hpp>
 # include <boost/type_traits/composite_traits.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 namespace detail
 {
@@ -64,6 +64,6 @@ type_info pointer_type_id(T(*)() = 0)
         >::execute((T(*)())0);
 }
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // POINTER_TYPE_ID_DWA2002222_HPP

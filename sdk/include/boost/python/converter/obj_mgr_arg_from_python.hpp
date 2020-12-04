@@ -18,7 +18,7 @@
 // arg_from_python converters for Python type wrappers, to be used as
 // base classes for specializations.
 //
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 template <class T>
 struct object_manager_value_arg_from_python
@@ -117,6 +117,6 @@ inline Ref object_manager_ref_arg_from_python<Ref>::operator()(PyObject*) const
         this->m_result.bytes, (Ref(*)())0);
 }
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // OBJ_MGR_ARG_FROM_PYTHON_DWA2002628_HPP

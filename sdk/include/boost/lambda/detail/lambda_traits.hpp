@@ -22,7 +22,7 @@
 #include "boost/type_traits/function_traits.hpp"
 #include "boost/type_traits/object_traits.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace lambda {
 
 // -- if construct ------------------------------------------------
@@ -86,10 +86,10 @@ struct IF_value
 template<class T> class remove_reference_if_valid
 {
 
-  typedef typename boost::remove_reference<T>::type plainT;
+  typedef typename boost_cryray::remove_reference<T>::type plainT;
 public:
   typedef typename IF<
-    boost::is_function<plainT>::value,
+    boost_cryray::is_function<plainT>::value,
     T,
     plainT
   >::RET type;
@@ -98,8 +98,8 @@ public:
 
 
 template<class T> struct remove_reference_and_cv {
-   typedef typename boost::remove_cv<
-     typename boost::remove_reference<T>::type
+   typedef typename boost_cryray::remove_cv<
+     typename boost_cryray::remove_reference<T>::type
    >::type type;
 };
 
@@ -108,8 +108,8 @@ template<class T> struct remove_reference_and_cv {
 // returns a reference to the element of tuple T
 template<int N, class T> struct tuple_element_as_reference {   
   typedef typename
-     boost::tuples::access_traits<
-       typename boost::tuples::element<N, T>::type
+     boost_cryray::tuples::access_traits<
+       typename boost_cryray::tuples::element<N, T>::type
      >::non_const_type type;
 };
 
@@ -117,7 +117,7 @@ template<int N, class T> struct tuple_element_as_reference {
 template<int N, class T> struct tuple_element_stripped {   
   typedef typename
      remove_reference_and_cv<
-       typename boost::tuples::element<N, T>::type
+       typename boost_cryray::tuples::element<N, T>::type
      >::type type;
 };
 
@@ -193,22 +193,22 @@ struct parameter_traits_<const volatile T[n], Any> {
 
 
 template<class T, class Any> 
-struct parameter_traits_<boost::reference_wrapper<T>, Any >{
+struct parameter_traits_<boost_cryray::reference_wrapper<T>, Any >{
   typedef T& type;
 };
 
 template<class T, class Any> 
-struct parameter_traits_<const boost::reference_wrapper<T>, Any >{
+struct parameter_traits_<const boost_cryray::reference_wrapper<T>, Any >{
   typedef T& type;
 };
 
 template<class T, class Any> 
-struct parameter_traits_<volatile boost::reference_wrapper<T>, Any >{
+struct parameter_traits_<volatile boost_cryray::reference_wrapper<T>, Any >{
   typedef T& type;
 };
 
 template<class T, class Any> 
-struct parameter_traits_<const volatile boost::reference_wrapper<T>, Any >{
+struct parameter_traits_<const volatile boost_cryray::reference_wrapper<T>, Any >{
   typedef T& type;
 };
 
@@ -257,7 +257,7 @@ struct const_copy_argument {
   typedef typename 
     detail::parameter_traits_<
       T,
-      typename detail::IF<boost::is_function<T>::value, T&, const T>::RET
+      typename detail::IF<boost_cryray::is_function<T>::value, T&, const T>::RET
     >::type type;
 };
 
@@ -498,7 +498,7 @@ class bind_type_generator {
     T0, T1, T2, T3, T4, T5, T6, T7, T8, T9
   >::type args_t;
 
-  BOOST_STATIC_CONSTANT(int, nof_elems = boost::tuples::length<args_t>::value);
+  BOOST_STATIC_CONSTANT(int, nof_elems = boost_cryray::tuples::length<args_t>::value);
 
   typedef 
     action<
@@ -525,7 +525,7 @@ template <class T> inline const T&  make_const(const T& t) { return t; }
 
 
 } // end of namespace lambda
-} // end of namespace boost
+} // end of namespace boost_cryray
 
 
    

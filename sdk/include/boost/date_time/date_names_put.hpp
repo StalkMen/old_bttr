@@ -16,7 +16,7 @@
 #include <locale>
 
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
     //! Output facet base class for gregorian dates.
@@ -268,7 +268,7 @@ namespace date_time {
       month_format_spec month_format_spec_;      
     };
 
-} } //namespace boost::date_time
+} } //namespace boost_cryray::date_time
 
 #endif //BOOST_NO_STD_LOCALE
 

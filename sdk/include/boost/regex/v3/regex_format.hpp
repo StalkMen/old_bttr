@@ -26,7 +26,7 @@
 #define BOOST_REGEX_FORMAT_HPP
 
 
-namespace boost{
+namespace boost_cryray{
 
 enum format_flags_t{
    format_all = 0,                      // enable all extentions to sytax
@@ -104,7 +104,7 @@ void BOOST_REGEX_CALL re_skip_format(const charT*& fmt, const traits_type& trait
 template <class T>
 inline void oi_assign(T* p, T v)
 {
-   ::boost::re_detail::pointer_destroy(p);
+   ::boost_cryray::re_detail::pointer_destroy(p);
    pointer_construct(p, v);
 }
 
@@ -462,7 +462,7 @@ public:
       : out(&o), last(&pi), fmt(f), flags(format_flags), pt(&p){}
 
    ~merge_out_predicate() {}
-   bool BOOST_REGEX_CALL operator()(const boost::match_results<Iterator, Allocator>& m)
+   bool BOOST_REGEX_CALL operator()(const boost_cryray::match_results<Iterator, Allocator>& m)
    {
       const charT* f = fmt;
       if(0 == (flags & format_no_copy))
@@ -569,7 +569,7 @@ std::basic_string<charT> regex_merge(const std::basic_string<charT>& s,
   #pragma option pop
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // BOOST_REGEX_FORMAT_HPP
 

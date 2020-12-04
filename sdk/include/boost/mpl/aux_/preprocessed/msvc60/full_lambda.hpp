@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/aux_/full_lambda.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -584,5 +584,5 @@ struct lambda_impl< bind2nd<F,T>,Protect >
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

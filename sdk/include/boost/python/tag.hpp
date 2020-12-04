@@ -6,12 +6,12 @@
 #ifndef TAG_DWA2002720_HPP
 # define TAG_DWA2002720_HPP
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 // used only to prevent argument-dependent lookup from finding the
 // wrong function in some cases. Cheaper than qualification.
 enum tag_t { tag };
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // TAG_DWA2002720_HPP

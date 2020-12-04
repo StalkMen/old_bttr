@@ -26,7 +26,7 @@
 #include <cmath>
 #include <utility>
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 
 template<class T, class Policies> inline
@@ -208,6 +208,6 @@ interval<T, Policies> square(const interval<T, Policies>& x)
 }
 
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_ARITH2_HPP

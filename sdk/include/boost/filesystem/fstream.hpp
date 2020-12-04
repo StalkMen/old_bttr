@@ -17,7 +17,7 @@
 #include <iosfwd>
 #include <fstream>
 
-namespace boost
+namespace boost_cryray
 {
   namespace filesystem
   {
@@ -118,7 +118,7 @@ namespace boost
 #   endif
   } // namespace filesystem
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // BOOST_FILESYSTEM_FSTREAM_HPP
 

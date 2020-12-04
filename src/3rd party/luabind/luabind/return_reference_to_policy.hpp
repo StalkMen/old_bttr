@@ -63,7 +63,7 @@ namespace luabind
 {
 	template<int N>
 	detail::policy_cons<detail::return_reference_to_policy<N>, detail::null_type> 
-	return_reference_to(boost::arg<N>) { return detail::policy_cons<detail::return_reference_to_policy<N>, detail::null_type>(); }
+	return_reference_to(boost_cryray::arg<N>) { return detail::policy_cons<detail::return_reference_to_policy<N>, detail::null_type>(); }
 }
 
 #endif // LUABIND_RETURN_REFERENCE_TO_POLICY_HPP_INCLUDED

@@ -23,7 +23,7 @@
 #include <boost/numeric/interval.hpp>
 
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 
 /*
@@ -112,6 +112,6 @@ std::istream& operator>>(std::istream& is, interval<T, Policies>& r)
 #endif
 
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_IO_HPP

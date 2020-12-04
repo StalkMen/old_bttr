@@ -105,7 +105,7 @@ namespace luabind { namespace detail
 			void* obj;
 			void* held;
 
-			boost::tie(obj,held) = crep->allocate(L);
+			boost_cryray::tie(obj,held) = crep->allocate(L);
 
 			new(obj) object_rep(ptr, crep, object_rep::owner, delete_s<T>::apply);
 
@@ -130,7 +130,7 @@ namespace luabind { namespace detail
 		struct generate_converter
 		{
 			typedef luabind::detail::is_nonconst_pointer<T> is_nonconst_p;
-			typedef typename boost::mpl::if_<is_nonconst_p, adopt_pointer<Direction>, only_accepts_nonconst_pointers>::type type;
+			typedef typename boost_cryray::mpl::if_<is_nonconst_p, adopt_pointer<Direction>, only_accepts_nonconst_pointers>::type type;
 		};
 	};
 
@@ -140,7 +140,7 @@ namespace luabind
 {
 	template<int N>
 	detail::policy_cons<detail::adopt_policy<N>, detail::null_type> 
-	adopt(boost::arg<N>) { return detail::policy_cons<detail::adopt_policy<N>, detail::null_type>(); }
+	adopt(boost_cryray::arg<N>) { return detail::policy_cons<detail::adopt_policy<N>, detail::null_type>(); }
 }
 
 #endif // LUABIND_ADOPT_POLICY_HPP_INCLUDE

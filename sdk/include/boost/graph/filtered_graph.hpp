@@ -31,7 +31,7 @@
 #include <boost/graph/properties.hpp>
 #include <boost/graph/adjacency_iterator.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   //=========================================================================
   // Some predicate classes.
@@ -484,7 +484,7 @@ namespace boost {
   }
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_FILTERED_GRAPH_HPP

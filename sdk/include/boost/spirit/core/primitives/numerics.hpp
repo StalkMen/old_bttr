@@ -31,7 +31,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -297,7 +297,7 @@ real_parser<double, strict_real_parser_policies<double> > const
         = real_parser<double, strict_real_parser_policies<double> >();
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #undef BOOST_SPIRIT_NUMP_RESULT
 #endif

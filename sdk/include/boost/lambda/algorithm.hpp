@@ -22,7 +22,7 @@
 #include <iterator>  // for iterator_traits
 #include <utility> // for std::pair
 
-namespace boost {
+namespace boost_cryray {
   namespace lambda {
 
 namespace ll {
@@ -33,8 +33,8 @@ struct for_each {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<3, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<3, Args>::type 
      >::type type; 
   };
 
@@ -50,8 +50,8 @@ struct find {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -68,8 +68,8 @@ struct find_if {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -85,8 +85,8 @@ struct find_end {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -108,8 +108,8 @@ struct find_first_of {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -131,8 +131,8 @@ struct adjacent_find {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -155,8 +155,8 @@ struct count {
   template <class Args>
   struct sig { 
     typedef typename ::std::iterator_traits<
-      typename boost::remove_const<
-           typename boost::tuples::element<1, Args>::type
+      typename boost_cryray::remove_const<
+           typename boost_cryray::tuples::element<1, Args>::type
       >::type 
     >::difference_type type;
   };
@@ -174,8 +174,8 @@ struct count_if {
   template <class Args>
   struct sig { 
     typedef typename ::std::iterator_traits<
-     typename boost::remove_const<
-           typename boost::tuples::element<1, Args>::type
+     typename boost_cryray::remove_const<
+           typename boost_cryray::tuples::element<1, Args>::type
        >::type
     >::difference_type type;
   };
@@ -193,8 +193,8 @@ struct mismatch {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type
      >::type element_type; 
 
     typedef ::std::pair< element_type, element_type > type;
@@ -239,8 +239,8 @@ struct search {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type
      >::type type; 
   };
 
@@ -262,8 +262,8 @@ struct copy {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<3, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<3, Args>::type 
      >::type type; 
   };
 
@@ -280,8 +280,8 @@ struct copy_backward {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<3, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<3, Args>::type 
      >::type type; 
   };
 
@@ -314,8 +314,8 @@ struct swap_ranges {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<3, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<3, Args>::type 
      >::type type; 
   };
 
@@ -349,9 +349,9 @@ struct transform {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<
-          boost::tuples::length<Args>::value - 2, 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<
+          boost_cryray::tuples::length<Args>::value - 2, 
           Args
       >::type
      >::type type; 
@@ -407,8 +407,8 @@ struct replace_copy {
 
  template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<3, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<3, Args>::type 
      >::type type; 
   };
 
@@ -425,8 +425,8 @@ struct replace_copy_if {
 
  template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<3, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<3, Args>::type 
      >::type type; 
   };
 
@@ -507,8 +507,8 @@ struct remove {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -524,8 +524,8 @@ struct remove_if {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-       typename boost::tuples::element<1, Args>::type
+    typedef typename boost_cryray::remove_const<
+       typename boost_cryray::tuples::element<1, Args>::type
      >::type type; 
   };
 
@@ -541,8 +541,8 @@ struct remove_copy {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-       typename boost::tuples::element<3, Args>::type
+    typedef typename boost_cryray::remove_const<
+       typename boost_cryray::tuples::element<3, Args>::type
      >::type type; 
   };
 
@@ -558,8 +558,8 @@ struct remove_copy_if {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-       typename boost::tuples::element<3, Args>::type
+    typedef typename boost_cryray::remove_const<
+       typename boost_cryray::tuples::element<3, Args>::type
      >::type type; 
   };
 
@@ -575,8 +575,8 @@ struct unique {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -598,8 +598,8 @@ struct unique_copy {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<3, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<3, Args>::type 
      >::type type; 
   };
 
@@ -637,8 +637,8 @@ struct reverse_copy {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<3, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<3, Args>::type 
      >::type type; 
   };
 
@@ -671,8 +671,8 @@ struct rotate_copy {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<3, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<3, Args>::type 
      >::type type; 
   };
 
@@ -711,8 +711,8 @@ struct partition {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -729,8 +729,8 @@ struct stable_partition {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -810,8 +810,8 @@ struct partial_sort_copy {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-       typename boost::tuples::element<3, Args>::type
+    typedef typename boost_cryray::remove_const<
+       typename boost_cryray::tuples::element<3, Args>::type
      >::type type; 
   };
 
@@ -853,8 +853,8 @@ struct lower_bound {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -876,8 +876,8 @@ struct upper_bound {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -899,8 +899,8 @@ struct equal_range {
 
  template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type
      >::type element_type; 
 
     typedef ::std::pair< element_type, element_type > type;
@@ -945,8 +945,8 @@ struct merge {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<5, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<5, Args>::type 
      >::type type; 
   };
 
@@ -1010,8 +1010,8 @@ struct set_union {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<5, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<5, Args>::type 
      >::type type; 
   };
 
@@ -1033,8 +1033,8 @@ struct set_intersection {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<5, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<5, Args>::type 
      >::type type; 
   };
 
@@ -1056,8 +1056,8 @@ struct set_difference {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<5, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<5, Args>::type 
      >::type type; 
   };
 
@@ -1080,8 +1080,8 @@ struct set_symmetric_difference {
   
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<5, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<5, Args>::type 
      >::type type; 
   };
 
@@ -1188,8 +1188,8 @@ struct min {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -1211,8 +1211,8 @@ struct max {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -1232,8 +1232,8 @@ struct min_element {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -1255,8 +1255,8 @@ struct max_element {
 
   template <class Args>
   struct sig { 
-    typedef typename boost::remove_const<
-        typename boost::tuples::element<1, Args>::type 
+    typedef typename boost_cryray::remove_const<
+        typename boost_cryray::tuples::element<1, Args>::type 
      >::type type; 
   };
 
@@ -1351,8 +1351,8 @@ struct prev_permutation {
 struct call_##X {                                          \
 template <class Args>                                      \
   struct sig {                                             \
-    typedef typename boost::remove_const<                  \
-        typename boost::tuples::element<1, Args>::type     \
+    typedef typename boost_cryray::remove_const<                  \
+        typename boost_cryray::tuples::element<1, Args>::type     \
      >::type::const_iterator type;                         \
   };                                                       \
                                                            \

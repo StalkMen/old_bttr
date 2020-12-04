@@ -12,7 +12,7 @@
 # include <boost/type_traits/same_traits.hpp>
 # include <boost/mpl/bool.hpp>
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 # ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 template <class T>
@@ -83,6 +83,6 @@ struct is_string_literal
 };
 # endif
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // STRING_LITERAL_DWA2002629_HPP

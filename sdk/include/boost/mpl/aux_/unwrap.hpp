@@ -16,7 +16,7 @@
 
 #include "boost/ref.hpp"
 
-namespace boost { namespace mpl { namespace aux {
+namespace boost_cryray { namespace mpl { namespace aux {
 
 template< typename F >
 inline
@@ -41,6 +41,6 @@ unwrap(reference_wrapper<F> const& f, int)
     return f;
 }
 
-}}} // namespace boost::mpl::aux
+}}} // namespace boost_cryray::mpl::aux
 
 #endif // BOOST_MPL_AUX_UNWRAP_HPP_INCLUDED

@@ -25,7 +25,7 @@
 #error This header only works on PPC CPUs.
 #endif
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 namespace detail {
@@ -94,6 +94,6 @@ struct rounding_control<long double>:
 
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif /* BOOST_NUMERIC_INTERVAL_DETAIL_PPC_ROUNDING_CONTROL_HPP */

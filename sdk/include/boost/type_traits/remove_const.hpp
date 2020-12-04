@@ -21,7 +21,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/type_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
@@ -45,7 +45,7 @@ struct remove_const_impl
 {
     typedef typename remove_const_helper<
           typename cv_traits_imp<T*>::unqualified_type
-        , ::boost::is_volatile<T>::value
+        , ::boost_cryray::is_volatile<T>::value
         >::type type;
 };
 
@@ -64,7 +64,7 @@ BOOST_TT_AUX_TYPE_TRAIT_DEF1(remove_const,T,typename detail::remove_const_impl<T
 
 #endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/type_trait_undef.hpp"
 

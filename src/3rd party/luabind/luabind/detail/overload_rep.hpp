@@ -61,10 +61,10 @@ namespace luabind { namespace detail
 			return true;
 		}
 
-		void set_fun(boost::function1<int, lua_State*, luabind::memory_allocator<boost::function_base> > const& f) 
+		void set_fun(boost_cryray::function1<int, lua_State*, luabind::memory_allocator<boost_cryray::function_base> > const& f) 
 		{ call_fun = f; }
 
-		void set_fun_static(boost::function1<int, lua_State*, luabind::memory_allocator<boost::function_base> > const& f) 
+		void set_fun_static(boost_cryray::function1<int, lua_State*, luabind::memory_allocator<boost_cryray::function_base> > const& f) 
 		{ call_fun_static = f; }
 
 		int call(lua_State* L, bool force_static_call) const;
@@ -76,7 +76,7 @@ namespace luabind { namespace detail
 		// this is the normal function pointer that may be a virtual
 #pragma warning(push)
 #pragma warning(disable:4251)
-		boost::function1<int, lua_State*, luabind::memory_allocator<boost::function_base> > call_fun;
+		boost_cryray::function1<int, lua_State*, luabind::memory_allocator<boost_cryray::function_base> > call_fun;
 #pragma warning(pop)
 
 		// this is the optional function pointer that is only set if
@@ -84,7 +84,7 @@ namespace luabind { namespace detail
 		// to a static function.
 #pragma warning(push)
 #pragma warning(disable:4251)
-		boost::function1<int, lua_State*, luabind::memory_allocator<boost::function_base> > call_fun_static;
+		boost_cryray::function1<int, lua_State*, luabind::memory_allocator<boost_cryray::function_base> > call_fun_static;
 #pragma warning(pop)
 
 		// the types of the parameter it takes

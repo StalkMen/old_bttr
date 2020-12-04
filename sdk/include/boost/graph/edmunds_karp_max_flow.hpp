@@ -35,7 +35,7 @@
 #include <boost/graph/filtered_graph.hpp>
 #include <boost/graph/breadth_first_search.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   // The "labeling" algorithm from "Network Flows" by Ahuja, Magnanti,
   // Orlin.  I think this is the same as or very similar to the original
@@ -111,7 +111,7 @@ namespace boost {
     
     color[sink] = Color::gray();
     while (color[sink] != Color::white()) {
-      boost::queue<vertex_t> Q;
+      boost_cryray::queue<vertex_t> Q;
       breadth_first_search
         (detail::residual_graph(g, res), src, Q,
          make_bfs_visitor(record_edge_predecessors(pred, on_tree_edge())),
@@ -264,6 +264,6 @@ namespace boost {
     return edmunds_karp_max_flow(g, src, sink, params);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // EDMUNDS_KARP_MAX_FLOW_HPP

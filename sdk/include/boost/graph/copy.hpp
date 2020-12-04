@@ -65,7 +65,7 @@
 #include <boost/graph/breadth_first_search.hpp>
 #include <boost/type_traits/conversion_traits.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -461,6 +461,6 @@ namespace boost {
        );
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_COPY_HPP

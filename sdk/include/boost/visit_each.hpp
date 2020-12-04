@@ -18,7 +18,7 @@
 
 #include <boost/config.hpp>
 
-namespace boost {
+namespace boost_cryray {
   template<typename Visitor, typename T>
   inline void visit_each(Visitor& visitor, const T& t, long)
   {

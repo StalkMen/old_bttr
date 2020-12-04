@@ -68,7 +68,7 @@
 #   include "boost/preprocessor/cat.hpp"
 #   include "boost/preprocessor/inc.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // local macros, #undef-ined at the end of the header
@@ -317,7 +317,7 @@ struct is_bind_template_impl<false>
 };
 
 template< typename T > struct is_bind_template
-    : is_bind_template_impl< ::boost::detail::is_reference_impl<T>::value >
+    : is_bind_template_impl< ::boost_cryray::detail::is_reference_impl<T>::value >
         ::template result_<T>
 {
 };
@@ -400,7 +400,7 @@ struct bind2nd
 #   undef AUX_APPLY
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_USE_PREPROCESSED_HEADERS
 #endif // BOOST_MPL_BIND_HPP_INCLUDED

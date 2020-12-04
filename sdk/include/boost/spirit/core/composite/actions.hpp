@@ -18,7 +18,7 @@
 #include "boost/spirit/core/composite/composite.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -294,6 +294,6 @@ namespace boost { namespace spirit {
         return append_actor<T>(ref);
     }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif

@@ -50,7 +50,7 @@
 
 #   include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // local macros, #undef-ined at the end of the header
@@ -77,7 +77,7 @@ template< BOOST_MPL_AUX_NTTP_DECL(int, arity_), bool Protect > struct lambda_imp
 template< typename T, bool Protect = true >
 struct lambda
     : aux::lambda_impl<
-          ::boost::mpl::aux::template_arity<T>::value
+          ::boost_cryray::mpl::aux::template_arity<T>::value
 #if !defined(BOOST_MSVC) || BOOST_MSVC > 1200
         , Protect
 #else
@@ -90,7 +90,7 @@ struct lambda
 #   undef AUX_LAMBDA_PARAMS
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_USE_PREPROCESSED_HEADERS
 #endif // BOOST_MPL_AUX_LAMBDA_NO_CTPS_HPP_INCLUDED

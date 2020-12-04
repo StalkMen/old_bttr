@@ -16,7 +16,7 @@
 #include "boost/spirit/core/composite/operators.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 namespace impl
 {
@@ -184,6 +184,6 @@ namespace impl
 }   // namespace impl
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif // !defined(BOOST_SPIRIT_PARSER_TRAITS_IPP)

@@ -22,7 +22,7 @@
 
 // Iterators based on ideas of Jeremy Siek
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     template<class E1, class E2>
     BOOST_UBLAS_INLINE

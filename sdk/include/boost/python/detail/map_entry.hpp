@@ -6,7 +6,7 @@
 #ifndef MAP_ENTRY_DWA2002118_HPP
 # define MAP_ENTRY_DWA2002118_HPP
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 // A trivial type that works well as the value_type of associative
 // vector maps
@@ -39,6 +39,6 @@ bool operator<(Key const& k, map_entry<Key,Value> const& e)
 }
 
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // MAP_ENTRY_DWA2002118_HPP

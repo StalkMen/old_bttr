@@ -6,7 +6,7 @@
 #ifndef DEPENDENT_DWA200286_HPP
 # define DEPENDENT_DWA200286_HPP
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 // A way to turn a concrete type T into a type dependent on U. This
 // keeps conforming compilers (those implementing proper 2-phase
@@ -23,6 +23,6 @@ struct dependent
     typedef T type;
 };
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // DEPENDENT_DWA200286_HPP

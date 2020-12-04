@@ -9,7 +9,7 @@
 # include <boost/python/object.hpp>
 # include <boost/python/converter/pytype_object_mgr_traits.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -135,6 +135,6 @@ namespace converter
   };
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // LIST_DWA2002627_HPP

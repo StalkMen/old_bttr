@@ -27,7 +27,7 @@
 #   pragma warning(disable: 4121) // alignment is sensitive to packing
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
 #ifndef __BORLANDC__
 
@@ -80,14 +80,14 @@ struct is_aligned
         );
 };
 
-BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost::detail::max_align,true)
-BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost::detail::lower_alignment<1> ,true)
-BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost::detail::lower_alignment<2> ,true)
-BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost::detail::lower_alignment<4> ,true)
-BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost::detail::lower_alignment<8> ,true)
-BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost::detail::lower_alignment<10> ,true)
-BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost::detail::lower_alignment<16> ,true)
-BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost::detail::lower_alignment<32> ,true)
+BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost_cryray::detail::max_align,true)
+BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost_cryray::detail::lower_alignment<1> ,true)
+BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost_cryray::detail::lower_alignment<2> ,true)
+BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost_cryray::detail::lower_alignment<4> ,true)
+BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost_cryray::detail::lower_alignment<8> ,true)
+BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost_cryray::detail::lower_alignment<10> ,true)
+BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost_cryray::detail::lower_alignment<16> ,true)
+BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost_cryray::detail::lower_alignment<32> ,true)
 
 } // namespace detail
 
@@ -98,7 +98,7 @@ class type_with_alignment
 {
     typedef detail::lower_alignment<Align> t1;
     typedef typename mpl::if_c<
-          ::boost::detail::is_aligned< ::boost::alignment_of<t1>::value,Align >::value
+          ::boost_cryray::detail::is_aligned< ::boost_cryray::alignment_of<t1>::value,Align >::value
         , t1
         , detail::max_align
         >::type align_t;
@@ -109,8 +109,8 @@ class type_with_alignment
     BOOST_STATIC_ASSERT((int)found >= Align);
     BOOST_STATIC_ASSERT(found % Align == 0);
 #else
-    BOOST_STATIC_ASSERT(::boost::type_with_alignment<Align>::found >= Align);
-    BOOST_STATIC_ASSERT(::boost::type_with_alignment<Align>::found % Align == 0);
+    BOOST_STATIC_ASSERT(::boost_cryray::type_with_alignment<Align>::found >= Align);
+    BOOST_STATIC_ASSERT(::boost_cryray::type_with_alignment<Align>::found % Align == 0);
 #endif
 
  public:
@@ -135,10 +135,10 @@ struct a16{ long double s; };
 }
 
 namespace detail {
-BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost::align::a2,true)
-BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost::align::a4,true)
-BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost::align::a8,true)
-BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost::align::a16,true)
+BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost_cryray::align::a2,true)
+BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost_cryray::align::a4,true)
+BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost_cryray::align::a8,true)
+BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_pod,::boost_cryray::align::a16,true)
 }
 
 template <std::size_t N> struct type_with_alignment
@@ -156,7 +156,7 @@ template <> struct type_with_alignment<16>{ typedef align::a16 type; };
 
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #ifdef BOOST_MSVC
 #   pragma warning(pop)

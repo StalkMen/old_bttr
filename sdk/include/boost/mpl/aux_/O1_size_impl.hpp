@@ -22,7 +22,7 @@
 #include "boost/mpl/if.hpp"
 #include "boost/mpl/aux_/has_size.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // default implementation - returns |Sequence::size| if sequence has a |size|
@@ -45,7 +45,7 @@ struct O1_size_traits
 {
     template< typename Sequence > struct algorithm
         : if_c<
-              ::boost::mpl::aux::has_size<Sequence>::value
+              ::boost_cryray::mpl::aux::has_size<Sequence>::value
             , aux::O1_size_impl<Sequence>
             , integral_c<long,-1>
             >::type
@@ -67,6 +67,6 @@ struct O1_size_traits
 
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_O1_SIZE_IMPL_HPP_INCLUDED

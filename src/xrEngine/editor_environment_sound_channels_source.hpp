@@ -26,7 +26,7 @@ namespace sound_channels
 
 class source :
     public editor::property_holder_holder,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 public:
     source(shared_str const& source);

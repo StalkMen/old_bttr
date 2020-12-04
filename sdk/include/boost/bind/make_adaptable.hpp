@@ -12,7 +12,7 @@
 //  warranty, and with no claim as to its suitability for any purpose.
 //
 
-namespace boost
+namespace boost_cryray
 {
 
 namespace _bi
@@ -167,6 +167,6 @@ template<class R, class A1, class A2, class A3, class A4, class F> _bi::af4<R, A
     return _bi::af4<R, A1, A2, A3, A4, F>(f);
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // #ifndef BOOST_BIND_MAKE_ADAPTABLE_HPP_INCLUDED

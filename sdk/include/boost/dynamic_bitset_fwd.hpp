@@ -13,12 +13,12 @@
 
 #include <memory>
 
-namespace boost {
+namespace boost_cryray {
 
 template <typename Block = unsigned long,
           typename Allocator = std::allocator<Block> >
 class dynamic_bitset;
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_DYNAMIC_BITSET_FWD_HPP

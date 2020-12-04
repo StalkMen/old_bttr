@@ -6,7 +6,7 @@
 #ifndef BOOST_PYTHON_API_PLACE_HOLDER_HPP
 #define BOOST_PYTHON_API_PLACE_HOLDER_HPP
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
     inline long len(object const& obj)
     {
@@ -14,6 +14,6 @@ namespace boost { namespace python {
         if (PyErr_Occurred()) throw_error_already_set();
         return result;
     }
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // BOOST_PYTHON_API_PLACE_HOLDER_HPP

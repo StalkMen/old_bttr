@@ -20,7 +20,7 @@
 
 #include "boost/lambda/detail/is_instance_of.hpp"
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
 #if defined BOOST_LAMBDA_BE1
@@ -159,7 +159,7 @@ namespace detail {
 #ifdef BOOST_NO_TEMPLATED_STREAMS
 template<class T> struct convert_ostream_to_ref_others_to_c_plain_by_default {
   typedef typename detail::IF<
-                       boost::is_convertible<T*, std::ostream*>::value,
+                       boost_cryray::is_convertible<T*, std::ostream*>::value,
                        T&,
                        typename const_copy_argument <T>::type
                      >::RET type;
@@ -167,7 +167,7 @@ template<class T> struct convert_ostream_to_ref_others_to_c_plain_by_default {
 
 template<class T> struct convert_istream_to_ref_others_to_c_plain_by_default {
   typedef typename detail::IF<
-                       boost::is_convertible<T*, std::istream*>::value,
+                       boost_cryray::is_convertible<T*, std::istream*>::value,
                        T&,
                        typename const_copy_argument <T>::type
                      >::RET type;
@@ -360,6 +360,6 @@ BOOST_LAMBDA_POSTFIX_UE(operator--, post_increment_decrement_action<decrement_ac
 #undef BOOST_LAMBDA_POSTFIX_UE
 
 } // namespace lambda
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

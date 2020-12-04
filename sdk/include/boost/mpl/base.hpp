@@ -21,7 +21,7 @@
 #include "boost/mpl/aux_/lambda_support.hpp"
 #include "boost/mpl/aux_/config/eti.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -43,6 +43,6 @@ template<> struct base<int>
 BOOST_MPL_AUX_VOID_SPEC(1, base)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_BASE_HPP_INCLUDED

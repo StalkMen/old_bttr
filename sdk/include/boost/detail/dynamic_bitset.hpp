@@ -18,7 +18,7 @@
 #define BOOST_DYN_BITSET_USE_FRIENDS
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -170,7 +170,7 @@ namespace boost {
 
   } // namespace detail
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_DETAIL_DYNAMIC_BITSET_HPP
 

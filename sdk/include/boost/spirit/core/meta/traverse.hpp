@@ -19,7 +19,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "boost/spirit/core/meta/impl/traverse.ipp"
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -248,7 +248,7 @@ struct transform_policies :
 struct identity_transform : public transform_policies<identity_transform> {};
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif // (!defined(BOOST_MSVC) || (BOOST_MSVC >= 1300))
 

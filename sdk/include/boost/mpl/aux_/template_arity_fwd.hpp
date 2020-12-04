@@ -17,7 +17,7 @@
 #ifndef BOOST_MPL_AUX_TEMPLATE_ARITY_FWD_HPP_INCLUDED
 #define BOOST_MPL_AUX_TEMPLATE_ARITY_FWD_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -25,6 +25,6 @@ template< typename F > struct template_arity;
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_TEMPLATE_ARITY_FWD_HPP_INCLUDED

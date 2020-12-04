@@ -47,7 +47,7 @@ namespace luabind { namespace detail
 	struct unwrap_ref<true>
 	{
 		template<class T>
-		static T& get(const boost::reference_wrapper<T>& r) { return r.get(); }
+		static T& get(const boost_cryray::reference_wrapper<T>& r) { return r.get(); }
 
 		template<class T>
 		struct apply
@@ -59,20 +59,20 @@ namespace luabind { namespace detail
 	template<class T>
 	void convert_to_lua(lua_State* L, const T& v)
 	{
-		typedef typename unwrap_ref<boost::is_reference_wrapper<T>::value>::template apply<T>::type value_type;
+		typedef typename unwrap_ref<boost_cryray::is_reference_wrapper<T>::value>::template apply<T>::type value_type;
 		typename default_policy::template generate_converter<value_type, cpp_to_lua>::type converter;
 
-		converter.apply(L, unwrap_ref<boost::is_reference_wrapper<T>::value>::get(v));
+		converter.apply(L, unwrap_ref<boost_cryray::is_reference_wrapper<T>::value>::get(v));
 	}
 
 	template<int Index, class T, class Policies>
 	void convert_to_lua_p(lua_State* L, const T& v, const Policies&)
 	{
-		typedef typename unwrap_ref<boost::is_reference_wrapper<T>::value>::template apply<T>::type value_type;
+		typedef typename unwrap_ref<boost_cryray::is_reference_wrapper<T>::value>::template apply<T>::type value_type;
 		typedef typename find_conversion_policy<Index, Policies>::type converter_policy;
 		typename converter_policy::template generate_converter<value_type, cpp_to_lua>::type converter;
 
-		converter.apply(L, unwrap_ref<boost::is_reference_wrapper<T>::value>::get(v));
+		converter.apply(L, unwrap_ref<boost_cryray::is_reference_wrapper<T>::value>::get(v));
 	}
 }}
 

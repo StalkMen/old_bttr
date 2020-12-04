@@ -11,7 +11,7 @@
 //  Version     : $Id: unit_test_suite_ex.hpp,v 1.11 2003/02/13 08:23:56 rogeeff Exp $
 //
 //  Description : provides extention for unit test framework that allows usage
-//  boost::function as a test case base function.
+//  boost_cryray::function as a test case base function.
 // ***************************************************************************
 
 #ifndef BOOST_UNIT_TEST_SUITE_EX_HPP
@@ -28,7 +28,7 @@
 // STL
 #include <string>  // for std::string
 
-namespace boost {
+namespace boost_cryray {
 
 namespace unit_test_framework {
 
@@ -104,7 +104,7 @@ create_test_case( function1<void,ParameterType> const& fct_, std::string name_,
 
 } // unit_test_framework
 
-} // namespace boost
+} // namespace boost_cryray
 
 // ***************************************************************************
 //  Revision History :

@@ -17,7 +17,7 @@
 #ifndef BOOST_MPL_AUX_YES_NO_HPP_INCLUDED
 #define BOOST_MPL_AUX_YES_NO_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -26,6 +26,6 @@ typedef char (&yes_tag)[2];
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost 
+} // namespace boost_cryray 
 
 #endif // BOOST_MPL_AUX_YES_NO_HPP_INCLUDED

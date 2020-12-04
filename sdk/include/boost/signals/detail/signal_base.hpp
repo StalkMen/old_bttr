@@ -31,8 +31,8 @@
 #include <utility>
 #include <vector>
 
-namespace boost {
-  namespace BOOST_SIGNALS_NAMESPACE {
+namespace boost_cryray {
+  namespace boost_cryray_SIGNALS_NAMESPACE {
     namespace detail {
       // Forward declaration for the mapping from slot names to connections
       class named_slot_map;
@@ -186,7 +186,7 @@ namespace boost {
         shared_ptr<signal_base_impl> impl;
       };
     } // end namespace detail
-  } // end namespace BOOST_SIGNALS_NAMESPACE
-} // end namespace boost
+  } // end namespace boost_cryray_SIGNALS_NAMESPACE
+} // end namespace boost_cryray
 
 #endif // BOOST_SIGNALS_SIGNAL_BASE_HEADER

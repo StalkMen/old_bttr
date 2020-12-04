@@ -26,7 +26,7 @@
 
 // Iterators based on ideas of Jeremy Siek
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     // Array based matrix class
     template<class T, class F, class A>

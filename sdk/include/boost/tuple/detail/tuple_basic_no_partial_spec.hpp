@@ -40,7 +40,7 @@
 #pragma warning(disable:4227) // qualifier applied to reference type ignored
 #endif
 
-namespace boost {
+namespace boost_cryray {
 namespace tuples {
 
     // null_type denotes the end of a list built with "cons"
@@ -110,8 +110,8 @@ namespace tuples {
      typedef Tail tail_type;
 
     private:
-       typedef typename boost::add_reference<head_type>::type head_ref;
-       typedef typename boost::add_reference<tail_type>::type tail_ref;
+       typedef typename boost_cryray::add_reference<head_type>::type head_ref;
+       typedef typename boost_cryray::add_reference<tail_type>::type tail_ref;
        typedef typename detail::add_const_reference<head_type>::type head_cref;
        typedef typename detail::add_const_reference<tail_type>::type tail_cref;
     public:
@@ -773,5 +773,5 @@ namespace tuples {
     }
 
 } // namespace tuples
-} // namespace boost
+} // namespace boost_cryray
 #endif // BOOST_TUPLE_BASIC_NO_PARTIAL_SPEC_HPP

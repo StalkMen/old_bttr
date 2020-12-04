@@ -22,7 +22,7 @@
 
 // This is the inverse of the hyperbolic tangent function.
 
-namespace boost
+namespace boost_cryray
 {
     namespace math
     {
@@ -151,7 +151,7 @@ namespace boost
                 {
                     return(-::std::numeric_limits<T>::infinity());
                 }
-            };    // boost::math::detail::atanh_helper1_t
+            };    // boost_cryray::math::detail::atanh_helper1_t
             
             
             template<typename T>
@@ -172,7 +172,7 @@ namespace boost
                     
                     throw(bad_argument);
                 }
-            };    // boost::math::detail::atanh_helper1_t
+            };    // boost_cryray::math::detail::atanh_helper1_t
             
             
             template    <
@@ -185,7 +185,7 @@ namespace boost
                 {
                     return(::std::numeric_limits<T>::quiet_NaN());
                 }
-            };    // boost::detail::atanh_helper2_t
+            };    // boost_cryray::detail::atanh_helper2_t
             
             
             template<typename T>
@@ -198,8 +198,8 @@ namespace boost
                     
                     throw(bad_argument);
                 }
-            };    // boost::detail::atanh_helper2_t
-        }    // boost::detail
+            };    // boost_cryray::detail::atanh_helper2_t
+        }    // boost_cryray::detail
         
         
         // This is the main fare

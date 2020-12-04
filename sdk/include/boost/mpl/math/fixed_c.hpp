@@ -19,7 +19,7 @@
 
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -36,6 +36,6 @@ struct fixed_c
 };
 
 } // namespace mpl
-} // namespace boost 
+} // namespace boost_cryray 
 
 #endif // BOOST_MPL_FIXED_C_HPP_INCLUDED

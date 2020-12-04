@@ -32,7 +32,7 @@
 #include <boost/detail/numeric_traits.hpp>
 #include <boost/graph/bandwidth.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template <typename Graph, typename VertexIndexMap>
   typename graph_traits<Graph>::vertices_size_type
@@ -55,6 +55,6 @@ namespace boost {
   }
  
   
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_PROFILE_HPP

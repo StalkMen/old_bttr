@@ -16,7 +16,7 @@
 # include <boost/python/object/make_ptr_instance.hpp>
 # include <memory>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 template <class T, class MakeHolder>
 struct to_python_indirect
@@ -41,7 +41,7 @@ namespace detail
           // for some reason. We get link errors against the auto_ptr
           // copy constructor.
 # if defined(__ICL) && __ICL < 600 
-          typedef boost::shared_ptr<T> smart_pointer;
+          typedef boost_cryray::shared_ptr<T> smart_pointer;
 # else 
           typedef std::auto_ptr<T> smart_pointer;
 # endif
@@ -109,6 +109,6 @@ inline PyTypeObject* to_python_indirect<T,MakeHolder>::type()
     return detail::unwind_type<detail::get_pointer_class,T>();
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // TO_PYTHON_INDIRECT_DWA200221_HPP

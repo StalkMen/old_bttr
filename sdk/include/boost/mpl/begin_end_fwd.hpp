@@ -17,7 +17,7 @@
 #ifndef BOOST_MPL_BEGIN_END_FWD_HPP_INCLUDED
 #define BOOST_MPL_BEGIN_END_FWD_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename Tag > struct begin_traits;
@@ -27,6 +27,6 @@ template< typename Sequence > struct begin;
 template< typename Sequence > struct end;
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_BEGIN_END_FWD_HPP_INCLUDED

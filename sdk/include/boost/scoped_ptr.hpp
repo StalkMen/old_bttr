@@ -19,7 +19,7 @@
 # include <memory>          // for std::auto_ptr
 #endif
 
-namespace boost
+namespace boost_cryray
 {
 
 // Debug hooks
@@ -54,7 +54,7 @@ public:
     explicit scoped_ptr(T * p = 0): ptr(p) // never throws
     {
 #if defined(BOOST_SP_ENABLE_DEBUG_HOOKS)
-        boost::sp_scalar_constructor_hook(ptr);
+        boost_cryray::sp_scalar_constructor_hook(ptr);
 #endif
     }
 
@@ -63,7 +63,7 @@ public:
     explicit scoped_ptr(std::auto_ptr<T> p): ptr(p.release()) // never throws
     {
 #if defined(BOOST_SP_ENABLE_DEBUG_HOOKS)
-        boost::sp_scalar_constructor_hook(ptr);
+        boost_cryray::sp_scalar_constructor_hook(ptr);
 #endif
     }
 
@@ -72,9 +72,9 @@ public:
     ~scoped_ptr() // never throws
     {
 #if defined(BOOST_SP_ENABLE_DEBUG_HOOKS)
-        boost::sp_scalar_destructor_hook(ptr);
+        boost_cryray::sp_scalar_destructor_hook(ptr);
 #endif
-        boost::checked_delete(ptr);
+        boost_cryray::checked_delete(ptr);
     }
 
     void reset(T * p = 0) // never throws
@@ -134,6 +134,6 @@ template<class T> inline T * get_pointer(scoped_ptr<T> const & p)
     return p.get();
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // #ifndef BOOST_SCOPED_PTR_HPP_INCLUDED

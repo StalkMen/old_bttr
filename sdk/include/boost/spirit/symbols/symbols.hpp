@@ -20,7 +20,7 @@
 #include "boost/spirit/core/composite/directives.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 ///////////////////////////////////////////////////////////////////////////////
 //  Forward Declarations
@@ -92,7 +92,7 @@ public:
     typedef symbols<T, CharT, SetT> self_t;
     typedef self_t const& embed_t;
     typedef T symbol_data_t;
-    typedef boost::reference_wrapper<T> symbol_ref_t;
+    typedef boost_cryray::reference_wrapper<T> symbol_ref_t;
 
     symbols();
     symbols(symbols const& other);
@@ -233,7 +233,7 @@ private:
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #include "boost/spirit/symbols/impl/symbols.ipp"
 #endif

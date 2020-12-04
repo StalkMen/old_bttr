@@ -10,7 +10,7 @@
 # include <boost/python/detail/wrap_python.hpp>
 # include <boost/python/converter/rvalue_from_python_data.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 struct registration;
 
@@ -38,6 +38,6 @@ BOOST_PYTHON_DECL void void_result_from_python(PyObject*);
 BOOST_PYTHON_DECL void throw_no_pointer_from_python(PyObject*, registration const&);
 BOOST_PYTHON_DECL void throw_no_reference_from_python(PyObject*, registration const&);
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // FIND_FROM_PYTHON_DWA2002223_HPP

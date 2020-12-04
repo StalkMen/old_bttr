@@ -33,7 +33,7 @@
 #include <boost/int_iterator.hpp>
 #include <boost/graph/graph_traits.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template <class Iter, class Vertex>
   class matrix_adj_iterator;
@@ -44,7 +44,7 @@ namespace boost {
 }
 
 #define BOOST_GRAPH_ADAPT_MATRIX_TO_GRAPH(Matrix)  \
-namespace boost { \
+namespace boost_cryray { \
   template <> \
   struct graph_traits< Matrix > { \
     typedef Matrix::OneD::const_iterator Iter; \
@@ -52,10 +52,10 @@ namespace boost { \
     typedef V vertex_descriptor; \
     typedef Iter E; \
     typedef E edge_descriptor; \
-    typedef boost::matrix_incidence_iterator<Iter, V> out_edge_iterator; \
-    typedef boost::matrix_adj_iterator<Iter, V> adjacency_iterator; \
+    typedef boost_cryray::matrix_incidence_iterator<Iter, V> out_edge_iterator; \
+    typedef boost_cryray::matrix_adj_iterator<Iter, V> adjacency_iterator; \
     typedef Matrix::size_type size_type; \
-    typedef boost::int_iterator<size_type> vertex_iterator; \
+    typedef boost_cryray::int_iterator<size_type> vertex_iterator; \
     \
     friend std::pair<vertex_iterator, vertex_iterator> \
     vertices(const Matrix& g) { \
@@ -98,7 +98,7 @@ namespace boost { \
   }; \
 }
 
-namespace boost {
+namespace boost_cryray {
 
   template <class Iter, class Vertex>
   class matrix_adj_iterator
@@ -138,6 +138,6 @@ namespace boost {
     Iter _iter;
   };
   
-} /* namespace boost */
+} /* namespace boost_cryray */
 
 #endif /* BOOST_GRAPH_MATRIX2GRAPH_HPP*/

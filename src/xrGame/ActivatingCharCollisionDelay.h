@@ -4,7 +4,7 @@
 
 class CCharacterPhysicsSupport;
 class activating_character_delay:
-	private boost::noncopyable
+	private boost_cryray::noncopyable
 {
 	CCharacterPhysicsSupport &char_support;
 	u32 activate_time;

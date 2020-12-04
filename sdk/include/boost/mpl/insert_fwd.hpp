@@ -17,13 +17,13 @@
 #ifndef BOOST_MPL_INSERT_FWD_HPP_INCLUDED
 #define BOOST_MPL_INSERT_FWD_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename Tag > struct insert_traits;
 template< typename Sequence, typename Pos, typename T > struct insert;
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_INSERT_FWD_HPP_INCLUDED

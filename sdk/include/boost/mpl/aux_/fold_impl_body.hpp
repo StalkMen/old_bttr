@@ -50,7 +50,7 @@
     BOOST_PP_CAT(BOOST_MPL_AUX_FOLD_IMPL_NAME_PREFIX,_chunk) \
     /**/
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -301,7 +301,7 @@ struct AUX_FOLD_IMPL_NAME
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #   undef AUX_FOLD_IMPL_NAME
 #   undef AUX_FOLD_CHUNK_NAME

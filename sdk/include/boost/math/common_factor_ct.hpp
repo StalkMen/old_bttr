@@ -16,7 +16,7 @@
 #include <boost/config.hpp>  // for BOOST_STATIC_CONSTANT, etc.
 
 
-namespace boost
+namespace boost_cryray
 {
 namespace math
 {
@@ -167,7 +167,7 @@ struct static_gcd
     BOOST_STATIC_CONSTANT( unsigned long, value
      = (detail::static_gcd_helper_t<Value1, Value2>::value) );
 
-};  // boost::math::static_gcd
+};  // boost_cryray::math::static_gcd
 
 
 //  Compile-time least common multiple evaluator class declaration  ----------//
@@ -178,11 +178,11 @@ struct static_lcm
     BOOST_STATIC_CONSTANT( unsigned long, value
      = (detail::static_lcm_helper_t<Value1, Value2>::value) );
 
-};  // boost::math::static_lcm
+};  // boost_cryray::math::static_lcm
 
 
 }  // namespace math
-}  // namespace boost
+}  // namespace boost_cryray
 
 
 #endif  // BOOST_MATH_COMMON_FACTOR_CT_HPP

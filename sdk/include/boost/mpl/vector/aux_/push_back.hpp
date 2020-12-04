@@ -25,7 +25,7 @@
 #   include "boost/mpl/vector/aux_/node.hpp"
 #   include "boost/mpl/list/aux_/tag.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<>
@@ -38,7 +38,7 @@ struct push_back_traits< aux::vector_tag >
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_TYPEOF_BASED_VECTOR_IMPL
 

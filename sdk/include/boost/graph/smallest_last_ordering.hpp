@@ -38,7 +38,7 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/pending/bucket_sorter.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template <class VertexListGraph, class Order, class Degree, class Marker>
   void 
@@ -74,7 +74,7 @@ namespace boost {
     const size_type num = num_vertices(G);
     
     typename GraphTraits::vertex_iterator v, vend;
-    for (boost::tie(v, vend) = vertices(G); v != vend; ++v) {
+    for (boost_cryray::tie(v, vend) = vertices(G); v != vend; ++v) {
       put(marker, *v, num);
       put(degree, *v, out_degree(*v, G));
       degree_buckets.push(*v);
@@ -99,7 +99,7 @@ namespace boost {
       put(marker, node, 0); //node has been ordered.
       
       typename GraphTraits::adjacency_iterator v, vend;
-      for (boost::tie(v,vend) = adjacent_vertices(node, G); v != vend; ++v)
+      for (boost_cryray::tie(v,vend) = adjacent_vertices(node, G); v != vend; ++v)
         
         if ( get(marker,*v) > current_order ) { //*v is unordered vertex
           put(marker, *v, current_order);  //mark the columns adjacent to node

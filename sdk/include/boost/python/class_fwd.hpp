@@ -7,17 +7,17 @@
 # define CLASS_FWD_DWA200222_HPP
 # include <boost/python/detail/not_specified.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 template <
     class T // class being wrapped
     // arbitrarily-ordered optional arguments. Full qualification needed for MSVC6
-    , class X1 = ::boost::python::detail::not_specified
-    , class X2 = ::boost::python::detail::not_specified
-    , class X3 = ::boost::python::detail::not_specified
+    , class X1 = ::boost_cryray::python::detail::not_specified
+    , class X2 = ::boost_cryray::python::detail::not_specified
+    , class X3 = ::boost_cryray::python::detail::not_specified
     >
 class class_;
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // CLASS_FWD_DWA200222_HPP

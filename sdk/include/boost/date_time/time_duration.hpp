@@ -8,7 +8,7 @@
 #include "boost/operators.hpp"
 #include "boost/date_time/time_defs.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
   //! Simple function to calculate absolute value of a numeric type
@@ -31,8 +31,8 @@ namespace date_time {
   */
   template<class T, typename rep_type>
   class time_duration : private
-      boost::less_than_comparable<T 
-    , boost::equality_comparable<T
+      boost_cryray::less_than_comparable<T 
+    , boost_cryray::equality_comparable<T
     > > 
   {
   public:

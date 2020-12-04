@@ -6,7 +6,7 @@
  * Author: Jeff Garland 
  */
 
-namespace boost {
+namespace boost_cryray {
 
 //! Namespace containing constrained_value template and types
 namespace CV {

@@ -10,7 +10,7 @@
 # include <boost/python/to_python_indirect.hpp>
 # include <boost/type_traits/composite_traits.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -28,13 +28,13 @@ struct manage_new_object
     struct apply
     {
         typedef typename mpl::if_c<
-            boost::is_pointer<T>::value
+            boost_cryray::is_pointer<T>::value
             , to_python_indirect<T, detail::make_owning_holder>
             , detail::manage_new_object_requires_a_pointer_return_type<T>
         >::type type;
     };
 };
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // MANAGE_NEW_OBJECT_DWA200222_HPP

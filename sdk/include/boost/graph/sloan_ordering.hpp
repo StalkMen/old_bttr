@@ -55,7 +55,7 @@
 //
 ////////////////////////////////////////////////////////////
 
-namespace boost {
+namespace boost_cryray {
         
   /////////////////////////////////////////////////////////////////////////
   // Function that returns the maximum depth of 
@@ -143,7 +143,7 @@ namespace boost {
     std::vector<typename graph_traits<Graph>::vertices_size_type> dist(num_vertices(G), 0);
 
     //Wrap a property_map_iterator around the std::iterator
-    boost::iterator_property_map<vec_iter, VertexID, size_type, size_type&> dist_pmap(dist.begin(), get(vertex_index, G));
+    boost_cryray::iterator_property_map<vec_iter, VertexID, size_type, size_type&> dist_pmap(dist.begin(), get(vertex_index, G));
     
     //Creating a property_map for the indices of a vertex
     typename property_map<Graph, vertex_index_t>::type index_map = get(vertex_index, G);
@@ -228,7 +228,7 @@ namespace boost {
         for(typename std::vector<typename graph_traits<Graph>::vertices_size_type>::iterator iter = dist.begin(); iter != dist.end(); ++iter) *iter = 0;
         
         breadth_first_search
-          (G, i, boost::visitor
+          (G, i, boost_cryray::visitor
            (
              make_bfs_visitor(record_distances(dist_pmap, on_tree_edge() ) )
              )
@@ -294,7 +294,7 @@ namespace boost {
     typename std::vector<typename graph_traits<Graph>::vertices_size_type> dist(num_vertices(g), 0);
     
     //Wrap a property_map_iterator around the std::iterator
-    boost::iterator_property_map<vec_iter, VertexID, size_type, size_type&> dist_pmap(dist.begin(), get(vertex_index, g)); 
+    boost_cryray::iterator_property_map<vec_iter, VertexID, size_type, size_type&> dist_pmap(dist.begin(), get(vertex_index, g)); 
     
     breadth_first_search
       (g, e, visitor
@@ -434,7 +434,7 @@ namespace boost {
                  Weight W1, 
                  Weight W2 )
   {
-    typedef typename boost::graph_traits<Graph>::vertex_descriptor Vertex;
+    typedef typename boost_cryray::graph_traits<Graph>::vertex_descriptor Vertex;
     
     Vertex s, e;
     e = sloan_start_end_vertices(G, s, color, degree);
@@ -458,7 +458,7 @@ namespace boost {
   }
   
   
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_GRAPH_SLOAN_HPP

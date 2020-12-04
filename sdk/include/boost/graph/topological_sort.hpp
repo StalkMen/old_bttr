@@ -33,7 +33,7 @@
 #include <boost/graph/visitors.hpp>
 #include <boost/graph/exception.hpp>
 
-namespace boost { 
+namespace boost_cryray { 
 
 
   // Topological sort visitor
@@ -87,6 +87,6 @@ namespace boost {
                      bgl_named_params<int, buffer_param_t>(0)); // bogus
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif /*BOOST_GRAPH_TOPOLOGICAL_SORT_H*/

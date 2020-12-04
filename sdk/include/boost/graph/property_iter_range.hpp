@@ -23,7 +23,7 @@
 #include <boost/pending/ct_if.hpp>
 #include <boost/type_traits/same_traits.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 //======================================================================
 // graph property iterator range
@@ -112,7 +112,7 @@ namespace boost {
     return detail::get_property_iter_range_kind(graph, tag, Kind());
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_GRAPH_PROPERTY_ITER_RANGE_HPP

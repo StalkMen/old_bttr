@@ -12,7 +12,7 @@
 //  warranty, and with no claim as to its suitability for any purpose.
 //
 
-namespace boost
+namespace boost_cryray
 {
 
 template<class R> struct apply
@@ -70,6 +70,6 @@ template<class R> struct apply
     }
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // #ifndef BOOST_BIND_APPLY_HPP_INCLUDED

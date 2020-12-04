@@ -27,7 +27,7 @@
 
 //----------------------------------------------------------------------------// 
 
-namespace boost
+namespace boost_cryray
 {
   namespace filesystem
   {
@@ -100,6 +100,6 @@ namespace boost
     };
 
   } // namespace filesystem
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_FILESYSTEM_EXCEPTION_HPP

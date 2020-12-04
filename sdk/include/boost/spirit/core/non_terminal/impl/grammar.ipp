@@ -26,7 +26,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 template <typename DerivedT, typename ContextT>
 struct grammar;
@@ -105,7 +105,7 @@ struct grammar_definition
         { return helpers.rend(); }
 
 #ifdef BOOST_SPIRIT_THREADSAFE
-        boost::mutex & mutex()
+        boost_cryray::mutex & mutex()
         { return m; }
 #endif
 
@@ -113,7 +113,7 @@ struct grammar_definition
 
         vector_t        helpers;
 #ifdef BOOST_SPIRIT_THREADSAFE
-        boost::mutex    m;
+        boost_cryray::mutex    m;
 #endif
     };
 
@@ -145,8 +145,8 @@ struct grammar_definition
         typedef typename grammar_definition<DerivedT, ScannerT>::type definition_t;
 
         typedef grammar_helper<grammar_t, derived_t, scanner_t> helper_t;
-        typedef boost::shared_ptr<helper_t> helper_ptr_t;
-        typedef boost::weak_ptr<helper_t>   helper_weak_ptr_t;
+        typedef boost_cryray::shared_ptr<helper_t> helper_ptr_t;
+        typedef boost_cryray::weak_ptr<helper_t>   helper_weak_ptr_t;
 
         grammar_helper*
         this_() { return this; }
@@ -176,7 +176,7 @@ struct grammar_definition
                 result(new definition_t(grammar->derived()));
 
 #ifdef BOOST_SPIRIT_THREADSAFE
-            boost::mutex::scoped_lock(helpers.mutex());
+            boost_cryray::mutex::scoped_lock(helpers.mutex());
 #endif
             helpers.push_back(this);
 
@@ -226,16 +226,16 @@ struct grammar_definition
         typedef typename helper_t::helper_weak_ptr_t             ptr_t;
 
 # ifdef BOOST_SPIRIT_THREADSAFE
-        static boost::thread_specific_ptr<ptr_t> tld_helper;
+        static boost_cryray::thread_specific_ptr<ptr_t> tld_helper;
         if (!tld_helper.get())
             tld_helper.reset(new ptr_t);
         ptr_t &helper = *tld_helper;
 # else
         static ptr_t helper;
 # endif
-        if (!boost::make_shared(helper).get())
+        if (!boost_cryray::make_shared(helper).get())
             new helper_t(helper);
-        definition &def = boost::make_shared(helper)->define(self);
+        definition &def = boost_cryray::make_shared(helper)->define(self);
 #endif
         return def.start().parse(scan);
     }
@@ -296,6 +296,6 @@ struct grammar_definition
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif

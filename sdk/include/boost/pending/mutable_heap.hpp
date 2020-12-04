@@ -46,7 +46,7 @@
 
  */
 
-namespace boost {
+namespace boost_cryray {
 
   template <class TreeNode, class Compare, class ExternalData>
   inline TreeNode up_heap(TreeNode x, const Compare& comp, ExternalData& edata) {

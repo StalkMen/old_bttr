@@ -33,7 +33,7 @@
 #   include <boost/python/detail/is_function_ref_tester.hpp>
 #  endif 
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 #  ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 template <class T>
@@ -251,7 +251,7 @@ struct is_reference_to_function_aux
 {
     static T t;
     BOOST_STATIC_CONSTANT(
-        bool, value = sizeof(detail::is_function_ref_tester(t,0)) == sizeof(::boost::type_traits::yes_type));
+        bool, value = sizeof(detail::is_function_ref_tester(t,0)) == sizeof(::boost_cryray::type_traits::yes_type));
  };
 
 template <class T>
@@ -266,7 +266,7 @@ struct is_pointer_to_function_aux
     static T t;
     BOOST_STATIC_CONSTANT(
         bool, value
-        = sizeof(::boost::type_traits::is_function_ptr_tester(t)) == sizeof(::boost::type_traits::yes_type));
+        = sizeof(::boost_cryray::type_traits::is_function_ptr_tester(t)) == sizeof(::boost_cryray::type_traits::yes_type));
     typedef mpl::bool_<value> type;
 };
 
@@ -478,6 +478,6 @@ struct is_pointer_to_class
 };
 #  endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION 
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // INDIRECT_TRAITS_DWA2002131_HPP

@@ -11,7 +11,7 @@
 # include <boost/python/object_protocol_core.hpp>
 # include <boost/python/object_core.hpp>
 
-namespace boost { namespace python { namespace api {
+namespace boost_cryray { namespace python { namespace api {
 
 template <class Target, class Key>
 object getattr(Target const& target, Key const& key)
@@ -75,6 +75,6 @@ void delslice(object const& target, Begin const& begin, End const& end)
     delslice(target, object(begin), object(end));
 }
 
-}}} // namespace boost::python::api
+}}} // namespace boost_cryray::python::api
 
 #endif // OBJECT_PROTOCOL_DWA2002615_HPP

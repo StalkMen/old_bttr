@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/aux_/advance_backward.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -84,5 +84,5 @@ struct advance_backward
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

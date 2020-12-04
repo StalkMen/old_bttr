@@ -11,7 +11,7 @@
 #include <boost/python/tuple.hpp>
 #include <boost/python/converter/pytype_object_mgr_traits.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 class dict;
 
@@ -145,7 +145,7 @@ namespace converter
   };
 }
 
-}}   // namespace boost::python
+}}   // namespace boost_cryray::python
 
 #endif
 

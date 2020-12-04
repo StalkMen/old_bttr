@@ -26,7 +26,7 @@
 #include <functional>    // std::bind2nd, std::divides
 #include <boost/random/normal_distribution.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 template<class UniformRandomNumberGenerator, class RealType = double,
          class Cont = std::vector<RealType>,
@@ -101,6 +101,6 @@ private:
   int _dim;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_UNIFORM_ON_SPHERE_HPP

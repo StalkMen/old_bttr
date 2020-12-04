@@ -27,7 +27,7 @@
 # endif
 
 
-namespace boost {
+namespace boost_cryray {
 
 //  timer  -------------------------------------------------------------------//
 
@@ -68,6 +68,6 @@ class timer
   std::clock_t _start_time;
 }; // timer
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // BOOST_TIMER_HPP

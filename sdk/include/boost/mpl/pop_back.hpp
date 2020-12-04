@@ -23,7 +23,7 @@
 #include "boost/mpl/aux_/void_spec.hpp"
 #include "boost/mpl/aux_/lambda_support.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -39,6 +39,6 @@ struct pop_back
 BOOST_MPL_AUX_VOID_SPEC(1, pop_back)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_POP_BACK_HPP_INCLUDED

@@ -26,7 +26,7 @@
 #include <iosfwd>               // for std::basic_ostream
 
 
-namespace boost
+namespace boost_cryray
 {
 
 //
@@ -238,7 +238,7 @@ template<class E, class T, class Y> std::basic_ostream<E, T> & operator<< (std::
 
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #ifdef BOOST_MSVC
 # pragma warning(pop)

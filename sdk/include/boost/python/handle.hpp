@@ -15,7 +15,7 @@
 # include <boost/python/tag.hpp>
 # include <boost/python/detail/raw_pyobject.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 template <class T> struct null_ok;
 
@@ -159,7 +159,7 @@ namespace detail
   no_handle_t is_handle_test(...);
 
   template<typename T>
-  yes_handle_t is_handle_test(boost::type< handle<T> >);
+  yes_handle_t is_handle_test(boost_cryray::type< handle<T> >);
 }
 
 template<typename T>
@@ -168,7 +168,7 @@ class is_handle
  public:
     BOOST_STATIC_CONSTANT(
         bool, value = (
-            sizeof(detail::is_handle_test(boost::type<T>()))
+            sizeof(detail::is_handle_test(boost_cryray::type<T>()))
             == sizeof(detail::yes_handle_t)));
 };
 # endif
@@ -243,7 +243,7 @@ inline PyObject* get_managed_object(handle<T> const& h, tag_t)
     return h.get() ? python::upcast<PyObject>(h.get()) : Py_None;
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 
 #endif // HANDLE_DWA200269_HPP

@@ -39,7 +39,7 @@ namespace ambients
 
 class ambient;
 
-class manager : private boost::noncopyable
+class manager : private boost_cryray::noncopyable
 {
 public:
     manager(::editor::environment::manager const& manager);

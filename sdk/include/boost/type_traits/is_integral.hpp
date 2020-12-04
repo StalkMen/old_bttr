@@ -15,7 +15,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 //* is a type T an [cv-qualified-] integral type described in the standard (3.9.1p3)
 // as an extention we include long long, as this is likely to be added to the
@@ -56,7 +56,7 @@ BOOST_TT_AUX_BOOL_TRAIT_CV_SPEC1(is_integral,unsigned __int64,true)
 BOOST_TT_AUX_BOOL_TRAIT_CV_SPEC1(is_integral,__int64,true)
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

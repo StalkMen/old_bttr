@@ -17,7 +17,7 @@
   *   LOCATION:    see http://www.boost.org for most recent version.
   *   FILE         regex.cpp
   *   VERSION      see <boost/version.hpp>
-  *   DESCRIPTION: Declares boost::reg_expression<> and associated
+  *   DESCRIPTION: Declares boost_cryray::reg_expression<> and associated
   *                functions and classes. This header is the main
   *                entry point for the template regex code.
   */
@@ -67,7 +67,7 @@
 #include <boost/scoped_array.hpp>
 
 
-namespace boost{
+namespace boost_cryray{
 
 #ifdef __BORLANDC__
    #pragma option push -a8 -b -Vx -Ve -pc -w-8027
@@ -116,9 +116,9 @@ public:
    {
       return static_cast<const regex_traits<wchar_t>*>(this)->translate(c, true);
    }
-   boost::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const wchar_t* first, const wchar_t* last)const
+   boost_cryray::uint_fast32_t BOOST_REGEX_CALL lookup_classname(const wchar_t* first, const wchar_t* last)const
    {
-      boost::uint_fast32_t result = static_cast<const regex_traits<wchar_t>*>(this)->lookup_classname(first, last);
+      boost_cryray::uint_fast32_t result = static_cast<const regex_traits<wchar_t>*>(this)->lookup_classname(first, last);
       if((result & base_type::char_class_upper) == base_type::char_class_upper)
          result |= base_type::char_class_alpha;
       return result;
@@ -253,7 +253,7 @@ struct re_literal : public re_syntax_base
 struct re_set_long : public re_syntax_base
 {
    unsigned int csingles, cranges, cequivalents;
-   boost::uint_fast32_t cclasses;
+   boost_cryray::uint_fast32_t cclasses;
    bool isnot;
 };
 
@@ -693,8 +693,8 @@ private:
    void BOOST_REGEX_CALL fixup_apply(re_detail::re_syntax_base* b, unsigned cbraces);
    void BOOST_REGEX_CALL move_offsets(re_detail::re_syntax_base* j, unsigned size);
    re_detail::re_syntax_base* BOOST_REGEX_CALL compile_set(const charT*& first, const charT* last);
-   re_detail::re_syntax_base* BOOST_REGEX_CALL compile_set_aux(re_detail::jstack<traits_string_type, Allocator>& singles, re_detail::jstack<traits_string_type, Allocator>& ranges, re_detail::jstack<boost::uint_fast32_t, Allocator>& classes, re_detail::jstack<traits_string_type, Allocator>& equivalents, bool isnot, const re_detail::_narrow_type&);
-   re_detail::re_syntax_base* BOOST_REGEX_CALL compile_set_aux(re_detail::jstack<traits_string_type, Allocator>& singles, re_detail::jstack<traits_string_type, Allocator>& ranges, re_detail::jstack<boost::uint_fast32_t, Allocator>& classes, re_detail::jstack<traits_string_type, Allocator>& equivalents, bool isnot, const re_detail::_wide_type&);
+   re_detail::re_syntax_base* BOOST_REGEX_CALL compile_set_aux(re_detail::jstack<traits_string_type, Allocator>& singles, re_detail::jstack<traits_string_type, Allocator>& ranges, re_detail::jstack<boost_cryray::uint_fast32_t, Allocator>& classes, re_detail::jstack<traits_string_type, Allocator>& equivalents, bool isnot, const re_detail::_narrow_type&);
+   re_detail::re_syntax_base* BOOST_REGEX_CALL compile_set_aux(re_detail::jstack<traits_string_type, Allocator>& singles, re_detail::jstack<traits_string_type, Allocator>& ranges, re_detail::jstack<boost_cryray::uint_fast32_t, Allocator>& classes, re_detail::jstack<traits_string_type, Allocator>& equivalents, bool isnot, const re_detail::_wide_type&);
    re_detail::re_syntax_base* BOOST_REGEX_CALL compile_set_simple(re_detail::re_syntax_base* dat, unsigned long cls, bool isnot = false);
    unsigned int BOOST_REGEX_CALL parse_inner_set(const charT*& first, const charT* last);
 
@@ -762,7 +762,7 @@ struct sub_match
    operator std::basic_string<value_type> ()const
    {
       std::basic_string<value_type> result;
-      std::size_t len = boost::re_detail::distance((iterator)first, (iterator)second);
+      std::size_t len = boost_cryray::re_detail::distance((iterator)first, (iterator)second);
       result.reserve(len);
       iterator i = first;
       while(i != second)
@@ -799,7 +799,7 @@ struct sub_match
 
    difference_type BOOST_REGEX_CALL length()const
    {
-      difference_type n = boost::re_detail::distance((iterator)first, (iterator)second);
+      difference_type n = boost_cryray::re_detail::distance((iterator)first, (iterator)second);
       return n;
    }
 };
@@ -878,7 +878,7 @@ class match_results_base
 {
 public:
    typedef Allocator                                                 alloc_type;
-   typedef typename boost::detail::rebind_allocator<iterator, Allocator>::type  iterator_alloc;
+   typedef typename boost_cryray::detail::rebind_allocator<iterator, Allocator>::type  iterator_alloc;
    typedef typename iterator_alloc::size_type                        size_type;
 #if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) && !defined(BOOST_NO_STD_ITERATOR_TRAITS)
    typedef typename std::iterator_traits<iterator>::difference_type  difference_type;
@@ -891,7 +891,7 @@ public:
    typedef iterator                                                  iterator_type;
 
 protected:
-   typedef typename boost::detail::rebind_allocator<char, Allocator>::type c_alloc;
+   typedef typename boost_cryray::detail::rebind_allocator<char, Allocator>::type c_alloc;
    
    struct c_reference : public c_alloc
    {
@@ -962,7 +962,7 @@ public:
       const sub_match<iterator>& m = (*this)[sub];
       if(m.matched == false)
          return 0;
-      difference_type n = boost::re_detail::distance((iterator)m.first, (iterator)m.second);
+      difference_type n = boost_cryray::re_detail::distance((iterator)m.first, (iterator)m.second);
       return n;
    }
 
@@ -982,7 +982,7 @@ public:
       const sub_match<iterator>& s = (*this)[sub];
       if(s.matched == false)
          return -1;
-      difference_type n = boost::re_detail::distance((iterator)(ref->base), (iterator)(s.first));
+      difference_type n = boost_cryray::re_detail::distance((iterator)(ref->base), (iterator)(s.first));
       return n;
    }
 
@@ -1112,7 +1112,7 @@ match_results_base<iterator, Allocator>::match_results_base(const Allocator& a)
       }
       catch(...)
       {
-         ::boost::re_detail::pointer_destroy(ref);
+         ::boost_cryray::re_detail::pointer_destroy(ref);
          throw;
       }
    }
@@ -1154,10 +1154,10 @@ void BOOST_REGEX_CALL match_results_base<iterator, Allocator>::m_free()
       p2 = p1 + ref->cmatches;
       while(p1 != p2)
       {
-         ::boost::re_detail::pointer_destroy(p1);
+         ::boost_cryray::re_detail::pointer_destroy(p1);
          ++p1;
       }
-      ::boost::re_detail::pointer_destroy(ref);
+      ::boost_cryray::re_detail::pointer_destroy(ref);
       a.deallocate((char*)(void*)ref, sizeof(sub_match<iterator>) * ref->cmatches + sizeof(c_reference));
    }
 }
@@ -1214,10 +1214,10 @@ void BOOST_REGEX_CALL match_results_base<iterator, Allocator>::set_size(size_typ
             p2 = (sub_match<iterator>*)(newref+1);
             while(p2 != p1)
             {
-               ::boost::re_detail::pointer_destroy(p2);
+               ::boost_cryray::re_detail::pointer_destroy(p2);
                ++p2;
             }
-            ::boost::re_detail::pointer_destroy(ref);
+            ::boost_cryray::re_detail::pointer_destroy(ref);
             throw;
          }
 #endif
@@ -1265,10 +1265,10 @@ void BOOST_REGEX_CALL match_results_base<iterator, Allocator>::set_size(size_typ
             p2 = (sub_match<iterator>*)(newref+1);
             while(p2 != p1)
             {
-               ::boost::re_detail::pointer_destroy(p2);
+               ::boost_cryray::re_detail::pointer_destroy(p2);
                ++p2;
             }
-            ::boost::re_detail::pointer_destroy(ref);
+            ::boost_cryray::re_detail::pointer_destroy(ref);
             throw; 
          }
 #endif
@@ -1326,13 +1326,13 @@ void BOOST_REGEX_CALL match_results_base<iterator, Allocator>::maybe_assign(cons
    {
       //
       // leftmost takes priority over longest:
-      base1 = boost::re_detail::distance(base, p1->first);
-      base2 = boost::re_detail::distance(base, p2->first);
+      base1 = boost_cryray::re_detail::distance(base, p1->first);
+      base2 = boost_cryray::re_detail::distance(base, p2->first);
       if(base1 < base2) return;
       if(base2 < base1) break;
 
-      len1 = boost::re_detail::distance(p1->first, p1->second);
-      len2 = boost::re_detail::distance(p2->first, p2->second);
+      len1 = boost_cryray::re_detail::distance(p1->first, p1->second);
+      len2 = boost_cryray::re_detail::distance(p2->first, p2->second);
       if((len1 != len2) || ((p1->matched == false) && (p2->matched == true)))
          break;
       if((p1->matched == true) && (p2->matched == false))
@@ -1379,10 +1379,10 @@ void BOOST_REGEX_CALL match_results_base<iterator, Allocator>::cow()
             p2 = (sub_match<iterator>*)(newref+1);
             while(p2 != p1)
             {
-               ::boost::re_detail::pointer_destroy(p2);
+               ::boost_cryray::re_detail::pointer_destroy(p2);
                ++p2;
             }
-            ::boost::re_detail::pointer_destroy(ref);
+            ::boost_cryray::re_detail::pointer_destroy(ref);
             throw; 
          }
 #endif
@@ -1543,7 +1543,7 @@ iterator BOOST_REGEX_CALL re_is_set_member(iterator next,
   #pragma option pop
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #ifndef BOOST_REGEX_COMPILE_HPP
 #include <boost/regex/v3/regex_compile.hpp>
@@ -1575,7 +1575,7 @@ iterator BOOST_REGEX_CALL re_is_set_member(iterator next,
 #endif
 
 
-namespace boost{
+namespace boost_cryray{
 #ifdef BOOST_REGEX_NO_FWD
 typedef reg_expression<char, regex_traits<char>, BOOST_DEFAULT_ALLOCATOR(char)> regex;
 #ifndef BOOST_NO_WREGEX
@@ -1590,7 +1590,7 @@ typedef match_results<const wchar_t*> wcmatch;
 typedef match_results<std::wstring::const_iterator> wsmatch;
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 #ifndef BOOST_REGEX_MATCH_HPP
 #include <boost/regex/v3/regex_match.hpp>
 #endif

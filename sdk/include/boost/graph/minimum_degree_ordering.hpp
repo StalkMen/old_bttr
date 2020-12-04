@@ -33,7 +33,7 @@
 #include <boost/pending/bucket_sorter.hpp>
 #include <boost/detail/numeric_traits.hpp> // for integer_traits
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -664,6 +664,6 @@ namespace boost {
     impl.build_permutation(inverse_perm, perm);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // MINIMUM_DEGREE_ORDERING_HPP

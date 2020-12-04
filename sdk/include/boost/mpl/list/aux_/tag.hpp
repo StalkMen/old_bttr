@@ -17,7 +17,7 @@
 #ifndef BOOST_MPL_LIST_AUX_TAG_HPP_INCLUDED
 #define BOOST_MPL_LIST_AUX_TAG_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -25,6 +25,6 @@ struct list_tag;
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_LIST_AUX_TAG_HPP_INCLUDED

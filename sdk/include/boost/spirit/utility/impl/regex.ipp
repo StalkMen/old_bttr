@@ -15,7 +15,7 @@
 #include "boost/spirit/core/primitives/impl/primitives.ipp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 namespace impl {
 
@@ -41,9 +41,9 @@ public:
     typename parser_result<self_t, ScannerT>::type
     parse(ScannerT const& scan) const
     {
-        boost::match_results<typename ScannerT::iterator_t> what;
-        boost::regex_search(scan.first, scan.last, what, rxstr,
-            boost::match_default);
+        boost_cryray::match_results<typename ScannerT::iterator_t> what;
+        boost_cryray::regex_search(scan.first, scan.last, what, rxstr,
+            boost_cryray::match_default);
 
         if (!what[0].matched)
             return scan.no_match();
@@ -54,12 +54,12 @@ public:
     }
 
 private:
-    boost::reg_expression<CharT> rxstr;    // regular expression to match
+    boost_cryray::reg_expression<CharT> rxstr;    // regular expression to match
 };
 
 }   // namespace impl
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif // BOOST_SPIRIT_REGEX_IPP

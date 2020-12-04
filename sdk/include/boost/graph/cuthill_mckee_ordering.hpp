@@ -41,7 +41,7 @@
   (Reverse) Cuthill-McKee Algorithm for matrix reordering
  */
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -130,7 +130,7 @@ namespace boost {
 
     detail::rcm_queue<Vertex, DegreeMap> Q(degree);
 
-    typename boost::graph_traits<Graph>::vertex_iterator ui, ui_end;
+    typename boost_cryray::graph_traits<Graph>::vertex_iterator ui, ui_end;
     for (tie(ui, ui_end) = vertices(G); ui != ui_end; ++ui)
       put(color, *ui, Color::white());
     breadth_first_search(G, u, buffer(Q).color_map(color));
@@ -189,7 +189,7 @@ namespace boost {
     typedef indirect_cmp<DegreeMap, std::greater<DS> > Compare;
     Compare comp(degree);
 
-    boost::queue<Vertex> bfs_queue;
+    boost_cryray::queue<Vertex> bfs_queue;
     std::priority_queue<Vertex, std::vector<Vertex>, Compare> 
       degree_queue(comp);
     Vertex u, v;
@@ -225,8 +225,8 @@ namespace boost {
   cuthill_mckee_ordering(Graph& G, OutputIterator inverse_permutation, 
                          Color color, Degree degree)
   {
-    typedef typename boost::graph_traits<Graph>::vertex_descriptor Vertex;
-    typedef typename boost::graph_traits<Graph>::vertex_iterator   VerIter;
+    typedef typename boost_cryray::graph_traits<Graph>::vertex_descriptor Vertex;
+    typedef typename boost_cryray::graph_traits<Graph>::vertex_iterator   VerIter;
     VerIter ri = vertices(G).first;
     Vertex r = *ri;
 
@@ -236,7 +236,7 @@ namespace boost {
     return cuthill_mckee_ordering(G, s, inverse_permutation, color, degree);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_GRAPH_CUTHILL_MCKEE_HPP

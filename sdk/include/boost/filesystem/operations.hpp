@@ -30,7 +30,7 @@
 
 //----------------------------------------------------------------------------//
 
-namespace boost
+namespace boost_cryray
 {
   namespace filesystem
   {
@@ -42,8 +42,8 @@ namespace boost
     bool is_directory( const path & ph );
 
     // VC++ 7.0 and earlier has a serious namespace bug that causes a clash
-    // between boost::filesystem::is_empty and the unrelated type trait
-    // boost::is_empty. The workaround for those who must use broken versions
+    // between boost_cryray::filesystem::is_empty and the unrelated type trait
+    // boost_cryray::is_empty. The workaround for those who must use broken versions
     // of VC++ is to use the function _is_empty. All others should use the
     // correct is_empty name.
     bool _is_empty( const path & ph ); // deprecated
@@ -74,7 +74,7 @@ namespace boost
 //  directory_iterator  ------------------------------------------------------//
 
     class directory_iterator
-      : public boost::iterator< std::input_iterator_tag,
+      : public boost_cryray::iterator< std::input_iterator_tag,
           path, std::ptrdiff_t, const path *, const path & >
     {
     private:
@@ -109,13 +109,13 @@ namespace boost
     private:
       class dir_itr_imp;
       // shared_ptr provides shallow-copy semantics required for InputIterators
-      typedef boost::shared_ptr< dir_itr_imp > m_imp_ptr;
+      typedef boost_cryray::shared_ptr< dir_itr_imp > m_imp_ptr;
       m_imp_ptr  m_imp;
       reference  m_deref() const;
       void       m_inc();
     };
 
   } // namespace filesystem
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_FILESYSTEM_DIRECTORY_HPP

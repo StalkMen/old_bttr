@@ -10,13 +10,13 @@
 #include <boost/iterator_adaptors.hpp>
 #include <boost/operators.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
     template <class A, class B, class D>
     class shadow_proxy
-      : boost::operators< shadow_proxy<A,B,D> >
+      : boost_cryray::operators< shadow_proxy<A,B,D> >
     {
       typedef shadow_proxy self;
     public:
@@ -124,13 +124,13 @@ namespace boost {
     Cmp cmp;
   };
 
-} // namespace boost
+} // namespace boost_cryray
 
 namespace std {
   template <class A1, class B1, class D1,
             class A2, class B2, class D2>
-  void swap(boost::detail::shadow_proxy<A1&,B1&,D1> x,
-            boost::detail::shadow_proxy<A2&,B2&,D2> y)
+  void swap(boost_cryray::detail::shadow_proxy<A1&,B1&,D1> x,
+            boost_cryray::detail::shadow_proxy<A2&,B2&,D2> y)
   {
     std::swap(x.a, y.a);
     std::swap(x.b, y.b);

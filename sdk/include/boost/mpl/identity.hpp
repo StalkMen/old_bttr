@@ -20,7 +20,7 @@
 #include "boost/mpl/aux_/void_spec.hpp"
 #include "boost/mpl/aux_/lambda_support.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -45,6 +45,6 @@ BOOST_MPL_AUX_VOID_SPEC(1, identity)
 BOOST_MPL_AUX_VOID_SPEC(1, make_identity)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_IDENTITY_HPP_INCLUDED

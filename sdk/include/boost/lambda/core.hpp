@@ -33,11 +33,11 @@
 #include "boost/tuple/tuple.hpp"
 
 // inject some of the tuple names into lambda 
-namespace boost {
+namespace boost_cryray {
 namespace lambda {
 
-using ::boost::tuples::tuple;
-using ::boost::tuples::null_type;
+using ::boost_cryray::tuples::tuple;
+using ::boost_cryray::tuples::null_type;
 
 } // lambda
 } // boost
@@ -61,19 +61,19 @@ using ::boost::tuples::null_type;
 
 #include "boost/lambda/detail/ret.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace lambda {
 
 namespace {
 
   // These are constants types and need to be initialised
-  boost::lambda::placeholder1_type free1 = boost::lambda::placeholder1_type();
-  boost::lambda::placeholder2_type free2 = boost::lambda::placeholder2_type();
-  boost::lambda::placeholder3_type free3 = boost::lambda::placeholder3_type();
+  boost_cryray::lambda::placeholder1_type free1 = boost_cryray::lambda::placeholder1_type();
+  boost_cryray::lambda::placeholder2_type free2 = boost_cryray::lambda::placeholder2_type();
+  boost_cryray::lambda::placeholder3_type free3 = boost_cryray::lambda::placeholder3_type();
 
-  boost::lambda::placeholder1_type& _1 = free1;
-  boost::lambda::placeholder2_type& _2 = free2;
-  boost::lambda::placeholder3_type& _3 = free3;
+  boost_cryray::lambda::placeholder1_type& _1 = free1;
+  boost_cryray::lambda::placeholder2_type& _2 = free2;
+  boost_cryray::lambda::placeholder3_type& _3 = free3;
   // _1, _2, ... naming scheme by Peter Dimov
 } // unnamed
    

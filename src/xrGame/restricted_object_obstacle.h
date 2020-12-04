@@ -13,7 +13,7 @@
 
 class obstacles_query;
 
-class CRestrictedObjectObstacle : public CRestrictedObject, private boost::noncopyable {
+class CRestrictedObjectObstacle : public CRestrictedObject, private boost_cryray::noncopyable {
 private:
 	typedef CRestrictedObject	inherited;
 

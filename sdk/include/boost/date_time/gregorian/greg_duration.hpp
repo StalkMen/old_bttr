@@ -9,7 +9,7 @@
 #include "boost/date_time/int_adapter.hpp"
 
 
-namespace boost {
+namespace boost_cryray {
 namespace gregorian {
 
   //!An internal date representation that includes infinities, not a date

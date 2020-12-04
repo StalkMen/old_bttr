@@ -30,7 +30,7 @@
 #  error Unsupported C++ compiler.
 #endif
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 
@@ -85,6 +85,6 @@ struct rounding_control<long double>: detail::x86_rounding_control
 
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif /* BOOST_NUMERIC_INTERVAL_DETAIL_X86_ROUNDING_CONTROL_HPP */

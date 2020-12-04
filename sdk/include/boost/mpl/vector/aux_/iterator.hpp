@@ -24,7 +24,7 @@
 #include "boost/mpl/aux_/value_wknd.hpp"
 #include "boost/mpl/vector/aux_/item.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -60,6 +60,6 @@ struct vector_iterator
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_VECTOR_ITERATOR_HPP_INCLUDED

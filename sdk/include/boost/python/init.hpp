@@ -60,7 +60,7 @@
         T)                                                                      \
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 template <BOOST_PYTHON_OVERLOAD_TYPES_WITH_DEFAULT>
 class init; // forward declaration
@@ -95,15 +95,15 @@ namespace detail
     private:
 
         template <BOOST_PYTHON_OVERLOAD_TYPES>
-        static boost::type_traits::yes_type f(optional<BOOST_PYTHON_OVERLOAD_ARGS>);
-        static boost::type_traits::no_type f(...);
+        static boost_cryray::type_traits::yes_type f(optional<BOOST_PYTHON_OVERLOAD_ARGS>);
+        static boost_cryray::type_traits::no_type f(...);
         static T t();
 
     public:
 
         BOOST_STATIC_CONSTANT(
             bool, value =
-                sizeof(f(t())) == sizeof(::boost::type_traits::yes_type));
+                sizeof(f(t())) == sizeof(::boost_cryray::type_traits::yes_type));
         typedef mpl::bool_<value> type;
 
         BOOST_PYTHON_MPL_LAMBDA_SUPPORT(1,is_optional,(T))
@@ -426,7 +426,7 @@ define_init(ClassT& cl, InitT const& i)
         cl, i.call_policies(), reversed_args(), i.doc_string(), i.keywords());
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #undef BOOST_PYTHON_OVERLOAD_TYPES_WITH_DEFAULT
 #undef BOOST_PYTHON_OVERLOAD_TYPES

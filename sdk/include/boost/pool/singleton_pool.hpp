@@ -12,14 +12,14 @@
 
 #include <boost/pool/poolfwd.hpp>
 
-// boost::pool
+// boost_cryray::pool
 #include <boost/pool/pool.hpp>
-// boost::details::pool::singleton_default
+// boost_cryray::details::pool::singleton_default
 #include <boost/pool/detail/singleton.hpp>
-// boost::details::pool::guard
+// boost_cryray::details::pool::guard
 #include <boost/pool/detail/guard.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 //
 // The singleton_pool class allows other pool interfaces for types of the same
@@ -115,6 +115,6 @@ struct singleton_pool
     }
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

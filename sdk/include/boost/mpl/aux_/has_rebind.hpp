@@ -22,14 +22,14 @@
 #include "boost/mpl/bool.hpp"
 #include "boost/type_traits/is_class.hpp"
 
-namespace boost { namespace mpl { namespace aux {
+namespace boost_cryray { namespace mpl { namespace aux {
 
 BOOST_MPL_HAS_XXX_TRAIT_NAMED_DEF(has_rebind_impl, rebind, false)
 
 template< typename T >
 struct has_rebind
     : if_c< 
-          ::boost::is_class<T>::value
+          ::boost_cryray::is_class<T>::value
         , has_rebind_impl<T>
         , bool_<false>
         >::type

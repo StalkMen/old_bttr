@@ -32,7 +32,7 @@ class manager;
 class sun :
     public CLensFlare,
     public editor::property_holder_holder,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 public:
     sun(manager const& manager, shared_str const& section);

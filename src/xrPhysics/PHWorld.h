@@ -31,7 +31,7 @@ class	CObjectList;
 class CPHWorld	:	public	pureFrame,
 					public	IPHWorld,
 					public	cphysics_scripted,
-					private	boost::noncopyable
+					private	boost_cryray::noncopyable
 					#ifdef DEBUG
 					, public pureRender
 					#endif

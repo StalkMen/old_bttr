@@ -1012,7 +1012,7 @@ float	CIKLimb::get_time_to_step_begin	( const CBlend& B )	const
 }
 
 struct ssaved_callback :
-	private boost::noncopyable
+	private boost_cryray::noncopyable
 {
 	ssaved_callback( CBoneInstance &bi ):
 		_bi					( bi						)		,

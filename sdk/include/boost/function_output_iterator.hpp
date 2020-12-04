@@ -14,7 +14,7 @@
 
 #include <iterator>
 
-namespace boost {
+namespace boost_cryray {
 
   template <class UnaryFunction>
   class function_output_iterator {
@@ -50,6 +50,6 @@ namespace boost {
     return function_output_iterator<UnaryFunction>(f);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_FUNCTION_OUTPUT_ITERATOR_HPP

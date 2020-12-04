@@ -17,13 +17,13 @@
 #ifndef BOOST_MPL_CLEAR_FWD_HPP_INCLUDED
 #define BOOST_MPL_CLEAR_FWD_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename Tag > struct clear_traits;
 template< typename Sequence > struct clear;
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_CLEAR_FWD_HPP_INCLUDED

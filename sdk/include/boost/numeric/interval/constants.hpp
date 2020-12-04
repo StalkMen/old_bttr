@@ -16,7 +16,7 @@
 #ifndef BOOST_NUMERIC_INTERVAL_CONSTANTS_HPP
 #define BOOST_NUMERIC_INTERVAL_CONSTANTS_HPP
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 namespace constants {
@@ -86,6 +86,6 @@ I pi_twice()
 
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_CONSTANTS_HPP

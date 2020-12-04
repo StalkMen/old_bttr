@@ -63,7 +63,7 @@
 #   define BOOST_MPL_NO_APPLY_TEMPLATE
 #endif
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // local macros, #undef-ined at the end of the header
@@ -153,7 +153,7 @@ struct apply
 #   undef AUX_APPLY_PARAMS
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_USE_PREPROCESSED_HEADERS
 #endif // BOOST_MPL_APPLY_HPP_INCLUDED
@@ -227,7 +227,7 @@ template<
     >
 struct BOOST_PP_CAT(apply,i)
     : BOOST_PP_CAT(aux::apply_impl,i)<
-          ::boost::mpl::aux::arity<F,i>::value
+          ::boost_cryray::mpl::aux::arity<F,i>::value
         , F
         , AUX_APPLY_N_PARAMS(i, T)
         >::type

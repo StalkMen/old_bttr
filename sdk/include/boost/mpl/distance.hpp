@@ -28,7 +28,7 @@
 #include "boost/mpl/aux_/void_spec.hpp"
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 BOOST_MPL_AUX_COMMON_NAME_WKND(distance)
@@ -126,6 +126,6 @@ BOOST_MPL_AUX_AGLORITHM_NAMESPACE_END
 BOOST_MPL_AUX_ALGORITHM_VOID_SPEC(2, distance)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_DISTANCE_HPP_INCLUDED

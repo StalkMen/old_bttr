@@ -17,13 +17,13 @@
 #ifndef BOOST_MPL_POP_BACK_FWD_HPP_INCLUDED
 #define BOOST_MPL_POP_BACK_FWD_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename Tag > struct pop_back_traits;
 template< typename Sequence > struct pop_back;
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_POP_BACK_FWD_HPP_INCLUDED

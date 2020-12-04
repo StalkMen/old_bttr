@@ -20,7 +20,7 @@
 #include "boost/mpl/pop_front_fwd.hpp"
 #include "boost/mpl/list/aux_/tag.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<>
@@ -33,6 +33,6 @@ struct pop_front_traits< aux::list_tag >
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_LIST_AUX_POP_FRONT_HPP_INCLUDED

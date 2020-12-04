@@ -11,7 +11,7 @@
 #ifndef BOOST_SPIRIT_EXCEPTIONS_IPP
 #define BOOST_SPIRIT_EXCEPTIONS_IPP
 
-namespace boost { namespace spirit { namespace impl {
+namespace boost_cryray { namespace spirit { namespace impl {
 
 #ifdef __BORLANDC__
     template <typename ParserT, typename ScannerT>
@@ -53,7 +53,7 @@ namespace boost { namespace spirit { namespace impl {
                         return scan.create_match
                             (hr.length, hr.value, save, scan.first);
                     case error_status_t::rethrow:
-                         boost::throw_exception(error);
+                         boost_cryray::throw_exception(error);
                     default:
                         continue;
                 }
@@ -78,7 +78,7 @@ namespace boost { namespace spirit { namespace impl {
 
 #endif
 
-}}} // namespace boost::spirit::impl
+}}} // namespace boost_cryray::spirit::impl
 
 ///////////////////////////////////////////////////////////////////////////////
 #endif

@@ -43,7 +43,7 @@
 #endif
 
 
-namespace boost{
+namespace boost_cryray{
    namespace re_detail{
 
 #ifdef __BORLANDC__
@@ -189,7 +189,7 @@ typedef lock_guard<critical_section> cs_guard;
 BOOST_REGEX_DECL extern critical_section* p_re_lock;
 BOOST_REGEX_DECL extern unsigned int re_lock_count;
 
-#define BOOST_REGEX_GUARD(inst) boost::re_detail::critical_section::rw_guard g(inst);
+#define BOOST_REGEX_GUARD(inst) boost_cryray::re_detail::critical_section::rw_guard g(inst);
 
 #else  // BOOST_HAS_THREADS
 
@@ -202,7 +202,7 @@ BOOST_REGEX_DECL extern unsigned int re_lock_count;
 #endif
 
 } // namespace re_detail
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // sentry
 

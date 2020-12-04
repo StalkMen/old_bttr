@@ -13,7 +13,7 @@
 #define BOOST_SPIRIT_CLOSURE_CONTEXT_HPP
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 #if !defined(BOOST_SPIRIT_CLOSURE_CONTEXT_LINKER_DEFINED)
 #define BOOST_SPIRIT_CLOSURE_CONTEXT_LINKER_DEFINED
@@ -48,6 +48,6 @@ struct closure_context_linker : public ContextT
 #endif // !defined(BOOST_SPIRIT_CLOSURE_CONTEXT_LINKER_DEFINED)
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif // BOOST_SPIRIT_CLOSURE_CONTEXT_HPP

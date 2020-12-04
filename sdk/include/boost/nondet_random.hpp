@@ -29,7 +29,7 @@
 #include <boost/utility.hpp>            // noncopyable
 #include <boost/integer_traits.hpp>     // compile-time integral limits
 
-namespace boost {
+namespace boost_cryray {
 
 // use some OS service to generate non-deterministic random numbers
 class random_device : private noncopyable
@@ -64,6 +64,6 @@ private:
 
 // TODO: put Schneier's Yarrow-160 algorithm here.
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif /* BOOST_NONDET_RANDOM_HPP */

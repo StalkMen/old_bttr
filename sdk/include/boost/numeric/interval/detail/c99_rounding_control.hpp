@@ -19,7 +19,7 @@
 
 #include <boost/numeric/interval/detail/c99sub_rounding_control.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace nuemric {
 namespace interval_lib {
 namespace detail {
@@ -46,6 +46,6 @@ struct rounding_control<long double>:
 
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_DETAIL_C99_ROUNDING_CONTROL_HPP

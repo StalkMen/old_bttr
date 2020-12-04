@@ -27,7 +27,7 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/property_map.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   template <typename Graph, typename ComponentLists, 
     typename ComponentNumberMap,
@@ -92,6 +92,6 @@ namespace boost {
                               dummy_property_map());
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_CREATE_CONDENSATION_GRAPH_HPP

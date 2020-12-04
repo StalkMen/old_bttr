@@ -27,8 +27,8 @@ bool dostring(lua_State* L, const char* str)
 
 #include "directory_iterator.hpp"
 
-const boost::filesystem::path& 
-identity(const boost::filesystem::path& x)
+const boost_cryray::filesystem::path& 
+identity(const boost_cryray::filesystem::path& x)
 {
 	return x;
 }
@@ -36,9 +36,9 @@ identity(const boost::filesystem::path& x)
 void bind_filesystem(lua_State* L)
 {
 	using namespace luabind;
-	using namespace boost::filesystem;
+	using namespace boost_cryray::filesystem;
 
-	namespace fs = boost::filesystem;
+	namespace fs = boost_cryray::filesystem;
 	
 	module(L, "filesystem")
 	[

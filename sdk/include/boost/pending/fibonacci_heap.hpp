@@ -17,7 +17,7 @@
 // in "The Stanford Graph Base", pages 475-482.
 //
 
-namespace boost {
+namespace boost_cryray {
 
 
 template <class T, 
@@ -25,7 +25,7 @@ template <class T,
           class ID = identity_property_map>
 class fibonacci_heap
 {
-  typedef typename boost::property_traits<ID>::value_type size_type;
+  typedef typename boost_cryray::property_traits<ID>::value_type size_type;
   typedef T value_type;
 protected:
   typedef fibonacci_heap self;
@@ -254,7 +254,7 @@ protected:
   LinkVec new_roots;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_FIBONACCI_HEAP_HPP

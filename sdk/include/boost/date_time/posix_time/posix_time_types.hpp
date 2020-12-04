@@ -14,7 +14,7 @@
 #include "boost/date_time/time_iterator.hpp"
 #include "boost/date_time/dst_rules.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 //!Defines a non-adjusted time system with nano-second resolution and stable calculation properties
 namespace posix_time {

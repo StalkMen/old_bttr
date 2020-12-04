@@ -9,7 +9,7 @@
 #include "boost/date_time/date_parsing.hpp"
 
 
-namespace boost {
+namespace boost_cryray {
 namespace gregorian {
 
   //! From delimited date string where with order year-month-day eg: 2002-1-25

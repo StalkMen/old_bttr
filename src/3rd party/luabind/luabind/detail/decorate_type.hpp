@@ -232,15 +232,15 @@ namespace luabind { namespace detail
 
 	template<class T>
 	struct decorated_type
-//		: boost::mpl::if_<boost::is_array<T>
+//		: boost_cryray::mpl::if_<boost_cryray::is_array<T>
 //			,	decorated_type_array_impl<T>
-		:		boost::mpl::if_<luabind::detail::is_const_reference<T>
+		:		boost_cryray::mpl::if_<luabind::detail::is_const_reference<T>
 					, decorated_type_cref_impl<T>
-					, typename boost::mpl::if_<luabind::detail::is_nonconst_reference<T>
+					, typename boost_cryray::mpl::if_<luabind::detail::is_nonconst_reference<T>
 						, decorated_type_ref_impl<T>
-						, typename boost::mpl::if_<luabind::detail::is_nonconst_pointer<T>
+						, typename boost_cryray::mpl::if_<luabind::detail::is_nonconst_pointer<T>
 							, decorated_type_ptr_impl<T>
-							, typename boost::mpl::if_<luabind::detail::is_const_pointer<T>
+							, typename boost_cryray::mpl::if_<luabind::detail::is_const_pointer<T>
 								, decorated_type_cptr_impl<T>
 								, decorated_type_value_impl<T>
 					>::type

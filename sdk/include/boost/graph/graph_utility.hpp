@@ -43,7 +43,7 @@
 // iota moved to detail/algorithm.hpp
 #include <boost/detail/algorithm.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   // Provide an undirected graph interface alternative to the
   // the source() and target() edge functions.
@@ -430,6 +430,6 @@ namespace boost {
   make_list(const T1& t1, const T2& t2, const T3& t3, const T4& t4, const T5& t5)
     { return std::make_pair(t1, std::make_pair(t2, std::make_pair(t3, std::make_pair(t4, t5)))); }
 
-} /* namespace boost */
+} /* namespace boost_cryray */
 
 #endif /* BOOST_GRAPH_UTILITY_HPP*/

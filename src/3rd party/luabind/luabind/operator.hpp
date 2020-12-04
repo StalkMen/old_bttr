@@ -93,12 +93,12 @@ namespace luabind { namespace detail {
     template<class W, class T>
     struct unwrap_parameter_type
     {
-        typedef typename boost::mpl::apply_if<
-            boost::is_same<T, self_type>
-          , boost::mpl::identity<W&>
-          , boost::mpl::apply_if<
-                boost::is_same<T, const_self_type>
-              , boost::mpl::identity<W const&>
+        typedef typename boost_cryray::mpl::apply_if<
+            boost_cryray::is_same<T, self_type>
+          , boost_cryray::mpl::identity<W&>
+          , boost_cryray::mpl::apply_if<
+                boost_cryray::is_same<T, const_self_type>
+              , boost_cryray::mpl::identity<W const&>
               , unwrap_other<T>
             >
         >::type type;

@@ -39,7 +39,7 @@
 // cout << write( G );
 // cout << write( G, NodePropertySubset(), EdgepropertySubset() );
 
-namespace boost {
+namespace boost_cryray {
 
 /* outline
         - basic property input

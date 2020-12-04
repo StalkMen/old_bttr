@@ -29,10 +29,10 @@
 #elif defined(__USE_ISOC99)
 #  include <boost/numeric/interval/detail/c99_rounding_control.hpp>
 #else
-#  error Boost::interval: Please specify rounding control mechanism.
+#  error boost_cryray::interval: Please specify rounding control mechanism.
 #endif
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 
@@ -57,6 +57,6 @@ struct rounded_math<long double>
 
 } // namespace interval_lib
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_HW_ROUNDING_HPP

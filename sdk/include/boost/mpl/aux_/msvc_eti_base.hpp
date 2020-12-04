@@ -20,7 +20,7 @@
 #include "boost/mpl/aux_/config/eti.hpp"
 #include "boost/mpl/aux_/is_msvc_eti_arg.hpp"
 
-namespace boost { namespace mpl { namespace aux {
+namespace boost_cryray { namespace mpl { namespace aux {
 
 #if defined(BOOST_MPL_MSVC_ETI_BUG)
 
@@ -55,6 +55,6 @@ template< typename T > struct msvc_eti_base
 
 #endif // BOOST_MPL_MSVC_ETI_BUG
 
-}}} // namespace boost::mpl::aux
+}}} // namespace boost_cryray::mpl::aux
 
 #endif // BOOST_MPL_AUX_MSVC_ETI_BASE_HPP_INCLUDED

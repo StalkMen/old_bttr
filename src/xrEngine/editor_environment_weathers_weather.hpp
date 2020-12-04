@@ -30,7 +30,7 @@ class time;
 
 class weather :
     public editor::property_holder_holder,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 public:
     typedef editor::property_holder property_holder_type;

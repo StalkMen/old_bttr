@@ -26,7 +26,7 @@
 #include "boost/preprocessor/repeat_2nd.hpp"
 #include "boost/preprocessor/tuple.hpp"
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
 // Switch actions
@@ -152,7 +152,7 @@ public:
 
   template<class RET, CALL_TEMPLATE_ARGS>
   RET call(CALL_FORMAL_ARGS) const {
-    detail::select(::boost::tuples::get<1>(args), CALL_ACTUAL_ARGS);  
+    detail::select(::boost_cryray::tuples::get<1>(args), CALL_ACTUAL_ARGS);  
   }
 };
 
@@ -173,10 +173,10 @@ public:
 
 //   template<class RET, class A, class B, class C>
 //   RET call(A& a, B& b, C& c) const {
-//     switch( detail::select(::boost::tuples::get<0>(args), a, b, c) )  
+//     switch( detail::select(::boost_cryray::tuples::get<0>(args), a, b, c) )  
 //     {
 //       case Case1:                
-//         detail::select(::boost::tuples::get<1>(args), a, b, c);
+//         detail::select(::boost_cryray::tuples::get<1>(args), a, b, c);
 //         break;
 //     }
 //   }
@@ -200,10 +200,10 @@ public:
 // 
 //   template<class RET, class A, class B, class C>
 //   RET call(A& a, B& b, C& c) const {
-//     switch( detail::select(::boost::tuples::get<0>(args), a, b, c) )
+//     switch( detail::select(::boost_cryray::tuples::get<0>(args), a, b, c) )
 //     {
 //       default:
-//         detail::select(::boost::tuples::get<1>(args), a, b, c);
+//         detail::select(::boost_cryray::tuples::get<1>(args), a, b, c);
 //         break;
 //     }
 //   }
@@ -237,13 +237,13 @@ public:
 
 //   template<class RET, class A, class B, class C>
 //   RET call(A& a, B& b, C& c) const {
-//     switch( detail::select(::boost::tuples::get<0>(args), a, b, c) )  
+//     switch( detail::select(::boost_cryray::tuples::get<0>(args), a, b, c) )  
 //     {
 //       case Case1:                
-//         detail::select(::boost::tuples::get<1>(args), a, b, c);
+//         detail::select(::boost_cryray::tuples::get<1>(args), a, b, c);
 //         break;
 //       case Case2:                
-//         detail::select(::boost::tuples::get<2>(args), a, b, c);
+//         detail::select(::boost_cryray::tuples::get<2>(args), a, b, c);
 //         break;
 //     }
 //   }
@@ -269,13 +269,13 @@ public:
 
 //   template<class RET, class A, class B, class C>
 //   RET call(A& a, B& b, C& c) const {
-//     switch( detail::select(::boost::tuples::get<0>(args), a, b, c) )  
+//     switch( detail::select(::boost_cryray::tuples::get<0>(args), a, b, c) )  
 //     {
 //       case Case1:                
-//         detail::select(::boost::tuples::get<1>(args), a, b, c);
+//         detail::select(::boost_cryray::tuples::get<1>(args), a, b, c);
 //         break;
 //       default:                
-//         detail::select(::boost::tuples::get<2>(args), a, b, c);
+//         detail::select(::boost_cryray::tuples::get<2>(args), a, b, c);
 //         break;
 //     }
 //   }
@@ -303,7 +303,7 @@ BOOST_PP_REPEAT(i,BOOST_LAMBDA_A_I_B, (A,B))
 // Switch related macros -------------------------------------------
 #define BOOST_LAMBDA_SWITCH_CASE_BLOCK(z, N, A) \
   case Case##N: \
-  detail::select(::boost::tuples::get<BOOST_PP_INC(N)>(args), CALL_ACTUAL_ARGS); \
+  detail::select(::boost_cryray::tuples::get<BOOST_PP_INC(N)>(args), CALL_ACTUAL_ARGS); \
   break;
 
 #define BOOST_LAMBDA_SWITCH_CASE_BLOCK_LIST(N) \
@@ -328,7 +328,7 @@ public:                                                                       \
                                                                               \
   template<class RET, CALL_TEMPLATE_ARGS>                                     \
   RET call(CALL_FORMAL_ARGS) const {                                          \
-    switch( detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS) ) \
+    switch( detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS) ) \
     {                                                                         \
       BOOST_LAMBDA_SWITCH_CASE_BLOCK_LIST(N)                                  \
     }                                                                         \
@@ -361,11 +361,11 @@ public:                                                                       \
                                                                               \
   template<class RET, CALL_TEMPLATE_ARGS>                                     \
   RET call(CALL_FORMAL_ARGS) const {                                          \
-    switch( detail::select(::boost::tuples::get<0>(args), CALL_ACTUAL_ARGS) ) \
+    switch( detail::select(::boost_cryray::tuples::get<0>(args), CALL_ACTUAL_ARGS) ) \
     {                                                                         \
         BOOST_LAMBDA_SWITCH_CASE_BLOCK_LIST(BOOST_PP_DEC(N))                  \
       default:                                                                \
-        detail::select(::boost::tuples::get<N>(args), CALL_ACTUAL_ARGS);      \
+        detail::select(::boost_cryray::tuples::get<N>(args), CALL_ACTUAL_ARGS);      \
         break;                                                                \
     }                                                                         \
   }                                                                           \
@@ -478,7 +478,7 @@ BOOST_PP_REPEAT_2ND(9,BOOST_LAMBDA_SWITCH_STATEMENT_HELPER,FOO)
 
 
 } // namespace lambda 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #undef HELPER

@@ -22,7 +22,7 @@
 #include "boost/mpl/minus.hpp"
 #include "boost/mpl/aux_/iterator_names.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename N >
@@ -50,6 +50,6 @@ struct range_c_iterator
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_RANGE_C_ITERATOR_HPP_INCLUDED

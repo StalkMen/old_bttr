@@ -32,19 +32,19 @@ namespace luabind {
     namespace detail {
 
     template<class T>
-    typename boost::is_const<T>::type
+    typename boost_cryray::is_const<T>::type
     is_indirect_const_check(T(*)(), int);
 
     template<class T>
-    typename boost::is_const<T>::type 
+    typename boost_cryray::is_const<T>::type 
     is_indirect_const_check(T*(*)(), long);
 
     template<class T>
-    typename boost::is_const<T>::type 
+    typename boost_cryray::is_const<T>::type 
     is_indirect_const_check(T&(*)(), long);
     
-    yes_t to_yes_no(boost::mpl::true_);
-    no_t to_yes_no(boost::mpl::false_);
+    yes_t to_yes_no(boost_cryray::mpl::true_);
+    no_t to_yes_no(boost_cryray::mpl::false_);
 
     } // namespace detail
 

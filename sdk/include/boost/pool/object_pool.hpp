@@ -12,7 +12,7 @@
 
 #include <boost/pool/poolfwd.hpp>
 
-// boost::pool
+// boost_cryray::pool
 #include <boost/pool/pool.hpp>
 
 // The following code will be put into Boost.Config in a later revision
@@ -32,7 +32,7 @@
 //   parameter.
 // Thanks to Jens Maurer for pointing this out!
 
-namespace boost {
+namespace boost_cryray {
 
 // T must have a non-throwing destructor
 template <typename T, typename UserAllocator>
@@ -148,7 +148,7 @@ object_pool<T, UserAllocator>::~object_pool()
   this->list.invalidate();
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 // The following code might be put into some Boost.Config header in a later revision
 #ifdef __BORLANDC__

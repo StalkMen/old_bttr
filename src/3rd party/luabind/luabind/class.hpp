@@ -159,7 +159,7 @@ namespace luabind
 			static const T& t;
 
 			BOOST_STATIC_CONSTANT(bool, value = sizeof(is_bases_helper(t)) == sizeof(double));
-			typedef boost::mpl::bool_<value> type;
+			typedef boost_cryray::mpl::bool_<value> type;
 			BOOST_MPL_AUX_LAMBDA_SUPPORT(1,is_bases,(T))
 		};
 
@@ -170,16 +170,16 @@ namespace luabind
 		struct is_not_unspecified
 		{
 			BOOST_STATIC_CONSTANT(bool, value = sizeof(is_not_unspecified_helper(static_cast<T*>(0))) == sizeof(char));
-			typedef boost::mpl::bool_<value> type;
+			typedef boost_cryray::mpl::bool_<value> type;
 			BOOST_MPL_AUX_LAMBDA_SUPPORT(1,is_not_unspecified,(T))
 		};
 
 		template<class Predicate>
 		struct get_predicate
 		{
-			typedef typename boost::mpl::and_<
+			typedef typename boost_cryray::mpl::and_<
 						Predicate
-					,	is_not_unspecified<boost::mpl::_1>
+					,	is_not_unspecified<boost_cryray::mpl::_1>
 					> type;
 		};
 
@@ -187,9 +187,9 @@ namespace luabind
 		struct extract_parameter
 		{
 			typedef typename get_predicate<Predicate>::type pred;
-			typedef typename boost::mpl::find_if<Parameters, pred>::type iterator;
-			typedef typename boost::mpl::apply_if<boost::is_same<iterator, typename boost::mpl::end<Parameters>::type>
-				, boost::mpl::identity<DefaultValue>
+			typedef typename boost_cryray::mpl::find_if<Parameters, pred>::type iterator;
+			typedef typename boost_cryray::mpl::apply_if<boost_cryray::is_same<iterator, typename boost_cryray::mpl::end<Parameters>::type>
+				, boost_cryray::mpl::identity<DefaultValue>
 				, iterator
 			>::type type;
 		};
@@ -239,9 +239,9 @@ namespace luabind
 		template<class Policies>
 		struct has_pure_virtual
 		{
-			typedef typename boost::mpl::apply_if<
-				boost::is_same<pure_virtual_tag, typename Policies::head>
-			  , boost::mpl::true_
+			typedef typename boost_cryray::mpl::apply_if<
+				boost_cryray::is_same<pure_virtual_tag, typename Policies::head>
+			  , boost_cryray::mpl::true_
 			  , has_pure_virtual<typename Policies::tail>
 			>::type type;
 
@@ -252,7 +252,7 @@ namespace luabind
 		struct has_pure_virtual<null_type>
 		{
 			BOOST_STATIC_CONSTANT(bool, value = false);
-			typedef boost::mpl::bool_<value> type;
+			typedef boost_cryray::mpl::bool_<value> type;
 		};
 
 		// prints the types of the values on the stack, in the
@@ -646,8 +646,8 @@ namespace luabind
 			template<class ConstHolderType>
 			static int internal_alignment(ConstHolderType*)
 			{
-				return detail::max_c<boost::alignment_of<HolderType>::value
-					, boost::alignment_of<ConstHolderType>::value>::value;
+				return detail::max_c<boost_cryray::alignment_of<HolderType>::value
+					, boost_cryray::alignment_of<ConstHolderType>::value>::value;
 			}
 		};
 
@@ -717,16 +717,16 @@ namespace luabind
 
 			void add_getter(
 				const char* name
-				, const boost::function2<int, lua_State*, int, luabind::memory_allocator<boost::function_base> >& g);
+				, const boost_cryray::function2<int, lua_State*, int, luabind::memory_allocator<boost_cryray::function_base> >& g);
 
 #ifdef LUABIND_NO_ERROR_CHECKING
 			void class_base::add_setter(
 				const char* name
-				, const boost::function2<int, lua_State*, int, luabind::memory_allocator<boost::function_base> >& s);
+				, const boost_cryray::function2<int, lua_State*, int, luabind::memory_allocator<boost_cryray::function_base> >& s);
 #else
 			void class_base::add_setter(
 				const char* name
-				, const boost::function2<int, lua_State*, int, luabind::memory_allocator<boost::function_base> >& s
+				, const boost_cryray::function2<int, lua_State*, int, luabind::memory_allocator<boost_cryray::function_base> >& s
 				, int (*match)(lua_State*, int)
 				, void (*get_sig_ptr)(lua_State*, string_class&));
 #endif
@@ -793,20 +793,20 @@ namespace luabind
 
 		// WrappedType MUST inherit from T
 		typedef typename detail::extract_parameter<
-		    boost::mpl::vector3<X1,X2,X3>
-		  , boost::is_base_and_derived<T, boost::mpl::_>
+		    boost_cryray::mpl::vector3<X1,X2,X3>
+		  , boost_cryray::is_base_and_derived<T, boost_cryray::mpl::_>
 		  , detail::null_type
 		>::type WrappedType;
 
 		typedef typename detail::extract_parameter<
-		    boost::mpl::list3<X1,X2,X3>
-		  , boost::mpl::not_<
-		        boost::mpl::or_<
-				    boost::mpl::or_<
-					    detail::is_bases<boost::mpl::_>
-					  , boost::is_base_and_derived<boost::mpl::_, T>
+		    boost_cryray::mpl::list3<X1,X2,X3>
+		  , boost_cryray::mpl::not_<
+		        boost_cryray::mpl::or_<
+				    boost_cryray::mpl::or_<
+					    detail::is_bases<boost_cryray::mpl::_>
+					  , boost_cryray::is_base_and_derived<boost_cryray::mpl::_, T>
 					>
-				  , boost::is_base_and_derived<T, boost::mpl::_>
+				  , boost_cryray::is_base_and_derived<T, boost_cryray::mpl::_>
 				>
 			>
 		  , detail::null_type
@@ -859,7 +859,7 @@ namespace luabind
 		{
 			return this->virtual_def(
 				name, f, detail::null_type()
-			  , detail::null_type(), boost::mpl::true_());
+			  , detail::null_type(), boost_cryray::mpl::true_());
 		}
 
 		// virtual functions
@@ -877,14 +877,14 @@ namespace luabind
 		{
 			return this->virtual_def(
 				name, fn, default_
-			  , policies, boost::mpl::false_());
+			  , policies, boost_cryray::mpl::false_());
 		}
 
 		template<BOOST_PP_ENUM_PARAMS(LUABIND_MAX_ARITY, class A)>
 		class_& def(constructor<BOOST_PP_ENUM_PARAMS(LUABIND_MAX_ARITY, A)> sig)
 		{
             return this->def_constructor(
-				boost::is_same<WrappedType, detail::null_type>()
+				boost_cryray::is_same<WrappedType, detail::null_type>()
 			  , &sig
 			  , detail::null_type()
 			);
@@ -894,7 +894,7 @@ namespace luabind
 		class_& def(constructor<BOOST_PP_ENUM_PARAMS(LUABIND_MAX_ARITY, A)> sig, const Policies& policies)
 		{
             return this->def_constructor(
-				boost::is_same<WrappedType, detail::null_type>()
+				boost_cryray::is_same<WrappedType, detail::null_type>()
 			  , &sig
 			  , policies
 			);
@@ -903,30 +903,30 @@ namespace luabind
 		template<class Getter>
 		class_& property(const char* name, Getter g)
 		{
-			add_getter(name, boost::bind<int>(detail::get_caller<T, Getter, detail::null_type>(), _1, _2, g));
+			add_getter(name, boost_cryray::bind<int>(detail::get_caller<T, Getter, detail::null_type>(), _1, _2, g));
 			return *this;
 		}
 
 		template<class Getter, class MaybeSetter>
 		class_& property(const char* name, Getter g, MaybeSetter s)
 		{
-			return property_impl(name, g, s, boost::mpl::bool_<detail::is_policy_cons<MaybeSetter>::value>());
+			return property_impl(name, g, s, boost_cryray::mpl::bool_<detail::is_policy_cons<MaybeSetter>::value>());
 		}
 
 		template<class Getter, class Setter, class GetPolicies>
 		class_& property(const char* name, Getter g, Setter s, const GetPolicies& get_policies)
 		{
-			add_getter(name, boost::bind<int>(detail::get_caller<T, Getter, GetPolicies>(get_policies), _1, _2, g));
+			add_getter(name, boost_cryray::bind<int>(detail::get_caller<T, Getter, GetPolicies>(get_policies), _1, _2, g));
 #ifndef LUABIND_NO_ERROR_CHECKING
 			add_setter(
 				name
-				, boost::bind<int>(detail::set_caller<T, Setter, detail::null_type>(), _1, _2, s)
+				, boost_cryray::bind<int>(detail::set_caller<T, Setter, detail::null_type>(), _1, _2, s)
 				, detail::gen_set_matcher((Setter)0, (detail::null_type*)0)
 				, &detail::get_member_signature<Setter>::apply);
 #else
 			add_setter(
 				name
-				, boost::bind<int>(detail::set_caller<T, Setter, detail::null_type>(), _1, _2, s));
+				, boost_cryray::bind<int>(detail::set_caller<T, Setter, detail::null_type>(), _1, _2, s));
 #endif
 			return *this;
 		}
@@ -937,15 +937,15 @@ namespace luabind
 									, const GetPolicies& get_policies
 									, const SetPolicies& set_policies)
 		{
-			add_getter(name, boost::bind<int>(detail::get_caller<T, Getter, GetPolicies>(get_policies), _1, _2, g));
+			add_getter(name, boost_cryray::bind<int>(detail::get_caller<T, Getter, GetPolicies>(get_policies), _1, _2, g));
 #ifndef LUABIND_NO_ERROR_CHECKING
 			add_setter(
 				name
-				, boost::bind<int>(detail::set_caller<T, Setter, SetPolicies>(), _1, _2, s)
+				, boost_cryray::bind<int>(detail::set_caller<T, Setter, SetPolicies>(), _1, _2, s)
 				, detail::gen_set_matcher((Setter)0, (SetPolicies*)0)
 				, &detail::get_member_signature<Setter>::apply);
 #else
-			add_setter(name, boost::bind<int>(detail::set_caller<T, Setter, SetPolicies>(set_policies), _1, _2, s));
+			add_setter(name, boost_cryray::bind<int>(detail::set_caller<T, Setter, SetPolicies>(set_policies), _1, _2, s));
 #endif
 			return *this;
 		}
@@ -953,29 +953,29 @@ namespace luabind
 		template<class D>
 		class_& def_readonly(const char* name, D T::*member_ptr)
 		{
-			add_getter(name, boost::bind<int>(detail::auto_get<T,D,detail::null_type>(), _1, _2, member_ptr));
+			add_getter(name, boost_cryray::bind<int>(detail::auto_get<T,D,detail::null_type>(), _1, _2, member_ptr));
 			return *this;
 		}
 
 		template<class D, class Policies>
 		class_& def_readonly(const char* name, D T::*member_ptr, const Policies& policies)
 		{
-			add_getter(name, boost::bind<int>(detail::auto_get<T,D,Policies>(policies), _1, _2, member_ptr));
+			add_getter(name, boost_cryray::bind<int>(detail::auto_get<T,D,Policies>(policies), _1, _2, member_ptr));
 			return *this;
 		}
 
 		template<class D>
 		class_& def_readwrite(const char* name, D T::*member_ptr)
 		{
-			add_getter(name, boost::bind<int>(detail::auto_get<T,D,detail::null_type>(), _1, _2, member_ptr));
+			add_getter(name, boost_cryray::bind<int>(detail::auto_get<T,D,detail::null_type>(), _1, _2, member_ptr));
 #ifndef LUABIND_NO_ERROR_CHECKING
 			add_setter(
 				name
-				, boost::bind<int>(detail::auto_set<T,D,detail::null_type>(), _1, _2, member_ptr)
+				, boost_cryray::bind<int>(detail::auto_set<T,D,detail::null_type>(), _1, _2, member_ptr)
 				, &detail::set_matcher<D, detail::null_type>::apply
 				, &detail::get_setter_signature<D>::apply);
 #else
-			add_setter(name, boost::bind<int>(detail::auto_set<T,D,detail::null_type>(), _1, _2, member_ptr));
+			add_setter(name, boost_cryray::bind<int>(detail::auto_set<T,D,detail::null_type>(), _1, _2, member_ptr));
 #endif
 			return *this;
 		}
@@ -983,15 +983,15 @@ namespace luabind
 		template<class D, class GetPolicies>
 		class_& def_readwrite(const char* name, D T::*member_ptr, const GetPolicies& get_policies)
 		{
-			add_getter(name, boost::bind<int>(detail::auto_get<T,D,GetPolicies>(get_policies), _1, _2, member_ptr));
+			add_getter(name, boost_cryray::bind<int>(detail::auto_get<T,D,GetPolicies>(get_policies), _1, _2, member_ptr));
 #ifndef LUABIND_NO_ERROR_CHECKING
 			add_setter(
 				name
-				, boost::bind<int>(detail::auto_set<T,D,detail::null_type>(), _1, _2, member_ptr)
+				, boost_cryray::bind<int>(detail::auto_set<T,D,detail::null_type>(), _1, _2, member_ptr)
 				, &detail::set_matcher<D, detail::null_type>::apply
 				, &detail::get_setter_signature<D>::apply);
 #else
-			add_setter(name, boost::bind<int>(detail::auto_set<T,D,detail::null_type>(), _1, _2, member_ptr));
+			add_setter(name, boost_cryray::bind<int>(detail::auto_set<T,D,detail::null_type>(), _1, _2, member_ptr));
 #endif
 			return *this;
 		}
@@ -999,15 +999,15 @@ namespace luabind
 		template<class D, class GetPolicies, class SetPolicies>
 		class_& def_readwrite(const char* name, D T::*member_ptr, const GetPolicies& get_policies, const SetPolicies& set_policies)
 		{
-			add_getter(name, boost::bind<int>(detail::auto_get<T,D,GetPolicies>(get_policies), _1, _2, member_ptr));
+			add_getter(name, boost_cryray::bind<int>(detail::auto_get<T,D,GetPolicies>(get_policies), _1, _2, member_ptr));
 #ifndef LUABIND_NO_ERROR_CHECKING
 			add_setter(
 				name
-				, boost::bind<int>(detail::auto_set<T,D,SetPolicies>(), _1, _2, member_ptr)
+				, boost_cryray::bind<int>(detail::auto_set<T,D,SetPolicies>(), _1, _2, member_ptr)
 				, &detail::set_matcher<D, SetPolicies>::apply
 				, &detail::get_setter_signature<D>::apply);
 #else
-			add_setter(name, boost::bind<int>(detail::auto_set<T,D,SetPolicies>(set_policies), _1, _2, member_ptr));
+			add_setter(name, boost_cryray::bind<int>(detail::auto_set<T,D,SetPolicies>(set_policies), _1, _2, member_ptr));
 #endif
 			return *this;
 		}
@@ -1138,16 +1138,16 @@ namespace luabind
 			set_back_reference((back_reference<T>*)0);
 
 			typedef typename detail::extract_parameter<
-					boost::mpl::list3<X1,X2,X3>
-				,	boost::mpl::or_<
-							detail::is_bases<boost::mpl::_>
-						,	boost::is_base_and_derived<boost::mpl::_, T>
+					boost_cryray::mpl::list3<X1,X2,X3>
+				,	boost_cryray::mpl::or_<
+							detail::is_bases<boost_cryray::mpl::_>
+						,	boost_cryray::is_base_and_derived<boost_cryray::mpl::_, T>
 					>
 				,	no_bases
 			>::type bases_t;
 
 			typedef typename 
-				boost::mpl::if_<detail::is_bases<bases_t>
+				boost_cryray::mpl::if_<detail::is_bases<bases_t>
 					,	bases_t
 					,	bases<bases_t>
 				>::type Base;
@@ -1177,9 +1177,9 @@ namespace luabind
 		class_& property_impl(const char* name,
 									 Getter g,
 									 GetPolicies policies,
-									 boost::mpl::bool_<true>)
+									 boost_cryray::mpl::bool_<true>)
 		{
-			add_getter(name, boost::bind<int>(detail::get_caller<T,Getter,GetPolicies>(policies), _1, _2, g));
+			add_getter(name, boost_cryray::bind<int>(detail::get_caller<T,Getter,GetPolicies>(policies), _1, _2, g));
 			return *this;
 		}
 
@@ -1187,17 +1187,17 @@ namespace luabind
 		class_& property_impl(const char* name,
 									 Getter g,
 									 Setter s,
-									 boost::mpl::bool_<false>)
+									 boost_cryray::mpl::bool_<false>)
 		{
-			add_getter(name, boost::bind<int>(detail::get_caller<T,Getter,detail::null_type>(), _1, _2, g));
+			add_getter(name, boost_cryray::bind<int>(detail::get_caller<T,Getter,detail::null_type>(), _1, _2, g));
 #ifndef LUABIND_NO_ERROR_CHECKING
 			add_setter(
 				name
-				, boost::bind<int>(detail::set_caller<T, Setter, detail::null_type>(), _1, _2, s)
+				, boost_cryray::bind<int>(detail::set_caller<T, Setter, detail::null_type>(), _1, _2, s)
 				, detail::gen_set_matcher((Setter)0, (detail::null_type*)0)
 				, &detail::get_member_signature<Setter>::apply);
 #else
-			add_setter(name, boost::bind<int>(detail::set_caller<T,Setter,detail::null_type>(), _1, _2, s));
+			add_setter(name, boost_cryray::bind<int>(detail::set_caller<T,Setter,detail::null_type>(), _1, _2, s));
 #endif
 			return *this;
 		}
@@ -1205,7 +1205,7 @@ namespace luabind
 		// these handle default implementation of virtual functions
 		template<class F, class Policies>
 		class_& virtual_def(char const* name, F const& fn
-			, Policies const& policies, detail::null_type, boost::mpl::true_)
+			, Policies const& policies, detail::null_type, boost_cryray::mpl::true_)
 		{
 			// normal def() call
 			detail::overload_rep o(fn, static_cast<Policies*>(0));
@@ -1222,7 +1222,7 @@ namespace luabind
 
 		template<class F, class Default, class Policies>
 		class_& virtual_def(char const* name, F const& fn
-			, Default const& default_, Policies const& policies, boost::mpl::false_)
+			, Default const& default_, Policies const& policies, boost_cryray::mpl::false_)
 		{
 			// default_ is a default implementation
 			// policies is either null_type or a policy list
@@ -1247,7 +1247,7 @@ namespace luabind
 
         template<class Signature, class Policies>
 		class_& def_constructor(
-			boost::mpl::true_ /* HasWrapper */
+			boost_cryray::mpl::true_ /* HasWrapper */
           , Signature*
           , Policies const& policies)
         {	
@@ -1277,7 +1277,7 @@ namespace luabind
 
         template<class Signature, class Policies>
 		class_& def_constructor(
-			boost::mpl::false_ /* !HasWrapper */
+			boost_cryray::mpl::false_ /* !HasWrapper */
           , Signature*
           , Policies const& policies)
 		{
@@ -1309,7 +1309,7 @@ namespace luabind
 		void set_back_reference(detail::default_back_reference*)
 		{
 			back_reference<T>::has_wrapper 
-				= !boost::is_same<WrappedType, detail::null_type>::value;
+				= !boost_cryray::is_same<WrappedType, detail::null_type>::value;
 		}
 
 		void set_back_reference(void*)

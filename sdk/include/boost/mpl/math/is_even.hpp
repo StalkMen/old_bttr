@@ -22,7 +22,7 @@
 #include "boost/mpl/aux_/lambda_support.hpp"
 #include "boost/mpl/aux_/config/eti.hpp"
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 namespace math {
 
@@ -39,6 +39,6 @@ struct is_even
 
 BOOST_MPL_AUX_VOID_SPEC(1, math::is_even)
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #endif // BOOST_MPL_MATH_IS_EVEN_HPP_INCLUDED

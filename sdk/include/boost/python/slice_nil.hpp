@@ -6,7 +6,7 @@
 #ifndef SLICE_NIL_DWA2002620_HPP
 # define SLICE_NIL_DWA2002620_HPP
 
-namespace boost { namespace python { namespace api {
+namespace boost_cryray { namespace python { namespace api {
 
 class object;
 
@@ -36,6 +36,6 @@ using api::slice_nil;
 using api::_;
 # endif 
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // SLICE_NIL_DWA2002620_HPP

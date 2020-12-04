@@ -20,7 +20,7 @@
 #include <boost/graph/graph_concepts.hpp>
 #include <boost/graph/named_function_params.hpp>
 
-namespace boost
+namespace boost_cryray
 {
 
   namespace detail
@@ -306,7 +306,7 @@ namespace boost
 
   template < typename G > void warren_transitive_closure(G & g)
   {
-    using namespace boost;
+    using namespace boost_cryray;
     typedef typename graph_traits < G >::vertex_descriptor vertex;
     typedef typename graph_traits < G >::vertex_iterator vertex_iterator;
 
@@ -347,6 +347,6 @@ namespace boost
   }
 
 
-}                               // namespace boost
+}                               // namespace boost_cryray
 
 #endif // BOOST_GRAPH_TRANSITIVE_CLOSURE_HPP

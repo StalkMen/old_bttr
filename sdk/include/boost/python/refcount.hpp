@@ -9,7 +9,7 @@
 # include <boost/python/detail/wrap_python.hpp>
 # include <boost/python/cast.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 template <class T>
 inline T* incref(T* p)
@@ -37,6 +37,6 @@ inline void xdecref(T* p)
     Py_XDECREF(python::upcast<PyObject>(p));
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // REFCOUNT_DWA2002615_HPP

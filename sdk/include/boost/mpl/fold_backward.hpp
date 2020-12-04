@@ -24,7 +24,7 @@
 #include "boost/mpl/aux_/fold_backward_impl.hpp"
 #include "boost/mpl/aux_/void_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -36,7 +36,7 @@ template<
 struct fold_backward
 {
     typedef typename aux::fold_backward_impl<
-          ::boost::mpl::O1_size<Sequence>::value
+          ::boost_cryray::mpl::O1_size<Sequence>::value
         , typename begin<Sequence>::type
         , typename end<Sequence>::type
         , State
@@ -50,6 +50,6 @@ struct fold_backward
 BOOST_MPL_AUX_VOID_SPEC(3, fold_backward)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_FOLD_BACKWARD_HPP_INCLUDED

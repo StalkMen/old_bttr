@@ -24,7 +24,7 @@
 # pragma warn -8027     // Functions containing while are not expanded inline
 #endif
 
-namespace boost
+namespace boost_cryray
 {
 
 namespace detail
@@ -112,7 +112,7 @@ public:
 
 } // namespace detail
 
-} // namespace boost
+} // namespace boost_cryray
 
 #ifdef __BORLANDC__
 # pragma warn .8027     // Functions containing while are not expanded inline

@@ -28,7 +28,7 @@ class manager;
 
 class thunderbolt_id :
     public editor::property_holder_holder,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 public:
     thunderbolt_id(manager const& manager, shared_str const& thunderbolt);

@@ -17,7 +17,7 @@
 #ifndef BOOST_MPL_AUX_TYPE_WRAPPER_HPP_INCLUDED
 #define BOOST_MPL_AUX_TYPE_WRAPPER_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -28,6 +28,6 @@ template< typename T > struct type_wrapper
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost 
+} // namespace boost_cryray 
 
 #endif // BOOST_MPL_AUX_TYPE_WRAPPER_HPP_INCLUDED

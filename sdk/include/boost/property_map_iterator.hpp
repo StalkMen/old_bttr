@@ -12,7 +12,7 @@
 #include <boost/property_map.hpp>
 #include <boost/iterator_adaptors.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   //======================================================================
   // property iterator, generalized from ideas by François Faure
@@ -93,7 +93,7 @@ namespace boost {
     return Iter(iter, pmap);
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_PROPERTY_MAP_ITERATOR_HPP
 

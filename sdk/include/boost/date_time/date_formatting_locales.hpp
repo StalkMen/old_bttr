@@ -18,7 +18,7 @@
 #include <iomanip>
 
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
   //! Formats a month as as string into an ostream

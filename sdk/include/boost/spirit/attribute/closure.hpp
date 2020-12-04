@@ -51,7 +51,7 @@ BOOST_STATIC_ASSERT(BOOST_SPIRIT_CLOSURE_LIMIT <= PHOENIX_LIMIT);
 BOOST_STATIC_ASSERT(BOOST_SPIRIT_CLOSURE_LIMIT <= 15);
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -1075,6 +1075,6 @@ namespace boost { namespace spirit {
         return result_t(container_begin_t(a), container_end_t(a));
     }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif

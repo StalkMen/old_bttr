@@ -9,7 +9,7 @@
 # include <boost/python/object_core.hpp>
 # include <boost/python/call.hpp>
 
-namespace boost { namespace python { namespace api {
+namespace boost_cryray { namespace python { namespace api {
 
 template <class U>
 object object_operators<U>::operator()() const
@@ -89,6 +89,6 @@ BOOST_PYTHON_INPLACE_OPERATOR(^=)
 BOOST_PYTHON_INPLACE_OPERATOR(|=)
 # undef BOOST_PYTHON_INPLACE_OPERATOR
 
-}}} // namespace boost::python
+}}} // namespace boost_cryray::python
 
 #endif // OBJECT_OPERATORS_DWA2002617_HPP

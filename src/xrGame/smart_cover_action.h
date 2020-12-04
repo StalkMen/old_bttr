@@ -19,7 +19,7 @@ namespace smart_cover{
 
 class action :
 	private debug::make_final<action>,
-	private boost::noncopyable
+	private boost_cryray::noncopyable
 {
 private:
 	class animation_predicate {

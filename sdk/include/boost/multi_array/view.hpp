@@ -30,16 +30,16 @@
 #include <functional>
 #include <numeric>
 
-namespace boost {
+namespace boost_cryray {
 namespace detail {
 namespace multi_array {
 
 // TPtr = const T* defaulted in base.hpp
 template <typename T, std::size_t NumDims, typename TPtr>
 class const_multi_array_view :
-    public boost::detail::multi_array::multi_array_impl_base<T,NumDims>
+    public boost_cryray::detail::multi_array::multi_array_impl_base<T,NumDims>
 {
-  typedef boost::detail::multi_array::multi_array_impl_base<T,NumDims> super_type;
+  typedef boost_cryray::detail::multi_array::multi_array_impl_base<T,NumDims> super_type;
 public: 
   typedef typename super_type::value_type value_type;
   typedef typename super_type::const_reference const_reference;
@@ -55,12 +55,12 @@ public:
   // template typedefs
   template <std::size_t NDims>
   struct const_array_view {
-    typedef boost::detail::multi_array::const_multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::const_multi_array_view<T,NDims> type;
   };
 
   template <std::size_t NDims>
   struct array_view {
-    typedef boost::detail::multi_array::multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::multi_array_view<T,NDims> type;
   };
 
   template <typename OPtr>
@@ -74,7 +74,7 @@ public:
 
   template <class BaseList>
   void reindex(const BaseList& values) {
-    boost::copy_n(values.begin(),num_dimensions(),index_base_list_.begin());
+    boost_cryray::copy_n(values.begin(),num_dimensions(),index_base_list_.begin());
     origin_offset_ =
       this->calculate_indexing_offset(stride_list_,index_base_list_);
   }
@@ -109,14 +109,14 @@ public:
 
   template <typename IndexList>
   const element& operator()(IndexList indices) const {
-    return super_type::access_element(boost::type<const element&>(),
+    return super_type::access_element(boost_cryray::type<const element&>(),
                                       origin(),
                                       indices,strides());
   }
 
   // Only allow const element access
   const_reference operator[](index idx) const {
-    return super_type::access(boost::type<const_reference>(),
+    return super_type::access(boost_cryray::type<const_reference>(),
                               idx,origin(),
                               shape(),strides(),
                               index_bases());
@@ -129,12 +129,12 @@ public:
   template <int NumDims, int NDims> // else ICE
 #endif // BOOST_MSVC
   typename const_array_view<NDims>::type 
-  operator[](const boost::detail::multi_array::
+  operator[](const boost_cryray::detail::multi_array::
              index_gen<NumDims,NDims>& indices)
     const {
     typedef typename const_array_view<NDims>::type return_type;
     return
-      super_type::generate_array_view(boost::type<return_type>(),
+      super_type::generate_array_view(boost_cryray::type<return_type>(),
                                       indices,
                                       shape(),
                                       strides(),
@@ -220,14 +220,14 @@ public: // should be protected
   template <typename ExtentList, typename Index>
   explicit const_multi_array_view(TPtr base,
                            const ExtentList& extents,
-                           const boost::array<Index,NumDims>& strides): 
+                           const boost_cryray::array<Index,NumDims>& strides): 
     base_(base), origin_offset_(0) {
 
     index_base_list_.assign(0);
 
     // Get the extents and strides
-    boost::copy_n(extents.begin(),NumDims,extent_list_.begin());
-    boost::copy_n(strides.begin(),NumDims,stride_list_.begin());
+    boost_cryray::copy_n(extents.begin(),NumDims,extent_list_.begin());
+    boost_cryray::copy_n(strides.begin(),NumDims,stride_list_.begin());
 
     // Calculate the array size
     num_elements_ = std::accumulate(extent_list_.begin(),extent_list_.end(),
@@ -235,8 +235,8 @@ public: // should be protected
     assert(num_elements_ != 0);
   }
 
-  typedef boost::array<size_type,NumDims> size_list;
-  typedef boost::array<index,NumDims> index_list;
+  typedef boost_cryray::array<size_type,NumDims> size_list;
+  typedef boost_cryray::array<index,NumDims> index_list;
 
   TPtr base_;
   index origin_offset_;
@@ -275,19 +275,19 @@ public:
   // template typedefs
   template <std::size_t NDims>
   struct const_array_view {
-    typedef boost::detail::multi_array::const_multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::const_multi_array_view<T,NDims> type;
   };
 
   template <std::size_t NDims>
   struct array_view {
-    typedef boost::detail::multi_array::multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::multi_array_view<T,NDims> type;
   };
 
   // Assignment from other ConstMultiArray types.
   template <typename ConstMultiArray>
   multi_array_view& operator=(const ConstMultiArray& other) {
     function_requires< 
-      boost::detail::multi_array::
+      boost_cryray::detail::multi_array::
       ConstMultiArrayConcept<ConstMultiArray,NumDims> >();
 
     // make sure the dimensions agree
@@ -316,14 +316,14 @@ public:
 
   template <class IndexList>
   element& operator()(const IndexList& indices) {
-    return super_type::access_element(boost::type<element&>(),
+    return super_type::access_element(boost_cryray::type<element&>(),
                                       origin(),
                                       indices,this->strides());
   }
 
 
   reference operator[](index idx) {
-    return super_type::access(boost::type<reference>(),
+    return super_type::access(boost_cryray::type<reference>(),
                               idx,origin(),
                               this->shape(),this->strides(),
                               this->index_bases());
@@ -337,11 +337,11 @@ public:
   template <int NumDims, int NDims> // else ICE
 #endif // BOOST_MSVC
   typename array_view<NDims>::type 
-  operator[](const boost::detail::multi_array::
+  operator[](const boost_cryray::detail::multi_array::
              index_gen<NumDims,NDims>& indices) {
     typedef typename array_view<NDims>::type return_type;
     return
-      super_type::generate_array_view(boost::type<return_type>(),
+      super_type::generate_array_view(boost_cryray::type<return_type>(),
                                       indices,
                                       this->shape(),
                                       this->strides(),
@@ -391,7 +391,7 @@ public:
   template <int NumDims, int NDims> // else ICE
 #endif // BOOST_MSVC
   typename const_array_view<NDims>::type 
-  operator[](const boost::detail::multi_array::
+  operator[](const boost_cryray::detail::multi_array::
              index_gen<NumDims,NDims>& indices)
     const {
     return super_type::operator[](indices);
@@ -425,7 +425,7 @@ public: // should be private
   template <typename ExtentList, typename Index>
   explicit multi_array_view(T* base,
                             const ExtentList& extents,
-                            const boost::array<Index,NumDims>& strides) :
+                            const boost_cryray::array<Index,NumDims>& strides) :
     super_type(base,extents,strides) { }
 
 };
@@ -440,17 +440,17 @@ template <typename Array, int N>
 class array_view_gen {
   typedef typename Array::element element;
 public:
-  typedef boost::detail::multi_array::multi_array_view<element,N> type;
+  typedef boost_cryray::detail::multi_array::multi_array_view<element,N> type;
 };
 
 template <typename Array, int N>
 class const_array_view_gen {
   typedef typename Array::element element;
 public:
-  typedef boost::detail::multi_array::const_multi_array_view<element,N> type;  
+  typedef boost_cryray::detail::multi_array::const_multi_array_view<element,N> type;  
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MULTI_ARRAY_VIEW_RG071301_HPP
 

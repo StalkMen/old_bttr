@@ -34,7 +34,7 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   //
   // The edge_list class is an EdgeListGraph module that is constructed
@@ -180,7 +180,7 @@ namespace boost {
 
     typedef edge_id edge_descriptor;
     typedef V vertex_descriptor;
-    typedef typename boost::integer_range<edge_id>::iterator edge_iterator;
+    typedef typename boost_cryray::integer_range<edge_id>::iterator edge_iterator;
     typedef void out_edge_iterator;
     typedef void in_edge_iterator;
     typedef void adjacency_iterator;
@@ -314,6 +314,6 @@ namespace boost {
   }
 #endif
   
-} /* namespace boost */
+} /* namespace boost_cryray */
 
 #endif /* BOOST_GRAPH_EDGE_LIST_HPP */

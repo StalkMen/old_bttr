@@ -18,7 +18,7 @@
 #include "boost/spirit/core/primitives/impl/primitives.ipp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 template <typename BaseT>
 struct no_skipper_iteration_policy; // forward
@@ -164,7 +164,7 @@ typedef scanner_policies<iter_policy_t>             scanner_policies_t;
 typedef scanner<char const*, scanner_policies_t>    phrase_scanner_t;
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #include "boost/spirit/core/scanner/impl/skipper.ipp"
 #endif

@@ -12,7 +12,7 @@
 
 // Extremely Light-Weight guard glass
 
-namespace boost {
+namespace boost_cryray {
 
 namespace details {
 namespace pool {
@@ -36,6 +36,6 @@ class guard
 } // namespace pool
 } // namespace details
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

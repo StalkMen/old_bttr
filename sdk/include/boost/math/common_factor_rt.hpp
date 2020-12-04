@@ -17,7 +17,7 @@
 #include <boost/limits.hpp>  // for std::numeric_limits
 
 
-namespace boost
+namespace boost_cryray
 {
 namespace math
 {
@@ -45,7 +45,7 @@ public:
     result_type  operator ()( first_argument_type const &a,
      second_argument_type const &b ) const;
 
-};  // boost::math::gcd_evaluator
+};  // boost_cryray::math::gcd_evaluator
 
 
 //  Least common multiple evaluator class declaration  -----------------------//
@@ -61,7 +61,7 @@ public:
     result_type  operator ()( first_argument_type const &a,
      second_argument_type const &b ) const;
 
-};  // boost::math::lcm_evaluator
+};  // boost_cryray::math::lcm_evaluator
 
 
 //  Implementation details  --------------------------------------------------//
@@ -402,7 +402,7 @@ lcm
 
 
 }  // namespace math
-}  // namespace boost
+}  // namespace boost_cryray
 
 
 #endif  // BOOST_MATH_COMMON_FACTOR_RT_HPP

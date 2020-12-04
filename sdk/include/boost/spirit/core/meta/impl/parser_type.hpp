@@ -13,7 +13,7 @@
 #define BOOST_SPIRIT_PARSER_TYPE_HPP
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 #if !defined(BOOST_SPIRIT_PRIMITIVES_IPP)
 #include "boost/spirit/core/primitives/primitives.hpp"
@@ -79,10 +79,10 @@ namespace boost { namespace spirit {
     {
         enum
         {
-            is_cptr = boost::is_convertible<T, char const*>::value,
+            is_cptr = boost_cryray::is_convertible<T, char const*>::value,
             is_wcptr
                 = is_cptr ? false
-                : boost::is_convertible<T, wchar_t const*>::value
+                : boost_cryray::is_convertible<T, wchar_t const*>::value
         };
 
         typedef
@@ -159,6 +159,6 @@ namespace boost { namespace spirit {
 #endif // !defined(__MWERKS__) || (__MWERKS__ > 0x2407)
 #endif // !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION)
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif

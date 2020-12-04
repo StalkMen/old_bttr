@@ -46,7 +46,7 @@
 #   include "boost/preprocessor/cat.hpp"
 #   include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // 'inherit<T1,T2,..,Tn>' metafunction; returns an unspecified class type
@@ -166,7 +166,7 @@ BOOST_MPL_AUX_VOID_SPEC(2, inherit2)
 #include BOOST_PP_ITERATE()
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_USE_PREPROCESSED_HEADERS
 #endif // BOOST_MPL_INHERIT_HPP_INCLUDED

@@ -12,7 +12,7 @@
 # include <boost/python/converter/pyobject_type.hpp>
 # include <boost/python/errors.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 // Provide a forward declaration as a convenience for clients, who all
 // need it.
@@ -38,6 +38,6 @@ inline python::detail::new_reference pytype_object_manager_traits<pytype,T>::ado
     return python::detail::new_reference(python::pytype_check(pytype, x));
 }
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // PYTYPE_OBJECT_MANAGER_TRAITS_DWA2002716_HPP

@@ -45,7 +45,7 @@ namespace luabind {
             sizeof(detail::deref_type((T(*)())0), 0L)
         ));
 
-        typedef boost::mpl::int_<value> type;
+        typedef boost_cryray::mpl::int_<value> type;
     };
 
 } // namespace luabind

@@ -32,7 +32,7 @@
 #include <boost/type_traits/is_float.hpp>
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
 // uniform integer distribution on [min, max]
 
@@ -120,7 +120,7 @@ inline IntType uniform_int_integer<UniformRandomNumberGenerator, IntType>::opera
     if(_brange / _range > 4 /* quantization_cutoff */ ) {
       // the new range is vastly smaller than the source range,
       // so quantization effects are not relevant
-      return boost::uniform_smallint<base_type,result_type>(*_rng, _min, _max)();
+      return boost_cryray::uniform_smallint<base_type,result_type>(*_rng, _min, _max)();
     } else {
       // use rejection method to handle things like 0..5 -> 0..4
       for(;;) {
@@ -207,9 +207,9 @@ private:
 #ifndef BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS
   typedef typename detail::uniform_int<std::numeric_limits<typename UniformRandomNumberGenerator::result_type>::is_integer>::BOOST_NESTED_TEMPLATE impl<UniformRandomNumberGenerator, IntType>::type impl_type;
 #elif BOOST_WORKAROUND( __BORLANDC__, BOOST_TESTED_AT(0x0570) )
-  typedef typename detail::uniform_int< boost::is_float<typename UniformRandomNumberGenerator::result_type>::value == false >::BOOST_NESTED_TEMPLATE impl<UniformRandomNumberGenerator, IntType>::type impl_type;
+  typedef typename detail::uniform_int< boost_cryray::is_float<typename UniformRandomNumberGenerator::result_type>::value == false >::BOOST_NESTED_TEMPLATE impl<UniformRandomNumberGenerator, IntType>::type impl_type;
 #else
-  BOOST_STATIC_CONSTANT(bool, base_float = (boost::is_float<typename UniformRandomNumberGenerator::result_type>::value == false));
+  BOOST_STATIC_CONSTANT(bool, base_float = (boost_cryray::is_float<typename UniformRandomNumberGenerator::result_type>::value == false));
   typedef typename detail::uniform_int<base_float>::BOOST_NESTED_TEMPLATE impl<UniformRandomNumberGenerator, IntType>::type impl_type;
 #endif
 
@@ -280,6 +280,6 @@ template<class UniformRandomNumberGenerator, class IntType>
 const bool uniform_int<UniformRandomNumberGenerator, IntType>::has_fixed_range;
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_UNIFORM_INT_HPP

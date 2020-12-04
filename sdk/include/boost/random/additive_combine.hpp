@@ -26,7 +26,7 @@
 #include <boost/cstdint.hpp>
 #include <boost/random/linear_congruential.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace random {
 
 // L'Ecuyer 1988
@@ -118,6 +118,6 @@ typedef random::additive_combine<
     random::linear_congruential<int32_t, 40692, 0, 2147483399, 0>,
   2060321752> ecuyer1988;
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_ADDITIVE_COMBINE_HPP

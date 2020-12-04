@@ -24,7 +24,7 @@
 // should be always the last #include directive
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 // empty base class, guaranteed to have no members; inheritance from
@@ -54,7 +54,7 @@ struct is_empty_base<empty_base>
 
 BOOST_TT_AUX_BOOL_TRAIT_SPEC1(is_empty, mpl::empty_base, true)
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

@@ -29,7 +29,7 @@
 #  include <boost/preprocessor/enum_params.hpp>
 #  include <boost/preprocessor/repetition/enum_binary_params.hpp>
 
-namespace boost { namespace python { namespace objects {
+namespace boost_cryray { namespace python { namespace objects {
 
 template <class T>
 bool is_null(T const& p, ...)
@@ -134,7 +134,7 @@ void* pointer_holder_back_reference<Pointer, Value>::holds(type_info dst_t)
     return src_t == dst_t ? p : find_dynamic_type(p, src_t, dst_t);
 }
 
-}}} // namespace boost::python::objects
+}}} // namespace boost_cryray::python::objects
 
 # endif // POINTER_HOLDER_DWA20011215_HPP
 

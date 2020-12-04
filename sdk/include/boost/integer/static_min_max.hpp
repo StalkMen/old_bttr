@@ -16,7 +16,7 @@
 #include <boost/config.hpp>  // for BOOST_STATIC_CONSTANT
 
 
-namespace boost
+namespace boost_cryray
 {
 
 
@@ -50,7 +50,7 @@ struct static_unsigned_max
 };
 
 
-}  // namespace boost
+}  // namespace boost_cryray
 
 
 #endif  // BOOST_INTEGER_STATIC_MIN_MAX_HPP

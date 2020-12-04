@@ -27,7 +27,7 @@
 #include "boost/mpl/list/aux_/begin_end.hpp"
 #include "boost/mpl/list/aux_/node.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename T > struct list0_c
@@ -37,6 +37,6 @@ template< typename T > struct list0_c
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_LIST_LIST0_C_HPP_INCLUDED

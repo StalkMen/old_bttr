@@ -24,7 +24,7 @@
 #include "boost/mpl/aux_/void_spec.hpp"
 #include "boost/mpl/aux_/lambda_support.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -35,7 +35,7 @@ template<
 struct iter_fold
 {
     typedef typename aux::iter_fold_impl<
-          ::boost::mpl::O1_size<Sequence>::value
+          ::boost_cryray::mpl::O1_size<Sequence>::value
         , typename begin<Sequence>::type
         , typename end<Sequence>::type
         , State
@@ -48,6 +48,6 @@ struct iter_fold
 BOOST_MPL_AUX_VOID_SPEC(3, iter_fold)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_ITER_FOLD_HPP_INCLUDED

@@ -14,7 +14,7 @@
 # include <boost/python/signature.hpp>
 # include <boost/python/detail/scope.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace detail
 {
@@ -39,7 +39,7 @@ namespace detail
           >::type assertion;
       
       detail::scope_setattr_doc(
-          name, boost::python::make_function(
+          name, boost_cryray::python::make_function(
               fn
               , helper.policies()
               , helper.keywords())
@@ -108,6 +108,6 @@ void def(char const* name, F f, A1 const& a1, A2 const& a2, A3 const& a3)
     detail::def_from_helper(name, f, detail::def_helper<A1,A2,A3>(a1,a2,a3));
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // DEF_DWA200292_HPP

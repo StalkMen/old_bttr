@@ -28,7 +28,7 @@
 
 # include <cstddef>
 
-namespace boost { namespace python { namespace objects {
+namespace boost_cryray { namespace python { namespace objects {
 
 namespace detail
 {
@@ -231,6 +231,6 @@ struct select_holder
     }
 };
 
-}}} // namespace boost::python::objects
+}}} // namespace boost_cryray::python::objects
 
 #endif // SELECT_HOLDER_DWA2002322_HPP

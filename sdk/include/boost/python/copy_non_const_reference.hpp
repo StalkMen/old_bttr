@@ -9,7 +9,7 @@
 # include <boost/mpl/if.hpp>
 # include <boost/python/to_python_value.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -29,7 +29,7 @@ struct copy_non_const_reference
     struct apply
     {
         typedef typename mpl::if_c<
-            boost::python::detail::is_reference_to_non_const<T>::value
+            boost_cryray::python::detail::is_reference_to_non_const<T>::value
             , to_python_value<T>
             , detail::copy_non_const_reference_expects_a_non_const_reference_return_type<T>
         >::type type;
@@ -37,6 +37,6 @@ struct copy_non_const_reference
 };
 
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // COPY_NON_CONST_REFERENCE_DWA2002131_HPP

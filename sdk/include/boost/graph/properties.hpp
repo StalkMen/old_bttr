@@ -31,7 +31,7 @@
 #include <boost/property_map.hpp>
 #include <boost/graph/graph_traits.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   enum default_color_type { white_color, gray_color, green_color, red_color, black_color };
 
@@ -327,6 +327,6 @@ namespace boost {
     return make_iterator_vertex_map(c.begin());
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif /* BOOST_GRAPH_PROPERTIES_HPPA */

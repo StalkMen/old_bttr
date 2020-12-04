@@ -17,14 +17,14 @@
 #ifndef BOOST_MPL_AUX_PRED_HPP_INCLUDED
 #define BOOST_MPL_AUX_PRED_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
 // wrapper class to help users to deal with "legacy" metafunctions 
 // (i.e. the ones that do not provide the '::type' interface)
 //
-// usage example: mpl::pred< boost::is_same<mpl::_1, int> >
+// usage example: mpl::pred< boost_cryray::is_same<mpl::_1, int> >
 
 template< typename Pred >
 struct pred : Pred
@@ -34,6 +34,6 @@ struct pred : Pred
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_PRED_HPP_INCLUDED

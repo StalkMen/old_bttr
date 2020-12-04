@@ -12,7 +12,7 @@
 # include <boost/python/handle.hpp>
 # include <utility>
 
-namespace boost { namespace python { namespace api {
+namespace boost_cryray { namespace python { namespace api {
 
 struct const_slice_policies
 {
@@ -120,6 +120,6 @@ inline void slice_policies::del(
     delslice(target, key.first, key.second);
 }
 
-}}} // namespace boost::python::api
+}}} // namespace boost_cryray::python::api
 
 #endif // OBJECT_SLICES_DWA2002615_HPP

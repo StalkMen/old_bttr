@@ -41,7 +41,7 @@
 
 #include "boost/iterator.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 //--------------------------------------------------
 // copy_n (not part of the C++ standard)
@@ -95,6 +95,6 @@ copy_n(InputIter first, Size count, OutputIter result) {
 
 #endif // 1
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_ALGORITHM_RG071801_HPP

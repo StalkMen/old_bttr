@@ -12,8 +12,8 @@
 # endif 
 
 // Supplies a runtime is_convertible check which can be used with tag
-// dispatching to work around the Metrowerks Pro7 limitation with boost::is_convertible
-namespace boost { namespace python { namespace detail { 
+// dispatching to work around the Metrowerks Pro7 limitation with boost_cryray::is_convertible
+namespace boost_cryray { namespace python { namespace detail { 
 
 typedef char* yes_convertible;
 typedef int* no_convertible;
@@ -34,6 +34,6 @@ struct convertible
 # endif 
 };
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // CONVERTIBLE_DWA2002614_HPP

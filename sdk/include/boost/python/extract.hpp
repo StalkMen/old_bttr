@@ -19,7 +19,7 @@
 # include <boost/python/detail/void_ptr.hpp>
 # include <boost/python/detail/void_return.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace converter
 {
@@ -241,6 +241,6 @@ namespace converter
   }
 }
   
-}} // namespace boost::python::converter
+}} // namespace boost_cryray::python::converter
 
 #endif // EXTRACT_DWA200265_HPP

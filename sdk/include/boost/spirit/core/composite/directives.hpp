@@ -31,7 +31,7 @@
 #include "boost/spirit/core/composite/impl/directives.ipp"
 #endif
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -633,7 +633,7 @@ namespace boost { namespace spirit {
     limit_d(BoundsT const& min_, BoundsT const& max_)
     { return bounded_gen<BoundsT>(min_, max_); }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

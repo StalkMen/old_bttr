@@ -23,14 +23,14 @@
 
 #include <boost/current_function.hpp>
 
-namespace boost
+namespace boost_cryray
 {
 
 void assertion_failed(char const * expr, char const * function, char const * file, long line); // user defined
 
-} // namespace boost
+} // namespace boost_cryray
 
-#define BOOST_ASSERT(expr) ((expr)? ((void)0): ::boost::assertion_failed(#expr, BOOST_CURRENT_FUNCTION, __FILE__, __LINE__))
+#define BOOST_ASSERT(expr) ((expr)? ((void)0): ::boost_cryray::assertion_failed(#expr, BOOST_CURRENT_FUNCTION, __FILE__, __LINE__))
 
 #else
 # include <assert.h>

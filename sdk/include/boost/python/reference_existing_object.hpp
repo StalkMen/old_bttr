@@ -10,7 +10,7 @@
 # include <boost/python/to_python_indirect.hpp>
 # include <boost/type_traits/composite_traits.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 namespace detail
 {
@@ -40,6 +40,6 @@ struct reference_existing_object
     };
 };
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // REFERENCE_EXISTING_OBJECT_DWA200222_HPP

@@ -35,7 +35,7 @@ std::string BOOST_SPIRIT_GETSTRING(std::ostrstream& ss)
 #define BOOST_SPIRIT_OSSTREAM std::ostringstream
 #endif
 
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 // xml formatting helper classes
 namespace xml {
@@ -237,7 +237,7 @@ namespace impl {
     template <typename AssocContainerT>
     inline typename AssocContainerT::value_type::second_type
     get_rulename (AssocContainerT const &id_to_name_map, 
-        boost::spirit::parser_id const &id)
+        boost_cryray::spirit::parser_id const &id)
     {
         typename AssocContainerT::const_iterator it = id_to_name_map.find(id);
         if (it != id_to_name_map.end())
@@ -391,10 +391,10 @@ tree_to_xml (std::ostream &ostrm, TreeNodeT const &tree,
         std::string const &input_line)
 {
     return tree_to_xml(ostrm, tree, input_line,
-        std::map<boost::spirit::parser_id, std::string>());
+        std::map<boost_cryray::spirit::parser_id, std::string>());
 }
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #undef BOOST_SPIRIT_OSSTREAM
 #undef BOOST_SPIRIT_GETSTRING

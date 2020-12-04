@@ -23,7 +23,7 @@
 #include "boost/mpl/aux_/config/vector.hpp"
 #include "boost/config.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 #if defined(BOOST_MPL_TYPEOF_BASED_VECTOR_IMPL)
@@ -55,6 +55,6 @@ struct O1_size_traits< aux::vector_tag<N> >
 #endif // BOOST_MPL_TYPEOF_BASED_VECTOR_IMPL
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_VECTOR_AUX_O1_SIZE_HPP_INCLUDED

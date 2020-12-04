@@ -25,12 +25,12 @@
 // should be the last #include
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
 //* is a type T declared volatile - is_volatile<T>
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_volatile,T,::boost::detail::cv_traits_imp<T*>::is_volatile)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_volatile,T,::boost_cryray::detail::cv_traits_imp<T*>::is_volatile)
 BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC1_1(typename T,is_volatile,T&,false)
 
 #if defined(__BORLANDC__)
@@ -47,15 +47,15 @@ BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC1_1(typename T,is_volatile,T& const volatile
 
 namespace detail {
 
-using ::boost::type_traits::yes_type;
-using ::boost::type_traits::no_type;
+using ::boost_cryray::type_traits::yes_type;
+using ::boost_cryray::type_traits::no_type;
 
 yes_type is_volatile_tester(void const volatile*);
 no_type is_volatile_tester(void const*);
 
 template <bool is_ref, bool array>
 struct is_volatile_helper
-    : ::boost::type_traits::false_result
+    : ::boost_cryray::type_traits::false_result
 {
 };
 
@@ -102,11 +102,11 @@ BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_volatile,void const volatile,true)
 } // namespace detail
 
 //* is a type T declared volatile - is_volatile<T>
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_volatile,T,::boost::detail::is_volatile_impl<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_volatile,T,::boost_cryray::detail::is_volatile_impl<T>::value)
 
 #endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

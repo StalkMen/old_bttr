@@ -9,7 +9,7 @@
 # include <boost/python/converter/arg_from_python.hpp>
 # include <boost/python/detail/indirect_traits.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 template <class T>
 struct arg_from_python
@@ -79,6 +79,6 @@ inline arg_from_python<T>::arg_from_python(PyObject* source)
 {
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // ARG_FROM_PYTHON_DWA2002128_HPP

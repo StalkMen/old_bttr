@@ -17,7 +17,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/type_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 namespace detail {
 
@@ -45,7 +45,7 @@ template <typename T>
 struct add_reference_impl
 {
     typedef typename reference_adder<
-          ::boost::is_reference<T>::value
+          ::boost_cryray::is_reference<T>::value
         >::template result_<T> result;
 
     typedef typename result::type type;
@@ -83,7 +83,7 @@ BOOST_TT_AUX_TYPE_TRAIT_DEF1(add_reference,T,typename detail::add_reference_impl
 BOOST_TT_AUX_TYPE_TRAIT_PARTIAL_SPEC1_1(typename T,add_reference,T&,T&)
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/type_trait_undef.hpp"
 

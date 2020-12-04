@@ -11,7 +11,7 @@
 #include "boost/cstdint.hpp"
 
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
 
@@ -21,21 +21,21 @@ namespace date_time {
   parse_delimited_time_duration(const std::string& s)
   {
     unsigned short hour=0, min=0, sec =0;
-    boost::int64_t fs=0;
+    boost_cryray::int64_t fs=0;
     int pos = 0;
-    boost::tokenizer<boost::char_delimiters_separator<char> > tok(s);
-    for(boost::tokenizer<>::iterator beg=tok.begin(); beg!=tok.end();++beg){
+    boost_cryray::tokenizer<boost_cryray::char_delimiters_separator<char> > tok(s);
+    for(boost_cryray::tokenizer<>::iterator beg=tok.begin(); beg!=tok.end();++beg){
       switch(pos) {
       case 0: {
-        hour = boost::lexical_cast<unsigned short>(*beg);
+        hour = boost_cryray::lexical_cast<unsigned short>(*beg);
         break;
       }
       case 1: {
-        min = boost::lexical_cast<unsigned short>(*beg);
+        min = boost_cryray::lexical_cast<unsigned short>(*beg);
         break;
       }
       case 2: {
-        sec = boost::lexical_cast<unsigned short>(*beg);
+        sec = boost_cryray::lexical_cast<unsigned short>(*beg);
         break;
       };
       case 3: {
@@ -44,7 +44,7 @@ namespace date_time {
 #if (defined(BOOST_MSVC) && (_MSC_VER <= 1200))  // 1200 == VC++ 6.0
         fs = _atoi64(beg->c_str());
 #else
-        fs = boost::lexical_cast<boost::int64_t>(*beg);
+        fs = boost_cryray::lexical_cast<boost_cryray::int64_t>(*beg);
 #endif
         break;
       }
@@ -97,10 +97,10 @@ namespace date_time {
     int offsets[] = {2,2,2};
     int pos = 0;
     short hours, min, sec;
-    boost::offset_separator osf(offsets, offsets+3); 
-    boost::tokenizer<boost::offset_separator> tok(s, osf);
-    for(boost::tokenizer<boost::offset_separator>::iterator ti=tok.begin(); ti!=tok.end();++ti){
-      short i = boost::lexical_cast<int>(*ti);
+    boost_cryray::offset_separator osf(offsets, offsets+3); 
+    boost_cryray::tokenizer<boost_cryray::offset_separator> tok(s, osf);
+    for(boost_cryray::tokenizer<boost_cryray::offset_separator>::iterator ti=tok.begin(); ti!=tok.end();++ti){
+      short i = boost_cryray::lexical_cast<int>(*ti);
       //      std::cout << i << std::endl;
       switch(pos) {
       case 0: hours = i; break;

@@ -10,7 +10,7 @@
 # include <boost/python/detail/dependent.hpp>
 # include <boost/python/detail/raw_pyobject.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 template <class T>
 struct back_reference
@@ -45,11 +45,11 @@ class is_back_reference<back_reference<T> >
 
 # else // no partial specialization
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #include <boost/type.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace detail
 {
@@ -59,7 +59,7 @@ namespace detail
   no_back_reference_t is_back_reference_test(...);
 
   template<typename T>
-  yes_back_reference_t is_back_reference_test(boost::type< back_reference<T> >);
+  yes_back_reference_t is_back_reference_test(boost_cryray::type< back_reference<T> >);
 }
 
 template<typename T>
@@ -68,7 +68,7 @@ class is_back_reference
  public:
     BOOST_STATIC_CONSTANT(
         bool, value = (
-            sizeof(detail::is_back_reference_test(boost::type<T>()))
+            sizeof(detail::is_back_reference_test(boost_cryray::type<T>()))
             == sizeof(detail::yes_back_reference_t)));
 };
 
@@ -96,6 +96,6 @@ T back_reference<T>::get() const
     return m_value;
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // BACK_REFERENCE_DWA2002510_HPP

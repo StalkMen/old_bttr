@@ -8,7 +8,7 @@ namespace secure_messaging
 {
 
 
-class seed_generator : private boost::noncopyable
+class seed_generator : private boost_cryray::noncopyable
 {
 public:
 			seed_generator	();

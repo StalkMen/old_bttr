@@ -22,7 +22,7 @@
 #include "boost/mpl/push_front.hpp"
 #include "boost/mpl/aux_/void_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 BOOST_MPL_AUX_AGLORITHM_NAMESPACE_BEGIN
@@ -48,6 +48,6 @@ BOOST_MPL_AUX_AGLORITHM_NAMESPACE_END
 BOOST_MPL_AUX_ALGORITHM_VOID_SPEC(1, reverse)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_REVERSE_HPP_INCLUDED

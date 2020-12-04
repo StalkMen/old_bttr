@@ -19,7 +19,7 @@
 
 //----------------------------------------------------------------------------//
 
-namespace boost
+namespace boost_cryray
 {
   namespace filesystem
   {
@@ -93,9 +93,9 @@ namespace boost
       bool has_branch_path() const;
 
       // iteration over the names in the path:
-      typedef boost::iterator_adaptor<
+      typedef boost_cryray::iterator_adaptor<
         detail::path_itr_imp,
-        boost::default_iterator_policies,
+        boost_cryray::default_iterator_policies,
         std::string,
         const std::string &,
         const std::string *,
@@ -123,7 +123,7 @@ namespace boost
       std::string  m_path;
 
       friend class directory_iterator;
-      friend struct boost::filesystem::detail::path_itr_imp;
+      friend struct boost_cryray::filesystem::detail::path_itr_imp;
 
       enum source_context { generic, platform, nocheck };
 
@@ -208,6 +208,6 @@ namespace boost
     bool boost_directory_name( const std::string & name );
 
   } // namespace filesystem
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_FILESYSTEM_PATH_HPP

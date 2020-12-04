@@ -19,7 +19,7 @@
 //  See http://www.boost.org/libs/utility/checked_delete.html for documentation.
 //
 
-namespace boost
+namespace boost_cryray
 {
 
 // verify that types are complete for increased safety
@@ -43,7 +43,7 @@ template<class T> struct checked_deleter
 
     void operator()(T * x) const
     {
-        boost::checked_delete(x);
+        boost_cryray::checked_delete(x);
     }
 };
 
@@ -54,10 +54,10 @@ template<class T> struct checked_array_deleter
 
     void operator()(T * x) const
     {
-        boost::checked_array_delete(x);
+        boost_cryray::checked_array_delete(x);
     }
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // #ifndef BOOST_CHECKED_DELETE_HPP_INCLUDED

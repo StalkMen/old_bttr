@@ -15,7 +15,7 @@
 # include <boost/static_assert.hpp>
 # include <boost/type_traits/same_traits.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 // for this compiler at least, cross-shared-library type_info
 // comparisons don't work, so use typeid(x).name() instead. It's not
@@ -51,7 +51,7 @@ struct type_info : private totally_ordered<type_info>
 };
 
 template <class T>
-inline type_info type_id(boost::type<T>* = 0)
+inline type_info type_id(boost_cryray::type<T>* = 0)
 {
     return type_info(
 #  if (!defined(BOOST_MSVC) || BOOST_MSVC > 1300) && (!defined(BOOST_INTEL_CXX_VERSION) || BOOST_INTEL_CXX_VERSION > 700)
@@ -71,7 +71,7 @@ inline type_info type_id(boost::type<T>* = 0)
 
 #   define BOOST_PYTHON_SIGNED_INTEGRAL_TYPE_ID(T)      \
 template <>                                             \
-inline type_info type_id<T>(boost::type<T>*)            \
+inline type_info type_id<T>(boost_cryray::type<T>*)            \
 {                                                       \
     return type_info(typeid(T));                        \
 }
@@ -129,6 +129,6 @@ inline char const* type_info::name() const
 
 BOOST_PYTHON_DECL std::ostream& operator<<(std::ostream&, type_info const&);
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // TYPE_ID_DWA2002517_HPP

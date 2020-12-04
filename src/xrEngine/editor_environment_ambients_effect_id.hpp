@@ -31,7 +31,7 @@ namespace ambients
 
 class effect_id :
     public editor::property_holder_holder,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 public:
     effect_id(effects::manager const& manager, shared_str const& id);

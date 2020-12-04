@@ -37,7 +37,7 @@
 
 
 
-namespace boost {
+namespace boost_cryray {
   namespace detail {
     namespace multi_array {
       struct populate_index_ranges {
@@ -75,18 +75,18 @@ public:
 
   template <std::size_t NDims>
   struct const_array_view {
-    typedef boost::detail::multi_array::const_multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::const_multi_array_view<T,NDims> type;
   };
 
   template <std::size_t NDims>
   struct array_view {
-    typedef boost::detail::multi_array::multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::multi_array_view<T,NDims> type;
   };
 
   template <class ExtentList>
   explicit multi_array(ExtentList const& extents) :
     super_type((T*)initial_base_,extents) {
-    boost::function_requires<
+    boost_cryray::function_requires<
       detail::multi_array::CollectionConcept<ExtentList> >();
     allocate_space();
   }
@@ -95,7 +95,7 @@ public:
   explicit multi_array(ExtentList const& extents,
                        const general_storage_order<NumDims>& so) : 
     super_type((T*)initial_base_,extents,so) {
-    boost::function_requires<
+    boost_cryray::function_requires<
       detail::multi_array::CollectionConcept<ExtentList> >();
     allocate_space();
   }
@@ -105,7 +105,7 @@ public:
                        const general_storage_order<NumDims>& so,
                        Allocator const& alloc) :
     super_type((T*)initial_base_,extents,so), allocator_(alloc) {
-    boost::function_requires<
+    boost_cryray::function_requires<
       detail::multi_array::CollectionConcept<ExtentList> >();
     allocate_space();
   }
@@ -140,7 +140,7 @@ public:
   multi_array(const multi_array& rhs) :
   super_type(rhs), allocator_(rhs.allocator_) {
     allocate_space();
-    boost::copy_n(rhs.base_,rhs.num_elements(),base_);
+    boost_cryray::copy_n(rhs.base_,rhs.num_elements(),base_);
   }
 
   template <typename OPtr>
@@ -188,7 +188,7 @@ public:
     // build a view of tmp with the minimum extents
 
     // Get the minimum extents of the arrays.
-    boost::array<size_type,NumDims> min_extents;
+    boost_cryray::array<size_type,NumDims> min_extents;
 
     const size_type& (*min)(const size_type&, const size_type&) =
       std::min<size_type>;
@@ -198,7 +198,7 @@ public:
                    min);
 
     
-    // typedef boost::array<index,NumDims> index_list;
+    // typedef boost_cryray::array<index,NumDims> index_list;
     // Build index_gen objects to create views with the same shape
 
     // these need to be separate to handle non-zero index bases
@@ -262,8 +262,8 @@ private:
     }
   }    
   
-  typedef boost::array<size_type,NumDims> size_list;
-  typedef boost::array<index,NumDims> index_list;
+  typedef boost_cryray::array<size_type,NumDims> size_list;
+  typedef boost_cryray::array<index,NumDims> index_list;
 
   Allocator allocator_;
   T* base_;
@@ -271,6 +271,6 @@ private:
   enum {initial_base_ = 0};
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MULTI_ARRAY_RG071801_HPP

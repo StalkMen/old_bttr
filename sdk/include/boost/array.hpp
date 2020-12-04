@@ -32,7 +32,7 @@
 // FIXES for broken compilers
 #include <boost/config.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
     template<class T, std::size_t N>
     class array {
@@ -163,7 +163,7 @@ namespace boost {
         x.swap(y);
     }
 
-} /* namespace boost */
+} /* namespace boost_cryray */
 
 #endif /*BOOST_ARRAY_HPP*/
 

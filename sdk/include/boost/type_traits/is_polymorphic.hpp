@@ -12,7 +12,7 @@
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 #include <boost/detail/workaround.hpp>
 
-namespace boost{
+namespace boost_cryray{
 namespace detail{
 
 template <class T>
@@ -73,7 +73,7 @@ struct is_polymorphic_selector<true>
 template <class T>
 struct is_polymorphic_imp
 {
-   typedef is_polymorphic_selector< ::boost::is_class<T>::value> selector;
+   typedef is_polymorphic_selector< ::boost_cryray::is_class<T>::value> selector;
    typedef typename selector::template rebind<T> binder;
    typedef typename binder::type imp_type;
    BOOST_STATIC_CONSTANT(bool, value = imp_type::value);
@@ -81,9 +81,9 @@ struct is_polymorphic_imp
 
 } // namespace detail
 
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_polymorphic,T,::boost::detail::is_polymorphic_imp<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_polymorphic,T,::boost_cryray::detail::is_polymorphic_imp<T>::value)
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

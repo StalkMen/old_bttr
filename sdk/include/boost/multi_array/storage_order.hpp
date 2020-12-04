@@ -22,7 +22,7 @@
 #include <numeric>
 #include <vector>
 
-namespace boost {
+namespace boost_cryray {
 
   // RG - This is to make things work with VC++. So sad, so sad.
   class c_storage_order; 
@@ -36,8 +36,8 @@ namespace boost {
     template <typename OrderingIter, typename AscendingIter>
     general_storage_order(OrderingIter ordering,
                           AscendingIter ascending) {
-      boost::copy_n(ordering,NumDims,ordering_.begin());
-      boost::copy_n(ascending,NumDims,ascending_.begin());
+      boost_cryray::copy_n(ordering,NumDims,ordering_.begin());
+      boost_cryray::copy_n(ascending,NumDims,ascending_.begin());
     }
 
     // RG - ideally these would not be necessary, but some compilers
@@ -72,8 +72,8 @@ namespace boost {
     }
 
   protected:
-    boost::array<size_type,NumDims> ordering_;
-    boost::array<bool,NumDims> ascending_;
+    boost_cryray::array<size_type,NumDims> ordering_;
+    boost_cryray::array<bool,NumDims> ascending_;
   };
 
   class c_storage_order 
@@ -85,8 +85,8 @@ namespace boost {
 #ifndef __MWERKS__ // Metrowerks screams "ambiguity!"
     template <std::size_t NumDims>
     operator general_storage_order<NumDims>() const {
-      boost::array<size_type,NumDims> ordering;
-      boost::array<bool,NumDims> ascending;
+      boost_cryray::array<size_type,NumDims> ordering;
+      boost_cryray::array<bool,NumDims> ascending;
 
       for (size_type i=0; i != NumDims; ++i) {
         ordering[i] = NumDims - 1 - i;
@@ -107,8 +107,8 @@ namespace boost {
 #ifndef __MWERKS__ // Metrowerks screams "ambiguity!"
     template <std::size_t NumDims>
     operator general_storage_order<NumDims>() const {
-      boost::array<size_type,NumDims> ordering;
-      boost::array<bool,NumDims> ascending;
+      boost_cryray::array<size_type,NumDims> ordering;
+      boost_cryray::array<bool,NumDims> ascending;
 
       for (size_type i=0; i != NumDims; ++i) {
         ordering[i] = i;
@@ -120,6 +120,6 @@ namespace boost {
 #endif
   };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_ARRAY_STORAGE_RG071801_HPP

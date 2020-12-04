@@ -23,7 +23,7 @@
 #include "boost/mpl/aux_/config/ctps.hpp"
 #include "boost/mpl/aux_/config/nttp.hpp"
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 #if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION)
 
@@ -60,6 +60,6 @@ struct is_placeholder
 
 #endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #endif // BOOST_MPL_IS_PLACEHOLDER_HPP_INCLUDED

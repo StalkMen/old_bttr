@@ -32,22 +32,22 @@
 
 #   define BOOST_MPL_HAS_XXX_TRAIT_NAMED_DEF(trait, name, unused) \
 template< typename T > \
-boost::mpl::aux::yes_tag \
+boost_cryray::mpl::aux::yes_tag \
 trait##_helper( \
-      boost::mpl::aux::type_wrapper<T> const volatile* \
-    , boost::mpl::aux::type_wrapper<BOOST_MSVC_TYPENAME T::name>* = 0 \
+      boost_cryray::mpl::aux::type_wrapper<T> const volatile* \
+    , boost_cryray::mpl::aux::type_wrapper<BOOST_MSVC_TYPENAME T::name>* = 0 \
     ); \
 \
-boost::mpl::aux::no_tag \
+boost_cryray::mpl::aux::no_tag \
 trait##_helper(...); \
 \
 template< typename T > \
 struct trait \
 { \
-    typedef boost::mpl::aux::type_wrapper<T> t_; \
+    typedef boost_cryray::mpl::aux::type_wrapper<T> t_; \
     BOOST_STATIC_CONSTANT(bool, value = \
           sizeof((trait##_helper)(static_cast<t_*>(0))) \
-            == sizeof(boost::mpl::aux::yes_tag) \
+            == sizeof(boost_cryray::mpl::aux::yes_tag) \
         ); \
 }; \
 /**/
@@ -65,7 +65,7 @@ struct trait \
 
 // Modified dwa 8/Oct/02 to handle reference types.
 
-namespace boost { namespace mpl { namespace aux {
+namespace boost_cryray { namespace mpl { namespace aux {
 
 struct has_xxx_tag;
 
@@ -87,24 +87,24 @@ struct msvc_is_incomplete<int>
 }}}
 
 #   define BOOST_MPL_HAS_XXX_TRAIT_NAMED_DEF_(trait, name, unused) \
-template< typename T, typename name = ::boost::mpl::aux::has_xxx_tag > \
+template< typename T, typename name = ::boost_cryray::mpl::aux::has_xxx_tag > \
 struct BOOST_PP_CAT(trait,_impl) : T \
 { \
  private: \
-    static boost::mpl::aux::no_tag test(void(*)(::boost::mpl::aux::has_xxx_tag)); \
-    static boost::mpl::aux::yes_tag test(...); \
+    static boost_cryray::mpl::aux::no_tag test(void(*)(::boost_cryray::mpl::aux::has_xxx_tag)); \
+    static boost_cryray::mpl::aux::yes_tag test(...); \
 \
  public: \
     BOOST_STATIC_CONSTANT(bool, value =  \
         sizeof(test(static_cast<void(*)(name)>(0))) \
-            != sizeof(boost::mpl::aux::no_tag) \
+            != sizeof(boost_cryray::mpl::aux::no_tag) \
         ); \
 }; \
 \
 template< typename T > struct trait \
-    : boost::mpl::if_c< \
-          boost::mpl::aux::msvc_is_incomplete<T>::value \
-        , boost::mpl::bool_<false> \
+    : boost_cryray::mpl::if_c< \
+          boost_cryray::mpl::aux::msvc_is_incomplete<T>::value \
+        , boost_cryray::mpl::bool_<false> \
         , BOOST_PP_CAT(trait,_impl)<T> \
         >::type \
 { \

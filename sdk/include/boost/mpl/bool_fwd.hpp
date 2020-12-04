@@ -18,7 +18,7 @@
 //
 // See http://www.boost.org/libs/mpl for documentation.
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 template< bool C_ > struct bool_;
 

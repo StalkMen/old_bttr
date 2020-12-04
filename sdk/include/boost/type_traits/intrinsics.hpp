@@ -34,11 +34,11 @@
     // specializations as well as SGI - compiler supplied specializations.
 #   include "boost/type_traits/is_same.hpp"
 #   include <type_traits.h>
-#   define BOOST_IS_POD(T) ::boost::is_same< typename ::__type_traits<T>::is_POD_type, ::__true_type>::value
-#   define BOOST_HAS_TRIVIAL_CONSTRUCTOR(T) ::boost::is_same< typename ::__type_traits<T>::has_trivial_default_constructor, ::__true_type>::value
-#   define BOOST_HAS_TRIVIAL_COPY(T) ::boost::is_same< typename ::__type_traits<T>::has_trivial_copy_constructor, ::__true_type>::value
-#   define BOOST_HAS_TRIVIAL_ASSIGN(T) ::boost::is_same< typename ::__type_traits<T>::has_trivial_assignment_operator, ::__true_type>::value
-#   define BOOST_HAS_TRIVIAL_DESTRUCTOR(T) ::boost::is_same< typename ::__type_traits<T>::has_trivial_destructor, ::__true_type>::value
+#   define BOOST_IS_POD(T) ::boost_cryray::is_same< typename ::__type_traits<T>::is_POD_type, ::__true_type>::value
+#   define BOOST_HAS_TRIVIAL_CONSTRUCTOR(T) ::boost_cryray::is_same< typename ::__type_traits<T>::has_trivial_default_constructor, ::__true_type>::value
+#   define BOOST_HAS_TRIVIAL_COPY(T) ::boost_cryray::is_same< typename ::__type_traits<T>::has_trivial_copy_constructor, ::__true_type>::value
+#   define BOOST_HAS_TRIVIAL_ASSIGN(T) ::boost_cryray::is_same< typename ::__type_traits<T>::has_trivial_assignment_operator, ::__true_type>::value
+#   define BOOST_HAS_TRIVIAL_DESTRUCTOR(T) ::boost_cryray::is_same< typename ::__type_traits<T>::has_trivial_destructor, ::__true_type>::value
 #endif
 
 #if defined(__MSL_CPP__) && (__MSL_CPP__ >= 0x8000)

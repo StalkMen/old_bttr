@@ -8,13 +8,13 @@
 # include <boost/python/detail/wrap_python.hpp>
 # include <boost/static_assert.hpp>
 
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 // The type of stored function pointers which actually do conversion
 // by-value. The void* points to the object to be converted, and
 // type-safety is preserved through runtime registration.
 typedef PyObject* (*to_python_function_t)(void const*);
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // TO_PYTHON_FUNCTION_TYPE_DWA200236_HPP

@@ -22,7 +22,7 @@
 #  include <boost/preprocessor/repetition/enum_trailing_params.hpp>
 #  include <boost/preprocessor/repetition/enum_binary_params.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 # define BOOST_PYTHON_FAST_ARG_TO_PYTHON_GET(z, n, _) \
     , converter::arg_to_python<A##n>(a##n).get()
@@ -32,7 +32,7 @@ namespace boost { namespace python {
 
 # undef BOOST_PYTHON_FAST_ARG_TO_PYTHON_GET
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 # endif // CALL_METHOD_DWA2002411_HPP
 
@@ -48,7 +48,7 @@ template <
 typename detail::returnable<R>::type
 call_method(PyObject* self, char const* name
     BOOST_PP_COMMA_IF(N) BOOST_PP_ENUM_BINARY_PARAMS_Z(1, N, A, const& a)
-    , boost::type<R>* = 0
+    , boost_cryray::type<R>* = 0
     )
 {
     converter::return_from_python<R> converter;

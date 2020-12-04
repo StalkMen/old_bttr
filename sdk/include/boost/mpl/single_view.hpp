@@ -21,7 +21,7 @@
 #include "boost/mpl/iterator_range.hpp"
 #include "boost/mpl/aux_/void_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -38,6 +38,6 @@ struct single_view
 BOOST_MPL_AUX_VOID_SPEC(1, single_view)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_SINGLE_VIEW_HPP_INCLUDED

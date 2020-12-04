@@ -17,13 +17,13 @@
 #ifndef BOOST_MPL_ERASE_FWD_HPP_INCLUDED
 #define BOOST_MPL_ERASE_FWD_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename Tag > struct erase_traits;
 template< typename Sequence, typename First, typename Last > struct erase;
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_ERASE_FWD_HPP_INCLUDED

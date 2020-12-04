@@ -29,7 +29,7 @@ struct loophole_data {
 class cover : 
 	public  CCoverPoint,
 	private debug::make_final<cover>, 
-	private boost::noncopyable 
+	private boost_cryray::noncopyable 
 {
 public:
 	typedef intrusive_ptr<

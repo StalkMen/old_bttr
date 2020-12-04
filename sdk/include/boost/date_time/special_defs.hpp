@@ -5,7 +5,7 @@
  * Author: Jeff Garland 
  */
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
     enum special_values {not_a_date_time, 

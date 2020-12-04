@@ -28,7 +28,7 @@
 #include <boost/random/detail/iterator_mixin.hpp>
 #include <boost/random/detail/signed_unsigned_compare.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 // a model for RandomNumberGenerator std:25.2.11 [lib.alg.random.shuffle]
 template<class UniformRandomNumberGenerator, class IntType = long>
@@ -57,6 +57,6 @@ private:
   base_type & _rng;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_RANDOM_NUMBER_GENERATOR_HPP

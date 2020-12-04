@@ -24,7 +24,7 @@
 //  See http://www.boost.org/libs/bind/ref.html for documentation.
 //
 
-namespace boost
+namespace boost_cryray
 {
 
 template<class T> class reference_wrapper
@@ -99,11 +99,11 @@ class unwrap_reference<reference_wrapper<T> >
 };
 # else // no partial specialization
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include <boost/type.hpp>
 
-namespace boost
+namespace boost_cryray
 {
 
 namespace detail
@@ -146,7 +146,7 @@ class is_reference_wrapper
              sizeof(detail::is_reference_wrapper_test(type<T>()))
             == sizeof(detail::yes_reference_wrapper_t)));
     
-    typedef ::boost::mpl::bool_<value> type;
+    typedef ::boost_cryray::mpl::bool_<value> type;
 };
 
 template <typename T>
@@ -158,6 +158,6 @@ class unwrap_reference
 
 # endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // #ifndef BOOST_REF_HPP_INCLUDED

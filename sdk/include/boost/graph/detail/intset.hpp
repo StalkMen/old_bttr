@@ -10,7 +10,7 @@ Warning: Remote host denied X11 forwarding, perhaps xauth program could not be r
 
 // UNDER CONSTRUCTION
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -46,7 +46,7 @@ namespace boost {
       
       bool test(size_type pos) const {
         BOOST_ASSERT_THROW
-          (pos < size(), std::out_of_range("boost::intset::test(pos)"));
+          (pos < size(), std::out_of_range("boost_cryray::intset::test(pos)"));
         if (m_index[pos] < m_next && m_index[x] >= 0)
           if (m_value[index[x]] == x)
             return true;
@@ -56,7 +56,7 @@ namespace boost {
       self& set(size_type pos, int val = true)
       {
         BOOST_ASSERT_THROW
-          (pos < size(), std::out_of_range("boost::intset::set(pos,val)"));
+          (pos < size(), std::out_of_range("boost_cryray::intset::set(pos,val)"));
         if (!test(pos)) {
           ++m_next;
           m_value[m_next] = pos;
@@ -67,7 +67,7 @@ namespace boost {
 
       self& reset(size_type pos) {
         BOOST_ASSERT_THROW
-          (pos < size(), std::out_of_range("boost::intset::reset(pos)"));
+          (pos < size(), std::out_of_range("boost_cryray::intset::reset(pos)"));
         if (test(pos)) {
           m_value[m_index[pos]] = m_value[m_next];
           m_index[m_value[m_next]] = m_index[x];
@@ -90,4 +90,4 @@ namespace boost {
 
   } // namespace detail 
 
-} // namespace boost
+} // namespace boost_cryray

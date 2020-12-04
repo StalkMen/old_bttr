@@ -19,7 +19,7 @@
 #include "boost/config.hpp"
 #include <cstddef>
 
-namespace boost {
+namespace boost_cryray {
 namespace detail {
 namespace multi_array{
 
@@ -29,7 +29,7 @@ typedef int index;
 
 } // namespace multi_array
 } // namespace detail
-} // namespace boost
+} // namespace boost_cryray
   
 
 

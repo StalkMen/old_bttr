@@ -17,7 +17,7 @@
 #ifndef BOOST_LAMBDA_SELECT_FUNCTIONS_HPP
 #define BOOST_LAMBDA_SELECT_FUNCTIONS_HPP
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 namespace detail {
 
@@ -74,6 +74,6 @@ template<class RET> struct r_select {
    
 } // namespace detail
 } // namespace lambda
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

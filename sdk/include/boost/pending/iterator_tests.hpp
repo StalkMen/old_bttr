@@ -21,7 +21,7 @@
 # include <boost/static_assert.hpp>
 # include <boost/concept_archetype.hpp> // for detail::dummy_constructor
 
-namespace boost {
+namespace boost_cryray {
 
   // use this for the value type
 struct dummyT { 
@@ -128,9 +128,9 @@ template <bool is_pointer> struct lvalue_test
         typedef typename Iterator::reference reference;
         typedef typename Iterator::value_type value_type;
 # endif
-        BOOST_STATIC_ASSERT(boost::is_reference<reference>::value);
-        BOOST_STATIC_ASSERT((boost::is_same<reference,value_type&>::value
-                             || boost::is_same<reference,const value_type&>::value
+        BOOST_STATIC_ASSERT(boost_cryray::is_reference<reference>::value);
+        BOOST_STATIC_ASSERT((boost_cryray::is_same<reference,value_type&>::value
+                             || boost_cryray::is_same<reference,const value_type&>::value
             ));
     }
 };
@@ -165,7 +165,7 @@ void forward_iterator_test(Iterator i, T v1, T v2)
 
  // borland doesn't allow non-type template parameters
 # if !defined(__BORLANDC__) || (__BORLANDC__ > 0x551)
-  lvalue_test<(boost::is_pointer<Iterator>::value)>::check(i);
+  lvalue_test<(boost_cryray::is_pointer<Iterator>::value)>::check(i);
 #endif
 }
 
@@ -248,6 +248,6 @@ void const_nonconst_iterator_test(Iterator i, ConstIterator j)
   assert(i == k);
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_ITERATOR_TESTS_HPP

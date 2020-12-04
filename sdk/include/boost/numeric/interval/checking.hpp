@@ -20,7 +20,7 @@
 #include <cassert>
 #include <boost/limits.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 namespace interval_lib {
 
@@ -28,7 +28,7 @@ struct exception_create_empty
 {
   void operator()()
   {
-    throw std::runtime_error("boost::interval: empty interval created");
+    throw std::runtime_error("boost_cryray::interval: empty interval created");
   }
 };
 
@@ -36,7 +36,7 @@ struct exception_invalid_number
 {
   void operator()()
   {
-    throw std::invalid_argument("boost::interval: invalid number");
+    throw std::invalid_argument("boost_cryray::interval: invalid number");
   }
 };
 
@@ -131,6 +131,6 @@ template <class T> inline bool is_nan(const T& x) { return x != x; }
 
 } // namespace interval
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_CHECKING_HPP

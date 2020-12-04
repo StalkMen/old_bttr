@@ -23,7 +23,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/bool_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
@@ -37,9 +37,9 @@ BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC1_2(typename T,std::size_t N,is_array,T cons
 
 namespace detail {
 
-using ::boost::type_traits::yes_type;
-using ::boost::type_traits::no_type;
-using ::boost::type_traits::wrap;
+using ::boost_cryray::type_traits::yes_type;
+using ::boost_cryray::type_traits::no_type;
+using ::boost_cryray::type_traits::wrap;
 
 template< typename T > T(* is_array_tester1(wrap<T>) )(wrap<T>);
 char BOOST_TT_DECL is_array_tester1(...);
@@ -51,9 +51,9 @@ template< typename T >
 struct is_array_impl
 { 
     BOOST_STATIC_CONSTANT(bool, value = 
-        sizeof(::boost::detail::is_array_tester2(
-            ::boost::detail::is_array_tester1(
-                ::boost::type_traits::wrap<T>()
+        sizeof(::boost_cryray::detail::is_array_tester2(
+            ::boost_cryray::detail::is_array_tester1(
+                ::boost_cryray::type_traits::wrap<T>()
                 )
         )) == 1
     );
@@ -68,11 +68,11 @@ BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC1(is_array,void const volatile,false)
 
 } // namespace detail
 
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_array,T,::boost::detail::is_array_impl<T>::value)
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_array,T,::boost_cryray::detail::is_array_impl<T>::value)
 
 #endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/bool_trait_undef.hpp"
 

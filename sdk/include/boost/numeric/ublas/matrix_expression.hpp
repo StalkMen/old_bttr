@@ -24,7 +24,7 @@
 // Expression templates based on ideas of Todd Veldhuizen and Geoffrey Furnish
 // Iterators based on ideas of Jeremy Siek
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     // Base class for the Barton Nackman trick
     template<class E>
@@ -308,20 +308,20 @@ namespace boost { namespace numeric { namespace ublas {
         typedef typename E::iterator2 iterator2_type;
 #else
         typedef typename E::const_reference const_reference;
-        typedef typename boost::mpl::if_c<boost::is_const<E>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<E>::value,
                                           typename E::const_reference,
                                           typename E::reference>::type reference;
         typedef typename E::const_pointer const_pointer;
-        typedef typename boost::mpl::if_c<boost::is_const<E>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<E>::value,
                                           typename E::const_pointer,
                                           typename E::pointer>::type pointer;
         typedef typename E::orientation_category orientation_category;
         typedef typename E::const_iterator1 const_iterator1_type;
-        typedef typename boost::mpl::if_c<boost::is_const<E>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<E>::value,
                                           typename E::const_iterator1,
                                           typename E::iterator1>::type iterator1_type;
         typedef typename E::const_iterator2 const_iterator2_type;
-        typedef typename boost::mpl::if_c<boost::is_const<E>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<E>::value,
                                           typename E::const_iterator2,
                                           typename E::iterator2>::type iterator2_type;
 #endif

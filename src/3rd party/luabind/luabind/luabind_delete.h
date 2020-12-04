@@ -44,7 +44,7 @@ namespace luabind {
 
 		delete_helper<
 			T,
-			boost::is_polymorphic<T>::value
+			boost_cryray::is_polymorphic<T>::value
 		>::apply					(
 			pointer
 		);

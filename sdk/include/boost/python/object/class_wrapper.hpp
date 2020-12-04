@@ -9,7 +9,7 @@
 # include <boost/python/to_python_converter.hpp>
 # include <boost/ref.hpp>
 
-namespace boost { namespace python { namespace objects { 
+namespace boost_cryray { namespace python { namespace objects { 
 
 //
 // These two classes adapt the static execute function of a class
@@ -24,7 +24,7 @@ struct class_cref_wrapper
 {
     static PyObject* convert(Src const& x)
     {
-        return MakeInstance::execute(boost::ref(x));
+        return MakeInstance::execute(boost_cryray::ref(x));
     }
 };
 
@@ -38,6 +38,6 @@ struct class_value_wrapper
     }
 };
 
-}}} // namespace boost::python::objects
+}}} // namespace boost_cryray::python::objects
 
 #endif // CLASS_WRAPPER_DWA20011221_HPP

@@ -23,7 +23,7 @@ namespace suns
 
 class flare :
     public editor::property_holder_holder,
-    private boost::noncopyable
+    private boost_cryray::noncopyable
 {
 public:
     flare();

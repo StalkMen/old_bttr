@@ -26,7 +26,7 @@
 #include <boost/python/object/add_to_namespace.hpp>
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 struct module;
 
@@ -226,7 +226,7 @@ namespace detail
         typedef typename OverloadsT::non_void_return_type non_void_return_type;
 
         typedef typename mpl::if_c<
-            boost::is_same<void, return_type>::value
+            boost_cryray::is_same<void, return_type>::value
             , void_return_type
             , non_void_return_type
         >::type stubs_type;
@@ -246,7 +246,7 @@ namespace detail
 
 } // namespace detail
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 ///////////////////////////////////////////////////////////////////////////////
 #endif // DEFAULTS_DEF_JDG20020811_HPP

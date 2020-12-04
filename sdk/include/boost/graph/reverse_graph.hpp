@@ -11,7 +11,7 @@
 #include <boost/graph/properties.hpp>
 #include <boost/tuple/tuple.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 struct reverse_graph_tag { };
 
@@ -267,6 +267,6 @@ put(Property p, const reverse_graph<BidirectionalGraph,GRef>& g, const Key& k,
 }
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

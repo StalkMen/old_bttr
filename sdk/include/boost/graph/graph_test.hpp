@@ -35,7 +35,7 @@
 
 // UNDER CONSTRUCTION 
 
-namespace boost {
+namespace boost_cryray {
 
   template <typename Graph>
   struct graph_test
@@ -344,10 +344,10 @@ namespace boost {
       const_Map pmap = get(PropertyTag(), g);
       typename std::vector<PropVal>::const_iterator i = vertex_prop.begin();
 
-  for (typename boost::graph_traits<Graph>::vertex_iterator 
+  for (typename boost_cryray::graph_traits<Graph>::vertex_iterator 
            bgl_first_9 = vertices(g).first, bgl_last_9 = vertices(g).second;
        bgl_first_9 != bgl_last_9; bgl_first_9 = bgl_last_9)
-    for (typename boost::graph_traits<Graph>::vertex_descriptor v;
+    for (typename boost_cryray::graph_traits<Graph>::vertex_descriptor v;
          bgl_first_9 != bgl_last ? (v = *bgl_first_9, true) : false;
          ++bgl_first_9) {
       //BGL_FORALL_VERTICES_T(v, g, Graph) {
@@ -365,10 +365,10 @@ namespace boost {
       typedef typename property_map<Graph, PropertyTag>::type PMap;
       PMap pmap = get(PropertyTag(), g);
       typename std::vector<PropVal>::const_iterator i = vertex_prop.begin();
-  for (typename boost::graph_traits<Graph>::vertex_iterator 
+  for (typename boost_cryray::graph_traits<Graph>::vertex_iterator 
            bgl_first_9 = vertices(g).first, bgl_last_9 = vertices(g).second;
        bgl_first_9 != bgl_last_9; bgl_first_9 = bgl_last_9)
-    for (typename boost::graph_traits<Graph>::vertex_descriptor v;
+    for (typename boost_cryray::graph_traits<Graph>::vertex_descriptor v;
          bgl_first_9 != bgl_last ? (v = *bgl_first_9, true) : false;
          ++bgl_first_9)
       //      BGL_FORALL_VERTICES_T(v, g, Graph)
@@ -390,7 +390,7 @@ namespace boost {
   };
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include <boost/graph/iteration_macros_undef.hpp>
 

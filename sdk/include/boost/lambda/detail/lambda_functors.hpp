@@ -18,7 +18,7 @@
 #ifndef BOOST_LAMBDA_LAMBDA_FUNCTORS_HPP
 #define BOOST_LAMBDA_LAMBDA_FUNCTORS_HPP
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
 // -- lambda_functor --------------------------------------------
@@ -62,7 +62,7 @@ template<> struct placeholder<FIRST> {
 
   template<class RET, CALL_TEMPLATE_ARGS> 
   RET call(CALL_FORMAL_ARGS) const { 
-    BOOST_STATIC_ASSERT(boost::is_reference<RET>::value); 
+    BOOST_STATIC_ASSERT(boost_cryray::is_reference<RET>::value); 
     CALL_USE_ARGS; // does nothing, prevents warnings for unused args
     return a; 
   }
@@ -182,35 +182,35 @@ public:
   template<class A>
   const lambda_functor<lambda_functor_base<
                   other_action<assignment_action>,
-                  boost::tuple<lambda_functor,
+                  boost_cryray::tuple<lambda_functor,
                   typename const_copy_argument <const A>::type> > >
   operator=(const A& a) const {
     return lambda_functor_base<
                   other_action<assignment_action>,
-                  boost::tuple<lambda_functor,
+                  boost_cryray::tuple<lambda_functor,
                   typename const_copy_argument <const A>::type> >
-     (  boost::tuple<lambda_functor,
+     (  boost_cryray::tuple<lambda_functor,
              typename const_copy_argument <const A>::type>(*this, a) );
   }
 
   template<class A> 
   const lambda_functor<lambda_functor_base< 
                   other_action<subscript_action>, 
-                  boost::tuple<lambda_functor, 
+                  boost_cryray::tuple<lambda_functor, 
                         typename const_copy_argument <const A>::type> > > 
   operator[](const A& a) const { 
     return lambda_functor_base< 
                   other_action<subscript_action>, 
-                  boost::tuple<lambda_functor, 
+                  boost_cryray::tuple<lambda_functor, 
                         typename const_copy_argument <const A>::type> >
-     ( boost::tuple<lambda_functor, 
+     ( boost_cryray::tuple<lambda_functor, 
              typename const_copy_argument <const A>::type>(*this, a ) ); 
   } 
 };
 
 
 } // namespace lambda
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

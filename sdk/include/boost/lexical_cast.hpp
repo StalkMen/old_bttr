@@ -38,7 +38,7 @@
 #include <cwchar>
 #endif
 
-namespace boost
+namespace boost_cryray
 {
     // exception used to indicate runtime lexical_cast failure
     class bad_lexical_cast : public std::bad_cast

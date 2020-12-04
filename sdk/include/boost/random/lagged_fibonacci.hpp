@@ -30,7 +30,7 @@
 #include <boost/random/linear_congruential.hpp>
 #include <boost/random/uniform_01.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace random {
 
 #  if BOOST_WORKAROUND(_MSC_FULL_VER, BOOST_TESTED_AT(13102292) && BOOST_MSVC > 1300)
@@ -447,6 +447,6 @@ typedef random::lagged_fibonacci_01<double, 48, 44497, 21034> lagged_fibonacci44
 // to help the compiler generate efficient code.  For GCC, this seems useless,
 // because GCC optimizes (x-0)/(1-0) to (x-0).  This is good enough for now.
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_LAGGED_FIBONACCI_HPP

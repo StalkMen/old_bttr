@@ -13,7 +13,7 @@
 #include "boost/date_time/dst_rules.hpp"
 #include <stdexcept>
 
-namespace boost {
+namespace boost_cryray {
   namespace date_time {
 
 

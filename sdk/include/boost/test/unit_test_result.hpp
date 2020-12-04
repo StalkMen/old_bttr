@@ -27,7 +27,7 @@
 #include <iosfwd>                       // std::ostream
 #include <string>                       // std::string
 #include <cstddef>                      // std::size_t
-namespace boost {
+namespace boost_cryray {
 
 namespace unit_test_framework {
 
@@ -84,7 +84,7 @@ private:
    
     // Data members
     struct Impl;
-    boost::shared_ptr<Impl> m_pimpl;
+    boost_cryray::shared_ptr<Impl> m_pimpl;
 };
 
 // ************************************************************************** //
@@ -99,7 +99,7 @@ struct unit_test_result_saver
 
 } // namespace unit_test_framework
 
-} // namespace boost
+} // namespace boost_cryray
 
 // ***************************************************************************
 //  Revision History :

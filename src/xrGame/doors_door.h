@@ -16,7 +16,7 @@ namespace doors {
 class actor;
 enum door_state;
 
-class door : private boost::noncopyable {
+class door : private boost_cryray::noncopyable {
 public:
 						door				( CPhysicObject* object );
 						~door				( );

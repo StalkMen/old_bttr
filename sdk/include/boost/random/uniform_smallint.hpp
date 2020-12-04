@@ -33,7 +33,7 @@
 #endif
 
 
-namespace boost {
+namespace boost_cryray {
 
 // uniform integer distribution on a small range [min, max]
 
@@ -189,9 +189,9 @@ private:
 #ifndef BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS
   typedef typename detail::uniform_smallint<std::numeric_limits<typename UniformRandomNumberGenerator::result_type>::is_integer>::BOOST_NESTED_TEMPLATE impl<UniformRandomNumberGenerator, IntType>::type impl_type;
 #elif BOOST_WORKAROUND( __BORLANDC__, BOOST_TESTED_AT(0x0570) )
-  typedef typename detail::uniform_smallint< boost::is_float<typename UniformRandomNumberGenerator::result_type>::value == false >::BOOST_NESTED_TEMPLATE impl<UniformRandomNumberGenerator, IntType>::type impl_type;
+  typedef typename detail::uniform_smallint< boost_cryray::is_float<typename UniformRandomNumberGenerator::result_type>::value == false >::BOOST_NESTED_TEMPLATE impl<UniformRandomNumberGenerator, IntType>::type impl_type;
 #else
-  BOOST_STATIC_CONSTANT(bool, base_float = (boost::is_float<typename UniformRandomNumberGenerator::result_type>::value == false));
+  BOOST_STATIC_CONSTANT(bool, base_float = (boost_cryray::is_float<typename UniformRandomNumberGenerator::result_type>::value == false));
   typedef typename detail::uniform_smallint<base_float>::BOOST_NESTED_TEMPLATE impl<UniformRandomNumberGenerator, IntType>::type impl_type;
 #endif
 
@@ -263,6 +263,6 @@ template<class UniformRandomNumberGenerator, class IntType>
 const bool uniform_smallint<UniformRandomNumberGenerator, IntType>::has_fixed_range;
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_UNIFORM_SMALLINT_HPP

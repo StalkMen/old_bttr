@@ -16,11 +16,11 @@
 #include <boost/limits.hpp>  // for std::numeric_limits
 
 #ifdef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
-#include <boost/pending/ct_if.hpp>  // for boost::ct_if<>
+#include <boost/pending/ct_if.hpp>  // for boost_cryray::ct_if<>
 #endif
 
 
-namespace boost
+namespace boost_cryray
 {
 
 
@@ -76,7 +76,7 @@ private:
 public:
     BOOST_STATIC_CONSTANT( int, value = next_step_type::value );
 
-};  // boost::detail::static_log2_helper_t
+};  // boost_cryray::detail::static_log2_helper_t
 
 // Non-recursive case
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
@@ -87,7 +87,7 @@ struct static_log2_helper_t< Val, Place, 1 >
 public:
     BOOST_STATIC_CONSTANT( int, value = Place );
 
-};  // boost::detail::static_log2_helper_t
+};  // boost_cryray::detail::static_log2_helper_t
 
 #else
 
@@ -97,7 +97,7 @@ struct static_log2_helper_final_step
 public:
     BOOST_STATIC_CONSTANT( int, value = Place );
 
-};  // boost::detail::static_log2_helper_final_step
+};  // boost_cryray::detail::static_log2_helper_final_step
 
 template < unsigned long Val, int Place, int Index >
 struct static_log2_helper_nopts_t
@@ -112,7 +112,7 @@ private:
 public:
     BOOST_STATIC_CONSTANT( int, value = next_step_type::value );
 
-};  // boost::detail::static_log2_helper_nopts_t
+};  // boost_cryray::detail::static_log2_helper_nopts_t
 
 #endif
 
@@ -135,7 +135,7 @@ struct static_log2< 0ul >
 };
 
 
-}  // namespace boost
+}  // namespace boost_cryray
 
 
 #endif  // BOOST_INTEGER_STATIC_LOG2_HPP

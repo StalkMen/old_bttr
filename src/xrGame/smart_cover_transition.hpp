@@ -21,7 +21,7 @@ class animation_action;
 
 class action :
 	private debug::make_final<action>,
-	private boost::noncopyable 
+	private boost_cryray::noncopyable 
 {
 
 public:

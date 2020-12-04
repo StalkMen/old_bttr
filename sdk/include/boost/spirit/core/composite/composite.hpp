@@ -15,7 +15,7 @@
 #include "boost/spirit/core/composite/impl/composite.ipp"
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
@@ -146,6 +146,6 @@ namespace boost { namespace spirit {
         { return right_base_t::right(); }
     };
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif

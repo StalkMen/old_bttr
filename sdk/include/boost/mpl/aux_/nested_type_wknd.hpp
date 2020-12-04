@@ -23,7 +23,7 @@
     || !defined(BOOST_STRICT_CONFIG)) \
  || defined(__BORLANDC__) && (__BORLANDC__ <= 0x561 || !defined(BOOST_STRICT_CONFIG))
 
-namespace boost { namespace mpl { namespace aux {
+namespace boost_cryray { namespace mpl { namespace aux {
 
 template< typename T >
 struct nested_type_wknd
@@ -31,9 +31,9 @@ struct nested_type_wknd
 {
 };
 
-}}} // namespace boost::mpl::aux
+}}} // namespace boost_cryray::mpl::aux
 
-#   define BOOST_MPL_AUX_NESTED_TYPE_WKND(T) ::boost::mpl::aux::nested_type_wknd<T>
+#   define BOOST_MPL_AUX_NESTED_TYPE_WKND(T) ::boost_cryray::mpl::aux::nested_type_wknd<T>
 
 #else
 

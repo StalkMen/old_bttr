@@ -33,9 +33,9 @@
 #include <boost/signals/signal10.hpp>
 #include <boost/function.hpp>
 
-namespace boost {
+namespace boost_cryray {
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
-  namespace BOOST_SIGNALS_NAMESPACE {
+  namespace boost_cryray_SIGNALS_NAMESPACE {
     namespace detail {
       template<int Arity, 
                typename Signature, 
@@ -314,7 +314,7 @@ namespace boost {
       };
 
     } // end namespace detail
-  } // end namespace BOOST_SIGNALS_NAMESPACE
+  } // end namespace boost_cryray_SIGNALS_NAMESPACE
 
   // Very lightweight wrapper around the signalN classes that allows signals to
   // be created where the number of arguments does not need to be part of the
@@ -349,6 +349,6 @@ namespace boost {
   };
 #endif // ndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-} // end namespace boost
+} // end namespace boost_cryray
 
 #endif // BOOST_SIGNAL_HPP

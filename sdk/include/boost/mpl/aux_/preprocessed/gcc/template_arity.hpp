@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/aux_/template_arity.hpp' header
 // see the original for copyright information
 
-namespace boost { namespace mpl { namespace aux {
+namespace boost_cryray { namespace mpl { namespace aux {
 
 template< int N > struct arity_tag
 {
@@ -78,5 +78,5 @@ struct template_arity
         ;
 };
 
-}}} // namespace boost::mpl::aux
+}}} // namespace boost_cryray::mpl::aux
 

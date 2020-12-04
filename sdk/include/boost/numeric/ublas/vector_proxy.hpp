@@ -22,7 +22,7 @@
 
 // Iterators based on ideas of Jeremy Siek
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     // Vector based range class
     template<class V>
@@ -44,18 +44,18 @@ namespace boost { namespace numeric { namespace ublas {
         typedef typename V::pointer pointer;
 #else
         typedef typename V::const_reference const_reference;
-        typedef typename boost::mpl::if_c<boost::is_const<V>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<V>::value,
                                           typename V::const_reference,
                                           typename V::reference>::type reference;
         typedef typename V::const_pointer const_pointer;
-        typedef typename boost::mpl::if_c<boost::is_const<V>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<V>::value,
                                           typename V::const_pointer,
                                           typename V::pointer>::type pointer;
 #endif
 #ifndef BOOST_UBLAS_CT_PROXY_CLOSURE_TYPEDEFS
         typedef typename V::closure_type vector_closure_type;
 #else
-        typedef typename boost::mpl::if_c<boost::is_const<V>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<V>::value,
                                           typename V::const_closure_type,
                                           typename V::closure_type>::type vector_closure_type;
 #endif
@@ -68,7 +68,7 @@ namespace boost { namespace numeric { namespace ublas {
         typedef typename V::iterator iterator_type;
 #else
         typedef typename V::const_iterator const_iterator_type;
-        typedef typename boost::mpl::if_c<boost::is_const<V>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<V>::value,
                                           typename V::const_iterator,
                                           typename V::iterator>::type iterator_type;
 #endif
@@ -600,18 +600,18 @@ namespace boost { namespace numeric { namespace ublas {
         typedef typename V::pointer pointer;
 #else
         typedef typename V::const_reference const_reference;
-        typedef typename boost::mpl::if_c<boost::is_const<V>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<V>::value,
                                           typename V::const_reference,
                                           typename V::reference>::type reference;
         typedef typename V::const_pointer const_pointer;
-        typedef typename boost::mpl::if_c<boost::is_const<V>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<V>::value,
                                           typename V::const_pointer,
                                           typename V::pointer>::type pointer;
 #endif
 #ifndef BOOST_UBLAS_CT_PROXY_CLOSURE_TYPEDEFS
         typedef typename V::closure_type vector_closure_type;
 #else
-        typedef typename boost::mpl::if_c<boost::is_const<V>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<V>::value,
                                           typename V::const_closure_type,
                                           typename V::closure_type>::type vector_closure_type;
 #endif
@@ -1154,18 +1154,18 @@ namespace boost { namespace numeric { namespace ublas {
         typedef typename V::pointer pointer;
 #else
         typedef typename V::const_reference const_reference;
-        typedef typename boost::mpl::if_c<boost::is_const<V>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<V>::value,
                                           typename V::const_reference,
                                           typename V::reference>::type reference;
         typedef typename V::const_pointer const_pointer;
-        typedef typename boost::mpl::if_c<boost::is_const<V>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<V>::value,
                                           typename V::const_pointer,
                                           typename V::pointer>::type pointer;
 #endif
 #ifndef BOOST_UBLAS_CT_PROXY_CLOSURE_TYPEDEFS
         typedef typename V::closure_type vector_closure_type;
 #else
-        typedef typename boost::mpl::if_c<boost::is_const<V>::value,
+        typedef typename boost_cryray::mpl::if_c<boost_cryray::is_const<V>::value,
                                           typename V::const_closure_type,
                                           typename V::closure_type>::type vector_closure_type;
 #endif

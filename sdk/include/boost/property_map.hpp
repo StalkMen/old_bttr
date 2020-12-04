@@ -16,7 +16,7 @@
 #include <boost/concept_check.hpp>
 #include <boost/concept_archetype.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   //=========================================================================
   // property_traits class
@@ -122,9 +122,9 @@ namespace boost {
 
 #if !defined(BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP)
   // MSVC doesn't have Koenig lookup, so the user has to
-  // do boost::get() anyways, and the using clause
+  // do boost_cryray::get() anyways, and the using clause
   // doesn't really work for MSVC.
-} // namespace boost
+} // namespace boost_cryray
 #endif
 
   // These need to go in global namespace because Koenig
@@ -138,7 +138,7 @@ namespace boost {
   inline const T& get(const T* pa, std::ptrdiff_t k) { return pa[k]; }
 
 #if !defined(BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP)
-namespace boost {
+namespace boost_cryray {
   using ::put;
   using ::get;
 #endif
@@ -152,7 +152,7 @@ namespace boost {
     typedef typename property_traits<PMap>::key_type key_type;
     typedef typename property_traits<PMap>::reference reference;
     typedef typename property_traits<PMap>::category Category;
-    typedef boost::readable_property_map_tag ReadableTag;
+    typedef boost_cryray::readable_property_map_tag ReadableTag;
     void constraints() {
       function_requires< ConvertibleConcept<Category, ReadableTag> >();
 
@@ -182,7 +182,7 @@ namespace boost {
   {
     typedef typename property_traits<PMap>::key_type key_type;
     typedef typename property_traits<PMap>::category Category;
-    typedef boost::writable_property_map_tag WritableTag;
+    typedef boost_cryray::writable_property_map_tag WritableTag;
     void constraints() {
       function_requires< ConvertibleConcept<Category, WritableTag> >();
       put(pmap, k, val);
@@ -206,7 +206,7 @@ namespace boost {
   struct ReadWritePropertyMapConcept
   {
     typedef typename property_traits<PMap>::category Category;
-    typedef boost::read_write_property_map_tag ReadWriteTag;
+    typedef boost_cryray::read_write_property_map_tag ReadWriteTag;
     void constraints() {
       function_requires< ReadablePropertyMapConcept<PMap, Key> >();
       function_requires< WritablePropertyMapConcept<PMap, Key> >();
@@ -229,7 +229,7 @@ namespace boost {
   struct LvaluePropertyMapConcept
   {
     typedef typename property_traits<PMap>::category Category;
-    typedef boost::lvalue_property_map_tag LvalueTag;
+    typedef boost_cryray::lvalue_property_map_tag LvalueTag;
     typedef typename property_traits<PMap>::reference reference;
 
     void constraints() {
@@ -263,11 +263,11 @@ namespace boost {
   struct Mutable_LvaluePropertyMapConcept
   {
     typedef typename property_traits<PMap>::category Category;
-    typedef boost::lvalue_property_map_tag LvalueTag;
+    typedef boost_cryray::lvalue_property_map_tag LvalueTag;
     typedef typename property_traits<PMap>::reference reference;
     void constraints() { 
-      boost::function_requires< ReadWritePropertyMapConcept<PMap, Key> >();
-      boost::function_requires<ConvertibleConcept<Category, LvalueTag> >();
+      boost_cryray::function_requires< ReadWritePropertyMapConcept<PMap, Key> >();
+      boost_cryray::function_requires<ConvertibleConcept<Category, LvalueTag> >();
       
       typedef typename property_traits<PMap>::value_type value_type;
       typedef typename require_same<
@@ -329,7 +329,7 @@ namespace boost {
 #endif
      >
   class iterator_property_map
-    : public boost::put_get_helper< R, 
+    : public boost_cryray::put_get_helper< R, 
         iterator_property_map<RandomAccessIterator, IndexMap,
         T, R> >
   {
@@ -337,7 +337,7 @@ namespace boost {
     typedef typename property_traits<IndexMap>::key_type key_type;
     typedef T value_type;
     typedef R reference;
-    typedef boost::lvalue_property_map_tag category;
+    typedef boost_cryray::lvalue_property_map_tag category;
 
     inline iterator_property_map(
       RandomAccessIterator cc = RandomAccessIterator(), 
@@ -382,7 +382,7 @@ namespace boost {
 #endif
      >
   class safe_iterator_property_map
-    : public boost::put_get_helper< R, 
+    : public boost_cryray::put_get_helper< R, 
         safe_iterator_property_map<RandomAccessIterator, IndexMap,
         T, R> >
   {
@@ -390,7 +390,7 @@ namespace boost {
     typedef typename property_traits<IndexMap>::key_type key_type; 
     typedef T value_type;
     typedef R reference;
-    typedef boost::lvalue_property_map_tag category;
+    typedef boost_cryray::lvalue_property_map_tag category;
 
     inline safe_iterator_property_map(
       RandomAccessIterator first = RandomAccessIterator(), 
@@ -412,14 +412,14 @@ namespace boost {
   template <class RAIter, class ID>
   inline safe_iterator_property_map<
     RAIter, ID,
-    typename boost::detail::iterator_traits<RAIter>::value_type,
-    typename boost::detail::iterator_traits<RAIter>::reference>
+    typename boost_cryray::detail::iterator_traits<RAIter>::value_type,
+    typename boost_cryray::detail::iterator_traits<RAIter>::reference>
   make_safe_iterator_property_map(RAIter iter, std::size_t n, ID id) {
     function_requires< RandomAccessIteratorConcept<RAIter> >();
     typedef safe_iterator_property_map<
       RAIter, ID,
-      typename boost::detail::iterator_traits<RAIter>::value_type,
-      typename boost::detail::iterator_traits<RAIter>::reference> PA;
+      typename boost_cryray::detail::iterator_traits<RAIter>::value_type,
+      typename boost_cryray::detail::iterator_traits<RAIter>::reference> PA;
     return PA(iter, n, id);
   }
 #endif
@@ -437,7 +437,7 @@ namespace boost {
 
   template <typename UniquePairAssociativeContainer>
   class associative_property_map
-    : public boost::put_get_helper<
+    : public boost_cryray::put_get_helper<
        typename UniquePairAssociativeContainer::value_type::second_type&,
        associative_property_map<UniquePairAssociativeContainer> >
   {
@@ -465,7 +465,7 @@ namespace boost {
 
   template <typename UniquePairAssociativeContainer>
   class const_associative_property_map
-    : public boost::put_get_helper<
+    : public boost_cryray::put_get_helper<
        const typename UniquePairAssociativeContainer::value_type::second_type&,
        const_associative_property_map<UniquePairAssociativeContainer> >
   {
@@ -494,13 +494,13 @@ namespace boost {
   //=========================================================================
   // A property map that applies the identity function to integers
   struct identity_property_map
-    : public boost::put_get_helper<std::size_t, 
+    : public boost_cryray::put_get_helper<std::size_t, 
         identity_property_map>
   {
     typedef std::size_t key_type;
     typedef std::size_t value_type;
     typedef std::size_t reference;
-    typedef boost::readable_property_map_tag category;
+    typedef boost_cryray::readable_property_map_tag category;
 
     inline value_type operator[](const key_type& v) const { return v; }
   };
@@ -516,14 +516,14 @@ namespace boost {
     };
   }
   class dummy_property_map 
-    : public boost::put_get_helper<detail::dummy_pmap_reference,
+    : public boost_cryray::put_get_helper<detail::dummy_pmap_reference,
         dummy_property_map  > 
   {
   public:
     typedef void key_type; 
     typedef int value_type;
     typedef detail::dummy_pmap_reference reference;
-    typedef boost::read_write_property_map_tag category;
+    typedef boost_cryray::read_write_property_map_tag category;
     inline dummy_property_map() : c(0) { }
     inline dummy_property_map(value_type cc) : c(cc) { }
     inline dummy_property_map(const dummy_property_map& x)
@@ -535,7 +535,7 @@ namespace boost {
   };
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif /* BOOST_PROPERTY_MAP_HPP */

@@ -31,7 +31,7 @@
 #define BOOST_FPTR &
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
 /*
   "inline" is used for ignore_unused_variable_warning()
@@ -1070,7 +1070,7 @@ struct require_same { typedef T type; };
 
   // HashedAssociativeContainer
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_CONCEPT_CHECKS_HPP
 

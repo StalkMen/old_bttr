@@ -23,7 +23,7 @@
 #include <boost/numeric/interval/detail/division.hpp>
 #include <algorithm>
 
-namespace boost {
+namespace boost_cryray {
 namespace numeric {
 
 /*
@@ -305,6 +305,6 @@ interval<T, Policies> operator/(const interval<T, Policies>& x, const T& y)
 }
 
 } // namespace numeric
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_NUMERIC_INTERVAL_ARITH_HPP

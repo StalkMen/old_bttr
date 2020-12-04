@@ -22,7 +22,7 @@
 #include "boost/mpl/list/aux_/tag.hpp"
 #include "boost/mpl/list/aux_/node.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<>
@@ -44,6 +44,6 @@ struct end_traits< aux::list_tag >
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_LIST_AUX_BEGIN_END_HPP_INCLUDED

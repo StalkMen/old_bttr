@@ -22,7 +22,7 @@
 #   include "boost/preprocessor/comma_if.hpp"
 #endif
 
-namespace boost {
+namespace boost_cryray {
 namespace type_traits {
 
 no_type BOOST_TT_DECL is_function_type_tester(...);
@@ -117,7 +117,7 @@ yes_type is_function_type_tester(R f(T0,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11,T12,T
 #endif // BOOST_TT_PREPROCESSING_MODE
 
 } // namespace type_traits
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_TT_DETAIL_IS_FUNCTION_TYPE_TESTER_HPP_INCLUDED
 

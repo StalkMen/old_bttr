@@ -18,7 +18,7 @@
 #include <boost/limits.hpp>  // for std::numeric_limits
 
 
-namespace boost
+namespace boost_cryray
 {
 
 
@@ -148,7 +148,7 @@ template < unsigned long Value1, unsigned long Value2 >
     struct static_unsigned_max;
 
 
-}  // namespace boost
+}  // namespace boost_cryray
 
 
 #endif  // BOOST_INTEGER_FWD_HPP

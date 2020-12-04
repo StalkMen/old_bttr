@@ -37,7 +37,7 @@
 // references can bind to temporary rvalues, we allow rvalue
 // converters to be chosen when the target type is T const& for some
 // T.
-namespace boost { namespace python { namespace converter { 
+namespace boost_cryray { namespace python { namespace converter { 
 
 // Conversions begin by filling in and returning a copy of this
 // structure. The process looks up a converter in the rvalue converter
@@ -136,6 +136,6 @@ inline rvalue_from_python_data<T>::~rvalue_from_python_data()
         python::detail::destroy_referent<ref_type>(this->storage.bytes);
 }
 
-}}} // namespace boost::python::converter
+}}} // namespace boost_cryray::python::converter
 
 #endif // FROM_PYTHON_AUX_DATA_DWA2002128_HPP

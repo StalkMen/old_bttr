@@ -12,7 +12,7 @@
 # include <boost/preprocessor/enum_params_with_a_default.hpp>
 # include <boost/preprocessor/enum_params.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 # define BOOST_PYTHON_BASE_PARAMS BOOST_PP_ENUM_PARAMS_Z(1, BOOST_PYTHON_MAX_BASES, Base)
 
@@ -62,6 +62,6 @@ namespace boost { namespace python {
     };
   }
 # undef BOOST_PYTHON_BASE_PARAMS
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // BASES_DWA2002321_HPP

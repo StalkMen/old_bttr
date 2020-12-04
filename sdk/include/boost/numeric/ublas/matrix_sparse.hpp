@@ -24,7 +24,7 @@
 
 // Iterators based on ideas of Jeremy Siek
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
 #ifdef BOOST_UBLAS_STRICT_MATRIX_SPARSE
 

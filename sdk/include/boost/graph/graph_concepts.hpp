@@ -34,7 +34,7 @@
 #include <boost/concept_check.hpp>
 
 
-namespace boost {
+namespace boost_cryray {
 
   template <class T>
   struct MultiPassInputIteratorConcept {
@@ -285,8 +285,8 @@ namespace boost {
     G g;
     typedef typename graph_traits<G>::edge_descriptor edge_descriptor;
     dummy_edge_predicate<edge_descriptor> p;
-    typename boost::graph_traits<G>::vertex_descriptor u;
-    typename boost::graph_traits<G>::out_edge_iterator iter;
+    typename boost_cryray::graph_traits<G>::vertex_descriptor u;
+    typename boost_cryray::graph_traits<G>::out_edge_iterator iter;
   };
 
   template <class G>
@@ -299,7 +299,7 @@ namespace boost {
     G g;
     typedef typename graph_traits<G>::edge_descriptor edge_descriptor;
     dummy_edge_predicate<edge_descriptor> p;
-    typename boost::graph_traits<G>::vertex_descriptor u;
+    typename boost_cryray::graph_traits<G>::vertex_descriptor u;
   };
 
   template <class G>
@@ -466,6 +466,6 @@ namespace boost {
     I i, j;
   };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif /* BOOST_GRAPH_CONCEPTS_H */

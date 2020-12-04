@@ -21,7 +21,7 @@
 #include "boost/mpl/bool_fwd.hpp"
 #include "boost/mpl/aux_/config/static_constant.hpp"
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 template< bool C_ > struct bool_
 {
@@ -31,6 +31,6 @@ template< bool C_ > struct bool_
     operator bool() const { return this->value; }
 };
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #endif // BOOST_MPL_BOOL_HPP_INCLUDED

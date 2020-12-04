@@ -31,7 +31,7 @@
 #endif
 
 
-namespace boost {
+namespace boost_cryray {
 template<class T>
 class integer_traits : public std::numeric_limits<T>
 {
@@ -210,7 +210,7 @@ class integer_traits<unsigned long long>
 #endif
 #endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif /* BOOST_INTEGER_TRAITS_HPP */
 

@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/lambda_no_ctps.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 namespace aux {
@@ -147,7 +147,7 @@ template<> struct lambda_impl<5, true>
 template< typename T, bool Protect = true >
 struct lambda
     : aux::lambda_impl<
-          ::boost::mpl::aux::template_arity<T>::value
+          ::boost_cryray::mpl::aux::template_arity<T>::value
 
         , bool_<Protect>::value
 
@@ -156,5 +156,5 @@ struct lambda
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

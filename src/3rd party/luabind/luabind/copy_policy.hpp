@@ -101,10 +101,10 @@ namespace luabind { namespace detail {
 		template<class T, class Direction>
 		struct generate_converter
 		{
-			typedef typename boost::mpl::if_<boost::is_same<Direction, cpp_to_lua>
-					, typename boost::mpl::if_<boost::is_pointer<T>
+			typedef typename boost_cryray::mpl::if_<boost_cryray::is_same<Direction, cpp_to_lua>
+					, typename boost_cryray::mpl::if_<boost_cryray::is_pointer<T>
 						,	copy_pointer_to
-						,	typename boost::mpl::if_<boost::is_reference<T>
+						,	typename boost_cryray::mpl::if_<boost_cryray::is_reference<T>
 								,	copy_reference_to
 								,	only_accepts_pointers_or_references>::type>::type
 					, only_converts_from_cpp_to_lua>::type type;
@@ -116,7 +116,7 @@ namespace luabind
 {
 	template<int N>
 	detail::policy_cons<detail::copy_policy<N>, detail::null_type> 
-	copy(boost::arg<N>) { return detail::policy_cons<detail::copy_policy<N>, detail::null_type>(); }
+	copy(boost_cryray::arg<N>) { return detail::policy_cons<detail::copy_policy<N>, detail::null_type>(); }
 }
 
 #endif // LUABIND_COPY_POLICY_HPP_INCLUDED

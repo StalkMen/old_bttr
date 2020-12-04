@@ -31,7 +31,7 @@
 
 #include <boost/operators.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -177,7 +177,7 @@ namespace boost {
     
     template <class IndexIterator, class Integer, class Distance>
     class component_iterator 
-      : boost::forward_iterator_helper< 
+      : boost_cryray::forward_iterator_helper< 
     component_iterator<IndexIterator,Integer,Distance>,
               Integer, Distance,Integer*, Integer&>
     {

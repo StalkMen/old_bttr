@@ -21,7 +21,7 @@
 
 #include <typeinfo>
 
-namespace boost { 
+namespace boost_cryray { 
 namespace lambda {
 
 template<class T> class cast_action;
@@ -219,6 +219,6 @@ ll_sizeof(const lambda_functor<Arg1>& a1) {
 }
 
 } // namespace lambda 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

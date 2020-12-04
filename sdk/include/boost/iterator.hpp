@@ -19,7 +19,7 @@
 #include <cstddef>           // std::ptrdiff_t
 #include <boost/config.hpp>
 
-namespace boost
+namespace boost_cryray
 {
 # if defined(BOOST_NO_STD_ITERATOR) && !defined(BOOST_MSVC_STD_ITERATOR)
   template <class Category, class T,
@@ -55,6 +55,6 @@ namespace boost
             class Pointer = T*, class Reference = T&>
    struct iterator : detail::iterator_base<Category, T, Distance, Pointer, Reference> {};
 # endif
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_ITERATOR_HPP

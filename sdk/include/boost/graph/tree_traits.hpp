@@ -7,7 +7,7 @@
 #ifndef BOOST_TREE_STRUCTURE_HPP
 #define BOOST_TREE_STRUCTURE_HPP
 
-namespace boost {
+namespace boost_cryray {
 
   template <class T>
   struct tree_traits {
@@ -39,6 +39,6 @@ namespace boost {
     template <typename Node, typename Tree> void postorder(Node, Tree&) { }
   };
 
-} /* namespace boost */
+} /* namespace boost_cryray */
 
 #endif /* BOOST_TREE_STRUCTURE_HPP */

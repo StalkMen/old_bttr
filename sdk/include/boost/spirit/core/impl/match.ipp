@@ -15,7 +15,7 @@
 #include <boost/ref.hpp>
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     template <typename T>
     class match;
@@ -41,7 +41,7 @@ namespace boost { namespace spirit {
 
     #if defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION)
 
-        struct match_attr_helper1   // T is not a boost::reference_wrapper
+        struct match_attr_helper1   // T is not a boost_cryray::reference_wrapper
         {
             template <typename T>
             struct apply
@@ -58,7 +58,7 @@ namespace boost { namespace spirit {
             };
         };
 
-        struct match_attr_helper2   // T is a boost::reference_wrapper
+        struct match_attr_helper2   // T is a boost_cryray::reference_wrapper
         {
             template <typename T>
             struct apply
@@ -90,7 +90,7 @@ namespace boost { namespace spirit {
         struct match_attr
         {
             typedef mpl::if_<
-                boost::is_reference_wrapper<T>, //  IF
+                boost_cryray::is_reference_wrapper<T>, //  IF
                 match_attr_helper2,             //  THEN
                 match_attr_helper1              //  ELSE
             >::type select_t;
@@ -126,25 +126,25 @@ namespace boost { namespace spirit {
         };
 
         template <typename T>
-        struct match_attr<boost::reference_wrapper<T> >
+        struct match_attr<boost_cryray::reference_wrapper<T> >
         {
             template <typename MatchT>
-            static boost::reference_wrapper<T>
+            static boost_cryray::reference_wrapper<T>
             get(MatchT const& m)
-            { return boost::reference_wrapper<T>(m.value()); }
+            { return boost_cryray::reference_wrapper<T>(m.value()); }
 
-            static boost::reference_wrapper<T>
+            static boost_cryray::reference_wrapper<T>
             get(match<nil_t> const&)
             {
                 static T v;
-                return boost::reference_wrapper<T>(v);
+                return boost_cryray::reference_wrapper<T>(v);
             }
 
-            static boost::reference_wrapper<T>
+            static boost_cryray::reference_wrapper<T>
             get_default()
             {
                 static T v;
-                return boost::reference_wrapper<T>(v);
+                return boost_cryray::reference_wrapper<T>(v);
             }
         };
 
@@ -174,7 +174,7 @@ namespace boost { namespace spirit {
     #define BOOST_SPIRIT_SAFE_BOOL(cond)  (cond)
     #endif
 
-}}} // namespace boost::spirit::impl
+}}} // namespace boost_cryray::spirit::impl
 
 #endif
 

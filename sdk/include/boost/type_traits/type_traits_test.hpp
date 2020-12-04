@@ -168,11 +168,11 @@ struct test_align
       unsigned a = reinterpret_cast<char*>(&(p.t)) - reinterpret_cast<char*>(&p);
       ++test_count;
       // only fail if we do not have a multiple of the actual value:
-      if((a > ::boost::alignment_of<T>::value) || (a % ::boost::alignment_of<T>::value))
+      if((a > ::boost_cryray::alignment_of<T>::value) || (a % ::boost_cryray::alignment_of<T>::value))
       {
          ++failures;
-         std::cout << "checking value of " << typeid(boost::alignment_of<T>).name() << "...failed" << std::endl;
-         std::cout << "\tfound: " << boost::alignment_of<T>::value << " expected " << a << std::endl;
+         std::cout << "checking value of " << typeid(boost_cryray::alignment_of<T>).name() << "...failed" << std::endl;
+         std::cout << "\tfound: " << boost_cryray::alignment_of<T>::value << " expected " << a << std::endl;
       }
       // suppress warnings about unused variables:
       not_unused(p);
@@ -192,13 +192,13 @@ struct test_align<T&>
       // we can't do the usual test because we can't take the address
       // of a reference, so check that the result is the same as for a
       // pointer type instead:
-      unsigned a = boost::alignment_of<T*>::value;
+      unsigned a = boost_cryray::alignment_of<T*>::value;
       ++test_count;
-      if(a != boost::alignment_of<T&>::value)
+      if(a != boost_cryray::alignment_of<T&>::value)
       {
          ++failures;
-         std::cout << "checking value of " << typeid(boost::alignment_of<T&>).name() << "...failed" << std::endl;
-         std::cout << "\tfound: " << boost::alignment_of<T&>::value << " expected " << a << std::endl;
+         std::cout << "checking value of " << typeid(boost_cryray::alignment_of<T&>).name() << "...failed" << std::endl;
+         std::cout << "\tfound: " << boost_cryray::alignment_of<T&>::value << " expected " << a << std::endl;
       }
    }
 };
@@ -209,14 +209,14 @@ struct test_align<T&>
 template<class T>
 struct test_type_with_align 
 {
-  typedef typename boost::type_with_alignment<
-                     (boost::alignment_of<T>::value)>::type 
+  typedef typename boost_cryray::type_with_alignment<
+                     (boost_cryray::alignment_of<T>::value)>::type 
     align_t;
 
   static void do_it()
   {
-    int align = boost::alignment_of<T>::value;
-    int new_align = boost::alignment_of<align_t>::value;
+    int align = boost_cryray::alignment_of<T>::value;
+    int new_align = boost_cryray::alignment_of<align_t>::value;
     ++test_count;
     if (new_align % align != 0) {
       ++failures;
@@ -258,8 +258,8 @@ struct nested_test
 #define NESTED_DECL(what)\
 template <class T> \
 struct BOOST_TT_JOIN(nested_tester_,what){\
-   nested_test< (::boost::type_traits::ice_ne<0, ::boost::what<T>::value>::value)> tester;\
-   BOOST_TT_JOIN(nested_tester_,what)(const char* s) : tester(::boost::what<T>::value, s){}\
+   nested_test< (::boost_cryray::type_traits::ice_ne<0, ::boost_cryray::what<T>::value>::value)> tester;\
+   BOOST_TT_JOIN(nested_tester_,what)(const char* s) : tester(::boost_cryray::what<T>::value, s){}\
 };
 #define NESTED_TEST(what, with)\
 {BOOST_TT_JOIN(nested_tester_,what)<with> check(#what "<" #with ">"); (void)check;}
@@ -409,7 +409,7 @@ struct int_convertible
 // used to verify that is_empty does not emit
 // spurious warnings or errors.
 //
-struct non_empty : private boost::noncopyable
+struct non_empty : private boost_cryray::noncopyable
 {
    int i;
 };

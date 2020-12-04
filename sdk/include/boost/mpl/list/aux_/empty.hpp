@@ -21,7 +21,7 @@
 #include "boost/mpl/not.hpp"
 #include "boost/mpl/list/aux_/tag.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<>
@@ -34,6 +34,6 @@ struct empty_traits< aux::list_tag >
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_LIST_AUX_EMPTY_HPP_INCLUDED

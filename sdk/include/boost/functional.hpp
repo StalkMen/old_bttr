@@ -24,7 +24,7 @@
 #include <boost/call_traits.hpp>
 #include <functional>
 
-namespace boost
+namespace boost_cryray
 {
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
     // --------------------------------------------------------------------------
@@ -551,6 +551,6 @@ namespace boost
     {
         return pointer_to_binary_function<Arg1,Arg2,Result>(f);
     }
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

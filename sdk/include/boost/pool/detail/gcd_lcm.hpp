@@ -10,7 +10,7 @@
 #ifndef BOOST_POOL_GCD_LCM_HPP
 #define BOOST_POOL_GCD_LCM_HPP
 
-namespace boost {
+namespace boost_cryray {
 
 namespace details {
 namespace pool {
@@ -54,6 +54,6 @@ Integer lcm(const Integer & A, const Integer & B)
 } // namespace pool
 } // namespace details
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

@@ -21,7 +21,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     namespace impl {
 
@@ -112,6 +112,6 @@ namespace boost { namespace spirit {
 ///////////////////////////////////////////////////////////////////////////////
     } // namespace impl
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif

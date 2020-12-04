@@ -31,7 +31,7 @@
 #include <boost/numeric/ublas/iterator.hpp>
 #include <boost/numeric/ublas/traits.hpp>
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
 #ifndef BOOST_UBLAS_USE_FAST_SAME
 // FIXME: for performance reasons we better use macros

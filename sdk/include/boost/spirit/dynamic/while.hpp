@@ -25,7 +25,7 @@
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     namespace impl {
 
@@ -190,6 +190,6 @@ while_p(CondT const& cond)
 // Usage: spirit::do_p[Body].while_p(Condition)
 impl::do_parser_gen const do_p = impl::do_parser_gen();
 
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif // BOOST_SPIRIT_WHILE_HPP

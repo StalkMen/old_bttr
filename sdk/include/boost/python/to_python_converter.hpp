@@ -10,7 +10,7 @@
 # include <boost/python/converter/as_to_python_function.hpp>
 # include <boost/python/type_id.hpp>
 
-namespace boost { namespace python { 
+namespace boost_cryray { namespace python { 
 
 template <class T, class Conversion>
 struct to_python_converter
@@ -34,6 +34,6 @@ to_python_converter<T,Conversion>::to_python_converter()
         , type_id<T>());
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // TO_PYTHON_CONVERTER_DWA200221_HPP

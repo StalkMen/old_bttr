@@ -12,7 +12,7 @@
 
 # include <boost/config.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 template<class T> struct other
 { 
@@ -52,11 +52,11 @@ namespace detail
 }
 # else // no partial specialization
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #include <boost/type.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 namespace detail
 {
@@ -108,6 +108,6 @@ namespace detail
 
 # endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // #ifndef OTHER_DWA20020601_HPP

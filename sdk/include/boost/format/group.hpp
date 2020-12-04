@@ -32,7 +32,7 @@
 #include "boost/config.hpp"
 
 
-namespace boost {
+namespace boost_cryray {
 namespace io {
 
 
@@ -676,7 +676,7 @@ detail::group1< detail::group10<T1,T2,T3,T4,T5,T6,T7,T8,T9, Var&> >
 
 } // namespace io
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif   // BOOST_FORMAT_GROUP_HPP

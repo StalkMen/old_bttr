@@ -23,7 +23,7 @@
 
 #include <cassert>
 
-namespace boost {
+namespace boost_cryray {
 
 // Bernoulli distribution: p(true) = p, p(false) = 1-p   (boolean)
 template<class UniformRandomNumberGenerator, class RealType = double>
@@ -99,6 +99,6 @@ private:
   base_result _threshold;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_BERNOULLI_DISTRIBUTION_HPP

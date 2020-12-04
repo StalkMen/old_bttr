@@ -20,7 +20,7 @@
 #include "boost/mpl/same_as.hpp"
 #include "boost/mpl/apply.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -39,6 +39,6 @@ struct fold_pred
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_AUX_FOLD_PRED_HPP_INCLUDED

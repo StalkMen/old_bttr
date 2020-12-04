@@ -17,7 +17,7 @@
 #include <boost/config.hpp>   // in case ptrdiff_t not in std
 #include <cstddef>            // for std::ptrdiff_t
 
-namespace boost
+namespace boost_cryray
 {
 
 // Debug hooks
@@ -51,16 +51,16 @@ public:
     explicit scoped_array(T * p = 0) : ptr(p) // never throws
     {
 #if defined(BOOST_SP_ENABLE_DEBUG_HOOKS)
-        boost::sp_array_constructor_hook(ptr);
+        boost_cryray::sp_array_constructor_hook(ptr);
 #endif
     }
 
     ~scoped_array() // never throws
     {
 #if defined(BOOST_SP_ENABLE_DEBUG_HOOKS)
-        boost::sp_array_destructor_hook(ptr);
+        boost_cryray::sp_array_destructor_hook(ptr);
 #endif
-        boost::checked_array_delete(ptr);
+        boost_cryray::checked_array_delete(ptr);
     }
 
     void reset(T * p = 0) // never throws
@@ -109,6 +109,6 @@ template<class T> inline void swap(scoped_array<T> & a, scoped_array<T> & b) // 
     a.swap(b);
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // #ifndef BOOST_SCOPED_ARRAY_HPP_INCLUDED

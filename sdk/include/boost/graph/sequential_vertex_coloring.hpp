@@ -45,14 +45,14 @@
    The color of the vertex v will be stored in color[v].
    i.e., vertex v belongs to coloring color[v] */
 
-namespace boost {
+namespace boost_cryray {
   template <class VertexListGraph, class OrderPA, class ColorMap>
   typename graph_traits<VertexListGraph>::size_type
   sequential_vertex_coloring(const VertexListGraph& G, OrderPA order, 
                              ColorMap color)
   {
     using graph_traits;
-    using boost::tie;
+    using boost_cryray::tie;
     typedef graph_traits<VertexListGraph> GraphTraits;
     typedef typename GraphTraits::vertex_descriptor Vertex;
     typedef typename GraphTraits::size_type size_type;

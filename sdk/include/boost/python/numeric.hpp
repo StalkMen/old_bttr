@@ -14,7 +14,7 @@
 # include <boost/preprocessor/repetition/enum_params.hpp>
 # include <boost/preprocessor/repetition/enum_binary_params.hpp>
 
-namespace boost { namespace python { namespace numeric {
+namespace boost_cryray { namespace python { namespace numeric {
 
 namespace aux
 {
@@ -214,7 +214,7 @@ class array : public aux::array_base
     BOOST_PYTHON_FORWARD_OBJECT_CONSTRUCTORS(array, base);
 };
 
-} // namespace boost::python::numeric
+} // namespace boost_cryray::python::numeric
 
 namespace converter
 {
@@ -226,6 +226,6 @@ namespace converter
   };
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // NUMARRAY_DWA2002922_HPP

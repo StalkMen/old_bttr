@@ -35,7 +35,7 @@
 #include <functional>
 #include <numeric>
 
-namespace boost {
+namespace boost_cryray {
 
 template <typename T, std::size_t NumDims,
   typename TPtr = const T*
@@ -60,12 +60,12 @@ public:
   // template typedefs
   template <std::size_t NDims>
   struct const_array_view {
-    typedef boost::detail::multi_array::const_multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::const_multi_array_view<T,NDims> type;
   };
 
   template <std::size_t NDims>
   struct array_view {
-    typedef boost::detail::multi_array::multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::multi_array_view<T,NDims> type;
   };
 
 #ifndef BOOST_NO_MEMBER_TEMPLATE_FRIENDS
@@ -88,7 +88,7 @@ public:
   template <typename ExtentList>
   explicit const_multi_array_ref(TPtr base, const ExtentList& extents) :
     base_(base), storage_(c_storage_order()) {
-    boost::function_requires<
+    boost_cryray::function_requires<
       detail::multi_array::CollectionConcept<ExtentList> >();
 
     index_base_list_.assign(0);
@@ -99,7 +99,7 @@ public:
   explicit const_multi_array_ref(TPtr base, const ExtentList& extents,
                        const general_storage_order<NumDims>& so) : 
     base_(base), storage_(so) {
-    boost::function_requires<
+    boost_cryray::function_requires<
       detail::multi_array::CollectionConcept<ExtentList> >();
 
     index_base_list_.assign(0);
@@ -125,7 +125,7 @@ public:
   
   template <class InputIterator>
   void assign(InputIterator begin, InputIterator end) {
-    boost::function_requires<InputIteratorConcept<InputIterator> >();
+    boost_cryray::function_requires<InputIteratorConcept<InputIterator> >();
 
     InputIterator in_iter = begin;
     T* out_iter = base_;
@@ -138,9 +138,9 @@ public:
 
   template <class BaseList>
   void reindex(const BaseList& values) {
-    boost::function_requires<
+    boost_cryray::function_requires<
       detail::multi_array::CollectionConcept<BaseList> >();
-    boost::copy_n(values.begin(),num_dimensions(),index_base_list_.begin());
+    boost_cryray::copy_n(values.begin(),num_dimensions(),index_base_list_.begin());
     origin_offset_ =
       this->calculate_origin_offset(stride_list_,extent_list_,
                               storage_,index_base_list_);
@@ -155,7 +155,7 @@ public:
 
   template <typename SizeList>
   void reshape(const SizeList& extents) {
-    boost::function_requires<
+    boost_cryray::function_requires<
       detail::multi_array::CollectionConcept<SizeList> >();
     assert(num_elements_ ==
            std::accumulate(extents.begin(),extents.end(),
@@ -197,16 +197,16 @@ public:
 
   template <typename IndexList>
   const element& operator()(IndexList indices) const {
-    boost::function_requires<
+    boost_cryray::function_requires<
       detail::multi_array::CollectionConcept<IndexList> >();
-    return super_type::access_element(boost::type<const element&>(),
+    return super_type::access_element(boost_cryray::type<const element&>(),
                                       origin(),
                                       indices,strides());
   }
 
   // Only allow const element access
   const_reference operator[](index idx) const {
-    return super_type::access(boost::type<const_reference>(),
+    return super_type::access(boost_cryray::type<const_reference>(),
                               idx,origin(),
                               shape(),strides(),index_bases());
   }
@@ -223,7 +223,7 @@ public:
     const {
     typedef typename const_array_view<NDims>::type return_type;
     return
-      super_type::generate_array_view(boost::type<return_type>(),
+      super_type::generate_array_view(boost_cryray::type<return_type>(),
                                       indices,
                                       shape(),
                                       strides(),
@@ -314,14 +314,14 @@ public:
       origin_offset_(0), directional_offset_(0),
       num_elements_(rhs.num_elements())
   {
-    using boost::copy_n;
+    using boost_cryray::copy_n;
     copy_n(rhs.shape(),rhs.num_dimensions(),extent_list_.begin());
     copy_n(rhs.strides(),rhs.num_dimensions(),stride_list_.begin());
     copy_n(rhs.index_bases(),rhs.num_dimensions(),index_base_list_.begin());
   }
 
-  typedef boost::array<size_type,NumDims> size_list;
-  typedef boost::array<index,NumDims> index_list;
+  typedef boost_cryray::array<size_type,NumDims> size_list;
+  typedef boost_cryray::array<index,NumDims> index_list;
 
   TPtr base_;
   general_storage_order<NumDims> storage_;
@@ -340,18 +340,18 @@ private:
                         detail::multi_array::
                         extent_gen<NumDims>& ranges) { 
     
-    typedef boost::array<index,NumDims> extent_list;
+    typedef boost_cryray::array<index,NumDims> extent_list;
 
     // get the index_base values
     std::transform(ranges.ranges_.begin(),ranges.ranges_.end(),
               index_base_list_.begin(),
-              boost::mem_fun_ref(&extent_range::start));
+              boost_cryray::mem_fun_ref(&extent_range::start));
 
     // calculate the extents
     extent_list extents;
     std::transform(ranges.ranges_.begin(),ranges.ranges_.end(),
               extents.begin(),
-              boost::mem_fun_ref(&extent_range::size));
+              boost_cryray::mem_fun_ref(&extent_range::size));
 
     init_multi_array_ref(extents.begin());
   }
@@ -359,9 +359,9 @@ private:
 
   template <class InputIterator>
   void init_multi_array_ref(InputIterator extents_iter) {
-    boost::function_requires<InputIteratorConcept<InputIterator> >();
+    boost_cryray::function_requires<InputIteratorConcept<InputIterator> >();
 
-    boost::copy_n(extents_iter,num_dimensions(),extent_list_.begin());
+    boost_cryray::copy_n(extents_iter,num_dimensions(),extent_list_.begin());
 
     // Calculate the array size
     num_elements_ = std::accumulate(extent_list_.begin(),extent_list_.end(),
@@ -405,18 +405,18 @@ public:
 
   template <std::size_t NDims>
   struct const_array_view {
-    typedef boost::detail::multi_array::const_multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::const_multi_array_view<T,NDims> type;
   };
 
   template <std::size_t NDims>
   struct array_view {
-    typedef boost::detail::multi_array::multi_array_view<T,NDims> type;
+    typedef boost_cryray::detail::multi_array::multi_array_view<T,NDims> type;
   };
 
   template <class ExtentList>
   explicit multi_array_ref(T* base, const ExtentList& extents) :
     super_type(base,extents) {
-    boost::function_requires<
+    boost_cryray::function_requires<
       detail::multi_array::CollectionConcept<ExtentList> >();
   }
 
@@ -424,7 +424,7 @@ public:
   explicit multi_array_ref(T* base, const ExtentList& extents,
                            const general_storage_order<NumDims>& so) :
     super_type(base,extents,so) {
-    boost::function_requires<
+    boost_cryray::function_requires<
       detail::multi_array::CollectionConcept<ExtentList> >();
   }
 
@@ -482,16 +482,16 @@ public:
 
   template <class IndexList>
   element& operator()(const IndexList& indices) {
-  boost::function_requires<
+  boost_cryray::function_requires<
     detail::multi_array::CollectionConcept<IndexList> >();
-  return super_type::access_element(boost::type<element&>(),
+  return super_type::access_element(boost_cryray::type<element&>(),
                                       origin(),
                                       indices,this->strides());
   }
 
 
   reference operator[](index idx) {
-    return super_type::access(boost::type<reference>(),
+    return super_type::access(boost_cryray::type<reference>(),
                               idx,origin(),
                               this->shape(),this->strides(),
                               this->index_bases());
@@ -509,7 +509,7 @@ public:
              index_gen<NumDims,NDims>& indices) {
     typedef typename array_view<NDims>::type return_type;
     return
-      super_type::generate_array_view(boost::type<return_type>(),
+      super_type::generate_array_view(boost_cryray::type<return_type>(),
                                       indices,
                                       this->shape(),
                                       this->strides(),
@@ -548,13 +548,13 @@ public:
 
   template <class IndexList>
   const element& operator()(const IndexList& indices) const {
-    boost::function_requires<
+    boost_cryray::function_requires<
       detail::multi_array::CollectionConcept<IndexList> >();
     return super_type::operator()(indices);
   }
 
   const_reference operator[](index idx) const {
-    return super_type::access(boost::type<const_reference>(),
+    return super_type::access(boost_cryray::type<const_reference>(),
                               idx,origin(),
                               this->shape(),this->strides(),
                               this->index_bases());
@@ -590,6 +590,6 @@ public:
   }
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MULTI_ARRAY_REF_RG071801_HPP

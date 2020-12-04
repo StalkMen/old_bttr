@@ -17,13 +17,13 @@
 #ifndef BOOST_MPL_O1_SIZE_FWD_HPP_INCLUDED
 #define BOOST_MPL_O1_SIZE_FWD_HPP_INCLUDED
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template< typename Tag > struct O1_size_traits;
 template< typename Sequence > struct O1_size;
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_O1_SIZE_FWD_HPP_INCLUDED

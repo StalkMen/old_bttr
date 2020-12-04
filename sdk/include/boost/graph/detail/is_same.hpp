@@ -27,7 +27,7 @@
 
 #include <boost/pending/ct_if.hpp>
 
-namespace boost {
+namespace boost_cryray {
   struct false_tag;
   struct true_tag;
 
@@ -36,21 +36,21 @@ namespace boost {
 #if !defined BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
     template <class U, class V>
     struct is_same {
-      typedef boost::false_tag is_same_tag; 
+      typedef boost_cryray::false_tag is_same_tag; 
     };
     template <class U>
     struct is_same<U, U> {
-      typedef boost::true_tag is_same_tag;
+      typedef boost_cryray::true_tag is_same_tag;
     };
 #else
     template <class U, class V>
     struct is_same {
       enum { Unum = U::num, Vnum = V::num };
-      typedef typename boost::ct_if< (Unum == Vnum),
-               boost::true_tag, boost::false_tag>::type is_same_tag;
+      typedef typename boost_cryray::ct_if< (Unum == Vnum),
+               boost_cryray::true_tag, boost_cryray::false_tag>::type is_same_tag;
     };
 #endif
   } // namespace graph_detail
-} // namespace boost
+} // namespace boost_cryray
 
 #endif

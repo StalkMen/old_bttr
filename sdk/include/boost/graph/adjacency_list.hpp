@@ -47,7 +47,7 @@
 #include <boost/pending/ct_if.hpp>
 #include <boost/graph/detail/edge.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   //===========================================================================
   // Selectors for the VertexList and EdgeList template parameters of
@@ -271,9 +271,9 @@ namespace boost {
     typedef typename DirectedS::is_bidir_t is_bidir;
     typedef typename DirectedS::is_directed_t is_directed;
 
-    typedef typename boost::ct_if_t<is_bidir,
+    typedef typename boost_cryray::ct_if_t<is_bidir,
       bidirectional_tag,
-      typename boost::ct_if_t<is_directed,
+      typename boost_cryray::ct_if_t<is_directed,
         directed_tag, undirected_tag
       >::type
     >::type directed_category;
@@ -282,17 +282,17 @@ namespace boost {
       edge_parallel_category;
 
     typedef void* vertex_ptr;
-    typedef typename boost::ct_if_t<is_rand_access,
+    typedef typename boost_cryray::ct_if_t<is_rand_access,
       std::size_t, vertex_ptr>::type vertex_descriptor;
     typedef detail::edge_desc_impl<directed_category, vertex_descriptor>
       edge_descriptor;
   };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include <boost/graph/detail/adjacency_list.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   //===========================================================================
   // The adjacency_list class.
@@ -425,7 +425,7 @@ namespace boost {
     return e.m_target;
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_GRAPH_ADJACENCY_LIST_HPP

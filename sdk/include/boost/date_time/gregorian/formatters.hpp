@@ -11,7 +11,7 @@
 #include "boost/date_time/iso_format.hpp"
 #include "boost/date_time/date_format_simple.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace gregorian {
 
 

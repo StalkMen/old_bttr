@@ -18,13 +18,13 @@
 //  See http://www.boost.org/libs/bind/bind.html for documentation.
 //
 
-namespace boost
+namespace boost_cryray
 {
 
 template<int I> class arg
 {
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // #ifndef BOOST_BIND_ARG_HPP_INCLUDED

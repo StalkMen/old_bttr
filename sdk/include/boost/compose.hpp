@@ -19,7 +19,7 @@
 
 #include <functional>
 
-namespace boost {
+namespace boost_cryray {
 
 /**********************************************************
  * type nullary_function
@@ -198,7 +198,7 @@ compose_f_gx_hy (const OP1& o1, const OP2& o2, const OP3& o3) {
  */
 template <class OP1, class OP2>
 class compose_f_g_t
- : public boost::nullary_function<typename OP1::result_type>
+ : public boost_cryray::nullary_function<typename OP1::result_type>
 {
   private:
     OP1 op1;    // process: op1(op2())
@@ -224,6 +224,6 @@ compose_f_g (const OP1& o1, const OP2& o2) {
     return compose_f_g_t<OP1,OP2>(o1,o2);
 }
 
-} /* namespace boost */
+} /* namespace boost_cryray */
 
 #endif /*BOOST_COMPOSE_HPP*/

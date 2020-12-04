@@ -18,7 +18,7 @@ class IKinematicsAnimated;
 
 namespace aimers {
 
-class base : private boost::noncopyable
+class base : private boost_cryray::noncopyable
 {
 public:
 							base			(

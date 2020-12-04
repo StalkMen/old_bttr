@@ -60,7 +60,7 @@
 #   include "boost/preprocessor/inc.hpp"
 #   include "boost/preprocessor/cat.hpp"
 
-namespace boost { namespace mpl { namespace aux {
+namespace boost_cryray { namespace mpl { namespace aux {
 
 template< BOOST_MPL_AUX_NTTP_DECL(int, N) > struct arity_tag
 {
@@ -122,7 +122,7 @@ struct template_arity
 
 #undef AUX_TEMPLATE_ARITY_IMPL_INVOCATION
 
-}}} // namespace boost::mpl::aux
+}}} // namespace boost_cryray::mpl::aux
 
 #   endif // BOOST_EXTENDED_TEMPLATE_PARAMETERS_MATCHING
 #   else // BOOST_MPL_NO_FULL_LAMBDA_SUPPORT
@@ -131,7 +131,7 @@ struct template_arity
 #   include "boost/mpl/aux_/config/static_constant.hpp"
 #   include "boost/mpl/aux_/config/workaround.hpp"
 
-namespace boost { namespace mpl { namespace aux {
+namespace boost_cryray { namespace mpl { namespace aux {
 
 template< bool >
 struct template_arity_impl
@@ -157,7 +157,7 @@ struct template_arity_impl<true>
 
 template< typename F >
 struct template_arity
-    : template_arity_impl< ::boost::mpl::aux::has_rebind<F>::value >
+    : template_arity_impl< ::boost_cryray::mpl::aux::has_rebind<F>::value >
         ::template result_<F>
 {
 };
@@ -170,7 +170,7 @@ struct template_arity<int>
 };
 #endif
 
-}}} // namespace boost::mpl::aux
+}}} // namespace boost_cryray::mpl::aux
 
 #   endif // BOOST_MPL_NO_FULL_LAMBDA_SUPPORT
 

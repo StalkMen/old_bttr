@@ -20,7 +20,7 @@
 // These scaled additions were borrowed from MTL unashamedly.
 // But Alexei Novakov had a lot of ideas to improve these. Thanks.
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     template<class M, class E1, class E2, class F>
     BOOST_UBLAS_INLINE

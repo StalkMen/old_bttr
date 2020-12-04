@@ -25,7 +25,7 @@
 #include "boost/mpl/apply.hpp"
 #include "boost/mpl/aux_/void_spec.hpp"
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 template< typename IteratorSeq >
 struct zip_iterator
@@ -61,6 +61,6 @@ struct zip_view
 
 BOOST_MPL_AUX_VOID_SPEC(1, zip_view)
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #endif // BOOST_MPL_ZIP_VIEW_HPP_INCLUDED

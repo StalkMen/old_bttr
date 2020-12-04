@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/list/list40_c.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -174,5 +174,5 @@ struct list40_c
 };
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

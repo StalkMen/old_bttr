@@ -16,7 +16,7 @@ class CScriptGameObject; //Alundaio: Needed for return type
 
 namespace doors {
 
-class actor : private boost::noncopyable {
+class actor : private boost_cryray::noncopyable {
 public:
 						actor			( CAI_Stalker const& object );
 	virtual				~actor			( );

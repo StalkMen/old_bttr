@@ -58,7 +58,7 @@ public:
 
   struct children_type {
     struct iterator
-        : boost::iterator<std::bidirectional_iterator_tag, ArrayBinaryTreeNode,
+        : boost_cryray::iterator<std::bidirectional_iterator_tag, ArrayBinaryTreeNode,
                        difference_type, array_binary_tree_node*, ArrayBinaryTreeNode&>
     { // replace with iterator_adaptor implementation -JGS
         
@@ -154,8 +154,8 @@ public:
     value_type tmp = x.value();
 
     /*swap external data*/
-    edata[ boost::get(id, tmp) ]     = i;
-    edata[ boost::get(id, value()) ] = x.i;
+    edata[ boost_cryray::get(id, tmp) ]     = i;
+    edata[ boost_cryray::get(id, value()) ] = x.i;
 
     x.value() = value();
     value() = tmp;

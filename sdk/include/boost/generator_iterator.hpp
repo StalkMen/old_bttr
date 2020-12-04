@@ -17,7 +17,7 @@
 #include <boost/iterator_adaptors.hpp>
 #include <boost/ref.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 template<class Generator>
 class generator_iterator_policies
@@ -68,7 +68,7 @@ make_generator_iterator(Generator & gen)
   return result_t(&gen);
 }
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_ITERATOR_ADAPTOR_GENERATOR_ITERATOR_HPP

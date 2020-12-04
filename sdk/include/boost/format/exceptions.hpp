@@ -24,7 +24,7 @@
 #include <stdexcept>
 
 
-namespace boost {
+namespace boost_cryray {
 
 namespace io {
 
@@ -36,7 +36,7 @@ public:
   format_error() {}
   virtual const char *what() const throw()
   {
-    return "boost::format_error: "
+    return "boost_cryray::format_error: "
       "format generic failure";
   }
 };
@@ -47,7 +47,7 @@ public:
   bad_format_string() {}
   virtual const char *what() const throw()
   {
-    return "boost::bad_format_string: "
+    return "boost_cryray::bad_format_string: "
       "format-string is ill-formed";
   }
 };
@@ -58,7 +58,7 @@ public:
   too_few_args() {}
   virtual const char *what() const throw()
   {
-    return "boost::too_few_args: "
+    return "boost_cryray::too_few_args: "
       "format-string refered to more arguments than were passed";
   }
 };
@@ -69,7 +69,7 @@ public:
   too_many_args() {}
   virtual const char *what() const throw()
   {
-    return "boost::too_many_args: "
+    return "boost_cryray::too_many_args: "
       "format-string refered to less arguments than were passed";
   }
 };
@@ -81,7 +81,7 @@ public:
   out_of_range() {}
   virtual const char *what() const throw()
   {
-    return "boost::out_of_range: "
+    return "boost_cryray::out_of_range: "
       "tried to refer to an argument (or item) number which is out of range, "
       "according to the format string.";
   }
@@ -90,7 +90,7 @@ public:
 
 } // namespace io
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_FORMAT_EXCEPTIONS_HPP

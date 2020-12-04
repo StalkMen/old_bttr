@@ -21,8 +21,8 @@
 #include <boost/smart_ptr.hpp>
 #include <boost/signals/connection.hpp>
 
-namespace boost {
-  namespace BOOST_SIGNALS_NAMESPACE {
+namespace boost_cryray {
+  namespace boost_cryray_SIGNALS_NAMESPACE {
     namespace detail {
       // A cached return value from a slot
       template<typename T>
@@ -114,6 +114,6 @@ namespace boost {
         return sc_iterator(first, sc_policy(last, f));
       }
     } // end namespace detail
-  } // end namespace BOOST_SIGNALS_NAMESPACE
-} // end namespace boost
+  } // end namespace boost_cryray_SIGNALS_NAMESPACE
+} // end namespace boost_cryray
 #endif // BOOST_SIGNALS_SLOT_CALL_ITERATOR

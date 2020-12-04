@@ -21,7 +21,7 @@
 #include "boost/mpl/aux_/config/dtp.hpp"
 #include "boost/mpl/aux_/void_spec.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<
@@ -48,6 +48,6 @@ BOOST_MPL_AUX_VOID_SPEC_TEMPLATE_ARITY(1, 1, protect)
 #endif
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_PROTECT_HPP_INCLUDED

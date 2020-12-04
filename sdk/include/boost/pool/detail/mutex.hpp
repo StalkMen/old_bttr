@@ -44,7 +44,7 @@
   #include <pthread.h>
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
 namespace details {
 namespace pool {
@@ -125,7 +125,7 @@ class null_mutex
 } // namespace pool
 } // namespace details
 
-} // namespace boost
+} // namespace boost_cryray
 
 #undef BOOST_MUTEX_HELPER_WIN32
 #undef BOOST_MUTEX_HELPER_PTHREAD

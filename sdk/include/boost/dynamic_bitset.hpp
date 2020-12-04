@@ -58,7 +58,7 @@
 
 
 
-namespace boost {
+namespace boost_cryray {
 
 #ifdef BOOST_WORKAROUND_REPEAT_DEFAULT_TEMPLATE_ARGUMENTS
  template <typename Block = unsigned long, typename Allocator = std::allocator<Block> >
@@ -1016,7 +1016,7 @@ unsigned long dynamic_bitset<Block, Allocator>::
 to_ulong() const
 {
   const std::overflow_error
-    overflow("boost::bit_set::operator unsigned long()");
+    overflow("boost_cryray::bit_set::operator unsigned long()");
 
   if (this->m_num_blocks == 0)
     return 0;
@@ -1405,7 +1405,7 @@ inline void dynamic_bitset<Block, Allocator>::m_zero_unused_bits()
 }
 
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #undef BOOST_WORKAROUND_REPEAT_DEFAULT_TEMPLATE_ARGUMENTS

@@ -1,7 +1,7 @@
 // preprocessed version of 'boost/mpl/arg.hpp' header
 // see the original for copyright information
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 
 template<> struct arg<-1>
@@ -132,5 +132,5 @@ template<> struct arg<5>
 BOOST_MPL_AUX_NONTYPE_ARITY_SPEC(1, int, arg)
 
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 

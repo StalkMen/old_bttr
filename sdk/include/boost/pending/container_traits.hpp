@@ -18,7 +18,7 @@
 #  include <hash_set>
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
   //======================================================================
   // Container Category Tags
@@ -349,7 +349,7 @@ namespace boost {
   push_dispatch(Container& c, const T& v, back_insertion_sequence_tag)
   {
     c.push_back(v);
-    return std::make_pair(boost::prior(c.end()), true);
+    return std::make_pair(boost_cryray::prior(c.end()), true);
   }
 
   template <class Container, class T>
@@ -383,6 +383,6 @@ namespace boost {
     return push_dispatch(c, v, container_category(c));
   }
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_GRAPH_DETAIL_CONTAINER_TRAITS_H

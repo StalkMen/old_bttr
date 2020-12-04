@@ -259,7 +259,7 @@ void animation_movement_controller::OnFrame( )
 	{
 		m_control_blend->timeCurrent = 0;
 
-		struct scb : public IterateBlendsCallback, private boost::noncopyable
+		struct scb : public IterateBlendsCallback, private boost_cryray::noncopyable
 		{
 			const CBlend &m_control_blend;
 			scb( const CBlend &B ): m_control_blend( B ){}

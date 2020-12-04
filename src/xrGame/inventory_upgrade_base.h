@@ -40,7 +40,7 @@ enum UpgradeStateResult
 };
 
 class UpgradeBase :
-	private	boost::noncopyable
+	private	boost_cryray::noncopyable
 {
 public:
 							UpgradeBase();

@@ -8,7 +8,7 @@
 #include "boost/date_time/date.hpp"
 #include "boost/date_time/wrapping_int.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
   
 

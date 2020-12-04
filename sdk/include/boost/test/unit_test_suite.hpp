@@ -30,17 +30,17 @@
 #include <string>  // for std::string
 
 #define BOOST_TEST_CASE( function ) \
-boost::unit_test_framework::create_test_case((function), #function )
+boost_cryray::unit_test_framework::create_test_case((function), #function )
 #define BOOST_CLASS_TEST_CASE( function, tc_instance ) \
-boost::unit_test_framework::create_test_case((function), #function, tc_instance )
+boost_cryray::unit_test_framework::create_test_case((function), #function, tc_instance )
 #define BOOST_PARAM_TEST_CASE( function, begin, end ) \
-boost::unit_test_framework::create_test_case((function), #function, (begin), (end) )
+boost_cryray::unit_test_framework::create_test_case((function), #function, (begin), (end) )
 #define BOOST_PARAM_CLASS_TEST_CASE( function, tc_instance, begin, end ) \
-boost::unit_test_framework::create_test_case((function), #function, tc_instance, (begin), (end) )
+boost_cryray::unit_test_framework::create_test_case((function), #function, tc_instance, (begin), (end) )
 #define BOOST_TEST_SUITE( testsuite_name ) \
-( new boost::unit_test_framework::test_suite( testsuite_name ) )
+( new boost_cryray::unit_test_framework::test_suite( testsuite_name ) )
 
-namespace boost {
+namespace boost_cryray {
 
 namespace unit_test_framework {
 
@@ -135,7 +135,7 @@ public:
     typedef void  (UserTestCase::*function_type)();
 
     // Constructor
-    class_test_case( function_type f_, std::string const& name_, boost::shared_ptr<UserTestCase> const& user_test_case_ )
+    class_test_case( function_type f_, std::string const& name_, boost_cryray::shared_ptr<UserTestCase> const& user_test_case_ )
     : test_case( name_, true, 1 ), m_user_test_case( user_test_case_ ), m_function( f_ ) 
     {}
 
@@ -152,7 +152,7 @@ private:
     }
 
     // Data members
-    boost::shared_ptr<UserTestCase> m_user_test_case;
+    boost_cryray::shared_ptr<UserTestCase> m_user_test_case;
     function_type       m_function;
 };
 
@@ -197,7 +197,7 @@ public:
     typedef void  (UserTestCase::*function_type)( ParameterType );
 
     // Constructor
-    parametrized_class_test_case( function_type f_, std::string const& name_, boost::shared_ptr<UserTestCase>const & user_test_case_,
+    parametrized_class_test_case( function_type f_, std::string const& name_, boost_cryray::shared_ptr<UserTestCase>const & user_test_case_,
                                   ParamIterator const& par_begin_, ParamIterator const& par_end_ )
     : test_case( name_, true, 0 ), m_first_parameter( par_begin_ ), m_last_parameter( par_end_ ),
       m_user_test_case( user_test_case_ ), m_function( f_ )
@@ -217,7 +217,7 @@ private:
     ParamIterator       m_last_parameter;
     ParamIterator       m_curr_parameter;
 
-    boost::shared_ptr<UserTestCase> m_user_test_case;
+    boost_cryray::shared_ptr<UserTestCase> m_user_test_case;
     function_type       m_function;
 };
 
@@ -246,7 +246,7 @@ public:
 private:
     // Data members
     struct Impl;
-    boost::shared_ptr<Impl> m_pimpl;
+    boost_cryray::shared_ptr<Impl> m_pimpl;
 };
 
 // ************************************************************************** //
@@ -271,7 +271,7 @@ create_test_case( void (*fct_)(), std::string name_ )
 
 template<class UserTestCase>
 inline test_case*
-create_test_case( void (UserTestCase::*fct_)(), std::string name_, boost::shared_ptr<UserTestCase> const& user_test_case_ )
+create_test_case( void (UserTestCase::*fct_)(), std::string name_, boost_cryray::shared_ptr<UserTestCase> const& user_test_case_ )
 {
     return new class_test_case<UserTestCase>( fct_, detail::normalize_test_case_name( name_ ), user_test_case_ );
 }
@@ -290,7 +290,7 @@ create_test_case( void (*fct_)( ParamType ), std::string name_, ParamIterator co
 
 template<class UserTestCase, typename ParamIterator, typename ParamType>
 inline test_case*
-create_test_case( void (UserTestCase::*fct_)( ParamType ), std::string name_, boost::shared_ptr<UserTestCase> const& user_test_case_,
+create_test_case( void (UserTestCase::*fct_)( ParamType ), std::string name_, boost_cryray::shared_ptr<UserTestCase> const& user_test_case_,
                   ParamIterator const& par_begin_, ParamIterator const& par_end_ )
 {
     return new parametrized_class_test_case<UserTestCase,ParamIterator,ParamType>(
@@ -301,7 +301,7 @@ create_test_case( void (UserTestCase::*fct_)( ParamType ), std::string name_, bo
 
 } // unit_test_framework
 
-} // namespace boost
+} // namespace boost_cryray
 
 // ***************************************************************************
 //  Revision History :

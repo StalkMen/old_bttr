@@ -23,7 +23,7 @@
 #include <cassert>
 #include <boost/random/uniform_01.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 // Knuth
 template<class UniformRandomNumberGenerator, class IntType = int,
@@ -99,6 +99,6 @@ private:
   IntType _t;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_BINOMIAL_DISTRIBUTION_HPP

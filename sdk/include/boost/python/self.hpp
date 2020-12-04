@@ -8,7 +8,7 @@
 
 # include <boost/python/detail/config.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 //# if defined(BOOST_MSVC) && BOOST_MSVC <= 1300
 #  define BOOST_PYTHON_SELF_IS_CLASS
@@ -31,6 +31,6 @@ namespace self_ns
 using self_ns::self_t;
 using self_ns::self;
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // SELF_DWA2002531_HPP

@@ -19,7 +19,7 @@
 
 #include "boost/mpl/aux_/config/vector.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace mpl {
 namespace aux {
 
@@ -31,6 +31,6 @@ template< long N > struct vector_tag;
 
 } // namespace aux
 } // namespace mpl
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_MPL_VECTOR_AUX_TAG_HPP_INCLUDED

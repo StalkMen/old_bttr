@@ -13,9 +13,9 @@
 # include <boost/type_traits/add_const.hpp>
 # include <boost/ref.hpp>
 
-namespace boost { namespace python { namespace objects { 
+namespace boost_cryray { namespace python { namespace objects { 
 
-// Very much like boost::reference_wrapper<T>, except that in this
+// Very much like boost_cryray::reference_wrapper<T>, except that in this
 // case T can be a reference already without causing a
 // reference-to-reference error.
 template <class T>
@@ -65,7 +65,7 @@ namespace detail
   no_reference_to_value_t is_reference_to_value_test(...);
 
   template<typename T>
-  yes_reference_to_value_t is_reference_to_value_test(boost::type< reference_to_value<T> >);
+  yes_reference_to_value_t is_reference_to_value_test(boost_cryray::type< reference_to_value<T> >);
 
   template<bool wrapped>
   struct unforwarder
@@ -93,7 +93,7 @@ namespace detail
    public:
       BOOST_STATIC_CONSTANT(
           bool, value = (
-              sizeof(is_reference_to_value_test(boost::type<T>()))
+              sizeof(is_reference_to_value_test(boost_cryray::type<T>()))
               == sizeof(yes_reference_to_value_t)));
   };
 }
@@ -107,6 +107,6 @@ class unforward
 
 # endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-}}} // namespace boost::python::objects
+}}} // namespace boost_cryray::python::objects
 
 #endif // FORWARD_DWA20011215_HPP

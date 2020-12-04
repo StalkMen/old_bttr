@@ -18,7 +18,7 @@
 //             vc-stlport.
 //  20 Jan 01  Moved BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS to config.hpp.
 //             Removed unused BOOST_EXPLICIT_TARGET macro. Moved
-//             boost::detail::type to boost/type.hpp. Made it compile with
+//             boost_cryray::detail::type to boost/type.hpp. Made it compile with
 //             stock gcc again (Dave Abrahams)
 //  29 Nov 00  Remove nested namespace cast, cleanup spacing before Formal
 //             Review (Beman Dawes)
@@ -56,12 +56,12 @@
 //
 //  TODO: Add this to config.hpp?
 # if defined(BOOST_MSVC) && BOOST_MSVC <= 1200 // 1200 = VC6
-#  define BOOST_EXPLICIT_DEFAULT_TARGET , ::boost::type<Target>* = 0
+#  define BOOST_EXPLICIT_DEFAULT_TARGET , ::boost_cryray::type<Target>* = 0
 # else
 #  define BOOST_EXPLICIT_DEFAULT_TARGET
 # endif
 
-namespace boost
+namespace boost_cryray
 {
 //  See the documentation for descriptions of how to choose between
 //  static_cast<>, dynamic_cast<>, polymorphic_cast<> and polymorphic_downcast<>
@@ -138,7 +138,7 @@ namespace boost
          };
       };
    
-      // Move to namespace boost in utility.hpp?
+      // Move to namespace boost_cryray in utility.hpp?
       template <class T, bool specialized>
       struct fixed_numeric_limits_base
           : public if_true< std::numeric_limits<T>::is_signed >
@@ -310,7 +310,7 @@ namespace boost
 #  pragma option push -w-8041
 # endif
 
-       // Move to namespace boost in utility.hpp?
+       // Move to namespace boost_cryray in utility.hpp?
        template <class T>
        struct fixed_numeric_limits : public std::numeric_limits<T>
        {
@@ -380,6 +380,6 @@ namespace boost
 
 #  undef BOOST_EXPLICIT_DEFAULT_TARGET
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif  // BOOST_CAST_HPP

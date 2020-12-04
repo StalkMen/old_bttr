@@ -23,7 +23,7 @@
 
 #include <boost/utility/base_from_member.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
 // ************************************************************************** //
 // **************                 basic_nullbuf                ************** //
@@ -67,9 +67,9 @@ typedef basic_nullbuf<wchar_t>  wnullbuf;
 //  Output streams based on basic_nullbuf.
 
 template< typename CharType, class CharTraits = ::std::char_traits<CharType> >
-class basic_onullstream : private boost::base_from_member<basic_nullbuf<CharType, CharTraits> >
+class basic_onullstream : private boost_cryray::base_from_member<basic_nullbuf<CharType, CharTraits> >
                         , public ::std::basic_ostream<CharType, CharTraits> {
-    typedef boost::base_from_member<basic_nullbuf<CharType, CharTraits> >   pbase_type;
+    typedef boost_cryray::base_from_member<basic_nullbuf<CharType, CharTraits> >   pbase_type;
     typedef ::std::basic_ostream<CharType, CharTraits>                      base_type;
 public:
     // Constructor
@@ -79,7 +79,7 @@ public:
 typedef basic_onullstream<char>      onullstream;
 typedef basic_onullstream<wchar_t>  wonullstream;
 
-}  // namespace boost
+}  // namespace boost_cryray
 
 
 #endif  // BOOST_NULLSTREAM_HPP

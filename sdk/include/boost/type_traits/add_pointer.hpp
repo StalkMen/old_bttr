@@ -15,7 +15,7 @@
 // should be the last #include
 #include "boost/type_traits/detail/type_trait_def.hpp"
 
-namespace boost {
+namespace boost_cryray {
 
 namespace detail {
 
@@ -66,7 +66,7 @@ struct add_pointer_impl
 
 BOOST_TT_AUX_TYPE_TRAIT_DEF1(add_pointer,T,typename detail::add_pointer_impl<T>::type)
 
-} // namespace boost
+} // namespace boost_cryray
 
 #include "boost/type_traits/detail/type_trait_undef.hpp"
 

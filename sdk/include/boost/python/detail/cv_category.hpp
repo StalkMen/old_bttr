@@ -7,7 +7,7 @@
 # define CV_CATEGORY_DWA200222_HPP
 # include <boost/type_traits/cv_traits.hpp>
 
-namespace boost { namespace python { namespace detail { 
+namespace boost_cryray { namespace python { namespace detail { 
 
 template <bool is_const_, bool is_volatile_>
 struct cv_tag
@@ -29,6 +29,6 @@ struct cv_category
     typedef cv_tag<c,v> type;
 };
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // CV_CATEGORY_DWA200222_HPP

@@ -31,7 +31,7 @@ namespace suns
 
 class sun;
 
-class manager : private boost::noncopyable
+class manager : private boost_cryray::noncopyable
 {
 public:
     manager(environment::manager* environment);

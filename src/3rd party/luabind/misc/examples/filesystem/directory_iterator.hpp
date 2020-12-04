@@ -69,7 +69,7 @@ namespace luabind { namespace detail
 		template<class T>
 		void apply(lua_State* L, const T& c)
 		{
-			typedef boost::filesystem::directory_iterator iter_t;
+			typedef boost_cryray::filesystem::directory_iterator iter_t;
 			typedef dir_iterator_state<iter_t> state_t;
 
 			// note that this should be destructed, for now.. just hope that iterator
@@ -82,7 +82,7 @@ namespace luabind { namespace detail
 		template<class T>
 		void apply(lua_State* L, T& c)
 		{
-			typedef boost::filesystem::directory_iterator iter_t;
+			typedef boost_cryray::filesystem::directory_iterator iter_t;
 			typedef dir_iterator_state<iter_t> state_t;
 
 			// note that this should be destructed, for now.. just hope that iterator

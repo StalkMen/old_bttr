@@ -13,7 +13,7 @@
 #define BOOST_SPIRIT_PARSER_ID_HPP
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
     class parser_id
     {
@@ -71,7 +71,7 @@ namespace boost { namespace spirit {
     };
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #endif
 

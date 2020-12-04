@@ -42,7 +42,7 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-namespace boost { namespace spirit {
+namespace boost_cryray { namespace spirit {
 
 namespace impl {
     template <typename T>
@@ -171,7 +171,7 @@ public:
 
     virtual const char*
     what() const throw()
-    { return "boost::spirit::illegal_backtracking"; }
+    { return "boost_cryray::spirit::illegal_backtracking"; }
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -213,7 +213,7 @@ class buf_id_check
         {
             if (buf_id != *shared_buf_id)
             {
-                boost::throw_exception(illegal_backtracking());
+                boost_cryray::throw_exception(illegal_backtracking());
             }
         }
 
@@ -388,7 +388,7 @@ class inner
 // class fixed_size_queue
 // Implementation of the StoragePolicy used by multi_pass
 // fixed_size_queue keeps a circular buffer (implemented by
-// boost::spirit::fixed_size_queue class) that is size N+1 and stores N elements.
+// boost_cryray::spirit::fixed_size_queue class) that is size N+1 and stores N elements.
 // It is up to the user to ensure that there is enough look ahead for their
 // grammar.  Currently there is no way to tell if an iterator is pointing
 // to forgotten data.  The leading iterator will put an item in the queue
@@ -408,7 +408,7 @@ class inner
 #else
     private:
 #endif
-        typedef boost::spirit::fixed_size_queue<ValueT, N> queue_type;
+        typedef boost_cryray::spirit::fixed_size_queue<ValueT, N> queue_type;
         queue_type * queuedElements;
         mutable typename queue_type::iterator queuePosition;
 
@@ -1232,13 +1232,13 @@ namespace impl {
     inline void mp_swap(T& t1, T& t2)
     {
         using std::swap;
-        using boost::spirit::swap;
+        using boost_cryray::spirit::swap;
         swap(t1, t2);
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-}} // namespace boost::spirit
+}} // namespace boost_cryray::spirit
 
 #undef BOOST_SPIRIT_IT_NS
 #endif  // defined(BOOST_MSVC) && (BOOST_MSVC <= 1300)

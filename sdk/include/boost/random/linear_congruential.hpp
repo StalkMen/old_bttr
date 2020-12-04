@@ -29,7 +29,7 @@
 #include <boost/static_assert.hpp>
 #include <boost/random/detail/const_mod.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace random {
 
 // compile-time configurable linear congruential generator
@@ -213,6 +213,6 @@ private:
 };
 #endif /* !BOOST_NO_INT64_T && !BOOST_NO_INTEGRAL_INT64_T */
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_LINEAR_CONGRUENTIAL_HPP

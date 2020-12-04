@@ -10,14 +10,14 @@
 #include "boost/date_time/time_defs.hpp"
 #include "boost/cstdint.hpp"
 
-namespace boost {
+namespace boost_cryray {
 namespace date_time {
 
    template<typename frac_sec_type, 
             time_resolutions res, 
             frac_sec_type resolution_adjust,
             unsigned short frac_digits,
-            typename v_type = boost::int32_t >
+            typename v_type = boost_cryray::int32_t >
   class time_resolution_traits {
   public:
     typedef frac_sec_type fractional_seconds_type;
@@ -29,7 +29,7 @@ namespace date_time {
 
     //Would like this to be frac_sec_type, but some compilers complain
     BOOST_STATIC_CONSTANT(int, ticks_per_second = resolution_adjust);
-    //    static const boost::int32_t ticks_per_second = resolution_adjust;
+    //    static const boost_cryray::int32_t ticks_per_second = resolution_adjust;
 
     static time_resolutions resolution()
     {
@@ -53,9 +53,9 @@ namespace date_time {
     
   };
 
-  typedef time_resolution_traits<boost::int32_t, milli, 1000, 3 > milli_res;
-  typedef time_resolution_traits<boost::int64_t, micro, 1000000, 6 > micro_res;
-  typedef time_resolution_traits<boost::int64_t, nano,  1000000000, 9 > nano_res;
+  typedef time_resolution_traits<boost_cryray::int32_t, milli, 1000, 3 > milli_res;
+  typedef time_resolution_traits<boost_cryray::int64_t, micro, 1000000, 6 > micro_res;
+  typedef time_resolution_traits<boost_cryray::int64_t, nano,  1000000000, 9 > nano_res;
 
 
 } } //namespace date_time

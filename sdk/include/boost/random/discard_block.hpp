@@ -27,7 +27,7 @@
 #include <boost/static_assert.hpp>
 
 
-namespace boost {
+namespace boost_cryray {
 namespace random {
 
 template<class UniformRandomNumberGenerator, unsigned int p, unsigned int r>
@@ -120,6 +120,6 @@ const unsigned int discard_block<UniformRandomNumberGenerator, p, r>::returned_b
 
 } // namespace random
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_DISCARD_BLOCK_HPP

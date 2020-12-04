@@ -8,7 +8,7 @@
 # include <boost/mpl/if.hpp>
 # include <cstddef>
 
-namespace boost { namespace python { namespace detail {
+namespace boost_cryray { namespace python { namespace detail {
 
 struct alignment_dummy;
 typedef void (*function_ptr)();
@@ -70,6 +70,6 @@ struct referent_storage
     typedef aligned_storage<referent_size<T>::value> type;
 };
 
-}}} // namespace boost::python::detail
+}}} // namespace boost_cryray::python::detail
 
 #endif // REFERENT_STORAGE_DWA200278_HPP

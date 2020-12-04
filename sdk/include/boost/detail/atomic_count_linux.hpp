@@ -24,7 +24,7 @@
 
 #include <asm/atomic.h>
 
-namespace boost
+namespace boost_cryray
 {
 
 namespace detail
@@ -65,6 +65,6 @@ private:
 
 } // namespace detail
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // #ifndef BOOST_DETAIL_ATOMIC_COUNT_LINUX_HPP_INCLUDED

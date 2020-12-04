@@ -30,18 +30,18 @@ using ::size_t;
 #  define BOOST_HAVE_SGI_ALLOCATOR
 #  include <memory>
 #  if defined(__SGI_STL_PORT) || defined(_STLPORT_VERSION)
-namespace boost{ namespace detail{
+namespace boost_cryray{ namespace detail{
    typedef std::__sgi_alloc alloc_type;
 }}
 #  else
-namespace boost{ namespace detail{
+namespace boost_cryray{ namespace detail{
    typedef std::alloc alloc_type;
 }}
 #  endif
 #endif
 
 
-namespace boost{ namespace detail{
+namespace boost_cryray{ namespace detail{
 
 template <class T>
 void allocator_construct(T* p, const T& t)
@@ -62,7 +62,7 @@ void allocator_destroy(T* p)
 
 #define BOOST_DEFAULT_ALLOCATOR(T) std::allocator< T >
 
-namespace boost{ namespace detail{
+namespace boost_cryray{ namespace detail{
 
 template <class T, class A>
 struct rebind_allocator
@@ -72,16 +72,16 @@ struct rebind_allocator
 };
 
 } // namespace detail
-} // namespace boost
+} // namespace boost_cryray
 
 #elif !defined(BOOST_NO_MEMBER_TEMPLATES)
 
 // no std::allocator, but the compiler supports the necessary syntax,
 // write our own allocator instead:
 
-#define BOOST_DEFAULT_ALLOCATOR(T) ::boost::detail::allocator< T >
+#define BOOST_DEFAULT_ALLOCATOR(T) ::boost_cryray::detail::allocator< T >
 
-namespace boost{ namespace detail{
+namespace boost_cryray{ namespace detail{
 
 template <class T>
 class allocator
@@ -163,7 +163,7 @@ struct rebind_allocator
 };
 
 } // namespace detail
-} // namespace boost
+} // namespace boost_cryray
 
 #else
 
@@ -171,9 +171,9 @@ struct rebind_allocator
 // each allocator class must derive from a base class
 // that allocates blocks of bytes:
 
-#define BOOST_DEFAULT_ALLOCATOR(T) ::boost::detail::allocator_adapter<T, ::boost::detail::simple_alloc>
+#define BOOST_DEFAULT_ALLOCATOR(T) ::boost_cryray::detail::allocator_adapter<T, ::boost_cryray::detail::simple_alloc>
 
-namespace boost{ namespace detail{
+namespace boost_cryray{ namespace detail{
 
 class simple_alloc
 {
@@ -276,7 +276,7 @@ struct rebind_allocator
 };
 
 } // namespace detail
-} // namespace boost
+} // namespace boost_cryray
 
 #endif
 

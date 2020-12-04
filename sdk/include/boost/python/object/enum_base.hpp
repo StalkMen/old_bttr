@@ -12,7 +12,7 @@
 # include <boost/python/converter/convertible_function.hpp>
 # include <boost/python/converter/constructor_function.hpp>
 
-namespace boost { namespace python { namespace objects { 
+namespace boost_cryray { namespace python { namespace objects { 
 
 struct BOOST_PYTHON_DECL enum_base : python::api::object
 {
@@ -30,6 +30,6 @@ struct BOOST_PYTHON_DECL enum_base : python::api::object
     static PyObject* to_python(PyTypeObject* type, long x);
 };
 
-}}} // namespace boost::python::object
+}}} // namespace boost_cryray::python::object
 
 #endif // ENUM_BASE_DWA200298_HPP

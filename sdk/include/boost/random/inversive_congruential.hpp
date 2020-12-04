@@ -26,7 +26,7 @@
 #include <boost/static_assert.hpp>
 #include <boost/random/detail/const_mod.hpp>
 
-namespace boost {
+namespace boost_cryray {
 namespace random {
 
 // Eichenauer and Lehn 1986
@@ -126,6 +126,6 @@ const typename inversive_congruential<IntType, a, b, p, val>::result_type invers
 typedef random::inversive_congruential<int32_t, 9102, 2147483647-36884165,
   2147483647, 0> hellekalek1995;
 
-} // namespace boost
+} // namespace boost_cryray
 
 #endif // BOOST_RANDOM_INVERSIVE_CONGRUENTIAL_HPP

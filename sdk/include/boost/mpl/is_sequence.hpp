@@ -35,7 +35,7 @@
 #include "boost/type_traits/is_same.hpp"
 #include "boost/type_traits/is_class.hpp"
 
-namespace boost { namespace mpl {
+namespace boost_cryray { namespace mpl {
 
 #if BOOST_WORKAROUND(BOOST_MSVC, <= 1300)
 
@@ -56,7 +56,7 @@ template<
     >
 struct is_sequence
     : if_<
-          boost::is_class<T> 
+          boost_cryray::is_class<T> 
         , aux::is_sequence_impl<T>
         , bool_<false>
         >::type
@@ -96,6 +96,6 @@ template<> struct is_sequence<int>
 
 BOOST_MPL_AUX_VOID_SPEC(1, is_sequence)
 
-}} // namespace boost::mpl
+}} // namespace boost_cryray::mpl
 
 #endif // BOOST_MPL_IS_SEQUENCE_HPP_INCLUDED

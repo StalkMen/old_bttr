@@ -26,7 +26,7 @@
 #   include <Multiprocessing.h>
 #endif
 
-namespace boost {
+namespace boost_cryray {
 
 namespace detail {
 class BOOST_THREAD_DECL tss : private noncopyable
@@ -79,7 +79,7 @@ private:
     mutable detail::tss m_tss;
 };
 
-} // namespace boost
+} // namespace boost_cryray
 
 // Change Log:
 //   6 Jun 01  WEKEMPF Initial version.

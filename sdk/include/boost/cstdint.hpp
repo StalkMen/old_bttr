@@ -15,7 +15,7 @@
 //   12 Nov 00  Merged <boost/stdint.h> (Jens Maurer)
 //   23 Sep 00  Added INTXX_C macro support (John Maddock).
 //   22 Sep 00  Better 64-bit support (John Maddock)
-//   29 Jun 00  Reimplement to avoid including stdint.h within namespace boost
+//   29 Jun 00  Reimplement to avoid including stdint.h within namespace boost_cryray
 //    8 Aug 99  Initial version (Beman Dawes)
 
 
@@ -41,7 +41,7 @@
 #   include <stdint.h>
 # endif
 
-namespace boost
+namespace boost_cryray
 {
 
   using ::int8_t;             
@@ -79,13 +79,13 @@ namespace boost
   using ::intmax_t;      
   using ::uintmax_t;     
 
-} // namespace boost
+} // namespace boost_cryray
 
 #elif defined(__FreeBSD__) && (__FreeBSD__ <= 4)
 // FreeBSD has an <inttypes.h> that contains much of what we need
 # include <inttypes.h>
 
-namespace boost {
+namespace boost_cryray {
 
   using ::int8_t;             
   typedef int8_t int_least8_t;       
@@ -127,14 +127,14 @@ namespace boost {
 
 # endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 #else  // BOOST_HAS_STDINT_H
 
 # include <limits.h> // implementation artifact; not part of interface
 
 
-namespace boost
+namespace boost_cryray
 {
 
 //  These are fairly safe guesses for some 16-bit, and most 32-bit and 64-bit
@@ -263,7 +263,7 @@ namespace boost
      typedef uint32_t             uintmax_t;
 # endif
 
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_HAS_STDINT_H
@@ -315,15 +315,15 @@ BOOST_HAS_STDINT_H is defined (John Maddock).
 //  8-bit types  ------------------------------------------------------------//
 
 #  if UCHAR_MAX == 0xff
-#   define INT8_C(value) static_cast<boost::int8_t>(value)
-#   define UINT8_C(value) static_cast<boost::uint8_t>(value##u)
+#   define INT8_C(value) static_cast<boost_cryray::int8_t>(value)
+#   define UINT8_C(value) static_cast<boost_cryray::uint8_t>(value##u)
 #  endif
 
 //  16-bit types  -----------------------------------------------------------//
 
 #  if USHRT_MAX == 0xffff
-#   define INT16_C(value) static_cast<boost::int16_t>(value)
-#   define UINT16_C(value) static_cast<boost::uint16_t>(value##u)
+#   define INT16_C(value) static_cast<boost_cryray::int16_t>(value)
+#   define UINT16_C(value) static_cast<boost_cryray::uint16_t>(value##u)
 #  endif
 
 //  32-bit types  -----------------------------------------------------------//

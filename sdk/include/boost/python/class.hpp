@@ -46,7 +46,7 @@
 # include <boost/utility.hpp>
 # include <boost/detail/workaround.hpp>
 
-namespace boost { namespace python {
+namespace boost_cryray { namespace python {
 
 enum no_init_t { no_init };
 
@@ -171,7 +171,7 @@ class class_ : public objects::class_base
 
     typedef typename detail::select_bases<X1
             , typename detail::select_bases<X2
-              , typename boost::python::detail::select_bases<X3>::type
+              , typename boost_cryray::python::detail::select_bases<X3>::type
               >::type
             >::type bases;
 
@@ -543,6 +543,6 @@ namespace detail
     };
 }
 
-}} // namespace boost::python
+}} // namespace boost_cryray::python
 
 #endif // CLASS_DWA200216_HPP

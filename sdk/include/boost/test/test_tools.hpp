@@ -24,7 +24,7 @@
 #include <boost/test/detail/wrap_stringstream.hpp>
 
 // BOOST
-#include <boost/cstdlib.hpp> // for boost::exit_success;
+#include <boost/cstdlib.hpp> // for boost_cryray::exit_success;
 #include <boost/config.hpp>  // compilers workarounds
 #include <boost/shared_ptr.hpp>
 
@@ -38,57 +38,57 @@
 // ************************************************************************** //
 
 #define BOOST_CHECKPOINT(message_) \
-    boost::test_toolbox::detail::checkpoint_impl( \
-        boost::wrap_stringstream().ref() << message_, __FILE__, __LINE__)
+    boost_cryray::test_toolbox::detail::checkpoint_impl( \
+        boost_cryray::wrap_stringstream().ref() << message_, __FILE__, __LINE__)
 
 #define BOOST_WARN(predicate) \
-    boost::test_toolbox::detail::warn_and_continue_impl((predicate), \
-        boost::wrap_stringstream().ref() << #predicate, __FILE__, __LINE__)
+    boost_cryray::test_toolbox::detail::warn_and_continue_impl((predicate), \
+        boost_cryray::wrap_stringstream().ref() << #predicate, __FILE__, __LINE__)
 
 #define BOOST_CHECK(predicate) \
-    boost::test_toolbox::detail::test_and_continue_impl((predicate), \
-        boost::wrap_stringstream().ref() << #predicate, __FILE__, __LINE__)
+    boost_cryray::test_toolbox::detail::test_and_continue_impl((predicate), \
+        boost_cryray::wrap_stringstream().ref() << #predicate, __FILE__, __LINE__)
 
 #define BOOST_CHECK_EQUAL(left_, right_) \
-    boost::test_toolbox::detail::equal_and_continue_impl((left_), (right_), \
-        boost::wrap_stringstream().ref() << #left_ " == " #right_, __FILE__, __LINE__)
+    boost_cryray::test_toolbox::detail::equal_and_continue_impl((left_), (right_), \
+        boost_cryray::wrap_stringstream().ref() << #left_ " == " #right_, __FILE__, __LINE__)
 
 #define BOOST_CHECK_CLOSE(left_, right_, tolerance_src) \
-    boost::test_toolbox::detail::compare_and_continue_impl((left_), (right_), (tolerance_src),\
-        boost::wrap_stringstream().ref() << #left_ " ~= " #right_, __FILE__, __LINE__)
+    boost_cryray::test_toolbox::detail::compare_and_continue_impl((left_), (right_), (tolerance_src),\
+        boost_cryray::wrap_stringstream().ref() << #left_ " ~= " #right_, __FILE__, __LINE__)
 
 #define BOOST_BITWISE_EQUAL(left_, right_) \
-    boost::test_toolbox::detail::bitwise_equal_and_continue_impl((left_), (right_), \
-        boost::wrap_stringstream().ref() << #left_ " =.= " #right_, __FILE__, __LINE__)
+    boost_cryray::test_toolbox::detail::bitwise_equal_and_continue_impl((left_), (right_), \
+        boost_cryray::wrap_stringstream().ref() << #left_ " =.= " #right_, __FILE__, __LINE__)
 
 #define BOOST_REQUIRE(predicate) \
-    boost::test_toolbox::detail::test_and_throw_impl((predicate), \
-        boost::wrap_stringstream().ref() << #predicate, __FILE__, __LINE__)
+    boost_cryray::test_toolbox::detail::test_and_throw_impl((predicate), \
+        boost_cryray::wrap_stringstream().ref() << #predicate, __FILE__, __LINE__)
 
 #define BOOST_MESSAGE(message_) \
-    boost::test_toolbox::detail::message_impl( \
-        boost::wrap_stringstream().ref() << message_, __FILE__, __LINE__)
+    boost_cryray::test_toolbox::detail::message_impl( \
+        boost_cryray::wrap_stringstream().ref() << message_, __FILE__, __LINE__)
 
 #define BOOST_WARN_MESSAGE(predicate, message_) \
-    boost::test_toolbox::detail::warn_and_continue_impl((predicate), \
-        boost::wrap_stringstream().ref() << message_, __FILE__, __LINE__,false)
+    boost_cryray::test_toolbox::detail::warn_and_continue_impl((predicate), \
+        boost_cryray::wrap_stringstream().ref() << message_, __FILE__, __LINE__,false)
 
 #define BOOST_CHECK_MESSAGE(predicate, message_) \
-    boost::test_toolbox::detail::test_and_continue_impl((predicate), \
-        boost::wrap_stringstream().ref() << message_, __FILE__, __LINE__,false)
+    boost_cryray::test_toolbox::detail::test_and_continue_impl((predicate), \
+        boost_cryray::wrap_stringstream().ref() << message_, __FILE__, __LINE__,false)
 
 #define BOOST_REQUIRE_MESSAGE(predicate, message_) \
-    boost::test_toolbox::detail::test_and_throw_impl((predicate), \
-        boost::wrap_stringstream().ref() << message_, __FILE__, __LINE__,false)
+    boost_cryray::test_toolbox::detail::test_and_throw_impl((predicate), \
+        boost_cryray::wrap_stringstream().ref() << message_, __FILE__, __LINE__,false)
 
 #define BOOST_CHECK_PREDICATE( predicate, arg_list_size, arg_list ) \
-    boost::test_toolbox::detail::test_and_continue_impl(predicate, BOOST_PLACE_PREDICATE_ARGS ## arg_list_size arg_list, \
-        boost::wrap_stringstream().ref() << #predicate << "("\
+    boost_cryray::test_toolbox::detail::test_and_continue_impl(predicate, BOOST_PLACE_PREDICATE_ARGS ## arg_list_size arg_list, \
+        boost_cryray::wrap_stringstream().ref() << #predicate << "("\
         << BOOST_PRINT_PREDICATE_ARGS ## arg_list_size arg_list << ")", __FILE__, __LINE__)
 
 #define BOOST_REQUIRE_PREDICATE( predicate, arg_list_size, arg_list ) \
-    boost::test_toolbox::detail::test_and_throw_impl(predicate, BOOST_PLACE_PREDICATE_ARGS ## arg_list_size arg_list, \
-        boost::wrap_stringstream().ref() << #predicate << "("\
+    boost_cryray::test_toolbox::detail::test_and_throw_impl(predicate, BOOST_PLACE_PREDICATE_ARGS ## arg_list_size arg_list, \
+        boost_cryray::wrap_stringstream().ref() << #predicate << "("\
         << BOOST_PRINT_PREDICATE_ARGS ## arg_list_size arg_list << ")", __FILE__, __LINE__)
 
 #define BOOST_ERROR(message_) BOOST_CHECK_MESSAGE( false, message_ )
@@ -108,11 +108,11 @@
     }
 
 #define BOOST_CHECK_EQUAL_COLLECTIONS(left_begin_, left_end_, right_begin_) \
-    boost::test_toolbox::detail::equal_and_continue_impl( (left_begin_), (left_end_), (right_begin_),\
-        boost::wrap_stringstream().ref() << \
+    boost_cryray::test_toolbox::detail::equal_and_continue_impl( (left_begin_), (left_end_), (right_begin_),\
+        boost_cryray::wrap_stringstream().ref() << \
             "{" #left_begin_ ", " #left_end_ "}" " == {" #right_begin_ ", ...}", __FILE__, __LINE__)
 
-#define BOOST_IS_DEFINED(symb) boost::test_toolbox::detail::is_defined_impl( #symb, BOOST_STRINGIZE(= symb) )
+#define BOOST_IS_DEFINED(symb) boost_cryray::test_toolbox::detail::is_defined_impl( #symb, BOOST_STRINGIZE(= symb) )
 
 // ***************************** //
 // helper macros
@@ -130,7 +130,7 @@
 #define BOOST_CRITICAL_TEST(predicate)   BOOST_REQUIRE(predicate)
 #define BOOST_CRITICAL_ERROR(message_)   BOOST_FAIL(message_)
 
-namespace boost {
+namespace boost_cryray {
 
 namespace test_toolbox {
 
@@ -452,12 +452,12 @@ private:
     void            sync();
 
     struct Impl;
-    boost::shared_ptr<Impl> m_pimpl;
+    boost_cryray::shared_ptr<Impl> m_pimpl;
 };
 
 } // namespace test_toolbox
 
-} // namespace boost
+} // namespace boost_cryray
 
 // ***************************************************************************
 //  Revision History :

@@ -34,7 +34,7 @@
 
 #include <boost/static_assert.hpp>
 
-namespace boost {
+namespace boost_cryray {
 
   namespace detail {
 
@@ -78,8 +78,8 @@ namespace boost {
   {
     typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
     function_requires< WritablePropertyMapConcept<ComponentMap, Vertex> >();
-    typedef typename boost::graph_traits<Graph>::directed_category directed;
-    BOOST_STATIC_ASSERT((boost::is_same<directed, undirected_tag>::value));
+    typedef typename boost_cryray::graph_traits<Graph>::directed_category directed;
+    BOOST_STATIC_ASSERT((boost_cryray::is_same<directed, undirected_tag>::value));
 
     typedef typename property_traits<ComponentMap>::value_type comp_type;
     // c_count initialized to "nil" (with nil represented by max())
@@ -95,8 +95,8 @@ namespace boost {
   {
     typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
     function_requires< WritablePropertyMapConcept<ComponentMap, Vertex> >();
-    typedef typename boost::graph_traits<Graph>::directed_category directed;
-    BOOST_STATIC_ASSERT((boost::is_same<directed, undirected_tag>::value));
+    typedef typename boost_cryray::graph_traits<Graph>::directed_category directed;
+    BOOST_STATIC_ASSERT((boost_cryray::is_same<directed, undirected_tag>::value));
 
     typedef typename property_traits<ComponentMap>::value_type comp_type;
     // c_count initialized to "nil" (with nil represented by max())
@@ -107,7 +107,7 @@ namespace boost {
   }
 
   
-} // namespace boost
+} // namespace boost_cryray
 
 
 #endif // BOOST_GRAPH_CONNECTED_COMPONENTS_HPP

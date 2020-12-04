@@ -26,7 +26,7 @@
 #include <boost/numeric/ublas/iterator.hpp>
 #include <boost/numeric/ublas/storage.hpp>
 
-namespace boost { namespace numeric { namespace ublas {
+namespace boost_cryray { namespace numeric { namespace ublas {
 
     namespace detail {
 

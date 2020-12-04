@@ -35,7 +35,7 @@
 
 #include <boost/test/detail/unit_test_config.hpp>
 
-namespace boost {
+namespace boost_cryray {
     
 // ************************************************************************** //
 // **************              execution_exception             ************** //
@@ -120,7 +120,7 @@ public:
     
 }; // exception monitor
 
-}  // namespace boost
+}  // namespace boost_cryray
 
 // ***************************************************************************
 //  Revision History :
