@@ -14,7 +14,7 @@ public:
 	void	SetPSResource( u32 uiSlot, ID3DShaderResourceView	*pRes );
 	void	SetGSResource( u32 uiSlot, ID3DShaderResourceView	*pRes );
 	void	SetVSResource( u32 uiSlot, ID3DShaderResourceView	*pRes );
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	void	SetDSResource( u32 uiSlot, ID3DShaderResourceView	*pRes );
 	void	SetHSResource( u32 uiSlot, ID3DShaderResourceView	*pRes );
 	void	SetCSResource( u32 uiSlot, ID3DShaderResourceView	*pRes );
@@ -24,7 +24,7 @@ private:
 	ID3DShaderResourceView	*m_PSViews[CBackend::mtMaxPixelShaderTextures];
 	ID3DShaderResourceView	*m_GSViews[CBackend::mtMaxGeometryShaderTextures];
 	ID3DShaderResourceView	*m_VSViews[CBackend::mtMaxVertexShaderTextures];
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	ID3DShaderResourceView	*m_HSViews[CBackend::mtMaxHullShaderTextures];
 	ID3DShaderResourceView	*m_DSViews[CBackend::mtMaxDomainShaderTextures];
 	ID3DShaderResourceView	*m_CSViews[CBackend::mtMaxComputeShaderTextures];
@@ -39,7 +39,7 @@ private:
 	u32		m_uiMinVSView;
 	u32		m_uiMaxVSView;
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	u32		m_uiMinHSView;
 	u32		m_uiMaxHSView;
 
@@ -53,7 +53,7 @@ private:
 	bool	m_bUpdatePSViews;
 	bool	m_bUpdateGSViews;
 	bool	m_bUpdateVSViews;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	bool	m_bUpdateHSViews;
 	bool	m_bUpdateDSViews;
 	bool	m_bUpdateCSViews;

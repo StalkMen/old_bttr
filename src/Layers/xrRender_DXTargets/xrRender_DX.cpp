@@ -37,14 +37,14 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 
 extern "C"
 {
-#ifdef USE_DX10
+#ifdef DIRECTX10
 	bool _declspec(dllexport) SupportsDX10Rendering();
 #else
 	bool _declspec(dllexport) SupportsDX11Rendering();
 #endif
 };
 
-#ifdef USE_DX10
+#ifdef DIRECTX10
 bool _declspec(dllexport) SupportsDX10Rendering()
 #else
 bool _declspec(dllexport) SupportsDX11Rendering()

@@ -66,7 +66,7 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 				desc.Usage = D3D_USAGE_DEFAULT;
 				desc.BindFlags = D3D10_BIND_SHADER_RESOURCE;
 				CHK_DX( DEVICE_HW::XRAY::HW.pRenderDevice->CreateTexture2D( &desc, NULL, &pSrcSmallTexture ) );
-#ifdef USE_DX11
+#ifdef DIRECTX11
 				CHK_DX(D3DX11LoadTextureFromTexture(DEVICE_HW::XRAY::HW.pRenderContext, pSrcTexture,
 					NULL, pSrcSmallTexture ));
 #else
@@ -76,7 +76,7 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 
 				// save (logical & physical)
 				ID3DBlob*		saved	= 0;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 				HRESULT hr = D3DX11SaveTextureToMemory(DEVICE_HW::XRAY::HW.pRenderContext, pSrcSmallTexture, D3DX11_IFF_DDS, &saved, 0);
 #else
 				HRESULT hr = D3DX10SaveTextureToMemory( pSrcSmallTexture, D3DX10_IFF_DDS, &saved, 0);
@@ -112,7 +112,7 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 				desc.Usage = D3D_USAGE_DEFAULT;
 				desc.BindFlags = D3D_BIND_SHADER_RESOURCE;
 				CHK_DX( DEVICE_HW::XRAY::HW.pRenderDevice->CreateTexture2D( &desc, NULL, &pSrcSmallTexture ) );
-#ifdef USE_DX11
+#ifdef DIRECTX11
 				CHK_DX(D3DX11LoadTextureFromTexture(DEVICE_HW::XRAY::HW.pRenderContext, pSrcTexture,
 					NULL, pSrcSmallTexture ));
 #else
@@ -121,7 +121,7 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 #endif
 				// save (logical & physical)
 				ID3DBlob*		saved	= 0;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 				HRESULT hr	= D3DX11SaveTextureToMemory(DEVICE_HW::XRAY::HW.pRenderContext, pSrcSmallTexture, D3DX11_IFF_DDS, &saved, 0);
 #else
 				HRESULT hr	= D3DX10SaveTextureToMemory( pSrcSmallTexture, D3DX10_IFF_DDS, &saved, 0);
@@ -163,7 +163,7 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 					else if (renderer_value == 2)
 						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.jpg", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 					CHK_DX(D3DX11SaveTextureToMemory(DEVICE_HW::XRAY::HW.pRenderContext, pSrcTexture, D3DX11_IFF_JPG, &saved, 0));
 #else
 					CHK_DX(D3DX10SaveTextureToMemory(pSrcTexture, D3DX10_IFF_JPG, &saved, 0));
@@ -186,7 +186,7 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10_1.png", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
 					else if (renderer_value == 2)
 						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.png", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
-#ifdef USE_DX11
+#ifdef DIRECTX11
 					CHK_DX(D3DX11SaveTextureToMemory(DEVICE_HW::XRAY::HW.pRenderContext, pSrcTexture, D3DX11_IFF_PNG, &saved, 0));
 #else
 					CHK_DX(D3DX10SaveTextureToMemory(pSrcTexture, D3DX10_IFF_PNG, &saved, 0));
@@ -209,7 +209,7 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10_1.bmp", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
 					else if (renderer_value == 2)
 						xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.bmp", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
-#ifdef USE_DX11
+#ifdef DIRECTX11
 					CHK_DX(D3DX11SaveTextureToMemory(DEVICE_HW::XRAY::HW.pRenderContext, pSrcTexture, D3DX11_IFF_BMP, &saved, 0));
 #else
 					CHK_DX(D3DX10SaveTextureToMemory(pSrcTexture, D3DX10_IFF_BMP, &saved, 0));
@@ -262,7 +262,7 @@ void CRender::ScreenshotAsyncEnd(CMemoryWriter &memory_writer)
 
 	D3D_MAPPED_TEXTURE2D	MappedData;
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	DEVICE_HW::XRAY::HW.pRenderContext->Map(pTex, 0, D3D_MAP_READ, 0, &MappedData);
 #else
 	pTex->Map(0, D3D_MAP_READ, 0, &MappedData);
@@ -289,7 +289,7 @@ void CRender::ScreenshotAsyncEnd(CMemoryWriter &memory_writer)
 		memory_writer.w( MappedData.pData, (Device.dwWidth*Device.dwHeight)*4 );
 	}
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	DEVICE_HW::XRAY::HW.pRenderContext->Unmap(pTex, 0);
 #else
 	pTex->Unmap(0);

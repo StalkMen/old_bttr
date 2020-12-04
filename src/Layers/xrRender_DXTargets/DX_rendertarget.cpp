@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "../xrRender/resourcemanager.h"
 #include "..\xrRender_DXTargets\DXMinMaxSMBlender.h"
-#ifdef USE_DX11
+#ifdef DIRECTX11
 #include "..\xrRender_DXTargets\DX11_HDAOCSBlender.h"
 #endif
 #include "../xrRenderDX10/msaa/dx10MSAABlender.h"
@@ -20,7 +20,7 @@ void	CRenderTarget::u_setrt			(const ref_rt& _1, const ref_rt& _2, const ref_rt&
 	}
 	else
 	{
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		D3D_DEPTH_STENCIL_VIEW_DESC	desc;
 		zb->GetDesc(&desc);
 
@@ -73,7 +73,7 @@ void	CRenderTarget::u_setrt			(const ref_rt& _1, const ref_rt& _2, ID3DDepthSten
 	}
 	else
 	{
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		D3D_DEPTH_STENCIL_VIEW_DESC	desc;
 		zb->GetDesc(&desc);
       if( ! RImplementation.o.dx10_msaa )
@@ -284,7 +284,7 @@ CRenderTarget::CRenderTarget		()
 
    if (ps_r_ssao_mode!=2)
 	   ps_r_ssao = _min(ps_r_ssao, 3);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	RImplementation.o.ssao_ultra		= ps_r_ssao>3 && DEVICE_HW::XRAY::HW.ComputeShadersSupported;
 #endif
    if( RImplementation.o.dx10_msaa )
@@ -332,7 +332,7 @@ CRenderTarget::CRenderTarget		()
 	b_ssao					= xr_new<BLENDER::AO::CBlender_SSAO_noMSAA>		();
 
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	// HDAO
 	b_hdao_cs               = xr_new<CBlender_CS_HDAO>			();
 	if( RImplementation.o.dx10_msaa )
@@ -669,7 +669,7 @@ CRenderTarget::CRenderTarget		()
 			xr_sprintf						(name,"%s_%d",	r2_RT_luminance_pool,it	);
 			rt_LUM_pool[it].create		(name,	1,	1,	D3DFMT_R32F				);
 			FLOAT ColorRGBA[4] = { 127.0f/255.0f, 127.0f/255.0f, 127.0f/255.0f, 127.0f/255.0f};
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_LUM_pool[it]->pRT, ColorRGBA);
 #else
 			DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(rt_LUM_pool[it]->pRT, ColorRGBA);
@@ -700,7 +700,7 @@ CRenderTarget::CRenderTarget		()
 		s_ssao.create				(b_ssao);
 	}
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	// HDAO
 	const bool ssao_blur_on = RImplementation.o.ssao_blur_on;
 	const bool ssao_hdao_ultra = RImplementation.o.ssao_hdao && RImplementation.o.ssao_ultra;
@@ -772,7 +772,7 @@ CRenderTarget::CRenderTarget		()
 	{
 		// Testure for async sreenshots
 		{
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			D3D_TEXTURE2D_DESC	desc;
 #else
 			D3D10_TEXTURE2D_DESC	desc;
@@ -784,13 +784,13 @@ CRenderTarget::CRenderTarget		()
 			desc.SampleDesc.Count = 1;
 			desc.SampleDesc.Quality = 0;
 			desc.Format = DXGI_FORMAT_R8G8B8A8_SNORM;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			desc.Usage = D3D_USAGE_STAGING;
 #else
 			desc.Usage = D3D10_USAGE_STAGING;
 #endif
 			desc.BindFlags = 0;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			desc.CPUAccessFlags = D3D_CPU_ACCESS_READ;
 #else
 			desc.CPUAccessFlags = D3D10_CPU_ACCESS_READ;
@@ -803,7 +803,7 @@ CRenderTarget::CRenderTarget		()
 		{
 			u16	tempData[TEX_material_LdotN*TEX_material_LdotH*TEX_material_Count];
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			D3D_TEXTURE3D_DESC	desc;
 #else
 			D3D10_TEXTURE3D_DESC	desc;
@@ -813,7 +813,7 @@ CRenderTarget::CRenderTarget		()
 			desc.Depth	= TEX_material_Count;
 			desc.MipLevels = 1;
 			desc.Format = DXGI_FORMAT_R8G8_UNORM;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			desc.Usage = D3D_USAGE_IMMUTABLE;
 			desc.BindFlags = D3D_BIND_SHADER_RESOURCE;
 #else
@@ -823,7 +823,7 @@ CRenderTarget::CRenderTarget		()
 			desc.CPUAccessFlags = 0;
 			desc.MiscFlags = 0;
 			
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			D3D_SUBRESOURCE_DATA	subData;
 #else
 			D3D10_SUBRESOURCE_DATA	subData;
@@ -890,7 +890,7 @@ CRenderTarget::CRenderTarget		()
 		{
 			static const int sampleSize = 4;
 			u32	tempData[TEX_jitter_count][TEX_jitter*TEX_jitter];
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			D3D_TEXTURE2D_DESC	desc;
 #else
 			D3D10_TEXTURE2D_DESC	desc;
@@ -902,7 +902,7 @@ CRenderTarget::CRenderTarget		()
 			desc.SampleDesc.Count = 1;
 			desc.SampleDesc.Quality = 0;
 			desc.Format = DXGI_FORMAT_R8G8B8A8_SNORM;
-#ifdef USE_DX11			
+#ifdef DIRECTX11			
 			//desc.Usage = D3D_USAGE_IMMUTABLE;
 			desc.Usage = D3D_USAGE_DEFAULT;
 			desc.BindFlags = D3D_BIND_SHADER_RESOURCE;
@@ -913,7 +913,7 @@ CRenderTarget::CRenderTarget		()
 #endif		
 			desc.CPUAccessFlags = 0;
 			desc.MiscFlags = 0;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			D3D_SUBRESOURCE_DATA	subData[TEX_jitter_count];
 #else
 			D3D10_SUBRESOURCE_DATA	subData[TEX_jitter_count];
@@ -955,7 +955,7 @@ CRenderTarget::CRenderTarget		()
 			float tempDataHBAO[TEX_jitter*TEX_jitter*4];
 
 			// generate HBAO jitter texture (last)
-#ifdef USE_DX11			
+#ifdef DIRECTX11			
 			D3D_TEXTURE2D_DESC	descHBAO;
 #else
 			D3D10_TEXTURE2D_DESC	descHBAO;
@@ -967,7 +967,7 @@ CRenderTarget::CRenderTarget		()
 			descHBAO.SampleDesc.Count = 1;
 			descHBAO.SampleDesc.Quality = 0;
 			descHBAO.Format = DXGI_FORMAT_R8G8B8A8_UNORM;		
-#ifdef USE_DX11			
+#ifdef DIRECTX11			
 			//desc.Usage = D3D_USAGE_IMMUTABLE;
 			descHBAO.Usage = D3D_USAGE_DEFAULT;
 			descHBAO.BindFlags = D3D_BIND_SHADER_RESOURCE;
@@ -1027,7 +1027,7 @@ CRenderTarget::CRenderTarget		()
 				t_noise_mipped->surface_set(t_noise_surf_mipped);
 
 				//	Update texture. Generate mips.
-#ifdef USE_DX11
+#ifdef DIRECTX11
 				DEVICE_HW::XRAY::HW.pRenderContext->CopySubresourceRegion( t_noise_surf_mipped, 0, 0, 0, 0, t_noise_surf[0], 0, 0 );
 
 				D3DX11FilterTexture(DEVICE_HW::XRAY::HW.pRenderContext, t_noise_surf_mipped, 0, D3DX10_FILTER_POINT);
@@ -1144,7 +1144,7 @@ CRenderTarget::~CRenderTarget()
 	}
 	xr_delete(b_accum_mask);
 	xr_delete(b_occq);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	xr_delete(b_hdao_cs);
 #endif
 	xr_delete(b_fxaa);
@@ -1152,7 +1152,7 @@ CRenderTarget::~CRenderTarget()
 	xr_delete(b_smaa);
 	xr_delete(b_sunshafts);
 	xr_delete(b_gasmask);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	if (RImplementation.o.dx10_msaa)
 	{
 		xr_delete(b_hdao_msaa_cs);

@@ -40,20 +40,20 @@ void	CRenderTarget::phase_scene_prepare	()
 			u_setrt(Device.dwWidth, Device.dwHeight, rt_Position->pRT, NULL, NULL, rt_MSAADepth->pZRT);
 
 		FLOAT ColorRGBA[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_Position->pRT, ColorRGBA);
 #else
 		DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(rt_Position->pRT, ColorRGBA);
 #endif
 		if (!RImplementation.o.dx10_msaa)
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView(DEVICE_HW::XRAY::HW.pBaseZB, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
 #else
 			DEVICE_HW::XRAY::HW.pRenderDevice->ClearDepthStencilView(DEVICE_HW::XRAY::HW.pBaseZB, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
 #endif
 		else
 		{
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_Color->pRT, ColorRGBA);
 			DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_Accumulator->pRT, ColorRGBA);
 			DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
@@ -72,7 +72,7 @@ void	CRenderTarget::phase_scene_prepare	()
 		if (!RImplementation.o.dx10_msaa)
 		{
 			u_setrt(Device.dwWidth, Device.dwHeight, DEVICE_HW::XRAY::HW.pBaseRT, NULL, NULL, DEVICE_HW::XRAY::HW.pBaseZB);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView(DEVICE_HW::XRAY::HW.pBaseZB, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
 #else
 			DEVICE_HW::XRAY::HW.pRenderDevice->ClearDepthStencilView(DEVICE_HW::XRAY::HW.pBaseZB, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
@@ -81,7 +81,7 @@ void	CRenderTarget::phase_scene_prepare	()
 		else
 		{
 			u_setrt(Device.dwWidth, Device.dwHeight, DEVICE_HW::XRAY::HW.pBaseRT, NULL, NULL, rt_MSAADepth->pZRT);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
 #else
 			DEVICE_HW::XRAY::HW.pRenderDevice->ClearDepthStencilView(rt_MSAADepth->pZRT, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);

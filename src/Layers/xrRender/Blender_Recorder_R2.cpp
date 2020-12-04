@@ -28,15 +28,15 @@ void	CBlender_Compile::r_Pass		(LPCSTR _vs, LPCSTR _ps, bool bFog, BOOL bZtest, 
 	SVS* vs					= DEV->_CreateVS			(_vs);
 	dest.ps					= ps;
 	dest.vs					= vs;
-#if defined(USE_DX10) || defined(USE_DX11)
+#if defined(DIRECTX10) || defined(DIRECTX11)
 	SGS* gs					= DEV->_CreateGS			("null");
 	dest.gs					= gs;
-#	ifdef USE_DX11
+#	ifdef DIRECTX11
 	dest.hs = DEV->_CreateHS("null");
 	dest.ds = DEV->_CreateDS("null");
 	dest.cs = DEV->_CreateCS("null");
 #	endif
-#endif	//	USE_DX10
+#endif	//	DIRECTX10
 	ctable.merge			(&ps->constants);
 	ctable.merge			(&vs->constants);
 
@@ -68,7 +68,7 @@ void CBlender_Compile::r_ColorWriteEnable( bool cR, bool cG, bool cB, bool cA)
 	RS.SetRS( D3DRS_COLORWRITEENABLE3, Mask);
 }
 
-#if !defined(USE_DX10) && !defined(USE_DX11)
+#if !defined(DIRECTX10) && !defined(DIRECTX11)
 u32		CBlender_Compile::i_Sampler		(LPCSTR _name)
 {
 	//
@@ -178,4 +178,4 @@ void	CBlender_Compile::r_End			()
 #endif
 	SH->passes.push_back(DEV->_CreatePass(dest));
 }
-#endif	//	USE_DX10
+#endif	//	DIRECTX10

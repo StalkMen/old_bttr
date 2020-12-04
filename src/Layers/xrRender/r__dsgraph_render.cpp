@@ -32,7 +32,7 @@ void __fastcall mapNormal_Render(mapNormalItems& N)
 	{
 		_NormalItem& Ni = *I;
 		float LOD = calcLOD(Ni.ssa, Ni.pVisual->vis.sphere.R);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		if (RCache.LOD.c_LOD)
 		{
 			// don't know if this is correct, but i did not see rendering objects of this type, so could not test it
@@ -69,7 +69,7 @@ void __fastcall mapMatrix_Render(mapMatrixItems& N)
 		RImplementation.apply_lmaterial();
 
 		float LOD = calcLOD(Ni.ssa, Ni.pVisual->vis.sphere.R);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		if (RCache.LOD.c_LOD)
 		{
 			Fvector o_position = Ni.pObject->renderable.xform.c;
@@ -110,7 +110,7 @@ IC	bool	cmp_vs_mat			(mapMatrixVS::TNode* N1, mapMatrixVS::TNode* N2)
 
 IC	bool	cmp_ps_nrm			(mapNormalPS::TNode* N1, mapNormalPS::TNode* N2)
 {
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	return (N1->val.mapCS.ssa > N2->val.mapCS.ssa);
 #else
 	return (N1->val.ssa > N2->val.ssa);
@@ -118,7 +118,7 @@ IC	bool	cmp_ps_nrm			(mapNormalPS::TNode* N1, mapNormalPS::TNode* N2)
 }
 IC	bool	cmp_ps_mat			(mapMatrixPS::TNode* N1, mapMatrixPS::TNode* N2)
 {
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	return (N1->val.mapCS.ssa > N2->val.mapCS.ssa);
 #else
 	return (N1->val.ssa > N2->val.ssa);
@@ -321,7 +321,7 @@ void R_dsgraph_structure::r_dsgraph_render_graph	(u32	_priority, bool _clear)
 					{
 						mapNormalPS::TNode*	Nps			= nrmPS[ps_id];
 						RCache.set_PS					(Nps->key);	
-#ifdef USE_DX11
+#ifdef DIRECTX11
 						mapNormalCS&		cs			= Nps->val.mapCS;		cs.ssa	= 0;
 						RCache.set_HS(Nps->val.hs);
 						RCache.set_DS(Nps->val.ds);
@@ -409,7 +409,7 @@ void R_dsgraph_structure::r_dsgraph_render_graph	(u32	_priority, bool _clear)
 					mapMatrixPS::TNode*	Nps			= matPS[ps_id];
 					RCache.set_PS					(Nps->key);	
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 					mapMatrixCS&		cs			= Nps->val.mapCS;		cs.ssa	= 0;
 					RCache.set_HS(Nps->val.hs);
 					RCache.set_DS(Nps->val.ds);

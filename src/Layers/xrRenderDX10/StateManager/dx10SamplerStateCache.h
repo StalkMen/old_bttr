@@ -25,7 +25,7 @@ public:
 	void	VSApplySamplers(HArray &samplers);
 	void	PSApplySamplers(HArray &samplers);
 	void	GSApplySamplers(HArray &samplers);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	void	HSApplySamplers(HArray &samplers);
 	void	DSApplySamplers(HArray &samplers);
 	void	CSApplySamplers(HArray &samplers);
@@ -68,7 +68,7 @@ private:
 	SHandle					m_aPSSamplers[D3D_COMMONSHADER_SAMPLER_SLOT_COUNT];
 	SHandle					m_aVSSamplers[D3D_COMMONSHADER_SAMPLER_SLOT_COUNT];
 	SHandle					m_aGSSamplers[D3D_COMMONSHADER_SAMPLER_SLOT_COUNT];
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	SHandle					m_aHSSamplers[D3D_COMMONSHADER_SAMPLER_SLOT_COUNT];
 	SHandle					m_aDSSamplers[D3D_COMMONSHADER_SAMPLER_SLOT_COUNT];
 	SHandle					m_aCSSamplers[D3D_COMMONSHADER_SAMPLER_SLOT_COUNT];

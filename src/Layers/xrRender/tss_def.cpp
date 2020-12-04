@@ -6,10 +6,10 @@
 IDirect3DStateBlock9* SimulatorStates::record	()
 {
 //	TODO: DX10: Implement equivalent for SimulatorStates::record for DX10
-#if defined(USE_DX10) || defined(USE_DX11)
+#if defined(DIRECTX10) || defined(DIRECTX11)
 	//VERIFY(!"SimulatorStates::record not implemented!");
 	return 0;
-#else	//	USE_DX10
+#else	//	DIRECTX10
 	CHK_DX(DEVICE_HW::XRAY::HW.pDevice->BeginStateBlock());
 	for (u32 it=0; it<States.size(); it++)
 	{
@@ -29,7 +29,7 @@ IDirect3DStateBlock9* SimulatorStates::record	()
 	IDirect3DStateBlock9*	SB = 0;
 	CHK_DX	(DEVICE_HW::XRAY::HW.pDevice->EndStateBlock(&SB));
 	return	SB;
-#endif	//	USE_DX10
+#endif	//	DIRECTX10
 }
 
 void	SimulatorStates::set_RS	(u32 a, u32 b)
@@ -98,7 +98,7 @@ void	SimulatorStates::clear	()
 	States.clear();
 }
 
-#if defined(USE_DX10) || defined(USE_DX11)
+#if defined(DIRECTX10) || defined(DIRECTX11)
 
 #include "../xrRenderDX10/dx10StateUtils.h"
 
@@ -267,7 +267,7 @@ void SimulatorStates::UpdateDesc( D3D_DEPTH_STENCIL_DESC &desc ) const
 	}
 }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 void SimulatorStates::UpdateDesc( D3D_BLEND_DESC &desc ) const
 {
 	for (u32 it=0; it<States.size(); it++)
@@ -566,4 +566,4 @@ void SimulatorStates::UpdateDesc( D3D_SAMPLER_DESC descArray[D3D_COMMONSHADER_SA
 	}
 }
 
-#endif	//	USE_DX10
+#endif	//	DIRECTX10

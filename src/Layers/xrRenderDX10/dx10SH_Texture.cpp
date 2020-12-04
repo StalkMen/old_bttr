@@ -250,7 +250,7 @@ void CTexture::Apply(u32 dwStage)
 		//DEVICE_HW::XRAY::HW.pDevice->GSSetShaderResources(dwStage-rstGeometry, 1, &m_pSRView);
 		SRVSManager.SetGSResource(dwStage-rstGeometry, m_pSRView);
 	}
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	else if (dwStage<rstDomain)	//	Geometry shader stage resources
 	{
 		SRVSManager.SetHSResource(dwStage-rstHull, m_pSRView);
@@ -286,7 +286,7 @@ void CTexture::apply_theora(u32 dwStage)
 		u32 _w				= pTheora->Width(false);
 
 		//R_CHK				(T2D->LockRect(0,&R,&rect,0));
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		R_CHK				(DEVICE_HW::XRAY::HW.pRenderContext->Map(T2D, 0, D3D_MAP_WRITE_DISCARD, 0, &mapData));
 #else
 		R_CHK				(T2D->Map(0,D3D_MAP_WRITE_DISCARD,0,&mapData));
@@ -297,7 +297,7 @@ void CTexture::apply_theora(u32 dwStage)
 		pTheora->DecompressFrame((u32*)mapData.pData, _w - rect.right, _pos);
 		VERIFY				(u32(_pos) == rect.bottom*_w);
 		//R_CHK				(T2D->UnlockRect(0));
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		DEVICE_HW::XRAY::HW.pRenderContext->Unmap(T2D, 0);
 #else
 		T2D->Unmap(0);
@@ -317,7 +317,7 @@ void CTexture::apply_avi	(u32 dwStage)
 
 		// AVI
 		//R_CHK	(T2D->LockRect(0,&R,NULL,0));
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		R_CHK(DEVICE_HW::XRAY::HW.pRenderContext->Map(T2D, 0, D3D_MAP_WRITE_DISCARD, 0, &mapData));
 #else
 		R_CHK	(T2D->Map(0,D3D_MAP_WRITE_DISCARD,0,&mapData));
@@ -326,7 +326,7 @@ void CTexture::apply_avi	(u32 dwStage)
 		BYTE* ptr; pAVI->GetFrame(&ptr);
 		CopyMemory(mapData.pData,ptr,pAVI->m_dwWidth*pAVI->m_dwHeight*4);
 		//R_CHK	(T2D->UnlockRect(0));
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		DEVICE_HW::XRAY::HW.pRenderContext->Unmap(T2D, 0);
 #else
 		T2D->Unmap(0);

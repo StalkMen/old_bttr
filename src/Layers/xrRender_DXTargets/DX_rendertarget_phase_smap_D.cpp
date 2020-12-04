@@ -26,7 +26,7 @@ void	CRenderTarget::phase_smap_direct		(light* L, u32 sub_phase)
 	//	CHK_DX							(DEVICE_HW::XRAY::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_ZBUFFER,	0xFFFFFFFF, 1.0f, 0L));
 	//}
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView(rt_smap_depth->pZRT, D3D_CLEAR_DEPTH, 1.0f, 0L);
 #else
 	DEVICE_HW::XRAY::HW.pRenderDevice->ClearDepthStencilView(rt_smap_depth->pZRT, D3D10_CLEAR_DEPTH, 1.0f, 0L);
@@ -36,7 +36,7 @@ void	CRenderTarget::phase_smap_direct		(light* L, u32 sub_phase)
 		RImplementation.rmNormal();
 	else
 	{
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		D3D_VIEWPORT VP					=	{(float)L->X.D.minX,(float)L->X.D.minY,
 			(float)(L->X.D.maxX - L->X.D.minX) , 
 			(float)(L->X.D.maxY - L->X.D.minY) , 
@@ -77,7 +77,7 @@ void	CRenderTarget::phase_smap_direct_tsh	(light* L, u32 sub_phase)
 	RCache.set_ColorWriteEnable			();
 	//	Prepare viewport for shadow map rendering
 	RImplementation.rmNormal();
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView( RCache.get_RT(0), ColorRGBA);
 #else
 	DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView( RCache.get_RT(0), ColorRGBA);

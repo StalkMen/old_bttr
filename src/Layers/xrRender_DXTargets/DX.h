@@ -254,7 +254,7 @@ public:
 
     virtual DWORD					get_dx_level			()	
 	{ 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		return 11; 
 #else
 		return renderer_value == 0 ? 10 : 10.1;
@@ -350,7 +350,7 @@ public:
     CRender							();
     virtual ~CRender				();
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
     void addShaderOption(const char* name, const char* value);
     void clearAllShaderOptions() {m_ShaderOptions.clear();}
 

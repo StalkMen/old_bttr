@@ -16,7 +16,7 @@
 #include "r_backend_hemi.h"
 #include "r_backend_tree.h"
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 #include "..\xrRenderDX11\dx11_r_backend_lod.h"
 #endif
 
@@ -58,7 +58,7 @@ public:
 		mtMaxPixelShaderTextures = 16,
 		mtMaxVertexShaderTextures = 4,
 		mtMaxGeometryShaderTextures = 16,
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		mtMaxHullShaderTextures = 16,
 		mtMaxDomainShaderTextures = 16,
 		mtMaxComputeShaderTextures = 16,
@@ -79,14 +79,14 @@ public:
 	R_xforms						xforms;
 	R_hemi							hemi;
 	R_tree							tree;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	R_LOD							LOD;
 #endif
 
 	ref_cbuffer						m_aVertexConstants[MaxCBuffers];
 	ref_cbuffer						m_aPixelConstants[MaxCBuffers];
 	ref_cbuffer						m_aGeometryConstants[MaxCBuffers];
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	ref_cbuffer						m_aHullConstants[MaxCBuffers];
 	ref_cbuffer						m_aDomainConstants[MaxCBuffers];
 	ref_cbuffer						m_aComputeConstants[MaxCBuffers];
@@ -119,7 +119,7 @@ private:
 	ID3DVertexShader*				vs;
 
 	ID3DGeometryShader*				gs;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	ID3D11HullShader*				hs;
 	ID3D11DomainShader*				ds;
 	ID3D11ComputeShader*			cs;
@@ -128,7 +128,7 @@ private:
 	LPCSTR							ps_name;
 	LPCSTR							vs_name;
 	LPCSTR							gs_name;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	LPCSTR							hs_name;
 	LPCSTR							ds_name;
 	LPCSTR							cs_name;
@@ -158,7 +158,7 @@ private:
 	CTexture*						textures_vs	[mtMaxVertexShaderTextures];	// 4 vs
 
 	CTexture*						textures_gs	[mtMaxGeometryShaderTextures];	// 4 vs
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	CTexture*						textures_hs	[mtMaxHullShaderTextures];	// 4 vs
 	CTexture*						textures_ds	[mtMaxDomainShaderTextures];	// 4 vs
 	CTexture*						textures_cs	[mtMaxComputeShaderTextures];	// 4 vs
@@ -195,9 +195,9 @@ public:
 			return textures_ps[stage];
 		else if (stage<CTexture::rstGeometry)	
 			return textures_vs[stage-CTexture::rstVertex];
-#ifdef USE_DX10
+#ifdef DIRECTX10
 		else								return textures_gs[stage-CTexture::rstGeometry];
-#elif USE_DX11
+#elif DIRECTX11
 		else if (stage<CTexture::rstHull)	return textures_gs[stage-CTexture::rstGeometry];
 		else if (stage<CTexture::rstDomain) return textures_hs[stage-CTexture::rstHull];
 		else if (stage<CTexture::rstCompute) return textures_ds[stage-CTexture::rstDomain];
@@ -207,7 +207,7 @@ public:
 			VERIFY(!"Invalid texture stage");
 			return 0;
 		}
-#endif	//	USE_DX10
+#endif	//	DIRECTX10
 	}
 
 	IC	void						get_ConstantDirect	(shared_str& n, u32 DataSize, void** pVData, void** pGData, void** pPData);
@@ -249,7 +249,7 @@ public:
 	ICF void						set_GS				(ID3DGeometryShader* _gs, LPCSTR _n=0);
 	ICF void						set_GS				(ref_gs& _gs)						{ set_GS(_gs->sh,_gs->cName.c_str());				}
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	ICF void						set_HS				(ID3D11HullShader* _hs, LPCSTR _n=0);
 	ICF void						set_HS				(ref_hs& _hs)						{ set_HS(_hs->sh,_hs->cName.c_str());				}
 
@@ -260,7 +260,7 @@ public:
 	ICF void						set_CS				(ref_cs& _cs)						{ set_CS(_cs->sh,_cs->cName.c_str());				}
 #endif
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	ICF	bool						is_TessEnabled		();
 #else
 	ICF	bool						is_TessEnabled		() {return false;}
@@ -325,7 +325,7 @@ public:
 	ICF	void						Render				(D3DPRIMITIVETYPE T, u32 baseV, u32 startV, u32 countV, u32 startI, u32 PC);
 	ICF	void						Render				(D3DPRIMITIVETYPE T, u32 startV, u32 PC);
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	ICF	void						Compute				(UINT ThreadGroupCountX, UINT ThreadGroupCountY, UINT ThreadGroupCountZ);
 #endif
 

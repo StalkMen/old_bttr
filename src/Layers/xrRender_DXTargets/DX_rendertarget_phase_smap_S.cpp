@@ -7,7 +7,7 @@ void	CRenderTarget::phase_smap_spot_clear()
 	else								u_setrt	(rt_smap_surf, NULL, NULL, rt_smap_d_ZB);
 	CHK_DX								(DEVICE_HW::XRAY::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_ZBUFFER,	0xffffffff,	1.0f, 0L));
 	*/
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView( rt_smap_depth->pZRT, D3D_CLEAR_DEPTH, 1.0f, 0L);
 #else
 	DEVICE_HW::XRAY::HW.pRenderDevice->ClearDepthStencilView( rt_smap_depth->pZRT, D3D10_CLEAR_DEPTH, 1.0f, 0L);
@@ -21,7 +21,7 @@ void	CRenderTarget::phase_smap_spot		(light* L)
 	if (RImplementation.o.HW_smap)		u_setrt	(rt_smap_surf, NULL, NULL, rt_smap_depth->pZRT);
 	//else								u_setrt	(rt_smap_surf, NULL, NULL, rt_smap_ZB);
 	else								VERIFY(!"Use HW SMap only for DX10!");
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	D3D_VIEWPORT VP					=	{(float)L->X.S.posX, (float)L->X.S.posY, (float)L->X.S.size, (float)L->X.S.size, 0, 1};
 	//CHK_DX								(DEVICE_HW::XRAY::HW.pDevice->SetViewport(&VP));
 	DEVICE_HW::XRAY::HW.pRenderContext->RSSetViewports(1, &VP);
@@ -38,7 +38,7 @@ void	CRenderTarget::phase_smap_spot		(light* L)
 	if (RImplementation.o.HW_smap)		RCache.set_ColorWriteEnable	(FALSE);
 	//CHK_DX								(DEVICE_HW::XRAY::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_ZBUFFER,	0xffffffff,	1.0f, 0L));
 	//	Do it once per smap generation pass in phase_smap_spot_clear
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	//DEVICE_HW::XRAY::HW.pContext->ClearDepthStencilView( rt_smap_depth->pZRT, D3D_CLEAR_DEPTH, 1.0f, 0L);
 #else
 	//DEVICE_HW::XRAY::HW.pDevice->ClearDepthStencilView( rt_smap_depth->pZRT, D3D10_CLEAR_DEPTH, 1.0f, 0L);
@@ -54,7 +54,7 @@ void	CRenderTarget::phase_smap_spot_tsh	(light* L)
 		// omni-part
 		//CHK_DX							(DEVICE_HW::XRAY::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_TARGET,	0xffffffff,	1.0f, 0L));
 		FLOAT ColorRGBA[4] = {1.0f, 1.0f, 1.0f, 1.0f};
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
 #else
 		DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);

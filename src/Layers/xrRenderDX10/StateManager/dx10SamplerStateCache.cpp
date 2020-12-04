@@ -140,7 +140,7 @@ void dx10SamplerStateCache::GSApplySamplers(HArray &samplers)
 	DEVICE_HW::XRAY::HW.pRenderContext->GSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
 }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 void dx10SamplerStateCache::HSApplySamplers(HArray &samplers)
 {
 	ID3DSamplerState	*pSS[D3D_COMMONSHADER_SAMPLER_SLOT_COUNT];
@@ -206,7 +206,7 @@ void dx10SamplerStateCache::ResetDeviceState()
 		m_aPSSamplers[i] = (SHandle)hInvalidHandle;
 		m_aVSSamplers[i] = (SHandle)hInvalidHandle;
 		m_aGSSamplers[i] = (SHandle)hInvalidHandle;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		m_aHSSamplers[i] = (SHandle)hInvalidHandle;
 		m_aDSSamplers[i] = (SHandle)hInvalidHandle;
 		m_aCSSamplers[i] = (SHandle)hInvalidHandle;

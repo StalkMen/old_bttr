@@ -13,7 +13,7 @@ void dx10ShaderResourceStateCache::ResetDeviceState()
 	ZeroMemory(m_PSViews, sizeof(m_PSViews));
 	ZeroMemory(m_GSViews, sizeof(m_GSViews));
 	ZeroMemory(m_VSViews, sizeof(m_VSViews));
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	ZeroMemory(m_HSViews, sizeof(m_HSViews));
 	ZeroMemory(m_DSViews, sizeof(m_DSViews));
 #endif
@@ -27,7 +27,7 @@ void dx10ShaderResourceStateCache::ResetDeviceState()
 	m_uiMinVSView = 0xFFFFFFFF;
 	m_uiMaxVSView = 0xFFFFFFFF;
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	m_uiMinHSView = 0xFFFFFFFF;
 	m_uiMaxHSView = 0xFFFFFFFF;
 
@@ -38,7 +38,7 @@ void dx10ShaderResourceStateCache::ResetDeviceState()
 	m_bUpdatePSViews = false;
 	m_bUpdateGSViews = false;
 	m_bUpdateVSViews = false;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	m_bUpdateDSViews = false;
 	m_bUpdateHSViews = false;
 #endif
@@ -70,7 +70,7 @@ void dx10ShaderResourceStateCache::Apply()
 		m_bUpdateVSViews = false;
 	}
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	if (m_bUpdateHSViews)
 	{
 		DEVICE_HW::XRAY::HW.pRenderContext->HSSetShaderResources( m_uiMinHSView, m_uiMaxHSView-m_uiMinHSView+1, &m_HSViews[m_uiMinHSView]);
@@ -160,7 +160,7 @@ void dx10ShaderResourceStateCache::SetVSResource( u32 uiSlot, ID3DShaderResource
 	}
 }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 void dx10ShaderResourceStateCache::SetHSResource( u32 uiSlot, ID3DShaderResourceView	*pRes )
 {
 	VERIFY(uiSlot<CBackend::mtMaxHullShaderTextures);

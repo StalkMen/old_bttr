@@ -68,7 +68,7 @@ static class cl_parallax		: public R_constant_setup		{	virtual void setup	(R_con
 	RCache.set_c	(C,h,-h/2.f,1.f/r_dtex_range,1.f/r_dtex_range);
 }}	binder_parallax;
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 static class cl_LOD		: public R_constant_setup
 {
 	virtual void setup	(R_constant* C)
@@ -318,7 +318,7 @@ void					CRender::create					()
 
 	//	TODO: fix hbao shader to allow to perform per-subsample effect!
 	// LV da da idi nahuy suka 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	if (o.ssao_hbao )
 	{
 		o.ssao_opt_data = true;
@@ -347,7 +347,7 @@ void					CRender::create					()
 	o.dx10_msaa_samples = (1 << ps_r3_msaa);
 
 	o.dx10_msaa_opt		= ps_r2_ls_flags.test(R3FLAG_MSAA_OPT);
-#ifdef USE_DX11	
+#ifdef DIRECTX11	
 	o.dx10_msaa_opt		= o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 )
 			|| o.dx10_msaa && (DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0);
 
@@ -378,7 +378,7 @@ void					CRender::create					()
 
 	o.dx10_minmax_sm = ps_r3_minmax_sm;
 	o.dx10_minmax_sm_screenarea_threshold = 1600*1200;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	o.dx11_enable_tessellation = DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && ps_r2_ls_flags_ext.test(R2FLAGEXT_ENABLE_TESSELLATION);
 #endif
 	if (o.dx10_minmax_sm==MMSM_AUTODETECT)
@@ -418,7 +418,7 @@ void					CRender::create					()
 	RM->RegisterConstantSetup("m_AlphaRef", &binder_alpha_ref);
 	RM->RegisterConstantSetup("pos_decompression_params", &binder_pos_decompress_params);
 	RM->RegisterConstantSetup("pos_decompression_params2", &binder_pos_decompress_params2);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	RM->RegisterConstantSetup("triLOD", &binder_LOD);
 #endif
 	RM->RegisterConstantSetup("fog_shaders_values", &binder_fog_shaders);
@@ -450,7 +450,7 @@ void					CRender::create					()
 	//R_CHK						(DEVICE_HW::XRAY::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[1]));
 	for (u32 i=0; i<DEVICE_HW::XRAY::HW.Caps.iGPUNum; ++i)
 		R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	DEVICE_HW::XRAY::HW.pRenderContext->End(q_sync_point[0]);
 #else
 	q_sync_point[0]->End();
@@ -523,7 +523,7 @@ void CRender::reset_end()
 	for (u32 i=0; i<DEVICE_HW::XRAY::HW.Caps.iGPUNum; ++i)
 		R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
 	//	Prevent error on first get data
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	DEVICE_HW::XRAY::HW.pRenderContext->End(q_sync_point[0]);
 #else
 	q_sync_point[0]->End();
@@ -699,7 +699,7 @@ void					CRender::set_Object				(IRenderable*	O )
 void					CRender::rmNear				()
 {
 	IRender_Target* T	=	getTarget	();
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	D3D_VIEWPORT VP		=	{0,0,(float)T->get_width(),(float)T->get_height(),0,0.02f };
 	
 	DEVICE_HW::XRAY::HW.pRenderContext->RSSetViewports(1, &VP);
@@ -713,7 +713,7 @@ void					CRender::rmNear				()
 void					CRender::rmFar				()
 {
 	IRender_Target* T	=	getTarget	();
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	D3D_VIEWPORT VP		=	{0,0,(float)T->get_width(),(float)T->get_height(),0.99999f,1.f };
 
 	DEVICE_HW::XRAY::HW.pRenderContext->RSSetViewports(1, &VP);
@@ -727,7 +727,7 @@ void					CRender::rmFar				()
 void					CRender::rmNormal			()
 {
 	IRender_Target* T	=	getTarget	();
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	D3D_VIEWPORT VP		= {0,0,(float)T->get_width(),(float)T->get_height(),0,1.f };
 
 	DEVICE_HW::XRAY::HW.pRenderContext->RSSetViewports(1, &VP);
@@ -781,7 +781,7 @@ void	CRender::Statistics	(CGameFont* _F)
 #endif
 }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 void CRender::addShaderOption(const char* name, const char* value)
 {
 	D3D_SHADER_MACRO macro = {name, value};

@@ -51,7 +51,7 @@ public:
 	IBlender*					b_gamma;
 	IBlender*					b_rain_drops;
 
-#ifdef USE_DX11	
+#ifdef DIRECTX11	
     // compute shader for hdao
     IBlender*                   b_hdao_cs;
     IBlender*                   b_hdao_msaa_cs;
@@ -138,7 +138,7 @@ private:
 
 	ref_shader					s_gamma;
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	ref_shader					s_hdao_cs;
 	ref_shader					s_hdao_cs_msaa;
 #endif
@@ -283,7 +283,7 @@ public:
 	void						phase_scene_end			();
 	void						phase_occq				();
 	void						phase_ssao				();
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	void						phase_hdao				();
 #endif
 	void						phase_downsamp			();

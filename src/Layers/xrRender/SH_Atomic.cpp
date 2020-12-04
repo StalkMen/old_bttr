@@ -23,7 +23,7 @@ SPS::~SPS								()			{	_RELEASE(sh);		DEV->_DeletePS			(this);	}
 //	SGS
 SGS::~SGS								()			{	_RELEASE(sh);		DEV->_DeleteGS			(this);	}
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 SHS::~SHS								()			{	_RELEASE(sh);		DEV->_DeleteHS			(this);	}
 SDS::~SDS								()			{	_RELEASE(sh);		DEV->_DeleteDS			(this);	}
 SCS::~SCS								()			{	_RELEASE(sh);		DEV->_DeleteCS			(this);	}

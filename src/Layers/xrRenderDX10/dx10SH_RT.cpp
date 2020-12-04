@@ -12,7 +12,7 @@ CRT::CRT			()
 	pSurface		= NULL;
 	pRT				= NULL;
 	pZRT			= NULL;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	pUAView			= NULL;
 #endif
 	dwWidth			= 0;
@@ -27,7 +27,7 @@ CRT::~CRT			()
 	DEV->_DeleteRT	(this);
 }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount, bool useUAV )
 #else
 void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
@@ -127,7 +127,7 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
       }
    }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	if (DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && !bUseAsDepth && SampleCount == 1 && useUAV )
 		desc.BindFlags |= D3D11_BIND_UNORDERED_ACCESS;
 #endif
@@ -171,7 +171,7 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 	else
 		CHK_DX( DEVICE_HW::XRAY::HW.pRenderDevice->CreateRenderTargetView( pSurface, 0, &pRT ) );
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	if (DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && !bUseAsDepth &&  SampleCount == 1 && useUAV)
     {
 	    D3D11_UNORDERED_ACCESS_VIEW_DESC UAVDesc;
@@ -199,7 +199,7 @@ void CRT::destroy		()
 	
 	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_rtarget( pSurface );
 	_RELEASE	(pSurface	);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	_RELEASE	(pUAView);
 #endif
 }
@@ -212,7 +212,7 @@ void CRT::reset_end		()
 	create		(*cName,dwWidth,dwHeight,fmt);
 }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 void resptrcode_crt::create(LPCSTR Name, u32 w, u32 h, D3DFORMAT f, u32 SampleCount, bool useUAV )
 {
 	_set			(DEV->_CreateRT(Name,w,h,f, SampleCount, useUAV ));

@@ -33,7 +33,7 @@ void	CBlender_Editor_Wire::Load	( IReader& fs, u16 version	)
 void CBlender_Editor_Wire::Compile	(CBlender_Compile& C)
 {
 	IBlender::Compile		(C);
-#if !defined(USE_DX10) && !defined(USE_DX11)
+#if !defined(DIRECTX10) && !defined(DIRECTX11)
 	if (C.bEditor)	
 	{
 		C.PassBegin		();
@@ -55,7 +55,7 @@ void CBlender_Editor_Wire::Compile	(CBlender_Compile& C)
 		C.PassEnd			();
 	} 
 	else 
-#endif	//	USE_DX10
+#endif	//	DIRECTX10
 	{
 		C.r_Pass	("editor","simple_color",FALSE,TRUE,TRUE);
 		C.r_End		();

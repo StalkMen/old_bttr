@@ -218,13 +218,13 @@ XRayDDSLoader::~XRayDDSLoader()
 	Clear();
 }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 void XRayDDSLoader::To(ID3D11Texture2D*& Texture, bool bStaging)
 #else
 void XRayDDSLoader::To(ID3D10Texture2D*& Texture, bool bStaging)
 #endif
 {
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	D3D11_TEXTURE2D_DESC desc;
 #else
 	D3D10_TEXTURE2D_DESC desc;
@@ -247,14 +247,14 @@ void XRayDDSLoader::To(ID3D10Texture2D*& Texture, bool bStaging)
 		desc.Height += h;
 	}
 	desc.Format = TranslateTextureFromat(m_px);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	desc.MiscFlags = isCube() ? D3D11_RESOURCE_MISC_TEXTURECUBE : 0;
 #else
 	desc.MiscFlags = isCube() ? D3D10_RESOURCE_MISC_TEXTURECUBE : 0;
 #endif
 	if (bStaging)
 	{
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		desc.CPUAccessFlags = D3D11_CPU_ACCESS_FLAG::D3D11_CPU_ACCESS_WRITE;
 		desc.Usage = D3D11_USAGE_STAGING;
 #else
@@ -265,7 +265,7 @@ void XRayDDSLoader::To(ID3D10Texture2D*& Texture, bool bStaging)
 	else
 	{
 		desc.CPUAccessFlags = 0;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		desc.Usage = D3D11_USAGE_DEFAULT;
 		desc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_SHADER_RESOURCE;
 #else
@@ -300,7 +300,7 @@ void XRayDDSLoader::To(ID3D10Texture2D*& Texture, bool bStaging)
 		ptr = m_data;
 
 	}
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	D3D11_SUBRESOURCE_DATA subdata[256];
 	FillMemory(&subdata[0], sizeof(D3D11_SUBRESOURCE_DATA) * 256, 0);
 #else

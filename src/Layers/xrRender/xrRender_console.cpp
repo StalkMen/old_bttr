@@ -648,7 +648,7 @@ void		xrRender_initconsole()
 #endif
 	CMD3(CCC_Mask,  "xrRenderDX_enable_debug_log",		 &ps_r__common_flags,				RFLAGDX_ENABLE_DEBUG_LOG);
 	CMD3(CCC_Token, "xrRenderDX_type_screenshot",		 &ps_r_type_screen,					screen_mode_token);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	CMD3(CCC_Mask,  "xrRenderDX11_shader_cache",		 &ps_r__common_flags,				RFLAGDX11_NO_SHADER_CACHE);
 #endif
 	CMD4(CCC_Integer, "xrRenderDX10_triple_buffering",	 &tbufer_renders,					0, 1);

@@ -28,7 +28,7 @@ void CRenderTarget::DoAsyncScreenshot()
 		//DEVICE_HW::XRAY::HW.pDevice->CopyResource( t_ss_async, pTex );
 		ID3DTexture2D*	pBuffer;
 		hr = DEVICE_HW::XRAY::HW.m_pSwapChain->GetBuffer( 0, __uuidof( ID3DTexture2D ), (LPVOID*)&pBuffer );
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		DEVICE_HW::XRAY::HW.pRenderContext->CopyResource( t_ss_async, pBuffer );
 #else
 		DEVICE_HW::XRAY::HW.pRenderDevice->CopyResource( t_ss_async, pBuffer );
@@ -65,12 +65,12 @@ void	CRenderTarget::phase_combine	()
 	}
 
     if (RImplementation.o.ssao_hdao 
-#ifdef USE_DX11	
+#ifdef DIRECTX11	
 	&& RImplementation.o.ssao_ultra
 #endif	
 	)
     {
-#ifdef USE_DX11	
+#ifdef DIRECTX11	
         if( ps_r_ssao > 0 )
 		    phase_hdao();
 #endif
@@ -90,7 +90,7 @@ void	CRenderTarget::phase_combine	()
 	// low/hi RTs
 	if( !RImplementation.o.dx10_msaa )
 	{
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_Generic_0->pRT, ColorRGBA);
 		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_Generic_1->pRT, ColorRGBA);
 #endif
@@ -98,7 +98,7 @@ void	CRenderTarget::phase_combine	()
 	}
 	else
 	{
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_Generic_0_r->pRT, ColorRGBA);
 		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_Generic_1_r->pRT, ColorRGBA);
 #else
@@ -294,7 +294,7 @@ void	CRenderTarget::phase_combine	()
    if( RImplementation.o.dx10_msaa )
    {
       // we need to resolve rt_Generic_1 into rt_Generic_1_r
-#ifdef USE_DX11	  
+#ifdef DIRECTX11	  
       DEVICE_HW::XRAY::HW.pRenderContext->ResolveSubresource( rt_Generic_1->pTexture->surface_get(), 0, rt_Generic_1_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
       DEVICE_HW::XRAY::HW.pRenderContext->ResolveSubresource( rt_Generic_0->pTexture->surface_get(), 0, rt_Generic_0_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM );
 #else
@@ -321,7 +321,7 @@ void	CRenderTarget::phase_combine	()
 			if( !RImplementation.o.dx10_msaa )
 			{
 				u_setrt(rt_Generic_1,0,0,DEVICE_HW::XRAY::HW.pBaseZB);		// Now RT is a distortion mask
-#ifdef USE_DX11				
+#ifdef DIRECTX11				
 				DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView( rt_Generic_1->pRT, ColorRGBA);
 #else
 				DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView( rt_Generic_1->pRT, ColorRGBA);
@@ -330,7 +330,7 @@ void	CRenderTarget::phase_combine	()
 			else
 			{
 				u_setrt(rt_Generic_1_r,0,0,RImplementation.Target->rt_MSAADepth->pZRT);		// Now RT is a distortion mask
-#ifdef USE_DX11
+#ifdef DIRECTX11
 				DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView( rt_Generic_1_r->pRT, ColorRGBA);
 #else
 				DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView( rt_Generic_1_r->pRT, ColorRGBA);

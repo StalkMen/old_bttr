@@ -34,7 +34,7 @@ namespace DEVICE_HW
 
 			void	Validate(void) {};
 
-#if defined(USE_DX10)
+#if defined(DIRECTX10)
 			ID3D10Device* pRenderDevice = nullptr; // Устройство DX (Одинаковая функция, разные структуры, между DX10-11)
 			ID3D10Device* pRenderContext = nullptr;
 #else
@@ -43,7 +43,7 @@ namespace DEVICE_HW
 #endif
 
 			//	Variables section
-#if defined(USE_DX11)
+#if defined(DIRECTX11)
 		public:
 			ID3D11RenderTargetView* pBaseRT = nullptr; // base render target
 			ID3D11DepthStencilView* pBaseZB = nullptr; // base depth-stencil buffer
@@ -54,7 +54,7 @@ namespace DEVICE_HW
 
 			D3D_DRIVER_TYPE		m_DriverType;	//	DevT equivalent
 			DXGI_SWAP_CHAIN_DESC	m_ChainDesc;	//	DevPP equivalent
-#elif defined(USE_DX10)
+#elif defined(DIRECTX10)
 		public:
 			IDXGIFactory* pFactory = nullptr;
 			IDXGIAdapter* m_pAdapter = nullptr;
@@ -81,7 +81,7 @@ namespace DEVICE_HW
 
 					void			free_vid_mode_list();
 					void			fill_vid_mode_list(CHW* _hw);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 			bool					ComputeShadersSupported;
 			bool					DoublePrecisionFloatShaderOps;
 			bool					SAD4ShaderInstructions;

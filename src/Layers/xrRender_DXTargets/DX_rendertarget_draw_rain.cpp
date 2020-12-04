@@ -90,7 +90,7 @@ void CRenderTarget::draw_rain( light &RainSetup )
 			m_xform.identity();
 			Fvector			localnormal;m_xform.transform_dir(localnormal,normal); localnormal.normalize();
 			m_clouds_shadow.mul			(m_xform,xf_invview)		;
-#ifndef USE_DX10
+#ifndef DIRECTX10
 			m_xform.scale				(1.f,1.f,1.f)				;
 			m_clouds_shadow.mulA_44		(m_xform)					;
 			m_xform.translate			(localnormal.mul(w_shift))	;

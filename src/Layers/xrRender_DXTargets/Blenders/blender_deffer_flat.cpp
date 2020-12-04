@@ -35,7 +35,7 @@ void	BLENDER::CBlender_deffer_flat::Load	(	IReader& fs, u16 version )
 void	BLENDER::CBlender_deffer_flat::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile		(C);
-#ifdef USE_DX11	
+#ifdef DIRECTX11	
 	C.TessMethod = oTessellation.IDselected;
 #endif
 	// codepath is the same, only the shaders differ
@@ -58,7 +58,7 @@ void	BLENDER::CBlender_deffer_flat::Compile(CBlender_Compile& C)
 	case SE_R2_SHADOW:			// smap-direct
 		//if (RImplementation.o.HW_smap)	C.r_Pass	("shadow_direct_base","dumb",	FALSE,TRUE,TRUE,FALSE);
 		//else							C.r_Pass	("shadow_direct_base","shadow_direct_base",FALSE);
-#ifdef USE_DX11		
+#ifdef DIRECTX11		
 		uber_shadow(C, "base");
 #else
 		C.r_Pass	("shadow_direct_base","dumb",	FALSE,TRUE,TRUE,FALSE);

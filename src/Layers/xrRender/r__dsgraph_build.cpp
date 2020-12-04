@@ -164,7 +164,7 @@ void R_dsgraph_structure::r_dsgraph_insert_dynamic	(dxRender_Visual *pVisual, Fv
 		mapMatrixPS::TNode*			Nps		= Ngs->val.insert	(pass.ps->sh);
 #endif
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 #	ifdef USE_RESOURCE_DEBUGGER
 		Nps->val.hs = pass.hs;
 		Nps->val.ds = pass.ds;
@@ -186,7 +186,7 @@ void R_dsgraph_structure::r_dsgraph_insert_dynamic	(dxRender_Visual *pVisual, Fv
 		if (SSA>Ntex->val.ssa)		{ Ntex->val.ssa = SSA;
 		if (SSA>Nstate->val.ssa)	{ Nstate->val.ssa = SSA;
 		if (SSA>Ncs->val.ssa)		{ Ncs->val.ssa = SSA;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		if (SSA>Nps->val.mapCS.ssa)		{ Nps->val.mapCS.ssa = SSA;
 #else
 		if (SSA>Nps->val.ssa)		{ Nps->val.ssa = SSA;
@@ -280,21 +280,21 @@ void R_dsgraph_structure::r_dsgraph_insert_static	(dxRender_Visual *pVisual)
 		mapNormal_T&				map		= mapNormalPasses[sh->flags.iPriority/2][iPass];
 
 #ifdef USE_RESOURCE_DEBUGGER
-#	if defined(USE_DX10) || defined(USE_DX11)
+#	if defined(DIRECTX10) || defined(DIRECTX11)
 		mapNormalVS::TNode*			Nvs		= map.insert		(pass.vs);
 		mapNormalGS::TNode*			Ngs		= Nvs->val.insert	(pass.gs);
 		mapNormalPS::TNode*			Nps		= Ngs->val.insert	(pass.ps);
-#	else	//	USE_DX10
+#	else	//	DIRECTX10
 		mapNormalVS::TNode*			Nvs		= map.insert		(pass.vs);
 		mapNormalPS::TNode*			Nps		= Nvs->val.insert	(pass.ps);
-#	endif	//	USE_DX10
+#	endif	//	DIRECTX10
 #else // USE_RESOURCE_DEBUGGER
 		mapNormalVS::TNode*			Nvs		= map.insert		(&*pass.vs);
 		mapNormalGS::TNode*			Ngs		= Nvs->val.insert	(pass.gs->sh);
 		mapNormalPS::TNode*			Nps		= Ngs->val.insert	(pass.ps->sh);
 #endif // USE_RESOURCE_DEBUGGER
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 #	ifdef USE_RESOURCE_DEBUGGER
 		Nps->val.hs = pass.hs;
 		Nps->val.ds = pass.ds;
@@ -317,7 +317,7 @@ void R_dsgraph_structure::r_dsgraph_insert_static	(dxRender_Visual *pVisual)
 		if (SSA>Ntex->val.ssa)		{ Ntex->val.ssa = SSA;
 		if (SSA>Nstate->val.ssa)	{ Nstate->val.ssa = SSA;
 		if (SSA>Ncs->val.ssa)		{ Ncs->val.ssa = SSA;
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		if (SSA>Nps->val.mapCS.ssa)		{ Nps->val.mapCS.ssa = SSA;
 #else
 		if (SSA>Nps->val.ssa)		{ Nps->val.ssa = SSA;

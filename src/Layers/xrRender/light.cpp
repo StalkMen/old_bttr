@@ -27,7 +27,7 @@ light::light		(void)	: ISpatial(g_SpatialSpace)
 
 	frame_render	= 0;
 
-#if defined(USE_DX10) || defined(USE_DX11)
+#if defined(DIRECTX10) || defined(DIRECTX11)
 	ZeroMemory		(omnipart,sizeof(omnipart));
 	s_spot			= NULL;
 	s_point			= NULL;
@@ -41,13 +41,13 @@ light::light		(void)	: ISpatial(g_SpatialSpace)
 
 light::~light	()
 {
-#if defined(USE_DX10) || defined(USE_DX11)
+#if defined(DIRECTX10) || defined(DIRECTX11)
 	for (int f=0; f<6; f++)	xr_delete(omnipart[f]);
 #endif 
 	set_active		(false);
 
 	// remove from Lights_LastFrame
-#if defined(USE_DX10) || defined(USE_DX11)
+#if defined(DIRECTX10) || defined(DIRECTX11)
 	for (u32 it = 0; it < RImplementation.Lights_LastFrame.size(); it++) 
 	{
 		if (RImplementation.Lights_LastFrame[it] == this)
@@ -59,7 +59,7 @@ light::~light	()
 #endif
 }
 
-#if defined(USE_DX10) || defined(USE_DX11)
+#if defined(DIRECTX10) || defined(DIRECTX11)
 void light::set_texture		(LPCSTR name)
 {
 	if ((0==name) || (0==name[0]))
@@ -190,7 +190,7 @@ void	light::spatial_move			()
 	// update spatial DB
 	ISpatial::spatial_move			();
 
-#if defined(USE_DX10) || defined(USE_DX11)
+#if defined(DIRECTX10) || defined(DIRECTX11)
 	if (flags.bActive) gi_generate	();
 	svis.invalidate					();
 #endif
@@ -211,7 +211,7 @@ Fvector	light::spatial_sector_point	()
 }
 
 //////////////////////////////////////////////////////////////////////////
-#if defined(USE_DX10) || defined(USE_DX11)
+#if defined(DIRECTX10) || defined(DIRECTX11)
 // Xforms
 void	light::xform_calc			()
 {
@@ -308,7 +308,7 @@ void	light::Export		(light_Package& package)
 						L->s_point			= s_point	;
 						
 						// Holger - do we need to export msaa stuff as well ?
-#if defined(USE_DX10) || defined(USE_DX11)
+#if defined(DIRECTX10) || defined(DIRECTX11)
 						if( RImplementation.o.dx10_msaa )
 						{
 							int bound = 1;

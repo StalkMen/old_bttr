@@ -48,7 +48,7 @@ struct ECORE_API SGS : public xr_resource_named
 };
 typedef	resptr_core<SGS,resptr_base<SGS> > ref_gs;
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 struct ECORE_API SHS : public xr_resource_named
 {
 	ID3D11HullShader*					sh;

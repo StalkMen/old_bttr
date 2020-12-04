@@ -190,7 +190,7 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 
 	if (DX11 == 2)
 	{
-		defines[def_it].Name = "USE_DX11";
+		defines[def_it].Name = "DIRECTX11";
 		defines[def_it].Definition = "1";
 		def_it++;
 	}

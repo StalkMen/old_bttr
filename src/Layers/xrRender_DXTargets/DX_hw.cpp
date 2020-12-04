@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	return DefWindowProc(hWnd, message, wParam, lParam);
@@ -109,7 +109,7 @@ bool TestDX11Present()
 
 BOOL xrRender_test_hw()
 {
-#ifdef USE_DX10
+#ifdef DIRECTX10
 	DEVICE_HW::XRAY::CHW _HW;
 	HRESULT	hr;
 	_HW.CreateD3D();

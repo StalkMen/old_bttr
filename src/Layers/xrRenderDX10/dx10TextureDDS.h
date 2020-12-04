@@ -323,7 +323,7 @@ private:
 public:
 	XRayDDSLoader();
 	~XRayDDSLoader();
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	void To(ID3D11Texture2D*& Texture, bool bStaging);
 #else
 	void To(ID3D10Texture2D*& Texture, bool bStaging);

@@ -10,7 +10,7 @@ IC HRESULT EndQuery( ID3DQuery *pQuery);
 
 //	Implementation
 
-#if defined(USE_DX11)
+#if defined(DIRECTX11)
 
 IC HRESULT CreateQuery ( ID3DQuery **ppQuery, D3DQUERYTYPE Type)
 {
@@ -47,7 +47,7 @@ IC HRESULT EndQuery( ID3DQuery *pQuery)
 	return S_OK;
 }
 
-#elif defined(USE_DX10)
+#elif defined(DIRECTX10)
 
 IC HRESULT CreateQuery ( ID3DQuery **ppQuery, D3DQUERYTYPE Type)
 {
@@ -84,7 +84,7 @@ IC HRESULT EndQuery( ID3DQuery *pQuery)
 	return S_OK;
 }
 
-#else	//	USE_DX10
+#else	//	DIRECTX10
 
 IC HRESULT CreateQuery ( ID3DQuery **ppQuery, D3DQUERYTYPE Type)
 {
@@ -106,6 +106,6 @@ IC HRESULT EndQuery( ID3DQuery *pQuery)
 	return pQuery->Issue( D3DISSUE_END);
 }
 
-#endif	//	USE_DX10
+#endif	//	DIRECTX10
 
 #endif	//	QueryHelper_included

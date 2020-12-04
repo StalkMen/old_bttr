@@ -20,7 +20,7 @@ void CRenderTarget::create_minmax_SM()
    StateManager.SetStencil( FALSE, D3DCMP_ALWAYS, 0x80, 0xFF, 0x80, D3DSTENCILOP_KEEP, D3DSTENCILOP_REPLACE, D3DSTENCILOP_KEEP  );
    StateManager.SetColorWriteEnable
    ( 
-#ifdef USE_DX11 
+#ifdef DIRECTX11 
    D3D_COLOR_WRITE_ENABLE_ALL 
 #else
 	D3D10_COLOR_WRITE_ENABLE_ALL
@@ -33,7 +33,7 @@ void CRenderTarget::create_minmax_SM()
 
    StateManager.SetColorWriteEnable
    ( 
-#ifdef USE_DX11 
+#ifdef DIRECTX11 
    D3D_COLOR_WRITE_ENABLE_ALL 
 #else
 	D3D10_COLOR_WRITE_ENABLE_ALL

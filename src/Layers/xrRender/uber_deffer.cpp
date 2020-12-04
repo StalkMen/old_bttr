@@ -93,7 +93,7 @@ void	uber_deffer	(CBlender_Compile& C, bool hq, LPCSTR _vspec, LPCSTR _pspec, BO
 	}
 
 	// Uber-construct
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	if (bump && hq && RImplementation.o.dx11_enable_tessellation && C.TessMethod!=0)
 	{
 		char hs[256], ds[256];
@@ -179,7 +179,7 @@ void	uber_deffer	(CBlender_Compile& C, bool hq, LPCSTR _vspec, LPCSTR _pspec, BO
 	if (!DO_NOT_FINISH)		C.r_End	();
 }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 void uber_shadow(CBlender_Compile& C, LPCSTR _vspec)
 {
 	// Uber-parse

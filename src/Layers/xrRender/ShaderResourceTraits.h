@@ -40,7 +40,7 @@ struct ShaderTypeTraits<SVS>
     static inline HWShaderType CreateHWShader(DWORD const* buffer, size_t size)
     {
          HWShaderType sh = 0;
-#ifdef USE_DX11
+#ifdef DIRECTX11
         R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateVertexShader(buffer, size, 0, &sh));
 #else
         R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateVertexShader(buffer, size, &sh));
@@ -95,7 +95,7 @@ struct ShaderTypeTraits<SPS>
     static inline HWShaderType CreateHWShader(DWORD const* buffer, size_t size)
     {
         HWShaderType sh = 0;
-#ifdef USE_DX11
+#ifdef DIRECTX11
         R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreatePixelShader(buffer, size, 0, &sh));
 #else
         R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreatePixelShader(buffer, size, &sh));
@@ -115,13 +115,13 @@ struct ShaderTypeTraits<SGS>
     static inline const char* GetShaderExt() { return "gs_"; }
     static inline const char* GetCompilationTarget()
     {
-#ifdef USE_DX10
+#ifdef DIRECTX10
         if (DEVICE_HW::XRAY::HW.pDevice1 == nullptr)
             return D3D10GetGeometryShaderProfile(DEVICE_HW::XRAY::HW.pRenderDevice);
         else
             return "gs_4_1";
 #endif
-#ifdef USE_DX11
+#ifdef DIRECTX11
         if (DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0)
             return "gs_4_0";
         else if (DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1)
@@ -141,7 +141,7 @@ struct ShaderTypeTraits<SGS>
     static inline HWShaderType CreateHWShader(DWORD const* buffer, size_t size)
     {
         HWShaderType sh = 0;
-#ifdef USE_DX11
+#ifdef DIRECTX11
         R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateGeometryShader(buffer, size, 0, &sh));
 #else
         R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateGeometryShader(buffer, size, &sh));
@@ -152,7 +152,7 @@ struct ShaderTypeTraits<SGS>
     static inline u32 GetShaderDest() { return RC_dest_geometry; }
 };
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 template <>
 struct ShaderTypeTraits<SHS>
 {
@@ -250,7 +250,7 @@ inline CResourceManager::map_GS& CResourceManager::GetShaderMap()
     return m_gs;
 }
 
-#if defined(USE_DX11)
+#if defined(DIRECTX11)
 template <>
 inline CResourceManager::map_DS& CResourceManager::GetShaderMap()
 {

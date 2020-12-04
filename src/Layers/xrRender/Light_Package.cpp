@@ -8,7 +8,7 @@ void	light_Package::clear	()
 	v_shadowed.clear	();
 }
 
-#if defined(USE_DX10) || defined(USE_DX11)
+#if defined(DIRECTX10) || defined(DIRECTX11)
 IC bool pred_light_cmp(light* _1, light* _2) 
 {
 	return _1->range > _2->range; // sort by range

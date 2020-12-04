@@ -163,7 +163,7 @@ void CRender::render_menu	()
 		FLOAT ColorRGBA[4] = {127.0f/255.0f, 127.0f/255.0f, 0.0f, 127.0f/255.0f};
 		Target->u_setrt(Target->rt_Generic_1,0,0,DEVICE_HW::XRAY::HW.pBaseZB);
 		// Now RT is a distortion mask
-#ifdef USE_DX11		
+#ifdef DIRECTX11		
 		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(Target->rt_Generic_1->pRT, ColorRGBA);
 #else
 		DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(Target->rt_Generic_1->pRT, ColorRGBA);
@@ -523,7 +523,7 @@ void CRender::AfterWorldRender()
 	{
 		ID3DTexture2D* pBuffer = NULL;
 		DEVICE_HW::XRAY::HW.m_pSwapChain->GetBuffer(0, __uuidof(ID3DTexture2D), (LPVOID*)& pBuffer);
-#ifdef USE_DX11	
+#ifdef DIRECTX11	
 		DEVICE_HW::XRAY::HW.pRenderContext->CopyResource(Target->rt_secondVP->pSurface, pBuffer);
 #else
 		DEVICE_HW::XRAY::HW.pRenderDevice->CopyResource(Target->rt_secondVP->pSurface, pBuffer);

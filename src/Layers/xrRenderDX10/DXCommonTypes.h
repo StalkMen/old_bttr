@@ -7,7 +7,7 @@ typedef	ID3D10Blob				ID3DBlob;
 
 typedef	D3D10_SHADER_MACRO				D3D_SHADER_MACRO;
 
-#if defined(USE_DX11)
+#if defined(DIRECTX11)
 
 typedef	D3D11_BLEND						D3D_BLEND;
 typedef	D3D11_BLEND_OP					D3D_BLEND_OP;
@@ -260,7 +260,7 @@ typedef	ID3D11ShaderReflectionType						ID3DShaderReflectionType;
 
 #define	IID_ID3DShaderReflection	IID_ID3D11ShaderReflection
 
-#elif	defined(USE_DX10)
+#elif	defined(DIRECTX10)
 
 typedef	D3D10_BLEND						D3D_BLEND;
 typedef	D3D10_BLEND_OP					D3D_BLEND_OP;

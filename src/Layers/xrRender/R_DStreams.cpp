@@ -47,7 +47,7 @@ void _VertexStream::Destroy	()
 
 void* _VertexStream::Lock	( u32 vl_Count, u32 Stride, u32& vOffset )
 {
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	D3D11_MAPPED_SUBRESOURCE MappedSubRes;
 #endif
 
@@ -74,14 +74,14 @@ void* _VertexStream::Lock	( u32 vl_Count, u32 Stride, u32& vOffset )
 		vOffset				= 0;
 		mDiscardID			++;
 
-#if defined(USE_DX11)
+#if defined(DIRECTX11)
 		DEVICE_HW::XRAY::HW.pRenderContext->Map(pVB, 0, D3D_MAP_WRITE_DISCARD, 0, &MappedSubRes);
 		pData=(BYTE*)MappedSubRes.pData;
 		pData += vOffset;
-#elif defined(USE_DX10)
+#elif defined(DIRECTX10)
 		pVB->Map(D3D_MAP_WRITE_DISCARD, 0, (void**)&pData);
 		pData += vOffset;
-#endif	//	USE_DX10
+#endif	//	DIRECTX10
 	} 
 	else 
 	{
@@ -89,14 +89,14 @@ void* _VertexStream::Lock	( u32 vl_Count, u32 Stride, u32& vOffset )
 		mPosition			= vl_mPosition*Stride;
 		vOffset				= vl_mPosition;
 
-#if defined(USE_DX11)
+#if defined(DIRECTX11)
 		DEVICE_HW::XRAY::HW.pRenderContext->Map(pVB, 0, D3D_MAP_WRITE_NO_OVERWRITE, 0, &MappedSubRes);
 		pData=(BYTE*)MappedSubRes.pData;
 		pData += vOffset*Stride;
-#elif defined(USE_DX10)
+#elif defined(DIRECTX10)
 		pVB->Map(D3D_MAP_WRITE_NO_OVERWRITE, 0, (void**)&pData);
 		pData += vOffset*Stride;
-#endif	//	USE_DX10
+#endif	//	DIRECTX10
 	}
 	VERIFY				( pData );
 
@@ -114,11 +114,11 @@ void	_VertexStream::Unlock		( u32 Count, u32 Stride)
 
 	VERIFY				(pVB);
 
-#if defined(USE_DX11)
+#if defined(DIRECTX11)
 	DEVICE_HW::XRAY::HW.pRenderContext->Unmap(pVB, 0);
-#elif defined(USE_DX10)
+#elif defined(DIRECTX10)
 	pVB->Unmap();
-#endif	//	USE_DX10
+#endif	//	DIRECTX10
 }
 
 void	_VertexStream::reset_begin	()
@@ -183,7 +183,7 @@ void	_IndexStream::Destroy()
 
 u16*	_IndexStream::Lock	( u32 Count, u32& vOffset )
 {
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	D3D11_MAPPED_SUBRESOURCE MappedSubRes;
 #endif
 	PGO						(Msg("PGO:IB_LOCK:%d",Count));
@@ -203,18 +203,18 @@ u16*	_IndexStream::Lock	( u32 Count, u32& vOffset )
 		dwFlags		= LOCKFLAGS_FLUSH;			// discard it's contens
 		mDiscardID	++;
 	}
-#if defined(USE_DX11)
+#if defined(DIRECTX11)
 	D3D_MAP MapMode = (dwFlags==LOCKFLAGS_APPEND) ? 
 		D3D_MAP_WRITE_NO_OVERWRITE : D3D_MAP_WRITE_DISCARD;
 	DEVICE_HW::XRAY::HW.pRenderContext->Map(pIB, 0, MapMode, 0, &MappedSubRes);
 	pLockedData = (BYTE*)MappedSubRes.pData;
 	pLockedData += mPosition * 2;
-#elif defined(USE_DX10)
+#elif defined(DIRECTX10)
 	D3D_MAP MapMode = (dwFlags==LOCKFLAGS_APPEND) ? 
 		D3D_MAP_WRITE_NO_OVERWRITE : D3D_MAP_WRITE_DISCARD;
 	pIB->Map( MapMode, 0, (void**)&pLockedData);
 	pLockedData += mPosition * 2;
-#endif	//	USE_DX10
+#endif	//	DIRECTX10
 
 	VERIFY					(pLockedData);
 
@@ -228,11 +228,11 @@ void	_IndexStream::Unlock(u32 RealCount)
 	PGO						(Msg("PGO:IB_UNLOCK:%d",RealCount));
 	mPosition				+=	RealCount;
 	VERIFY					(pIB);
-#if defined(USE_DX11)
+#if defined(DIRECTX11)
 	DEVICE_HW::XRAY::HW.pRenderContext->Unmap(pIB, 0);
-#elif defined(USE_DX10)
+#elif defined(DIRECTX10)
 	pIB->Unmap();
-#endif	//	USE_DX10
+#endif	//	DIRECTX10
 }
 
 void	_IndexStream::reset_begin	()

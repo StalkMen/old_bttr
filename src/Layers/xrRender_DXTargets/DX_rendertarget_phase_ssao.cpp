@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 void set_viewport(ID3DDeviceContext *dev, float w, float h)
 {
 	static D3D_VIEWPORT viewport[1] =
@@ -22,7 +22,7 @@ void CRenderTarget::phase_ssao	()
 	u32	Offset	= 0;
 
 	FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_ssao_temp->pRT, ColorRGBA);
 #else
 	DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(rt_ssao_temp->pRT, ColorRGBA);
@@ -60,7 +60,7 @@ void CRenderTarget::phase_ssao	()
 	float	scale_X				= float(Device.dwWidth)	* 0.5f / float(TEX_jitter);
 	float	scale_Y				= float(Device.dwHeight) * 0.5f / float(TEX_jitter);
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	float _w = float(Device.dwWidth) * 0.5f;
 	float _h = float(Device.dwHeight) * 0.5f;
 
@@ -86,7 +86,7 @@ void CRenderTarget::phase_ssao	()
 	RCache.set_c				("m_v2w",			m_v2w	);
 	RCache.set_c				("ssao_noise_tile_factor",	fSSAONoise	);
 	RCache.set_c				("ssao_kernel_size",		fSSAOKernelSize	);
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	RCache.set_c				("resolution", _w, _h, 1.0f / _w, 1.0f / _h	);
 #else
 	RCache.set_c				("resolution", float(_w), float(_h), 1.0f / float(_w), 1.0f / float(_h) );
@@ -117,7 +117,7 @@ void CRenderTarget::phase_ssao	()
 		}*/
 		//RCache.set_Stencil( FALSE, D3DCMP_EQUAL, 0x01, 0xff, 0 );
 	}  
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	set_viewport(DEVICE_HW::XRAY::HW.pRenderContext, float(Device.dwWidth), float(Device.dwHeight));
 #else
 	set_viewport(DEVICE_HW::XRAY::HW.pRenderDevice, Device.dwWidth, Device.dwHeight);
@@ -145,7 +145,7 @@ void CRenderTarget::phase_downsamp	()
 
 	if (RImplementation.o.ssao_half_data)
 	{
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		set_viewport(DEVICE_HW::XRAY::HW.pRenderContext, float(Device.dwWidth) * 0.5f, float(Device.dwHeight) * 0.5f);
 #else
 		set_viewport(DEVICE_HW::XRAY::HW.pRenderDevice, Device.dwWidth/2, Device.dwHeight/2);
@@ -180,7 +180,7 @@ void CRenderTarget::phase_downsamp	()
 	}
 
 	if (RImplementation.o.ssao_half_data)
-#ifdef USE_DX11
+#ifdef DIRECTX11
 		set_viewport(DEVICE_HW::XRAY::HW.pRenderContext, float(Device.dwWidth), float(Device.dwHeight));
 #else
 		set_viewport(DEVICE_HW::XRAY::HW.pRenderDevice, Device.dwWidth, Device.dwHeight);

@@ -35,7 +35,7 @@ public:
 	DEFINE_MAP_PRED(const char*,SVS*,			map_VS,			map_VSIt,			str_pred);
 	DEFINE_MAP_PRED(const char*,SGS*,			map_GS,			map_GSIt,			str_pred);
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	DEFINE_MAP_PRED(const char*, SHS*,			map_HS,			map_HSIt,			str_pred);
 	DEFINE_MAP_PRED(const char*, SDS*,			map_DS,			map_DSIt,			str_pred);
 	DEFINE_MAP_PRED(const char*, SCS*,			map_CS,			map_CSIt,			str_pred);
@@ -56,7 +56,7 @@ private:
 	map_GS												m_gs;
 	map_TD												m_td;
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	map_DS												m_ds;
 	map_HS												m_hs;
 	map_CS												m_cs;
@@ -127,7 +127,7 @@ public:
 	SInputSignature*				_CreateInputSignature(ID3DBlob* pBlob);
 	void							_DeleteInputSignature(const SInputSignature* pSignature);
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	CRT*							_CreateRT			(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount = 1, bool useUAV=false );
 #else
 	CRT*							_CreateRT			(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount = 1 );
@@ -138,7 +138,7 @@ public:
 	SGS*							_CreateGS			(LPCSTR Name);
 	void							_DeleteGS			(const SGS*	GS	);
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 	SHS*							_CreateHS			(LPCSTR Name);
 	void							_DeleteHS			(const SHS*	HS	);
 
@@ -147,7 +147,7 @@ public:
 
     SCS*							_CreateCS			(LPCSTR Name);
 	void							_DeleteCS			(const SCS*	CS	);
-#endif	//	USE_DX10
+#endif	//	DIRECTX10
 
 	SPS*							_CreatePS			(LPCSTR Name);
 	void							_DeletePS			(const SPS*	PS	);

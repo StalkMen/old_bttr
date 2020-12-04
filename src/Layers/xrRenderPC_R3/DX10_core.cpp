@@ -173,7 +173,7 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 
 	if (DX10 == 0)
 	{
-		defines[def_it].Name = "USE_DX10";
+		defines[def_it].Name = "DIRECTX10";
 		defines[def_it].Definition = "1";
 		def_it++;
 	}
@@ -181,7 +181,7 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 
 	if (DX10_1 == 1)
 	{
-		defines[def_it].Name = "USE_DX10_1";
+		defines[def_it].Name = "DIRECTX10_1";
 		defines[def_it].Definition = "1";
 		def_it++;
 	}

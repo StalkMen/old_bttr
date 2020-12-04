@@ -205,7 +205,7 @@ void ResetDescription( D3D_DEPTH_STENCIL_DESC &desc )
 	desc.BackFace.StencilFunc = D3D_COMPARISON_ALWAYS;
 }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 void ResetDescription( D3D_BLEND_DESC &desc )
 {
 	ZeroMemory(&desc, sizeof(desc));
@@ -315,7 +315,7 @@ bool operator==(const D3D_DEPTH_STENCIL_DESC& desc1, const D3D_DEPTH_STENCIL_DES
 	return true;
 }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 bool operator==(const D3D_BLEND_DESC &desc1, const D3D_BLEND_DESC &desc2)
 {
 	if ( desc1.AlphaToCoverageEnable != desc2.AlphaToCoverageEnable) return false;
@@ -418,7 +418,7 @@ u32 GetHash( const D3D_DEPTH_STENCIL_DESC &desc )
 	return Hash.GetHash();
 }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 u32 GetHash( const D3D_BLEND_DESC &desc )
 {
 	dxHashHelper	Hash;
@@ -517,7 +517,7 @@ void ValidateState(D3D_DEPTH_STENCIL_DESC &desc)
 	}
 }
 
-#ifdef USE_DX11
+#ifdef DIRECTX11
 void ValidateState(D3D_BLEND_DESC &desc)
 {
 	BOOL	bBlendEnable = FALSE;
