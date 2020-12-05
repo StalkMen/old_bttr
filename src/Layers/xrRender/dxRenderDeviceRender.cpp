@@ -45,40 +45,40 @@ void dxRenderDeviceRender::OnDeviceDestroy( BOOL bKeepTextures)
 
 void dxRenderDeviceRender::ValidateHW()
 {
-    DEVICE_HW::XRAY::HW.Validate();
+    DEVICE_HW::CRYRAY_RENDER::HW.Validate();
 }
 
 void dxRenderDeviceRender::DestroyHW()
 {
     xr_delete					(Resources);
-    DEVICE_HW::XRAY::HW.DestroyDevice			();
+    DEVICE_HW::CRYRAY_RENDER::HW.DestroyDevice			();
 }
 
 void  dxRenderDeviceRender::Reset( HWND hWnd, u32 &dwWidth, u32 &dwHeight, float &fWidth_2, float &fHeight_2)
 {
 #ifdef DEBUG
-    _SHOW_REF("*ref -CRenderDevice::ResetTotal: DeviceREF:",DEVICE_HW::XRAY::HW.pDevice);
+    _SHOW_REF("*ref -CRenderDevice::ResetTotal: DeviceREF:",DEVICE_HW::CRYRAY_RENDER::HW.pDevice);
 #endif // DEBUG	
 
     Resources->reset_begin	();
     Memory.mem_compact		();
-    DEVICE_HW::XRAY::HW.Reset				(hWnd);
+    DEVICE_HW::CRYRAY_RENDER::HW.Reset				(hWnd);
 
-    dwWidth					= DEVICE_HW::XRAY::HW.m_ChainDesc.BufferDesc.Width;
-    dwHeight				= DEVICE_HW::XRAY::HW.m_ChainDesc.BufferDesc.Height;
+    dwWidth					= DEVICE_HW::CRYRAY_RENDER::HW.m_ChainDesc.BufferDesc.Width;
+    dwHeight				= DEVICE_HW::CRYRAY_RENDER::HW.m_ChainDesc.BufferDesc.Height;
 
     fWidth_2				= float(dwWidth/2);
     fHeight_2				= float(dwHeight/2);
     Resources->reset_end	();
 
 #ifdef DEBUG
-    _SHOW_REF("*ref +CRenderDevice::ResetTotal: DeviceREF:",DEVICE_HW::XRAY::HW.pDevice);
+    _SHOW_REF("*ref +CRenderDevice::ResetTotal: DeviceREF:",DEVICE_HW::CRYRAY_RENDER::HW.pDevice);
 #endif // DEBUG
 }
 
 void dxRenderDeviceRender::SetupStates()
 {
-    DEVICE_HW::XRAY::HW.Caps.Update				();
+    DEVICE_HW::CRYRAY_RENDER::HW.Caps.Update				();
 	SSManager.SetMaxAnisotropy	(ps_r__tf_Anisotropic);
     SSManager.SetMipLODBias		(ps_r__tf_Mipbias);
 }
@@ -103,9 +103,9 @@ void dxRenderDeviceRender::OnDeviceCreate(LPCSTR shName)
 
 void dxRenderDeviceRender::Create( HWND hWnd, u32 &dwWidth, u32 &dwHeight, float &fWidth_2, float &fHeight_2, bool move_window)
 {
-    DEVICE_HW::XRAY::HW.CreateDevice		(hWnd, move_window);
-    dwWidth				= DEVICE_HW::XRAY::HW.m_ChainDesc.BufferDesc.Width;
-    dwHeight			= DEVICE_HW::XRAY::HW.m_ChainDesc.BufferDesc.Height;
+    DEVICE_HW::CRYRAY_RENDER::HW.CreateDevice		(hWnd, move_window);
+    dwWidth				= DEVICE_HW::CRYRAY_RENDER::HW.m_ChainDesc.BufferDesc.Width;
+    dwHeight			= DEVICE_HW::CRYRAY_RENDER::HW.m_ChainDesc.BufferDesc.Height;
     fWidth_2			= float(dwWidth/2)			;
     fHeight_2			= float(dwHeight/2)			;
     Resources			= xr_new<CResourceManager>		();
@@ -113,9 +113,9 @@ void dxRenderDeviceRender::Create( HWND hWnd, u32 &dwWidth, u32 &dwHeight, float
 
 void dxRenderDeviceRender::SetupGPU( BOOL bForceGPU_SW, BOOL bForceGPU_NonPure, BOOL bForceGPU_REF)
 {
-    DEVICE_HW::XRAY::HW.Caps.bForceGPU_SW		= bForceGPU_SW;
-    DEVICE_HW::XRAY::HW.Caps.bForceGPU_NonPure	= bForceGPU_NonPure;
-    DEVICE_HW::XRAY::HW.Caps.bForceGPU_REF		= bForceGPU_REF;
+    DEVICE_HW::CRYRAY_RENDER::HW.Caps.bForceGPU_SW		= bForceGPU_SW;
+    DEVICE_HW::CRYRAY_RENDER::HW.Caps.bForceGPU_NonPure	= bForceGPU_NonPure;
+    DEVICE_HW::CRYRAY_RENDER::HW.Caps.bForceGPU_REF		= bForceGPU_REF;
 }
 
 void dxRenderDeviceRender::overdrawBegin()
@@ -158,9 +158,9 @@ void dxRenderDeviceRender::ResourcesDumpMemoryUsage()
 
 dxRenderDeviceRender::DeviceState dxRenderDeviceRender::GetDeviceState()
 {
-    DEVICE_HW::XRAY::HW.Validate		();
+    DEVICE_HW::CRYRAY_RENDER::HW.Validate		();
 
-    const auto result = DEVICE_HW::XRAY::HW.m_pSwapChain->Present(0, DXGI_PRESENT_TEST);
+    const auto result = DEVICE_HW::CRYRAY_RENDER::HW.m_pSwapChain->Present(0, DXGI_PRESENT_TEST);
 
     switch (result)
     {
@@ -174,7 +174,7 @@ dxRenderDeviceRender::DeviceState dxRenderDeviceRender::GetDeviceState()
 
 BOOL dxRenderDeviceRender::GetForceGPU_REF()
 {
-    return DEVICE_HW::XRAY::HW.Caps.bForceGPU_REF;
+    return DEVICE_HW::CRYRAY_RENDER::HW.Caps.bForceGPU_REF;
 }
 
 u32 dxRenderDeviceRender::GetCacheStatPolys()
@@ -187,20 +187,20 @@ void dxRenderDeviceRender::Begin()
     RCache.OnFrameBegin		();
     RCache.set_CullMode		(CULL_CW);
     RCache.set_CullMode		(CULL_CCW);
-    if (DEVICE_HW::XRAY::HW.Caps.SceneMode)	overdrawBegin	();
+    if (DEVICE_HW::CRYRAY_RENDER::HW.Caps.SceneMode)	overdrawBegin	();
 }
 
 void dxRenderDeviceRender::Clear()
 {	//Cleans stencil-depth buffer
     
 	//LV: We don't use depth buffer on R3/R4 to get depth, so there's no need to clean it
-	//DEVICE_HW::XRAY::HW.pContext->ClearDepthStencilView(RCache.get_ZB(), 
+	//DEVICE_HW::CRYRAY_RENDER::HW.pContext->ClearDepthStencilView(RCache.get_ZB(), 
     //    D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
 
     if (psDeviceFlags.test(rsClearBB))
     {
         FLOAT ColorRGBA[4] = {0.0f,0.0f,0.0f,0.0f};
-        DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
+        DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
     }
 }
 
@@ -208,9 +208,9 @@ void DoAsyncScreenshot();
 
 void dxRenderDeviceRender::End()
 {
-    VERIFY	(DEVICE_HW::XRAY::HW.pDevice);
+    VERIFY	(DEVICE_HW::CRYRAY_RENDER::HW.pDevice);
 
-    if (DEVICE_HW::XRAY::HW.Caps.SceneMode)	overdrawEnd();
+    if (DEVICE_HW::CRYRAY_RENDER::HW.Caps.SceneMode)	overdrawEnd();
 
     RCache.OnFrameEnd	();
     Memory.dbg_check		();
@@ -218,7 +218,7 @@ void dxRenderDeviceRender::End()
     DoAsyncScreenshot();
     if (!Device.m_SecondViewport.IsSVPFrame() && !Device.m_SecondViewport.isCamReady) //--#SM+#-- +SecondVP+
     {
-        DEVICE_HW::XRAY::HW.m_pSwapChain->Present(!!psDeviceFlags.test(rsVSync), 0);
+        DEVICE_HW::CRYRAY_RENDER::HW.m_pSwapChain->Present(!!psDeviceFlags.test(rsVSync), 0);
     }
 }
 
@@ -230,7 +230,7 @@ void dxRenderDeviceRender::ResourcesDestroyNecessaryTextures()
 void dxRenderDeviceRender::ClearTarget()
 {	//Cleans backbuffer
     FLOAT ColorRGBA[4] = {0.0f,0.0f,0.0f,0.0f};
-    DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
+    DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
 }
 
 void dxRenderDeviceRender::SetCacheXform(Fmatrix &mView, Fmatrix &mProject)
@@ -241,7 +241,7 @@ void dxRenderDeviceRender::SetCacheXform(Fmatrix &mView, Fmatrix &mProject)
 
 bool dxRenderDeviceRender::HWSupportsShaderYUV2RGB()
 {
-    u32		v_dev	= CAP_VERSION(DEVICE_HW::XRAY::HW.Caps.raster_major, DEVICE_HW::XRAY::HW.Caps.raster_minor);
+    u32		v_dev	= CAP_VERSION(DEVICE_HW::CRYRAY_RENDER::HW.Caps.raster_major, DEVICE_HW::CRYRAY_RENDER::HW.Caps.raster_minor);
     u32		v_need	= CAP_VERSION(2,0);
     return (v_dev>=v_need);
 }

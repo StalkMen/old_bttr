@@ -164,8 +164,8 @@ void					CRender::create					()
 
 	// hardware
 	o.smapsize			= ps_r2_smapsize;
-	o.mrt				= (DEVICE_HW::XRAY::HW.Caps.raster.dwMRT_count >= 3);
-	o.mrtmixdepth		= (DEVICE_HW::XRAY::HW.Caps.raster.b_MRT_mixdepth);
+	o.mrt				= (DEVICE_HW::CRYRAY_RENDER::HW.Caps.raster.dwMRT_count >= 3);
+	o.mrtmixdepth		= (DEVICE_HW::CRYRAY_RENDER::HW.Caps.raster.b_MRT_mixdepth);
 
 	o.nullrt = false;
 	
@@ -177,7 +177,7 @@ void					CRender::create					()
 		//.		??? if (date < 22-march-07)		
 		if (0)
 		{
-			u32 device_id	= DEVICE_HW::XRAY::HW.Caps.id_device;
+			u32 device_id	= DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_device;
 			bool disable_nullrt = false;
 			switch (device_id)	
 			{
@@ -224,13 +224,13 @@ void					CRender::create					()
 	// SMAP / DST
 	o.HW_smap_FETCH4	= FALSE;
 	//	DX10 disabled
-	//o.HW_smap			= DEVICE_HW::XRAY::HW.support	(D3DFMT_D24X8,			D3DRTYPE_TEXTURE,D3DUSAGE_DEPTHSTENCIL);
+	//o.HW_smap			= DEVICE_HW::CRYRAY_RENDER::HW.support	(D3DFMT_D24X8,			D3DRTYPE_TEXTURE,D3DUSAGE_DEPTHSTENCIL);
 	o.HW_smap			= true;
 	o.HW_smap_PCF		= o.HW_smap		;
 	if (o.HW_smap)		
 	{
 		//	For ATI it's much faster on DX10 to use D32F format
-		if (DEVICE_HW::XRAY::HW.Caps.id_vendor==0x1002)
+		if (DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_vendor==0x1002)
 			o.HW_smap_FORMAT	= D3DFMT_D32F_LOCKABLE;
 		else
 			o.HW_smap_FORMAT	= D3DFMT_D24X8;
@@ -243,7 +243,7 @@ void					CRender::create					()
 
 	// search for ATI formats
 	if (!o.HW_smap && (0==strstr(Core.Params,"-nodf24")) )		{
-		o.HW_smap		= DEVICE_HW::XRAY::HW.support	((D3DFORMAT)(MAKEFOURCC('D','F','2','4')),	D3DRTYPE_TEXTURE,D3DUSAGE_DEPTHSTENCIL);
+		o.HW_smap		= DEVICE_HW::CRYRAY_RENDER::HW.support	((D3DFORMAT)(MAKEFOURCC('D','F','2','4')),	D3DRTYPE_TEXTURE,D3DUSAGE_DEPTHSTENCIL);
 		if (o.HW_smap)	{
 			o.HW_smap_FORMAT= MAKEFOURCC	('D','F','2','4');
 			o.HW_smap_PCF	= FALSE			;
@@ -261,19 +261,19 @@ void					CRender::create					()
 		o.fp16_blend	= FALSE;
 	}
 
-	VERIFY2				(o.mrt && (DEVICE_HW::XRAY::HW.Caps.raster.dwInstructions>=256),"Hardware doesn't meet minimum feature-level");
+	VERIFY2				(o.mrt && (DEVICE_HW::CRYRAY_RENDER::HW.Caps.raster.dwInstructions>=256),"Hardware doesn't meet minimum feature-level");
 	if (o.mrtmixdepth)		o.albedo_wo		= FALSE	;
 	else if (o.fp16_blend)	o.albedo_wo		= FALSE	;
 	else					o.albedo_wo		= TRUE	;
 
 	// nvstencil on NV40 and up
 	o.nvstencil			= FALSE;
-	//if ((DEVICE_HW::XRAY::HW.Caps.id_vendor==0x10DE)&&(DEVICE_HW::XRAY::HW.Caps.id_device>=0x40))	o.nvstencil = TRUE;
+	//if ((DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_vendor==0x10DE)&&(DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_device>=0x40))	o.nvstencil = TRUE;
 	if (strstr(Core.Params,"-nonvs"))		o.nvstencil	= FALSE;
 
 	// nv-dbt
 	//	DX10 disabled
-	//o.nvdbt				= DEVICE_HW::XRAY::HW.support	((D3DFORMAT)MAKEFOURCC('N','V','D','B'), D3DRTYPE_SURFACE, 0);
+	//o.nvdbt				= DEVICE_HW::CRYRAY_RENDER::HW.support	((D3DFORMAT)MAKEFOURCC('N','V','D','B'), D3DRTYPE_SURFACE, 0);
 	o.nvdbt				= false;
 	if (o.nvdbt)		Msg	("* NV-DBT supported and used");
 
@@ -288,7 +288,7 @@ void					CRender::create					()
 	o.bug				= (strstr(Core.Params,"-bug"))?			TRUE	:FALSE	;
 	o.sunfilter			= (strstr(Core.Params,"-sunfilter"))?	TRUE	:FALSE	;
 	//.	o.sunstatic			= (strstr(Core.Params,"-sunstatic"))?	TRUE	:FALSE	;
-	o.advancedpp		= r2_advanced_pp;
+	o.advancedpp		= FullRenderingFunctionality;
 	o.volumetricfog		= ps_r2_ls_flags.test(R3FLAG_VOLUMETRIC_SMOKE);
 	o.sjitter			= (strstr(Core.Params,"-sjitter"))?		TRUE	:FALSE	;
 	o.depth16			= (strstr(Core.Params,"-depth16"))?		TRUE	:FALSE	;
@@ -328,8 +328,8 @@ void					CRender::create					()
         o.ssao_opt_data = false;
 
 	//OldSerpskiStalker
-	o.dx11		= (renderer_value >= 2);
-	o.dx11		= o.dx11 && ( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 );
+	o.dx11		= renderer_value == 1;
+	o.dx11		= o.dx11 && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 );
 #else
 	if (o.ssao_hdao )
 		o.ssao_opt_data = false;
@@ -338,8 +338,8 @@ void					CRender::create					()
 		o.ssao_opt_data = true;
 	}
 
-	o.dx10_1 = render_dx10_1;
-	o.dx10_1 = o.dx10_1 && ( DEVICE_HW::XRAY::HW.pDevice1 != 0 );
+	o.dx10_1 = ps_r2_ls_flags.test((u32)R3FLAG_USE_DX10_1);
+	o.dx10_1 = o.dx10_1 && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0 );
 #endif
 	//	MSAA option dependencies
 
@@ -348,16 +348,16 @@ void					CRender::create					()
 
 	o.dx10_msaa_opt		= ps_r2_ls_flags.test(R3FLAG_MSAA_OPT);
 #ifdef DIRECTX11	
-	o.dx10_msaa_opt		= o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 )
-			|| o.dx10_msaa && (DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0);
+	o.dx10_msaa_opt		= o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 )
+			|| o.dx10_msaa && (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0);
 
 	o.dx10_msaa_hybrid	= o.dx11;
-	o.dx10_msaa_hybrid	&= !o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 ) ;
+	o.dx10_msaa_hybrid	&= !o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 ) ;
 #else
-	o.dx10_msaa_opt		= o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::XRAY::HW.pDevice1 != 0 );
+	o.dx10_msaa_opt		= o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0 );
 
-	o.dx10_msaa_hybrid	= render_dx10_1;
-	o.dx10_msaa_hybrid	&= !o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::XRAY::HW.pDevice1 != 0) ;
+	o.dx10_msaa_hybrid	= ps_r2_ls_flags.test((u32)R3FLAG_USE_DX10_1);
+	o.dx10_msaa_hybrid	&= !o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0) ;
 #endif
 	o.dx10_msaa_alphatest = 0;
 	if (o.dx10_msaa)
@@ -379,14 +379,14 @@ void					CRender::create					()
 	o.dx10_minmax_sm = ps_r3_minmax_sm;
 	o.dx10_minmax_sm_screenarea_threshold = 1600*1200;
 #ifdef DIRECTX11
-	o.dx11_enable_tessellation = DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && ps_r2_ls_flags_ext.test(R2FLAGEXT_ENABLE_TESSELLATION);
+	o.dx11_enable_tessellation = DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && ps_r2_ls_flags_ext.test(R2FLAGEXT_ENABLE_TESSELLATION);
 #endif
 	if (o.dx10_minmax_sm==MMSM_AUTODETECT)
 	{
 		o.dx10_minmax_sm = MMSM_OFF;
 
 		//	AMD device
-		if (DEVICE_HW::XRAY::HW.Caps.id_vendor==0x1002)
+		if (DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_vendor==0x1002)
 		{
 			if (ps_r_sun_quality>=3)
 				o.dx10_minmax_sm=MMSM_AUTO;
@@ -399,7 +399,7 @@ void					CRender::create					()
 		}
 
 		//	NVidia boards
-		if (DEVICE_HW::XRAY::HW.Caps.id_vendor==0x10DE)
+		if (DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_vendor==0x10DE)
 		{
 			if ((ps_r_sun_shafts>=2))
 			{
@@ -441,17 +441,17 @@ void					CRender::create					()
 	qdesc.MiscFlags				= 0;
 	qdesc.Query					= D3D_QUERY_EVENT;
 	ZeroMemory(q_sync_point, sizeof(q_sync_point));
-	//R_CHK						(DEVICE_HW::XRAY::HW.pDevice->CreateQuery(&qdesc,&q_sync_point[0]));
-	//R_CHK						(DEVICE_HW::XRAY::HW.pDevice->CreateQuery(&qdesc,&q_sync_point[1]));
+	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(&qdesc,&q_sync_point[0]));
+	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(&qdesc,&q_sync_point[1]));
 	//	Prevent error on first get data
 	//q_sync_point[0]->End();
 	//q_sync_point[1]->End();
-	//R_CHK						(DEVICE_HW::XRAY::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[0]));
-	//R_CHK						(DEVICE_HW::XRAY::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[1]));
-	for (u32 i=0; i<DEVICE_HW::XRAY::HW.Caps.iGPUNum; ++i)
-		R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
+	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[0]));
+	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[1]));
+	for (u32 i=0; i<DEVICE_HW::CRYRAY_RENDER::HW.Caps.iGPUNum; ++i)
+		R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
 #ifdef DIRECTX11
-	DEVICE_HW::XRAY::HW.pRenderContext->End(q_sync_point[0]);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->End(q_sync_point[0]);
 #else
 	q_sync_point[0]->End();
 #endif
@@ -468,7 +468,7 @@ void					CRender::destroy				()
 	::PortalTraverser.destroy	();
 	//_RELEASE					(q_sync_point[1]);
 	//_RELEASE					(q_sync_point[0]);
-	for (u32 i=0; i<DEVICE_HW::XRAY::HW.Caps.iGPUNum; ++i)
+	for (u32 i=0; i<DEVICE_HW::CRYRAY_RENDER::HW.Caps.iGPUNum; ++i)
 		_RELEASE				(q_sync_point[i]);
 	
 	HWOCC.occq_destroy			();
@@ -509,7 +509,7 @@ void CRender::reset_begin()
 	HWOCC.occq_destroy			();
 	//_RELEASE					(q_sync_point[1]);
 	//_RELEASE					(q_sync_point[0]);
-	for (u32 i=0; i<DEVICE_HW::XRAY::HW.Caps.iGPUNum; ++i)
+	for (u32 i=0; i<DEVICE_HW::CRYRAY_RENDER::HW.Caps.iGPUNum; ++i)
 		_RELEASE				(q_sync_point[i]);
 }
 
@@ -518,19 +518,19 @@ void CRender::reset_end()
 	D3D_QUERY_DESC			qdesc;
 	qdesc.MiscFlags				= 0;
 	qdesc.Query					= D3D_QUERY_EVENT;
-	//R_CHK						(DEVICE_HW::XRAY::HW.pDevice->CreateQuery(&qdesc,&q_sync_point[0]));
-	//R_CHK						(DEVICE_HW::XRAY::HW.pDevice->CreateQuery(&qdesc,&q_sync_point[1]));
-	for (u32 i=0; i<DEVICE_HW::XRAY::HW.Caps.iGPUNum; ++i)
-		R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
+	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(&qdesc,&q_sync_point[0]));
+	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(&qdesc,&q_sync_point[1]));
+	for (u32 i=0; i<DEVICE_HW::CRYRAY_RENDER::HW.Caps.iGPUNum; ++i)
+		R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
 	//	Prevent error on first get data
 #ifdef DIRECTX11
-	DEVICE_HW::XRAY::HW.pRenderContext->End(q_sync_point[0]);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->End(q_sync_point[0]);
 #else
 	q_sync_point[0]->End();
 #endif
 	//q_sync_point[1]->End();
-	//R_CHK						(DEVICE_HW::XRAY::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[0]));
-	//R_CHK						(DEVICE_HW::XRAY::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[1]));
+	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[0]));
+	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[1]));
 	HWOCC.occq_create			(occq_size);
 
 	Target						=	xr_new<CRenderTarget>	();
@@ -702,13 +702,13 @@ void					CRender::rmNear				()
 #ifdef DIRECTX11
 	D3D_VIEWPORT VP		=	{0,0,(float)T->get_width(),(float)T->get_height(),0,0.02f };
 	
-	DEVICE_HW::XRAY::HW.pRenderContext->RSSetViewports(1, &VP);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->RSSetViewports(1, &VP);
 #else
 	D3D_VIEWPORT VP		=	{0,0,T->get_width(),T->get_height(),0,0.02f };
 
-	DEVICE_HW::XRAY::HW.pRenderDevice->RSSetViewports(1, &VP);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->RSSetViewports(1, &VP);
 #endif
-	//CHK_DX				(DEVICE_HW::XRAY::HW.pDevice->SetViewport(&VP));
+	//CHK_DX				(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetViewport(&VP));
 }
 void					CRender::rmFar				()
 {
@@ -716,13 +716,13 @@ void					CRender::rmFar				()
 #ifdef DIRECTX11
 	D3D_VIEWPORT VP		=	{0,0,(float)T->get_width(),(float)T->get_height(),0.99999f,1.f };
 
-	DEVICE_HW::XRAY::HW.pRenderContext->RSSetViewports(1, &VP);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->RSSetViewports(1, &VP);
 #else
 	D3D_VIEWPORT VP		=	{0,0,T->get_width(),T->get_height(),0.99999f,1.f };
 
-	DEVICE_HW::XRAY::HW.pRenderDevice->RSSetViewports(1, &VP);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->RSSetViewports(1, &VP);
 #endif
-	//CHK_DX				(DEVICE_HW::XRAY::HW.pDevice->SetViewport(&VP));
+	//CHK_DX				(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetViewport(&VP));
 }
 void					CRender::rmNormal			()
 {
@@ -730,13 +730,13 @@ void					CRender::rmNormal			()
 #ifdef DIRECTX11
 	D3D_VIEWPORT VP		= {0,0,(float)T->get_width(),(float)T->get_height(),0,1.f };
 
-	DEVICE_HW::XRAY::HW.pRenderContext->RSSetViewports(1, &VP);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->RSSetViewports(1, &VP);
 #else
 	D3D_VIEWPORT VP		= {0,0,T->get_width(),T->get_height(),0,1.f };
 
-	DEVICE_HW::XRAY::HW.pRenderDevice->RSSetViewports(1, &VP);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->RSSetViewports(1, &VP);
 #endif
-	//CHK_DX				(DEVICE_HW::XRAY::HW.pDevice->SetViewport(&VP));
+	//CHK_DX				(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetViewport(&VP));
 }
 
 //////////////////////////////////////////////////////////////////////

@@ -9,8 +9,6 @@
 //#include "securom_api.h"
 
 extern xr_token* vid_quality_token;
-extern "C" { typedef bool _declspec(dllexport) SupportsDX10Rendering();  typedef bool _declspec(dllexport) SupportsDX11Rendering(); };
-extern u32 renderer_value; //con cmd
 
 LPCSTR dx10_name = "xrRender_DX10.dll";
 LPCSTR dx11_name = "xrRender_DX11.dll";
@@ -51,22 +49,22 @@ ENGINE_API bool is_enough_address_space_available()
         return (*(u32*)&system_info.lpMaximumApplicationAddress) > 0x90000000;
 }
 
-void CEngineAPI::InitializeNotDedicated()
+void CEngineAPI::cryray_render()
 {
-    if (psDeviceFlags.test(rsR4))
-    {
-        // try to initialize DX11
-        Log("# Loading DLL:", dx11_name);
-        hRender = LoadLibrary(dx11_name);
-        if (0 == hRender)
-            R_ASSERT("! ...Failed - incompatible hardware/pre-Vista OS.");
-    }
-
-    if (psDeviceFlags.test(rsR3))
+    if (psDeviceFlags.test(rDX10))
     {
         // try to initialize DX10
         Log("# Loading DLL:", dx10_name);
         hRender = LoadLibrary(dx10_name);
+        if (0 == hRender)
+            R_ASSERT("! ...Failed - incompatible hardware/pre-Vista OS.");
+    }
+
+    if (psDeviceFlags.test(rDX11))
+    {
+        // try to initialize DX11
+        Log("# Loading DLL:", dx11_name);
+        hRender = LoadLibrary(dx11_name);
         if (0 == hRender)
             R_ASSERT("! ...Failed - incompatible hardware/pre-Vista OS.");
     }
@@ -76,14 +74,16 @@ void CEngineAPI::Initialize(void)
 {
     //////////////////////////////////////////////////////////////////////////
     // render
-    InitializeNotDedicated();
+    cryray_render();
 
+#pragma todo("OldSerpskiStalker. При неудачном запуске, сброс на 10 рендер")
+    
     if (0 == hRender)
     {
-        psDeviceFlags.set(rsR4, FALSE);
-        psDeviceFlags.set(rsR3, TRUE);
+        psDeviceFlags.set(rDX10, TRUE);
+        psDeviceFlags.set(rDX11, FALSE);
 
-        renderer_value = 0; //con cmd
+        renderer_value = 0;
 
         Log("# Loading DLL:", dx10_name);
         hRender = LoadLibrary(dx10_name);
@@ -135,6 +135,12 @@ void CEngineAPI::Destroy(void)
     XRC.r_clear_compact();
 }
 
+extern "C" 
+{ 
+    typedef bool _declspec(dllexport) SupportsDX10Rendering();  
+    typedef bool _declspec(dllexport) SupportsDX11Rendering(); 
+};
+
 void CEngineAPI::CreateRendererList()
 {
     // TODO: ask renderers if they are supported!
@@ -180,10 +186,7 @@ void CEngineAPI::CreateRendererList()
     xr_vector<LPCSTR> _tmp;
 
     if (proceed &= bSupports_dx10, proceed)
-    {
         _tmp.push_back("support_DX10");
-        _tmp.push_back("support_DX10_1");
-    }
     if (proceed &= bSupports_dx11, proceed)
         _tmp.push_back("support_DX11");
 

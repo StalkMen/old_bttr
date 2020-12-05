@@ -10,7 +10,6 @@
 #include <xstring>
 
 using namespace std;
-extern u32 renderer_value;
 extern u32 ps_r3_msaa;
 extern u32 ps_r3_msaa_atest;
 extern u32 ps_r_sun_quality;
@@ -29,20 +28,20 @@ extern bool IsMainMenuActive();
 
 enum DebugTextColor : DWORD
 {
-    // Системные цвета
+    // РЎРёСЃС‚РµРјРЅС‹Рµ С†РІРµС‚Р°
     DTC_RED = 0xFFFF0000,
     DTC_YELLOW = 0xFFF6D434,
     DTC_GREEN = 0xFF67F92E,
     DTC_GREEN_DX = 0xFF00FF7F,
     DTC_GREEN_NV = 0xFF00FF00,
     DTC_BLUE = 0xFF00FFFF,
-    //Сглаживание MSAA на DX11
+    //РЎРіР»Р°Р¶РёРІР°РЅРёРµ MSAA РЅР° DX11
     DTC_MSAA = 0xFF7FFFD4,
-    //Альфа-Тест прозрачных объектов, тоже MSAA
+    //РђР»СЊС„Р°-РўРµСЃС‚ РїСЂРѕР·СЂР°С‡РЅС‹С… РѕР±СЉРµРєС‚РѕРІ, С‚РѕР¶Рµ MSAA
     DTC_MSAA_AT = 0xFF40E0D0,
-    // Стата про лучи солнца
+    // РЎС‚Р°С‚Р° РїСЂРѕ Р»СѓС‡Рё СЃРѕР»РЅС†Р°
     DTC_SUN_OPT = 0xFFFFFF00,
-    // Размер видеобуфера
+    // Р Р°Р·РјРµСЂ РІРёРґРµРѕР±СѓС„РµСЂР°
     DTC_VIDEOSIZE = 0xFFE6E6FA,
     DTC_VIDEOSIZE_SCREEN = 0xFFFFFFFF,
     DTC_AA = 0xFF00BFFF,
@@ -63,7 +62,7 @@ void CStats::Show_HW_Stats()
     {
         static DWORD dwLastFrameTime = 0;
         DWORD dwCurrentTime = timeGetTime();
-        if (dwCurrentTime - dwLastFrameTime > 500) //Апдейт раз в полсекунды
+        if (dwCurrentTime - dwLastFrameTime > 500) //РђРїРґРµР№С‚ СЂР°Р· РІ РїРѕР»СЃРµРєСѓРЅРґС‹
         {
             dwLastFrameTime = dwCurrentTime;
 
@@ -107,7 +106,7 @@ void CStats::Show_HW_Stats()
 
         //If game paused, engine not updating deltaTime variable, so FPS variable is freezed to last value
         const char*   FPSFormat = Device.Paused() ? "Last known FPS: %i" : "FPS: %i";
-        // LoopScale всегда должен быть равен 2 или цикл съедет за экран
+        // LoopScale РІСЃРµРіРґР° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СЂР°РІРµРЅ 2 РёР»Рё С†РёРєР» СЃСЉРµРґРµС‚ Р·Р° СЌРєСЂР°РЅ
         constexpr int LoopScale = 2;
                   int InfoScale = 10;
         for (size_t i = 0; i < LoopScale; i++)
@@ -132,12 +131,12 @@ void CStats::Show_HW_Stats()
 
                 case 3: 
                         pFontHW->SetColor(DebugTextColor::DTC_GREEN_DX);
-                        pFontHW->Out(GetMainInfoStats, InfoScale, renderer_value == 0 ? "Render: DirectX10" : renderer_value == 1 ? "Render: DirectX10.1" : renderer_value == 2 ? "Render: DirectX11" : "Render: ???");
+                        pFontHW->Out(GetMainInfoStats, InfoScale, (renderer_value == 0) ? "Render: DirectX10" : (renderer_value == 1) ? "Render: DirectX11" : "Render: ???");
                         InfoScale += 15;
 
                 case 4:
                         pFontHW->SetColor(DebugTextColor::DTC_GREEN_DX);
-                        pFontHW->Out(GetMainInfoStats, InfoScale, (renderer_value == 0 || renderer_value == 1) ? "Tessellation quality DX11: To activate this option, you must have DirectX11 enabled." : 
+                        pFontHW->Out(GetMainInfoStats, InfoScale, (renderer_value == 0) ? "Tessellation quality: To activate this option, you must have DirectX11 enabled." :
                             optTessQuality_ == 0 ? "Tessellation quality: Low" : optTessQuality_ == 1 ? "Tessellation quality: Medium" : optTessQuality_ == 2 ? "Tessellation quality: Optimum" : optTessQuality_ == 3 ? "Tessellation quality: Overneeded" : "Tessellation quality: ???");
                         InfoScale += 15;
                 
@@ -223,7 +222,7 @@ void CStats::Show_HW_Stats()
 
                 case 19:
                         if (GPUTemperature != U32_NULL)
-                            pFontHW->Out(GetMainInfoStats, InfoScale, "GPU Temperature: %i°", CAMDReader::bAMDSupportADL ? GPUTemperature / 1000 : GPUTemperature);
+                            pFontHW->Out(GetMainInfoStats, InfoScale, "GPU Temperature: %iВ°", CAMDReader::bAMDSupportADL ? GPUTemperature / 1000 : GPUTemperature);
 
                         InfoScale += 15;
 
@@ -277,7 +276,7 @@ void CStats::Show_HW_Stats()
                         pFontHW->Out(GetMainInfoStats, InfoScale, "CPU load: %0.0f%%", cpuLoad); // CPU load
                         InfoScale += 15;
 
-                case 27: // Всегда должен быть последним параметром
+                case 27: // Р’СЃРµРіРґР° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїРѕСЃР»РµРґРЅРёРј РїР°СЂР°РјРµС‚СЂРѕРј
                         int GetInfoScale = InfoScale;
                         for (size_t i = 0; i < CPU::ID.m_dwNumberOfProcessors; i++)
                         {

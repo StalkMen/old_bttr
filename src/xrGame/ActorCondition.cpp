@@ -24,7 +24,6 @@
 
 #define MAX_SATIETY					1.0f
 #define START_SATIETY				0.5f
-extern ENGINE_API Flags32 p_engine_flags32;
 
 BOOL	GodMode	()	
 { 

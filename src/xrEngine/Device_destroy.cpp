@@ -21,8 +21,6 @@ void CRenderDevice::_Destroy(BOOL bKeepTextures)
     Memory.mem_compact();
 }
 
-extern u32 renderer_value; //con cmd
-
 void CRenderDevice::Destroy(void)
 {
     if (!b_is_Ready) 
@@ -31,8 +29,6 @@ void CRenderDevice::Destroy(void)
 	if (renderer_value == 0)
 		Log("# Destroying Direct3D10");
 	else if (renderer_value == 1)
-		Log("# Destroying Direct3D10_1");
-	else if (renderer_value == 2)
 		Log("# Destroying Direct3D11");
 	
     ShowCursor(TRUE);

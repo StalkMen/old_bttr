@@ -49,7 +49,7 @@ dx10SamplerStateCache::SHandle dx10SamplerStateCache::GetState( D3D_SAMPLER_DESC
 
 void dx10SamplerStateCache::CreateState( StateDecs desc, IDeviceState** ppIState )
 {
-	CHK_DX(DEVICE_HW::XRAY::HW.pRenderDevice->CreateSamplerState( &desc, ppIState));
+	CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateSamplerState( &desc, ppIState));
 }
 
 dx10SamplerStateCache::SHandle dx10SamplerStateCache::FindState( const StateDecs& desc, u32 StateCRC )
@@ -119,7 +119,7 @@ void dx10SamplerStateCache::VSApplySamplers(HArray &samplers)
 	u32 uiMin;
 	u32 uiMax;
 	PrepareSamplerStates( samplers, pSS, m_aVSSamplers, uiMin, uiMax);
-	DEVICE_HW::XRAY::HW.pRenderContext->VSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->VSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
 }
 
 void dx10SamplerStateCache::PSApplySamplers(HArray &samplers)
@@ -128,7 +128,7 @@ void dx10SamplerStateCache::PSApplySamplers(HArray &samplers)
 	u32 uiMin;
 	u32 uiMax;
 	PrepareSamplerStates( samplers, pSS, m_aPSSamplers, uiMin, uiMax);
-	DEVICE_HW::XRAY::HW.pRenderContext->PSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->PSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
 }
 
 void dx10SamplerStateCache::GSApplySamplers(HArray &samplers)
@@ -137,7 +137,7 @@ void dx10SamplerStateCache::GSApplySamplers(HArray &samplers)
 	u32 uiMin;
 	u32 uiMax;
 	PrepareSamplerStates( samplers, pSS, m_aGSSamplers, uiMin, uiMax);
-	DEVICE_HW::XRAY::HW.pRenderContext->GSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->GSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
 }
 
 #ifdef DIRECTX11
@@ -147,7 +147,7 @@ void dx10SamplerStateCache::HSApplySamplers(HArray &samplers)
 	u32 uiMin;
 	u32 uiMax;
 	PrepareSamplerStates( samplers, pSS, m_aHSSamplers, uiMin, uiMax);
-	DEVICE_HW::XRAY::HW.pRenderContext->HSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->HSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
 }
 
 void dx10SamplerStateCache::DSApplySamplers(HArray &samplers)
@@ -156,7 +156,7 @@ void dx10SamplerStateCache::DSApplySamplers(HArray &samplers)
 	u32 uiMin;
 	u32 uiMax;
 	PrepareSamplerStates( samplers, pSS, m_aDSSamplers, uiMin, uiMax);
-	DEVICE_HW::XRAY::HW.pRenderContext->DSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->DSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
 }
 
 void dx10SamplerStateCache::CSApplySamplers(HArray &samplers)
@@ -165,7 +165,7 @@ void dx10SamplerStateCache::CSApplySamplers(HArray &samplers)
 	u32 uiMin;
 	u32 uiMax;
 	PrepareSamplerStates( samplers, pSS, m_aCSSamplers, uiMin, uiMax);
-	DEVICE_HW::XRAY::HW.pRenderContext->CSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->CSSetSamplers(uiMin, uiMax-uiMin+1, &pSS[uiMin]);
 }
 #endif
 

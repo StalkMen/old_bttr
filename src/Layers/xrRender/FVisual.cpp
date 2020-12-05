@@ -25,8 +25,8 @@ Fvisual::Fvisual()  : dxRender_Visual()
 
 Fvisual::~Fvisual()
 {
- 	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_vb	(p_rm_Vertices);
- 	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_ib	(p_rm_Indices);
+ 	DEVICE_HW::CRYRAY_RENDER::HW.stats_manager.decrement_stats_vb	(p_rm_Vertices);
+ 	DEVICE_HW::CRYRAY_RENDER::HW.stats_manager.decrement_stats_ib	(p_rm_Indices);
 	xr_delete	(m_fast);
 }
 
@@ -129,14 +129,14 @@ void Fvisual::Load		(const char* N, IReader *data, u32 dwFlags)
 #if defined(DIRECTX10) || defined(DIRECTX11)
 			VERIFY				(NULL==p_rm_Vertices);
 			R_CHK				(dx10BufferUtils::CreateVertexBuffer(&p_rm_Vertices, data->pointer(), vCount*vStride));
-			DEVICE_HW::XRAY::HW.stats_manager.increment_stats_vb						(p_rm_Vertices);
+			DEVICE_HW::CRYRAY_RENDER::HW.stats_manager.increment_stats_vb						(p_rm_Vertices);
 #else	//	DIRECTX10
-			BOOL	bSoft		= DEVICE_HW::XRAY::HW.Caps.geometry.bSoftware;
+			BOOL	bSoft		= DEVICE_HW::CRYRAY_RENDER::HW.Caps.geometry.bSoftware;
 			u32		dwUsage		= D3DUSAGE_WRITEONLY | (bSoft?D3DUSAGE_SOFTWAREPROCESSING:0);
 			BYTE*	bytes		= 0;
 			VERIFY				(NULL==p_rm_Vertices);
-			R_CHK				(DEVICE_HW::XRAY::HW.pDevice->CreateVertexBuffer	(vCount*vStride,dwUsage,0,D3DPOOL_MANAGED,&p_rm_Vertices,0));
-			DEVICE_HW::XRAY::HW.stats_manager.increment_stats_vb					(p_rm_Vertices);
+			R_CHK				(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateVertexBuffer	(vCount*vStride,dwUsage,0,D3DPOOL_MANAGED,&p_rm_Vertices,0));
+			DEVICE_HW::CRYRAY_RENDER::HW.stats_manager.increment_stats_vb					(p_rm_Vertices);
 			R_CHK				(p_rm_Vertices->Lock(0,0,(void**)&bytes,0));
 			CopyMemory			(bytes, data->pointer(), vCount*vStride);
 			p_rm_Vertices->Unlock	();
@@ -165,26 +165,26 @@ void Fvisual::Load		(const char* N, IReader *data, u32 dwFlags)
 			dwPrimitives		= iCount/3;
 
 #if defined(DIRECTX10) || defined(DIRECTX11)
-			//BOOL	bSoft		= DEVICE_HW::XRAY::HW.Caps.geometry.bSoftware || (dwFlags&VLOAD_FORCESOFTWARE);
+			//BOOL	bSoft		= DEVICE_HW::CRYRAY_RENDER::HW.Caps.geometry.bSoftware || (dwFlags&VLOAD_FORCESOFTWARE);
 			//u32		dwUsage		= /*D3DUSAGE_WRITEONLY |*/ (bSoft?D3DUSAGE_SOFTWAREPROCESSING:0);	// indices are read in model-wallmarks code
 			//BYTE*	bytes		= 0;
 
 			//VERIFY				(NULL==p_rm_Indices);
-			//R_CHK				(DEVICE_HW::XRAY::HW.pDevice->CreateIndexBuffer(iCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&p_rm_Indices,0));
+			//R_CHK				(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateIndexBuffer(iCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&p_rm_Indices,0));
 			//R_CHK				(p_rm_Indices->Lock(0,0,(void**)&bytes,0));
 			//CopyMemory		(bytes, data->pointer(), iCount*2);
 
 			VERIFY				(NULL==p_rm_Indices);
 			R_CHK				(dx10BufferUtils::CreateIndexBuffer(&p_rm_Indices, data->pointer(), iCount*2));
-			DEVICE_HW::XRAY::HW.stats_manager.increment_stats_ib		( p_rm_Indices);
+			DEVICE_HW::CRYRAY_RENDER::HW.stats_manager.increment_stats_ib		( p_rm_Indices);
 #else	//	DIRECTX10
-			BOOL	bSoft		= DEVICE_HW::XRAY::HW.Caps.geometry.bSoftware;
+			BOOL	bSoft		= DEVICE_HW::CRYRAY_RENDER::HW.Caps.geometry.bSoftware;
 			u32		dwUsage		= /*D3DUSAGE_WRITEONLY |*/ (bSoft?D3DUSAGE_SOFTWAREPROCESSING:0);	// indices are read in model-wallmarks code
 			BYTE*	bytes		= 0;
 
 			VERIFY				(NULL==p_rm_Indices);
-			R_CHK				(DEVICE_HW::XRAY::HW.pDevice->CreateIndexBuffer(iCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&p_rm_Indices,0));
-			DEVICE_HW::XRAY::HW.stats_manager.increment_stats_ib		( p_rm_Indices);
+			R_CHK				(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateIndexBuffer(iCount*2,dwUsage,D3DFMT_INDEX16,D3DPOOL_MANAGED,&p_rm_Indices,0));
+			DEVICE_HW::CRYRAY_RENDER::HW.stats_manager.increment_stats_ib		( p_rm_Indices);
 			R_CHK				(p_rm_Indices->Lock(0,0,(void**)&bytes,0));
 			CopyMemory		(bytes, data->pointer(), iCount*2);
 			p_rm_Indices->Unlock	();

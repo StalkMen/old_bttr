@@ -41,17 +41,16 @@ enum
     mtParticles = (1ul << 17ul),
 
     rsCameraPos = (1ul << 18ul),
-    rsR2 = (1ul << 19ul),
-    rsR3 = (1ul << 20ul),
-    rsR4 = (1ul << 21ul),
-    rsRenderInfo = (1ul << 22ul),
+    rsRenderInfo = (1ul << 19ul),
+    rDX10 = (1ul << 20ul),
+    rDX11 = (1ul << 21ul),
     // 22-32 bit - reserved to Editor
 };
 
 ENGINE_API extern u32 psCurrentVidMode[];
 ENGINE_API extern u32 psCurrentBPP;
 ENGINE_API extern Flags32 psDeviceFlags;
-
+ENGINE_API extern u32 renderer_value;
 // game path definition
 #define _game_data_ "$game_data$"
 #define _game_textures_ "$game_textures$"

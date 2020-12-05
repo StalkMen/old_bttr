@@ -4,7 +4,6 @@
 #include "../xrRender/dxRenderDeviceRender.h"
 #include "../../xrCore/FileCRC32.h"
 
-extern ENGINE_API u32 renderer_value;
 extern ENGINE_API u32 ps_r_sun_quality;
 static inline bool match_shader_id(LPCSTR const debug_shader_id, LPCSTR const full_shader_id, FS_FileSet const& file_set, string_path& result);
 
@@ -48,7 +47,7 @@ static HRESULT create_shader				(
 	else if (pTarget[0] == 'v') 
 	{
 		SVS* svs_result = (SVS*)result;
-		_result			= DEVICE_HW::XRAY::HW.pRenderDevice->CreateVertexShader(buffer, buffer_size, 0, &svs_result->sh);
+		_result			= DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateVertexShader(buffer, buffer_size, 0, &svs_result->sh);
 
 		if ( !SUCCEEDED(_result) ) 
 		{
@@ -186,18 +185,16 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 
 /////////////////////////////////////////////////////////////////////////////////////////
 #pragma todo("OldSerpskiStalker. Новые дефайны для шейдеров")
-	u32 DX11 = renderer_value;
-
-	if (DX11 == 2)
+	const u32 DX11 = renderer_value == 1;
+	const bool NVIDIA = DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_vendor == 0x10DE;
+	const bool AMD = DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_vendor == 0x1002;
+	if (DX11)
 	{
 		defines[def_it].Name = "DIRECTX11";
 		defines[def_it].Definition = "1";
 		def_it++;
 	}
 	sh_name[len] = '0' + char(DX11); ++len;
-
-	const bool NVIDIA = DEVICE_HW::XRAY::HW.Caps.id_vendor == 0x10DE;
-	const bool AMD = DEVICE_HW::XRAY::HW.Caps.id_vendor == 0x1002;
 
 	if (NVIDIA)
 	{
@@ -261,19 +258,19 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	}
 	sh_name[len]='0'+char(o.sjitter); ++len;
 
-	if (DEVICE_HW::XRAY::HW.Caps.raster_major >= 3)	{
+	if (DEVICE_HW::CRYRAY_RENDER::HW.Caps.raster_major >= 3)	{
 		defines[def_it].Name		=	"USE_BRANCHING";
 		defines[def_it].Definition	=	"1";
 		def_it						++	;
 	}
-	sh_name[len]='0'+char(DEVICE_HW::XRAY::HW.Caps.raster_major >= 3); ++len;
+	sh_name[len]='0'+char(DEVICE_HW::CRYRAY_RENDER::HW.Caps.raster_major >= 3); ++len;
 
-	if (DEVICE_HW::XRAY::HW.Caps.geometry.bVTF)	{
+	if (DEVICE_HW::CRYRAY_RENDER::HW.Caps.geometry.bVTF)	{
 		defines[def_it].Name		=	"USE_VTF";
 		defines[def_it].Definition	=	"1";
 		def_it						++	;
 	}
-	sh_name[len]='0'+char(DEVICE_HW::XRAY::HW.Caps.geometry.bVTF); ++len;
+	sh_name[len]='0'+char(DEVICE_HW::CRYRAY_RENDER::HW.Caps.geometry.bVTF); ++len;
 
 	if (o.Tshadows)			{
 		defines[def_it].Name		=	"USE_TSHADOWS";
@@ -296,19 +293,19 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	}
 	sh_name[len]='0'+char(o.sunfilter); ++len;
 
-	if (DEVICE_HW::XRAY::HW.DoublePrecisionFloatShaderOps) {
+	if (DEVICE_HW::CRYRAY_RENDER::HW.DoublePrecisionFloatShaderOps) {
 		defines[def_it].Name = "DOUBLE_PRECISION";
 		defines[def_it].Definition = "1";
 		def_it++;
 	}
 
-	if (DEVICE_HW::XRAY::HW.ExtendedDoublesShaderInstructions) {
+	if (DEVICE_HW::CRYRAY_RENDER::HW.ExtendedDoublesShaderInstructions) {
 		defines[def_it].Name = "EXTENDED_DOUBLES";
 		defines[def_it].Definition = "1";
 		def_it++;
 	}
 
-	if (DEVICE_HW::XRAY::HW.SAD4ShaderInstructions) {
+	if (DEVICE_HW::CRYRAY_RENDER::HW.SAD4ShaderInstructions) {
 		defines[def_it].Name = "SAD4_SUPPORTED";
 		defines[def_it].Definition = "1";
 		def_it++;
@@ -520,14 +517,15 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 		sh_name[len]='0'; ++len;
 	}
 
-   R_ASSERT						( DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 );
-   if( DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 )
+   R_ASSERT						( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 );
+   if( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 )
    {
+	   Msg("[CryRay Engine]: Shader model 5 used!");
 	   defines[def_it].Name		=	"SM_5";
 	   defines[def_it].Definition	=	"1";
 	   def_it++;
    }
-	sh_name[len]='0'+char(DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0); ++len;
+	sh_name[len]='0'+char(DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0); ++len;
 
    if (o.dx10_minmax_sm)
    {
@@ -617,34 +615,22 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	{
 		if ('v'==pTarget[0])
 		{
-			if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
-				pTarget = "vs_4_0";
-			else if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
-				pTarget = "vs_4_1";
-			else if( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
+			if( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
 				pTarget = "vs_5_0";
 		}
 		else if ('p'==pTarget[0])
 		{
-			if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
-				pTarget = "ps_4_0";
-			else if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
-				pTarget = "ps_4_1";
-			else if( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
+			if( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
 				pTarget = "ps_5_0";
 		}
 		else if ('g'==pTarget[0])		
 		{
-			if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0 )
-				pTarget = "gs_4_0";
-			else if( DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1 )
-				pTarget = "gs_4_1";
-			else if( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
+			if( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
 				pTarget = "gs_5_0";
 		}
 		else if ('c'==pTarget[0])		
 		{
-			if( DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
+			if( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 )
 				pTarget = "cs_5_0";
 		}
 	}
@@ -695,9 +681,8 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
                 u32 bytecodeCrc = crc32(file->pointer(), file->elapsed());
 				if (bytecodeCrc == savedBytecodeCrc)
 				{
-					if (renderer_value == 2)
-						if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
-							Log("# DX11: Loading shader:", file_name);
+					if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
+						Log("# DX11: Loading shader:", file_name);
 
 					_result =
 						create_shader(pTarget, (DWORD*)file->pointer(), file->elapsed(), file_name, result, o.disasm);
@@ -736,9 +721,8 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 
 				file->w(pShaderBuf->GetBufferPointer(), (u32)pShaderBuf->GetBufferSize());
 
-				if (renderer_value == 2)
-					if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
-						Log("# DX11: Compile shader:", file_name);
+				if (ps_r__common_flags.test(RFLAGDX_ENABLE_DEBUG_LOG))
+					Log("# DX11: Compile shader:", file_name);
 
 				FS.w_close(file);
 			}

@@ -34,7 +34,7 @@ void CRenderTarget::phase_sunshafts()
     In this pass generates geometry mask
     */
     // Set RT's
-    u_setrt(rt_sunshafts_0, 0, 0, DEVICE_HW::XRAY::HW.pBaseZB);
+    u_setrt(rt_sunshafts_0, 0, 0, DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
     RCache.set_CullMode(CULL_NONE);
     RCache.set_Stencil(FALSE);
 
@@ -56,7 +56,7 @@ void CRenderTarget::phase_sunshafts()
     first blurring pass
     */
     // Set RT's
-    u_setrt(rt_sunshafts_1, 0, 0, DEVICE_HW::XRAY::HW.pBaseZB);
+    u_setrt(rt_sunshafts_1, 0, 0, DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
     RCache.set_CullMode(CULL_NONE);
     RCache.set_Stencil(FALSE);
 
@@ -81,7 +81,7 @@ void CRenderTarget::phase_sunshafts()
     second blurring pass
     */
     // Set RT's
-    u_setrt(rt_sunshafts_0, 0, 0, DEVICE_HW::XRAY::HW.pBaseZB);
+    u_setrt(rt_sunshafts_0, 0, 0, DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
     RCache.set_CullMode(CULL_NONE);
     RCache.set_Stencil(FALSE);
 
@@ -106,7 +106,7 @@ void CRenderTarget::phase_sunshafts()
     third blurring pass
     */
     // Set RT's
-    u_setrt(rt_sunshafts_1, 0, 0, DEVICE_HW::XRAY::HW.pBaseZB);
+    u_setrt(rt_sunshafts_1, 0, 0, DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
     RCache.set_CullMode(CULL_NONE);
     RCache.set_Stencil(FALSE);
 
@@ -135,7 +135,7 @@ void CRenderTarget::phase_sunshafts()
     // Set RT's
 	
 	ref_rt& dest_rt = RImplementation.o.dx10_msaa ? rt_Generic : rt_Color;	
-    u_setrt(dest_rt, 0, 0, DEVICE_HW::XRAY::HW.pBaseZB);
+    u_setrt(dest_rt, 0, 0, DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
     RCache.set_CullMode(CULL_NONE);
     RCache.set_Stencil(FALSE);
 
@@ -157,5 +157,5 @@ void CRenderTarget::phase_sunshafts()
 
     RCache.set_Stencil(FALSE);
 
-    DEVICE_HW::XRAY::HW.pRenderContext->CopyResource(rt_Generic_0->pTexture->surface_get(), dest_rt->pTexture->surface_get());
+    DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->CopyResource(rt_Generic_0->pTexture->surface_get(), dest_rt->pTexture->surface_get());
 };

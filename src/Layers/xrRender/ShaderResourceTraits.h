@@ -19,7 +19,7 @@ struct ShaderTypeTraits<SVS>
 
     static void GetCompilationTarget(const char*& target, const char*& entry, const char* data)
     {
-        if (DEVICE_HW::XRAY::HW.Caps.geometry_major >= 2)
+        if (DEVICE_HW::CRYRAY_RENDER::HW.Caps.geometry_major >= 2)
             target = "vs_2_0";
         else
             target = "vs_1_1";
@@ -41,9 +41,9 @@ struct ShaderTypeTraits<SVS>
     {
          HWShaderType sh = 0;
 #ifdef DIRECTX11
-        R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateVertexShader(buffer, size, 0, &sh));
+        R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateVertexShader(buffer, size, 0, &sh));
 #else
-        R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateVertexShader(buffer, size, &sh));
+        R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateVertexShader(buffer, size, &sh));
 #endif
         return sh;
     }
@@ -96,9 +96,9 @@ struct ShaderTypeTraits<SPS>
     {
         HWShaderType sh = 0;
 #ifdef DIRECTX11
-        R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreatePixelShader(buffer, size, 0, &sh));
+        R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreatePixelShader(buffer, size, 0, &sh));
 #else
-        R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreatePixelShader(buffer, size, &sh));
+        R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreatePixelShader(buffer, size, &sh));
 #endif
         return sh;
     }
@@ -116,17 +116,17 @@ struct ShaderTypeTraits<SGS>
     static inline const char* GetCompilationTarget()
     {
 #ifdef DIRECTX10
-        if (DEVICE_HW::XRAY::HW.pDevice1 == nullptr)
-            return D3D10GetGeometryShaderProfile(DEVICE_HW::XRAY::HW.pRenderDevice);
+        if (DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 == nullptr)
+            return D3D10GetGeometryShaderProfile(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice);
         else
             return "gs_4_1";
 #endif
 #ifdef DIRECTX11
-        if (DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0)
+        if (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0)
             return "gs_4_0";
-        else if (DEVICE_HW::XRAY::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1)
+        else if (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1)
             return "gs_4_1";
-        else if (DEVICE_HW::XRAY::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0)
+        else if (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0)
             return "gs_5_0";
 #endif
         return "gs_4_0";
@@ -142,9 +142,9 @@ struct ShaderTypeTraits<SGS>
     {
         HWShaderType sh = 0;
 #ifdef DIRECTX11
-        R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateGeometryShader(buffer, size, 0, &sh));
+        R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateGeometryShader(buffer, size, 0, &sh));
 #else
-        R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateGeometryShader(buffer, size, &sh));
+        R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateGeometryShader(buffer, size, &sh));
 #endif
         return sh;
     }
@@ -171,7 +171,7 @@ struct ShaderTypeTraits<SHS>
     static inline HWShaderType CreateHWShader(DWORD const* buffer, size_t size)
     {
         HWShaderType sh = 0;
-        R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateHullShader(buffer, size, NULL, &sh));
+        R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateHullShader(buffer, size, NULL, &sh));
 
         return sh;
     }
@@ -197,7 +197,7 @@ struct ShaderTypeTraits<SDS>
     static inline HWShaderType CreateHWShader(DWORD const* buffer, size_t size)
     {
 		HWShaderType sh = 0;
-        R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateDomainShader(buffer, size, NULL, &sh));
+        R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateDomainShader(buffer, size, NULL, &sh));
 
         return sh;
     }
@@ -223,7 +223,7 @@ struct ShaderTypeTraits<SCS>
     static inline HWShaderType CreateHWShader(DWORD const* buffer, size_t size)
     {
 		HWShaderType sh = 0;
-        R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateComputeShader(buffer, size, NULL, &sh));
+        R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateComputeShader(buffer, size, NULL, &sh));
 
         return sh;
     }

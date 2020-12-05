@@ -3,9 +3,9 @@
 void CRenderTarget::phase_rain()
 {
    if( !RImplementation.o.dx10_msaa )
-      u_setrt	(rt_Color,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
+      u_setrt	(rt_Color,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
    else
       u_setrt	(rt_Color,NULL,NULL,rt_MSAADepth->pZRT);
-	//u_setrt	(rt_Normal,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
+	//u_setrt	(rt_Normal,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 	RImplementation.rmNormal();
 }

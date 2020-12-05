@@ -158,7 +158,7 @@ void CRenderTarget::accum_spot	(light* L)
 //		if (RImplementation.o.HW_smap_FETCH4)	{
 			//. we hacked the shader to force smap on S0
 //#			define FOURCC_GET4  MAKEFOURCC('G','E','T','4') 
-//			DEVICE_HW::XRAY::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET4 );
+//			DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET4 );
 //		}
 
       if( ! RImplementation.o.dx10_msaa )
@@ -200,14 +200,14 @@ void CRenderTarget::accum_spot	(light* L)
 //		if (RImplementation.o.HW_smap_FETCH4)	{
 			//. we hacked the shader to force smap on S0
 //#			define FOURCC_GET1  MAKEFOURCC('G','E','T','1') 
-//			DEVICE_HW::XRAY::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET1 );
+//			DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET1 );
 //		}
 	}
 
 	// blend-copy
 	if (!RImplementation.o.fp16_blend)	{
       if( !RImplementation.o.dx10_msaa )
-		   u_setrt						(rt_Accumulator,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
+		   u_setrt						(rt_Accumulator,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
       else
 		   u_setrt						(rt_Accumulator,NULL,NULL,rt_MSAADepth->pZRT);
 		RCache.set_Element	(s_accum_mask->E[SE_MASK_ACCUM_VOL]	);
@@ -247,7 +247,7 @@ void CRenderTarget::accum_spot	(light* L)
 	}	
 	
 	RCache.set_Scissor(0);
-	//CHK_DX		(DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE,FALSE));
+	//CHK_DX		(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE,FALSE));
 	//dwLightMarkerID					+=	2;	// keep lowest bit always setted up
 	increment_light_marker();
 
@@ -485,7 +485,7 @@ void CRenderTarget::accum_volumetric(light* L)
 			//	Transform frustum to clip space
 			Fmatrix PlaneTransform;
 			PlaneTransform.transpose(Device.mInvFullTransform);
-			//DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_CLIPPLANEENABLE, 0x3F);
+			//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_CLIPPLANEENABLE, 0x3F);
 
 			for ( int i=0; i<6; ++i)
 			{
@@ -494,7 +494,7 @@ void CRenderTarget::accum_volumetric(light* L)
 				PlaneTransform.transform(TransformedPlane, ClipPlane);
 				TransformedPlane.mul(-1.0f);
 				RCache.set_ca(strFrustumClipPlane, i, TransformedPlane);
-				//DEVICE_HW::XRAY::HW.pDevice->SetClipPlane( i, &TransformedPlane.x);
+				//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetClipPlane( i, &TransformedPlane.x);
 			}
 			/*
 			for ( int i=0; i<6; ++i)
@@ -510,7 +510,7 @@ void CRenderTarget::accum_volumetric(light* L)
 			//	Transform frustum to clip space
 			Fmatrix PlaneTransform;
 			PlaneTransform.transpose(Device.mInvFullTransform);
-			DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_CLIPPLANEENABLE, 0x3F);
+			DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_CLIPPLANEENABLE, 0x3F);
 
 			for ( int i=0; i<6; ++i)
 			{
@@ -518,7 +518,7 @@ void CRenderTarget::accum_volumetric(light* L)
 				Fvector4	TransformedPlane;
 				PlaneTransform.transform(TransformedPlane, ClipPlane);
 				TransformedPlane.mul(-1.0f);
-				DEVICE_HW::XRAY::HW.pDevice->SetClipPlane( i, &TransformedPlane.x);
+				DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetClipPlane( i, &TransformedPlane.x);
 			}
 			*/
 		}
@@ -530,7 +530,7 @@ void CRenderTarget::accum_volumetric(light* L)
 		clip[1] = 
 		clip[2] = 
 		clip[3] = 0;
-		DEVICE_HW::XRAY::HW.pDevice->SetClipPlane( 0, clip);
+		DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetClipPlane( 0, clip);
 		*/
 
 
@@ -538,7 +538,7 @@ void CRenderTarget::accum_volumetric(light* L)
 //		if (RImplementation.o.HW_smap_FETCH4)	{
 			//. we hacked the shader to force smap on S0
 //#			define FOURCC_GET4  MAKEFOURCC('G','E','T','4') 
-//			DEVICE_HW::XRAY::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET4 );
+//			DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET4 );
 //		}
 
 		RCache.set_ColorWriteEnable(D3DCOLORWRITEENABLE_RED|D3DCOLORWRITEENABLE_GREEN|D3DCOLORWRITEENABLE_BLUE);
@@ -584,23 +584,23 @@ void CRenderTarget::accum_volumetric(light* L)
 //		if (RImplementation.o.HW_smap_FETCH4)	{
 			//. we hacked the shader to force smap on S0
 //#			define FOURCC_GET1  MAKEFOURCC('G','E','T','1') 
-//			DEVICE_HW::XRAY::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET1 );
+//			DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET1 );
 //		}
 
 		//	Restore clip planes
-		//DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_CLIPPLANEENABLE, 0);
+		//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_CLIPPLANEENABLE, 0);
 		RCache.set_ClipPlanes (FALSE,(Fmatrix *)0,0);
 	}
 /*
 	// blend-copy
 	if (!RImplementation.o.fp16_blend)	{
-		u_setrt						(rt_Accumulator,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
+		u_setrt						(rt_Accumulator,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 		RCache.set_Element			(s_accum_mask->E[SE_MASK_ACCUM_VOL]	);
 		RCache.set_c				("m_texgen",		m_Texgen);
 		RCache.set_c				("m_texgen_J",		m_Texgen_J	);
 		draw_volume					(L);
 	}
 */
-	//CHK_DX		(DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE,FALSE));
+	//CHK_DX		(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE,FALSE));
 	RCache.set_Scissor(0);
 }

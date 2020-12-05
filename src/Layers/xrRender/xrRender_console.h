@@ -148,9 +148,10 @@ enum
 	R3FLAG_DYN_WET_SURF			= (1<<26),
 	R3FLAG_VOLUMETRIC_SMOKE		= (1<<27),
 
-	//R3FLAG_MSAA					= (1<<28),
 	R3FLAG_MSAA_HYBRID			= (1<<28),
 	R3FLAG_MSAA_OPT				= (1<<29),
+
+	R3FLAG_USE_DX10_1			= (1 << 30),
 };
 
 enum

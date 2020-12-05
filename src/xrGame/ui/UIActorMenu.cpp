@@ -181,7 +181,6 @@ void CUIActorMenu::SendMessage(CUIWindow* pWnd, s16 msg, void* pData)
 #include "ai_space.h"
 #include "script_engine.h"
 
-extern ENGINE_API Flags32 p_engine_flags32;
 void CUIActorMenu::Show(bool status)
 {
 	CActor* pActor = smart_cast<CActor*>(Level().CurrentEntity());

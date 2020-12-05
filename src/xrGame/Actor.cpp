@@ -105,7 +105,6 @@ static Fvector	vFootExt;
 Flags32			psActorFlags = {AF_GODMODE_RT | AF_AUTOPICKUP | AF_RUN_BACKWARD | AF_IMPORTANT_SAVE | AF_USE_TRACERS};
 int				psActorSleepTime = 1;
 extern u32      type_hud_token;
-extern ENGINE_API Flags32 p_engine_flags32;
 
 CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0)
 {

@@ -5,12 +5,12 @@ void	CRenderTarget::phase_smap_spot_clear()
 	/*
 	if (RImplementation.b_HW_smap)		u_setrt	(rt_smap_surf, NULL, NULL, rt_smap_d_depth->pRT);
 	else								u_setrt	(rt_smap_surf, NULL, NULL, rt_smap_d_ZB);
-	CHK_DX								(DEVICE_HW::XRAY::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_ZBUFFER,	0xffffffff,	1.0f, 0L));
+	CHK_DX								(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_ZBUFFER,	0xffffffff,	1.0f, 0L));
 	*/
 #ifdef DIRECTX11
-	DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView( rt_smap_depth->pZRT, D3D_CLEAR_DEPTH, 1.0f, 0L);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearDepthStencilView( rt_smap_depth->pZRT, D3D_CLEAR_DEPTH, 1.0f, 0L);
 #else
-	DEVICE_HW::XRAY::HW.pRenderDevice->ClearDepthStencilView( rt_smap_depth->pZRT, D3D10_CLEAR_DEPTH, 1.0f, 0L);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->ClearDepthStencilView( rt_smap_depth->pZRT, D3D10_CLEAR_DEPTH, 1.0f, 0L);
 #endif
 }
 
@@ -23,12 +23,12 @@ void	CRenderTarget::phase_smap_spot		(light* L)
 	else								VERIFY(!"Use HW SMap only for DX10!");
 #ifdef DIRECTX11
 	D3D_VIEWPORT VP					=	{(float)L->X.S.posX, (float)L->X.S.posY, (float)L->X.S.size, (float)L->X.S.size, 0, 1};
-	//CHK_DX								(DEVICE_HW::XRAY::HW.pDevice->SetViewport(&VP));
-	DEVICE_HW::XRAY::HW.pRenderContext->RSSetViewports(1, &VP);
+	//CHK_DX								(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetViewport(&VP));
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->RSSetViewports(1, &VP);
 #else
 	D3D_VIEWPORT VP					=	{L->X.S.posX,L->X.S.posY,L->X.S.size,L->X.S.size,0,1 };
-	//CHK_DX								(DEVICE_HW::XRAY::HW.pDevice->SetViewport(&VP));
-	DEVICE_HW::XRAY::HW.pRenderDevice->RSSetViewports(1, &VP);
+	//CHK_DX								(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetViewport(&VP));
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->RSSetViewports(1, &VP);
 #endif
 	// Misc		- draw only front-faces //back-faces
 	RCache.set_CullMode					( CULL_CCW	);
@@ -36,12 +36,12 @@ void	CRenderTarget::phase_smap_spot		(light* L)
 	// no transparency
 	#pragma todo("can optimize for multi-lights covering more than say 50%...")
 	if (RImplementation.o.HW_smap)		RCache.set_ColorWriteEnable	(FALSE);
-	//CHK_DX								(DEVICE_HW::XRAY::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_ZBUFFER,	0xffffffff,	1.0f, 0L));
+	//CHK_DX								(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_ZBUFFER,	0xffffffff,	1.0f, 0L));
 	//	Do it once per smap generation pass in phase_smap_spot_clear
 #ifdef DIRECTX11
-	//DEVICE_HW::XRAY::HW.pContext->ClearDepthStencilView( rt_smap_depth->pZRT, D3D_CLEAR_DEPTH, 1.0f, 0L);
+	//DEVICE_HW::CRYRAY_RENDER::HW.pContext->ClearDepthStencilView( rt_smap_depth->pZRT, D3D_CLEAR_DEPTH, 1.0f, 0L);
 #else
-	//DEVICE_HW::XRAY::HW.pDevice->ClearDepthStencilView( rt_smap_depth->pZRT, D3D10_CLEAR_DEPTH, 1.0f, 0L);
+	//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->ClearDepthStencilView( rt_smap_depth->pZRT, D3D10_CLEAR_DEPTH, 1.0f, 0L);
 #endif
 }
 
@@ -52,12 +52,12 @@ void	CRenderTarget::phase_smap_spot_tsh	(light* L)
 	RCache.set_ColorWriteEnable		();
 	if (IRender_Light::OMNIPART == L->flags.type)	{
 		// omni-part
-		//CHK_DX							(DEVICE_HW::XRAY::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_TARGET,	0xffffffff,	1.0f, 0L));
+		//CHK_DX							(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_TARGET,	0xffffffff,	1.0f, 0L));
 		FLOAT ColorRGBA[4] = {1.0f, 1.0f, 1.0f, 1.0f};
 #ifdef DIRECTX11
-		DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
 #else
-		DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
 #endif
 	} else {
 		// real-spot

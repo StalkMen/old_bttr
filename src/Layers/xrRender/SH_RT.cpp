@@ -25,7 +25,7 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 {
 	if (pSurface)	return;
 
-	R_ASSERT	(DEVICE_HW::XRAY::HW.pDevice && Name && Name[0] && w && h);
+	R_ASSERT	(DEVICE_HW::CRYRAY_RENDER::HW.pDevice && Name && Name[0] && w && h);
 	_order		= CPU::GetCLK()	;	//RDEVICE.GetTimerGlobal()->GetElapsed_clk();
 
 	HRESULT		_hr;
@@ -36,12 +36,12 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 
 	// Get caps
 	D3DCAPS9	caps;
-	R_CHK		(DEVICE_HW::XRAY::HW.pDevice->GetDeviceCaps(&caps));
+	R_CHK		(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->GetDeviceCaps(&caps));
 
 	// Pow2
 	if (!btwIsPow2(w) || !btwIsPow2(h))
 	{
-		if (!DEVICE_HW::XRAY::HW.Caps.raster.bNonPow2)	return;
+		if (!DEVICE_HW::CRYRAY_RENDER::HW.Caps.raster.bNonPow2)	return;
 	}
 
 	// Check width-and-height of render target surface
@@ -59,10 +59,10 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 	else													usage = D3DUSAGE_RENDERTARGET;
 
 	// Validate render-target usage
-	_hr = DEVICE_HW::XRAY::HW.pD3D->CheckDeviceFormat(
-		DEVICE_HW::XRAY::HW.DevAdapter,
-		DEVICE_HW::XRAY::HW.DevT,
-		DEVICE_HW::XRAY::HW.Caps.fTarget,
+	_hr = DEVICE_HW::CRYRAY_RENDER::HW.pD3D->CheckDeviceFormat(
+		DEVICE_HW::CRYRAY_RENDER::HW.DevAdapter,
+		DEVICE_HW::CRYRAY_RENDER::HW.DevT,
+		DEVICE_HW::CRYRAY_RENDER::HW.Caps.fTarget,
 		usage,
 		D3DRTYPE_TEXTURE,
 		f
@@ -71,8 +71,8 @@ void CRT::create	(LPCSTR Name, u32 w, u32 h,	D3DFORMAT f, u32 SampleCount )
 
 	// Try to create texture/surface
 	DEV->Evict				();
-	_hr = DEVICE_HW::XRAY::HW.pDevice->CreateTexture		(w, h, 1, usage, f, D3DPOOL_DEFAULT, &pSurface,NULL);
-	DEVICE_HW::XRAY::HW.stats_manager.increment_stats_rtarget	( pSurface );
+	_hr = DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateTexture		(w, h, 1, usage, f, D3DPOOL_DEFAULT, &pSurface,NULL);
+	DEVICE_HW::CRYRAY_RENDER::HW.stats_manager.increment_stats_rtarget	( pSurface );
 
 	if (FAILED(_hr) || (0==pSurface))	return;
 
@@ -94,7 +94,7 @@ void CRT::destroy		()
 	
 	_RELEASE	(pRT		);
 
-	DEVICE_HW::XRAY::HW.stats_manager.decrement_stats_rtarget	( pSurface );
+	DEVICE_HW::CRYRAY_RENDER::HW.stats_manager.decrement_stats_rtarget	( pSurface );
 	_RELEASE	(pSurface	);
 }
 void CRT::reset_begin	()
@@ -133,7 +133,7 @@ CRTC::~CRTC			()
 
 void CRTC::create	(LPCSTR Name, u32 size,	D3DFORMAT f)
 {
-	R_ASSERT	(DEVICE_HW::XRAY::HW.pDevice && Name && Name[0] && size && btwIsPow2(size));
+	R_ASSERT	(DEVICE_HW::CRYRAY_RENDER::HW.pDevice && Name && Name[0] && size && btwIsPow2(size));
 	_order		= CPU::GetCLK();	//RDEVICE.GetTimerGlobal()->GetElapsed_clk();
 
 	HRESULT		_hr;
@@ -143,17 +143,17 @@ void CRTC::create	(LPCSTR Name, u32 size,	D3DFORMAT f)
 
 	// Get caps
 	D3DCAPS9	caps;
-	R_CHK		(DEVICE_HW::XRAY::HW.pDevice->GetDeviceCaps(&caps));
+	R_CHK		(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->GetDeviceCaps(&caps));
 
 	// Check width-and-height of render target surface
 	if (size>caps.MaxTextureWidth)		return;
 	if (size>caps.MaxTextureHeight)		return;
 
 	// Validate render-target usage
-	_hr = DEVICE_HW::XRAY::HW.pD3D->CheckDeviceFormat(
-		DEVICE_HW::XRAY::HW.DevAdapter,
-		DEVICE_HW::XRAY::HW.DevT,
-		DEVICE_HW::XRAY::HW.Caps.fTarget,
+	_hr = DEVICE_HW::CRYRAY_RENDER::HW.pD3D->CheckDeviceFormat(
+		DEVICE_HW::CRYRAY_RENDER::HW.DevAdapter,
+		DEVICE_HW::CRYRAY_RENDER::HW.DevT,
+		DEVICE_HW::CRYRAY_RENDER::HW.Caps.fTarget,
 		D3DUSAGE_RENDERTARGET,
 		D3DRTYPE_CUBETEXTURE,
 		f
@@ -162,7 +162,7 @@ void CRTC::create	(LPCSTR Name, u32 size,	D3DFORMAT f)
 
 	// Try to create texture/surface
 	DEV->Evict					();
-	_hr = DEVICE_HW::XRAY::HW.pDevice->CreateCubeTexture	(size, 1, D3DUSAGE_RENDERTARGET, f, D3DPOOL_DEFAULT, &pSurface,NULL);
+	_hr = DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateCubeTexture	(size, 1, D3DUSAGE_RENDERTARGET, f, D3DPOOL_DEFAULT, &pSurface,NULL);
 	if (FAILED(_hr) || (0==pSurface))	return;
 
 	// OK

@@ -285,7 +285,7 @@ CRenderTarget::CRenderTarget		()
    if (ps_r_ssao_mode!=2)
 	   ps_r_ssao = _min(ps_r_ssao, 3);
 #ifdef DIRECTX11
-	RImplementation.o.ssao_ultra		= ps_r_ssao>3 && DEVICE_HW::XRAY::HW.ComputeShadersSupported;
+	RImplementation.o.ssao_ultra		= ps_r_ssao>3 && DEVICE_HW::CRYRAY_RENDER::HW.ComputeShadersSupported;
 #endif
    if( RImplementation.o.dx10_msaa )
       SampleCount    = RImplementation.o.dx10_msaa_samples;
@@ -664,18 +664,18 @@ CRenderTarget::CRenderTarget		()
 		t_LUM_dest.create			(r2_RT_luminance_cur);
 
 		// create pool
-		for (u32 it=0; it<DEVICE_HW::XRAY::HW.Caps.iGPUNum*2; it++)	{
+		for (u32 it=0; it<DEVICE_HW::CRYRAY_RENDER::HW.Caps.iGPUNum*2; it++)	{
 			string256					name;
 			xr_sprintf						(name,"%s_%d",	r2_RT_luminance_pool,it	);
 			rt_LUM_pool[it].create		(name,	1,	1,	D3DFMT_R32F				);
 			FLOAT ColorRGBA[4] = { 127.0f/255.0f, 127.0f/255.0f, 127.0f/255.0f, 127.0f/255.0f};
 #ifdef DIRECTX11
-			DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(rt_LUM_pool[it]->pRT, ColorRGBA);
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView(rt_LUM_pool[it]->pRT, ColorRGBA);
 #else
-			DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView(rt_LUM_pool[it]->pRT, ColorRGBA);
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->ClearRenderTargetView(rt_LUM_pool[it]->pRT, ColorRGBA);
 #endif
 		}
-		u_setrt						( Device.dwWidth,Device.dwHeight,DEVICE_HW::XRAY::HW.pBaseRT,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
+		u_setrt						( Device.dwWidth,Device.dwHeight,DEVICE_HW::CRYRAY_RENDER::HW.pBaseRT,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 	}
 
 	// HBAO
@@ -694,7 +694,7 @@ CRenderTarget::CRenderTarget		()
 			h = Device.dwHeight;
 		}
 
-		D3DFORMAT	fmt = DEVICE_HW::XRAY::HW.Caps.id_vendor==0x10DE?D3DFMT_R32F:D3DFMT_R16F;
+		D3DFORMAT	fmt = DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_vendor==0x10DE?D3DFMT_R32F:D3DFMT_R16F;
 		rt_half_depth.create		(r2_RT_half_depth, w, h, fmt);
 
 		s_ssao.create				(b_ssao);
@@ -797,7 +797,7 @@ CRenderTarget::CRenderTarget		()
 #endif
 			desc.MiscFlags = 0;
 
-			R_CHK( DEVICE_HW::XRAY::HW.pRenderDevice->CreateTexture2D(&desc, 0, &t_ss_async) );
+			R_CHK( DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateTexture2D(&desc, 0, &t_ss_async) );
 		}
 		// Build material(s)
 		{
@@ -880,7 +880,7 @@ CRenderTarget::CRenderTarget		()
 				}
 			}
 
-			R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateTexture3D(&desc, &subData, &t_material_surf));
+			R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateTexture3D(&desc, &subData, &t_material_surf));
 			t_material					= dxRenderDeviceRender::Instance().Resources->_CreateTexture(r2_material);
 			t_material->surface_set		(t_material_surf);
 		}
@@ -947,7 +947,7 @@ CRenderTarget::CRenderTarget		()
 			{
 				string_path					name;
 				xr_sprintf						(name,"%s%d",r2_jitter,it);
-				R_CHK( DEVICE_HW::XRAY::HW.pRenderDevice->CreateTexture2D(&desc, &subData[it], &t_noise_surf[it]) );
+				R_CHK( DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateTexture2D(&desc, &subData[it], &t_noise_surf[it]) );
 				t_noise[it]					= dxRenderDeviceRender::Instance().Resources->_CreateTexture	(name);
 				t_noise[it]->surface_set	(t_noise_surf[it]);
 			}
@@ -1012,8 +1012,8 @@ CRenderTarget::CRenderTarget		()
 
 			string_path					name;
 			xr_sprintf						(name,"%s%d",r2_jitter,it);
-			//R_CHK	(D3DXCreateTexture	(DEVICE_HW::XRAY::HW.pDevice,TEX_jitter,TEX_jitter,1,0,D3DFMT_Q8W8V8U8,D3DPOOL_MANAGED,&t_noise_surf[it]));
-			R_CHK( DEVICE_HW::XRAY::HW.pRenderDevice->CreateTexture2D(&descHBAO, &subData[it], &t_noise_surf[it]) );
+			//R_CHK	(D3DXCreateTexture	(DEVICE_HW::CRYRAY_RENDER::HW.pDevice,TEX_jitter,TEX_jitter,1,0,D3DFMT_Q8W8V8U8,D3DPOOL_MANAGED,&t_noise_surf[it]));
+			R_CHK( DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateTexture2D(&descHBAO, &subData[it], &t_noise_surf[it]) );
 			t_noise[it]					= dxRenderDeviceRender::Instance().Resources->_CreateTexture	(name);
 			t_noise[it]->surface_set	(t_noise_surf[it]);
 
@@ -1022,17 +1022,17 @@ CRenderTarget::CRenderTarget		()
 			{
 				//	Autogen mipmaps
 				desc.MipLevels = 0;
-				R_CHK( DEVICE_HW::XRAY::HW.pRenderDevice->CreateTexture2D(&desc, 0, &t_noise_surf_mipped) );
+				R_CHK( DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateTexture2D(&desc, 0, &t_noise_surf_mipped) );
 				t_noise_mipped = dxRenderDeviceRender::Instance().Resources->_CreateTexture(r2_jitter_mipped);
 				t_noise_mipped->surface_set(t_noise_surf_mipped);
 
 				//	Update texture. Generate mips.
 #ifdef DIRECTX11
-				DEVICE_HW::XRAY::HW.pRenderContext->CopySubresourceRegion( t_noise_surf_mipped, 0, 0, 0, 0, t_noise_surf[0], 0, 0 );
+				DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->CopySubresourceRegion( t_noise_surf_mipped, 0, 0, 0, 0, t_noise_surf[0], 0, 0 );
 
-				D3DX11FilterTexture(DEVICE_HW::XRAY::HW.pRenderContext, t_noise_surf_mipped, 0, D3DX10_FILTER_POINT);
+				D3DX11FilterTexture(DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext, t_noise_surf_mipped, 0, D3DX10_FILTER_POINT);
 #else
-				DEVICE_HW::XRAY::HW.pRenderDevice->CopySubresourceRegion( t_noise_surf_mipped, 0, 0, 0, 0, t_noise_surf[0], 0, 0 );
+				DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CopySubresourceRegion( t_noise_surf_mipped, 0, 0, 0, 0, t_noise_surf[0], 0, 0 );
 	
 				D3DX10FilterTexture(t_noise_surf_mipped, 0, D3DX10_FILTER_POINT);
 #endif
@@ -1222,8 +1222,8 @@ bool CRenderTarget::use_minmax_sm_this_frame()
 	case CRender::MMSM_AUTODETECT:
 	{
 		u32 dwScreenArea =
-			DEVICE_HW::XRAY::HW.m_ChainDesc.BufferDesc.Width *
-			DEVICE_HW::XRAY::HW.m_ChainDesc.BufferDesc.Height;
+			DEVICE_HW::CRYRAY_RENDER::HW.m_ChainDesc.BufferDesc.Width *
+			DEVICE_HW::CRYRAY_RENDER::HW.m_ChainDesc.BufferDesc.Height;
 
 		if ((dwScreenArea >= RImplementation.o.dx10_minmax_sm_screenarea_threshold))
 			return need_to_render_sunshafts();

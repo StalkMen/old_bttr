@@ -507,53 +507,6 @@ public:
     }
 };
 
-ENGINE_API BOOL r2_advanced_pp = TRUE; // advanced post process and effects
-ENGINE_API BOOL render_dx10_1 = FALSE;
-ENGINE_API u32 renderer_value = 0;
-
-class CCC_DirectX : public CCC_Token
-{
-    typedef CCC_Token inherited;
-public:
-    CCC_DirectX(LPCSTR N) :inherited(N, &renderer_value, NULL) { renderer_value = 3; };
-    virtual ~CCC_DirectX()
-    {
-        //free_render_mode_list();
-    }
-    virtual void Execute(LPCSTR args)
-    {
-        //fill_render_mode_list ();
-        // vid_quality_token must be already created!
-        tokens = vid_quality_token;
-
-        inherited::Execute(args);
-
-        //DX10
-        {
-            psDeviceFlags.set(rsR3, ((renderer_value == 0) || (renderer_value == 1)));
-            render_dx10_1 = (renderer_value == 1);
-        }
-        //DX11
-        psDeviceFlags.set(rsR4, (renderer_value >= 2));
-    }
-
-    virtual void Save(IWriter* F)
-    {
-        //fill_render_mode_list ();
-        tokens = vid_quality_token;
-        if (!strstr(Core.Params, "-r2"))
-        {
-            inherited::Save(F);
-        }
-    }
-    virtual xr_token* GetToken()
-    {
-        tokens = vid_quality_token;
-        return inherited::GetToken();
-    }
-
-};
-
 class CCC_soundDevice : public CCC_Token
 {
     typedef CCC_Token inherited;
@@ -1140,6 +1093,39 @@ public:
 ENGINE_API int m_sun_cascade_0_size = 8;
 ENGINE_API int m_sun_cascade_1_size = 32;
 ENGINE_API int m_sun_cascade_2_size = 192;
+ENGINE_API BOOL FullRenderingFunctionality = FALSE; // advanced post process and effects
+
+u32 renderer_value = 0;
+class CCC_DirectX : public CCC_Token
+{
+    typedef CCC_Token inherited;
+public:
+    CCC_DirectX(LPCSTR N) :inherited(N, &renderer_value, NULL) { renderer_value = 0; };
+    virtual ~CCC_DirectX() { }
+
+    virtual void Execute(LPCSTR args)
+    {
+        tokens = vid_quality_token;
+
+        inherited::Execute(args);
+
+        psDeviceFlags.set(rDX10, (renderer_value == 0));
+        psDeviceFlags.set(rDX11, (renderer_value == 1));
+
+        FullRenderingFunctionality = TRUE; // Сюда можно воткнуть условие, которое будет отлючать все постпроцессы шейдеров в рендере
+    }
+
+    virtual void Save(IWriter* F)
+    {
+        tokens = vid_quality_token;
+        inherited::Save(F);
+    }
+    virtual xr_token* GetToken()
+    {
+        tokens = vid_quality_token;
+        return inherited::GetToken();
+    }
+};
 
 #include "device.h"
 void CCC_Register()
@@ -1232,9 +1218,10 @@ void CCC_Register()
 
     if (BttR_mode)
         CMD4(CCC_Integer, "xrEngine_loadingstages", &ps_rs_loading_stages, 0, 1);
-////////////////////////////////////////////////////////////////////////////////////////////////////
 
     CMD1(CCC_DirectX, "renderer");
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // General
     CMD1(CCC_Help, "help");

@@ -194,7 +194,7 @@ void dxEnvironmentRender::OnFrame(CEnvironment &env)
 
     if (EnvCryRay.Render->get_generation()==IRender_interface::GENERATION_R2){
         //. very very ugly hack
-        if (DEVICE_HW::XRAY::HW.Caps.raster_major >= 3 && DEVICE_HW::XRAY::HW.Caps.geometry.bVTF){
+        if (DEVICE_HW::CRYRAY_RENDER::HW.Caps.raster_major >= 3 && DEVICE_HW::CRYRAY_RENDER::HW.Caps.geometry.bVTF){
             // tonemapping in VS
             mixRen.sky_r_textures.push_back		(mk_pair(u32(D3DVERTEXTEXTURESAMPLER0),tonemap));	//. hack
             mixRen.sky_r_textures_env.push_back	(mk_pair(u32(D3DVERTEXTEXTURESAMPLER0),tonemap));	//. hack

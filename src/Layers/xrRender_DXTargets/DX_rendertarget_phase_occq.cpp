@@ -3,7 +3,7 @@
 void	CRenderTarget::phase_occq	()
 {
 	if( !RImplementation.o.dx10_msaa )
-		u_setrt						( Device.dwWidth,Device.dwHeight,DEVICE_HW::XRAY::HW.pBaseRT,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
+		u_setrt						( Device.dwWidth,Device.dwHeight,DEVICE_HW::CRYRAY_RENDER::HW.pBaseRT,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 	else
 		u_setrt						( Device.dwWidth,Device.dwHeight,NULL,NULL,NULL,rt_MSAADepth->pZRT);
 	RCache.set_Shader			( s_occq	);

@@ -13,7 +13,6 @@
 #include "InventoryOwner.h"
 #include "Inventory.h"
 #include "..\xrEngine\CameraBase.h"
-extern ENGINE_API Flags32 p_engine_flags32;
 
 CHUDCrosshair::CHUDCrosshair	()
 {

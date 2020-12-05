@@ -7,8 +7,6 @@
 #include "../xrEngine/AMD.h"
 #include "../xrEngine/NVIDIA.h"
 
-extern ENGINE_API u32 renderer_value;
-
 namespace
 {
 	u32 GetNVGpuNum()
@@ -91,21 +89,11 @@ namespace
 		//	code will fail.
 		VERIFY(res>0);
 		
-		switch (renderer_value)
-		{
-			case 0:
-				Msg("# DX10 starting rendering as GPU: %d.", res);
-			break;
-
-			case 1:
-				Msg("# DX10.1 starting rendering as GPU: %d.", res);
-			break;
-
-			case 2:
-				Msg("# DX11 starting rendering as GPU: %d.", res);
-			break;
-		}
-	
+#ifdef DIRECTX10
+		Msg("# DX10 starting rendering as GPU: %d.", res);
+#else	
+		Msg("# DX11 starting rendering as GPU: %d.", res);
+#endif		
 		return res;
 	}
 

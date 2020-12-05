@@ -84,7 +84,6 @@ void CUIGameSP::OnFrame()
 	}
 }
 
-extern ENGINE_API Flags32 p_engine_flags32;
 bool CUIGameSP::IR_UIOnKeyboardPress(int dik) 
 {
 	if(inherited::IR_UIOnKeyboardPress(dik)) return true;

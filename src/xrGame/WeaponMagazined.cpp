@@ -1167,7 +1167,6 @@ void CWeaponMagazined::Chamber()
 }
 
 #include "CustomDetector.h"
-extern ENGINE_API Flags32 p_engine_flags32;
 
 bool CWeaponMagazined::Action(u16 cmd, u32 flags)
 {

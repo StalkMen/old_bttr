@@ -388,7 +388,7 @@
     <ClCompile Include="..\xrRenderDX10\StateManager\dx10StateCache.cpp" />
     <ClCompile Include="..\xrRenderDX10\StateManager\dx10StateManager.cpp" />
     <ClCompile Include="..\xrRenderDX10\dx10TextureDDS.cpp" />
-    <ClCompile Include="..\xrRenderDX11\dx11HW.cpp" />
+    <ClCompile Include="..\xrRenderDX10\dxDeviceHW.cpp" />
     <ClCompile Include="..\xrRender\Animation.cpp" />
     <ClCompile Include="..\xrRender\blenders\Blender.cpp" />
     <ClCompile Include="..\xrRender\blenders\Blender_Palette.cpp" />

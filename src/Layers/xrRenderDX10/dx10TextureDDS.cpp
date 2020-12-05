@@ -319,7 +319,7 @@ void XRayDDSLoader::To(ID3D10Texture2D*& Texture, bool bStaging)
 			ptr += subdata[i + d * m_mips].SysMemSlicePitch;
 		}
 	}
-	R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateTexture2D(&desc, subdata, &Texture));
+	R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateTexture2D(&desc, subdata, &Texture));
 	if (m_px == TPF_R8G8B8)
 	{
 		xr_free(ptr_free);

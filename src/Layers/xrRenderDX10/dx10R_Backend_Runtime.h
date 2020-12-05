@@ -21,11 +21,11 @@ IC void CBackend::set_RT(ID3DRenderTargetView* RT, u32 ID)
 		stat.target_rt	++;
 		pRT[ID]			= RT;
 		//	Mark RT array dirty
-		//DEVICE_HW::XRAY::HW.pDevice->OMSetRenderTargets(sizeof(pRT)/sizeof(pRT[0]), pRT, 0);
-		//DEVICE_HW::XRAY::HW.pDevice->OMSetRenderTargets(sizeof(pRT)/sizeof(pRT[0]), pRT, pZB);
+		//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->OMSetRenderTargets(sizeof(pRT)/sizeof(pRT[0]), pRT, 0);
+		//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->OMSetRenderTargets(sizeof(pRT)/sizeof(pRT[0]), pRT, pZB);
 		//	Reset all RT's here to allow RT to be bounded as input
 		if (!m_bChangedRTorZB)
-			DEVICE_HW::XRAY::HW.pRenderContext->OMSetRenderTargets(0, 0, 0);
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->OMSetRenderTargets(0, 0, 0);
 
 		m_bChangedRTorZB = true;
 	}
@@ -38,11 +38,11 @@ IC void	CBackend::set_ZB(ID3DDepthStencilView* ZB)
 		PGO				(Msg("PGO:setZB"));
 		stat.target_zb	++;
 		pZB				= ZB;
-		//DEVICE_HW::XRAY::HW.pDevice->OMSetRenderTargets(0, 0, pZB);
-		//DEVICE_HW::XRAY::HW.pDevice->OMSetRenderTargets(sizeof(pRT)/sizeof(pRT[0]), pRT, pZB);
+		//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->OMSetRenderTargets(0, 0, pZB);
+		//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->OMSetRenderTargets(sizeof(pRT)/sizeof(pRT[0]), pRT, pZB);
 		//	Reset all RT's here to allow RT to be bounded as input
 		if (!m_bChangedRTorZB)
-			DEVICE_HW::XRAY::HW.pRenderContext->OMSetRenderTargets(0, 0, 0);
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->OMSetRenderTargets(0, 0, 0);
 		m_bChangedRTorZB = true;
 	}
 }
@@ -67,9 +67,9 @@ ICF void CBackend::set_PS(ID3DPixelShader* _ps, LPCSTR _n)
 		stat.ps			++;
 		ps				= _ps;
 #ifdef DIRECTX11
-		DEVICE_HW::XRAY::HW.pRenderContext->PSSetShader(ps, 0, 0);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->PSSetShader(ps, 0, 0);
 #else
-		DEVICE_HW::XRAY::HW.pRenderContext->PSSetShader(ps);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->PSSetShader(ps);
 #endif
 
 #ifdef DEBUG
@@ -87,9 +87,9 @@ ICF void CBackend::set_GS(ID3DGeometryShader* _gs, LPCSTR _n)
 		//stat.gs			++;
 		gs				= _gs;
 #ifdef DIRECTX11
-		DEVICE_HW::XRAY::HW.pRenderContext->GSSetShader(gs, 0, 0);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->GSSetShader(gs, 0, 0);
 #else
-		DEVICE_HW::XRAY::HW.pRenderContext->GSSetShader(gs);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->GSSetShader(gs);
 #endif
 
 #ifdef DEBUG
@@ -107,7 +107,7 @@ ICF void CBackend::set_HS(ID3D11HullShader* _hs, LPCSTR _n)
 		//	TODO: DX10: Get statistics for H Shader change
 		//stat.hs			++;
 		hs				= _hs;
-		DEVICE_HW::XRAY::HW.pRenderContext->HSSetShader(hs, 0, 0);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->HSSetShader(hs, 0, 0);
 
 #ifdef DEBUG
 		hs_name			= _n;
@@ -123,7 +123,7 @@ ICF void CBackend::set_DS(ID3D11DomainShader* _ds, LPCSTR _n)
 		//	TODO: DX10: Get statistics for D Shader change
 		//stat.ds			++;
 		ds				= _ds;
-		DEVICE_HW::XRAY::HW.pRenderContext->DSSetShader(ds, 0, 0);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->DSSetShader(ds, 0, 0);
 
 #ifdef DEBUG
 		ds_name			= _n;
@@ -139,7 +139,7 @@ ICF void CBackend::set_CS(ID3D11ComputeShader* _cs, LPCSTR _n)
 		//	TODO: DX10: Get statistics for D Shader change
 		//stat.cs			++;
 		cs				= _cs;
-		DEVICE_HW::XRAY::HW.pRenderContext->CSSetShader(cs, 0, 0);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->CSSetShader(cs, 0, 0);
 
 #ifdef DEBUG
 		cs_name			= _n;
@@ -149,7 +149,7 @@ ICF void CBackend::set_CS(ID3D11ComputeShader* _cs, LPCSTR _n)
 
 ICF	bool CBackend::is_TessEnabled()
 {
-	return DEVICE_HW::XRAY::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && (ds!=0 || hs!=0);
+	return DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 && (ds!=0 || hs!=0);
 }
 
 #	endif
@@ -163,9 +163,9 @@ ICF void CBackend::set_VS(ID3DVertexShader* _vs, LPCSTR _n)
 		stat.vs			++;
 		vs				= _vs;
 #ifdef DIRECTX11
-		DEVICE_HW::XRAY::HW.pRenderContext->VSSetShader(vs, 0, 0);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->VSSetShader(vs, 0, 0);
 #else
-		DEVICE_HW::XRAY::HW.pRenderContext->VSSetShader(vs);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->VSSetShader(vs);
 #endif
 
 #ifdef DEBUG
@@ -184,7 +184,7 @@ ICF void CBackend::set_Vertices(ID3DVertexBuffer* _vb, u32 _vb_stride)
 #endif
 		vb				= _vb;
 		vb_stride		= _vb_stride;
-		//CHK_DX			(DEVICE_HW::XRAY::HW.pDevice->SetStreamSource(0,vb,0,vb_stride));
+		//CHK_DX			(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetStreamSource(0,vb,0,vb_stride));
 		//UINT StreamNumber,
 		//IDirect3DVertexBuffer9 * pStreamData,
 		//UINT OffsetInBytes,
@@ -196,7 +196,7 @@ ICF void CBackend::set_Vertices(ID3DVertexBuffer* _vb, u32 _vb_stride)
 		//const UINT *pStrides,
 		//const UINT *pOffsets
 		u32	iOffset = 0;
-		DEVICE_HW::XRAY::HW.pRenderContext->IASetVertexBuffers( 0, 1, &vb, &_vb_stride, &iOffset);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->IASetVertexBuffers( 0, 1, &vb, &_vb_stride, &iOffset);
 	}
 }
 
@@ -209,7 +209,7 @@ ICF void CBackend::set_Indices(ID3DIndexBuffer* _ib)
 		stat.ib			++;
 #endif
 		ib				= _ib;
-		DEVICE_HW::XRAY::HW.pRenderContext->IASetIndexBuffer(ib, DXGI_FORMAT_R16_UINT, 0);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->IASetIndexBuffer(ib, DXGI_FORMAT_R16_UINT, 0);
 	}
 }
 
@@ -262,7 +262,7 @@ IC void CBackend::ApplyPrimitieTopology( D3D_PRIMITIVE_TOPOLOGY Topology )
 	if ( m_PrimitiveTopology != Topology )
 	{
 		m_PrimitiveTopology = Topology;
-		DEVICE_HW::XRAY::HW.pRenderContext->IASetPrimitiveTopology(m_PrimitiveTopology);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->IASetPrimitiveTopology(m_PrimitiveTopology);
 	}
 }
 
@@ -275,15 +275,15 @@ IC void CBackend::Compute(UINT ThreadGroupCountX, UINT ThreadGroupCountY, UINT T
 	StateManager.Apply();
 	//	State manager may alter constants
 	constants.flush();
-	DEVICE_HW::XRAY::HW.pRenderContext->Dispatch(ThreadGroupCountX,ThreadGroupCountY,ThreadGroupCountZ);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->Dispatch(ThreadGroupCountX,ThreadGroupCountY,ThreadGroupCountZ);
 }
 #endif
 
 IC void CBackend::Render(D3DPRIMITIVETYPE T, u32 baseV, u32 startV, u32 countV, u32 startI, u32 PC)
 {
 	//VERIFY(vs);
-	//DEVICE_HW::XRAY::HW.pDevice->VSSetShader(vs);
-	//DEVICE_HW::XRAY::HW.pDevice->GSSetShader(0);
+	//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->VSSetShader(vs);
+	//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->GSSetShader(0);
 
 	D3D_PRIMITIVE_TOPOLOGY Topology = TranslateTopology(T);
 	u32	iIndexCount = GetIndexCount(T, PC);
@@ -303,7 +303,7 @@ IC void CBackend::Render(D3DPRIMITIVETYPE T, u32 baseV, u32 startV, u32 countV, 
 
 	ApplyPrimitieTopology(Topology);
 	
-	//CHK_DX(DEVICE_HW::XRAY::HW.pDevice->DrawIndexedPrimitive(T,baseV, startV, countV,startI,PC));
+	//CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->DrawIndexedPrimitive(T,baseV, startV, countV,startI,PC));
 	//D3DPRIMITIVETYPE Type,
 	//INT BaseVertexIndex,
 	//UINT MinIndex,
@@ -322,7 +322,7 @@ IC void CBackend::Render(D3DPRIMITIVETYPE T, u32 baseV, u32 startV, u32 countV, 
 	constants.flush();
 //	Msg("DrawIndexed: Start");
 //	Msg("iIndexCount=%d, startI=%d, baseV=%d", iIndexCount, startI, baseV);
-	DEVICE_HW::XRAY::HW.pRenderContext->DrawIndexed(iIndexCount, startI, baseV);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->DrawIndexed(iIndexCount, startI, baseV);
 //	Msg("DrawIndexed: End\n");
 
 	PGO					(Msg("PGO:DIP:%dv/%df",countV,PC));
@@ -335,7 +335,7 @@ IC void CBackend::Render(D3DPRIMITIVETYPE T, u32 startV, u32 PC)
 		return;
 
 	//VERIFY(vs);
-	//DEVICE_HW::XRAY::HW.pDevice->VSSetShader(vs);
+	//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->VSSetShader(vs);
 
 	D3D_PRIMITIVE_TOPOLOGY Topology = TranslateTopology(T);
 	u32	iVertexCount = GetIndexCount(T, PC);
@@ -353,8 +353,8 @@ IC void CBackend::Render(D3DPRIMITIVETYPE T, u32 startV, u32 PC)
 	constants.flush();
 //	Msg("Draw: Start");
 //	Msg("iVertexCount=%d, startV=%d", iVertexCount, startV);
-	//CHK_DX				(DEVICE_HW::XRAY::HW.pDevice->DrawPrimitive(T, startV, PC));
-	DEVICE_HW::XRAY::HW.pRenderContext->Draw(iVertexCount, startV);
+	//CHK_DX				(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->DrawPrimitive(T, startV, PC));
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->Draw(iVertexCount, startV);
 //	Msg("Draw: End\n");
 	PGO					(Msg("PGO:DIP:%dv/%df",3*PC,PC));
 }
@@ -371,16 +371,16 @@ IC void	CBackend::set_Scissor(Irect*	R)
 {
 	if (R)			
 	{
-		//CHK_DX		(DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE,TRUE));		
+		//CHK_DX		(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE,TRUE));		
 		StateManager.EnableScissoring();
 		RECT	*	clip	= (RECT	*)R;
-		DEVICE_HW::XRAY::HW.pRenderContext->RSSetScissorRects(1, clip);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->RSSetScissorRects(1, clip);
 	} 
 	else
 	{
-		//CHK_DX		(DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE,FALSE));
+		//CHK_DX		(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE,FALSE));
 		StateManager.EnableScissoring(FALSE);
-		DEVICE_HW::XRAY::HW.pRenderContext->RSSetScissorRects(0, 0);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->RSSetScissorRects(0, 0);
 	}
 }
 
@@ -388,15 +388,15 @@ IC void CBackend::set_Stencil(u32 _enable, u32 _func, u32 _ref, u32 _mask, u32 _
 {
 	StateManager.SetStencil(_enable, _func, _ref, _mask, _writemask, _fail, _pass, _zfail);
 	// Simple filter
-	//if (stencil_enable		!= _enable)		{ stencil_enable=_enable;		CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_STENCILENABLE,		_enable				)); }
+	//if (stencil_enable		!= _enable)		{ stencil_enable=_enable;		CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_STENCILENABLE,		_enable				)); }
 	//if (!stencil_enable)					return;
-	//if (stencil_func		!= _func)		{ stencil_func=_func;			CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_STENCILFUNC,		_func				)); }
-	//if (stencil_ref			!= _ref)		{ stencil_ref=_ref;				CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_STENCILREF,			_ref				)); }
-	//if (stencil_mask		!= _mask)		{ stencil_mask=_mask;			CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_STENCILMASK,		_mask				)); }
-	//if (stencil_writemask	!= _writemask)	{ stencil_writemask=_writemask;	CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_STENCILWRITEMASK,	_writemask			)); }
-	//if (stencil_fail		!= _fail)		{ stencil_fail=_fail;			CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_STENCILFAIL,		_fail				)); }
-	//if (stencil_pass		!= _pass)		{ stencil_pass=_pass;			CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_STENCILPASS,		_pass				)); }
-	//if (stencil_zfail		!= _zfail)		{ stencil_zfail=_zfail;			CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_STENCILZFAIL,		_zfail				)); }
+	//if (stencil_func		!= _func)		{ stencil_func=_func;			CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_STENCILFUNC,		_func				)); }
+	//if (stencil_ref			!= _ref)		{ stencil_ref=_ref;				CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_STENCILREF,			_ref				)); }
+	//if (stencil_mask		!= _mask)		{ stencil_mask=_mask;			CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_STENCILMASK,		_mask				)); }
+	//if (stencil_writemask	!= _writemask)	{ stencil_writemask=_writemask;	CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_STENCILWRITEMASK,	_writemask			)); }
+	//if (stencil_fail		!= _fail)		{ stencil_fail=_fail;			CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_STENCILFAIL,		_fail				)); }
+	//if (stencil_pass		!= _pass)		{ stencil_pass=_pass;			CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_STENCILPASS,		_pass				)); }
+	//if (stencil_zfail		!= _zfail)		{ stencil_zfail=_zfail;			CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_STENCILZFAIL,		_zfail				)); }
 }
 
 IC  void CBackend::set_Z(u32 _enable)
@@ -405,7 +405,7 @@ IC  void CBackend::set_Z(u32 _enable)
 	//if (z_enable != _enable)
 	//{ 
 	//	z_enable=_enable;
-	//	CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_ZENABLE, _enable )); 
+	//	CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_ZENABLE, _enable )); 
 	//}
 }
 
@@ -415,7 +415,7 @@ IC  void CBackend::set_ZFunc(u32 _func)
 	//if (z_func!=_func)
 	//{
 	//	z_func = _func;
-	//	CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState( D3DRS_ZFUNC, _func));
+	//	CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState( D3DRS_ZFUNC, _func));
 	//}
 }
 
@@ -426,7 +426,7 @@ IC  void CBackend::set_AlphaRef(u32 _value)
 	//if (alpha_ref != _value)
 	//{ 
 	//	alpha_ref = _value;
-	//	CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ALPHAREF,_value));
+	//	CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_ALPHAREF,_value));
 	//}
 }
 
@@ -435,16 +435,16 @@ IC void	CBackend::set_ColorWriteEnable(u32 _mask )
 	StateManager.SetColorWriteEnable(_mask);
 	//if (colorwrite_mask		!= _mask)		{ 
 	//	colorwrite_mask=_mask;		
-	//	CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_COLORWRITEENABLE,	_mask	));	
-	//	CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_COLORWRITEENABLE1,	_mask	));	
-	//	CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_COLORWRITEENABLE2,	_mask	));	
-	//	CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_COLORWRITEENABLE3,	_mask	));	
+	//	CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_COLORWRITEENABLE,	_mask	));	
+	//	CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_COLORWRITEENABLE1,	_mask	));	
+	//	CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_COLORWRITEENABLE2,	_mask	));	
+	//	CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_COLORWRITEENABLE3,	_mask	));	
 	//}
 }
 ICF void CBackend::set_CullMode(u32 _mode)
 {
 	StateManager.SetCullMode(_mode);
-	//if (cull_mode		!= _mode)		{ cull_mode = _mode;			CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState	( D3DRS_CULLMODE,			_mode				)); }
+	//if (cull_mode		!= _mode)		{ cull_mode = _mode;			CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState	( D3DRS_CULLMODE,			_mode				)); }
 }
 
 IC void CBackend::ApplyVertexLayout()
@@ -461,7 +461,7 @@ IC void CBackend::ApplyVertexLayout()
 	{
 		ID3DInputLayout* pLayout;
 
-		CHK_DX(DEVICE_HW::XRAY::HW.pRenderDevice->CreateInputLayout(
+		CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateInputLayout(
 			&decl->dx10_dcl_code[0],
 			decl->dx10_dcl_code.size()-1,
 			m_pInputSignature->GetBufferPointer(),
@@ -476,7 +476,7 @@ IC void CBackend::ApplyVertexLayout()
 	if ( m_pInputLayout != it->second)
 	{
 		m_pInputLayout = it->second;
-		DEVICE_HW::XRAY::HW.pRenderContext->IASetInputLayout(m_pInputLayout);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->IASetInputLayout(m_pInputLayout);
 	}	
 }
 
@@ -623,7 +623,7 @@ IC void CBackend::set_Constants			(R_constant_table* C)
 					tempBuffer[i] = 0;
 			}
 
-			DEVICE_HW::XRAY::HW.pRenderContext->PSSetConstantBuffers(uiMin, uiMax-uiMin, &tempBuffer[uiMin]);
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->PSSetConstantBuffers(uiMin, uiMax-uiMin, &tempBuffer[uiMin]);
 		}
 		
 
@@ -638,7 +638,7 @@ IC void CBackend::set_Constants			(R_constant_table* C)
 				else
 					tempBuffer[i] = 0;
 			}
-			DEVICE_HW::XRAY::HW.pRenderContext->VSSetConstantBuffers(uiMin, uiMax-uiMin, &tempBuffer[uiMin]);
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->VSSetConstantBuffers(uiMin, uiMax-uiMin, &tempBuffer[uiMin]);
 		}
 
 			
@@ -653,7 +653,7 @@ IC void CBackend::set_Constants			(R_constant_table* C)
 				else
 					tempBuffer[i] = 0;
 			}
-			DEVICE_HW::XRAY::HW.pRenderContext->GSSetConstantBuffers(uiMin, uiMax-uiMin, &tempBuffer[uiMin]);
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->GSSetConstantBuffers(uiMin, uiMax-uiMin, &tempBuffer[uiMin]);
 		}
 
 #ifdef DIRECTX11
@@ -668,7 +668,7 @@ IC void CBackend::set_Constants			(R_constant_table* C)
 				else
 					tempBuffer[i] = 0;
 			}
-			DEVICE_HW::XRAY::HW.pRenderContext->HSSetConstantBuffers(uiMin, uiMax-uiMin, &tempBuffer[uiMin]);
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->HSSetConstantBuffers(uiMin, uiMax-uiMin, &tempBuffer[uiMin]);
 		}
 
 		if (CBuffersNeedUpdate(m_aDomainConstants, aDomainConstants, uiMin, uiMax))
@@ -682,7 +682,7 @@ IC void CBackend::set_Constants			(R_constant_table* C)
 				else
 					tempBuffer[i] = 0;
 			}
-			DEVICE_HW::XRAY::HW.pRenderContext->DSSetConstantBuffers(uiMin, uiMax-uiMin, &tempBuffer[uiMin]);
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->DSSetConstantBuffers(uiMin, uiMax-uiMin, &tempBuffer[uiMin]);
 		}
 
 		if (CBuffersNeedUpdate(m_aComputeConstants, aComputeConstants, uiMin, uiMax))
@@ -696,7 +696,7 @@ IC void CBackend::set_Constants			(R_constant_table* C)
 				else
 					tempBuffer[i] = 0;
 			}
-			DEVICE_HW::XRAY::HW.pRenderContext->CSSetConstantBuffers(uiMin, uiMax-uiMin, &tempBuffer[uiMin]);
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->CSSetConstantBuffers(uiMin, uiMax-uiMin, &tempBuffer[uiMin]);
 		}
 #endif
 		/*
@@ -707,7 +707,7 @@ IC void CBackend::set_Constants			(R_constant_table* C)
 			else
 				tempBuffer[i] = 0;
 		}
-		DEVICE_HW::XRAY::HW.pDevice->PSSetConstantBuffers(0, MaxCBuffers, tempBuffer);
+		DEVICE_HW::CRYRAY_RENDER::HW.pDevice->PSSetConstantBuffers(0, MaxCBuffers, tempBuffer);
 
 		for (int i=0; i<MaxCBuffers; ++i)
 		{
@@ -716,7 +716,7 @@ IC void CBackend::set_Constants			(R_constant_table* C)
 			else
 				tempBuffer[i] = 0;
 		}
-		DEVICE_HW::XRAY::HW.pDevice->VSSetConstantBuffers(0, MaxCBuffers, tempBuffer);
+		DEVICE_HW::CRYRAY_RENDER::HW.pDevice->VSSetConstantBuffers(0, MaxCBuffers, tempBuffer);
 
 		for (int i=0; i<MaxCBuffers; ++i)
 		{
@@ -725,7 +725,7 @@ IC void CBackend::set_Constants			(R_constant_table* C)
 			else
 				tempBuffer[i] = 0;
 		}
-		DEVICE_HW::XRAY::HW.pDevice->GSSetConstantBuffers(0, MaxCBuffers, tempBuffer);
+		DEVICE_HW::CRYRAY_RENDER::HW.pDevice->GSSetConstantBuffers(0, MaxCBuffers, tempBuffer);
 		*/
 	}
 
@@ -746,7 +746,7 @@ ICF void CBackend::ApplyRTandZB()
 	if (m_bChangedRTorZB)
 	{
 		m_bChangedRTorZB = false;
-		DEVICE_HW::XRAY::HW.pRenderContext->OMSetRenderTargets(sizeof(pRT)/sizeof(pRT[0]), pRT, pZB);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->OMSetRenderTargets(sizeof(pRT)/sizeof(pRT[0]), pRT, pZB);
 	}
 }
 

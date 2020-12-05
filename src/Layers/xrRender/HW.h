@@ -1,4 +1,4 @@
-// DEVICE_HW::XRAY::HW.h: interface for the CHW class.
+// DEVICE_HW::CRYRAY_RENDER::HW.h: interface for the CHW class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -10,7 +10,7 @@
 
 namespace DEVICE_HW
 {
-	namespace XRAY
+	namespace CRYRAY_RENDER
 	{
 		class  CHW : public pureAppActivate, public pureAppDeactivate
 		{

@@ -92,7 +92,7 @@ protected:
     CTimer_paused TimerGlobal;
 
     //AVO: 
-    CTimer frame_timer;   //TODO: проверить, не дублируется-ли схожий таймер (alpet)
+    CTimer frame_timer;   //TODO: РїСЂРѕРІРµСЂРёС‚СЊ, РЅРµ РґСѓР±Р»РёСЂСѓРµС‚СЃСЏ-Р»Рё СЃС…РѕР¶РёР№ С‚Р°Р№РјРµСЂ (alpet)
     //-AVO
 
 public:
@@ -324,10 +324,11 @@ public:
     bool b_need_user_input;
 };
 extern ENGINE_API CLoadScreenRenderer load_screen_renderer;
+extern ENGINE_API Flags32             p_engine_flags32;
 
-//-' Ключи относящиеся к переключению версий ЗЧ и BttR
+//-' РљР»СЋС‡Рё РѕС‚РЅРѕСЃСЏС‰РёРµСЃСЏ Рє РїРµСЂРµРєР»СЋС‡РµРЅРёСЋ РІРµСЂСЃРёР№ Р—Р§ Рё BttR
 #define ITS_CLEAR_1_4_22            (1<<0)
-//-' Команды для включения AO
+//-' РљРѕРјР°РЅРґС‹ РґР»СЏ РІРєР»СЋС‡РµРЅРёСЏ AO
 #define R2FLAGEXT_SSAO_BLUR         (1<<1)
 #define R2FLAGEXT_SSAO_OPT_DATA     (1<<2)
 #define R2FLAGEXT_SSAO_HALF_DATA    (1<<3)
@@ -335,16 +336,16 @@ extern ENGINE_API CLoadScreenRenderer load_screen_renderer;
 #define R2FLAGEXT_SSAO_HDAO         (1<<5)
 #define R2FLAGEXT_SSAO_SSDO         (1<<6)
 #define R2FLAGEXT_SSAO_DEBUG        (1<<7)
-//-' Прицелы
+//-' РџСЂРёС†РµР»С‹
 #define AF_CROSSHAIR_COLLIDE        (1<<8)
 #define AF_CROSSHAIR_INERT          (1<<9)
 #define AF_CROSSHAIR_STANDART       (1<<10)
-//-' Флаг больше реализма
+//-' Р¤Р»Р°Рі Р±РѕР»СЊС€Рµ СЂРµР°Р»РёР·РјР°
 #define FLAG_MORE_REALISM           (1<<11)
-//-' Открытие инветаря
+//-' РћС‚РєСЂС‹С‚РёРµ РёРЅРІРµС‚Р°СЂСЏ
 #define AF_HAND_HIDE_INVENTORY      (1<<12)
 #define AF_HAND_HIDE_WITH_RUCK      (1<<13)
-//-' Переключение выбора группировки ГГ
+//-' РџРµСЂРµРєР»СЋС‡РµРЅРёРµ РІС‹Р±РѕСЂР° РіСЂСѓРїРїРёСЂРѕРІРєРё Р“Р“
 #define E_STALKER                   (1<<14)
 #define E_BANDIT                    (1<<15)
 #define E_CSKY                      (1<<16)
@@ -354,7 +355,7 @@ extern ENGINE_API CLoadScreenRenderer load_screen_renderer;
 #define E_ARMY                      (1<<20)
 #define E_ECOLOG                    (1<<21)
 #define E_MONOLITH                  (1<<22)
-//-' Доф оружия
+//-' Р”РѕС„ РѕСЂСѓР¶РёСЏ
 #define AF_RELOAD_DOF               (1<<23)
 #define AF_ZOOM_DOF                 (1<<24)
 #endif

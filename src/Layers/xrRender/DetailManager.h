@@ -172,7 +172,7 @@ public:
 	virtual ObjectList* 			GetSnapList		()=0;
 #endif
 
-	IC bool							UseVS			()		{ return DEVICE_HW::XRAY::HW.Caps.geometry_major >= 1; }
+	IC bool							UseVS			()		{ return DEVICE_HW::CRYRAY_RENDER::HW.Caps.geometry_major >= 1; }
 
 	// Software processor
     ref_geom						soft_Geom;

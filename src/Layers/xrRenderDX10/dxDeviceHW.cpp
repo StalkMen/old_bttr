@@ -1,4 +1,4 @@
-// dx10HW.cpp: implementation of the DX10 specialisation of CHW.
+// dxDeviceHW.cpp: implementation of the DirectX specialisation of CHW.
 //////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
@@ -30,11 +30,14 @@ extern "C"
 
 namespace DEVICE_HW
 {
-	namespace XRAY
+	namespace CRYRAY_RENDER
 	{
 		CHW			HW;
-
+#ifdef DIRECTX11
 		CHW::CHW() : m_move_window(true)
+#else
+		CHW::CHW() :m_pAdapter(0), pRenderDevice(NULL), m_move_window(true)
+#endif
 		{
 			Device.seqAppActivate.Add(this);
 			Device.seqAppDeactivate.Add(this);
@@ -50,17 +53,31 @@ namespace DEVICE_HW
 		//////////////////////////////////////////////////////////////////////
 		void CHW::CreateD3D()
 		{
+#ifdef DIRECTX10
+			IDXGIFactory* pFactory;
+			R_CHK(CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)(&pFactory)));
+
+			m_pAdapter = 0;
+			m_bUsePerfhud = false;
+
+			if (!m_pAdapter)
+				pFactory->EnumAdapters(0, &m_pAdapter);
+
+			pFactory->Release();
+#else	
 			R_CHK(CreateDXGIFactory1(__uuidof(IDXGIFactory1), (void**)(&pFactory)));
 			pFactory->EnumAdapters1(0, &m_pAdapter);
+#endif		   
 		}
 
 		void CHW::DestroyD3D()
 		{
 			_SHOW_REF("refCount:m_pAdapter", m_pAdapter);
 			_RELEASE(m_pAdapter);
-
+#ifdef DIRECTX11
 			_SHOW_REF("refCount:pFactory", pFactory);
 			_RELEASE(pFactory);
+#endif
 		}
 
 		void CHW::CreateDevice(HWND m_hWnd, bool move_window)
@@ -76,10 +93,18 @@ namespace DEVICE_HW
 			m_DriverType = Caps.bForceGPU_REF ?
 				D3D_DRIVER_TYPE_REFERENCE : D3D_DRIVER_TYPE_HARDWARE;
 
+#ifdef DIRECTX10
+			if (m_bUsePerfhud)
+				m_DriverType = D3D_DRIVER_TYPE_REFERENCE;
+#endif											 
 			// Display the name of video board
+#ifdef DIRECTX11
 			DXGI_ADAPTER_DESC1 Desc;
 			R_CHK(m_pAdapter->GetDesc1(&Desc));
-
+#else
+			DXGI_ADAPTER_DESC Desc;
+			R_CHK(m_pAdapter->GetDesc(&Desc));
+#endif
 			//	Warning: Desc.Description is wide string
 			Msg("# GPU [vendor:%X]-[device:%X]: %S", Desc.VendorId, Desc.DeviceId, Desc.Description);
 
@@ -100,17 +125,23 @@ namespace DEVICE_HW
 
 			selectResolution(sd.BufferDesc.Width, sd.BufferDesc.Height, bWindowed);
 
+			// Back buffer
 			sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 			{
 				//OldSerpskiStalker
 				sd.BufferCount = (tbufer_renders == 0) ? 1 : 3;
+#ifdef DIRECTX10
+				Msg("# HW DX10. Number of buffers for prepared frames: %i", sd.BufferCount);
+#else		 
 				Msg("# HW DX11. Number of buffers for prepared frames: %i", sd.BufferCount);
+#endif
 			}
 
 			// Multisample
 			sd.SampleDesc.Count = 1;
 			sd.SampleDesc.Quality = 0;
 
+			// Windoze
 			if (tbufer_renders > 1)
 				sd.SwapEffect = DXGI_SWAP_EFFECT_SEQUENTIAL;
 			else
@@ -132,8 +163,8 @@ namespace DEVICE_HW
 			//	Additional set up
 			sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 
-			UINT createDeviceFlags = 0;
-
+			UINT createDeviceFlags = 0; ////////////////
+#ifdef DIRECTX11
 #ifdef DEBUG
 			if (IsDebuggerPresent())
 				createDeviceFlags |= D3D_CREATE_DEVICE_DEBUG;
@@ -198,15 +229,54 @@ namespace DEVICE_HW
 				MessageBox(NULL, "Your video card does not support DirectX 11! The app cannot be started.", "Error!", MB_OK | MB_ICONERROR);
 				TerminateProcess(GetCurrentProcess(), 0);
 			};
+#else
+#pragma todo("OldSerpskiStalker. Этот механизм лучше не трогать, пусть DX10 создается как приписали ему GSC.")
+			{
+				HRESULT R = D3DX10CreateDeviceAndSwapChain(m_pAdapter, m_DriverType, NULL, createDeviceFlags, &sd, &m_pSwapChain, &pRenderDevice);
 
-			_SHOW_REF("* CREATE: DeviceREF:", DEVICE_HW::XRAY::HW.pRenderDevice);
+				pRenderContext = pRenderDevice;
+				FeatureLevel = D3D_FEATURE_LEVEL_10_0;
+
+				if (!FAILED(R) && ps_r2_ls_flags.test((u32)R3FLAG_USE_DX10_1))
+				{
+					D3DX10GetFeatureLevel1(pRenderDevice, &pDevice1);
+					FeatureLevel = D3D_FEATURE_LEVEL_10_1;
+
+					Msg("[CryRay Engine]: DirectX10.1 used");
+				}
+
+				pContext1 = pDevice1;
+				 
+
+				if (FAILED(R))
+				{
+					// Fatal error! Cannot create rendering device AT STARTUP !!!
+					Msg("Error in loading the graphics process.\n" "CreateDevice returned 0x%08x", R);
+					FlushLog();
+					MessageBox(NULL, "Your video card does not support DirectX 10 or 10.1! The app cannot be started.", "Error!", MB_OK | MB_ICONERROR);
+					TerminateProcess(GetCurrentProcess(), 0);
+				};
+
+				// https://habr.com/ru/post/308980/
+				IDXGIDevice1* pDeviceDXGI = nullptr;
+				R_CHK(pRenderDevice->QueryInterface(__uuidof(IDXGIDevice1), reinterpret_cast<void**>(&pDeviceDXGI)));
+				R_CHK(pDeviceDXGI->SetMaximumFrameLatency(1));
+
+				R_CHK(R);
+			}
+#endif
+//////////////////////////////////////////////////////////////////////
+			_SHOW_REF("* CREATE: DeviceREF:", DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice);
 
 			//	Create render target and depth-stencil views here
 			UpdateViews();
 
 			size_t	memory = Desc.DedicatedVideoMemory;
+#ifdef DIRECTX10
 			Msg("*     Texture memory DX11: %d M", memory / (1024 * 1024));
-
+#else
+			Msg("*     Texture memory DX10: %d M", memory / (1024 * 1024));
+#endif
 			updateWindowProps(m_hWnd);
 			fill_vid_mode_list(this);
 		}
@@ -230,13 +300,15 @@ namespace DEVICE_HW
 			if (!m_ChainDesc.Windowed) m_pSwapChain->SetFullscreenState(FALSE, NULL);
 			_SHOW_REF("# refCount:m_pSwapChain", m_pSwapChain);
 			_RELEASE(m_pSwapChain);
+#ifdef DIRECTX11
 			_RELEASE(pRenderContext);
-
-			_SHOW_REF("# DeviceREF:", DEVICE_HW::XRAY::HW.pRenderDevice);
-			_RELEASE(DEVICE_HW::XRAY::HW.pRenderDevice);
+#else
+			_RELEASE(DEVICE_HW::CRYRAY_RENDER::HW.pDevice1);
+#endif
+			_SHOW_REF("# DeviceREF:", DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice);
+			_RELEASE(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice);
 
 			DestroyD3D();
-
 			free_vid_mode_list();
 		}
 

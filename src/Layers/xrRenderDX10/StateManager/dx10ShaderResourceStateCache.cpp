@@ -48,7 +48,7 @@ void dx10ShaderResourceStateCache::Apply()
 {
 	if (m_bUpdatePSViews)
 	{
-		DEVICE_HW::XRAY::HW.pRenderContext->PSSetShaderResources( m_uiMinPSView, m_uiMaxPSView-m_uiMinPSView+1, &m_PSViews[m_uiMinPSView]);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->PSSetShaderResources( m_uiMinPSView, m_uiMaxPSView-m_uiMinPSView+1, &m_PSViews[m_uiMinPSView]);
 		m_uiMinPSView = 0xFFFFFFFF;
 		m_uiMaxPSView = 0xFFFFFFFF;
 		m_bUpdatePSViews = false;
@@ -56,7 +56,7 @@ void dx10ShaderResourceStateCache::Apply()
 
 	if (m_bUpdateGSViews)
 	{
-		DEVICE_HW::XRAY::HW.pRenderContext->GSSetShaderResources( m_uiMinGSView, m_uiMaxGSView-m_uiMinGSView+1, &m_GSViews[m_uiMinGSView]);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->GSSetShaderResources( m_uiMinGSView, m_uiMaxGSView-m_uiMinGSView+1, &m_GSViews[m_uiMinGSView]);
 		m_uiMinGSView = 0xFFFFFFFF;
 		m_uiMaxGSView = 0xFFFFFFFF;
 		m_bUpdateGSViews = false;
@@ -64,7 +64,7 @@ void dx10ShaderResourceStateCache::Apply()
 
 	if (m_bUpdateVSViews)
 	{
-		DEVICE_HW::XRAY::HW.pRenderContext->VSSetShaderResources( m_uiMinVSView, m_uiMaxVSView-m_uiMinVSView+1, &m_VSViews[m_uiMinVSView]);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->VSSetShaderResources( m_uiMinVSView, m_uiMaxVSView-m_uiMinVSView+1, &m_VSViews[m_uiMinVSView]);
 		m_uiMinVSView = 0xFFFFFFFF;
 		m_uiMaxVSView = 0xFFFFFFFF;
 		m_bUpdateVSViews = false;
@@ -73,7 +73,7 @@ void dx10ShaderResourceStateCache::Apply()
 #ifdef DIRECTX11
 	if (m_bUpdateHSViews)
 	{
-		DEVICE_HW::XRAY::HW.pRenderContext->HSSetShaderResources( m_uiMinHSView, m_uiMaxHSView-m_uiMinHSView+1, &m_HSViews[m_uiMinHSView]);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->HSSetShaderResources( m_uiMinHSView, m_uiMaxHSView-m_uiMinHSView+1, &m_HSViews[m_uiMinHSView]);
 		m_uiMinHSView = 0xFFFFFFFF;
 		m_uiMaxHSView = 0xFFFFFFFF;
 		m_bUpdateHSViews = false;
@@ -81,7 +81,7 @@ void dx10ShaderResourceStateCache::Apply()
 
 	if (m_bUpdateDSViews)
 	{
-		DEVICE_HW::XRAY::HW.pRenderContext->DSSetShaderResources( m_uiMinDSView, m_uiMaxDSView-m_uiMinDSView+1, &m_DSViews[m_uiMinDSView]);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->DSSetShaderResources( m_uiMinDSView, m_uiMaxDSView-m_uiMinDSView+1, &m_DSViews[m_uiMinDSView]);
 		m_uiMinDSView = 0xFFFFFFFF;
 		m_uiMaxDSView = 0xFFFFFFFF;
 		m_bUpdateDSViews = false;
@@ -89,7 +89,7 @@ void dx10ShaderResourceStateCache::Apply()
 
 	if (m_bUpdateCSViews)
 	{
-		DEVICE_HW::XRAY::HW.pRenderContext->CSSetShaderResources( m_uiMinCSView, m_uiMaxCSView-m_uiMinCSView+1, &m_CSViews[m_uiMinCSView]);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->CSSetShaderResources( m_uiMinCSView, m_uiMaxCSView-m_uiMinCSView+1, &m_CSViews[m_uiMinCSView]);
 		m_uiMinCSView = 0xFFFFFFFF;
 		m_uiMaxCSView = 0xFFFFFFFF;
 		m_bUpdateCSViews = false;

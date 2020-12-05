@@ -26,24 +26,24 @@ IC HRESULT CreateQuery ( ID3DQuery **ppQuery, D3DQUERYTYPE Type)
 		VERIFY(!"No default.");
 	}
 
-	return DEVICE_HW::XRAY::HW.pRenderDevice->CreateQuery( &desc, ppQuery);
+	return DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateQuery( &desc, ppQuery);
 }
 
 IC HRESULT GetData( ID3DQuery *pQuery, void *pData, UINT DataSize )
 {
 	//	Use D3Dxx_ASYNC_GETDATA_DONOTFLUSH for prevent flushing
-	return DEVICE_HW::XRAY::HW.pRenderContext->GetData(pQuery, pData, DataSize, 0);
+	return DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->GetData(pQuery, pData, DataSize, 0);
 }
 
 IC HRESULT BeginQuery( ID3DQuery *pQuery)
 {
-	DEVICE_HW::XRAY::HW.pRenderContext->Begin(pQuery);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->Begin(pQuery);
 	return S_OK;
 }
 
 IC HRESULT EndQuery( ID3DQuery *pQuery)
 {
-	DEVICE_HW::XRAY::HW.pRenderContext->End(pQuery);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->End(pQuery);
 	return S_OK;
 }
 
@@ -63,7 +63,7 @@ IC HRESULT CreateQuery ( ID3DQuery **ppQuery, D3DQUERYTYPE Type)
 		VERIFY(!"No default.");
 	}
 
-	return DEVICE_HW::XRAY::HW.pRenderDevice->CreateQuery( &desc, ppQuery);
+	return DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateQuery( &desc, ppQuery);
 }
 
 IC HRESULT GetData( ID3DQuery *pQuery, void *pData, UINT DataSize )
@@ -88,7 +88,7 @@ IC HRESULT EndQuery( ID3DQuery *pQuery)
 
 IC HRESULT CreateQuery ( ID3DQuery **ppQuery, D3DQUERYTYPE Type)
 {
-	return DEVICE_HW::XRAY::HW.pDevice->CreateQuery(Type, ppQuery);
+	return DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(Type, ppQuery);
 }
 
 IC HRESULT GetData( ID3DQuery *pQuery, void *pData, UINT DataSize )

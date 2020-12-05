@@ -27,7 +27,7 @@ void dxUIRender::SetShader(IUIShader &shader)
 
 void dxUIRender::SetAlphaRef(int aref)
 {
-	//CHK_DX(DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ALPHAREF,aref));
+	//CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_ALPHAREF,aref));
 	RCache.set_AlphaRef(aref);
 }
 /*
@@ -156,7 +156,7 @@ void dxUIRender::GetActiveTextureResolution(Fvector2 &res)
 LPCSTR dxUIRender::UpdateShaderName(LPCSTR tex_name, LPCSTR sh_name)
 {
 	string_path buff;
-	u32		v_dev	= CAP_VERSION(DEVICE_HW::XRAY::HW.Caps.raster_major, DEVICE_HW::XRAY::HW.Caps.raster_minor);
+	u32		v_dev	= CAP_VERSION(DEVICE_HW::CRYRAY_RENDER::HW.Caps.raster_major, DEVICE_HW::CRYRAY_RENDER::HW.Caps.raster_minor);
 	u32		v_need	= CAP_VERSION(2,0);
 	//strstr(Core.Params,"-ps_movie") &&
 	if ( (v_dev >= v_need) && FS.exist(buff,"$game_textures$", tex_name, ".ogm") )

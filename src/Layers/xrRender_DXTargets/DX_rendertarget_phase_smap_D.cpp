@@ -20,16 +20,16 @@ void	CRenderTarget::phase_smap_direct		(light* L, u32 sub_phase)
 	//	R.x2		= L->X.D.maxX;
 	//	R.y1		= L->X.D.minY;
 	//	R.y2		= L->X.D.maxY;
-	//	CHK_DX							(DEVICE_HW::XRAY::HW.pDevice->Clear( 1L, &R,	  D3DCLEAR_ZBUFFER,	0xFFFFFFFF, 1.0f, 0L));
+	//	CHK_DX							(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->Clear( 1L, &R,	  D3DCLEAR_ZBUFFER,	0xFFFFFFFF, 1.0f, 0L));
 	//} else {
 		// full-clear
-	//	CHK_DX							(DEVICE_HW::XRAY::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_ZBUFFER,	0xFFFFFFFF, 1.0f, 0L));
+	//	CHK_DX							(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_ZBUFFER,	0xFFFFFFFF, 1.0f, 0L));
 	//}
 
 #ifdef DIRECTX11
-	DEVICE_HW::XRAY::HW.pRenderContext->ClearDepthStencilView(rt_smap_depth->pZRT, D3D_CLEAR_DEPTH, 1.0f, 0L);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearDepthStencilView(rt_smap_depth->pZRT, D3D_CLEAR_DEPTH, 1.0f, 0L);
 #else
-	DEVICE_HW::XRAY::HW.pRenderDevice->ClearDepthStencilView(rt_smap_depth->pZRT, D3D10_CLEAR_DEPTH, 1.0f, 0L);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->ClearDepthStencilView(rt_smap_depth->pZRT, D3D10_CLEAR_DEPTH, 1.0f, 0L);
 #endif
 	//	Prepare viewport for shadow map rendering
 	if (sub_phase!=SE_SUN_RAIN_SMAP	)
@@ -41,15 +41,15 @@ void	CRenderTarget::phase_smap_direct		(light* L, u32 sub_phase)
 			(float)(L->X.D.maxX - L->X.D.minX) , 
 			(float)(L->X.D.maxY - L->X.D.minY) , 
 			0,1 };
-		//CHK_DX								(DEVICE_HW::XRAY::HW.pDevice->SetViewport(&VP));
-		DEVICE_HW::XRAY::HW.pRenderContext->RSSetViewports(1, &VP);
+		//CHK_DX								(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetViewport(&VP));
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->RSSetViewports(1, &VP);
 #else
 	D3D_VIEWPORT VP					=	{L->X.D.minX,L->X.D.minY,
 			(L->X.D.maxX - L->X.D.minX) , 
 			(L->X.D.maxY - L->X.D.minY) , 
 			0,1 };
-		//CHK_DX								(DEVICE_HW::XRAY::HW.pDevice->SetViewport(&VP));
-		DEVICE_HW::XRAY::HW.pRenderDevice->RSSetViewports(1, &VP);
+		//CHK_DX								(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetViewport(&VP));
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->RSSetViewports(1, &VP);
 #endif
 	}
 
@@ -78,9 +78,9 @@ void	CRenderTarget::phase_smap_direct_tsh	(light* L, u32 sub_phase)
 	//	Prepare viewport for shadow map rendering
 	RImplementation.rmNormal();
 #ifdef DIRECTX11
-	DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView( RCache.get_RT(0), ColorRGBA);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView( RCache.get_RT(0), ColorRGBA);
 #else
-	DEVICE_HW::XRAY::HW.pRenderDevice->ClearRenderTargetView( RCache.get_RT(0), ColorRGBA);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->ClearRenderTargetView( RCache.get_RT(0), ColorRGBA);
 #endif
-	//CHK_DX								(DEVICE_HW::XRAY::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_TARGET,	_clr,	1.0f, 0L));
+	//CHK_DX								(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->Clear( 0L, NULL, D3DCLEAR_TARGET,	_clr,	1.0f, 0L));
 }

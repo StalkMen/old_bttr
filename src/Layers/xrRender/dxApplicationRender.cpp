@@ -34,7 +34,7 @@ void dxApplicationRender::setLevelLogo(LPCSTR pszLogoName)
 
 void dxApplicationRender::KillHW()
 {
-	ZeroMemory(&DEVICE_HW::XRAY::HW,sizeof(DEVICE_HW::XRAY::CHW));
+	ZeroMemory(&DEVICE_HW::CRYRAY_RENDER::HW,sizeof(DEVICE_HW::CRYRAY_RENDER::CHW));
 }
 
 u32 calc_progress_color(u32, u32, int, int);
@@ -44,15 +44,15 @@ void dxApplicationRender::load_draw_internal(CApplication &owner)
 #if defined(DIRECTX10) || defined(DIRECTX11)
 	//	TODO: DX10: remove this???
 	RImplementation.rmNormal();
-	RCache.set_RT(DEVICE_HW::XRAY::HW.pBaseRT);
-	RCache.set_ZB(DEVICE_HW::XRAY::HW.pBaseZB);
+	RCache.set_RT(DEVICE_HW::CRYRAY_RENDER::HW.pBaseRT);
+	RCache.set_ZB(DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 #endif	//	DIRECTX10
 
 #if defined(DIRECTX10) || defined(DIRECTX11)
 	FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
-	DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView( RCache.get_RT(), ColorRGBA);
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView( RCache.get_RT(), ColorRGBA);
 #else	//	DIRECTX10
-	CHK_DX			(DEVICE_HW::XRAY::HW.pDevice->Clear(0,0,D3DCLEAR_TARGET,D3DCOLOR_ARGB(0,0,0,0),1,0));
+	CHK_DX			(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->Clear(0,0,D3DCLEAR_TARGET,D3DCOLOR_ARGB(0,0,0,0),1,0));
 #endif	//	DIRECTX10
 
 	if(!sh_progress)
@@ -63,8 +63,8 @@ void dxApplicationRender::load_draw_internal(CApplication &owner)
 #if defined(DIRECTX10) || defined(DIRECTX11)
 	//	TODO: DX10: remove this
 //	FLOAT ColorRGBA[4] = {0.0f, 0.0f, 1.0f, 0.0f};
-//	DEVICE_HW::XRAY::HW.pContext->ClearRenderTargetView( RCache.get_RT(), ColorRGBA);
-//	DEVICE_HW::XRAY::HW.pContext->ClearDepthStencilView( RCache.get_ZB(), D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
+//	DEVICE_HW::CRYRAY_RENDER::HW.pContext->ClearRenderTargetView( RCache.get_RT(), ColorRGBA);
+//	DEVICE_HW::CRYRAY_RENDER::HW.pContext->ClearDepthStencilView( RCache.get_ZB(), D3D_CLEAR_DEPTH|D3D_CLEAR_STENCIL, 1.0f, 0);
 #endif	//	DIRECTX10
 
 	float	_w					= (float)Device.dwWidth;

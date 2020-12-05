@@ -6,8 +6,8 @@
 #if !defined(DIRECTX10) && !defined(DIRECTX11)
 void	r_pixel_calculator::begin	()
 {
-	rt.create		("$user$test",		rt_dimensions,rt_dimensions,DEVICE_HW::XRAY::HW.Caps.fTarget);
-	R_CHK			(DEVICE_HW::XRAY::HW.pDevice->CreateDepthStencilSurface	(rt_dimensions,rt_dimensions,DEVICE_HW::XRAY::HW.Caps.fDepth,D3DMULTISAMPLE_NONE,0,TRUE,&zb,NULL));
+	rt.create		("$user$test",		rt_dimensions,rt_dimensions,DEVICE_HW::CRYRAY_RENDER::HW.Caps.fTarget);
+	R_CHK			(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateDepthStencilSurface	(rt_dimensions,rt_dimensions,DEVICE_HW::CRYRAY_RENDER::HW.Caps.fDepth,D3DMULTISAMPLE_NONE,0,TRUE,&zb,NULL));
 
 	RCache.set_RT	(rt->pRT);
 	RCache.set_ZB	(zb);
@@ -19,8 +19,8 @@ void	r_pixel_calculator::end		()
 {
 	Device.End		();
 
-	RCache.set_RT	(DEVICE_HW::XRAY::HW.pBaseRT);
-	RCache.set_ZB	(DEVICE_HW::XRAY::HW.pBaseZB);
+	RCache.set_RT	(DEVICE_HW::CRYRAY_RENDER::HW.pBaseRT);
+	RCache.set_ZB	(DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 
 	_RELEASE		(zb);
 	rt			=	0	;

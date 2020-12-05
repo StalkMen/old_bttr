@@ -9,7 +9,6 @@
 #include "..\xrRender_DXTargets\DX11_ComputeShader.h"
 #include "..\xrRender\dxRenderDeviceRender.h"
 
-extern ENGINE_API u32 renderer_value;
 extern int ps_r__tf_Anisotropic;
 
 CSCompiler::CSCompiler(ComputeShader& target):
@@ -120,7 +119,7 @@ CSCompiler& CSCompiler::defSampler(LPCSTR ResourceName, const D3D_SAMPLER_DESC& 
 	if (stage >= m_Samplers.size())
 		m_Samplers.resize(stage+1);
 
-	R_CHK(DEVICE_HW::XRAY::HW.pRenderDevice->CreateSamplerState(&def, &m_Samplers[stage]));
+	R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateSamplerState(&def, &m_Samplers[stage]));
 
 	return *this;
 }
@@ -207,5 +206,5 @@ void CSCompiler::compile(const char* name)
 
 	VERIFY(SUCCEEDED(_hr));
 
-	CHECK_OR_EXIT				(!FAILED(_hr), make_string("An error occurred in the shaders, please write to the developers of the modification. The selected renderer: %i", renderer_value));
+	CHECK_OR_EXIT				(!FAILED(_hr), make_string("An error occurred in the shaders, please write to the developers of the modification."));
 }

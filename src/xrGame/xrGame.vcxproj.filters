@@ -2461,6 +2461,9 @@
     <Filter Include="xrGame_console">
       <UniqueIdentifier>{ad857e51-fe45-4bc6-9746-1c41328fcec1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CryRayFiles">
+      <UniqueIdentifier>{ef984c14-562a-4c06-a10b-b3d374c17843}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mt_config.h">
@@ -7114,16 +7117,30 @@
     <ClInclude Include="ai\Monsters\Poltergeist\poltergeist_state_attack_hidden_inline.h">
       <Filter>xrGame_monsters\Poltergeist</Filter>
     </ClInclude>
-    <ClInclude Include="ui\UIPdaSpot.h" />
-    <ClInclude Include="ActorBackpack.h" />
-    <ClInclude Include="ActorNightVision.h" />
-    <ClInclude Include="battery.h" />
     <ClInclude Include="firedeps.h" />
-    <ClInclude Include="flash_card.h" />
     <ClInclude Include="ph_shell_interface.h" />
     <ClInclude Include="raypick.h" />
-    <ClInclude Include="ui\UIArtefactPanel.h" />
-    <ClInclude Include="CryRayGameConstants.h" />
+    <ClInclude Include="ActorBackpack.h">
+      <Filter>CryRayFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorNightVision.h">
+      <Filter>CryRayFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="battery.h">
+      <Filter>CryRayFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="CryRayGameConstants.h">
+      <Filter>CryRayFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="flash_card.h">
+      <Filter>CryRayFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\UIArtefactPanel.h">
+      <Filter>CryRayFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\UIPdaSpot.h">
+      <Filter>CryRayFiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -10310,17 +10327,31 @@
     <ClCompile Include="ai\Monsters\Poltergeist\poltergeist_flame_thrower.cpp">
       <Filter>xrGame_monsters\Poltergeist</Filter>
     </ClCompile>
-    <ClCompile Include="ui\UIPdaSpot.cpp" />
     <ClCompile Include="console_commands.cpp">
       <Filter>xrGame_console</Filter>
     </ClCompile>
-    <ClCompile Include="ActorBackpack.cpp" />
-    <ClCompile Include="ActorNightVision.cpp" />
     <ClCompile Include="map_manager_script.cpp" />
-    <ClCompile Include="battery.cpp" />
-    <ClCompile Include="flash_card.cpp" />
-    <ClCompile Include="ui\UIArtefactPanel.cpp" />
-    <ClCompile Include="CryRayGameConstants.cpp" />
+    <ClCompile Include="ActorBackpack.cpp">
+      <Filter>CryRayFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorNightVision.cpp">
+      <Filter>CryRayFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="battery.cpp">
+      <Filter>CryRayFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="CryRayGameConstants.cpp">
+      <Filter>CryRayFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="flash_card.cpp">
+      <Filter>CryRayFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIArtefactPanel.cpp">
+      <Filter>CryRayFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIPdaSpot.cpp">
+      <Filter>CryRayFiles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="ai\monsters\chimera\chimera_attack_state.h">

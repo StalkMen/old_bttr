@@ -24,8 +24,7 @@
 
 #include "../../build_render_config.h"
 
-class dxRender_Visual;
-extern ENGINE_API u32 renderer_value;									 
+class dxRender_Visual;							 
 
 // definition
 class CRender	:	public R_dsgraph_structure
@@ -257,7 +256,7 @@ public:
 #ifdef DIRECTX11
 		return 11; 
 #else
-		return renderer_value == 0 ? 10 : 10.1;
+		return ps_r2_ls_flags.test((u32)R3FLAG_USE_DX10_1) ? 10.1 : 10;
 #endif
 	}
 
@@ -364,11 +363,10 @@ private:
     FS_FileSet						m_file_set;
 };
 
-extern ENGINE_API BOOL              r2_advanced_pp;	//	advanced post process and effects
-extern ENGINE_API BOOL              render_dx10_1;
+extern ENGINE_API BOOL              FullRenderingFunctionality;	//	advanced post process and effects
+extern ENGINE_API u32               renderer_value;
 
 extern ENGINE_API u32               ps_r_sun_quality;
-extern ENGINE_API u32               renderer_value;
 
 extern ENGINE_API u32               ps_r3_msaa;
 extern ENGINE_API u32               ps_r3_msaa_atest;

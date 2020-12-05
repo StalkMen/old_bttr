@@ -26,7 +26,7 @@ void CRenderTarget::phase_rain_drops()
 	//////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////
 	ref_rt& dest_rt = RImplementation.o.dx10_msaa ? rt_Generic : rt_Color;
-	u_setrt(dest_rt, nullptr, nullptr, DEVICE_HW::XRAY::HW.pBaseZB);
+	u_setrt(dest_rt, nullptr, nullptr, DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 
 	RCache.set_CullMode(CULL_NONE);
 	RCache.set_Stencil(FALSE);
@@ -50,5 +50,5 @@ void CRenderTarget::phase_rain_drops()
 	RCache.Render(D3DPT_TRIANGLELIST, Offset, 0, 4, 0, 2);
 
 	//Resolve RT
-	DEVICE_HW::XRAY::HW.pRenderContext->CopyResource(rt_Generic_0->pTexture->surface_get(), dest_rt->pTexture->surface_get());
+	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->CopyResource(rt_Generic_0->pTexture->surface_get(), dest_rt->pTexture->surface_get());
 }

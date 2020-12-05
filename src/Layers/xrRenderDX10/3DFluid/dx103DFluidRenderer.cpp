@@ -139,7 +139,7 @@ void dx103DFluidRenderer::CreateGridBox()
     m_iGridBoxFaceNum = (sizeof(indices) / sizeof(indices[0])) / 3;
 
     CHK_DX(dx10BufferUtils::CreateIndexBuffer(&m_pGridBoxIndexBuffer, indices, sizeof(indices)));
-    DEVICE_HW::XRAY::HW.stats_manager.increment_stats(sizeof(indices), enum_stats_buffer_type_index, D3DPOOL_MANAGED);
+    DEVICE_HW::CRYRAY_RENDER::HW.stats_manager.increment_stats(sizeof(indices), enum_stats_buffer_type_index, D3DPOOL_MANAGED);
 
     // Define the input layout
     static D3DVERTEXELEMENT9 layout[] = {
@@ -194,7 +194,7 @@ void dx103DFluidRenderer::CreateJitterTexture()
 
     ID3DTexture2D* NoiseTexture = nullptr;
 
-    CHK_DX(DEVICE_HW::XRAY::HW.pRenderDevice->CreateTexture2D(&desc, &dataDesc, &NoiseTexture));
+    CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateTexture2D(&desc, &dataDesc, &NoiseTexture));
 
     m_JitterTexture = dxRenderDeviceRender::Instance().Resources->_CreateTexture("$user$NVjitterTex");
     m_JitterTexture->surface_set(NoiseTexture);
@@ -250,7 +250,7 @@ void dx103DFluidRenderer::CreateHHGGTexture()
 
     ID3DTexture1D* HHGGTexture = nullptr;
 
-    CHK_DX(DEVICE_HW::XRAY::HW.pRenderDevice->CreateTexture1D(&desc, &dataDesc, &HHGGTexture));
+    CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateTexture1D(&desc, &dataDesc, &HHGGTexture));
 
     m_HHGGTexture = dxRenderDeviceRender::Instance().Resources->_CreateTexture("$user$NVHHGGTex");
     m_HHGGTexture->surface_set(HHGGTexture);
@@ -334,7 +334,7 @@ void dx103DFluidRenderer::Draw(const dx103DFluidData& FluidData)
     // Raycast into the temporary render target:
     //  raycasting is done at the smaller resolution, using a fullscreen quad
     FLOAT ColorRGBA[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
-    DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(RT[RRT_RayCastTex]->pRT, ColorRGBA);
+    DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView(RT[RRT_RayCastTex]->pRT, ColorRGBA);
 
     pTarget->u_setrt(RT[RRT_RayCastTex], nullptr, nullptr, nullptr); // LDR RT
 
@@ -352,7 +352,7 @@ void dx103DFluidRenderer::Draw(const dx103DFluidData& FluidData)
     //  If and edge was detected at the current pixel we will raycast again to avoid
     //  smoke aliasing artifacts at scene edges
     if (!RImplementation.o.dx10_msaa)
-        pTarget->u_setrt(pTarget->rt_Generic_0, nullptr, nullptr, DEVICE_HW::XRAY::HW.pBaseZB); // LDR RT
+        pTarget->u_setrt(pTarget->rt_Generic_0, nullptr, nullptr, DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB); // LDR RT
     else
         pTarget->u_setrt(pTarget->rt_Generic_0_r, nullptr, nullptr, pTarget->rt_MSAADepth->pZRT); // LDR RT
 
@@ -374,7 +374,7 @@ void dx103DFluidRenderer::ComputeRayData(const dx103DFluidData& FluidData)
 {
     // Clear the color buffer to 0
     FLOAT ColorRGBA[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
-    DEVICE_HW::XRAY::HW.pRenderContext->ClearRenderTargetView(RT[RRT_RayDataTex]->pRT, ColorRGBA);
+    DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView(RT[RRT_RayDataTex]->pRT, ColorRGBA);
 
     CRenderTarget* pTarget = RImplementation.Target;
     pTarget->u_setrt(RT[RRT_RayDataTex], nullptr, nullptr, nullptr); // LDR RT

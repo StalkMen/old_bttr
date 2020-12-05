@@ -44,9 +44,9 @@ BOOL	CRenderTarget::u_DBT_enable	(float zMin, float zMax)
 
 	//	TODO: DX10: Check if DX10 supports this feature
 	// enable cheat
-	//DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ADAPTIVETESS_X,MAKEFOURCC('N','V','D','B'));
-	//DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ADAPTIVETESS_Z,*(DWORD*)&zMin);
-	//DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ADAPTIVETESS_W,*(DWORD*)&zMax); 
+	//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_ADAPTIVETESS_X,MAKEFOURCC('N','V','D','B'));
+	//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_ADAPTIVETESS_Z,*(DWORD*)&zMin);
+	//DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_ADAPTIVETESS_W,*(DWORD*)&zMax); 
 
 	//return TRUE;
 }
@@ -55,7 +55,7 @@ void	CRenderTarget::u_DBT_disable	()
 {
 	//	TODO: DX10: Check if DX10 supports this feature
 	//if (RImplementation.o.nvdbt && ps_r2_ls_flags.test(R2FLAG_USE_NVDBT))	
-	//	DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_ADAPTIVETESS_X,0);
+	//	DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_ADAPTIVETESS_X,0);
 }
 
 BOOL CRenderTarget::enable_scissor		(light* L)		// true if intersects near plane
@@ -87,7 +87,7 @@ BOOL CRenderTarget::enable_scissor		(light* L)		// true if intersects near plane
 
 	// Scissor
 	//. disable scissor because some bugs prevent it to work through multi-portals
-	//. if (!DEVICE_HW::XRAY::HW.Caps.bScissor)	return		near_intersect;
+	//. if (!DEVICE_HW::CRYRAY_RENDER::HW.Caps.bScissor)	return		near_intersect;
 	return		near_intersect;
 
 #if 0
@@ -139,8 +139,8 @@ BOOL CRenderTarget::enable_scissor		(light* L)		// true if intersects near plane
 		if (!bIntersect)	{
 			// volume doesn't touch scissor - enable mask
 			RCache.set_Scissor(&R);
-			//CHK_DX		(DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE,TRUE));
-			//CHK_DX		(DEVICE_HW::XRAY::HW.pDevice->SetScissorRect(&R));
+			//CHK_DX		(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE,TRUE));
+			//CHK_DX		(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetScissorRect(&R));
 		} else {
 			// __asm int 3;
 			RCache.set_Scissor(NULL);

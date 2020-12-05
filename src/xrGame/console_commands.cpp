@@ -148,8 +148,6 @@ extern		u32 game_lua_memory_usage();
 typedef void(*full_memory_stats_callback_type) ();
 XRCORE_API full_memory_stats_callback_type g_full_memory_stats_callback;
 
-ENGINE_API extern u32 renderer_value; //con cmd
-
 static void full_memory_stats()
 {
 	Memory.mem_compact();
@@ -168,23 +166,13 @@ static void full_memory_stats()
 
 	log_vminfo();
 
-	if (renderer_value == 0)
-		Msg("~ [D3D10]: textures[%d K]", (m_base + m_lmaps) / 1024);
-	else if (renderer_value == 1)
-		Msg("~ [D3D10_1]: textures[%d K]", (m_base + m_lmaps) / 1024);
-	else if (renderer_value == 2)
-		Msg("~ [D3D11]: textures[%d K]", (m_base + m_lmaps) / 1024);
+	Msg("- [CryRay Engine] using: textures[%d K]", (m_base + m_lmaps) / 1024);
 
 #ifndef SEVERAL_ALLOCATORS
 	Msg("- [CryRay Engine]: process heap[%u K]", _process_heap / 1024);
 #else // SEVERAL_ALLOCATORS
 //	Msg("- [CryRay Engine]: process heap[%u K], game lua[%d K], render[%d K]", _process_heap / 1024, _game_lua / 1024, _render / 1024);
-	if (renderer_value == 0)
-		Msg("- [CryRay Engine]: process heap[%u K], xrRenderD3D10[%d K]", _process_heap / 1024, _render / 1024);
-	else if (renderer_value == 1)
-		Msg("- [CryRay Engine]: process heap[%u K], xrRenderD3D10_1[%d K]", _process_heap / 1024, _render / 1024);
-	else if (renderer_value == 2)
-		Msg("- [CryRay Engine]: process heap[%u K], xrRenderD3D11[%d K]", _process_heap / 1024, _render / 1024);
+	Msg("- [CryRay Engine]: process heap[%u K], Device::Render[%d K]", _process_heap / 1024, _render / 1024);
 #endif // SEVERAL_ALLOCATORS
 
 	Msg("- [CryRay Engine]: economy: strings[%d K], smem[%d K]", _eco_strings / 1024, _eco_smem);

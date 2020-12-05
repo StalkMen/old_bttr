@@ -521,8 +521,8 @@ void R_dsgraph_structure::r_dsgraph_render_hud_ui()
 
 	if( !RImplementation.o.dx10_msaa )
 	{
-		if (RImplementation.o.albedo_wo)	RImplementation.Target->u_setrt		(RImplementation.Target->rt_Accumulator,	rt_null,	rt_null,	DEVICE_HW::XRAY::HW.pBaseZB);
-		else								RImplementation.Target->u_setrt		(RImplementation.Target->rt_Color,			rt_null,	rt_null,	DEVICE_HW::XRAY::HW.pBaseZB);
+		if (RImplementation.o.albedo_wo)	RImplementation.Target->u_setrt		(RImplementation.Target->rt_Accumulator,	rt_null,	rt_null,	DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
+		else								RImplementation.Target->u_setrt		(RImplementation.Target->rt_Color,			rt_null,	rt_null,	DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 	}
 	else
 	{

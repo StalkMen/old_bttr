@@ -87,7 +87,7 @@ void dx10ConstantBuffer::Flush()
 		void	*pData;
 #ifdef DIRECTX11
 		D3D11_MAPPED_SUBRESOURCE	pSubRes;
-		CHK_DX(DEVICE_HW::XRAY::HW.pRenderContext->Map(m_pBuffer, 0, D3D_MAP_WRITE_DISCARD, 0, &pSubRes));
+		CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->Map(m_pBuffer, 0, D3D_MAP_WRITE_DISCARD, 0, &pSubRes));
 		pData = pSubRes.pData;
 #else
 		CHK_DX(m_pBuffer->Map(D3D_MAP_WRITE_DISCARD, 0, &pData));
@@ -96,7 +96,7 @@ void dx10ConstantBuffer::Flush()
 		VERIFY(m_pBufferData);
 		CopyMemory(pData, m_pBufferData, m_uiBufferSize);
 #ifdef DIRECTX11
-		DEVICE_HW::XRAY::HW.pRenderContext->Unmap(m_pBuffer, 0);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->Unmap(m_pBuffer, 0);
 #else
 		m_pBuffer->Unmap();
 #endif

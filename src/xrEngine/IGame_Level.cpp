@@ -29,9 +29,6 @@ IGame_Level::IGame_Level()
     Device.DumpResourcesMemoryUsage();
 }
 
-//#include "resourcemanager.h"
-extern u32 renderer_value; //con cmd
-
 IGame_Level::~IGame_Level()
 {
     if (strstr(Core.Params, "-nes_texture_storing"))
@@ -58,9 +55,7 @@ IGame_Level::~IGame_Level()
 
     if (renderer_value == 0)
         Msg("~ [D3D10]: textures[%d K]", (m_base + m_lmaps) / 1024);
-    else if (renderer_value == 1)
-        Msg("~ [D3D10_1]: textures[%d K]", (m_base + m_lmaps) / 1024);
-    else if (renderer_value == 2)
+    if (renderer_value == 1)
         Msg("~ [D3D11]: textures[%d K]", (m_base + m_lmaps) / 1024);
 }
 

@@ -94,7 +94,7 @@ void CRenderTarget::accum_point		(light* L)
 //		if (RImplementation.o.HW_smap_FETCH4)	{
 			//. we hacked the shader to force smap on S0
 //#			define FOURCC_GET4  MAKEFOURCC('G','E','T','4') 
-//			DEVICE_HW::XRAY::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET4 );
+//			DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET4 );
 //		}
 
 		RCache.set_CullMode				(CULL_CW);		// back
@@ -137,14 +137,14 @@ void CRenderTarget::accum_point		(light* L)
 //		if (RImplementation.o.HW_smap_FETCH4)	{
 			//. we hacked the shader to force smap on S0
 //#			define FOURCC_GET1  MAKEFOURCC('G','E','T','1') 
-//			DEVICE_HW::XRAY::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET1 );
+//			DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetSamplerState	( 0, D3DSAMP_MIPMAPLODBIAS, FOURCC_GET1 );
 //		}
 	}
 
 	// blend-copy
 	if (!RImplementation.o.fp16_blend)	{
       if( ! RImplementation.o.dx10_msaa )
-	   	u_setrt						(rt_Accumulator,NULL,NULL,DEVICE_HW::XRAY::HW.pBaseZB);
+	   	u_setrt						(rt_Accumulator,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
       else
 		   u_setrt						(rt_Accumulator,NULL,NULL,rt_MSAADepth->pZRT);
 		RCache.set_Element	(s_accum_mask->E[SE_MASK_ACCUM_VOL]	);
@@ -184,7 +184,7 @@ void CRenderTarget::accum_point		(light* L)
       }
 	}
 
-	//CHK_DX		(DEVICE_HW::XRAY::HW.pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE,FALSE));
+	//CHK_DX		(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE,FALSE));
 	RCache.set_Scissor(0);
 
 	//dwLightMarkerID					+=	2;	// keep lowest bit always setted up

@@ -17,7 +17,7 @@ HRESULT	IC CreateBuffer( ID3DBuffer** ppBuffer, const void* pData, UINT DataSize
 	D3D_SUBRESOURCE_DATA subData;
 	subData.pSysMem = pData;
 
-	HRESULT res = DEVICE_HW::XRAY::HW.pRenderDevice->CreateBuffer( &desc, &subData, ppBuffer);
+	HRESULT res = DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateBuffer( &desc, &subData, ppBuffer);
 	//R_CHK(res);
 	return res;
 }
@@ -41,7 +41,7 @@ HRESULT	CreateConstantBuffer( ID3DBuffer** ppBuffer, UINT DataSize)
 	desc.CPUAccessFlags = D3D_CPU_ACCESS_WRITE;
 	desc.MiscFlags = 0;
 
-	HRESULT res = DEVICE_HW::XRAY::HW.pRenderDevice->CreateBuffer( &desc, 0, ppBuffer);
+	HRESULT res = DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateBuffer( &desc, 0, ppBuffer);
 	//R_CHK(res);
 	return res;
 }
