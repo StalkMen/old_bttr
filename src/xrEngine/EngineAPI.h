@@ -4,9 +4,9 @@
 // Support for extension DLLs
 //****************************************************************************
 
-#if !defined(AFX_ENGINEAPI_H__CF21372B_C8B8_4891_82FC_D872C84E1DD4__INCLUDED_)
-#define AFX_ENGINEAPI_H__CF21372B_C8B8_4891_82FC_D872C84E1DD4__INCLUDED_
 #pragma once
+
+extern xr_token* vid_quality_token;
 
 // Abstract 'Pure' class for DLL interface
 class ENGINE_API DLL_Pure
@@ -21,15 +21,51 @@ public:
 };
 
 // Class creation/destroying interface
-extern "C" {
+extern "C" 
+{
     typedef DLL_API DLL_Pure* __cdecl Factory_Create(CLASS_ID CLS_ID);
     typedef DLL_API void __cdecl Factory_Destroy(DLL_Pure* O);
 };
 
 // Tuning interface
-extern "C" {
+extern "C"
+{
     typedef void __cdecl VTPause(void);
     typedef void __cdecl VTResume(void);
+};
+
+#ifdef ENGINE_BUILD
+extern "C"
+{
+    typedef bool SupportsDX10Rendering();
+    typedef bool SupportsDX11Rendering();
+};
+#endif
+
+class ModuleHandler
+{
+    HMODULE Module = nullptr;
+
+public:
+    ModuleHandler(const std::string& ModuleName)
+    {
+        Module = LoadLibrary(ModuleName.c_str());
+    }
+
+    ~ModuleHandler()
+    {
+        if (Module)
+        {
+            FreeLibrary(Module);
+        }
+    }
+
+    bool operator!() const { return !Module; }
+
+    void* GetProcAddress(const char* FuncName) const
+    {
+        return ::GetProcAddress(Module, FuncName);
+    }
 };
 
 class ENGINE_API CEngineAPI
@@ -46,11 +82,7 @@ public:
     VTPause* tune_pause;
     VTResume* tune_resume;
     void Initialize();
-
-    void cryray_render();
-
     void Destroy();
-
     void CreateRendererList();
 
     CEngineAPI();
@@ -59,5 +91,3 @@ public:
 
 #define NEW_INSTANCE(a) Engine.External.pCreate(a)
 #define DEL_INSTANCE(a) { Engine.External.pDestroy(a); a=NULL; }
-
-#endif // !defined(AFX_ENGINEAPI_H__CF21372B_C8B8_4891_82FC_D872C84E1DD4__INCLUDED_)

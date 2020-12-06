@@ -1095,7 +1095,6 @@
     </ClCompile>
     <ClCompile Include="..\xrRenderDX11\dx11Texture.cpp" />
     <ClCompile Include="..\xrRenderDX10\dx10TextureDDS.cpp" />
-    <ClCompile Include="..\xrRenderDX11\dx11HW.cpp" />
     <ClCompile Include="..\xrRender\light_GI.cpp" />
     <ClCompile Include="..\xrRender\Light_Render_Direct.cpp" />
     <ClCompile Include="..\xrRender\Light_Render_Direct_ComputeXFS.cpp" />
@@ -1169,5 +1168,8 @@
     <ClCompile Include="..\xrRender_DXTargets\DX11_HDAOCSBlender.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX11_rendertarget_phase_hdao.cpp" />
     <ClCompile Include="DX11_core.cpp" />
+    <ClCompile Include="..\xrRenderDX10\dxDeviceHW.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_rain_drops.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_rain_drops.cpp" />
   </ItemGroup>
 </Project>

@@ -272,7 +272,7 @@ namespace DEVICE_HW
 			UpdateViews();
 
 			size_t	memory = Desc.DedicatedVideoMemory;
-#ifdef DIRECTX10
+#ifndef DIRECTX10
 			Msg("*     Texture memory DX11: %d M", memory / (1024 * 1024));
 #else
 			Msg("*     Texture memory DX10: %d M", memory / (1024 * 1024));

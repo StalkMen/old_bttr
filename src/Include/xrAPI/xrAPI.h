@@ -26,6 +26,8 @@ namespace CRYRAY_ENV
 		IUIRender* UIRender;
 		CGameMtlLibrary* PGMLib;
 		IDebugRender* DRender;
+
+		int used_dx10_1;
 	};
 }
 extern XRAPI_API CRYRAY_ENV::CRYRAY_ENVIRONMENT	EnvCryRay;

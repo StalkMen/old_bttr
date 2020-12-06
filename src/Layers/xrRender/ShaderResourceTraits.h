@@ -117,22 +117,18 @@ struct ShaderTypeTraits<SGS>
     {
 #ifdef DIRECTX10
         if (DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 == nullptr)
-            return D3D10GetGeometryShaderProfile(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice);
+            return "gs_4_0";
         else
             return "gs_4_1";
 #endif
 #ifdef DIRECTX11
-        if (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_0)
-            return "gs_4_0";
-        else if (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel == D3D_FEATURE_LEVEL_10_1)
-            return "gs_4_1";
-        else if (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0)
+        if (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0)
             return "gs_5_0";
 #endif
         return "gs_4_0";
     }
 	
-	static void GetCompilationTarget(const char*& target, const char*& entry, const char* /*data*/)
+	static void GetCompilationTarget(const char*& target, const char*& entry, const char*)
     {
         target = GetCompilationTarget();
         entry = "main";
@@ -162,7 +158,7 @@ struct ShaderTypeTraits<SHS>
     static inline const char* GetShaderExt() { return "hs_"; }
     static inline const char* GetCompilationTarget() { return "hs_5_0"; }
 	
-	static void GetCompilationTarget(const char*& target, const char*& entry, const char* /*data*/)
+	static void GetCompilationTarget(const char*& target, const char*& entry, const char*)
     {
         target = GetCompilationTarget();
         entry = "main";
@@ -188,7 +184,7 @@ struct ShaderTypeTraits<SDS>
     static inline const char* GetShaderExt() { return "ds_"; }
     static inline const char* GetCompilationTarget() { return "ds_5_0"; }
 	
-	static void GetCompilationTarget(const char*& target, const char*& entry, const char* /*data*/)
+	static void GetCompilationTarget(const char*& target, const char*& entry, const char*)
     {
         target = GetCompilationTarget();
         entry = "main";
@@ -214,7 +210,7 @@ struct ShaderTypeTraits<SCS>
     static inline const char* GetShaderExt() { return "cs_"; }
     static inline const char* GetCompilationTarget() { return "cs_5_0"; }
 	
-	static void GetCompilationTarget(const char*& target, const char*& entry, const char* /*data*/)
+	static void GetCompilationTarget(const char*& target, const char*& entry, const char*)
     {
         target = GetCompilationTarget();
         entry = "main";
@@ -271,7 +267,7 @@ inline CResourceManager::map_CS& CResourceManager::GetShaderMap()
 #endif
 
 template <typename T>
-inline T* CResourceManager::CreateShader(const char* name, const char* filename /*= nullptr*/, const bool searchForEntryAndTarget /*= false*/)
+inline T* CResourceManager::CreateShader(const char* name, const char* filename, const bool searchForEntryAndTarget)
 {
     ShaderTypeTraits<T>::MapType& sh_map = GetShaderMap<ShaderTypeTraits<T>::MapType>();
     LPSTR N = LPSTR(name);

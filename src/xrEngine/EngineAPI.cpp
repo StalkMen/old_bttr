@@ -4,203 +4,158 @@
 
 #include "stdafx.h"
 #include "EngineAPI.h"
-#include "../xrcdb/xrXRC.h"
+#include "xr_ioconsole.h"
+#include "xr_ioc_cmd.h"
+#include "../build_engine_config.h"
 
-//#include "securom_api.h"
-
-extern xr_token* vid_quality_token;
-
-LPCSTR dx10_name = "xrRender_DX10.dll";
-LPCSTR dx11_name = "xrRender_DX11.dll";
-
-//////////////////////////////////////////////////////////////////////
-// Construction/Destruction
-//////////////////////////////////////////////////////////////////////
-
-void __cdecl dummy(void)
+void __cdecl dummy(void) 
 {
 };
 
 CEngineAPI::CEngineAPI()
 {
-    hGame = 0;
-    hRender = 0;
-    hTuner = 0;
-    pCreate = 0;
-    pDestroy = 0;
-    tune_pause = dummy;
-    tune_resume = dummy;
+	hGame = 0;
+	hRender = 0;
+	hTuner = 0;
+	pCreate = 0;
+	pDestroy = 0;
+	tune_pause = dummy;
+	tune_resume = dummy;
 }
 
 CEngineAPI::~CEngineAPI()
 {
-    // destroy quality token here
-    if (vid_quality_token)
-    {
-        xr_free(vid_quality_token);
-        vid_quality_token = NULL;
-    }
+	// destroy quality token here
+	if (vid_quality_token)
+	{
+		for (int i = 0; vid_quality_token[i].name; i++)
+		{
+			xr_free(vid_quality_token[i].name);
+		}
+		xr_free(vid_quality_token);
+		vid_quality_token = nullptr;
+	}
 }
 
 ENGINE_API bool is_enough_address_space_available()
 {
-    SYSTEM_INFO system_info;
-        GetSystemInfo(&system_info);
-        return (*(u32*)&system_info.lpMaximumApplicationAddress) > 0x90000000;
+	SYSTEM_INFO system_info;
+	GetSystemInfo(&system_info);
+
+	return (*(u32*)&system_info.lpMaximumApplicationAddress) > 0x90000000;
 }
 
-void CEngineAPI::cryray_render()
+void CEngineAPI::Initialize()
 {
-    if (psDeviceFlags.test(rDX10))
-    {
-        // try to initialize DX10
-        Log("# Loading DLL:", dx10_name);
-        hRender = LoadLibrary(dx10_name);
-        if (0 == hRender)
-            R_ASSERT("! ...Failed - incompatible hardware/pre-Vista OS.");
-    }
+	CCC_LoadCFG_custom pTmp("renderer ");
+	pTmp.Execute(Console->ConfigFile);
 
-    if (psDeviceFlags.test(rDX11))
-    {
-        // try to initialize DX11
-        Log("# Loading DLL:", dx11_name);
-        hRender = LoadLibrary(dx11_name);
-        if (0 == hRender)
-            R_ASSERT("! ...Failed - incompatible hardware/pre-Vista OS.");
-    }
+	constexpr LPCSTR r3_name = "xrRender_R3.dll";
+	constexpr LPCSTR r4_name = "xrRender_R4.dll";
+
+	if (psDeviceFlags.test(rDX11))
+	{
+		Msg("# Loading DLL: [%s]", r4_name);
+		hRender = LoadLibrary(r4_name);
+		if (!hRender)
+			Msg("- [%s] Can't load module: [%s]! Error: %s", __FUNCTION__, r4_name, Debug.error2string(GetLastError()));
+	}
+
+	if (psDeviceFlags.test(rDX10))
+	{
+		Msg("# Loading DLL: [%s]", r3_name);
+		hRender = LoadLibrary(r3_name);
+		if (!hRender)
+			Msg("- [%s] Can't load module: [%s]! Error: %s", __FUNCTION__, r3_name, Debug.error2string(GetLastError()));
+	}
+
+	if (!hRender)
+	{
+		psDeviceFlags.set(rDX11, FALSE);
+		psDeviceFlags.set(rDX10, FALSE);
+		renderer_value = 0;
+
+		Msg("# Loading DLL: [%s]", r3_name);
+		hRender = LoadLibrary(r3_name);
+		CRASH_PROTECTION_OGSR(hRender, "- [%s] Can't load module: [%s]! Error: %s", __FUNCTION__, r3_name, Debug.error2string(GetLastError()));
+	}
+
+	Device.ConnectToRender();
+
+	constexpr const char* g_name = "xrGame.dll";
+	Msg("# Loading DLL: [%s]", g_name);
+	hGame = LoadLibrary(g_name);
+	CRASH_PROTECTION_OGSR(hGame, "# Game DLL raised exception during loading or there is no game DLL at all. Error: [%s]", Debug.error2string(GetLastError()));
+	pCreate = (Factory_Create*)GetProcAddress(hGame, "xrFactory_Create");
+	R_ASSERT(pCreate);
+	pDestroy = (Factory_Destroy*)GetProcAddress(hGame, "xrFactory_Destroy");
+	R_ASSERT(pDestroy);
+
 }
 
-void CEngineAPI::Initialize(void)
+void CEngineAPI::Destroy()
 {
-    //////////////////////////////////////////////////////////////////////////
-    // render
-    cryray_render();
-
-#pragma todo("OldSerpskiStalker. При неудачном запуске, сброс на 10 рендер")
-    
-    if (0 == hRender)
-    {
-        psDeviceFlags.set(rDX10, TRUE);
-        psDeviceFlags.set(rDX11, FALSE);
-
-        renderer_value = 0;
-
-        Log("# Loading DLL:", dx10_name);
-        hRender = LoadLibrary(dx10_name);
-        if (0 == hRender) 
-            R_CHK(GetLastError());
-        R_ASSERT(hRender);
-    }
-
-    Device.ConnectToRender();
-
-    // game
-    {
-        LPCSTR g_name = "xrGame.dll";
-        Log("# Loading DLL:", g_name);
-        hGame = LoadLibrary(g_name);
-        if (0 == hGame) R_CHK(GetLastError());
-        R_ASSERT2(hGame, "Game DLL raised exception during loading or there is no game DLL at all");
-        pCreate = (Factory_Create*)GetProcAddress(hGame, "xrFactory_Create");
-        R_ASSERT(pCreate);
-        pDestroy = (Factory_Destroy*)GetProcAddress(hGame, "xrFactory_Destroy");
-        R_ASSERT(pDestroy);
-    }
-
-    //////////////////////////////////////////////////////////////////////////
-    // vTune
-    tune_enabled = FALSE;
-    if (strstr(Core.Params, "-tune"))
-    {
-        LPCSTR g_name = "vTuneAPI.dll";
-        Log("# Loading DLL:", g_name);
-        hTuner = LoadLibrary(g_name);
-        if (0 == hTuner) R_CHK(GetLastError());
-        R_ASSERT2(hTuner, "Intel vTune is not installed");
-        tune_enabled = TRUE;
-        tune_pause = (VTPause*)GetProcAddress(hTuner, "VTPause");
-        R_ASSERT(tune_pause);
-        tune_resume = (VTResume*)GetProcAddress(hTuner, "VTResume");
-        R_ASSERT(tune_resume);
-    }
+	if (hGame) { FreeLibrary(hGame);	hGame = 0; }
+	if (hRender) { FreeLibrary(hRender); hRender = 0; }
+	pCreate = 0;
+	pDestroy = 0;
+	Engine.Event._destroy();
+	XRC.r_clear_compact();
 }
-
-void CEngineAPI::Destroy(void)
-{
-    if (hGame) { FreeLibrary(hGame); hGame = 0; }
-    if (hRender) { FreeLibrary(hRender); hRender = 0; }
-    pCreate = 0;
-    pDestroy = 0;
-    Engine.Event._destroy();
-    XRC.r_clear_compact();
-}
-
-extern "C" 
-{ 
-    typedef bool _declspec(dllexport) SupportsDX10Rendering();  
-    typedef bool _declspec(dllexport) SupportsDX11Rendering(); 
-};
 
 void CEngineAPI::CreateRendererList()
 {
-    // TODO: ask renderers if they are supported!
-    if (vid_quality_token != NULL)
-        return;
+	std::vector<std::string> RendererTokens;
 
-    bool bSupports_dx10 = false;
-    bool bSupports_dx11 = false;
+	for (size_t i = 3; i <= 4; i++)
+	{
+		std::string ModuleName("xrRender_R");
+		ModuleName += std::to_string(i) + ".dll";
 
-    // try to initialize DX10
-    Log("# Loading DLL:", dx10_name);
-    // Hide "d3d10.dll not found" message box for XP
-    SetErrorMode(SEM_FAILCRITICALERRORS);
-    hRender = LoadLibrary(dx10_name);
-    // Restore error handling
-    SetErrorMode(0);
-    if (hRender)
-    {
-        SupportsDX10Rendering* DX10 = (SupportsDX10Rendering*)GetProcAddress(hRender, "SupportsDX10Rendering");
-        R_ASSERT(DX10);
-        bSupports_dx10 = DX10();
-        FreeLibrary(hRender);
-    }
+		ModuleHandler RenderModule(ModuleName);
+		if (!RenderModule) 
+		{
+			Msg("- [%s] Can't load module: [%s]! Error: %s", __FUNCTION__, ModuleName.c_str(), Debug.error2string(GetLastError()));
+			break;
+		}
 
-    // try to initialize R4
-    Log("# Loading DLL:", dx11_name);
-    // Hide "d3d10.dll not found" message box for XP
-    SetErrorMode(SEM_FAILCRITICALERRORS);
-    hRender = LoadLibrary(dx11_name);
-    // Restore error handling
-    SetErrorMode(0);
-    if (hRender)
-    {
-        SupportsDX11Rendering* DX11 = (SupportsDX11Rendering*)GetProcAddress(hRender, "SupportsDX11Rendering");
-        R_ASSERT(DX11);
-        bSupports_dx11 = DX11();
-        FreeLibrary(hRender);
-    }
+		if (i == 3)
+		{
+			auto dx10_rendering = (SupportsDX10Rendering*)RenderModule.GetProcAddress("SupportsDX10Rendering");
+			R_ASSERT(dx10_rendering);
+			if (dx10_rendering())
+				RendererTokens.emplace_back(BttR_mode ? "renderer_dx10" : "renderer_r3");
+			else 
+			{
+				Msg("# [%s] [SupportsDX10Rendering] failed!", __FUNCTION__);
+				break;
+			}
+		}
+		else if (i == 4)
+		{
+			auto dx11_rendering = (SupportsDX11Rendering*)RenderModule.GetProcAddress("SupportsDX11Rendering");
+			R_ASSERT(dx11_rendering);
+			if (dx11_rendering())
+				RendererTokens.emplace_back(BttR_mode ? "renderer_dx11" : "renderer_r4");
+			else 
+			{
+				Msg("# [%s] [SupportsDX11Rendering] failed!", __FUNCTION__);
+				break;
+			}
+		}
+	}
 
+	size_t cnt = RendererTokens.size() + 1;
+	vid_quality_token = xr_alloc<xr_token>(cnt);
 
-    hRender = 0;
-    bool proceed = true;
-    xr_vector<LPCSTR> _tmp;
+	vid_quality_token[cnt - 1].id = -1;
+	vid_quality_token[cnt - 1].name = nullptr;
 
-    if (proceed &= bSupports_dx10, proceed)
-        _tmp.push_back("support_DX10");
-    if (proceed &= bSupports_dx11, proceed)
-        _tmp.push_back("support_DX11");
-
-    u32 _cnt = _tmp.size() + 1;
-    vid_quality_token = xr_alloc<xr_token>(_cnt);
-
-    vid_quality_token[_cnt - 1].id = -1;
-    vid_quality_token[_cnt - 1].name = NULL;
-
-    Msg("* Available render modes[%d]:", _tmp.size());
-    for (u32 i = 0; i < _tmp.size(); ++i)
-    {
-        vid_quality_token[i].id = i;
-        vid_quality_token[i].name = _tmp[i];
-        Msg("[%s]", _tmp[i]);
-    }
+	Msg("# [%s] Available render modes [%u]:", __FUNCTION__, RendererTokens.size());
+	for (size_t i = 0; i < RendererTokens.size(); ++i)
+	{
+		vid_quality_token[i].id = i;
+		vid_quality_token[i].name = xr_strdup(RendererTokens[i].c_str());
+		Msg("# [%s]", RendererTokens[i].c_str());
+	}
 }

@@ -247,10 +247,10 @@ public:
             for (it = Console->Commands.begin(); it != Console->Commands.end(); it++)
                 it->second->Save(F);
             FS.w_close(F);
-            Msg("~ file [%s] saved successfully", cfg_full_name);
+            Msg("# File [%s] saved successfully", cfg_full_name);
         }
         else
-            Msg("!Cannot store config file [%s]", cfg_full_name);
+            Msg("~ Either the file was not found or it has not yet been created in the folder: [%s]", cfg_full_name);
     }
 };
 CCC_LoadCFG::CCC_LoadCFG(LPCSTR N) : IConsole_Command(N)
@@ -258,7 +258,7 @@ CCC_LoadCFG::CCC_LoadCFG(LPCSTR N) : IConsole_Command(N)
 
 void CCC_LoadCFG::Execute(LPCSTR args)
 {
-    Msg("Executing config-script \"%s\"...", args);
+    Msg("# Executing config-script \"%s\"...", args);
     string_path cfg_name;
 
     xr_strcpy(cfg_name, args);
@@ -291,7 +291,7 @@ void CCC_LoadCFG::Execute(LPCSTR args)
     }
     else
     {
-        Msg("! Cannot open script file [%s]", cfg_full_name);
+        Msg("~ Either the file was not found or it has not yet been created in the folder: [%s]", cfg_full_name);
     }
 }
 
@@ -354,11 +354,6 @@ public:
     CCC_Start(LPCSTR N) : IConsole_Command(N) { bLowerCaseArgs = false; };
     virtual void Execute(LPCSTR args)
     {
-        /* if (g_pGameLevel) {
-         Log ("! Please disconnect/unload first");
-         return;
-         }
-         */
         string4096 op_server, op_client, op_demo;
         op_server[0] = 0;
         op_client[0] = 0;
@@ -1100,7 +1095,7 @@ class CCC_DirectX : public CCC_Token
 {
     typedef CCC_Token inherited;
 public:
-    CCC_DirectX(LPCSTR N) :inherited(N, &renderer_value, NULL) { renderer_value = 0; };
+    CCC_DirectX(LPCSTR N) :inherited(N, &renderer_value, NULL) { };
     virtual ~CCC_DirectX() { }
 
     virtual void Execute(LPCSTR args)

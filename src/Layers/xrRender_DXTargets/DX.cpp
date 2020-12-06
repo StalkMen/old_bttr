@@ -339,6 +339,11 @@ void					CRender::create					()
 	}
 
 	o.dx10_1 = ps_r2_ls_flags.test((u32)R3FLAG_USE_DX10_1);
+	if (o.dx10_1)
+	{
+		EnvCryRay.used_dx10_1 = 1;
+		Msg("[CryRay Engine]: used DX10_1: %i", EnvCryRay.used_dx10_1);
+	}
 	o.dx10_1 = o.dx10_1 && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0 );
 #endif
 	//	MSAA option dependencies

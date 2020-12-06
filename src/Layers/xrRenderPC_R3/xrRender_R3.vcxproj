@@ -68,6 +68,7 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(xrGameDir)Win64_Release\</OutDir>
     <IntDir>$(xrIntDir)$(ProjectName)\</IntDir>
+    <TargetName>xrRender_R3</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -516,7 +517,7 @@
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_sunshafts.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_gamma.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_gasmask.cpp" />
-	<ClCompile Include="..\xrRender_DXTargets\Blenders\blender_rain_drops.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_rain_drops.cpp" />
     <ClCompile Include="..\xrRender\light_GI.cpp" />
     <ClCompile Include="..\xrRender\Light_Render_Direct.cpp" />
     <ClCompile Include="..\xrRender\Light_Render_Direct_ComputeXFS.cpp" />
@@ -547,7 +548,7 @@
     <ClCompile Include="..\xrRender_DXTargets\DX_blenders.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_occq.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_rain.cpp" />
-	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_rain_drops.cpp" />
+    <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_rain_drops.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_scene.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_create_minmaxSM.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_draw_volume.cpp" />
