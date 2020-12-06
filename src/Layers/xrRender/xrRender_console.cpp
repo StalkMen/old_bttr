@@ -145,7 +145,7 @@ Flags32 ps_actor_shadow_flags = {0}; //Swartz: actor shadow
 //AVO: detail draw radius
 Flags32		ps_common_flags = {0};		// r1-only
 u32			ps_steep_parallax = 0;
-int			ps_r__detail_radius = 49;
+int			ps_r__detail_radius = 100;
 #ifdef DETAIL_RADIUS // ���������� �������� ��������� �����
 u32			dm_size = 24;
 u32 		dm_cache1_line = 12;	//dm_size*2/dm_cache1_count
@@ -158,8 +158,8 @@ u32			dm_current_cache_line = 49;	//dm_current_size+1+dm_current_size
 u32			dm_current_cache_size = 2401;	//dm_current_cache_line*dm_current_cache_line
 float		dm_current_fade = 47.5;	//float(2*dm_current_size)-.5f;
 #endif
-float		ps_current_detail_density = 0.6;
-float		ps_current_detail_scale = 1.0f;
+float		ps_current_detail_density = 0.4;
+float		ps_current_detail_scale = 0.75f;
 xr_token							ext_quality_token[] = {
     {"qt_off", 0},
     {"qt_low", 1},
@@ -730,9 +730,6 @@ void		xrRender_initconsole()
 #endif // DEBUG
 	CMD4(CCC_Float, "r__wallmark_ttl", &ps_r__WallmarkTTL, 1.0f, 5.f * 60.f);
 
-	CMD4(CCC_Float, "r__detail_density", &ps_current_detail_density/*&ps_r__Detail_density*/, 0.04f/*.2f*/, 0.6f); //AVO: extended from 0.2 to 0.04 and replaced variable
-	CMD4(CCC_Float, "r__detail_scale", &ps_current_detail_scale, 0.5f, 2.0f);
-
 #ifdef DEBUG
 	CMD4(CCC_Float, "r__detail_l_ambient", &ps_r__Detail_l_ambient, .5f, .95f);
 	CMD4(CCC_Float, "r__detail_l_aniso", &ps_r__Detail_l_aniso, .1f, .5f);
@@ -859,7 +856,13 @@ void		xrRender_initconsole()
 	CMD3(CCC_Token, "r3_minmax_sm", &ps_r3_minmax_sm, qminmax_sm_token);
 
 #ifdef DETAIL_RADIUS
-	CMD4(CCC_detail_radius, "r__detail_radius", &ps_r__detail_radius, 49, 250);
+	if (EnvCryRay.detail_settings)
+	{
+		CMD4(CCC_Float, "r__detail_density", &ps_current_detail_density, 0.04f, 0.6f);
+		CMD4(CCC_Float, "r__detail_scale", &ps_current_detail_scale, 0.5f, 2.0f);
+		CMD4(CCC_detail_radius, "r__detail_radius", &ps_r__detail_radius, 49, 250);
+	}
+
 	CMD4(CCC_Integer, "r__clear_models_on_unload", &ps_clear_models_on_unload, 0, 1); //Alundaio
 	CMD4(CCC_Integer, "r__use_precompiled_shaders", &ps_use_precompiled_shaders, 0, 1); //Alundaio
 	CMD4(CCC_Integer, "r__enable_grass_shadow", &ps_grass_shadow, 0, 1); //Alundaio

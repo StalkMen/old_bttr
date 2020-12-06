@@ -27,7 +27,9 @@ namespace CRYRAY_ENV
 		CGameMtlLibrary* PGMLib;
 		IDebugRender* DRender;
 
-		int used_dx10_1;
+		int used_dx10_1; //API, используем ли мы в данный момент DX10.1
+
+		bool detail_settings; //API, разрешить ли регулирование травы через консоль
 	};
 }
 extern XRAPI_API CRYRAY_ENV::CRYRAY_ENVIRONMENT	EnvCryRay;

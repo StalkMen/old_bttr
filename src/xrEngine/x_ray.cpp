@@ -207,6 +207,13 @@ PROTECT_API void InitSettings()
         BttR_mode = false;
         Call_of_Chernobyl_mode = true;
     }
+
+    bool detail_settings = READ_IF_EXISTS(pFFSettings, r_bool, "render_cryray", "detail_settings", false);
+
+    if (detail_settings)
+        EnvCryRay.detail_settings = true;
+    else
+        EnvCryRay.detail_settings = false;
 }
 
 PROTECT_API void InitConsole()
