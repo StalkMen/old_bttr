@@ -29,7 +29,7 @@ void CALifeTimeManager::init			(LPCSTR section)
 	sscanf						(pSettings->r_string(section,"start_date"),"%d.%d.%d",&days,&months,&years);
 	m_start_game_time			= generate_time(years,months,days,hours,minutes,seconds);
 	m_time_factor				= cryray.alife_worldtime_factor();
-	m_normal_time_factor		= pSettings->r_float(section,"normal_time_factor");
+	m_normal_time_factor		= cryray.time_factor_normal();
 	m_game_time					= m_start_game_time;
 	m_start_time				= Device.dwTimeGlobal;
 }

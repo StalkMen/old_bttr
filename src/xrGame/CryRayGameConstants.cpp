@@ -17,6 +17,9 @@ u64 alife_sheduler_process_time = 0;
 
 float alife_time_factor = 0.f;
 float alife_update_monster_factor = 0.f;
+float normal_time_factor = 0.f;
+float switch_distance = 0.f;
+float switch_factor = 0.f;
 
 namespace CryRayParams 
 {
@@ -28,8 +31,8 @@ namespace CryRayParams
 
 	void CryRayCheckParams()
 	{
-		Msg("# -. [CryRayParams]: Start game (+ Alife): schedule_min(% i), schedule_max(%i), process_time(%i), update_monster_factor(%f), time_factor(%f), objects_per_update(%i)", 
-			alife_sheduler_min, alife_sheduler_max, alife_sheduler_process_time, alife_update_monster_factor, alife_time_factor, alife_object_per_update);
+		Msg("# -. [CryRayParams]: Start game (+ Alife): schedule_min(% i), schedule_max(%i), process_time(%i), update_monster_factor(%f), time_factor(%f), objects_per_update(%i), normal_time_factor (%f), switch_distance (%f), switch_factor (%f)", 
+			alife_sheduler_min, alife_sheduler_max, alife_sheduler_process_time, alife_update_monster_factor, alife_time_factor, alife_object_per_update, normal_time_factor, switch_distance, switch_factor);
 		Msg("# -. [CryRayParams]: Start game (+ NPC): Novice: (%i), Experienced: (%i), Veteran: (%i), Master: (%i)", noviceRankStart, experiencedRankStart, veteranRankStart, masterRankStart);
 		Msg("# Final. [CryRayParams]: Check default params!");
 	}
@@ -51,8 +54,12 @@ namespace CryRayParams
 		alife_time_factor = READ_IF_EXISTS(pSettings, r_float, "alife", "alife_time_factor", BttR_mode ? 4 : 10); // Скорость для демонстрации смены дня и ночи
 		alife_object_per_update = READ_IF_EXISTS(pSettings, r_s32, "alife", "alife_objects_per_update", 20);
 
-		Msg("# 1. [CryRayParams]: Loaded parameters: schedule_min (%i), schedule_max (%i), process_time (%i), update_monster_factor (%f), time_factor (%f), objects_per_update (%i)", 
-			alife_sheduler_min, alife_sheduler_max, alife_sheduler_process_time, alife_update_monster_factor, alife_time_factor, alife_object_per_update);
+		normal_time_factor = READ_IF_EXISTS(pSettings, r_float, "alife", "normal_time_factor", 10.f); //животные в оффлайне перемещаются со скоростью, делённой на этот фактор (чтобы не бегали очень быстро)
+		switch_distance = READ_IF_EXISTS(pSettings, r_float, "alife", "switch_distance", 250.f);
+		switch_factor = READ_IF_EXISTS(pSettings, r_float, "alife", "switch_factor", 0.1f);
+
+		Msg("# 1. [CryRayParams]: Loaded parameters: schedule_min (%i), schedule_max (%i), process_time (%i), update_monster_factor (%f), time_factor (%f), objects_per_update (%i), normal_time_factor (%f), switch_distance (%f), switch_factor (%f)", 
+			alife_sheduler_min, alife_sheduler_max, alife_sheduler_process_time, alife_update_monster_factor, alife_time_factor, alife_object_per_update, normal_time_factor, switch_distance, switch_factor);
 
 		Msg("# Final. [CryRayParams]: Are Loaded!");
 	}
@@ -105,6 +112,21 @@ namespace CryRayParams
 	u64 CryRayClass::alife_sheduler_process()
 	{
 		return alife_sheduler_process_time;
+	}
+
+	float CryRayClass::time_factor_normal() const
+	{
+		return normal_time_factor;
+	}
+
+	float CryRayClass::switch_distance_normal() const
+	{
+		return switch_distance;
+	}
+
+	float CryRayClass::switch_factor_normal() const
+	{
+		return switch_factor;
 	}
 
 	const float CryRayClass::alife_worldtime_factor() const

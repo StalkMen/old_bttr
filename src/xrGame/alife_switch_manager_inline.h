@@ -6,13 +6,17 @@
 //	Description : ALife Simulator switch manager inline functions
 ////////////////////////////////////////////////////////////////////////////
 
+
 #pragma once
+#include "CryRayGameConstants.h"
 
 IC	CALifeSwitchManager::CALifeSwitchManager		(xrServer *server, LPCSTR section) :
 	inherited		(server,section)
 {
-	m_switch_distance	= pSettings->r_float(section,"switch_distance");
-	m_switch_factor		= pSettings->r_float(section,"switch_factor");
+	CryRayParams::CryRayClass	cryray;
+
+	m_switch_distance	= cryray.switch_distance_normal();
+	m_switch_factor		= cryray.switch_factor_normal();
 	set_switch_distance	(m_switch_distance);
 	seed				(u32(CPU::QPC() & 0xffffffff));
 }

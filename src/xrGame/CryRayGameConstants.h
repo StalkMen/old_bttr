@@ -23,6 +23,10 @@ namespace CryRayParams
 			u32 alife_object_per();
 
 			u64 alife_sheduler_process();
+			
+			float time_factor_normal() const;
+			float switch_distance_normal() const;
+			float switch_factor_normal() const;
 
 			const float alife_worldtime_factor() const;
 			const float alife_update_monster() const;
