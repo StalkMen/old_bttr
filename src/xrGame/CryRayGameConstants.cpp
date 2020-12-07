@@ -31,9 +31,9 @@ namespace CryRayParams
 
 	void CryRayCheckParams()
 	{
-		Msg("# -. [CryRayParams]: Start game (+ Alife): schedule_min(% i), schedule_max(%i), process_time(%i), update_monster_factor(%f), time_factor(%f), objects_per_update(%i), normal_time_factor (%f), switch_distance (%f), switch_factor (%f)", 
+		Msg("# 0.0. [CryRayParams]: Start game (+ Alife): schedule_min(% i), schedule_max(%i), process_time(%i), update_monster_factor(%f), time_factor(%f), objects_per_update(%i), normal_time_factor (%f), switch_distance (%f), switch_factor (%f)", 
 			alife_sheduler_min, alife_sheduler_max, alife_sheduler_process_time, alife_update_monster_factor, alife_time_factor, alife_object_per_update, normal_time_factor, switch_distance, switch_factor);
-		Msg("# -. [CryRayParams]: Start game (+ NPC): Novice: (%i), Experienced: (%i), Veteran: (%i), Master: (%i)", noviceRankStart, experiencedRankStart, veteranRankStart, masterRankStart);
+		Msg("# 1.0. [CryRayParams]: Start game (+ NPC): Novice: (%i), Experienced: (%i), Veteran: (%i), Master: (%i)", noviceRankStart, experiencedRankStart, veteranRankStart, masterRankStart);
 		Msg("# Final. [CryRayParams]: Check default params!");
 	}
 
@@ -53,14 +53,12 @@ namespace CryRayParams
 		alife_update_monster_factor = READ_IF_EXISTS(pSettings, r_float, "alife", "alife_update_monster_factor", 0.1f);
 		alife_time_factor = READ_IF_EXISTS(pSettings, r_float, "alife", "alife_time_factor", BttR_mode ? 4 : 10); // Скорость для демонстрации смены дня и ночи
 		alife_object_per_update = READ_IF_EXISTS(pSettings, r_s32, "alife", "alife_objects_per_update", 20);
-
 		normal_time_factor = READ_IF_EXISTS(pSettings, r_float, "alife", "normal_time_factor", 10.f); //животные в оффлайне перемещаются со скоростью, делённой на этот фактор (чтобы не бегали очень быстро)
 		switch_distance = READ_IF_EXISTS(pSettings, r_float, "alife", "switch_distance", 250.f);
 		switch_factor = READ_IF_EXISTS(pSettings, r_float, "alife", "switch_factor", 0.1f);
-
-		Msg("# 1. [CryRayParams]: Loaded parameters: schedule_min (%i), schedule_max (%i), process_time (%i), update_monster_factor (%f), time_factor (%f), objects_per_update (%i), normal_time_factor (%f), switch_distance (%f), switch_factor (%f)", 
+		Msg("# 1. [CryRayParams]: Loaded parameters: schedule_min (%i), schedule_max (%i), process_time (%i), update_monster_factor (%f), time_factor (%f), objects_per_update (%i), normal_time_factor (%f), switch_distance (%f), switch_factor (%f)",
 			alife_sheduler_min, alife_sheduler_max, alife_sheduler_process_time, alife_update_monster_factor, alife_time_factor, alife_object_per_update, normal_time_factor, switch_distance, switch_factor);
-
+		
 		Msg("# Final. [CryRayParams]: Are Loaded!");
 	}
 

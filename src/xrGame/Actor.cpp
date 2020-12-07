@@ -84,6 +84,8 @@
 using namespace luabind;
 //-Alundaio
 
+#include "CryRayGameConstants.h"
+
 const u32		patch_frames = 50;
 const float		respawn_delay = 1.f;
 const float		respawn_auto = 7.f;
@@ -1760,8 +1762,7 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
     static float update_time    = 0.0f;
            float f_update_time  = 0.0f;
            float fArtReac       = 0.0f;
-           float PsyFloat       = conditions().GetPsyHealth();
-
+    
     if (update_time < ARTEFACTS_UPDATE_TIME)
     {
         update_time += conditions().fdelta_time();
@@ -1799,21 +1800,24 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
 
             fArtReac += artefact->m_fARRestoreSpeed * art_cond;
 
-            
+            if (fArtReac >= 0.6f)
+            {
+                LPCSTR artefact_reaction;
+                LUA_EXPORT functor;
+                R_ASSERT(_SCRIPT_ENGINE("_export_cryray.update_reaction_artefact", functor));
+                artefact_reaction = functor();
+            }
         }
     }
 
-    Msg("~ Artefact reaction summ: [%f], [%f]", fArtReac, PsyFloat);
+//    Msg("~ Artefact reaction summ: [%f]", fArtReac);
 
     CCustomOutfit* outfit = GetOutfit();
     CHelmet* pHelmet = smart_cast<CHelmet*>(inventory().ItemFromSlot(HELMET_SLOT));
 
 	if (!outfit && !pHelmet)
 	{
-/* 		if (GetNightVisionStatus())
-		{
-			SwitchNightVision(false);
-		} */
+
 	}
 	else
     {
