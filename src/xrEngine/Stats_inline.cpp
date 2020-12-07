@@ -222,7 +222,7 @@ void CStats::Show_HW_Stats()
 
                 case 19:
                         if (GPUTemperature != U32_NULL)
-                            pFontHW->Out(GetMainInfoStats, InfoScale, "GPU Temperature: %i°", CAMDReader::bAMDSupportADL ? GPUTemperature / 1000 : CNvReader::bSupport ? GPUTemperature : 0);
+                            pFontHW->Out(GetMainInfoStats, InfoScale, "GPU Temperature: %i t", CAMDReader::bAMDSupportADL ? GPUTemperature / 1000 : CNvReader::bSupport ? GPUTemperature : 0);
 
                         InfoScale += 15;
 
