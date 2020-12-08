@@ -7141,6 +7141,9 @@
     <ClInclude Include="ui\UIPdaSpot.h">
       <Filter>CryRayFiles</Filter>
     </ClInclude>
+    <ClInclude Include="detector_checker.h">
+      <Filter>CryRayFiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="damage_manager.cpp">
@@ -10350,6 +10353,9 @@
       <Filter>CryRayFiles</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIPdaSpot.cpp">
+      <Filter>CryRayFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="detector_checker.cpp">
       <Filter>CryRayFiles</Filter>
     </ClCompile>
   </ItemGroup>

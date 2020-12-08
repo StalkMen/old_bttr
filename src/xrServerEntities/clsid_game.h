@@ -177,6 +177,7 @@
 #define CLSID_DEVICE_AF_MERGER		MK_CLSID('D','_','A','F','M','E','R','G')
 #define CLSID_DEVICE_FLARE			MK_CLSID('D','_','F','L','A','R','E',' ')
 #define CLSID_IITEM_BATTERY			MK_CLSID('I','I','_','B','A','T','T','E')
+#define CLSID_IITEM_DETCHECKER		MK_CLSID('I','I','_','D','E','C','H','K')
 #define CLSID_IITEM_FLASH			MK_CLSID('I','I','_','F','L','A','S','H')
 
 // Inventory items

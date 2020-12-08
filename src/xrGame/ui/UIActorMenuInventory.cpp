@@ -19,6 +19,7 @@
 
 #include "../battery.h"
 #include "../flash_card.h"
+#include "../detector_checker.h"
 
 #include "../silencer.h"
 #include "../scope.h"
@@ -1275,9 +1276,10 @@ bool CUIActorMenu::TryUseItem( CUICellItem* cell_itm )
 	CAntirad*		pAntirad		= smart_cast<CAntirad*>		(item);
 	CEatableItem*	pEatableItem	= smart_cast<CEatableItem*>	(item);
 	CBattery* 		pBattery 		= smart_cast<CBattery*>		(CurrentIItem());
+	CDetectorChecker* pDetector 	= smart_cast<CDetectorChecker*>		(CurrentIItem());
 	CFlashCard*		pFlash			= smart_cast<CFlashCard*>	(CurrentIItem());
 
-	if ( !(pMedkit || pAntirad || pEatableItem || pBottleItem || pBattery || pFlash) )
+	if ( !(pMedkit || pAntirad || pEatableItem || pBottleItem || pBattery || pFlash || pDetector) )
 	{
 		return false;
 	}
@@ -1625,7 +1627,7 @@ void CUIActorMenu::PropertiesBoxForUsing( PIItem item, bool& b_show )
 		CBottleItem*	pBottleItem = smart_cast<CBottleItem*>	(item);
 		CBattery* 		pBattery = smart_cast<CBattery*>(item);
 		CFlashCard*		pFlash = smart_cast<CFlashCard*>(item);
-
+		CDetectorChecker* pDetector 	= smart_cast<CDetectorChecker*>		(CurrentIItem());
 		if (pMedkit || pAntirad)
 			act_str = "st_use";
 		else if (pBottleItem)
@@ -1634,6 +1636,8 @@ void CUIActorMenu::PropertiesBoxForUsing( PIItem item, bool& b_show )
             act_str = "st_battery";
 		else if (pFlash)
 			act_str = "st_use_info";
+		else if (pDetector)
+			act_str = "st_use_detector_checker";
 		else if (pEatableItem)
 		{
 			if (!xr_strcmp(section_name, "vodka") || !(xr_strcmp(section_name, "energy_drink")))

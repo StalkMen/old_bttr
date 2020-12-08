@@ -29,6 +29,7 @@ class CFoodItem;
 class CMissile;
 class CHudItem;
 class CBattery;
+class CDetectorChecker;
 class CFlashCard;
 class CWeaponAmmo;
 class CWeapon;
