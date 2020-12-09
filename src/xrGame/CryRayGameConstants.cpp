@@ -64,12 +64,12 @@ namespace CryRayParams
 
 	void CryRayClass::save(NET_Packet& output_packet)
 	{
-
+		Msg("! [%s]", __FUNCTION__);
 	}
 
 	void CryRayClass::load(IReader& input_packet)
 	{
-
+		Msg("! [%s]", __FUNCTION__);
 	}
 
 	int CryRayClass::GetNoviceRankStart()

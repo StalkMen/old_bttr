@@ -644,7 +644,7 @@ bool CEntityCondition::ApplyInfluence(const SMedicineInfluenceValues& V, const s
 	ChangeSatiety	(V.fSatiety);
 	ChangeSleep		(V.fSleep);
 	ChangeThirst	(V.fThirst);
-	ChangeAR		(V.fAR);
+//	ChangeAR		(V.fAR);
 	ChangeKurr		(V.fKurr);
 	ChangeRadiation	(V.fRadiation);
 	ChangeBleeding	(V.fWoundsHeal);
