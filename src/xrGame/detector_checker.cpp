@@ -56,13 +56,14 @@ void CDetectorChecker::renderable_Render()
 
 bool CDetectorChecker::UseBy (CEntityAlive* entity_alive)
 {
-	CInventoryOwner *IO				= smart_cast<CInventoryOwner*>(entity_alive);
-	CActor			*actor			= NULL;
+//	CInventoryOwner *IO				= smart_cast<CInventoryOwner*>(entity_alive);
+//	CActor			*actor			= NULL;
 
-	R_ASSERT						(IO);
+//	R_ASSERT						(IO);
 
-	actor							= smart_cast<CActor*>(IO);
-	R_ASSERT						(actor);
+//	actor							= smart_cast<CActor*>(IO);
+//	R_ASSERT						(actor);
+/*
 	float get						= Actor()->fArtReac;
 	LPCSTR							DetectorChecker;
 	LUA_EXPORT						functor;
@@ -92,7 +93,7 @@ bool CDetectorChecker::UseBy (CEntityAlive* entity_alive)
 		R_ASSERT(_SCRIPT_ENGINE("_export_cryray.detector_checker_lvl4", functor));
 		DetectorChecker = functor();
 	}
-
+	*/
 	bool used = inherited::UseBy(entity_alive);
 	return used;
 }
