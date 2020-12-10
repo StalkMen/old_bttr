@@ -31,7 +31,6 @@ private:
 private:
 	CActor*											m_object;
 	CActorDeathEffector*							m_death_effector;
-	void				UpdateTutorialThresholds	();
 			void 		UpdateSatiety				();
 			void 		UpdateSleep					();
 			void 		UpdateThirst				();
