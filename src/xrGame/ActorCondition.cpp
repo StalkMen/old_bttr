@@ -48,7 +48,6 @@ CActorCondition::CActorCondition(CActor *object) :
 	m_fSatiety					= 1.0f;
 	m_fSleep					= 1.0f;
 	m_fThirst					= 1.0f;
-	m_fAR						= 0.0f;
 	m_fKurr						= 1.0f;
 
 //	m_vecBoosts.clear();
@@ -136,12 +135,6 @@ void CActorCondition::LoadCondition(LPCSTR entity_section)
 	m_fV_ThirstPower			= READ_IF_EXISTS(pSettings, r_float, section, "thirst_power_v", (BttR_mode) ? 0.00025f : 0.0f);
 	m_fV_ThirstHealth			= READ_IF_EXISTS(pSettings, r_float, section, "thirst_health_v", (BttR_mode) ? 0.0f : 0.0f);
 	
-	m_fARCritical				= READ_IF_EXISTS(pSettings, r_float, section, "artefact_reaction_critical", 0.0f);
-	clamp						(m_fARCritical, 0.0f, 1.0f);
-	m_fV_AR						= READ_IF_EXISTS(pSettings, r_float, section, "artefact_reaction_v", 0.0f);
-	m_fV_ARPower				= READ_IF_EXISTS(pSettings, r_float, section, "artefact_reaction_power_v", 0.0f);
-	m_fV_ARHealth			    = READ_IF_EXISTS(pSettings, r_float, section, "artefact_reaction_health_v", 0.0f);
-
 	m_fKurrCritical				= READ_IF_EXISTS(pSettings, r_float, section, "kurr_critical", 0.0f);
 	clamp						(m_fKurrCritical, 0.0f, 1.0f);
 	m_fV_Kurr					= READ_IF_EXISTS(pSettings, r_float, section, "kurr_v", 0.0f);
@@ -212,7 +205,6 @@ void CActorCondition::UpdateCondition()
 		UpdateBoosters();
 		UpdateSleep();
 		UpdateThirst();	
-//		UpdateAR();
 		UpdateKurr();
 		
 		m_fAlcohol		+= m_fV_Alcohol*m_fDeltaTime;
@@ -307,7 +299,6 @@ void CActorCondition::UpdateCondition()
 	UpdateSatiety();
 	UpdateKurr();
 	UpdateThirst();
-//	UpdateAR();
 	UpdateSleep();
 	UpdateBoosters();
 	inherited::UpdateCondition();
@@ -512,22 +503,6 @@ void CActorCondition::UpdateThirst()
 	}
 }
 
-void CActorCondition::UpdateAR()
-{
-//	if(m_fAR>0)
-//	{
-//		m_fAR -= m_fV_AR*m_fDeltaTime;
-//		clamp(m_fAR, 0.0f, 1.0f);
-//	}
-		
-//	float ar_health_koef = (m_fAR-m_fARCritical)/(m_fAR>=m_fARCritical?1-m_fARCritical:m_fARCritical);
-//	if(CanBeHarmed() && !psActorFlags.test(AF_GODMODE_RT) )
-//	{
-//		m_fDeltaHealth += m_fV_ARHealth*ar_health_koef*m_fDeltaTime;
-//		m_fDeltaPower += m_fV_ARPower*m_fAR*m_fDeltaTime;
-//	}
-}
-
 void CActorCondition::UpdateSatiety()
 {
 	if(m_fSatiety>0)
@@ -633,14 +608,12 @@ void CActorCondition::save(NET_Packet &output_packet)
 	save_data			(m_fSatiety, output_packet);
 	save_data			(m_fSleep, output_packet);	
 	save_data			(m_fThirst, output_packet);
-	save_data			(m_fAR, output_packet);
 	save_data			(m_fKurr, output_packet);
 
 	save_data			(m_curr_medicine_influence.fHealth, output_packet);
 	save_data			(m_curr_medicine_influence.fPower, output_packet);
 	save_data			(m_curr_medicine_influence.fSatiety, output_packet);
 	save_data			(m_curr_medicine_influence.fThirst, output_packet);
-	save_data			(m_curr_medicine_influence.fAR, output_packet);
 	save_data			(m_curr_medicine_influence.fSleep, output_packet);
 	save_data			(m_curr_medicine_influence.fRadiation, output_packet);
 	save_data			(m_curr_medicine_influence.fWoundsHeal, output_packet);
@@ -667,14 +640,12 @@ void CActorCondition::load(IReader &input_packet)
 	load_data			(m_fSatiety, input_packet);
 	load_data			(m_fSleep, input_packet);
 	load_data			(m_fThirst, input_packet);		
-	load_data			(m_fAR, input_packet);	
 	load_data			(m_fKurr, input_packet);
 
 	load_data			(m_curr_medicine_influence.fHealth, input_packet);
 	load_data			(m_curr_medicine_influence.fPower, input_packet);
 	load_data			(m_curr_medicine_influence.fSatiety, input_packet);
 	load_data			(m_curr_medicine_influence.fThirst, input_packet);
-	load_data			(m_curr_medicine_influence.fAR, input_packet);
 	load_data			(m_curr_medicine_influence.fSleep, input_packet);
 	load_data			(m_curr_medicine_influence.fRadiation, input_packet);
 	load_data			(m_curr_medicine_influence.fWoundsHeal, input_packet);
@@ -702,7 +673,6 @@ void CActorCondition::reinit	()
 	m_fSatiety					= 1.f;
 	m_fSleep  					= 1.f;
 	m_fThirst  					= 1.f;
-	m_fAR  						= 0.f;
 	m_fKurr						= 1.f;
 }
 
@@ -727,12 +697,6 @@ void CActorCondition::ChangeThirst(float value)
 {
 	m_fThirst += value;
 	clamp		(m_fThirst, 0.0f, 1.0f);
-}
-
-void CActorCondition::ChangeAR(float value)
-{
-//	m_fAR += value;
-//	clamp		(m_fAR, 0.0f, 1.0f);
 }
 
 void CActorCondition::ChangeKurr(float value)
@@ -804,7 +768,6 @@ void CActorCondition::BoostPowerRestore(const float value)
 	m_fV_SatietyPower += value;
 	m_fV_SleepPower += value;
 	m_fV_ThirstPower += value;
-	m_fV_ARPower += value;
 	m_fV_KurrPower += value;
 }
 void CActorCondition::BoostRadiationRestore(const float value)

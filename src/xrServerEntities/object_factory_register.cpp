@@ -146,7 +146,6 @@
 
 #	include "battery.h"
 #	include "flash_card.h"
-#	include "detector_checker.h"
 
 #	include "torch.h"
 #	include "pda.h"
@@ -298,7 +297,6 @@ void CObjectFactory::register_classes	()
 	ADD(CBottleItem				,CSE_ALifeItem					,CLSID_IITEM_BOTTLE				,"obj_bottle");
 	ADD(CExplosiveItem			,CSE_ALifeItemExplosive			,CLSID_IITEM_EXPLOSIVE			,"obj_explosive");
 	ADD(CBattery				,CSE_ALifeItem					,CLSID_IITEM_BATTERY			,"obj_battery");
-	ADD(CDetectorChecker		,CSE_ALifeItem					,CLSID_IITEM_DETCHECKER			,"obj_detector_checker");
 	ADD(CFlashCard				,CSE_ALifeItem					,CLSID_IITEM_FLASH				,"obj_flash");
 	
 	//Info Document

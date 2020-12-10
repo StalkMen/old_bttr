@@ -110,7 +110,6 @@ void CCustomOutfit::Load(LPCSTR section)
 	m_fSatietyRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "satiety_restore_speed",   0.0f );
 	m_fSleepRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "sleep_restore_speed",   0.0f );
 	m_fThirstRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "thirst_restore_speed",   0.0f );	
-//	m_fARRestoreSpeed			= READ_IF_EXISTS(pSettings, r_float, section, "artefact_reaction",   0.0f );	
 	m_fPowerRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "power_restore_speed",     0.0f );
 	m_fBleedingRestoreSpeed		= READ_IF_EXISTS(pSettings, r_float, section, "bleeding_restore_speed",  0.0f );
 	

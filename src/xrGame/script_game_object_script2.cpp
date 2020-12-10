@@ -80,7 +80,6 @@ class_<CScriptGameObject> &script_register_game_object1(class_<CScriptGameObject
 		.property("bleeding",				&CScriptGameObject::GetBleeding,		&CScriptGameObject::SetBleeding)
 		.property("sleep",					&CScriptGameObject::GetSleep,			&CScriptGameObject::ChangeSleep)
 		.property("thirst",					&CScriptGameObject::GetThirst,			&CScriptGameObject::ChangeThirst)
-		.property("artefact_reaction_belt",	&CScriptGameObject::GetAR,				&CScriptGameObject::ChangeAR)
 		.property("kurr",					&CScriptGameObject::GetKurr,			&CScriptGameObject::ChangeKurr)
 
 //		.def("get_bleeding",				&CScriptGameObject::GetBleeding)

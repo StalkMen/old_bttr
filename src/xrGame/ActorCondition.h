@@ -1,4 +1,4 @@
-// ActorCondition.h: класс состояния игрока
+// ActorCondition.h: РєР»Р°СЃСЃ СЃРѕСЃС‚РѕСЏРЅРёСЏ РёРіСЂРѕРєР°
 //
 
 #pragma once
@@ -24,9 +24,8 @@ private:
 			eCantWalkWeight					=(1<<7),
 			eCantWalkWeightReached			=(1<<8),
 			eCriticalThirstReached 			=(1<<9),
-			eCriticalARReached 				=(1<<10),
-			eCriticalSleepReached 			=(1<<11),
-			eCriticalKurrReached			=(1<<12),
+			eCriticalSleepReached 			=(1<<10),
+			eCriticalKurrReached			=(1<<11),
 			};
 	Flags16											m_condition_flags;
 private:
@@ -36,7 +35,6 @@ private:
 			void 		UpdateSatiety				();
 			void 		UpdateSleep					();
 			void 		UpdateThirst				();
-			void 		UpdateAR					();
 			void		UpdateKurr					();
 	virtual void		UpdateRadiation				();
 public:
@@ -54,7 +52,6 @@ public:
 	virtual void 		ChangeSatiety				(const float value);
 	virtual void 		ChangeSleep					(const float value);
 	virtual void 		ChangeThirst				(const float value);
-	virtual void 		ChangeAR					(const float value);
 	virtual void		ChangeKurr					(const float value);
 
 	void 				BoostParameters				(const SBooster& B);
@@ -78,7 +75,7 @@ public:
 	IC void				BoostChemicalBurnProtection	(const float value);
 	BOOSTER_MAP			GetCurBoosterInfluences		() {return m_booster_influences;};
 
-	// хромание при потере сил и здоровья
+	// С…СЂРѕРјР°РЅРёРµ РїСЂРё РїРѕС‚РµСЂРµ СЃРёР» Рё Р·РґРѕСЂРѕРІСЊСЏ
 	virtual	bool		IsLimping					() const;
 	virtual bool		IsCantWalk					() const;
 	virtual bool		IsCantWalkWeight			();
@@ -102,9 +99,6 @@ public:
 
 			float				GetThirst			()  {return m_fThirst;}
 	IC		float				GetThirstPower		() const {return m_fV_ThirstPower*m_fThirst;};	
-
-			float				GetAR				()  {return m_fAR;}
-	IC		float				GetARPower			() const {return m_fV_ARPower*m_fAR;};	
 
 			float				GetKurr				() { return m_fKurr; }
 	IC		float				GetKurrPower		() const { return m_fV_KurrPower * m_fKurr; };
@@ -138,11 +132,6 @@ public:
 	IC		float const&	V_ThirstPower			()	{ return m_fV_ThirstPower; }
 	IC		float const&	V_ThirstHealth			()	{ return m_fV_ThirstHealth; }
 	IC		float const&	ThirstCritical			()	{ return m_fThirstCritical; }
-	
-	IC		float const&	V_AR					()	{ return m_fV_AR; }
-	IC		float const&	V_ARPower				()	{ return m_fV_ARPower; }
-	IC		float const&	V_ARHealth				()	{ return m_fV_ARHealth; }
-	IC		float const&	ARCritical				()	{ return m_fARCritical; }
 	
 	IC		float const&	V_Kurr					()  { return m_fV_Kurr; }
 	IC		float const&	V_KurrPower				()  { return m_fV_KurrPower; }
@@ -187,12 +176,6 @@ protected:
 	float m_fV_ThirstHealth;
 	float m_fThirstCritical;
 
-	float m_fAR;
-	float m_fV_AR;
-	float m_fV_ARPower;
-	float m_fV_ARHealth;
-	float m_fARCritical;	
-	
 	float m_fKurr;
 	float m_fV_Kurr;
 	float m_fV_KurrPower;
@@ -225,7 +208,7 @@ protected:
 	mutable bool m_bCantWalk;
 	mutable bool m_bCantSprint;
 
-	//порог силы и здоровья меньше которого актер начинает хромать
+	//РїРѕСЂРѕРі СЃРёР»С‹ Рё Р·РґРѕСЂРѕРІСЊСЏ РјРµРЅСЊС€Рµ РєРѕС‚РѕСЂРѕРіРѕ Р°РєС‚РµСЂ РЅР°С‡РёРЅР°РµС‚ С…СЂРѕРјР°С‚СЊ
 	float m_fLimpingPowerBegin;
 	float m_fLimpingPowerEnd;
 	float m_fCantWalkPowerBegin;

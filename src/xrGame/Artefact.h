@@ -50,9 +50,6 @@ public:
 				float	GetThirstPower						()					{return m_fThirstRestoreSpeed;}		
 				void	SetThirstPower						(float value)					{m_fThirstRestoreSpeed = value;}
 				
-				float	GetARPower						()					{return m_fARRestoreSpeed;}		
-				void	SetARPower						(float value)					{m_fARRestoreSpeed = value;}
-	
 				void	SetHealthPower						(float value)					{m_fHealthRestoreSpeed = value;}
 				void	SetRadiationPower						(float value)					{m_fRadiationRestoreSpeed = value;}
 				void	SetSatietyPower						(float value)					{m_fSatietyRestoreSpeed = value;}
@@ -102,7 +99,6 @@ public:
 	float 							m_fSatietyRestoreSpeed;
 	float 							m_fSleepRestoreSpeed;	
 	float 							m_fThirstRestoreSpeed;
-	float 							m_fARRestoreSpeed;
 	float							m_fPowerRestoreSpeed;
 	float							m_fBleedingRestoreSpeed;
 	HitImmunity::HitTypeSVec		m_ArtefactHitImmunities;

@@ -131,11 +131,6 @@ float CScriptGameObject::GetThirst() const
     return Actor()->conditions().GetThirst();
 }
 
-float CScriptGameObject::GetAR() const
-{
-    return Actor()->conditions().GetAR();
-}
-
 float CScriptGameObject::GetKurr() const
 {
     return Actor()->conditions().GetKurr();
@@ -149,11 +144,6 @@ void CScriptGameObject::ChangeKurr(float fNewValue)
 void CScriptGameObject::ChangeThirst(float fNewValue)
 {
     Actor()->conditions().ChangeThirst(fNewValue);
-}
-
-void CScriptGameObject::ChangeAR(float fNewValue)
-{
-    Actor()->conditions().ChangeAR(fNewValue);
 }
 
 float CScriptGameObject::GetSleep() const
