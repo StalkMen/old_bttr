@@ -305,7 +305,7 @@ namespace DEVICE_HW
 #else
 			_RELEASE(DEVICE_HW::CRYRAY_RENDER::HW.pDevice1);
 #endif
-			_SHOW_REF("# DeviceREF:", DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice);
+			_SHOW_REF("# refCount:HW.pDevice:", DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice);
 			_RELEASE(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice);
 
 			DestroyD3D();
