@@ -1947,6 +1947,31 @@ xr_token type_hud_token_ext[] = {
     {nullptr, 0}
 };
 
+u32 token_weight = 50;
+xr_token token_weight_size[] = {
+	{ "50_kg",  50},
+	{ "75_kg",  75},
+	{ "90_kg",  90},
+	{ "100_kg",  100},
+	{ "125_kg",  125},
+	{ "150_kg",  150},
+	{ "175_kg",  175},
+	{ "200_kg",  200},
+	{ "225_kg",  225},
+	{ "250_kg",  250},
+	{ "300_kg",  300},
+	{ "330_kg",  330},
+	{ "350_kg",  350},
+	{ "370_kg",  370},
+	{ "400_kg",  400},
+	{ "430_kg",  430},
+	{ "470_kg",  470},
+	{ "500_kg",  500},
+	{ "550_kg",  550},
+	{ "600_kg",  600},
+	{ nullptr, 0 }
+};
+
 Flags32 p_game_flags32 = { /*ALIFE_FULL_ACTIVE*/ };
 #define ALIFE_FULL_ACTIVE (1<<0)
 
@@ -1962,6 +1987,8 @@ void CCC_RegisterCommands()
 		CMD3(CCC_Mask, "__alife_full_active", &p_game_flags32, ALIFE_FULL_ACTIVE);
 	}
 	CMD1(CCC_TimeFactor, "xrGame_time_factor");
+
+	CMD3(CCC_Token, "xrGame_actor_portable_weight", &token_weight, token_weight_size);
 
 	CMD3(CCC_Mask,    "xrGame_3d_scopes", &psActorFlags, AF_3DSCOPE_ENABLE);
 	if (BttR_mode)

@@ -22,8 +22,7 @@
 #include "ui/UIStatic.h"
 #include "CustomOutfit.h"
 
-#define MAX_SATIETY					1.0f
-#define START_SATIETY				0.5f
+extern u32 token_weight;
 
 BOOL	GodMode	()	
 { 
@@ -141,7 +140,8 @@ void CActorCondition::LoadCondition(LPCSTR entity_section)
 	m_fV_KurrPower				= READ_IF_EXISTS(pSettings, r_float, section, "kurr_power_v", 0.0f);
 	m_fV_KurrHealth				= READ_IF_EXISTS(pSettings, r_float, section, "kurr_health_v", 0.0f);
 
-	m_MaxWalkWeight				= pSettings->r_float(section,"max_walk_weight");
+	const float allowable_weight = 10.f;
+	m_MaxWalkWeight				= token_weight + allowable_weight;
 
 	m_zone_max_power[ALife::infl_rad]	= pSettings->r_float(section, "radio_zone_max_power" );
 	m_zone_max_power[ALife::infl_fire]	= pSettings->r_float(section, "fire_zone_max_power" );
