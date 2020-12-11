@@ -628,6 +628,10 @@ float ps_r__geomDTextureDistF_  = 2.0f;
 int   tbufer_renders = 1;
 int	  ps_render_volumetric_fog = 1;
 int	  render_nightvision = 0;
+int   opt_static = 2;
+int   opt_dynamic = 2;
+BOOL  opt_shadow = 1;
+
 BOOL  rain_drops = 1;
 BOOL  mask_helmet = 1;
 Fvector ps_r2_drops_control = { 0.0f, 0.0f, 0.0f };
@@ -678,6 +682,10 @@ void		xrRender_initconsole()
 #ifdef DIRECTX10
 	CMD3(CCC_Mask, "xrRenderDX10_use_device1",			&ps_r2_ls_flags,					(u32)R3FLAG_USE_DX10_1);
 #endif
+
+	CMD4(CCC_Integer, "xrRenderDX10_opt_static_geometry",	&opt_static,					0, 4);
+	CMD4(CCC_Integer, "xrRenderDX10_opt_dynamic_geometry",	&opt_dynamic,					0, 4);
+	CMD4(CCC_Integer, "xrRenderDX10_opt_shadow_geometry",	&opt_shadow,					0, 1);
 
 	CMD4(CCC_Float, "xrRenderFilteringSaturationImage",  &xrRenderFilteringSaturationImage,	-1.f, 2.f);
 

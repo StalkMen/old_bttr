@@ -175,6 +175,9 @@ BOOL CAI_Crow::net_Spawn		(CSE_Abstract* DC)
 	tmp.y = tmp.y + ::Random.randF(20.0f, 50.0f);
 	tmp.z = tmp.z + ::Random.randF(-50.0f, 50.0f);
 	Position().set(tmp);
+
+	renderable.visual->_ignore_optimization = true;
+
 	return		R;
 }
 

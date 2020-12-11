@@ -113,6 +113,11 @@ extern ECORE_API Fvector		ps_r2_gasmask_control;
 extern ECORE_API int			render_nightvision;
 extern ECORE_API BOOL			rain_drops;
 extern ECORE_API BOOL			mask_helmet;
+
+extern ECORE_API int			opt_static;
+extern ECORE_API int			opt_dynamic;
+extern ECORE_API BOOL			opt_shadow;
+
 enum
 {
 	R2FLAG_SUN					= (1<<0),
