@@ -259,6 +259,8 @@ public:
     void					SetShotRndSeed			(s32 Seed = 0);
     s32						GetShotRndSeed			()	{ return m_ShotRndSeed;	};
 
+    s8                      BlockCounter()          { return m_block_sprint_counter; };
+    s8                      BlockCounterSet         (s8 value) { m_block_sprint_counter = value; };
 public:
     void					detach_Vehicle			();
     void					steer_Vehicle			(float angle);
@@ -443,6 +445,7 @@ protected:
     BOOL					m_bJumpKeyPressed;
 
 public:
+    u32 CheckStateReal()    { return mstate_real; };
     float					m_fWalkAccel;
 	float					m_fOverweightWalkAccel;
     float					m_fJumpSpeed;

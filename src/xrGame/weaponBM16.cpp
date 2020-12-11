@@ -1,5 +1,8 @@
 #include "stdafx.h"
+#include "Actor.h"
 #include "weaponBM16.h"
+
+extern int g_sprint_reload_wpn;
 
 CWeaponBM16::~CWeaponBM16()
 {
@@ -62,6 +65,9 @@ void CWeaponBM16::PlayAnimHide()
 		PlayHUDMotion("anm_hide_2",TRUE,this,GetState());
 		break;
 	}
+
+	if (g_sprint_reload_wpn && smart_cast<CActor*>(H_Parent()) != NULL && Actor()->BlockCounter() > 0 || Actor()->BlockCounter() <= 0)
+		Actor()->BlockCounterSet(0);
 }
 
 void CWeaponBM16::PlayAnimBore()

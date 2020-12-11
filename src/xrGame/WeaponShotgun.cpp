@@ -7,6 +7,8 @@
 #include "level.h"
 #include "actor.h"
 
+extern int g_sprint_reload_wpn;
+
 CWeaponShotgun::CWeaponShotgun()
 {
 	m_eSoundClose			= ESoundTypes(SOUND_TYPE_WEAPON_SHOOTING);
@@ -52,7 +54,7 @@ bool CWeaponShotgun::Action			(u16 cmd, u32 flags)
 
 	if(	m_bTriStateReload && GetState()==eReload &&
 		cmd==kWPN_FIRE && flags&CMD_START &&
-		m_sub_state==eSubstateReloadInProcess		)//остановить перезагрузку
+		m_sub_state==eSubstateReloadInProcess		)//РѕСЃС‚Р°РЅРѕРІРёС‚СЊ РїРµСЂРµР·Р°РіСЂСѓР·РєСѓ
 	{
 		AddCartridge(1);
 		m_sub_state = eSubstateReloadEnd;
@@ -82,6 +84,9 @@ void CWeaponShotgun::OnAnimationEnd(u32 state)
 		case eSubstateReloadEnd:{
 			m_sub_state = eSubstateReloadBegin;
 			SwitchState(eIdle);
+
+			if (g_sprint_reload_wpn && smart_cast<CActor*>(H_Parent()) != NULL)
+				Actor()->SetCantRunState(false); 
 		}break;
 		
 	};
@@ -101,6 +106,9 @@ void CWeaponShotgun::TriStateReload()
 	CWeapon::Reload		();
 	m_sub_state			= eSubstateReloadBegin;
 	SwitchState			(eReload);
+
+	if (g_sprint_reload_wpn && smart_cast<CActor*>(H_Parent()) != NULL)
+		Actor()->SetCantRunState(true);
 }
 
 void CWeaponShotgun::OnStateSwitch	(u32 S, u32 oldState)
@@ -159,6 +167,9 @@ void CWeaponShotgun::PlayAnimOpenWeapon()
 {
 	VERIFY(GetState()==eReload);
 	PlayHUDMotion("anm_open",FALSE,this,GetState());
+
+	if (g_sprint_reload_wpn && smart_cast<CActor*>(H_Parent()) != NULL && Actor()->BlockCounter() > 0 || Actor()->BlockCounter() <= 0)
+		Actor()->BlockCounterSet(0);
 }
 void CWeaponShotgun::PlayAnimAddOneCartridgeWeapon()
 {
@@ -229,7 +240,7 @@ u8 CWeaponShotgun::AddCartridge		(u8 cnt)
 
 	VERIFY((u32)m_ammoElapsed.type1 == m_magazine.size());
 
-	//выкинуть коробку патронов, если она пустая
+	//РІС‹РєРёРЅСѓС‚СЊ РєРѕСЂРѕР±РєСѓ РїР°С‚СЂРѕРЅРѕРІ, РµСЃР»Рё РѕРЅР° РїСѓСЃС‚Р°СЏ
 	if(m_pCurrentAmmo && !m_pCurrentAmmo->m_boxCurr && OnServer()) 
 		m_pCurrentAmmo->SetDropManual(TRUE);
 

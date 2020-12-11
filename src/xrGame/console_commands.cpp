@@ -1902,6 +1902,7 @@ public:
 };
 
 int g_objects_per_client_update = 20;
+int g_sprint_reload_wpn = 1;
 float xrgame_scope_fov = 0.65f;
 float minimap_zoom_factor = 1.0f;
 BOOL int_wallmarks = 1;
@@ -2009,6 +2010,8 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Integer, "xrGame_autoreload_wpn", &auto_reload, 0, 1);
 	CMD4(CCC_Integer, "xrGame_inverse_kinematics", &useInverseKinematics_, 0, 1);
 	CMD4(CCC_Integer, "xrGame_mode_youtube", &mode_youtube, 0, 1);
+
+	CMD4(CCC_Integer, "xrGame_sprint_reload_wpn", &g_sprint_reload_wpn, 0, 1);
 
 	CMD4(CCC_Float, "hud_adj_delta_pos", &hud_adj_delta_pos, 0.0001f, 1.0f);
 	CMD4(CCC_Float, "hud_adj_delta_rot", &hud_adj_delta_rot, 0.0001f, 1.0f);

@@ -19,6 +19,8 @@
 #	include "phdebug.h"
 #endif
 
+extern int g_sprint_reload_wpn;
+
 CWeaponMagazinedWGrenade::CWeaponMagazinedWGrenade(ESoundTypes eSoundType) : CWeaponMagazined(eSoundType)
 {
 }
@@ -251,12 +253,12 @@ void CWeaponMagazinedWGrenade::state_Fire(float dt)
 {
     VERIFY(fOneShotTime > 0.f);
 
-    //режим стрельбы подствольника
+    //СЂРµР¶РёРј СЃС‚СЂРµР»СЊР±С‹ РїРѕРґСЃС‚РІРѕР»СЊРЅРёРєР°
     if (m_bGrenadeMode)
     {
 
     }
-    //режим стрельбы очередями
+    //СЂРµР¶РёРј СЃС‚СЂРµР»СЊР±С‹ РѕС‡РµСЂРµРґСЏРјРё
     else
         inherited::state_Fire(dt);
 }
@@ -409,10 +411,13 @@ void CWeaponMagazinedWGrenade::ReloadMagazine()
 {
     inherited::ReloadMagazine();
 
-    //перезарядка подствольного гранатомета
+    //РїРµСЂРµР·Р°СЂСЏРґРєР° РїРѕРґСЃС‚РІРѕР»СЊРЅРѕРіРѕ РіСЂР°РЅР°С‚РѕРјРµС‚Р°
     if (m_ammoElapsed.type1 && !getRocketCount() && m_bGrenadeMode)
     {
         shared_str fake_grenade_name = pSettings->r_string(m_ammoTypes[m_ammoType.type1].c_str(), "fake_grenade_name");
+
+        if (g_sprint_reload_wpn && smart_cast<CActor*>(H_Parent()) != NULL)
+            Actor()->SetCantRunState(true); 
 
         CRocketLauncher::SpawnRocket(*fake_grenade_name, this);
     }
@@ -448,6 +453,9 @@ void CWeaponMagazinedWGrenade::OnAnimationEnd(u32 state)
     {
         if (m_bGrenadeMode)
             Reload();
+
+        if (g_sprint_reload_wpn && smart_cast<CActor*>(H_Parent()) != NULL)
+            Actor()->SetCantRunState(false);
     }break;
     }
     inherited::OnAnimationEnd(state);
@@ -617,7 +625,7 @@ float	CWeaponMagazinedWGrenade::CurrentZoomFactor()
     return inherited::CurrentZoomFactor();
 }
 
-//виртуальные функции для проигрывания анимации HUD
+//РІРёСЂС‚СѓР°Р»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё РґР»СЏ РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ Р°РЅРёРјР°С†РёРё HUD
 void CWeaponMagazinedWGrenade::PlayAnimShow()
 {
     VERIFY(GetState() == eShowing);
