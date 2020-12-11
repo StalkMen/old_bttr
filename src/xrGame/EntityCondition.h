@@ -66,6 +66,7 @@ struct SMedicineInfluenceValues{
 	float fThirst;
 	float fKurr;
 	float fRadiation;
+	float fArtefactReaction;
 	float fWoundsHeal;
 	float fMaxPowerUp;
 	float fAlcohol;
@@ -111,6 +112,7 @@ public:
 
 	IC float				GetPower				() const			{return m_fPower;}	
 	IC float				GetRadiation			() const			{return m_fRadiation;}
+	IC float				GetArtefactReaction		() const			{return m_fArtefactReaction;}
 	IC float				GetPsyHealth			() const			{return m_fPsyHealth;}
 	IC float				GetSatiety				() const			{return 1.0f;}	
 
@@ -134,6 +136,7 @@ public:
 	void 					ChangeHealth			(const float value);
 	void 					ChangePower				(const float value);
 	void 					ChangeRadiation			(const float value);
+	void 					ChangeArtefactReaction	(const float value);
 	void 					ChangePsyHealth			(const float value);
 	virtual void 			ChangeAlcohol			(const float value){};
 
@@ -175,6 +178,7 @@ protected:
 	void					UpdateHealth			();
 	void					UpdatePower				();
 	virtual void			UpdateRadiation			();
+	virtual void			UpdateArtefactReaction	();
 	void					UpdatePsyHealth			();
 
 	void					UpdateEntityMorale		();
@@ -197,6 +201,7 @@ protected:
 	//все величины от 0 до 1			
 	float m_fPower;					//сила
 	float m_fRadiation;				//доза радиактивного облучения
+	float m_fArtefactReaction;
 	float m_fPsyHealth;				//здоровье
 	float m_fEntityMorale;			//мораль
 
@@ -204,6 +209,7 @@ protected:
 	//	float m_fSatietyMax;
 	float m_fPowerMax;
 	float m_fRadiationMax;
+	float m_fArtefactReactionMax;
 	float m_fPsyHealthMax;
 
 	float m_fEntityMoraleMax;
@@ -212,6 +218,7 @@ protected:
 	float m_fDeltaHealth;
 	float m_fDeltaPower;
 	float m_fDeltaRadiation;
+	float m_fDeltaArtefactReaction;
 	float m_fDeltaPsyHealth;
 
 	float m_fDeltaCircumspection;
@@ -220,6 +227,7 @@ protected:
 	struct SConditionChangeV
 	{
 		float			m_fV_Radiation;
+		float			m_fV_ArtefactReaction;
 		float			m_fV_PsyHealth;
 		float			m_fV_Circumspection;
 		float			m_fV_EntityMorale;
@@ -283,6 +291,7 @@ public:
 	IC const	float				fdelta_time			() const 	{return		(m_fDeltaTime);			}
 	IC const	WOUND_VECTOR&		wounds				() const	{return		(m_WoundVector);		}
 	IC float&						radiation			()			{return		(m_fRadiation);			}
+	IC float&						artefact_reaction	()			{return		(m_fArtefactReaction);	}
 	IC float&						hit_bone_scale		()			{return		(m_fHitBoneScale);		}
 	IC float&						wound_bone_scale	()			{return		(m_fWoundBoneScale);	}
 	IC SConditionChangeV&			change_v			()			{return		(m_change_v);			}

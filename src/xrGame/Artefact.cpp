@@ -20,6 +20,7 @@
 #include "ai_space.h"
 #include "patrol_path.h"
 #include "patrol_path_storage.h"
+#include "CryRayGameConstants.h"
 
 #define	FASTMODE_DISTANCE (50.f)	//distance to camera from sphere, when zone switches to fast update sequence
 
@@ -53,7 +54,7 @@ CArtefact::~CArtefact()
 void CArtefact::Load(LPCSTR section) 
 {
 	inherited::Load			(section);
-
+	CryRayParams::CryRayClass cryrayparam;
 
 	if (pSettings->line_exist(section, "particles"))
 		m_sParticlesName	= pSettings->r_string(section, "particles");
@@ -68,6 +69,7 @@ void CArtefact::Load(LPCSTR section)
 
 	m_fHealthRestoreSpeed    = pSettings->r_float	(section,"health_restore_speed"		);
 	m_fRadiationRestoreSpeed = pSettings->r_float	(section,"radiation_restore_speed"	);
+	m_fArtefactReactionSpeed = READ_IF_EXISTS		(pSettings, r_float, section, "artefact_reaction", 0.f) / cryrayparam.af_koef();
 	m_fSatietyRestoreSpeed   = pSettings->r_float	(section,"satiety_restore_speed"	);
 	m_fSleepRestoreSpeed   	 = pSettings->r_float	(section,"sleep_restore_speed"	);
 	m_fThirstRestoreSpeed    = pSettings->r_float	(section,"thirst_restore_speed"	);

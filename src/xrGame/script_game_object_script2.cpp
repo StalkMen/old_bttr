@@ -76,6 +76,7 @@ class_<CScriptGameObject> &script_register_game_object1(class_<CScriptGameObject
 		.property("power",					&CScriptGameObject::GetPower,			&CScriptGameObject::SetPower)
 		.property("satiety",				&CScriptGameObject::GetSatiety,			&CScriptGameObject::ChangeSatiety)
 		.property("radiation",				&CScriptGameObject::GetRadiation,		&CScriptGameObject::SetRadiation)
+		.property("artefact_reaction",		&CScriptGameObject::GetArtefactReaction,		&CScriptGameObject::SetArtefactReaction)
 		.property("morale",					&CScriptGameObject::GetMorale,			&CScriptGameObject::SetMorale)
 		.property("bleeding",				&CScriptGameObject::GetBleeding,		&CScriptGameObject::SetBleeding)
 		.property("sleep",					&CScriptGameObject::GetSleep,			&CScriptGameObject::ChangeSleep)

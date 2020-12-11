@@ -21,6 +21,8 @@ float normal_time_factor = 0.f;
 float switch_distance = 0.f;
 float switch_factor = 0.f;
 
+float artefact_koef_reaction = 0.f;
+
 namespace CryRayParams 
 {
 	ENGINE_API CryRayClass CRParams;
@@ -34,6 +36,7 @@ namespace CryRayParams
 		Msg("# 0.0. [CryRayParams]: Start game (+ Alife): schedule_min(% i), schedule_max(%i), process_time(%i), update_monster_factor(%f), time_factor(%f), objects_per_update(%i), normal_time_factor (%f), switch_distance (%f), switch_factor (%f)", 
 			alife_sheduler_min, alife_sheduler_max, alife_sheduler_process_time, alife_update_monster_factor, alife_time_factor, alife_object_per_update, normal_time_factor, switch_distance, switch_factor);
 		Msg("# 1.0. [CryRayParams]: Start game (+ NPC): Novice: (%i), Experienced: (%i), Veteran: (%i), Master: (%i)", noviceRankStart, experiencedRankStart, veteranRankStart, masterRankStart);
+		Msg("# 2.0. [CryRayParams]: Start game (+ Artefact): artefact_koef_reaction (%f)", artefact_koef_reaction);
 		Msg("# Final. [CryRayParams]: Check default params!");
 	}
 
@@ -59,6 +62,11 @@ namespace CryRayParams
 		Msg("# 1. [CryRayParams]: Loaded parameters: schedule_min (%i), schedule_max (%i), process_time (%i), update_monster_factor (%f), time_factor (%f), objects_per_update (%i), normal_time_factor (%f), switch_distance (%f), switch_factor (%f)",
 			alife_sheduler_min, alife_sheduler_max, alife_sheduler_process_time, alife_update_monster_factor, alife_time_factor, alife_object_per_update, normal_time_factor, switch_distance, switch_factor);
 		
+		// Артефакты:
+		artefact_koef_reaction = READ_IF_EXISTS(pSettings, r_float, "artefacts_cryray", "artefact_koef_reaction", 100.f);
+
+		Msg("# 2. [CryRayParams]: Loaded parametrs: artefact_koef_reaction (%f)", artefact_koef_reaction);
+
 		Msg("# Final. [CryRayParams]: Are Loaded!");
 	}
 
@@ -135,5 +143,10 @@ namespace CryRayParams
 	const float CryRayClass::alife_update_monster() const
 	{
 		return alife_update_monster_factor;
+	}
+
+	float CryRayClass::af_koef()
+	{
+		return artefact_koef_reaction;
 	}
 }

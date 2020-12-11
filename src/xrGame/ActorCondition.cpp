@@ -454,6 +454,11 @@ void CActorCondition::UpdateRadiation()
 	inherited::UpdateRadiation();
 }
 
+void CActorCondition::UpdateArtefactReaction()
+{
+	inherited::UpdateArtefactReaction();
+}
+
 void CActorCondition::UpdateSleep()
 {
 	if(m_fSleep>0)
@@ -615,6 +620,7 @@ void CActorCondition::save(NET_Packet &output_packet)
 	save_data			(m_curr_medicine_influence.fThirst, output_packet);
 	save_data			(m_curr_medicine_influence.fSleep, output_packet);
 	save_data			(m_curr_medicine_influence.fRadiation, output_packet);
+	save_data			(m_curr_medicine_influence.fArtefactReaction, output_packet);
 	save_data			(m_curr_medicine_influence.fWoundsHeal, output_packet);
 	save_data			(m_curr_medicine_influence.fMaxPowerUp, output_packet);
 	save_data			(m_curr_medicine_influence.fAlcohol, output_packet);
@@ -647,6 +653,7 @@ void CActorCondition::load(IReader &input_packet)
 	load_data			(m_curr_medicine_influence.fThirst, input_packet);
 	load_data			(m_curr_medicine_influence.fSleep, input_packet);
 	load_data			(m_curr_medicine_influence.fRadiation, input_packet);
+	load_data			(m_curr_medicine_influence.fArtefactReaction, input_packet);
 	load_data			(m_curr_medicine_influence.fWoundsHeal, input_packet);
 	load_data			(m_curr_medicine_influence.fMaxPowerUp, input_packet);
 	load_data			(m_curr_medicine_influence.fAlcohol, input_packet);

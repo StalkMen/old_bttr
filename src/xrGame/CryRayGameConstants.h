@@ -31,6 +31,8 @@ namespace CryRayParams
 			const float alife_worldtime_factor() const;
 			const float alife_update_monster() const;
 
+			float af_koef();
+
 			virtual void CryRayClass::save(NET_Packet& output_packet);
 			virtual void CryRayClass::load(IReader& input_packet);
 	};

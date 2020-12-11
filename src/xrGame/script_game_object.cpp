@@ -80,6 +80,7 @@ BIND_FUNCTION10(&object(), CScriptGameObject::GetPsyHealth, CEntityAlive, condit
 BIND_FUNCTION10(&object(), CScriptGameObject::GetPower, CEntityAlive, conditions().GetPower, float, -1);
 
 BIND_FUNCTION10(&object(), CScriptGameObject::GetRadiation, CEntityAlive, conditions().GetRadiation, float, -1);
+BIND_FUNCTION10(&object(), CScriptGameObject::GetArtefactReaction, CEntityAlive, conditions().GetArtefactReaction, float, -1);
 BIND_FUNCTION10(&object(), CScriptGameObject::GetBleeding, CEntityAlive, conditions().BleedingSpeed, float, -1);
 BIND_FUNCTION10(&object(), CScriptGameObject::GetMorale, CEntityAlive, conditions().GetEntityMorale, float, -1);
 BIND_FUNCTION01(&object(), CScriptGameObject::SetHealth, CEntityAlive, conditions().ChangeHealth, float, float);
@@ -87,6 +88,7 @@ BIND_FUNCTION01(&object(), CScriptGameObject::SetPsyHealth, CEntityAlive, condit
 BIND_FUNCTION01(&object(), CScriptGameObject::SetPower, CEntityAlive, conditions().ChangePower, float, float);
 
 BIND_FUNCTION01(&object(), CScriptGameObject::SetRadiation, CEntityAlive, conditions().ChangeRadiation, float, float);
+BIND_FUNCTION01(&object(), CScriptGameObject::SetArtefactReaction, CEntityAlive, conditions().ChangeArtefactReaction, float, float);
 BIND_FUNCTION01(&object(), CScriptGameObject::SetBleeding, CEntityAlive, conditions().ChangeBleeding, float, float);
 BIND_FUNCTION01(&object(), CScriptGameObject::SetCircumspection, CEntityAlive, conditions().ChangeCircumspection, float, float);
 BIND_FUNCTION01(&object(), CScriptGameObject::SetMorale, CEntityAlive, conditions().ChangeEntityMorale, float, float);

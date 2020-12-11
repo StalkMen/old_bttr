@@ -12,11 +12,14 @@
 #include "object_broker.h"
 #include "ActorHelmet.h"
 #include "ActorBackpack.h"
+#include "script_engine.h"
+#include "ai_space.h"
 
 #define MAX_HEALTH 1.0f
 #define MIN_HEALTH -0.01f
 #define MAX_POWER 1.0f
 #define MAX_RADIATION 1.0f
+#define MAX_REACTION 1.0f
 #define MAX_PSY_HEALTH 1.0f
 
 CEntityConditionSimple::CEntityConditionSimple()
@@ -41,12 +44,14 @@ CEntityCondition::CEntityCondition(CEntityAlive *object)
 
 	m_fPowerMax			= MAX_POWER;
 	m_fRadiationMax		= MAX_RADIATION;
+	m_fArtefactReactionMax = MAX_REACTION;
 	m_fPsyHealthMax		= MAX_PSY_HEALTH;
 	m_fEntityMorale		=  m_fEntityMoraleMax = 1.f;
 
 
 	m_fPower			= MAX_POWER;
 	m_fRadiation		= 0;
+	m_fArtefactReaction	= 0;
 	m_fPsyHealth		= MAX_PSY_HEALTH;
 
 	m_fMinWoundSize			= 0.00001f;
@@ -71,6 +76,7 @@ CEntityCondition::CEntityCondition(CEntityAlive *object)
 	m_fDeltaHealth			= 0;
 	m_fDeltaPower			= 0;
 	m_fDeltaRadiation		= 0;
+	m_fDeltaArtefactReaction = 0;
 	m_fDeltaPsyHealth		= 0;
 
 	m_fHealthLost			= 0.f;
@@ -138,6 +144,7 @@ void CEntityCondition::reinit	()
 	max_health()			= MAX_HEALTH;
 	m_fPowerMax				= MAX_POWER;
 	m_fRadiationMax			= MAX_RADIATION;
+	m_fArtefactReactionMax  = MAX_REACTION;
 	m_fPsyHealthMax			= MAX_PSY_HEALTH;
 
 	m_fEntityMorale			=  m_fEntityMoraleMax = 1.f;
@@ -145,11 +152,13 @@ void CEntityCondition::reinit	()
 	SetHealth				( MAX_HEALTH );
 	m_fPower				= MAX_POWER;
 	m_fRadiation			= 0;
+	m_fArtefactReaction		= 0;
 	m_fPsyHealth			= MAX_PSY_HEALTH;
 
 	m_fDeltaHealth			= 0;
 	m_fDeltaPower			= 0;
 	m_fDeltaRadiation		= 0;
+	m_fDeltaArtefactReaction = 0;
 
 	m_fDeltaCircumspection	= 0;
 	m_fDeltaEntityMorale	= 0;
@@ -177,6 +186,11 @@ void CEntityCondition::ChangePower(const float value)
 void CEntityCondition::ChangeRadiation(const float value)
 {
 	m_fDeltaRadiation += value;
+}
+
+void CEntityCondition::ChangeArtefactReaction(const float value)
+{
+	m_fDeltaArtefactReaction += value;
 }
 
 void CEntityCondition::ChangePsyHealth(const float value)
@@ -249,6 +263,7 @@ void CEntityCondition::UpdateConditionTime()
 		m_fDeltaHealth			= 0;
 		m_fDeltaPower			= 0;
 		m_fDeltaRadiation		= 0;
+		m_fDeltaArtefactReaction		= 0;
 		m_fDeltaCircumspection	= 0;
 		m_fDeltaEntityMorale	= 0;
 	}
@@ -283,6 +298,7 @@ void CEntityCondition::UpdateCondition()
 	//-----------------------------------------
 	UpdatePower					();
 	UpdateRadiation				();
+	UpdateArtefactReaction		();
 	//-----------------------------------------
 	if (!CriticalHealth && m_fDeltaHealth+GetHealth() <= 0)
 	{
@@ -310,10 +326,12 @@ void CEntityCondition::UpdateCondition()
 	m_fPsyHealth				+= m_fDeltaPsyHealth;
 	m_fEntityMorale				+= m_fDeltaEntityMorale;
 	m_fRadiation				+= m_fDeltaRadiation;
+	m_fArtefactReaction			+= m_fDeltaArtefactReaction;
 	
 	m_fDeltaHealth				= 0;
 	m_fDeltaPower				= 0;
 	m_fDeltaRadiation			= 0;
+	m_fDeltaArtefactReaction			= 0;
 	m_fDeltaPsyHealth			= 0;
 	m_fDeltaCircumspection		= 0;
 	m_fDeltaEntityMorale		= 0;
@@ -322,6 +340,7 @@ void CEntityCondition::UpdateCondition()
 	SetHealth					(l_health);
 	clamp						(m_fPower,			0.0f,		m_fPowerMax);
 	clamp						(m_fRadiation,		0.0f,		m_fRadiationMax);
+	clamp						(m_fArtefactReaction, 0.0f,		m_fArtefactReactionMax);
 	clamp						(m_fEntityMorale,	0.0f,		m_fEntityMoraleMax);
 	clamp						(m_fPsyHealth,		0.0f,		m_fPsyHealthMax);
 }
@@ -549,6 +568,21 @@ void CEntityCondition::UpdateRadiation()
 	}
 }
 
+void CEntityCondition::UpdateArtefactReaction()
+{
+	if(m_fArtefactReaction > 0)
+	{
+		m_fDeltaArtefactReaction -= m_change_v.m_fV_ArtefactReaction*m_fDeltaTime;
+
+		luabind::functor<float>    read_float;
+		if (ai().script_engine().functor("_export_cryray.get_value_reaction", read_float))
+		{
+			if (read_float(m_fArtefactReaction))
+				return;
+		}
+	}
+}
+
 void CEntityCondition::UpdateEntityMorale()
 {
 	if(m_fEntityMorale<m_fEntityMoraleMax)
@@ -574,6 +608,7 @@ void CEntityCondition::save	(NET_Packet &output_packet)
 	{
 		save_data						(m_fPower,output_packet);
 		save_data						(m_fRadiation,output_packet);
+		save_data						(m_fArtefactReaction,output_packet);
 		save_data						(m_fEntityMorale,output_packet);
 		save_data						(m_fPsyHealth,output_packet);
 
@@ -592,6 +627,7 @@ void CEntityCondition::load	(IReader &input_packet)
 	{
 		load_data						(m_fPower,input_packet);
 		load_data						(m_fRadiation,input_packet);
+		load_data						(m_fArtefactReaction,input_packet);
 		load_data						(m_fEntityMorale,input_packet);
 		load_data						(m_fPsyHealth,input_packet);
 
@@ -614,6 +650,8 @@ void CEntityCondition::SConditionChangeV::load(LPCSTR sect, LPCSTR prefix)
 
 	strconcat				(sizeof(str),str,"radiation_v",prefix);
 	m_fV_Radiation			= pSettings->r_float(sect,str);
+	strconcat				(sizeof(str),str,"artefact_reaction_v",prefix);
+	m_fV_ArtefactReaction	= pSettings->r_float(sect,str);
 	strconcat				(sizeof(str),str,"radiation_health_v",prefix);
 	m_fV_RadiationHealth	= pSettings->r_float(sect,str);
 	strconcat				(sizeof(str),str,"morale_v",prefix);
@@ -646,6 +684,7 @@ bool CEntityCondition::ApplyInfluence(const SMedicineInfluenceValues& V, const s
 	ChangeThirst	(V.fThirst);
 	ChangeKurr		(V.fKurr);
 	ChangeRadiation	(V.fRadiation);
+	ChangeArtefactReaction	(V.fArtefactReaction);
 	ChangeBleeding	(V.fWoundsHeal);
 	SetMaxPower		(GetMaxPower()+V.fMaxPowerUp);
 	ChangeAlcohol	(V.fAlcohol);
@@ -666,6 +705,7 @@ void SMedicineInfluenceValues::Load(const shared_str& sect)
 	fThirst			= READ_IF_EXISTS(pSettings, r_float, sect.c_str(), "eat_thirst", 0.0f);
 	fKurr			= READ_IF_EXISTS(pSettings, r_float, sect.c_str(), "eat_kurr", 0.0f);
 	fRadiation		= pSettings->r_float(sect.c_str(), "eat_radiation");
+	fArtefactReaction = READ_IF_EXISTS(pSettings, r_float, sect.c_str(), "eat_artefact_reaction", 0.0f);//pSettings->r_float(sect.c_str(), "eat_radiation");
 	fWoundsHeal		= pSettings->r_float(sect.c_str(), "wounds_heal_perc");
 	clamp			(fWoundsHeal, 0.f, 1.f);
 	fMaxPowerUp		= READ_IF_EXISTS	(pSettings, r_float, sect.c_str(),	"eat_max_power",0.0f);

@@ -41,6 +41,9 @@ public:
 
 				float	GetHealthPower						()					{return m_fHealthRestoreSpeed;}
 				float	GetRadiationPower						()					{return m_fRadiationRestoreSpeed;}
+				
+				float	GetArtefactReactionPower						()					{return m_fArtefactReactionSpeed;}
+				
 				float	GetSatietyPower						()					{return m_fSatietyRestoreSpeed;}
 				float	GetPowerPower						()					{return m_fPowerRestoreSpeed;}
 				float	GetBleedingPower						()					{return m_fBleedingRestoreSpeed;} 
@@ -96,6 +99,7 @@ public:
 	bool							m_bCanSpawnZone;
 	float							m_fHealthRestoreSpeed;
 	float 							m_fRadiationRestoreSpeed;
+	float 							m_fArtefactReactionSpeed;
 	float 							m_fSatietyRestoreSpeed;
 	float 							m_fSleepRestoreSpeed;	
 	float 							m_fThirstRestoreSpeed;

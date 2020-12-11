@@ -86,6 +86,7 @@ void ui_actor_state_wnd::init_from_xml( CUIXml& xml, LPCSTR path )
 		m_state[stt_psy_health]->init_from_xml(xml, "psy_health_bar");
 		m_state[stt_bleding]->init_from_xml(xml, "bleding_bar");
 		m_state[stt_radiat]->init_from_xml(xml, "radiat_bar");
+		m_state[stt_artefact_reaction]->init_from_xml(xml, "artefact_reaction_bar");
 		m_state[stt_stamina]->init_from_xml(xml, "stamina_bar");
 		m_state[stt_satiety]->init_from_xml(xml, "starvation_bar");
 		m_state[stt_thirst]->init_from_xml(xml, "thirst_bar");
@@ -325,8 +326,12 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 			value = actor->conditions().GetHealth();
 			m_state[stt_healh]->set_progress(value);
 		}
-
-		//Заряд батареек фонарика
+		// Р РµР°РєС†РёСЏ Р°СЂС‚РµС„Р°РєС‚РѕРІ РЅР° РїРѕСЏСЃРµ:
+		{
+			value = actor->conditions().GetArtefactReaction();
+			m_state[stt_artefact_reaction]->set_progress(value);
+		}
+		//Р—Р°СЂСЏРґ Р±Р°С‚Р°СЂРµРµРє С„РѕРЅР°СЂРёРєР°
 		if (torch)
 		{
 			if (torch)
@@ -535,7 +540,7 @@ void ui_actor_state_wnd::update_round_states( CActor* actor, ALife::EHitType hit
 
 void ui_actor_state_wnd::UpdateHitZone()
 {
-	CUIHudStatesWnd* wnd = CurrentGameUI()->UIMainIngameWnd->get_hud_states(); //некрасиво слишком
+	CUIHudStatesWnd* wnd = CurrentGameUI()->UIMainIngameWnd->get_hud_states(); //РЅРµРєСЂР°СЃРёРІРѕ СЃР»РёС€РєРѕРј
 	VERIFY( wnd );
 	if ( !wnd )
 	{

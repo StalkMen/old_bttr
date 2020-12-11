@@ -113,6 +113,7 @@ namespace ALife {
 		ePowerRestoreSpeed,
 		eBleedingRestoreSpeed,
 		eRadiationRestoreSpeed,
+		eArtefactReactionRestoreSpeed,
 		eRestoreTypeMax,
 		eSleepRestoreSpeed,
 		eThirstRestoreSpeed,

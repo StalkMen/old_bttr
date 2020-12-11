@@ -36,6 +36,7 @@ private:
 			void 		UpdateThirst				();
 			void		UpdateKurr					();
 	virtual void		UpdateRadiation				();
+	virtual void		UpdateArtefactReaction		();
 public:
 						CActorCondition				(CActor *object);
 	virtual				~CActorCondition			();

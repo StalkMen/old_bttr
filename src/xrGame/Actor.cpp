@@ -1795,6 +1795,23 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
             }
             else
 				conditions().ChangeRadiation((artefact->m_fRadiationRestoreSpeed*art_cond)	* f_update_time);
+			
+			if ((artefact->m_fArtefactReactionSpeed*art_cond) > 0.0f)
+            {
+				float val = (artefact->m_fArtefactReactionSpeed*art_cond);
+                clamp(val, 0.0f, val);
+                conditions().ChangeArtefactReaction(val * f_update_time);
+            }
+            else
+				conditions().ChangeArtefactReaction((artefact->m_fArtefactReactionSpeed*art_cond)	* f_update_time);
+
+            if (Actor()->conditions().GetArtefactReaction() >= 0.6f)
+            {
+                LPCSTR artefact_reaction;
+                LUA_EXPORT read_only;
+                R_ASSERT(_SCRIPT_ENGINE("_export_cryray.update_reaction_artefact", read_only));
+                artefact_reaction = read_only();
+            }
         }
     }
 
@@ -2044,6 +2061,18 @@ float CActor::GetRestoreSpeed(ALife::EConditionRestoreType const& type)
 										      CHelmet* pHelmet = (CHelmet*)inventory().ItemFromSlot(HELMET_SLOT);
 
 										      res += ((outfit ? outfit->m_fRadiationRestoreSpeed : 0.f) + (pHelmet ? pHelmet->m_fRadiationRestoreSpeed : 0.f));
+                                              break;
+        }
+		case ALife::eArtefactReactionRestoreSpeed:
+        {
+                                              TIItemContainer::iterator itb = inventory().m_belt.begin();
+                                              TIItemContainer::iterator ite = inventory().m_belt.end();
+                                              for (; itb != ite; ++itb)
+                                              {
+                                                  CArtefact*	artefact = smart_cast<CArtefact*>(*itb);
+                                                  if (artefact)
+												      res += (artefact->m_fArtefactReactionSpeed*artefact->GetCondition());
+                                              }
                                               break;
         }
         case ALife::eSatietyRestoreSpeed:
