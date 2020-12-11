@@ -5,6 +5,7 @@
 	#define DISABLED_PRECOMPILED_SHADERS_USAGE  // Отключить искользование прекомпилированных шейдеров
 	#define FIX_CLEAR_OCC						// Исправление чистки памяти для ОСС
 	#define ___DISABLED							// Общее отключение функций для рендера
+	#define NEW_LOADING_TEXTURES				// Новая загрузка текстур
 
 	// Static geometry optimization
 	#define O_S_L1_S_LOW    10.f // geometry 3d volume size

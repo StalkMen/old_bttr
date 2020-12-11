@@ -39,9 +39,8 @@ void R_occlusion::occq_destroy()
         p_cnt++;
     }
     fids.clear();
-    Msg("# [%s]: released %u used and %u pool queries", __FUNCTION__, u_cnt, p_cnt);
+    Msg("# [CryRay Engine] [%s]: released %u used and %u pool queries", __FUNCTION__, u_cnt, p_cnt);
 }
-
 
 void R_occlusion::cleanup_lost() 
 {
@@ -55,7 +54,7 @@ void R_occlusion::cleanup_lost()
         }
     }
     if (cnt > 0)
-        Msg("~ [%s]: cleanup %u lost queries", __FUNCTION__, cnt);
+        Msg("# [CryRay Engine] [%s]: cleanup %u lost queries", __FUNCTION__, cnt);
 }
 
 u32 R_occlusion::occq_begin(u32& ID) 

@@ -171,7 +171,7 @@ void InitConfig(T& config, pcstr name, bool fatal = true,
     config = xr_new<CInifile>(fname, readOnly, loadAtStart, saveAtEnd, sectCount, allowIncludeFunc);
 
     CHECK_OR_EXIT(config->section_count() || !fatal,
-        make_string("Cannot find file %s.\nReinstalling application may fix this problem.", fname));
+        make_string("Cannot find file %s.", fname));
 }
 
 PROTECT_API void InitSettings()
@@ -181,7 +181,7 @@ PROTECT_API void InitSettings()
     string_path fname;
     FS.update_path(fname, "$game_config$", "system.ltx");
     pSettings = xr_new<CInifile>(fname, TRUE);
-    CHECK_OR_EXIT(0 != pSettings->section_count(), make_string("Cannot find file %s.\nReinstalling application may fix this problem.", fname));
+    CHECK_OR_EXIT(0 != pSettings->section_count(), make_string("# Cannot find file %s.", fname));
 
     xr_auth_strings_t tmp_ignore_pathes, tmp_check_pathes;
     fill_auth_check_params(tmp_ignore_pathes, tmp_check_pathes);

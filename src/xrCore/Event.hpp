@@ -1,4 +1,5 @@
 #pragma once
+#include <mutex>
 
 class XRCORE_API Event
 {
@@ -21,3 +22,7 @@ public:
 
 	void* GetHandle() noexcept { return handle; }
 };
+
+typedef std::mutex Mutex;
+typedef std::recursive_mutex RMutex;
+

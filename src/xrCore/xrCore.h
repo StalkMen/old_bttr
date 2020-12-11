@@ -59,6 +59,8 @@
 #include <string.h>
 #include <typeinfo>
 #include <thread>
+#include <bitset>
+#include <limits>
 
 #ifndef DEBUG
 #ifdef _DEBUG

@@ -1196,7 +1196,7 @@ void CCC_Register()
     
     CMD3(CCC_Mask,      "xrEngine_reload_dof_wpn", &p_engine_flags32,   AF_RELOAD_DOF);
     CMD3(CCC_Mask,      "xrEngine_zoom_dof_wpn", &p_engine_flags32,     AF_ZOOM_DOF);
-    CMD4(CCC_Integer,   "teleport_demo_record", &ps_teleport_demo_record, 0, 1);
+    CMD4(CCC_Integer,   "xrEngine_teleport_demo_record", &ps_teleport_demo_record, 0, 1);
 
     if (BttR_mode)
     {
@@ -1205,10 +1205,6 @@ void CCC_Register()
     }
     else
         p_engine_flags32.set(FLAG_MORE_REALISM, false);
-
-#if 0
-    CMD4(CCC_Integer,   "xrEngine_rs_fps_test", &show_FPS_only, 0, 1);
-#endif
 
     CMD4(CCC_Float,     "xrSound_snd_speed",    &psSpeedOfSound, 0.2f, 2.0f);
 

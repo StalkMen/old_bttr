@@ -32,8 +32,9 @@ namespace CryRayParams
 			const float alife_update_monster() const;
 
 			float af_koef();
+			const float artefact_reac_value();
 
-			virtual void CryRayClass::save(NET_Packet& output_packet);
-			virtual void CryRayClass::load(IReader& input_packet);
+			virtual void save(NET_Packet& output_packet);
+			virtual void load(IReader& input_packet);
 	};
 };

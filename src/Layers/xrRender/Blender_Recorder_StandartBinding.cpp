@@ -482,6 +482,11 @@ void	CBlender_Compile::SetMapping	()
 	if (detail_scaler)
 		r_Constant			("dt_params",		detail_scaler);
 
+#ifdef NEW_LOADING_TEXTURES
+	if (glossparams)
+		r_Constant("tgloss_coef_and_offset", glossparams);
+#endif
+
 	// other common
 	for (u32 it=0; it<DEV->v_constant_setup.size(); it++)
 	{

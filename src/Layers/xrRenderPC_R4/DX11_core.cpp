@@ -520,7 +520,7 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
    R_ASSERT						( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 );
    if( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel>=D3D_FEATURE_LEVEL_11_0 )
    {
-	   Msg("[CryRay Engine]: Shader model 5 used!");
+//	   Msg("[CryRay Engine]: Shader model 5 used!");
 	   defines[def_it].Name		=	"SM_5";
 	   defines[def_it].Definition	=	"1";
 	   def_it++;

@@ -27,6 +27,10 @@ public:
 	BOOL				bUseSteepParallax;
 	int					iElement;
 
+#ifdef NEW_LOADING_TEXTURES
+	R_constant_setup* glossparams;
+#endif
+
 public:
 	CSimulator			RS;
 	IBlender*			BT;
@@ -92,17 +96,11 @@ public:
 	void				StageSET_Color		(u32 a1, u32 op, u32 a2);
 	void				StageSET_Color3		(u32 a1, u32 op, u32 a2, u32 a3);
 	void				StageSET_Alpha		(u32 a1, u32 op, u32 a2);
-#if !defined(DIRECTX10) && !defined(DIRECTX11)
-	void				StageSET_TMC		(LPCSTR T, LPCSTR M, LPCSTR C, int UVW_channel);
-	void				Stage_Texture		(LPCSTR name, u32 address=D3DTADDRESS_WRAP,	u32	 fmin=D3DTEXF_LINEAR, u32 fmip=D3DTEXF_LINEAR,	u32 fmag=D3DTEXF_LINEAR);
-	void				StageTemplate_LMAP0	();
-#endif	//	DIRECTX10
+
 	void				Stage_Matrix		(LPCSTR name, int UVW_channel);
 	void				Stage_Constant		(LPCSTR name);
 	void				StageEnd			();
 
-	// R1/R2-compiler	[programmable]
-#if defined(DIRECTX10) || defined(DIRECTX11)
 	void				i_dx10Address		(u32 s, u32		address);
 	void				i_dx10Filter_Min	(u32 s, u32		f);
 	void				i_dx10Filter_Mip	(u32 s, u32		f);
@@ -110,27 +108,16 @@ public:
 	void				i_dx10FilterAnizo	(u32 s, BOOL	value);
 	void				i_dx10Filter		(u32 s, u32 _min, u32 _mip, u32 _mag);
 	void				i_dx10BorderColor	(u32 s, u32 color);
-#else	//	DIRECTX10
-	u32					i_Sampler			(LPCSTR name);
-	void				i_Texture			(u32 s, LPCSTR	name);
-	void				i_Projective		(u32 s, bool	b);
-	void				i_Address			(u32 s, u32		address);
-	void				i_Filter_Min		(u32 s, u32		f);
-	void				i_Filter_Mip		(u32 s, u32		f);
-	void				i_Filter_Mag		(u32 s, u32		f);
-	void				i_Filter			(u32 s, u32 _min, u32 _mip, u32 _mag);
-	void				i_BorderColor		(u32 s, u32	color);
-#endif	//	DIRECTX10
 
 	// R1/R2-compiler	[programmable]		- templates
 	void				r_Pass				(LPCSTR vs,		LPCSTR ps,		bool bFog,	BOOL	bZtest=TRUE,				BOOL	bZwrite=TRUE,			BOOL	bABlend=FALSE,			D3DBLEND	abSRC=D3DBLEND_ONE,		D3DBLEND abDST=D3DBLEND_ZERO,	BOOL aTest=FALSE,	u32 aRef=0);
 	void				r_Constant			(LPCSTR name,	R_constant_setup* s);
-#if defined(DIRECTX10) || defined(DIRECTX11)
+
 	void				r_Pass				(LPCSTR vs,		LPCSTR gs, LPCSTR ps,		bool bFog,	BOOL	bZtest=TRUE,				BOOL	bZwrite=TRUE,			BOOL	bABlend=FALSE,			D3DBLEND	abSRC=D3DBLEND_ONE,		D3DBLEND abDST=D3DBLEND_ZERO,	BOOL aTest=FALSE,	u32 aRef=0);
-#	ifdef DIRECTX11
+#ifdef DIRECTX11
 	void				r_TessPass			(LPCSTR vs,	LPCSTR hs, LPCSTR ds, LPCSTR gs, LPCSTR ps, bool bFog, BOOL bZtest=TRUE, BOOL bZwrite=TRUE, BOOL bABlend=FALSE,	D3DBLEND abSRC=D3DBLEND_ONE, D3DBLEND abDST=D3DBLEND_ZERO, BOOL aTest=FALSE, u32 aRef=0);
 	void				r_ComputePass		(LPCSTR cs );
-#	endif
+#endif
 	void				r_Stencil(BOOL Enable, u32 Func=D3DCMP_ALWAYS, u32 Mask=0x00, u32 WriteMask=0x00, u32 Fail=D3DSTENCILOP_KEEP, u32 Pass=D3DSTENCILOP_KEEP, u32 ZFail=D3DSTENCILOP_KEEP);
 	void				r_StencilRef(u32 Ref);
 	void				r_CullMode(D3DCULL Mode);
@@ -138,19 +125,9 @@ public:
 	void				r_dx10Texture(LPCSTR ResourceName,	LPCSTR texture);
 	void				r_dx10Texture(LPCSTR ResourceName,	shared_str texture) { return r_dx10Texture(ResourceName, texture.c_str());};
 	u32					r_dx10Sampler(LPCSTR ResourceName);
-#else	//	DIRECTX10
-	u32					r_Sampler			(LPCSTR name,	LPCSTR texture,		bool b_ps1x_ProjectiveDivide=false, u32	address=D3DTADDRESS_WRAP,	u32		fmin=D3DTEXF_LINEAR,	u32		fmip=D3DTEXF_LINEAR,	u32 fmag=D3DTEXF_LINEAR);
-	u32					r_Sampler			(LPCSTR name,	shared_str texture, bool b_ps1x_ProjectiveDivide=false, u32	address=D3DTADDRESS_WRAP,	u32		fmin=D3DTEXF_LINEAR,	u32		fmip=D3DTEXF_LINEAR,	u32 fmag=D3DTEXF_LINEAR)	{
-		return r_Sampler	(name,texture.c_str(),b_ps1x_ProjectiveDivide,address,fmin,fmip,fmag);
-	}
-	void				r_Sampler_rtf		(LPCSTR name,	LPCSTR texture,		bool b_ps1x_ProjectiveDivide=false);
-	void				r_Sampler_clf		(LPCSTR name,	LPCSTR texture,		bool b_ps1x_ProjectiveDivide=false);
-	void				r_Sampler_clw		(LPCSTR name,	LPCSTR texture,		bool b_ps1x_ProjectiveDivide=false);
-#endif	//	DIRECTX10
+
 	void				r_ColorWriteEnable( bool cR=true, bool cG=true, bool cB=true, bool cA=true);
 	void				r_End				();
-
-	//
 
 	CBlender_Compile	();
 	~CBlender_Compile	();

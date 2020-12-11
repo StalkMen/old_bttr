@@ -220,7 +220,6 @@ LPCSTR CObjectHandlerPlanner::property2string(const _condition_type &id)
 
 void CObjectHandlerPlanner::remove_evaluators(CObject* object)
 {
-#pragma todo("Dima to Dima : safe, but not optimal!")
 #pragma todo("OldSerpskiStalker. Fix from OGSR")
 	//https://github.com/OGSR/OGSR-Engine/commit/a1eefbe8714e3aaca5e372e7b33d4956d5ab55da
 	for (;;)
@@ -235,7 +234,6 @@ void CObjectHandlerPlanner::remove_evaluators(CObject* object)
 
 void CObjectHandlerPlanner::remove_operators(CObject* object)
 {
-#pragma todo("Dima to Dima : safe, but not optimal!")
 #pragma todo("OldSerpskiStalker. Fix from OGSR")
 	//https://github.com/OGSR/OGSR-Engine/commit/a1eefbe8714e3aaca5e372e7b33d4956d5ab55da
 	for (;;)

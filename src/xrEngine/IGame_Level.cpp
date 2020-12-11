@@ -123,7 +123,7 @@ bool IGame_Level::Load(u32 dwNum)
         g_hud = (CCustomHUD*)NEW_INSTANCE(CLSID_HUDMANAGER);
 
 #pragma todo("OldSerpskiStalker. Fix crash level")
-    Msg("~ Fix level_unload");
+    Msg("# [CryRay Engine] level unload");
     EnvCryRay.Render->level_Unload();
     // Render-level Load
     EnvCryRay.Render->level_Load(LL_Stream);

@@ -1244,7 +1244,7 @@ void CCustomZone::SpawnArtefact()
 			break;
 	}
 	R_ASSERT(i < m_ArtefactSpawn.size());
-	Msg("- [%s] anomalia: [%s], artefact: [%s]", __FUNCTION__, cName().c_str(), *m_ArtefactSpawn[i].section);
+//	Msg("- [%s] anomalia: [%s], artefact: [%s]", __FUNCTION__, cName().c_str(), *m_ArtefactSpawn[i].section);
 
 	Fvector pos;
 	Center(pos);
@@ -1253,7 +1253,7 @@ void CCustomZone::SpawnArtefact()
 
 void CCustomZone::BornArtefact(bool forced)
 {
-	Msg("# BornArtefact[%s] prob %f cnt2 %f forced %d", cName().c_str(), m_fArtefactSpawnProbability, (float)m_ArtefactSpawn.size(), forced);
+//	Msg("# BornArtefact[%s] prob %f cnt2 %f forced %d", cName().c_str(), m_fArtefactSpawnProbability, (float)m_ArtefactSpawn.size(), forced);
 
 	if (!m_zone_flags.test(eSpawnBlowoutArtefacts) || m_ArtefactSpawn.empty())
 		return;

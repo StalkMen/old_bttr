@@ -94,6 +94,13 @@ void	uber_deffer	(CBlender_Compile& C, bool hq, LPCSTR _vspec, LPCSTR _pspec, BO
 
 	// Uber-construct
 #ifdef DIRECTX11
+#ifdef NEW_LOADING_TEXTURES
+	if (C.L_textures.size() >= 0 && (DEV->m_textures_description.TessMethod(C.L_textures[0].c_str()) != 32))
+	{
+		C.TessMethod = DEV->m_textures_description.TessMethod(C.L_textures[0].c_str());
+		//Msg("uber_deffer tesselation = %u", C.TessMethod);
+	}
+#endif
 	if (bump && hq && RImplementation.o.dx11_enable_tessellation && C.TessMethod!=0)
 	{
 		char hs[256], ds[256];
@@ -230,6 +237,14 @@ void uber_shadow(CBlender_Compile& C, LPCSTR _vspec)
 		xr_strcpy			(fnameA,_t.bump_get().c_str());
 		strconcat		(sizeof(fnameB),fnameB,fnameA,"#");
 	}
+
+#ifdef NEW_LOADING_TEXTURES
+	if (C.L_textures.size() >= 0 && (DEV->m_textures_description.TessMethod(C.L_textures[0].c_str()) != 32))
+	{
+		C.TessMethod = DEV->m_textures_description.TessMethod(C.L_textures[0].c_str());
+		//Msg("uber_deffer tesselation shadow = %u", C.TessMethod);
+	}
+#endif
 
 	if (bump && RImplementation.o.dx11_enable_tessellation && C.TessMethod!=0)
 	{

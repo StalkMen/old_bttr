@@ -14,6 +14,7 @@
 #include "ActorBackpack.h"
 #include "script_engine.h"
 #include "ai_space.h"
+#include "CryRayGameConstants.h"
 
 #define MAX_HEALTH 1.0f
 #define MIN_HEALTH -0.01f
@@ -645,13 +646,14 @@ void CEntityCondition::load	(IReader &input_packet)
 
 void CEntityCondition::SConditionChangeV::load(LPCSTR sect, LPCSTR prefix)
 {
+	CryRayParams::CryRayClass params;
+
 	string256				str;
 	m_fV_Circumspection		= 0.01f;
 
 	strconcat				(sizeof(str),str,"radiation_v",prefix);
 	m_fV_Radiation			= pSettings->r_float(sect,str);
-	strconcat				(sizeof(str),str,"artefact_reaction_v",prefix);
-	m_fV_ArtefactReaction	= pSettings->r_float(sect,str);
+	m_fV_ArtefactReaction   = params.artefact_reac_value();
 	strconcat				(sizeof(str),str,"radiation_health_v",prefix);
 	m_fV_RadiationHealth	= pSettings->r_float(sect,str);
 	strconcat				(sizeof(str),str,"morale_v",prefix);
