@@ -1089,7 +1089,7 @@ ENGINE_API int m_sun_cascade_0_size = 8;
 ENGINE_API int m_sun_cascade_1_size = 32;
 ENGINE_API int m_sun_cascade_2_size = 192;
 ENGINE_API BOOL FullRenderingFunctionality = FALSE; // advanced post process and effects
-
+           int ps_teleport_demo_record = 0;
 u32 renderer_value = 0;
 class CCC_DirectX : public CCC_Token
 {
@@ -1196,6 +1196,7 @@ void CCC_Register()
     
     CMD3(CCC_Mask,      "xrEngine_reload_dof_wpn", &p_engine_flags32,   AF_RELOAD_DOF);
     CMD3(CCC_Mask,      "xrEngine_zoom_dof_wpn", &p_engine_flags32,     AF_ZOOM_DOF);
+    CMD4(CCC_Integer,   "teleport_demo_record", &ps_teleport_demo_record, 0, 1);
 
     if (BttR_mode)
     {
