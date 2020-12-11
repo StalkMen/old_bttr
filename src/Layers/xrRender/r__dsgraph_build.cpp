@@ -497,12 +497,12 @@ void R_dsgraph_structure::r_dsgraph_insert_static	(dxRender_Visual *pVisual)
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-void CRender::add_leafs_Dynamic	(dxRender_Visual *pVisual)
+void CRender::add_leafs_Dynamic	(dxRender_Visual *pVisual, bool ignore)
 {
 	if (0==pVisual)				
 		return;
 
-	if (!IsValuableToRender(pVisual, false, phase == 1, *val_pTransform))
+	if (!ignore && !IsValuableToRender(pVisual, false, phase == 1, *val_pTransform))
 		return;
 
 	// Visual is 100% visible - simply add it
@@ -515,9 +515,9 @@ void CRender::add_leafs_Dynamic	(dxRender_Visual *pVisual)
 			PS::CParticleGroup* pG	= (PS::CParticleGroup*)pVisual;
 			for (PS::CParticleGroup::SItemVecIt i_it=pG->items.begin(); i_it!=pG->items.end(); ++i_it)	{
 				PS::CParticleGroup::SItem&			I		= *i_it;
-				if (I._effect)		add_leafs_Dynamic		(I._effect);
-				for (xr_vector<dxRender_Visual*>::iterator pit = I._children_related.begin();	pit!=I._children_related.end(); ++pit)	add_leafs_Dynamic(*pit);
-				for (xr_vector<dxRender_Visual*>::iterator pit = I._children_free.begin();		pit!=I._children_free.end();	++pit)	add_leafs_Dynamic(*pit);
+				if (I._effect)		add_leafs_Dynamic		(I._effect, ignore);
+				for (xr_vector<dxRender_Visual*>::iterator pit = I._children_related.begin();	pit!=I._children_related.end(); ++pit)	add_leafs_Dynamic(*pit, ignore);
+				for (xr_vector<dxRender_Visual*>::iterator pit = I._children_free.begin();		pit!=I._children_free.end();	++pit)	add_leafs_Dynamic(*pit, ignore);
 			}
 		}
 		return;
@@ -527,7 +527,7 @@ void CRender::add_leafs_Dynamic	(dxRender_Visual *pVisual)
 			FHierrarhyVisual* pV = (FHierrarhyVisual*)pVisual;
 			I = pV->children.begin	();
 			E = pV->children.end	();
-			for (; I!=E; ++I)	add_leafs_Dynamic	(*I);
+			for (; I!=E; ++I)	add_leafs_Dynamic	(*I, ignore);
 		}
 		return;
 	case MT_SKELETON_ANIM:
@@ -545,13 +545,13 @@ void CRender::add_leafs_Dynamic	(dxRender_Visual *pVisual)
 			}
 			if (_use_lod)				
 			{
-				add_leafs_Dynamic			(pV->m_lod)		;
+				add_leafs_Dynamic			(pV->m_lod, ignore)		;
 			} else {
 				pV->CalculateBones			(TRUE);
 				pV->CalculateWallmarks		();		//. bug?
 				I = pV->children.begin		();
 				E = pV->children.end		();
-				for (; I!=E; ++I)	add_leafs_Dynamic	(*I);
+				for (; I!=E; ++I)	add_leafs_Dynamic	(*I, ignore);
 			}
 		}
 		return;
@@ -572,7 +572,7 @@ void CRender::add_leafs_Static(dxRender_Visual *pVisual)
 	if (!HOM.visible(pVisual->vis))		
 		return;
 
-	if (!IsValuableToRender(pVisual, true, phase == 1, *val_pTransform))
+	if (!pVisual->_ignore_optimization && !IsValuableToRender(pVisual, true, phase == 1, *val_pTransform))
 		return;
 
 	// Visual is 100% visible - simply add it
@@ -655,7 +655,7 @@ void CRender::add_leafs_Static(dxRender_Visual *pVisual)
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 BOOL CRender::add_Dynamic(dxRender_Visual *pVisual, u32 planes)
 {
-	if (!IsValuableToRender(pVisual, false, phase == 1, *val_pTransform))
+	if (!pVisual->_ignore_optimization && !IsValuableToRender(pVisual, false, phase == 1, *val_pTransform))
 		return FALSE;
 
 	// Check frustum visibility and calculate distance to visual's center
@@ -743,7 +743,7 @@ BOOL CRender::add_Dynamic(dxRender_Visual *pVisual, u32 planes)
 
 void CRender::add_Static(dxRender_Visual *pVisual, u32 planes)
 {
-	if (!IsValuableToRender(pVisual, true, phase == 1, *val_pTransform))
+	if (!pVisual->_ignore_optimization && !IsValuableToRender(pVisual, true, phase == 1, *val_pTransform))
 		return;
 	// Check frustum visibility and calculate distance to visual's center
 	EFC_Visible	VIS;
