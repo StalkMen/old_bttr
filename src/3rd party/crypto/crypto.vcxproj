@@ -91,6 +91,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <StringPooling>true</StringPooling>
       <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
+      <ForceConformanceInForLoopScope>
+      </ForceConformanceInForLoopScope>
     </ClCompile>
     <Link>
       <ImportLibrary>$(xrLibDir)$(TargetName).lib</ImportLibrary>

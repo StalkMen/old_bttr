@@ -79,6 +79,8 @@
       <StringPooling>true</StringPooling>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
+      <ForceConformanceInForLoopScope>
+      </ForceConformanceInForLoopScope>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>

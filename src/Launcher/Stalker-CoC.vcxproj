@@ -67,7 +67,8 @@
       <SDLCheck>true</SDLCheck>
       <MinimalRebuild>true</MinimalRebuild>
       <EnableFiberSafeOptimizations />
-      <ForceConformanceInForLoopScope />
+      <ForceConformanceInForLoopScope>
+      </ForceConformanceInForLoopScope>
       <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
