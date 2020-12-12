@@ -1740,6 +1740,7 @@ bool CWeaponMagazined::SwitchMode()
 
 void	CWeaponMagazined::OnNextFireMode()
 {
+#pragma todo("OldSerpskiStalker, добавить звук переключения режимов огня")
     if (!m_bHasDifferentFireModes) return;
     if (GetState() != eIdle) return;
     m_iCurFireMode = (m_iCurFireMode + 1 + m_aFireModes.size()) % m_aFireModes.size();
@@ -1748,6 +1749,7 @@ void	CWeaponMagazined::OnNextFireMode()
 
 void	CWeaponMagazined::OnPrevFireMode()
 {
+#pragma todo("OldSerpskiStalker, добавить звук переключения режимов огня")
     if (!m_bHasDifferentFireModes) return;
     if (GetState() != eIdle) return;
     m_iCurFireMode = (m_iCurFireMode - 1 + m_aFireModes.size()) % m_aFireModes.size();
