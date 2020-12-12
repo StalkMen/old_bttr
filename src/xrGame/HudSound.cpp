@@ -225,7 +225,6 @@ wrapping the class around HUD_SOUND_COLLECTION and tagging them with the same al
 sndShot is played, it will play all the sound items with the same alias.
 */
 //----------------------------------------------------------
-#ifdef	LAYERED_SND_SHOOT
 HUD_SOUND_COLLECTION_LAYERED::~HUD_SOUND_COLLECTION_LAYERED()
 {
 	xr_vector<HUD_SOUND_COLLECTION>::iterator it = m_sound_items.begin();
@@ -365,5 +364,4 @@ void HUD_SOUND_COLLECTION_LAYERED::LoadSound(CInifile const *ini, LPCSTR section
 		snd_item.m_alias = alias;
 	}
 }
-#endif
 //-Alundaio

@@ -80,10 +80,8 @@ static		float				TestPassEffect			(const	Fvector	&source_p,	const	Fvector	&dir,f
 			void				LightDestroy			();
 protected:
 
-	//Alundaio: LAYERED_SND_SHOOT
-#ifdef LAYERED_SND_SHOOT
+	//Alundaio: 
 	HUD_SOUND_COLLECTION_LAYERED m_layered_sounds;
-#endif
 	//-Alundaio
 
 	CWalmarkManager				m_wallmark_manager;

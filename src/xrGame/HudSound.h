@@ -65,10 +65,10 @@ class HUD_SOUND_COLLECTION
     //HUD_SOUND_ITEM*				FindSoundItem	(	LPCSTR alias, bool b_assert);
 public:
     ~HUD_SOUND_COLLECTION();
-#ifdef	LAYERED_SND_SHOOT
+
 	HUD_SOUND_COLLECTION() :m_alias(NULL) {};
 	shared_str		m_alias; //Alundaio: For use when it's part of a layered Collection
-#endif
+
 	xr_vector<HUD_SOUND_ITEM>	m_sound_items; //Alundaio: made public
 
     HUD_SOUND_ITEM*				FindSoundItem(LPCSTR alias, bool b_assert); //AVO: made public to check if sound is loaded
@@ -83,7 +83,6 @@ public:
 };
 
 //Alundaio:
-#ifdef LAYERED_SND_SHOOT
 class HUD_SOUND_COLLECTION_LAYERED
 {
 	xr_vector<HUD_SOUND_COLLECTION>	m_sound_items;
@@ -97,5 +96,4 @@ public:
 	void						LoadSound(CInifile const *ini, LPCSTR section, LPCSTR line, LPCSTR alias, bool exclusive = false, int type = sg_SourceType);
 	void						SetPosition(LPCSTR alias, const Fvector& pos);
 };
-#endif
 //-Alundaio

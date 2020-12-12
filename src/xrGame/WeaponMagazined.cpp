@@ -35,9 +35,7 @@ CWeaponMagazined::CWeaponMagazined(ESoundTypes eSoundType) : CWeapon()
     m_eSoundShot = ESoundTypes(SOUND_TYPE_WEAPON_SHOOTING | eSoundType);
     m_eSoundEmptyClick = ESoundTypes(SOUND_TYPE_WEAPON_EMPTY_CLICKING | eSoundType);
     m_eSoundReload = ESoundTypes(SOUND_TYPE_WEAPON_RECHARGING | eSoundType);
-#ifdef NEW_SOUNDS
     m_eSoundReloadEmpty = ESoundTypes(SOUND_TYPE_WEAPON_RECHARGING | eSoundType);
-#endif
     m_sounds_enabled = true;
 
     m_sSndShotCurrent = NULL;
@@ -90,27 +88,17 @@ void CWeaponMagazined::Load(LPCSTR section)
     m_sounds.LoadSound(section, "snd_draw", "sndShow", true, m_eSoundShow);
     m_sounds.LoadSound(section, "snd_holster", "sndHide", true, m_eSoundHide);
 
-	//Alundaio: LAYERED_SND_SHOOT
-#ifdef LAYERED_SND_SHOOT
+	//Alundaio: 
 	m_layered_sounds.LoadSound(section, "snd_shoot", "sndShot", false, m_eSoundShot);
-	//if (WeaponSoundExist(section, "snd_shoot_actor"))
-	//	m_layered_sounds.LoadSound(section, "snd_shoot_actor", "sndShotActor", false, m_eSoundShot);
-#else
-	m_sounds.LoadSound(section, "snd_shoot", "sndShot", false, m_eSoundShot);
-	//if (WeaponSoundExist(section, "snd_shoot_actor"))
-	//	m_sounds.LoadSound(section, "snd_shoot_actor", "sndShot", false, m_eSoundShot);
-#endif
 	//-Alundaio
 
     m_sounds.LoadSound(section, "snd_empty", "sndEmptyClick", true, m_eSoundEmptyClick);
     m_sounds.LoadSound(section, "snd_reload", "sndReload", true, m_eSoundReload);
 
-#ifdef NEW_SOUNDS //AVO: custom sounds go here
     if (WeaponSoundExist(section, "snd_reload_empty"))
         m_sounds.LoadSound(section, "snd_reload_empty", "sndReloadEmpty", true, m_eSoundReloadEmpty);
     if (WeaponSoundExist(section, "snd_reload_misfire"))
         m_sounds.LoadSound(section, "snd_reload_misfire", "sndReloadMisfire", true, m_eSoundReloadMisfire);
-#endif //-NEW_SOUNDS
 
     m_sSndShotCurrent = IsSilencerAttached() ? "sndSilencerShot" : "sndShot";
 
@@ -122,16 +110,10 @@ void CWeaponMagazined::Load(LPCSTR section)
         if (pSettings->line_exist(section, "silencer_smoke_particles"))
             m_sSilencerSmokeParticles = pSettings->r_string(section, "silencer_smoke_particles");
 
-		//Alundaio: LAYERED_SND_SHOOT Silencer
-#ifdef LAYERED_SND_SHOOT
+		//Alundaio: Silencer
 		m_layered_sounds.LoadSound(section, "snd_silncer_shot", "sndSilencerShot", false, m_eSoundShot);
 		if (WeaponSoundExist(section, "snd_silncer_shot_actor"))
 			m_layered_sounds.LoadSound(section, "snd_silncer_shot_actor", "sndSilencerShotActor", false, m_eSoundShot);
-#else
-		m_sounds.LoadSound(section, "snd_silncer_shot", "sndSilencerShot", false, m_eSoundShot);
-		if (WeaponSoundExist(section, "snd_silncer_shot_actor"))
-		m_sounds.LoadSound(section, "snd_silncer_shot_actor", "sndSilencerShotActor", false, m_eSoundShot);
-#endif
 		//-Alundaio
 
     }
@@ -777,15 +759,10 @@ void CWeaponMagazined::UpdateSounds()
     Fvector P = get_LastFP();
     m_sounds.SetPosition("sndShow", P);
     m_sounds.SetPosition("sndHide", P);
-    //. nah	m_sounds.SetPosition("sndShot", P);
     m_sounds.SetPosition("sndReload", P);
 
-#ifdef NEW_SOUNDS //AVO: custom sounds go here
     if (m_sounds.FindSoundItem("sndReloadEmpty", false))
         m_sounds.SetPosition("sndReloadEmpty", P);
-#endif //-NEW_SOUNDS
-
-    //. nah	m_sounds.SetPosition("sndEmptyClick", P);
 }
 
 void CWeaponMagazined::state_Fire(float dt)
@@ -863,17 +840,6 @@ void CWeaponMagazined::state_Fire(float dt)
 
     if (fShotTimeCounter < 0)
     {
-        /*
-                if(bDebug && H_Parent() && (H_Parent()->ID() != Actor()->ID()))
-                {
-                Msg("stop shooting w=[%s] magsize=[%d] sshot=[%s] qsize=[%d] shotnum=[%d]",
-                IsWorking()?"true":"false",
-                m_magazine.size(),
-                m_bFireSingleShot?"true":"false",
-                m_iQueueSize,
-                m_iShotNum);
-                }
-                */
         if (m_ammoElapsed.type1 == 0)
             OnMagazineEmpty();
 
@@ -905,41 +871,13 @@ void CWeaponMagazined::SetDefaults()
 
 void CWeaponMagazined::OnShot()
 {
-    // SoundWeaponMagazined.cpp
-
-
-	
-//Alundaio: LAYERED_SND_SHOOT
-#ifdef LAYERED_SND_SHOOT
+//Alundaio: 
 	//Alundaio: Actor sounds
 	if (ParentIsActor())
-	{
-		/*
-		if (strcmp(m_sSndShotCurrent.c_str(), "sndShot") == 0 && pSettings->line_exist(m_section_id,"snd_shoot_actor") && m_layered_sounds.FindSoundItem("sndShotActor", false))
-			m_layered_sounds.PlaySound("sndShotActor", get_LastFP(), H_Root(), !!GetHUDmode(), false, (u8)-1);
-		else if (strcmp(m_sSndShotCurrent.c_str(), "sndSilencerShot") == 0 && pSettings->line_exist(m_section_id,"snd_silncer_shot_actor") && m_layered_sounds.FindSoundItem("sndSilencerShotActor", false))
-			m_layered_sounds.PlaySound("sndSilencerShotActor", get_LastFP(), H_Root(), !!GetHUDmode(), false, (u8)-1);
-		else 
-		*/
-			m_layered_sounds.PlaySound(m_sSndShotCurrent.c_str(), get_LastFP(), H_Root(), !!GetHUDmode(), false, (u8)-1);
-	} else
 		m_layered_sounds.PlaySound(m_sSndShotCurrent.c_str(), get_LastFP(), H_Root(), !!GetHUDmode(), false, (u8)-1);
-#else
-	//Alundaio: Actor sounds
-	if (ParentIsActor())
-	{
-		/*
-		if (strcmp(m_sSndShotCurrent.c_str(), "sndShot") == 0 && pSettings->line_exist(m_section_id, "snd_shoot_actor")&& snd_silncer_shot m_sounds.FindSoundItem("sndShotActor", false))
-			PlaySound("sndShotActor", get_LastFP(), (u8)(m_iShotNum - 1));
-		else if (strcmp(m_sSndShotCurrent.c_str(), "sndSilencerShot") == 0 && pSettings->line_exist(m_section_id, "snd_silncer_shot_actor") && m_sounds.FindSoundItem("sndSilencerShotActor", false))
-			PlaySound("sndSilencerShotActor", get_LastFP(), (u8)(m_iShotNum - 1));
-		else
-		*/
-			PlaySound(m_sSndShotCurrent.c_str(), get_LastFP(), (u8)-1);
-	}
-	else
-		PlaySound(m_sSndShotCurrent.c_str(), get_LastFP(), (u8)-1); //Alundaio: Play sound at index (ie. snd_shoot, snd_shoot1, snd_shoot2, snd_shoot3)
-#endif
+    else
+		m_layered_sounds.PlaySound(m_sSndShotCurrent.c_str(), get_LastFP(), H_Root(), !!GetHUDmode(), false, (u8)-1);
+
 //-Alundaio
 
     // Camera
@@ -1082,7 +1020,6 @@ void CWeaponMagazined::PlayReloadSound()
 {
     if (m_sounds_enabled)
     {
-#ifdef NEW_SOUNDS //AVO: use custom sounds
         if (bMisfire)
         {
             //TODO: make sure correct sound is loaded in CWeaponMagazined::Load(LPCSTR section)
@@ -1103,9 +1040,6 @@ void CWeaponMagazined::PlayReloadSound()
             else
                 PlaySound("sndReload", get_LastFP());
         }
-#else
-        PlaySound("sndReload", get_LastFP());
-#endif //-AVO
     }
 }
 
@@ -1259,8 +1193,7 @@ bool CWeaponMagazined::CanAttach(PIItem pIItem)
 
     if (pScope &&
         m_eScopeStatus == ALife::eAddonAttachable &&
-        (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonScope) == 0 /*&&
-        (m_scopes[cur_scope]->m_sScopeName == pIItem->object().cNameSect())*/)
+        (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonScope) == 0)
     {
         SCOPES_VECTOR_IT it = m_scopes.begin();
         for (; it != m_scopes.end(); it++)
@@ -1280,8 +1213,7 @@ bool CWeaponMagazined::CanAttach(PIItem pIItem)
     }
     else if (pSilencer &&
         m_eSilencerStatus == ALife::eAddonAttachable &&
-        (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonSilencer) == 0 /*&&
-        (m_sSilencerName == pIItem->object().cNameSect())*/)
+        (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonSilencer) == 0)
 	{
 		SCOPES_VECTOR_IT it = m_silencers.begin();
 		for (; it != m_silencers.end(); it++)
@@ -1293,8 +1225,7 @@ bool CWeaponMagazined::CanAttach(PIItem pIItem)
 	}
     else if (pGrenadeLauncher &&
         m_eGrenadeLauncherStatus == ALife::eAddonAttachable &&
-        (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonGrenadeLauncher) == 0 /*&&
-        (m_sGrenadeLauncherName == pIItem->object().cNameSect())*/)
+        (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonGrenadeLauncher) == 0)
 	{
 		SCOPES_VECTOR_IT it = m_launchers.begin();
 		for (; it != m_launchers.end(); it++)
@@ -1311,8 +1242,7 @@ bool CWeaponMagazined::CanAttach(PIItem pIItem)
 bool CWeaponMagazined::CanDetach(const char* item_section_name)
 {
     if (m_eScopeStatus == ALife::eAddonAttachable &&
-        0 != (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonScope))/* &&
-        (m_scopes[cur_scope]->m_sScopeName	== item_section_name))*/
+        0 != (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonScope))
     {
         SCOPES_VECTOR_IT it = m_scopes.begin();
         for (; it != m_scopes.end(); it++)
@@ -1332,8 +1262,7 @@ bool CWeaponMagazined::CanDetach(const char* item_section_name)
     }
     //	   return true;
     else if (m_eSilencerStatus == ALife::eAddonAttachable &&
-        0 != (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonSilencer))/* &&
-        (m_sSilencerName == item_section_name))*/
+        0 != (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonSilencer))
     {
         SCOPES_VECTOR_IT it = m_silencers.begin();
         for (; it != m_silencers.end(); it++)
@@ -1344,8 +1273,7 @@ bool CWeaponMagazined::CanDetach(const char* item_section_name)
         return false;
     }
     else if (m_eGrenadeLauncherStatus == ALife::eAddonAttachable &&
-        0 != (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonGrenadeLauncher))/* &&
-        (m_sGrenadeLauncherName == item_section_name))*/
+        0 != (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonGrenadeLauncher))
     {
         SCOPES_VECTOR_IT it = m_launchers.begin();
         for (; it != m_launchers.end(); it++)
@@ -1369,8 +1297,7 @@ bool CWeaponMagazined::Attach(PIItem pIItem, bool b_send_event)
 
     if (pScope &&
         m_eScopeStatus == ALife::eAddonAttachable &&
-        (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonScope) == 0 /*&&
-        (m_scopes[cur_scope]->m_sScopeName == pIItem->object().cNameSect())*/)
+        (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonScope) == 0)
     {
         SCOPES_VECTOR_IT it = m_scopes.begin();
         for (; it != m_scopes.end(); it++)
@@ -1392,8 +1319,7 @@ bool CWeaponMagazined::Attach(PIItem pIItem, bool b_send_event)
     }
     else if (pSilencer &&
         m_eSilencerStatus == ALife::eAddonAttachable &&
-        (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonSilencer) == 0 /*&&
-        (m_sSilencerName == pIItem->object().cNameSect())*/)
+        (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonSilencer) == 0)
     {
         SCOPES_VECTOR_IT it = m_silencers.begin();
         for (; it != m_silencers.end(); it++)
@@ -1408,8 +1334,7 @@ bool CWeaponMagazined::Attach(PIItem pIItem, bool b_send_event)
     }
     else if (pGrenadeLauncher &&
         m_eGrenadeLauncherStatus == ALife::eAddonAttachable &&
-        (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonGrenadeLauncher) == 0 /*&&
-        (m_sGrenadeLauncherName == pIItem->object().cNameSect())*/)
+        (m_flagsAddOnState&CSE_ALifeItemWeapon::eWeaponAddonGrenadeLauncher) == 0)
     {
         SCOPES_VECTOR_IT it = m_launchers.begin();
         for (; it != m_launchers.end(); it++)
@@ -1432,8 +1357,6 @@ bool CWeaponMagazined::Attach(PIItem pIItem, bool b_send_event)
 		
         if (b_send_event && OnServer())
         {
-            //уничтожить подсоединенную вещь из инвентаря
-            //.			pIItem->Drop					();
             pIItem->object().DestroyObject();
         };
 		
@@ -1849,10 +1772,6 @@ void	CWeaponMagazined::SetQueueSize(int size)
 
 float	CWeaponMagazined::GetWeaponDeterioration()
 {
-    // modified by Peacemaker [17.10.08]
-    //	if (!m_bHasDifferentFireModes || m_iPrefferedFireMode == -1 || u32(GetCurrentFireMode()) <= u32(m_iPrefferedFireMode))
-    //		return inherited::GetWeaponDeterioration();
-    //	return m_iShotNum*conditionDecreasePerShot;
     return (m_iShotNum == 1) ? conditionDecreasePerShot : conditionDecreasePerQueueShot;
 };
 
@@ -2007,13 +1926,8 @@ bool CWeaponMagazined::install_upgrade_impl(LPCSTR section, bool test)
 
     result2 = process_if_exists_set(section, "snd_shoot", &CInifile::r_string, str, test);
     if (result2 && !test)
-    {
-#ifdef LAYERED_SND_SHOOT
 		m_layered_sounds.LoadSound(section, "snd_shoot", "sndShot", false, m_eSoundShot);
-#else
-        m_sounds.LoadSound(section, "snd_shoot", "sndShot", false, m_eSoundShot);
-#endif
-    }
+
     result |= result2;
 
     result2 = process_if_exists_set(section, "snd_empty", &CInifile::r_string, str, test);
@@ -2030,14 +1944,12 @@ bool CWeaponMagazined::install_upgrade_impl(LPCSTR section, bool test)
     }
     result |= result2;
 
-#ifdef NEW_SOUNDS //AVO: custom sounds go here
     result2 = process_if_exists_set(section, "snd_reload_empty", &CInifile::r_string, str, test);
     if (result2 && !test)
     {
         m_sounds.LoadSound(section, "snd_reload_empty", "sndReloadEmpty", true, m_eSoundReloadEmpty);
     }
     result |= result2;
-#endif //-NEW_SOUNDS
 
     //snd_shoot1     = weapons\ak74u_shot_1 ??
     //snd_shoot2     = weapons\ak74u_shot_2 ??
@@ -2050,13 +1962,8 @@ bool CWeaponMagazined::install_upgrade_impl(LPCSTR section, bool test)
 
         result2 = process_if_exists_set(section, "snd_silncer_shot", &CInifile::r_string, str, test);
         if (result2 && !test)
-        {
-#ifdef LAYERED_SND_SHOOT
 			m_layered_sounds.LoadSound(section, "snd_silncer_shot", "sndSilencerShot", false, m_eSoundShot);
-#else
-			m_sounds.LoadSound(section, "snd_silncer_shot", "sndSilencerShot", false, m_eSoundShot);
-#endif
-        }
+
         result |= result2;
     }
 

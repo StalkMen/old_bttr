@@ -72,11 +72,6 @@
 	//#define ACTOR_FEEL_GRENADE							// When undefined it disables the grenade HUD indicator for thrown grenades
 //-TWEAKS
 
-// SOUND:
-	#define NEW_SOUNDS									// use new sounds. Please enclose any new sound addions with this define
-	#define LAYERED_SND_SHOOT								// see comment down below 
-//-SOUND
-
 /*LAYERED_SND_SHOOT by Alundaio
 	When defined, it will allow you to play a group of sounds from a specified section for snd_shoot.
 	You can have as many layers as you want, but you must follow naming convention,
