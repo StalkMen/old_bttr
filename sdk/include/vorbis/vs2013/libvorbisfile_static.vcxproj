@@ -86,8 +86,6 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <StringPooling>true</StringPooling>
       <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
-      <ForceConformanceInForLoopScope>
-      </ForceConformanceInForLoopScope>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>

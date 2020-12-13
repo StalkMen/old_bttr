@@ -189,8 +189,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <FloatingPointModel>Precise</FloatingPointModel>
-      <ForceConformanceInForLoopScope>
-      </ForceConformanceInForLoopScope>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -231,8 +230,8 @@
     <ClInclude Include="ai_script_lua_extension.h" />
     <ClInclude Include="ai_script_lua_space.h" />
     <ClInclude Include="ai_script_space.h" />
-    <ClInclude Include="AMD.h" />
-    <ClInclude Include="NVIDIA.h" />
+	<ClInclude Include="AMD.h" />
+	<ClInclude Include="NVIDIA.h" />
     <ClInclude Include="bone.h" />
     <ClInclude Include="CameraBase.h" />
     <ClInclude Include="CameraDefs.h" />
@@ -281,7 +280,7 @@
     <ClInclude Include="envelope.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="EventAPI.h" />
-    <ClInclude Include="ExternalData.h" />
+	<ClInclude Include="ExternalData.h" />
     <ClInclude Include="FDemoPlay.h" />
     <ClInclude Include="FDemoRecord.h" />
     <ClInclude Include="Feel_Sound.h" />
@@ -358,8 +357,8 @@
   <ItemGroup>
     <ClCompile Include="ai_script_lua_debug.cpp" />
     <ClCompile Include="ai_script_lua_extension.cpp" />
-    <ClCompile Include="AMD.cpp" />
-    <ClCompile Include="NVIDIA.cpp" />
+	<ClCompile Include="AMD.cpp" />
+	<ClCompile Include="NVIDIA.cpp" />
     <ClCompile Include="bone.cpp" />
     <ClCompile Include="CameraBase.cpp" />
     <ClCompile Include="CameraManager.cpp" />
@@ -464,7 +463,7 @@
     <ClCompile Include="SkeletonMotions.cpp" />
     <ClCompile Include="StatGraph.cpp" />
     <ClCompile Include="Stats.cpp" />
-    <ClCompile Include="Stats_inline.cpp" />
+	<ClCompile Include="Stats_inline.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">Create</PrecompiledHeader>

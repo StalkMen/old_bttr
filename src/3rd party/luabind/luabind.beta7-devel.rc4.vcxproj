@@ -78,8 +78,6 @@
       <UndefinePreprocessorDefinitions>USE_LUAJIT_ONE</UndefinePreprocessorDefinitions>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
-      <ForceConformanceInForLoopScope>
-      </ForceConformanceInForLoopScope>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(ProjectDir)..\luajit-2\src\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

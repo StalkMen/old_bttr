@@ -242,8 +242,6 @@
       <StringPooling>true</StringPooling>
       <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ForceConformanceInForLoopScope>
-      </ForceConformanceInForLoopScope>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

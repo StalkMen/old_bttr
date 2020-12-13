@@ -54,3 +54,4 @@ _build/lib/
 src/Launcher/Win64_Release/
 src/Launcher/Start/
 src/Launcher/Stalker-CoC/
+src/packages/

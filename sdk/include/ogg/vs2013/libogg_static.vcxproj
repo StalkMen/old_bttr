@@ -101,8 +101,6 @@
       <CompileAs>CompileAsC</CompileAs>
       <DisableSpecificWarnings>4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
-      <ForceConformanceInForLoopScope>
-      </ForceConformanceInForLoopScope>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>

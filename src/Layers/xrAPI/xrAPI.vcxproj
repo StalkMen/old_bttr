@@ -95,8 +95,6 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
-      <ForceConformanceInForLoopScope>
-      </ForceConformanceInForLoopScope>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

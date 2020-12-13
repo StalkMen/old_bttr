@@ -50,8 +50,7 @@
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <EnableFiberSafeOptimizations />
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ForceConformanceInForLoopScope>
-      </ForceConformanceInForLoopScope>
+      <ForceConformanceInForLoopScope />
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
