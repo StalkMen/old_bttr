@@ -57,5 +57,31 @@ namespace DATARENDER
 		{
 			return is_outfit_with_glass;
 		};
+
+		// Состояние шлема
+		float					helmet_condition;
+
+		void					HelmetCondition(float reload_only)
+		{
+			helmet_condition = reload_only;
+		};
+
+		float					HelmetConditionActive()
+		{
+			return helmet_condition;
+		};
+
+		// Состояние брони
+		float					outfit_condition;
+
+		void					OutfitCondition(float reload_only)
+		{
+			outfit_condition = reload_only;
+		};
+
+		float					OutfitConditionActive()
+		{
+			return outfit_condition;
+		};
 	};
 }

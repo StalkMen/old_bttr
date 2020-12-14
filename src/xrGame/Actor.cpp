@@ -1049,6 +1049,19 @@ void CActor::UpdateCL()
         }
     }
 
+    CCustomOutfit* pOutfit = smart_cast<CCustomOutfit*>(inventory().ItemFromSlot(OUTFIT_SLOT));
+    CHelmet* pHelmet = smart_cast<CHelmet*>(inventory().ItemFromSlot(HELMET_SLOT));
+
+    if (pHelmet && pHelmet->bGlassPresent)
+        g_pGamePersistent->m_DataExport->HelmetCondition(pHelmet->GetCondition());
+    else
+        g_pGamePersistent->m_DataExport->HelmetCondition(0.f);
+
+    if (pOutfit && pOutfit->bGlassPresent)
+        g_pGamePersistent->m_DataExport->OutfitCondition(pOutfit->GetCondition());
+    else
+        g_pGamePersistent->m_DataExport->OutfitCondition(0.f);
+
     UpdateDefferedMessages();
 
     if (g_Alive())

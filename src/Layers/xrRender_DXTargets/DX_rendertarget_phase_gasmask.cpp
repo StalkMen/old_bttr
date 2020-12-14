@@ -2,13 +2,12 @@
 
 void CRenderTarget::phase_gasmask()
 {
-	if (mask_helmet == 0)
-		return;
+	float mix = 0.f;
+	float HelmetCondition = g_pGamePersistent->m_DataExport->HelmetConditionActive();
+	float OutfitCondition = g_pGamePersistent->m_DataExport->OutfitConditionActive();
 
-	//Escape early
-	if(ps_r2_gasmask_control.x == 1)
-		return;
-	
+	mix += HelmetCondition + OutfitCondition;
+	Msg("HelmetCondition [%f], OutfitCondition [%f], mix [%f]", HelmetCondition, OutfitCondition, mix);
 	//Constants
 	u32 Offset = 0;
 	u32 C = color_rgba(0, 0, 0, 255);
@@ -42,7 +41,7 @@ void CRenderTarget::phase_gasmask()
 	RCache.set_Element(s_gasmask->E[0]);
 
 	//Set paramterers
-	RCache.set_c("pp_gasmask", 0, ps_r2_gasmask_control.y, ps_r2_gasmask_control.z, 0);
+	RCache.set_c("pp_gasmask", 0, mix + ps_r2_gasmask_control.y, ps_r2_gasmask_control.z, 0);
 
 	//Set geometry
 	RCache.set_Geometry(g_combine);

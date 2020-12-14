@@ -702,17 +702,13 @@ void		xrRender_initconsole()
 	CMD4(CCC_Float, "r__dtexture_dist_f",				 &ps_r__geomDTextureDistF_,			0.1f, 3.0f);
 	CMD4(CCC_Float, "r__ntexture_dist_f",				 &ps_r__geomNTextureDistF_,			0.1f, 3.0f);
 
-	{
-		tw_min.set(0, 0, 0);
-		tw_max.set(2, 3, 1);
-		CMD4(CCC_Vector3, "xrRenderDropsControl",		 &ps_r2_drops_control, tw_min, tw_max);
-	}
+	tw_min.set(0, 0, 0);
+	tw_max.set(2, 3, 1);
+	CMD4(CCC_Vector3, "xrRenderDropsControl",		 &ps_r2_drops_control, tw_min, tw_max);
 	
-	{
-		tw_min.set(0, 1, 0);
-		tw_max.set(1, 10, 1);
-		CMD4(CCC_Vector3, "xrRenderGasmaskControl",		 &ps_r2_gasmask_control, tw_min, tw_max);
-	}	
+	tw_min.set(0, (float)0.f, 0);
+	tw_max.set(0, (float)1.f, 1);
+	CMD4(CCC_Vector3, "xrRenderGasmaskControl",		 &ps_r2_gasmask_control, tw_min, tw_max);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	CMD3(CCC_Preset, "_preset", &ps_Preset, qpreset_token);
