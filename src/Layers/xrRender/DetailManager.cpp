@@ -247,6 +247,7 @@ extern BOOL ps_no_scale_on_fade;
 
 void CDetailManager::UpdateVisibleM()
 {
+#pragma todo("LVutner. There's no a such thing in anomaly sources... maybe it's reason of bugs?")
 	for (int i = 0; i != 3; i++)
 		for (auto& vis : m_visibles[i])
 			vis.clear();
@@ -258,6 +259,7 @@ void CDetailManager::UpdateVisibleM()
 	View.CreateFromMatrix(RDEVICE.mFullTransform_saved, FRUSTUM_P_LRTB + FRUSTUM_P_FAR);
 #else
 #pragma todo("OldSerpskiStalker. Fix the viewing angle for multithreading of the engine")
+#pragma todo("LVutner. Vladek why ;-;")
 	View = RImplementation.ViewBase;
 #endif
 
