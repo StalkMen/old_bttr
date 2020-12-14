@@ -1,32 +1,61 @@
 #pragma once
 
 // OldSerpskiStalker
-class ExteranData
+namespace DATARENDER
 {
-public:
-	// Фикс дофа в прицеле, конфликтует с погодным дофом
-	bool					is_zoomed;
-
-	void					ZoomActive(bool zoom_only) 
-	{ 
-		is_zoomed = zoom_only; 
-	};
-
-	bool					IsZoomActive() 
-	{ 
-		return is_zoomed;
-	};
-
-	// Подобная функция, сейчас мы перезаряжаемся
-	bool					is_reload;
-
-	void					ReloadActive(bool reload_only)
+	class ExteranData
 	{
-		is_reload = reload_only;
-	};
+	public:
+		// Р¤РёРєСЃ РґРѕС„Р° РІ РїСЂРёС†РµР»Рµ, РєРѕРЅС„Р»РёРєС‚СѓРµС‚ СЃ РїРѕРіРѕРґРЅС‹Рј РґРѕС„РѕРј
+		bool					is_zoomed;
 
-	bool					IsReloadActive()
-	{
-		return is_reload;
+		void					ZoomActive(bool reload_only)
+		{
+			is_zoomed = reload_only;
+		};
+
+		bool					IsZoomActive()
+		{
+			return is_zoomed;
+		};
+
+		// РџРѕРґРѕР±РЅР°СЏ С„СѓРЅРєС†РёСЏ, СЃРµР№С‡Р°СЃ РјС‹ РїРµСЂРµР·Р°СЂСЏР¶Р°РµРјСЃСЏ
+		bool					is_reload;
+
+		void					ReloadActive(bool reload_only)
+		{
+			is_reload = reload_only;
+		};
+
+		bool					IsReloadActive()
+		{
+			return is_reload;
+		};
+
+		// Р•СЃС‚СЊ Р»Рё СЃС‚РµРєР»Рѕ РІ РіРѕР»РѕРІРЅРѕРј СѓР±РѕСЂРµ ?
+		bool					is_helmet_with_glass;
+
+		void					HelmetWithGlassActive(bool reload_only)
+		{
+			is_helmet_with_glass = reload_only;
+		};
+
+		bool					IsHelmetWithGlassActive()
+		{
+			return is_helmet_with_glass;
+		};
+
+		// Р•СЃС‚СЊ Р»Рё РІСЃС‚СЂРѕРµРЅРЅР°СЏ РјР°СЃРєР° РІ Р±СЂРѕРЅРµ ?
+		bool					is_outfit_with_glass;
+
+		void					OutfitWithGlassActive(bool reload_only)
+		{
+			is_outfit_with_glass = reload_only;
+		};
+
+		bool					IsOutfitWithGlassActive()
+		{
+			return is_outfit_with_glass;
+		};
 	};
-};
+}

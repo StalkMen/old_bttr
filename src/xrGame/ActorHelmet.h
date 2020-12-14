@@ -42,6 +42,7 @@ public:
 	float					m_fBleedingRestoreSpeed;
 
 	float					m_fShowNearestEnemiesDistance;
+	bool					bGlassPresent;
 
 	void					ReloadBonesProtection	();
 	void					AddBonesProtection		(LPCSTR bones_section);

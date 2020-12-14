@@ -41,6 +41,7 @@
 
 #include "raypick.h"
 #include "../xrcdb/xr_collide_defs.h"
+#include "..\xrEngine\Rain.h"
 
 using namespace luabind;
 
@@ -350,15 +351,6 @@ CClientSpawnManager	&get_client_spawn_manager()
 {
 	return		(Level().client_spawn_manager());
 }
-/*
-void start_stop_menu(CUIDialogWnd* pDialog, bool bDoHideIndicators)
-{
-	if(pDialog->IsShown())
-		pDialog->HideDialog();
-	else
-		pDialog->ShowDialog(bDoHideIndicators);
-}
-*/
 
 void add_dialog_to_render(CUIDialogWnd* pDialog)
 {
@@ -431,19 +423,11 @@ void remove_call(const luabind::functor<bool> &condition,const luabind::functor<
 
 void add_call(const luabind::object &lua_object, LPCSTR condition,LPCSTR action)
 {
-//	try{	
-//		CPHScriptObjectCondition	*c=xr_new<CPHScriptObjectCondition>(lua_object,condition);
-//		CPHScriptObjectAction		*a=xr_new<CPHScriptObjectAction>(lua_object,action);
-		luabind::functor<bool>		_condition = object_cast<luabind::functor<bool> >(lua_object[condition]);
-		luabind::functor<void>		_action = object_cast<luabind::functor<void> >(lua_object[action]);
-		CPHScriptObjectConditionN	*c=xr_new<CPHScriptObjectConditionN>(lua_object,_condition);
-		CPHScriptObjectActionN		*a=xr_new<CPHScriptObjectActionN>(lua_object,_action);
-		Level().ph_commander_scripts().add_call_unique(c,c,a,a);
-//	}
-//	catch(...)
-//	{
-//		Msg("add_call excepted!!");
-//	}
+	luabind::functor<bool>		_condition = object_cast<luabind::functor<bool> >(lua_object[condition]);
+	luabind::functor<void>		_action = object_cast<luabind::functor<void> >(lua_object[action]);
+	CPHScriptObjectConditionN	*c=xr_new<CPHScriptObjectConditionN>(lua_object,_condition);
+	CPHScriptObjectActionN		*a=xr_new<CPHScriptObjectActionN>(lua_object,_action);
+	Level().ph_commander_scripts().add_call_unique(c,c,a,a);
 }
 
 void remove_call(const luabind::object &lua_object, LPCSTR condition,LPCSTR action)
@@ -897,6 +881,16 @@ float RandomFloat2(float min, float max)
 	return rondo;
 }
 
+float rain_factor_wetness()
+{
+	return (g_pGamePersistent->Environment().eff_Rain->GetCurrViewEntityWetness());
+}
+
+void set_rain_timer(float rain_timer_value, float last_rain_duration, float rain_drop_time)
+{
+	g_pGamePersistent->Environment().eff_Rain->SetTimerNullptr(rain_timer_value, last_rain_duration, rain_drop_time);
+}
+
 #pragma optimize("s",on)
 void CLevel::script_register(lua_State *L)
 {
@@ -958,7 +952,9 @@ void CLevel::script_register(lua_State *L)
 		def("high_cover_in_direction",			high_cover_in_direction),
 		def("low_cover_in_direction",			low_cover_in_direction),
 		def("vertex_in_direction",				vertex_in_direction),
+		def("set_rain_timer",					set_rain_timer),
 		def("rain_factor",						rain_factor),
+		def("rain_factor_wetness",				rain_factor_wetness),
 		def("patrol_path_exists",				patrol_path_exists),
 		def("vertex_position",					vertex_position),
 		def("name",								get_name),

@@ -42,7 +42,7 @@ void CHelmet::Load(LPCSTR section)
 		m_HitTypeProtection[ALife::eHitTypeFireWound] = pSettings->r_float(section, "fire_wound_protection");
 	else
 		m_HitTypeProtection[ALife::eHitTypeFireWound] = READ_IF_EXISTS(pSettings, r_float, section, "fire_wound_protection", 0.0f);
-//	m_HitTypeProtection[ALife::eHitTypePhysicStrike]= pSettings->r_float(section,"physic_strike_protection");
+
 	m_HitTypeProtection[ALife::eHitTypeLightBurn]	= m_HitTypeProtection[ALife::eHitTypeBurn];
 	m_boneProtection->m_fHitFracActor				= pSettings->r_float(section, "hit_fraction_actor");
 
@@ -60,6 +60,8 @@ void CHelmet::Load(LPCSTR section)
 	m_fBleedingRestoreSpeed			= READ_IF_EXISTS(pSettings, r_float, section, "bleeding_restore_speed",  0.0f );
 	m_fPowerLoss					= READ_IF_EXISTS(pSettings, r_float, section, "power_loss",    1.0f );
 	clamp							( m_fPowerLoss, 0.0f, 1.0f );
+
+	bGlassPresent					= READ_IF_EXISTS(pSettings, r_bool, section, "glass_present", false);
 
 	m_BonesProtectionSect			= READ_IF_EXISTS(pSettings, r_string, section, "bones_koeff_protection",  "" );
 	m_fShowNearestEnemiesDistance	= READ_IF_EXISTS(pSettings, r_float, section, "nearest_enemies_show_dist",  0.0f );
@@ -110,6 +112,7 @@ void CHelmet::OnH_A_Chield()
 void CHelmet::OnMoveToSlot(const SInvItemPlace& previous_place)
 {
 	inherited::OnMoveToSlot		(previous_place);
+
 	if (m_pInventory && (previous_place.type==eItemPlaceSlot))
 	{
 		CActor* pActor = smart_cast<CActor*> (H_Parent());
@@ -118,12 +121,15 @@ void CHelmet::OnMoveToSlot(const SInvItemPlace& previous_place)
 			if(pActor->GetNightVisionStatus())
 				pActor->SwitchNightVision(true, false);
 		}
+		if (bGlassPresent)
+			g_pGamePersistent->m_DataExport->HelmetWithGlassActive(true);
 	}
 }
 
 void CHelmet::OnMoveToRuck(const SInvItemPlace& previous_place)
 {
 	inherited::OnMoveToRuck		(previous_place);
+
 	if (m_pInventory && (previous_place.type==eItemPlaceSlot))
 	{
 		CActor* pActor = smart_cast<CActor*> (H_Parent());
@@ -131,6 +137,8 @@ void CHelmet::OnMoveToRuck(const SInvItemPlace& previous_place)
 		{
 			pActor->SwitchNightVision(false);
 		}
+		if (bGlassPresent)
+			g_pGamePersistent->m_DataExport->HelmetWithGlassActive(false);
 	}
 }
 

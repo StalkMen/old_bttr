@@ -76,7 +76,7 @@ public:
     IMainMenu* m_pMainMenu;
 
 	ShadersExternalData* m_pGShaderConstants; //--#SM+#--
-    ExteranData*         m_DataExport;
+    DATARENDER::ExteranData* m_DataExport;
 
     virtual bool OnRenderPPUI_query() { return FALSE; }; // should return true if we want to have second function called
     virtual void OnRenderPPUI_main() {};
@@ -88,7 +88,7 @@ public:
     virtual void OnAppDeactivate();
     virtual void 	 OnFrame();
 
-    // вызывается только когда изменяется тип игры
+    // РІС‹Р·С‹РІР°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ РєРѕРіРґР° РёР·РјРµРЅСЏРµС‚СЃСЏ С‚РёРї РёРіСЂС‹
     virtual void OnGameStart();
     virtual void OnGameEnd();
 

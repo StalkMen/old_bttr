@@ -43,6 +43,7 @@ protected:
 	u32						m_artefact_count;
 
 public:
+	bool					bGlassPresent;
 	float					m_fPowerLoss;
 	float					m_additional_weight;
 	float					m_additional_weight2;

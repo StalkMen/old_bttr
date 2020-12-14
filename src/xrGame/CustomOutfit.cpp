@@ -117,7 +117,9 @@ void CCustomOutfit::Load(LPCSTR section)
 	m_fWalkAccel 				= READ_IF_EXISTS(pSettings, r_float, section, "walk_accel", 1.f);
 	m_fOverweightWalkK 			= READ_IF_EXISTS(pSettings, r_float, section, "overweight_walk_accel", 1.f);
 	
-	m_artefact_count 		= READ_IF_EXISTS( pSettings, r_u32, section, "artefact_count", 0 );
+	m_artefact_count 			= READ_IF_EXISTS( pSettings, r_u32, section, "artefact_count", 0 );
+	bGlassPresent				= READ_IF_EXISTS(pSettings, r_bool, section, "glass_present", false);
+
 	clamp( m_artefact_count, (u32)0, (u32)16 );
 
 	m_BonesProtectionSect	= READ_IF_EXISTS(pSettings, r_string, section, "bones_koeff_protection",  "" );
@@ -213,6 +215,8 @@ BOOL	CCustomOutfit::BonePassBullet					(int boneID)
 
 void	CCustomOutfit::OnMoveToSlot		(const SInvItemPlace& prev)
 {
+	inherited::OnMoveToSlot(prev);
+
 	if ( m_pInventory )
 	{
 		CActor* pActor = smart_cast<CActor*>( H_Parent() );
@@ -228,8 +232,28 @@ void	CCustomOutfit::OnMoveToSlot		(const SInvItemPlace& prev)
 			if(pHelmet && !bIsHelmetAvaliable)
 				pActor->inventory().Ruck(pHelmet, false);
 		}
+		if (bGlassPresent)
+			g_pGamePersistent->m_DataExport->OutfitWithGlassActive(true);
 	}
 }
+
+void	CCustomOutfit::OnMoveToRuck(const SInvItemPlace& prev)
+{
+	inherited::OnMoveToRuck(prev);
+
+	if (m_pInventory && prev.type == eItemPlaceSlot)
+	{
+		CActor* pActor = smart_cast<CActor*> (H_Parent());
+		if (pActor)
+		{
+			ApplySkinModel(pActor, false, false);
+			if (!bIsHelmetAvaliable)
+				pActor->SwitchNightVision(false);
+		}
+		if (bGlassPresent)
+			g_pGamePersistent->m_DataExport->OutfitWithGlassActive(false);
+	}
+};
 
 void CCustomOutfit::ApplySkinModel(CActor* pActor, bool bDress, bool bHUDOnly)
 {
@@ -259,20 +283,6 @@ void CCustomOutfit::ApplySkinModel(CActor* pActor, bool bDress, bool bHUDOnly)
 	}
 
 }
-
-void	CCustomOutfit::OnMoveToRuck		(const SInvItemPlace& prev)
-{
-	if(m_pInventory && prev.type==eItemPlaceSlot)
-	{
-		CActor* pActor = smart_cast<CActor*> (H_Parent());
-		if (pActor)
-		{
-			ApplySkinModel(pActor, false, false);
-			if(!bIsHelmetAvaliable)
-				pActor->SwitchNightVision(false);
-		}
-	}
-};
 
 u32	CCustomOutfit::ef_equipment_type	() const
 {

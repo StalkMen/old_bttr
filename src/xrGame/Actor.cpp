@@ -1803,7 +1803,7 @@ void CActor::UpdateArtefactsOnBeltAndOutfit()
                 conditions().ChangeArtefactReaction(val * f_update_time);
             }
             else
-				conditions().ChangeArtefactReaction((artefact->m_fArtefactReactionSpeed*art_cond)	* f_update_time);
+				conditions().ChangeArtefactReaction((artefact->m_fArtefactReactionSpeed*art_cond) * f_update_time);
 
             if (Actor()->conditions().GetArtefactReaction() >= 0.6f)
             {
