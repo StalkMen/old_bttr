@@ -7,7 +7,7 @@ void CRenderTarget::phase_gasmask()
 	float OutfitCondition = g_pGamePersistent->m_DataExport->OutfitConditionActive();
 
 	mix += HelmetCondition + OutfitCondition;
-	Msg("HelmetCondition [%f], OutfitCondition [%f], mix [%f]", HelmetCondition, OutfitCondition, mix);
+//	Msg("HelmetCondition [%f], OutfitCondition [%f], mix [%f]", HelmetCondition, OutfitCondition, mix);
 	//Constants
 	u32 Offset = 0;
 	u32 C = color_rgba(0, 0, 0, 255);

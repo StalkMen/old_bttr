@@ -376,14 +376,16 @@ void	CRenderTarget::phase_combine	()
 		RCache.set_Stencil(FALSE);
 	}	
 	
-
 	//Gasmask
 	if (mask_helmet)
 		phase_gasmask();
 	
 	//Rain drops
 	if (rain_drops)
-		phase_rain_drops();
+		if (ps_r2_ls_flags_ext.test(R2FLAGEXT_RAIN_DROPS_ONLY_HELMET))
+			phase_rain_drops_helmet();
+		else
+			phase_rain_drops();
 
 	//Gamma
 	phase_gamma();

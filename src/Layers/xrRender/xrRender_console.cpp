@@ -77,7 +77,7 @@ Flags32		ps_r2_ls_flags				=
 	| R2FLAG_VOLUMETRIC_LIGHTS
 };	// r2-only
 
-Flags32		ps_r2_ls_flags_ext			= { R2FLAGEXT_ENABLE_TESSELLATION | R2FLAGEXT_SUN_FLARES | R2FLAGEXT_DOF_WEATHER };
+Flags32		ps_r2_ls_flags_ext			= { R2FLAGEXT_ENABLE_TESSELLATION | R2FLAGEXT_SUN_FLARES | R2FLAGEXT_DOF_WEATHER | R2FLAGEXT_RAIN_DROPS_ONLY_HELMET };
 
 BOOL		ps_clear_models_on_unload	= 0; //Alundaio
 BOOL		ps_use_precompiled_shaders = 0; //Alundaio
@@ -678,6 +678,8 @@ void		xrRender_initconsole()
 
 	CMD3(CCC_Mask, "xrRenderDX10_sun_flares",			 &ps_r2_ls_flags_ext,				R2FLAGEXT_SUN_FLARES);
 	CMD3(CCC_Mask, "xrRenderDX10_dof_weather",			 &ps_r2_ls_flags_ext,				R2FLAGEXT_DOF_WEATHER);
+
+	CMD3(CCC_Mask, "xrRenderDX10_rain_drops_only_helmet", &ps_r2_ls_flags_ext,				R2FLAGEXT_RAIN_DROPS_ONLY_HELMET);
 
 #ifdef DIRECTX10
 	CMD3(CCC_Mask, "xrRenderDX10_use_device1",			&ps_r2_ls_flags,					(u32)R3FLAG_USE_DX10_1);

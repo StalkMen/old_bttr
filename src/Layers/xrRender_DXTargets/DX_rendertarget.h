@@ -331,6 +331,7 @@ public:
 	void						phase_combine_volumetric();
 	void						phase_pp				();
 	void						phase_rain_drops		();
+	void						phase_rain_drops_helmet ();
 
 	virtual void				set_blur				(float	f)		{ param_blur=f;						}
 	virtual void				set_gray				(float	f)		{ param_gray=f;						}

@@ -167,6 +167,7 @@ enum
 	R2FLAGEXT_SUN_ZCULLING			= (1<<4),
 	R2FLAGEXT_DOF_WEATHER 			= (1<<5),
 	R2FLAGEXT_SUN_FLARES			= (1<<6),
+	R2FLAGEXT_RAIN_DROPS_ONLY_HELMET = (1<<7),
 };
 
 //Swartz: actor shadow
