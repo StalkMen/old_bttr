@@ -364,12 +364,11 @@ static cl_rain_params_new binder_rain_params_new;
 
 class cl_inv_p : public R_constant_setup
 {
-	u32			marker;
 	Fmatrix		result;
 
 	virtual void setup(R_constant* C)
 	{
-		result.invert(Device.mProject);
+		D3DXMatrixInverse((D3DXMATRIX*)&result, 0, (D3DXMATRIX*)&RCache.xforms.m_p);
 		RCache.set_c(C, result);
 	}
 };
