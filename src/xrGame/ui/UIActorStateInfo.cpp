@@ -436,15 +436,10 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 			fwou_value += helmet->GetBoneArmor(spine_bone) * helmet->GetCondition();
 		}
 
-		string128 buf;
-
 		// fire burn protection progress bar
 		{
 			burn_value += actor->GetProtection_ArtefactsOnBelt(ALife::eHitTypeBurn);
 			float max_power = actor->conditions().GetZoneMaxPower(ALife::eHitTypeBurn);
-
-			xr_sprintf(buf, sizeof(buf), "%s: %2.2f/%2.2f", *m_state[stt_fire]->m_hint_description_base, burn_value, max_power);
-			m_state[stt_fire]->set_hint_text_ST(buf);
 			burn_value = floor(burn_value / max_power * 100); // number of sticks in progress bar
 			m_state[stt_fire]->set_text(burn_value); // 0..1
 		}
@@ -452,9 +447,6 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 		{
 			radi_value += actor->GetProtection_ArtefactsOnBelt(ALife::eHitTypeRadiation);
 			float max_power = actor->conditions().GetZoneMaxPower(ALife::eHitTypeRadiation);
-
-			xr_sprintf(buf, sizeof(buf), "%s: %2.2f/%2.2f", *m_state[stt_radia]->m_hint_description_base, radi_value, max_power);
-			m_state[stt_radia]->set_hint_text_ST(buf);
 			radi_value = floor(radi_value / max_power * 100); // number of sticks in progress bar
 			m_state[stt_radia]->set_text(radi_value); // 0..1
 		}
@@ -462,9 +454,6 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 		{
 			cmbn_value += actor->GetProtection_ArtefactsOnBelt(ALife::eHitTypeChemicalBurn);
 			float max_power = actor->conditions().GetZoneMaxPower(ALife::eHitTypeChemicalBurn);
-
-			xr_sprintf(buf, sizeof(buf), "%s: %2.2f/%2.2f", *m_state[stt_acid]->m_hint_description_base, cmbn_value, max_power);
-			m_state[stt_acid]->set_hint_text_ST(buf);
 			cmbn_value = floor(cmbn_value / max_power * 100); // number of sticks in progress bar
 			m_state[stt_acid]->set_text(cmbn_value); // 0..1
 		}
@@ -472,18 +461,12 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 		{
 			tele_value += actor->GetProtection_ArtefactsOnBelt(ALife::eHitTypeTelepatic);
 			float max_power = actor->conditions().GetZoneMaxPower(ALife::eHitTypeTelepatic);
-
-			xr_sprintf(buf, sizeof(buf), "%s: %2.2f/%2.2f", *m_state[stt_psi]->m_hint_description_base, tele_value, max_power);
-			m_state[stt_psi]->set_hint_text_ST(buf);
 			tele_value = floor(tele_value / max_power * 100); // number of sticks in progress bar
 			m_state[stt_psi]->set_text(tele_value); // 0..1
 		}
 		// wound protection progress bar
 		{
 			float max_power = actor->conditions().GetMaxWoundProtection();
-
-			xr_sprintf(buf, sizeof(buf), "%s: %2.2f/%2.2f", *m_state[stt_wound]->m_hint_description_base, woun_value, max_power);
-			m_state[stt_wound]->set_hint_text_ST(buf);
 			woun_value = floor(woun_value / max_power * 100); // number of sticks in progress bar
 			m_state[stt_wound]->set_text(woun_value); // 0..1
 		}
@@ -491,27 +474,18 @@ void ui_actor_state_wnd::UpdateActorInfo(CInventoryOwner* owner)
 		{
 			shoc_value += actor->GetProtection_ArtefactsOnBelt(ALife::eHitTypeShock);
 			float max_power = actor->conditions().GetZoneMaxPower(ALife::eHitTypeShock);
-
-			xr_sprintf(buf, sizeof(buf), "%s: %2.2f/%2.2f", *m_state[stt_shock]->m_hint_description_base, shoc_value, max_power);
-			m_state[stt_shock]->set_hint_text_ST(buf);
 			shoc_value = floor(shoc_value / max_power * 100); // number of sticks in progress bar
 			m_state[stt_shock]->set_text(shoc_value); // 0..1
 		}
 		// fire wound protection progress bar
 		{
 			float max_power = actor->conditions().GetMaxFireWoundProtection();
-
-			xr_sprintf(buf, sizeof(buf), "%s: %2.2f/%2.2f", *m_state[stt_fire_wound]->m_hint_description_base, fwou_value, max_power);
-			m_state[stt_fire_wound]->set_hint_text_ST(buf);
 			fwou_value = floor(fwou_value / max_power * 100); // number of sticks in progress bar
 			m_state[stt_fire_wound]->set_text(fwou_value);
 		}
 		// power restore speed progress bar
 		{
 			float max_power = actor->conditions().GetMaxPowerRestoreSpeed();
-
-			xr_sprintf(buf, sizeof(buf), "%s: %2.2f", *m_state[stt_power]->m_hint_description_base, value);
-			m_state[stt_power]->set_hint_text_ST(buf);
 			rspeed_text += actor->GetRestoreSpeed(ALife::ePowerRestoreSpeed);
 			rspeed_text = floor(rspeed_text / max_power * 100);
 			m_state[stt_power]->set_text(rspeed_text);
