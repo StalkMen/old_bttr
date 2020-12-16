@@ -131,7 +131,11 @@ void CStats::Show_HW_Stats()
 
                 case 3: 
                         pFontHW->SetColor(DebugTextColor::DTC_GREEN_DX);
-                        pFontHW->Out(GetMainInfoStats, InfoScale, (renderer_value == 0) ? "Render: DirectX10" : (renderer_value == 1) ? "Render: DirectX11" : "Render: ???");
+                        if (!EnvCryRay.used_dx10_1)
+                            pFontHW->Out(GetMainInfoStats, InfoScale, (renderer_value == 0) ? "xrRender: DirectX10" : (renderer_value == 1) ? "xrRender: DirectX11" : "Render: ???");
+                        else
+                            pFontHW->Out(GetMainInfoStats, InfoScale, "xrRender: DirectX10 + Device1");
+
                         InfoScale += 15;
 
                 case 4:
