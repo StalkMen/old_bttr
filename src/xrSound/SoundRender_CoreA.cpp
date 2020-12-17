@@ -116,6 +116,14 @@ void CSoundRender_CoreA::_initialize(int stage)
         bEAX 					= EAXTestSupport(FALSE);
     }
 
+	// Init listener struct.
+	Listener.position.set(0.0f, 0.0f, 0.0f);
+	Listener.prevVelocity.set(0.0f, 0.0f, 0.0f);
+	Listener.curVelocity.set(0.0f, 0.0f, 0.0f);
+	Listener.accVelocity.set(0.0f, 0.0f, 0.0f);
+	Listener.orientation[0].set(0.0f, 0.0f, 1.0f);
+	Listener.orientation[1].set(0.0f, 1.0f, 0.0f);
+
     inherited::_initialize		(stage);
 
 	if(stage==1)//first initialize
@@ -176,7 +184,14 @@ void	CSoundRender_CoreA::i_eax_get			(const GUID* guid, u32 prop, void* val, u32
 
 void CSoundRender_CoreA::update_listener		( const Fvector& P, const Fvector& D, const Fvector& N, float dt )
 {
+	// Use exponential moving average for a nice smooth doppler effect.
+	static const float alpha = 0.05f;
 	inherited::update_listener(P,D,N,dt);
+
+	Listener.prevVelocity.set(Listener.accVelocity);
+	Listener.curVelocity.sub(P, Listener.position);
+	Listener.accVelocity.set(Listener.curVelocity.mul(alpha).add(Listener.prevVelocity.mul(1.f - alpha)));
+	Listener.prevVelocity.set(Listener.accVelocity).div(dt);
 
 	if (!Listener.position.similar(P)){
 		Listener.position.set	(P);
@@ -186,6 +201,6 @@ void CSoundRender_CoreA::update_listener		( const Fvector& P, const Fvector& D, 
 	Listener.orientation[1].set	(N.x,N.y,-N.z);
 
 	A_CHK						(alListener3f	(AL_POSITION,Listener.position.x,Listener.position.y,-Listener.position.z));
-	A_CHK						(alListener3f	(AL_VELOCITY,0.f,0.f,0.f));
+	A_CHK						(alListener3f	(AL_VELOCITY, Listener.prevVelocity.x, Listener.prevVelocity.y, -Listener.prevVelocity.z));
 	A_CHK						(alListenerfv	(AL_ORIENTATION,&Listener.orientation[0].x));
 }

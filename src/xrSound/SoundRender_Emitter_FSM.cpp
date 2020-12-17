@@ -11,7 +11,7 @@ inline u32 calc_cursor(const float& fTimeStarted, float& fTime, const float& fTi
 {
 	
 	if( fTime < fTimeStarted )
-			fTime = fTimeStarted;// Àíäðþõà ïîñîâåòîâàë, àññåðò ÷òî íèæå âûëåòåë èç çà ïàóçû êàê òî õèòðî
+			fTime = fTimeStarted;// ÐÐ½Ð´Ñ€ÑŽÑ…Ð° Ð¿Ð¾ÑÐ¾Ð²ÐµÑ‚Ð¾Ð²Ð°Ð», Ð°ÑÑÐµÑ€Ñ‚ Ñ‡Ñ‚Ð¾ Ð½Ð¸Ð¶Ðµ Ð²Ñ‹Ð»ÐµÑ‚ÐµÐ» Ð¸Ð· Ð·Ð° Ð¿Ð°ÑƒÐ·Ñ‹ ÐºÐ°Ðº Ñ‚Ð¾ Ñ…Ð¸Ñ‚Ñ€Ð¾
 	R_ASSERT	((fTime-fTimeStarted)>=0.0f);
 	while((fTime-fTimeStarted)>fTimeTotal) //looped
 	{
@@ -269,7 +269,12 @@ float CSoundRender_Emitter::priority()
 
 void CSoundRender_Emitter::update_environment(float dt)
 {
-	if (bMoved)			e_target	= *SoundRender->get_environment	(p_source.position);
+	if (bMoved) 
+	{
+		e_target = *SoundRender->get_environment(p_source.position);
+		// Cribbledirge: updates the velocity of the sound.
+		p_source.update_velocity(dt);
+	}
 	e_current.lerp		(e_current,e_target, dt);
 
 }
