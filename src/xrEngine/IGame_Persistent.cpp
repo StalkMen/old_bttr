@@ -74,7 +74,6 @@ void IGame_Persistent::OnAppEnd()
     DEL_INSTANCE(g_hud);
 }
 
-
 void IGame_Persistent::PreStart(LPCSTR op)
 {
     string256 prev_type;
@@ -110,23 +109,20 @@ void IGame_Persistent::Start(LPCSTR op)
 
 void IGame_Persistent::Disconnect()
 {
-#ifndef _EDITOR
     // clear "need to play" particles
     destroy_particles(true);
 
     if (g_hud)
         DEL_INSTANCE(g_hud);
-    //. g_hud->OnDisconnected ();
-#endif
+
+    // Kill object - save memory
+    ObjectPool.clear();
+    EnvCryRay.Render->models_Clear(TRUE);
 }
 
 extern BOOL xrengint_noprefetch;
 void IGame_Persistent::OnGameStart()
 {
-    //	{
-    //		SetLoadStageTitle(STAGE_17);
-    //		g_discord.SetStatus(xrDiscordPresense::StatusId::Prefetching_objects);
-    //	}
     LoadTitle();
     if (xrengint_noprefetch)
         Prefetch();
@@ -138,9 +134,9 @@ void IGame_Persistent::Prefetch()
     float p_time = 1000.f*Device.GetTimerGlobal()->GetElapsed_sec();
 	size_t mem_0 = Memory.mem_usage();
 
-    Log("Loading objects...");
+    Log("- Loading objects...");
     ObjectPool.prefetch();
-    Log("Loading models...");
+    Log("- Loading models...");
     EnvCryRay.Render->models_Prefetch();
 
     Device.m_pRender->ResourcesDeferredUpload();
