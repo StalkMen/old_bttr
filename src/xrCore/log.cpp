@@ -1,235 +1,199 @@
 #include "stdafx.h"
 #pragma hdrstop
 
-#include <time.h>
 #include "resource.h"
 #include "log.h"
-#ifdef _EDITOR
-#include "malloc.h"
-#endif
 
-extern BOOL LogExecCB = TRUE;
-static string_path logFName = "engine.log";
-static string_path log_file_name = "engine.log";
-static BOOL no_log = TRUE;
-static BOOL no_log_owerflow = TRUE;
-#ifdef PROFILE_CRITICAL_SECTIONS
-static xrCriticalSection logCS(MUTEX_PROFILE_ID(log));
-#else // PROFILE_CRITICAL_SECTIONS
-static xrCriticalSection logCS;
-#endif // PROFILE_CRITICAL_SECTIONS
-xr_vector<shared_str>* LogFile = NULL;
-static LogCallback LogCB = 0;
+#include <mutex> //KRodin: ???? ??????? ? xrCore.h
+#include <sstream> //??? std::stringstream
 
-void FlushLog()
+static string_path			logFName = "engine.log";
+static BOOL 				no_log = TRUE;
+static BOOL					no_log_owerflow = TRUE;
+static std::recursive_mutex logCS;
+static LogCallback			LogCB = nullptr;
+xr_vector<std::string>* LogFile = nullptr;
+IWriter* LogWriter;
+
+void FlushLog() //???? ???????
+{}
+
+void AddOne(std::string& split, bool first_line)
 {
-    if (!no_log)
-    {
-        logCS.Enter();
-        IWriter* f = FS.w_open(logFName);
-        if (f)
-        {
-            for (u32 it = 0; it < LogFile->size(); it++)
-            {
-                LPCSTR s = *((*LogFile)[it]);
-                f->w_string(s ? s : "");
-            }
-            FS.w_close(f);
-        }
-        logCS.Leave();
-    }
-}
+	if (!LogFile)
+		return;
 
-void AddOne(const char* split)
-{
-    if (!LogFile)
-        return;
-
-    logCS.Enter();
+	std::lock_guard<decltype(logCS)> lock(logCS);
 
 #ifdef DEBUG
-    OutputDebugString(split);
-    OutputDebugString("\n");
+	OutputDebugString(split.c_str()); //????? ? ???????? ???????
+	OutputDebugString("\n");
 #endif
 
-    // DUMP_PHASE;
-    {
-        shared_str temp = shared_str(split);
-        // DUMP_PHASE;
-        LogFile->push_back(temp);
-    }
+	if (LogCB)
+		LogCB(split.c_str()); //?????? ? ?????? ???????????? ?????.
 
-    //exec CallBack
-    if (LogExecCB&&LogCB)LogCB(split);
+	LogFile->push_back(split); //????? ? ???????
 
-    logCS.Leave();
+	if (!LogWriter) return;
+
+	if (first_line)
+	{
+		SYSTEMTIME lt;
+		GetLocalTime(&lt);
+		char buf[64];
+		std::snprintf(buf, 64, "\n[%02d:%02d:%02d]: ", lt.wHour, lt.wMinute, lt.wSecond);
+		split = buf + split;
+	}
+	else
+	{
+		split = "\n" + split;
+	}
+
+	//????? ? ???-????
+	LogWriter->w(split.c_str(), split.length());
+	LogWriter->flush();
 }
 
 void Log(const char* s)
 {
-    int i, j;
+	std::string str(s);
 
-    u32 length = xr_strlen(s);
-#ifndef _EDITOR
-    PSTR split = (PSTR)_alloca((length + 1) * sizeof(char));
-#else
-    PSTR split = (PSTR)alloca((length + 1) * sizeof(char));
-#endif
-    for (i = 0, j = 0; s[i] != 0; i++)
-    {
-        if (s[i] == '\n')
-        {
-            split[j] = 0; // end of line
-            if (split[0] == 0) { split[0] = ' '; split[1] = 0; }
-            AddOne(split);
-            j = 0;
-        }
-        else
-        {
-            split[j++] = s[i];
-        }
-    }
-    split[j] = 0;
-    AddOne(split);
+	if (str.empty()) return; //?????? ????? - ???????
+
+	bool not_first_line = false;
+	bool have_color = false;
+	auto color_s = str.front();
+	if ( //???? ? ?????? ?????? ???????? ???
+		color_s == '-' //???????
+		|| color_s == '~' //??????
+		|| color_s == '!' //???????
+		|| color_s == '*' //?????
+		|| color_s == '#' //?????????
+		) have_color = true;
+
+	std::stringstream ss(str);
+	for (std::string item; std::getline(ss, item);) //????????? ????? ?? "\n"
+	{
+		if (not_first_line && have_color)
+		{
+			item = ' ' + item;
+			item = color_s + item; //???? ????, ????? ?????? ??????? ????????? ????-?????? ?????, ????? ? ??????? ???????? ???? ??? ?????? ??????, ? ?? ?????? ??????.
+		}
+		AddOne(item, !not_first_line);
+		not_first_line = true;
+	}
 }
 
-void __cdecl Msg(const char* format, ...)
+void __cdecl Msg(const char* format, ...) //KRodin: ????? ??????????? ?? ?????? ??????
 {
-    if (!no_log_owerflow && LogFile->size() > 10000)
-    {
-        LogFile->clear();
-        Log("# Log overflow! Log cleared successfully.");
-    }
-
-    va_list mark;
-    string2048 buf;
-    va_start(mark, format);
-    int sz = _vsnprintf(buf, sizeof(buf) - 1, format, mark);
-    buf[sizeof(buf) - 1] = 0;
-    va_end(mark);
-    if (sz) Log(buf);
+	va_list args;
+	va_start(args, format);
+	int buf_len = std::vsnprintf(nullptr, 0, format, args);
+	auto strBuf = std::make_unique<char[]>(buf_len + 1);
+	std::vsnprintf(strBuf.get(), buf_len + 1, format, args);
+	Log(strBuf.get());
 }
 
-void Log(const char* msg, const char* dop)
-{
-    if (!dop)
-    {
-        Log(msg);
-        return;
-    }
-
-    u32 buffer_size = (xr_strlen(msg) + 1 + xr_strlen(dop) + 1) * sizeof(char);
-    PSTR buf = (PSTR)_alloca(buffer_size);
-    strconcat(buffer_size, buf, msg, " ", dop);
-    Log(buf);
+void Log(const char* msg, const char* dop) { //???? ??????
+	char buf[1024];
+	if (dop)
+		std::snprintf(buf, sizeof(buf), "%s %s", msg, dop);
+	else
+		std::snprintf(buf, sizeof(buf), "%s", msg);
+	Log(buf);
 }
 
-void Log(const char* msg, u32 dop)
-{
-    u32 buffer_size = (xr_strlen(msg) + 1 + 10 + 1) * sizeof(char);
-    PSTR buf = (PSTR)_alloca(buffer_size);
-
-    xr_sprintf(buf, buffer_size, "%s %d", msg, dop);
-    Log(buf);
+void Log(const char* msg, u32 dop) { //???? ??????
+	char buf[1024];
+	std::snprintf(buf, sizeof(buf), "%s %d", msg, dop);
+	Log(buf);
 }
 
-void Log(const char* msg, int dop)
-{
-    u32 buffer_size = (xr_strlen(msg) + 1 + 11 + 1) * sizeof(char);
-    PSTR buf = (PSTR)_alloca(buffer_size);
-
-    xr_sprintf(buf, buffer_size, "%s %i", msg, dop);
-    Log(buf);
+void Log(const char* msg, int dop) {
+	char buf[1024];
+	std::snprintf(buf, sizeof(buf), "%s %d", msg, dop);
+	Log(buf);
 }
 
-void Log(const char* msg, float dop)
-{
-    // actually, float string representation should be no more, than 40 characters,
-    // but we will count with slight overhead
-    u32 buffer_size = (xr_strlen(msg) + 1 + 64 + 1) * sizeof(char);
-    PSTR buf = (PSTR)_alloca(buffer_size);
-
-    xr_sprintf(buf, buffer_size, "%s %f", msg, dop);
-    Log(buf);
+void Log(const char* msg, float dop) {
+	char buf[1024];
+	std::snprintf(buf, sizeof(buf), "%s %f", msg, dop);
+	Log(buf);
 }
 
-void Log(const char* msg, const Fvector& dop)
-{
-    u32 buffer_size = (xr_strlen(msg) + 2 + 3 * (64 + 1) + 1) * sizeof(char);
-    PSTR buf = (PSTR)_alloca(buffer_size);
-
-    xr_sprintf(buf, buffer_size, "%s (%f,%f,%f)", msg, VPUSH(dop));
-    Log(buf);
+void Log(const char* msg, const Fvector& dop) {
+	char buf[1024];
+	std::snprintf(buf, sizeof(buf), "%s (%f,%f,%f)", msg, dop.x, dop.y, dop.z);
+	Log(buf);
 }
 
-void Log(const char* msg, const Fmatrix& dop)
-{
-    u32 buffer_size = (xr_strlen(msg) + 2 + 4 * (4 * (64 + 1) + 1) + 1) * sizeof(char);
-    PSTR buf = (PSTR)_alloca(buffer_size);
-
-    xr_sprintf(buf, buffer_size, "%s:\n%f,%f,%f,%f\n%f,%f,%f,%f\n%f,%f,%f,%f\n%f,%f,%f,%f\n",
-        msg,
-        dop.i.x, dop.i.y, dop.i.z, dop._14_,
-        dop.j.x, dop.j.y, dop.j.z, dop._24_,
-        dop.k.x, dop.k.y, dop.k.z, dop._34_,
-        dop.c.x, dop.c.y, dop.c.z, dop._44_
-        );
-    Log(buf);
+void Log(const char* msg, const Fmatrix& dop) {
+	char buf[1024];
+	std::snprintf(buf, sizeof(buf), "%s:\n%f,%f,%f,%f\n%f,%f,%f,%f\n%f,%f,%f,%f\n%f,%f,%f,%f\n", msg, dop.i.x, dop.i.y, dop.i.z, dop._14_
+		, dop.j.x, dop.j.y, dop.j.z, dop._24_
+		, dop.k.x, dop.k.y, dop.k.z, dop._34_
+		, dop.c.x, dop.c.y, dop.c.z, dop._44_);
+	Log(buf);
 }
 
-void LogWinErr(const char* msg, long err_code)
+void SetLogCB(LogCallback cb)
 {
-    Msg("%s: %s", msg, Debug.error2string(err_code));
+	LogCB = cb;
 }
 
-LogCallback SetLogCB(LogCallback cb)
+const char* log_name()
 {
-    LogCallback result = LogCB;
-    LogCB = cb;
-    return (result);
-}
-
-LPCSTR log_name()
-{
-    return (log_file_name);
+	return logFName;
 }
 
 void InitLog()
 {
-    R_ASSERT(LogFile == NULL);
-    LogFile = xr_new< xr_vector<shared_str> >();
-    LogFile->reserve(1000);
+	R_ASSERT(!LogFile);
+	LogFile = xr_new< xr_vector<std::string> >();
 }
 
 void CreateLog(BOOL nl, BOOL nlo)
 {
-    no_log = nl;
-    no_log_owerflow = nlo;
+	no_log = nl;
+	no_log_owerflow = nlo;
 
-    strconcat(sizeof(log_file_name), log_file_name, Core.ApplicationName, "_", Core.UserName, ".log");
-    if (FS.path_exist("$logs$"))
-        FS.update_path(logFName, "$logs$", log_file_name);
-    if (!no_log)
-    {
+	strconcat(sizeof(logFName), logFName, Core.ApplicationName, "_", Core.UserName, ".log");
 
+	if (FS.path_exist("$logs$"))
+		FS.update_path(logFName, "$logs$", logFName);
+
+	if (!no_log)
+	{
 		//Alun: Backup existing log
-		xr_string backup_logFName = EFS.ChangeFileExt(logFName,".bkp");
+		xr_string backup_logFName = EFS.ChangeFileExt(logFName, ".bkp");
 		FS.file_rename(logFName, backup_logFName.c_str(), true);
 		//-Alun
+		LogWriter = FS.w_open(logFName);
+		if (!LogWriter)
+		{
+			MessageBox(nullptr, "Can't create log file.", "Error", MB_ICONERROR);
+			abort();
+		}
 
-        IWriter* f = FS.w_open(logFName);
-        if (f == NULL)
-        {
-            MessageBox(NULL, "Can't create log file.", "Error", MB_ICONERROR);
-            abort();
-        }
-        FS.w_close(f);
-    }
+		for (u32 it = 0; it < LogFile->size(); it++)
+		{
+			auto str = (*LogFile)[it];
+			str = "\n" + str;
+			LogWriter->w(str.c_str(), str.length());
+		}
+
+		LogWriter->flush();
+	}
+	LogFile->reserve(128);
 }
 
-void CloseLog(void)
+void CloseLog()
 {
-    FlushLog();
-    LogFile->clear();
-    xr_delete(LogFile);
+	if (LogWriter)
+		FS.w_close(LogWriter);
+
+	FlushLog();
+	LogFile->clear();
+	xr_delete(LogFile);
 }
