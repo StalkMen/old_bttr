@@ -390,34 +390,20 @@ static class cl_wind_params : public R_constant_setup
 }
 binder_wind_params;
 
-class cl_m_v2w : public R_constant_setup
-{
-	virtual void setup(R_constant* C)
-	{
-		Fmatrix m_v2w;
-		m_v2w.invert(Device.mView);
-		RCache.set_c(C, m_v2w);
-	}
-};
-static cl_m_v2w binder_m_v2w;
-
 // Standart constant-binding
 void	CBlender_Compile::SetMapping	()
 {
 	r_Constant				("m_levelID",		&binder_level_id_params);
 	r_Constant				("clouds_velocity", &binder_clouds_velocity);
 	r_Constant				("ogse_c_rain", 	&binder_rain_params_new);
-	r_Constant				("m_inv_P",			&binder_inv_p);
 	r_Constant				("wind_params",		&binder_wind_params);
-	r_Constant				("m_v2w",			&binder_m_v2w);
 
 	// misc
 	r_Constant				("m_hud_params",	&binder_hud_params);	//--#SM+#--
 	r_Constant				("m_script_params", &binder_script_params); //--#SM+#--
 	r_Constant				("m_blender_mode",  &binder_blend_mode);	//--#SM+#--
 
-	r_Constant				("ogse_c_screen", 	&binder_screen_params);
-	
+
 	// matrices
 	r_Constant				("m_W",				&binder_w);
 	r_Constant				("m_invW",			&binder_invw);
@@ -426,6 +412,9 @@ void	CBlender_Compile::SetMapping	()
 	r_Constant				("m_WV",			&binder_wv);
 	r_Constant				("m_VP",			&binder_vp);
 	r_Constant				("m_WVP",			&binder_wvp);
+
+	r_Constant				("m_inv_V", 		&binder_inv_v);
+	r_Constant				("m_inv_P",			&binder_inv_p);
 
 	r_Constant				("m_xform_v",		&tree_binder_m_xform_v);
 	r_Constant				("m_xform",			&tree_binder_m_xform);
@@ -464,13 +453,13 @@ void	CBlender_Compile::SetMapping	()
 	r_Constant				("L_sun_color",		&binder_sun0_color);
 	r_Constant				("L_sun_dir_w",		&binder_sun0_dir_w);
 	r_Constant				("L_sun_dir_e",		&binder_sun0_dir_e);
-//	r_Constant				("L_lmap_color",	&binder_lm_color);
 	r_Constant				("L_hemi_color",	&binder_hemi_color);
 	r_Constant				("L_ambient",		&binder_amb_color);
 #endif
-	r_Constant				("screen_res",		&binder_screen_res);
-	r_Constant				("m_inv_V", 		&binder_inv_v);
 
+	r_Constant				("screen_res",		&binder_screen_res);
+	r_Constant				("ogse_c_screen", 	&binder_screen_params);
+	
 	r_Constant				("rain_params",		&binder_rain_params);
 
 	// detail
