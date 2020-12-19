@@ -689,7 +689,7 @@ void		xrRender_initconsole()
 	CMD4(CCC_Integer, "xrRenderDX10_opt_dynamic_geometry",	&opt_dynamic,					0, 4);
 	CMD4(CCC_Integer, "xrRenderDX10_opt_shadow_geometry",	&opt_shadow,					0, 1);
 
-	CMD4(CCC_Float, "xrRenderFilteringSaturationImage",  &xrRenderFilteringSaturationImage,	-1.f, 2.f);
+	CMD4(CCC_Float, "xrRenderFilteringSaturationImage",  &xrRenderFilteringSaturationImage,	0.f, 2.f);
 
 	CMD4(CCC_Float, "xrRenderGammaHLSL",				 &render_gamma,						0.f, 3.f);
 
