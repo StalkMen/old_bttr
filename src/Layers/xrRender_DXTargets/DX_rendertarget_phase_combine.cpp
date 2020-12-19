@@ -377,7 +377,7 @@ void	CRenderTarget::phase_combine	()
 	}	
 	
 	//Gasmask
-	if (mask_helmet && ps_r2_gasmask_control.x >= 0.0) //Check for damage state.... oy Vladek oy Vladek...
+	if (mask_helmet) //Niech chuj jebie te maski w dupę pierdolone zabugowane gówno lvutnerowskie aaaaaaaaaaaaaaaaa
 		phase_gasmask();
 	
 	//Rain drops

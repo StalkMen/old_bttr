@@ -2,6 +2,10 @@
 
 void CRenderTarget::phase_gasmask()
 {
+	//I hope this works -- LVutner
+	if(!IsHelmetWithGlassActive && !IsOutfitWithGlassActive)
+		return;
+	
 	float mix = 0.f;
 	float HelmetCondition = g_pGamePersistent->m_DataExport->HelmetConditionActive();
 	float OutfitCondition = g_pGamePersistent->m_DataExport->OutfitConditionActive();
