@@ -609,7 +609,7 @@ float ps_volumetric_intensity = 0.1f;
 float ps_volumetric_distance = 1.f;
 float ps_volumetric_quality = 0.35f;
 
-float xrRenderFilteringSaturationImage = 0.f;
+float xrRenderFilteringSaturationImage = 1.f;
 float render_gamma = 0.f;
 
 // Base factor values
