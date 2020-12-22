@@ -6,8 +6,16 @@ void CRenderTarget::phase_gasmask()
 	float HelmetCondition = g_pGamePersistent->m_DataExport->HelmetConditionActive();
 	float OutfitCondition = g_pGamePersistent->m_DataExport->OutfitConditionActive();
 
-	mix += HelmetCondition + OutfitCondition;
-//	Msg("HelmetCondition [%f], OutfitCondition [%f], mix [%f]", HelmetCondition, OutfitCondition, mix);
+	mix += HelmetCondition + OutfitCondition;	
+//	Msg("HelmetCondition [%f], OutfitCondition [%f], mix [%f]", HelmetCondition, OutfitCondition, mix);	
+		
+	bool HelmetWGlass = g_pGamePersistent->m_DataExport->IsHelmetWithGlassActive();
+	bool OutfitWGlass = g_pGamePersistent->m_DataExport->IsOutfitWithGlassActive(); 
+
+	//Działaj proszę.......
+	if(!HelmetWGlass || !OutfitWGlass)
+		return;
+	
 	//Constants
 	u32 Offset = 0;
 	u32 C = color_rgba(0, 0, 0, 255);
