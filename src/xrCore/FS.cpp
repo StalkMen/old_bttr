@@ -437,9 +437,10 @@ void IReader::r(void* p, int cnt)
     if (dynamic_cast<CFileReader*>(this)) bShow = TRUE;
     if (dynamic_cast<CVirtualFileReader*>(this)) bShow = TRUE;
     if (bShow)
-    {
+	{
         FS.dwOpenCounter++;
-    }
+		FS.dwOpenCounter64++;
+	}
 #endif
 };
 

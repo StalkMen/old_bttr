@@ -189,6 +189,7 @@ CLocatorAPI::CLocatorAPI()
     dwAllocGranularity = sys_inf.dwAllocationGranularity;
     m_iLockRescan = 0;
     dwOpenCounter = 0;
+	dwOpenCounter64 = 0;
 }
 
 CLocatorAPI::~CLocatorAPI()
@@ -1316,6 +1317,8 @@ bool CLocatorAPI::check_for_file(LPCSTR path, LPCSTR _fname, string_path& fname,
         return (false);
 
     ++dwOpenCounter;
+	++dwOpenCounter64;
+	
     desc = &*I;
     return (true);
 }

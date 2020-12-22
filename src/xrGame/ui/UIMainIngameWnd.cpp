@@ -331,7 +331,8 @@ void CUIMainIngameWnd::Init()
 
 	UIStaticDiskIO = UIHelper::CreateStatic(uiXml, "disk_io", this);
 
-    UIStaticKurr = UIHelper::CreateStatic(uiXml, "kurr_static", this);
+    if (BttR_mode)
+        UIStaticKurr = UIHelper::CreateStatic(uiXml, "kurr_static", this);
 
 	m_ui_hud_states = xr_new<CUIHudStatesWnd>();
 	m_ui_hud_states->SetAutoDelete(true);
@@ -358,12 +359,12 @@ void CUIMainIngameWnd::Init()
 	HUD_SOUND_ITEM::LoadSound("maingame_ui", "snd_new_contact", m_contactSnd, SOUND_TYPE_IDLE);
 }
 
-float time_update_kurr = 0.f;
+float time_update_kurr = 0.0f;
 void CUIMainIngameWnd::KurrStatic()
 {
     CActor* pActor = smart_cast<CActor*>(Level().CurrentViewEntity());
 
-    bool IOActive = pActor->conditions().GetKurr() < 0.85f;
+    bool IOActive = (FS.dwOpenCounter64 > 0);// pActor->conditions().GetKurr() < 0.85f;
     if (IOActive)
         time_update_kurr = Device.fTimeGlobal;
 
@@ -371,10 +372,14 @@ void CUIMainIngameWnd::KurrStatic()
         UIStaticKurr->Show(false);
     else
     {
-        u32	alpha = clampr(iFloor(255.f * (1.f - (Device.fTimeGlobal - time_update_kurr) / 1.f)), 0, 255);
-        UIStaticKurr->Show(true);
-        UIStaticKurr->SetTextureColor(color_rgba(255, 255, 255, alpha));
+        if (pActor->conditions().GetKurr() < 0.85f)
+        {
+            u32	alpha = clampr(iFloor(255.f * (1.f - (Device.fTimeGlobal - time_update_kurr) / 1.f)), 0, 255);
+            UIStaticKurr->Show(true);
+            UIStaticKurr->SetTextureColor(color_rgba(255, 255, 255, alpha));
+        }
     }
+    FS.dwOpenCounter64 = 0;
 }
 
 float UIStaticDiskIO_start_time = 0.0f;
@@ -396,7 +401,8 @@ void CUIMainIngameWnd::Draw()
 	}
 	FS.dwOpenCounter = 0;
 
-    KurrStatic();
+    if (BttR_mode)
+        KurrStatic();
 
 	if(!IsGameTypeSingle())
 	{

@@ -92,7 +92,9 @@ public:
     Flags32 m_Flags;
     u32 dwAllocGranularity;
     u32 dwOpenCounter;
-
+    //Чтобы не ломать основной счетчик, эта u64 нужна для статика потребности в курении
+	u64 dwOpenCounter64;
+	
 private:
     void check_cached_files(LPSTR fname, const u32& fname_size, const file& desc, LPCSTR& source_name);
 
