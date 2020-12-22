@@ -126,7 +126,7 @@ void CStats::Show_HW_Stats()
                         else									
                             pFontHW->SetColor(DebugTextColor::DTC_RED);
 
-                        pFontHW->Out(GetMainInfoStats, InfoScale, FPSFormat, (int)fLastDisplayedFPS);
+                        pFontHW->Out(GetMainInfoStats, InfoScale, FPSFormat, static_cast<int>(fLastDisplayedFPS));
                         InfoScale += 15;
 
                 case 3: 
