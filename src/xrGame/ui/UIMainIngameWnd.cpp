@@ -159,10 +159,10 @@ void CUIMainIngameWnd::Init()
 	m_iPickUpItemIconX = UIPickUpItemIcon->GetWndRect().left;
 	m_iPickUpItemIconY = UIPickUpItemIcon->GetWndRect().top;
 
-	//индикаторы
+	//РёРЅРґРёРєР°С‚РѕСЂС‹
 	UIZoneMap->Init();
 
-	// Подсказки, которые возникают при наведении прицела на объект
+	// РџРѕРґСЃРєР°Р·РєРё, РєРѕС‚РѕСЂС‹Рµ РІРѕР·РЅРёРєР°СЋС‚ РїСЂРё РЅР°РІРµРґРµРЅРёРё РїСЂРёС†РµР»Р° РЅР° РѕР±СЉРµРєС‚
 	UIStaticQuickHelp = UIHelper::CreateTextWnd(uiXml, "quick_info", this);
 
 	uiXml.SetLocalRoot(uiXml.GetRoot());
@@ -173,7 +173,7 @@ void CUIMainIngameWnd::Init()
 	AttachChild(m_UIIcons);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////
-	//*Индикаторы худа Зов Чернобыля
+	//*РРЅРґРёРєР°С‚РѕСЂС‹ С…СѓРґР° Р—РѕРІ Р§РµСЂРЅРѕР±С‹Р»СЏ
 	if (type_hud_token == 0)
 	{
 		m_ind_bleeding_coc = UIHelper::CreateStatic(uiXml, "indicator_bleeding", this);
@@ -191,9 +191,9 @@ void CUIMainIngameWnd::Init()
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////
-	//*Индикаторы худа Зов Припяти
+	//*РРЅРґРёРєР°С‚РѕСЂС‹ С…СѓРґР° Р—РѕРІ РџСЂРёРїСЏС‚Рё
 	if (type_hud_token == 1 || type_hud_token == 8)
-	{ // Двойная инициализация
+	{ // Р”РІРѕР№РЅР°СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
 		m_ind_bleeding_cop = UIHelper::CreateStatic(uiXml, "indicator_bleeding", this);
 		m_ind_radiation_cop = UIHelper::CreateStatic(uiXml, "indicator_radiation", this);
 		m_ind_starvation_cop = UIHelper::CreateStatic(uiXml, "indicator_starvation", this);
@@ -211,7 +211,7 @@ void CUIMainIngameWnd::Init()
 	}
 
 	if (type_hud_token == 2)
-	{ // Двойная инициализация
+	{ // Р”РІРѕР№РЅР°СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
 		m_ind_bleeding_cmp = UIHelper::CreateStatic(uiXml, "indicator_bleeding", this);
 		m_ind_radiation_cmp = UIHelper::CreateStatic(uiXml, "indicator_radiation", this);
 		m_ind_starvation_cmp = UIHelper::CreateStatic(uiXml, "indicator_starvation", this);
@@ -222,7 +222,7 @@ void CUIMainIngameWnd::Init()
 	}
 
 	if (type_hud_token == 3)
-	{ // Двойная инициализация
+	{ // Р”РІРѕР№РЅР°СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
 //        m_ind_bleeding_st = UIHelper::CreateStatic(uiXml, "indicator_bleeding", this);
 		m_ind_radiation_st = UIHelper::CreateStatic(uiXml, "indicator_radiation", this);
 		m_ind_starvation_st = UIHelper::CreateStatic(uiXml, "indicator_starvation", this);
@@ -245,7 +245,7 @@ void CUIMainIngameWnd::Init()
 
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////
-	//*Индикаторы худа Ветер Времени
+	//*РРЅРґРёРєР°С‚РѕСЂС‹ С…СѓРґР° Р’РµС‚РµСЂ Р’СЂРµРјРµРЅРё
 	if (type_hud_token == 6)
 	{
 		m_ind_radiation_vv = UIHelper::CreateStatic(uiXml, "indicator_radiation", this);
@@ -293,11 +293,11 @@ void CUIMainIngameWnd::Init()
 		"invincible"
 		"artefact" };
 
-	// Загружаем пороговые значения для индикаторов
+	// Р—Р°РіСЂСѓР¶Р°РµРј РїРѕСЂРѕРіРѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РґР»СЏ РёРЅРґРёРєР°С‚РѕСЂРѕРІ
 	EWarningIcons j = ewiWeaponJammed;
 	while (j < ewiInvincible)
 	{
-		// Читаем данные порогов для каждого индикатора
+		// Р§РёС‚Р°РµРј РґР°РЅРЅС‹Рµ РїРѕСЂРѕРіРѕРІ РґР»СЏ РєР°Р¶РґРѕРіРѕ РёРЅРґРёРєР°С‚РѕСЂР°
 		shared_str cfgRecord =
 			pSettings->r_string("main_ingame_indicators_thresholds", *warningStrings[static_cast<int>(j) - 1]);
 		u32 count = _GetItemCount(*cfgRecord);
@@ -331,6 +331,8 @@ void CUIMainIngameWnd::Init()
 
 	UIStaticDiskIO = UIHelper::CreateStatic(uiXml, "disk_io", this);
 
+    UIStaticKurr = UIHelper::CreateStatic(uiXml, "kurr_static", this);
+
 	m_ui_hud_states = xr_new<CUIHudStatesWnd>();
 	m_ui_hud_states->SetAutoDelete(true);
 	AttachChild(m_ui_hud_states);
@@ -356,22 +358,45 @@ void CUIMainIngameWnd::Init()
 	HUD_SOUND_ITEM::LoadSound("maingame_ui", "snd_new_contact", m_contactSnd, SOUND_TYPE_IDLE);
 }
 
+float time_update_kurr = 0.f;
+void CUIMainIngameWnd::KurrStatic()
+{
+    CActor* pActor = smart_cast<CActor*>(Level().CurrentViewEntity());
+
+    bool IOActive = pActor->conditions().GetKurr() < 0.85f;
+    if (IOActive)
+        time_update_kurr = Device.fTimeGlobal;
+
+    if ((time_update_kurr + 1.0f) < Device.fTimeGlobal)
+        UIStaticKurr->Show(false);
+    else
+    {
+        u32	alpha = clampr(iFloor(255.f * (1.f - (Device.fTimeGlobal - time_update_kurr) / 1.f)), 0, 255);
+        UIStaticKurr->Show(true);
+        UIStaticKurr->SetTextureColor(color_rgba(255, 255, 255, alpha));
+    }
+}
+
 float UIStaticDiskIO_start_time = 0.0f;
 void CUIMainIngameWnd::Draw()
 {
 	CActor* pActor		= smart_cast<CActor*>(Level().CurrentViewEntity());
 
-	// show IO icon
 	bool IOActive	= (FS.dwOpenCounter>0) && !(psActorFlags.test(AF_DISABLE_MINIMAP));
-	if	(IOActive)	UIStaticDiskIO_start_time = Device.fTimeGlobal;
+	if	(IOActive)	
+        UIStaticDiskIO_start_time = Device.fTimeGlobal;
 
-	if ((UIStaticDiskIO_start_time+1.0f) < Device.fTimeGlobal)	UIStaticDiskIO->Show(false); 
-	else {
+	if ((UIStaticDiskIO_start_time+1.0f) < Device.fTimeGlobal)	
+        UIStaticDiskIO->Show(false); 
+	else 
+    {
 		u32		alpha			= clampr(iFloor(255.f*(1.f-(Device.fTimeGlobal-UIStaticDiskIO_start_time)/1.f)),0,255);
-		UIStaticDiskIO->Show		( true  ); 
+		UIStaticDiskIO->Show		(true); 
 		UIStaticDiskIO->SetTextureColor(color_rgba(255,255,255,alpha));
 	}
 	FS.dwOpenCounter = 0;
+
+    KurrStatic();
 
 	if(!IsGameTypeSingle())
 	{
@@ -509,7 +534,7 @@ void CUIMainIngameWnd::SetWarningIconColor(EWarningIcons icon, const u32 cl)
 {
 	bool bMagicFlag = true;
 
-	// Задаем цвет требуемой иконки
+	// Р—Р°РґР°РµРј С†РІРµС‚ С‚СЂРµР±СѓРµРјРѕР№ РёРєРѕРЅРєРё
 	switch(icon)
 	{
 	case ewiAll:
@@ -538,7 +563,7 @@ void CUIMainIngameWnd::TurnOffWarningIcon(EWarningIcons icon)
 
 void CUIMainIngameWnd::SetFlashIconState_(EFlashingIcons type, bool enable)
 {
-	// Включаем анимацию требуемой иконки
+	// Р’РєР»СЋС‡Р°РµРј Р°РЅРёРјР°С†РёСЋ С‚СЂРµР±СѓРµРјРѕР№ РёРєРѕРЅРєРё
 	FlashingIcons_it icon = m_FlashingIcons.find(type);
 	R_ASSERT2(icon != m_FlashingIcons.end(), "Flashing icon with this type not existed");
 	icon->second->Show(enable);
@@ -551,14 +576,14 @@ void CUIMainIngameWnd::InitFlashingIcons(CUIXml* node)
 
 	CUIXmlInit xml_init;
 	CUIStatic *pIcon = NULL;
-	// Пробегаемся по всем нодам и инициализируем из них статики
+	// РџСЂРѕР±РµРіР°РµРјСЃСЏ РїРѕ РІСЃРµРј РЅРѕРґР°Рј Рё РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РёР· РЅРёС… СЃС‚Р°С‚РёРєРё
 	for (int i = 0; i < staticsCount; ++i)
 	{
 		pIcon = xr_new<CUIStatic>();
 		xml_init.InitStatic(*node, flashingIconNodeName, i, pIcon);
 		shared_str iconType = node->ReadAttrib(flashingIconNodeName, i, "type", "none");
 
-		// Теперь запоминаем иконку и ее тип
+		// РўРµРїРµСЂСЊ Р·Р°РїРѕРјРёРЅР°РµРј РёРєРѕРЅРєСѓ Рё РµРµ С‚РёРї
 		EFlashingIcons type = efiPdaTask;
 
 		if		(iconType == "pda")		type = efiPdaTask;
@@ -708,7 +733,7 @@ void CUIMainIngameWnd::UpdateMainIndicators()
     flags |= LA_ONLYALPHA;
     flags |= LA_TEXTURECOLOR;
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    //*Общий блок float и переменных, чтобы не было переопределений
+    //*РћР±С‰РёР№ Р±Р»РѕРє float Рё РїРµСЂРµРјРµРЅРЅС‹С…, С‡С‚РѕР±С‹ РЅРµ Р±С‹Р»Рѕ РїРµСЂРµРѕРїСЂРµРґРµР»РµРЅРёР№
     float bleeding = pActor->conditions().BleedingSpeed();
     float radiation = pActor->conditions().GetRadiation();
 
@@ -734,7 +759,7 @@ void CUIMainIngameWnd::UpdateMainIndicators()
 	float max_carry_weight = pActor->MaxCarryWeight();
 	
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    //*Индикаторы худа Зов Чернобыля
+    //*РРЅРґРёРєР°С‚РѕСЂС‹ С…СѓРґР° Р—РѕРІ Р§РµСЂРЅРѕР±С‹Р»СЏ
     if (type_hud_token == 0)
     {
         // Bleeding icon
@@ -907,7 +932,7 @@ void CUIMainIngameWnd::UpdateMainIndicators()
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    //*Индикаторы худа Зов Припяти
+    //*РРЅРґРёРєР°С‚РѕСЂС‹ С…СѓРґР° Р—РѕРІ РџСЂРёРїСЏС‚Рё
     if (type_hud_token == 1 || type_hud_token == 8)
     {
         // Bleeding icon
@@ -1342,7 +1367,7 @@ void CUIMainIngameWnd::UpdateMainIndicators()
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    //*Индикаторы худа Чистое небо
+    //*РРЅРґРёРєР°С‚РѕСЂС‹ С…СѓРґР° Р§РёСЃС‚РѕРµ РЅРµР±Рѕ
     if (type_hud_token == 4)
     {
         // Satiety icon
@@ -1430,7 +1455,7 @@ void CUIMainIngameWnd::UpdateMainIndicators()
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    //*Индикаторы худа Ветер Времени
+    //*РРЅРґРёРєР°С‚РѕСЂС‹ С…СѓРґР° Р’РµС‚РµСЂ Р’СЂРµРјРµРЅРё
     if (type_hud_token == 6)
     {
         // Radiation icon
