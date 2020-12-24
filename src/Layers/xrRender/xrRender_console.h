@@ -100,10 +100,6 @@ extern ECORE_API Fvector3		ps_r2_dof;
 extern ECORE_API float			ps_r2_dof_sky;				//	distance to sky
 extern ECORE_API float			ps_r2_dof_kernel_size;		//	7.0f
 
-extern ECORE_API float			ps_r3_dyn_wet_surf_near;	// 10.0f
-extern ECORE_API float			ps_r3_dyn_wet_surf_far;		// 30.0f
-extern ECORE_API int			ps_r3_dyn_wet_surf_sm_res;	// 256
-
 extern ECORE_API float			ps_r2_ss_sunshafts_length;
 extern ECORE_API float			ps_r2_ss_sunshafts_radius;
 
@@ -147,16 +143,10 @@ enum
 	R2FLAG_VOLUMETRIC_LIGHTS	= (1<<21),
 	R2FLAG_STEEP_PARALLAX		= (1<<22),
 	R2FLAG_DOF					= (1<<23),
-
-	R2FLAG_DETAIL_BUMP			= (1<<25),
-
-	R3FLAG_DYN_WET_SURF			= (1<<26),
-	R3FLAG_VOLUMETRIC_SMOKE		= (1<<27),
-
-	R3FLAG_MSAA_HYBRID			= (1<<28),
-	R3FLAG_MSAA_OPT				= (1<<29),
-
-	R3FLAG_USE_DX10_1			= (1 << 30),
+	R2FLAG_DETAIL_BUMP			= (1<<24),
+	R3FLAG_VOLUMETRIC_SMOKE		= (1<<25),
+	R3FLAG_MSAA_OPT				= (1<<26),
+	R3FLAG_USE_DX10_1			= (1<<27),
 };
 
 enum

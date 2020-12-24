@@ -64,7 +64,6 @@ Flags32		ps_r2_ls_flags				=
 	| R2FLAG_USE_NVSTENCIL 
 	| R2FLAG_EXP_SPLIT_SCENE 
 	| R2FLAG_EXP_MT_CALC 
-	| R3FLAG_DYN_WET_SURF
 	| R3FLAG_VOLUMETRIC_SMOKE
 	| R2FLAG_DETAIL_BUMP
 	| R2FLAG_DOF
@@ -135,10 +134,6 @@ float		ps_r2_slight_fade			= 0.5f;				// 1.f
 Fvector3	ps_r2_dof					= Fvector3().set(-1.25f, 1.4f, 600.f);
 float		ps_r2_dof_sky				= 30;				//	distance to sky
 float		ps_r2_dof_kernel_size		= 5.0f;						//	7.0f
-
-float		ps_r3_dyn_wet_surf_near		= 10.f;				// 10.0f
-float		ps_r3_dyn_wet_surf_far		= 30.f;				// 30.0f
-int			ps_r3_dyn_wet_surf_sm_res	= 256;				// 256
 
 Flags32 ps_actor_shadow_flags = {0}; //Swartz: actor shadow
 
@@ -880,11 +875,6 @@ void		xrRender_initconsole()
 #ifdef	DEBUG
 	CMD1(CCC_Fog_Reload, "r3_fog_reload");
 #endif	//	DEBUG
-
-	CMD3(CCC_Mask, "r3_dynamic_wet_surfaces", &ps_r2_ls_flags, R3FLAG_DYN_WET_SURF);
-	CMD4(CCC_Float, "r3_dynamic_wet_surfaces_near", &ps_r3_dyn_wet_surf_near, 10, 70);
-	CMD4(CCC_Float, "r3_dynamic_wet_surfaces_far", &ps_r3_dyn_wet_surf_far, 30, 100);
-	CMD4(CCC_Integer, "r3_dynamic_wet_surfaces_sm_res", &ps_r3_dyn_wet_surf_sm_res, 64, 2048);
 
 	CMD3(CCC_Mask, "r3_volumetric_smoke", &ps_r2_ls_flags, R3FLAG_VOLUMETRIC_SMOKE);
 	CMD1(CCC_memory_stats, "render_memory_stats");

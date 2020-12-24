@@ -375,3 +375,7 @@ extern ENGINE_API u32               ps_r_sun_shafts;
 
 extern ENGINE_API Flags32           p_engine_flags32;
 extern            CRender			RImplementation;
+
+extern ENGINE_API float		        ps_r3_dyn_wet_surf_far;
+extern ENGINE_API float		        ps_r3_dyn_wet_surf_near;
+extern ENGINE_API int		        ps_r3_dyn_wet_surf_sm_res;

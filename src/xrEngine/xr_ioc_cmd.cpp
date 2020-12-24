@@ -777,7 +777,7 @@ xr_token qtess_quality_token[] =
 { nullptr, 0 }
 };
 
-ENGINE_API Flags32 p_engine_flags32 = { /*ITS_CLEAR_1_4_22 |*/R2FLAGEXT_SSAO_HALF_DATA };
+ENGINE_API Flags32 p_engine_flags32 = { /*ITS_CLEAR_1_4_22 |*/R2FLAGEXT_SSAO_HALF_DATA | R3FLAG_DYN_WET_SURF };
 
 class	CCC_SSAO : public CCC_Token
 {
@@ -1122,6 +1122,10 @@ public:
     }
 };
 
+ENGINE_API float		ps_r3_dyn_wet_surf_near = 10.f;
+ENGINE_API float		ps_r3_dyn_wet_surf_far = 30.f;
+ENGINE_API int			ps_r3_dyn_wet_surf_sm_res = 256;
+
 #include "device.h"
 void CCC_Register()
 {
@@ -1156,6 +1160,11 @@ void CCC_Register()
 
         CMD3(CCC_Token, "r3_msaa", &ps_r3_msaa, qmsaa_token);
         CMD3(CCC_Token, "r3_msaa_alphatest", &ps_r3_msaa_atest, qmsaa_atest_token);
+
+        CMD3(CCC_Mask,  "r3_dynamic_wet_surfaces", &p_engine_flags32, R3FLAG_DYN_WET_SURF);
+        CMD4(CCC_Float, "r3_dynamic_wet_surfaces_near", &ps_r3_dyn_wet_surf_near, 10, 70);
+        CMD4(CCC_Float, "r3_dynamic_wet_surfaces_far", &ps_r3_dyn_wet_surf_far, 30, 100);
+        CMD4(CCC_Integer, "r3_dynamic_wet_surfaces_sm_res", &ps_r3_dyn_wet_surf_sm_res, 64, 2048);
 
         CMD3(CCC_Token, "xrRenderDX10_type_aa", &ps_r_type_aa, type_aa_token);
         CMD3(CCC_Token, "xrRenderDX10_sunshafts_mode", &ps_sunshafts_mode, sunshafts_mode_token);

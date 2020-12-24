@@ -358,4 +358,6 @@ extern ENGINE_API Flags32             p_engine_flags32;
 //-' Доф оружия
 #define AF_RELOAD_DOF               (1<<23)
 #define AF_ZOOM_DOF                 (1<<24)
+//-' Намокание поверхносте DX10
+#define R3FLAG_DYN_WET_SURF         (1<<25)
 #endif
