@@ -94,7 +94,7 @@ void CUIOptionsItem::SaveOptValue()
 	if(!IsChangedOptValue())
 		return;
 
-	if (m_dep==sdVidRestart)
+	if(m_dep==sdVidRestart)
 		m_optionsManager.DoVidRestart();
 	else
 		if(m_dep==sdSndRestart)
@@ -105,6 +105,7 @@ void CUIOptionsItem::SaveOptValue()
 	else
 		if (m_dep == sdLevelRestart)
 			m_optionsManager.DoLevelRestart();
+
 }
 
 void CUIOptionsItem::OnChangedOptValue()

@@ -10,10 +10,11 @@ public:
 	void 		SaveValues				(LPCSTR group);
 	void 		UndoGroup				(LPCSTR group);
 	void 		OptionsPostAccept		();
-	void 		DoLevelRestart			();
 	void 		SendMessage2Group		(LPCSTR group, LPCSTR message);
+	void 		DoLevelRestart			();
 	bool 		NeedSystemRestart		();
 	bool 		NeedVidRestart			();
 	bool 		NeedLevelRestart		();
+	bool        IsLevelRestart			();
 	DECLARE_SCRIPT_REGISTER_FUNCTION
 };

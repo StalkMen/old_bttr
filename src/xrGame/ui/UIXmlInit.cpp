@@ -21,6 +21,9 @@
 #include "UIDragDropReferenceList.h"
 #include "UItabButtonMP.h"
 #include "UILines.h"
+#include "script_engine.h"
+#include "ai_space.h"
+#include "../xrEngine/ExternalData.h"
 
 extern int keyname_to_dik(LPCSTR);
 
@@ -126,7 +129,7 @@ bool CUIXmlInit::InitOptionsItem(CUIXml& xml_doc, LPCSTR path, int index, CUIOpt
 		{
 			CUIOptionsItem::ESystemDepends d = CUIOptionsItem::sdNothing;
 
-			if (0==stricmp(depends,"vid"))
+			if (0 == stricmp(depends, "vid"))
 				d = CUIOptionsItem::sdVidRestart;
 			else if(0==stricmp(depends,"snd"))
 					d = CUIOptionsItem::sdSndRestart;
@@ -135,7 +138,10 @@ bool CUIXmlInit::InitOptionsItem(CUIXml& xml_doc, LPCSTR path, int index, CUIOpt
 			else if(0==stricmp(depends,"runtime"))
 					d = CUIOptionsItem::sdApplyOnChange;
 			else if (0 == stricmp(depends, "level_restart"))
-					d = CUIOptionsItem::sdLevelRestart;
+					{
+						d = CUIOptionsItem::sdLevelRestart;
+						g_pGamePersistent->m_DataExport->RestartLevel(true);
+					}
 			else
 				Msg("! unknown param [%s] in optionsItem [%s]", depends, entry.c_str());
 
@@ -143,7 +149,8 @@ bool CUIXmlInit::InitOptionsItem(CUIXml& xml_doc, LPCSTR path, int index, CUIOpt
 		}
 		return true;
 	}
-	else return false;	
+	else 
+		return false;	
 }
 
 

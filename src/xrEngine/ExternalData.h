@@ -83,5 +83,18 @@ namespace DATARENDER
 		{
 			return outfit_condition;
 		};
+
+		// Предпреждение для опций
+		bool					restart_level;
+
+		void					RestartLevel(bool reload_only)
+		{
+			restart_level = reload_only;
+		};
+
+		bool					IsRestartLevel()
+		{
+			return restart_level;
+		};
 	};
 }

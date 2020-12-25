@@ -14,7 +14,7 @@
 #include "../Include/xrRender/RenderDeviceRender.h"
 
 #include "xr_object.h"
-
+#include "../xrEngine/IGame_Persistent.h"
 xr_token* vid_quality_token = NULL;
 
 xr_token vid_bpp_token[] =
@@ -406,6 +406,7 @@ public:
         if (Device.b_is_Ready)
         {
             Device.Reset();
+            g_pGamePersistent->m_DataExport->RestartLevel(false);
         }
     }
 };
