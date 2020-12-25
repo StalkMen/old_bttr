@@ -404,13 +404,9 @@ public:
     virtual void Execute(LPCSTR args)
     {
         if (Device.b_is_Ready)
-        {
             Device.Reset();
-            g_pGamePersistent->m_DataExport->RestartLevel(false);
-        }
     }
 };
-
 
 class CCC_VidMode : public CCC_Token
 {
@@ -620,7 +616,6 @@ extern int	show_FPS_only = 0;
 
 ENGINE_API float ps_r2_sun_shafts_min = 0.f;
 ENGINE_API float ps_r2_sun_shafts_value = 1.f;
-ENGINE_API int game_console_show = 1;
 
 ENGINE_API u32 g_screenmode = 1;
 xr_token screen_mode_tokens[] =
@@ -1127,6 +1122,16 @@ ENGINE_API float		ps_r3_dyn_wet_surf_near = 10.f;
 ENGINE_API float		ps_r3_dyn_wet_surf_far = 30.f;
 ENGINE_API int			ps_r3_dyn_wet_surf_sm_res = 256;
 
+class CCC_RestartLevelOptions : public IConsole_Command
+{
+public:
+    CCC_RestartLevelOptions(LPCSTR N) : IConsole_Command(N) { };
+    virtual void Execute(LPCSTR args)
+    {
+        g_pGamePersistent->m_DataExport->RestartLevel(false);
+    }
+};
+
 #include "device.h"
 void CCC_Register()
 {
@@ -1175,6 +1180,8 @@ void CCC_Register()
         CMD4(CCC_Integer, "xrRenderDX_sun_cascade_size_0", &m_sun_cascade_0_size, 1, 80);
         CMD4(CCC_Integer, "xrRenderDX_sun_cascade_size_1", &m_sun_cascade_1_size, 1, 150);
         CMD4(CCC_Integer, "xrRenderDX_sun_cascade_size_2", &m_sun_cascade_2_size, 1, 250);
+
+        CMD1(CCC_RestartLevelOptions, "xrRenderDX_is_level_restart");
     }
 
     CMD3(CCC_Token,     "xrEngine_fps_lock",    &g_dwFPSlimit, FpsLockToken);
@@ -1182,7 +1189,6 @@ void CCC_Register()
     CMD4(CCC_Integer,   "xrEngine_noprefetch",  &xrengint_noprefetch, 0, 1);
     CMD4(CCC_Integer,   "xrEngine_discord",     &game_value_discord_status, 0, 1);
     CMD4(CCC_Integer,   "xrEngine_adv_settings_diclaimer_is_shown", &advSettingsDiclaimerIsShown, 0, 1);
-    CMD4(CCC_Integer,   "xrEngine_game_console_show_value", &game_console_show, 0, 1);
 
     CMD3(CCC_Crosshair, "xrEngine_crosshair", &ps_crosshair_mode, crosshair_mode_token);
     CMD3(CCC_Mask,      "xrEngine_hud_crosshair_collide", &p_engine_flags32, AF_CROSSHAIR_COLLIDE);

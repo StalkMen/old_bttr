@@ -648,18 +648,11 @@ void CConsole::ExecuteCommand(LPCSTR cmd_str, bool record_cmd)
     }
 }
 
-extern int game_console_show;
 void CConsole::Show()
 {
-    //SECUROM_MARKER_HIGH_SECURITY_ON(11)
-
-    if (!game_console_show)
+    if (bVisible && EnvCryRay.render_ioconsole == false)
         return;
 
-    if (bVisible)
-    {
-        return;
-    }
     bVisible = true;
 
     GetCursorPos(&m_mouse_pos);

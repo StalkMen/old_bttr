@@ -214,6 +214,13 @@ PROTECT_API void InitSettings()
         EnvCryRay.detail_settings = true;
     else
         EnvCryRay.detail_settings = false;
+
+    bool render_console = READ_IF_EXISTS(pFFSettings, r_bool, "render_cryray", "render_console", false);
+
+    if (render_console)
+        EnvCryRay.render_ioconsole = true;
+    else
+        EnvCryRay.render_ioconsole = false;
 }
 
 PROTECT_API void InitConsole()
