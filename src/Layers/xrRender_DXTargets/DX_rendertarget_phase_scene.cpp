@@ -14,7 +14,7 @@ void	CRenderTarget::phase_scene_prepare	()
 
 	//thx to K.D.
 	// we need to clean up G-buffer every frame to avoid "ghosting" on sky
-	u_setrt(rt_Position, rt_Normal, rt_Color, 0);
+	u_setrt(rt_Position, rt_Color, 0, 0);
 	float ColorRGBA[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
 	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView(RCache.get_RT(), ColorRGBA);
 

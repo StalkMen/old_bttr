@@ -380,8 +380,6 @@ CRenderTarget::CRenderTarget		()
 		if( RImplementation.o.dx10_msaa )
 			rt_MSAADepth.create( r2_RT_MSAAdepth, w, h, D3DFMT_D24S8, SampleCount );
 
-		//	rt_Normal.create			(r2_RT_N,		w,h,D3DFMT_A16B16G16R16F, SampleCount );
-
 		// select albedo & accum
 		if (RImplementation.o.mrtmixdepth)	
 		{

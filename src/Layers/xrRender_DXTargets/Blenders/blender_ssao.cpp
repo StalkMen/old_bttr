@@ -17,7 +17,6 @@ void	BLENDER::AO::CBlender_SSAO_noMSAA::Compile			(CBlender_Compile& C)
 		C.r_CullMode		(D3DCULL_NONE);
 
 		C.r_dx10Texture		("s_position",	r2_RT_P);
-		C.r_dx10Texture		("s_normal",	r2_RT_N);
 		C.r_dx10Texture		("s_tonemap",	r2_RT_luminance_cur	);
 		C.r_dx10Texture		("s_half_depth",r2_RT_half_depth	);
 
@@ -35,7 +34,6 @@ void	BLENDER::AO::CBlender_SSAO_noMSAA::Compile			(CBlender_Compile& C)
 		C.r_CullMode		(D3DCULL_NONE);
 
 		C.r_dx10Texture		("s_position",	r2_RT_P);
-		C.r_dx10Texture		("s_normal",	r2_RT_N);
 		C.r_dx10Texture		("s_tonemap",	r2_RT_luminance_cur	);
 
 		C.r_dx10Sampler		("smp_nofilter");
@@ -67,7 +65,6 @@ void	BLENDER::AO::CBlender_SSAO_MSAA::Compile(CBlender_Compile& C)
 		C.r_CullMode		(D3DCULL_NONE);
 
 		C.r_dx10Texture		("s_position",		r2_RT_P				);
-		C.r_dx10Texture		("s_normal",		r2_RT_N				);
 
 		jitter(C);
 

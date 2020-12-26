@@ -13,7 +13,6 @@ void BLENDER::CBlender_accum_reflected::Compile(CBlender_Compile& C)
 	C.r_Pass			("accum_volume",	"accum_indirect_nomsaa",false,	FALSE,FALSE,blend,D3DBLEND_ONE,dest);
 	
 	C.r_dx10Texture		("s_position",		r2_RT_P);
-	C.r_dx10Texture		("s_normal",		r2_RT_N);
 	C.r_dx10Texture		("s_material",		r2_material);
 	C.r_dx10Texture		("s_accumulator",	r2_RT_accum		);
 
@@ -40,7 +39,6 @@ void BLENDER::CBlender_accum_reflected_msaa::Compile(CBlender_Compile& C)
 	C.r_Pass			("accum_volume",	"accum_indirect_msaa",false,	FALSE,FALSE,blend,D3DBLEND_ONE,dest);
 	
 	C.r_dx10Texture		("s_position",		r2_RT_P);
-	C.r_dx10Texture		("s_normal",		r2_RT_N);
 	C.r_dx10Texture		("s_material",		r2_material);
 	C.r_dx10Texture		("s_accumulator",	r2_RT_accum		);
 
