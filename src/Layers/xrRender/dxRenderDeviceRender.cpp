@@ -167,6 +167,10 @@ dxRenderDeviceRender::DeviceState dxRenderDeviceRender::GetDeviceState()
         // Check if the device is ready to be reset
         case DXGI_ERROR_DEVICE_RESET:
             return dsNeedReset;
+		
+		//LV: Check if device is physically removed, or crashed
+		case DXGI_ERROR_DEVICE_REMOVED:
+			return dsLost;
     }
 
     return dsOK;
