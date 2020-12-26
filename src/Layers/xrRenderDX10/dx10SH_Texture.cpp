@@ -535,10 +535,10 @@ void CTexture::Load		()
 					// pSurface->SetPriority	(PRIORITY_NORMAL);
 					flags.MemoryUsage		=	mem;
 				}
+				
+				if (pSurface && bCreateView)
+					CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateShaderResourceView(pSurface, NULL, &m_pSRView));
 			}
-
-			if (pSurface && bCreateView)
-				CHK_DX(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateShaderResourceView(pSurface, NULL, &m_pSRView));
 			PostLoad	()		;
 }
 
