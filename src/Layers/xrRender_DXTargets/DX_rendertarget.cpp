@@ -707,10 +707,12 @@ CRenderTarget::CRenderTarget		()
 	if (ssao_blur_on || ssao_hdao_ultra)
 	{
 		u32	w = Device.dwWidth, h = Device.dwHeight;
-
+		D3DFORMAT fmt = DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_vendor==0x10DE?D3DFMT_R32F:D3DFMT_R16F;
+		
 		if (ssao_hdao_ultra)
 		{
-			rt_ssao_temp.create(r2_RT_ssao_temp, w, h, D3DFMT_R16F, 1, true);
+			
+			rt_ssao_temp.create(r2_RT_ssao_temp, w, h, fmt, 1, true);
 			s_hdao_cs.create(b_hdao_cs);
 			if (RImplementation.o.dx10_msaa)
 				s_hdao_cs_msaa.create(b_hdao_msaa_cs);
