@@ -75,8 +75,11 @@ void CBackend::Invalidate	()
 
 	state						= NULL;
 	ps							= NULL;
-	vs							= NULL;
-DX10_ONLY(gs					= NULL);
+	vs							= NULL;	
+#if defined(DIRECTX10) || defined(DIRECTX11)	
+	gs							= NULL;
+#endif	
+	
 #ifdef DIRECTX11
 	hs = 0;
 	ds = 0;
