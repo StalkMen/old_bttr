@@ -559,6 +559,7 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 		   defines[def_it].Name		=	"MSAA_OPTIMIZATION";
 		   defines[def_it].Definition	=	"1";
 		   def_it						++;
+		   Msg("! MSAA_OPTIMIZATION on");
 	   }
 		sh_name[len]='0'+char(o.dx10_msaa_opt); ++len;
 
