@@ -13,7 +13,6 @@
 #include "stalker_movement_manager_smart_cover.h"
 #include "Inventory.h"
 #include "xrServer.h"
-#include "autosave_manager.h"
 
 #include "actor.h"
 #include "huditem.h"

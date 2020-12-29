@@ -26,7 +26,7 @@
 #include "seniority_hierarchy_holder.h"
 #include "space_restrictor.h"
 #include "client_spawn_manager.h"
-#include "autosave_manager.h"
+
 #include "ClimableObject.h"
 #include "level_graph.h"
 #include "mt_config.h"
@@ -121,7 +121,6 @@ IPureClient(Device.GetTimerGlobal())
         m_level_sound_manager = xr_new<CLevelSoundManager>();
         m_space_restriction_manager = xr_new<CSpaceRestrictionManager>();
         m_client_spawn_manager = xr_new<CClientSpawnManager>();
-        m_autosave_manager = xr_new<CAutosaveManager>();
         m_debug_renderer = xr_new<CDebugRenderer>();
 #ifdef DEBUG
         m_level_debug = xr_new<CLevelDebug>();
@@ -172,7 +171,6 @@ CLevel::~CLevel()
     xr_delete(m_space_restriction_manager);
     xr_delete(m_seniority_hierarchy_holder);
     xr_delete(m_client_spawn_manager);
-    xr_delete(m_autosave_manager);
     xr_delete(m_debug_renderer);
 
     if (!g_dedicated_server)

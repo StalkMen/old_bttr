@@ -21,7 +21,7 @@
 #include "saved_game_wrapper.h"
 #include "string_table.h"
 #include "../xrEngine/igame_persistent.h"
-#include "autosave_manager.h"
+
 //Alundaio
 #ifdef ENGINE_LUA_ALIFE_STORAGE_MANAGER_CALLBACKS
 #include "pch_script.h"
@@ -154,11 +154,6 @@ void CALifeStorageManager::load	(void *buffer, const u32 &buffer_size, LPCSTR fi
 
 	for (I = B; I != E; ++I)
 		(*I).second->on_register();
-
-	if (!g_pGameLevel)
-		return;
-
-	Level().autosave_manager().on_game_loaded	();
 }
 
 bool CALifeStorageManager::load	(LPCSTR save_name_no_check)

@@ -907,8 +907,6 @@
     <ClInclude Include="attachable_item_inline.h" />
     <ClInclude Include="attachment_owner.h" />
     <ClInclude Include="attachment_owner_inline.h" />
-    <ClInclude Include="autosave_manager.h" />
-    <ClInclude Include="autosave_manager_inline.h" />
     <ClInclude Include="a_star.h" />
     <ClInclude Include="a_star_inline.h" />
     <ClInclude Include="base_client_classes.h" />
@@ -2455,7 +2453,6 @@
     </ClCompile>
     <ClCompile Include="attachable_item.cpp" />
     <ClCompile Include="attachment_owner.cpp" />
-    <ClCompile Include="autosave_manager.cpp" />
     <ClCompile Include="base_client_classes_script.cpp">
       <PrecompiledHeaderFile>pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>

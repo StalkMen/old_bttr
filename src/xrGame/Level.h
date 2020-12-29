@@ -24,7 +24,6 @@ class CSpaceRestrictionManager;
 class CSeniorityHierarchyHolder;
 class CClientSpawnManager;
 class CGameObject;
-class CAutosaveManager;
 class CPHCommander;
 class CLevelDebug;
 class CLevelSoundManager;
@@ -66,7 +65,6 @@ protected:
     CSpaceRestrictionManager* m_space_restriction_manager = nullptr;
     CSeniorityHierarchyHolder* m_seniority_hierarchy_holder = nullptr;
     CClientSpawnManager* m_client_spawn_manager = nullptr;
-    CAutosaveManager* m_autosave_manager = nullptr;
     CDebugRenderer* m_debug_renderer = nullptr;
     CPHCommander* m_ph_commander = nullptr;
     CPHCommander* m_ph_commander_scripts = nullptr;
@@ -254,7 +252,6 @@ public:
     IC CSpaceRestrictionManager& space_restriction_manager();
     IC CSeniorityHierarchyHolder& seniority_holder();
     IC CClientSpawnManager& client_spawn_manager();
-    IC CAutosaveManager& autosave_manager();
     IC CDebugRenderer& debug_renderer();
     void __stdcall script_gc(); // GC-cycle
     IC CPHCommander& ph_commander();
@@ -358,12 +355,6 @@ IC CClientSpawnManager& CLevel::client_spawn_manager()
 {
     VERIFY(m_client_spawn_manager);
     return *m_client_spawn_manager;
-}
-
-IC CAutosaveManager& CLevel::autosave_manager()
-{
-    VERIFY(m_autosave_manager);
-    return *m_autosave_manager;
 }
 
 IC CDebugRenderer& CLevel::debug_renderer()
