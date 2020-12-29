@@ -42,6 +42,7 @@
 #include "raypick.h"
 #include "../xrcdb/xr_collide_defs.h"
 #include "..\xrEngine\Rain.h"
+#include "CryRayGameConstants.h"
 
 using namespace luabind;
 
@@ -1123,12 +1124,23 @@ void CLevel::script_register(lua_State *L)
 
 	];
 	module(L, "Random")
-		[
-			def("I", &RandomInteger0),
-			def("I", &RandomInteger1),
-			def("I", &RandomInteger2),
-			def("F", &RandomFloat0),
-			def("F", &RandomFloat1),
-			def("F", &RandomFloat2)
-		];
+	[
+		def("I", &RandomInteger0),
+		def("I", &RandomInteger1),
+		def("I", &RandomInteger2),
+		def("F", &RandomFloat0),
+		def("F", &RandomFloat1),
+		def("F", &RandomFloat2)
+	];
+
+//	module(L, "actor_specific")
+//	[
+//		def("is_crouched", &CryRayParams::ActorScriptSpace::IsCrouched),
+//		def("is_low_crouched", &CryRayParams::ActorScriptSpace::IsLowCrouched),
+//		def("is_walking", &CryRayParams::ActorScriptSpace::IsWalking),
+//		def("is_slow_walking", &CryRayParams::ActorScriptSpace::IsSlowWalking),
+//		def("is_sprinting", &CryRayParams::ActorScriptSpace::IsSprinting),
+//		def("is_climbing", &CryRayParams::ActorScriptSpace::IsClimbing)
+//	];
+
 }
