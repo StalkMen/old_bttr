@@ -12,7 +12,7 @@ void CRenderTarget::phase_hdao	()
    {
        ShaderElement* S;
 
-       if( !RImplementation.o.dx10_msaa )
+       if( !RMSAA._opt.dx10_msaa )
           S = (&*(s_hdao_cs->E[0]));
        else
           S = (&*(s_hdao_cs_msaa->E[0]));

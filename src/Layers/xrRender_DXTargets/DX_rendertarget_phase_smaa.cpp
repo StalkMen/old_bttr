@@ -55,7 +55,7 @@ void CRenderTarget::phase_smaa()
 	RCache.Render(D3DPT_TRIANGLELIST, Offset, 0, 4, 0, 2);
 
 	// Phase 2: neighbour blend //////////////////////////////////////////////
-	ref_rt& dest_rt = RImplementation.o.dx10_msaa ? rt_Generic : rt_Color;
+	ref_rt& dest_rt = RMSAA._opt.dx10_msaa ? rt_Generic : rt_Color;
 	u_setrt(dest_rt, nullptr, nullptr, nullptr);
 
 	RCache.set_CullMode(CULL_NONE);

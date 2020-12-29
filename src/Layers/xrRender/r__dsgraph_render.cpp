@@ -519,7 +519,7 @@ void R_dsgraph_structure::r_dsgraph_render_hud_ui()
 	RCache.set_RT(0,	1);
 	RCache.set_RT(0,	2);
 
-	if( !RImplementation.o.dx10_msaa )
+	if( !RMSAA._opt.dx10_msaa )
 	{
 		if (RImplementation.o.albedo_wo)	RImplementation.Target->u_setrt		(RImplementation.Target->rt_Accumulator,	rt_null,	rt_null,	DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 		else								RImplementation.Target->u_setrt		(RImplementation.Target->rt_Color,			rt_null,	rt_null,	DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);

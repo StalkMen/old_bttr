@@ -3,6 +3,7 @@
 void CRenderTarget::phase_fxaa()
 {
 	u32 Offset;
+
 	Fvector2 p0, p1;
 	float d_Z = EPS_S;
 	float d_W = 1.0f;
@@ -16,7 +17,7 @@ void CRenderTarget::phase_fxaa()
 
 	//////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
-	ref_rt& dest_rt = RImplementation.o.dx10_msaa ? rt_Generic : rt_Color;
+	ref_rt& dest_rt = RMSAA._opt.dx10_msaa ? rt_Generic : rt_Color;
 	u_setrt(dest_rt, nullptr, nullptr, DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 
 	RCache.set_CullMode(CULL_NONE);

@@ -40,7 +40,7 @@ void CRenderTarget::accum_point		(light* L)
 
 	// backfaces: if (1<=stencil && zfail)	stencil = light_id
 	RCache.set_CullMode				(CULL_CW);
-   if( ! RImplementation.o.dx10_msaa )
+   if( !RMSAA._opt.dx10_msaa )
    	RCache.set_Stencil				(TRUE,D3DCMP_LESSEQUAL,dwLightMarkerID,0x01,0xff,D3DSTENCILOP_KEEP,D3DSTENCILOP_KEEP,D3DSTENCILOP_REPLACE);
    else
 	   RCache.set_Stencil				(TRUE,D3DCMP_LESSEQUAL,dwLightMarkerID,0x01,0x7f,D3DSTENCILOP_KEEP,D3DSTENCILOP_KEEP,D3DSTENCILOP_REPLACE);
@@ -48,7 +48,7 @@ void CRenderTarget::accum_point		(light* L)
 
 	// frontfaces: if (1<=stencil && zfail)	stencil = 0x1
 	RCache.set_CullMode				(CULL_CCW);
-   if( ! RImplementation.o.dx10_msaa )
+   if( !RMSAA._opt.dx10_msaa )
 	   RCache.set_Stencil				(TRUE,D3DCMP_LESSEQUAL,0x01,0xff,0xff,D3DSTENCILOP_KEEP,D3DSTENCILOP_KEEP,D3DSTENCILOP_REPLACE);
    else
 	   RCache.set_Stencil				(TRUE,D3DCMP_LESSEQUAL,0x01,0x7f,0x7f,D3DSTENCILOP_KEEP,D3DSTENCILOP_KEEP,D3DSTENCILOP_REPLACE);
@@ -99,7 +99,7 @@ void CRenderTarget::accum_point		(light* L)
 
 		RCache.set_CullMode				(CULL_CW);		// back
 		// Render if (light_id <= stencil && z-pass)
-      if( ! RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
       {
 		   RCache.set_Stencil(TRUE,D3DCMP_EQUAL,dwLightMarkerID,0xff,0x00);
 		   draw_volume			(L);
@@ -111,7 +111,7 @@ void CRenderTarget::accum_point		(light* L)
 		   draw_volume			(L);
 
 		   // per sample
-         if( RImplementation.o.full_rendering_msaa )
+         if(RMSAA._opt.full_rendering_msaa )
          {
 		      RCache.set_Element(shader_msaa[0]->E[ _id ]	);
             RCache.set_Stencil(TRUE,D3DCMP_EQUAL,dwLightMarkerID|0x80,0xff,0x00);
@@ -120,7 +120,7 @@ void CRenderTarget::accum_point		(light* L)
          }
          else // checked Holger
          {
-		      for( u32 i = 0; i < RImplementation.o.dx10_msaa_samples; ++i )
+		      for( u32 i = 0; i < RMSAA._opt.dx10_msaa_samples; ++i )
 		      {
 			      RCache.set_Element		   (shader_msaa[i]->E[ _id ]	);
                StateManager.SetSampleMask (u32(1)<<i);
@@ -143,13 +143,13 @@ void CRenderTarget::accum_point		(light* L)
 
 	// blend-copy
 	if (!RImplementation.o.fp16_blend)	{
-      if( ! RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
 	   	u_setrt						(rt_Accumulator,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
       else
 		   u_setrt						(rt_Accumulator,NULL,NULL,rt_MSAADepth->pZRT);
 		RCache.set_Element	(s_accum_mask->E[SE_MASK_ACCUM_VOL]	);
 		RCache.set_c				("m_texgen",		m_Texgen);
-      if( ! RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
       {
          RCache.set_Stencil(TRUE,D3DCMP_LESSEQUAL,dwLightMarkerID,0xff,0x00);
          draw_volume			(L);
@@ -160,7 +160,7 @@ void CRenderTarget::accum_point		(light* L)
          RCache.set_CullMode( D3DCULL_CW );
          RCache.set_Stencil(TRUE,D3DCMP_EQUAL,dwLightMarkerID,0xff,0x00);		
          draw_volume			(L);
-         if( RImplementation.o.full_rendering_msaa )
+         if(RMSAA._opt.full_rendering_msaa )
          {
             // per sample
 		      RCache.set_Element(s_accum_mask_msaa[0]->E[SE_MASK_ACCUM_VOL]	);
@@ -170,7 +170,7 @@ void CRenderTarget::accum_point		(light* L)
          }
          else // checked Holger	
          {
-		      for( u32 i = 0; i < RImplementation.o.dx10_msaa_samples; ++i )
+		      for( u32 i = 0; i < RMSAA._opt.dx10_msaa_samples; ++i )
 		      {
 			      RCache.set_Element	      (s_accum_mask_msaa[i]->E[SE_MASK_ACCUM_VOL]	);
                RCache.set_CullMode        ( D3DCULL_CW );

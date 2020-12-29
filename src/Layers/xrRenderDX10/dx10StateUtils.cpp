@@ -169,7 +169,7 @@ void ResetDescription( D3D_RASTERIZER_DESC &desc )
 	desc.SlopeScaledDepthBias = 0.0f;
 	desc.DepthClipEnable = TRUE;
 	desc.ScissorEnable = FALSE;
-   if( RImplementation.o.dx10_msaa )
+   if(RMSAA._opt.dx10_msaa )
 	   desc.MultisampleEnable = TRUE;
    else
 	   desc.MultisampleEnable = FALSE;
@@ -183,7 +183,7 @@ void ResetDescription( D3D_DEPTH_STENCIL_DESC &desc )
 	desc.DepthWriteMask = D3D_DEPTH_WRITE_MASK_ALL;
 	desc.DepthFunc = D3D_COMPARISON_LESS;
 	desc.StencilEnable = TRUE;
-   if( !RImplementation.o.dx10_msaa )
+   if( !RMSAA._opt.dx10_msaa )
    {
 	   desc.StencilReadMask = 0xFF;
 	   desc.StencilWriteMask = 0xFF;
@@ -287,8 +287,8 @@ bool operator==(const D3D_DEPTH_STENCIL_DESC& desc1, const D3D_DEPTH_STENCIL_DES
 
 	if (desc1.DepthEnable)
 	{
-		// сравниваем эти поля, только если включен DepthEnable
-		// directx любит менять поля, если DepthEnable не включен и проверка не срабатывает
+		// СЃСЂР°РІРЅРёРІР°РµРј СЌС‚Рё РїРѕР»СЏ, С‚РѕР»СЊРєРѕ РµСЃР»Рё РІРєР»СЋС‡РµРЅ DepthEnable
+		// directx Р»СЋР±РёС‚ РјРµРЅСЏС‚СЊ РїРѕР»СЏ, РµСЃР»Рё DepthEnable РЅРµ РІРєР»СЋС‡РµРЅ Рё РїСЂРѕРІРµСЂРєР° РЅРµ СЃСЂР°Р±Р°С‚С‹РІР°РµС‚
 		if (desc1.DepthWriteMask != desc2.DepthWriteMask) return false;
 		if (desc1.DepthFunc != desc2.DepthFunc) return false;
 	}
@@ -297,7 +297,7 @@ bool operator==(const D3D_DEPTH_STENCIL_DESC& desc1, const D3D_DEPTH_STENCIL_DES
 
 	if (desc1.StencilEnable)
 	{
-		// сравниваем эти поля, только если включен StencilEnable
+		// СЃСЂР°РІРЅРёРІР°РµРј СЌС‚Рё РїРѕР»СЏ, С‚РѕР»СЊРєРѕ РµСЃР»Рё РІРєР»СЋС‡РµРЅ StencilEnable
 		if (desc1.StencilReadMask != desc2.StencilReadMask) return false;
 		if (desc1.StencilWriteMask != desc2.StencilWriteMask) return false;
 

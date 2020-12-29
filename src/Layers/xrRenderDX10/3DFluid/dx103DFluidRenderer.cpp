@@ -351,7 +351,7 @@ void dx103DFluidRenderer::Draw(const dx103DFluidData& FluidData)
     // Render to the back buffer sampling from the raycast texture that we just created
     //  If and edge was detected at the current pixel we will raycast again to avoid
     //  smoke aliasing artifacts at scene edges
-    if (!RImplementation.o.dx10_msaa)
+    if (!RMSAA._opt.dx10_msaa)
         pTarget->u_setrt(pTarget->rt_Generic_0, nullptr, nullptr, DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB); // LDR RT
     else
         pTarget->u_setrt(pTarget->rt_Generic_0_r, nullptr, nullptr, pTarget->rt_MSAADepth->pZRT); // LDR RT

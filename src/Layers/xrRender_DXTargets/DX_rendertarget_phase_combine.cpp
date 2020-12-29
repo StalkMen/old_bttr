@@ -88,7 +88,7 @@ void	CRenderTarget::phase_combine	()
 
 	FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 	// low/hi RTs
-	if( !RImplementation.o.dx10_msaa )
+	if( !RMSAA._opt.dx10_msaa )
 	{
 #ifdef DIRECTX11
 		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView(rt_Generic_0->pRT, ColorRGBA);
@@ -234,13 +234,13 @@ void	CRenderTarget::phase_combine	()
 		RCache.set_c				("ssao_noise_tile_factor",	fSSAONoise	);
 		RCache.set_c				("ssao_kernel_size",		fSSAOKernelSize	);
 
-      if( !RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
 		   RCache.Render				(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
       else
       {
          RCache.set_Stencil( TRUE, D3DCMP_EQUAL, 0x01, 0x81, 0 );
          RCache.Render		( D3DPT_TRIANGLELIST,Offset,0,4,0,2);
-         if( RImplementation.o.full_rendering_msaa )
+         if(RMSAA._opt.full_rendering_msaa )
          {
             RCache.set_Element( s_combine_msaa[0]->E[0]	);
             RCache.set_Stencil( TRUE, D3DCMP_EQUAL, 0x81, 0x81, 0 );
@@ -248,7 +248,7 @@ void	CRenderTarget::phase_combine	()
          }
          else
          {
-            for( u32 i = 0; i < RImplementation.o.dx10_msaa_samples; ++i )
+            for( u32 i = 0; i < RMSAA._opt.dx10_msaa_samples; ++i )
             {
                RCache.set_Element		   ( s_combine_msaa[i]->E[0]	);
                StateManager.SetSampleMask ( u32(1) << i  );
@@ -262,7 +262,7 @@ void	CRenderTarget::phase_combine	()
    }
 
 	//Copy previous rt
-	if (!RImplementation.o.dx10_msaa)
+	if (!RMSAA._opt.dx10_msaa)
 		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->CopyResource(rt_Generic_temp->pTexture->surface_get(), rt_Generic_0->pTexture->surface_get());
     else
         DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->CopyResource(rt_Generic_temp->pTexture->surface_get(), rt_Generic_0_r->pTexture->surface_get());
@@ -270,7 +270,7 @@ void	CRenderTarget::phase_combine	()
 	// Forward rendering
 	{
 		PIX_EVENT(Forward_rendering);
-		if( !RImplementation.o.dx10_msaa )
+		if( !RMSAA._opt.dx10_msaa )
 			u_setrt							(rt_Generic_0,0,0,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);		// LDR RT
 		else
 			u_setrt							(rt_Generic_0_r,0,0,RImplementation.Target->rt_MSAADepth->pZRT);		// LDR RT
@@ -291,7 +291,7 @@ void	CRenderTarget::phase_combine	()
 	// Perform blooming filter and distortion if needed
 	RCache.set_Stencil	(FALSE);
 
-   if( RImplementation.o.dx10_msaa )
+   if(RMSAA._opt.dx10_msaa )
    {
       // we need to resolve rt_Generic_1 into rt_Generic_1_r
 #ifdef DIRECTX11	  
@@ -318,7 +318,7 @@ void	CRenderTarget::phase_combine	()
 		{
 			PIX_EVENT(render_distort_objects);
 			FLOAT ColorRGBA[4] = { 127.0f/255.0f, 127.0f/255.0f, 0.0f, 127.0f/255.0f};
-			if( !RImplementation.o.dx10_msaa )
+			if( !RMSAA._opt.dx10_msaa )
 			{
 				u_setrt(rt_Generic_1,0,0,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);		// Now RT is a distortion mask
 #ifdef DIRECTX11				
@@ -399,7 +399,7 @@ void	CRenderTarget::phase_combine	()
    PP_Complex = TRUE;
 
 	// Combine everything + perform AA
-   if( RImplementation.o.dx10_msaa )
+   if(RMSAA._opt.dx10_msaa )
    {
 	   if		(PP_Complex)	u_setrt		( rt_Generic,0,0,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB );			// LDR RT
 	   else					   u_setrt		( Device.dwWidth,Device.dwHeight,DEVICE_HW::CRYRAY_RENDER::HW.pBaseRT,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
@@ -466,7 +466,7 @@ void	CRenderTarget::phase_combine	()
 		vDofKernel.mul(kernel_size);
 
 		// Draw COLOR
-		if (!RImplementation.o.dx10_msaa)
+		if (!RMSAA._opt.dx10_msaa)
 			RCache.set_Element(s_combine->E[bDistort ? 4 : 2]);	// look at blender_combine.cpp
 		else
 			RCache.set_Element(s_combine_msaa[0]->E[bDistort ? 4 : 2]);	// look at blender_combine.cpp
@@ -577,7 +577,7 @@ void CRenderTarget::phase_wallmarks		()
 	// Targets
 	RCache.set_RT(NULL,2);
 	RCache.set_RT(NULL,1);
-   if( !RImplementation.o.dx10_msaa )
+   if( !RMSAA._opt.dx10_msaa )
    	u_setrt								(rt_Color,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
    else
       u_setrt								(rt_Color,NULL,NULL,rt_MSAADepth->pZRT);
@@ -596,7 +596,7 @@ void CRenderTarget::phase_combine_volumetric()
 	//	TODO: DX10: Remove half pixel offset here
 
 	//u_setrt(rt_Generic_0,0,0,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB );			// LDR RT
-	if( !RImplementation.o.dx10_msaa )
+	if( !RMSAA._opt.dx10_msaa )
 		u_setrt(rt_Generic_0,rt_Generic_1,0,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB );
 	else
 		u_setrt(rt_Generic_0_r,rt_Generic_1_r,0,RImplementation.Target->rt_MSAADepth->pZRT );

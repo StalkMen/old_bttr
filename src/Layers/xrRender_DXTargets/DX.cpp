@@ -17,6 +17,7 @@
 #include "D3DX10Core.h"
 
 CRender										RImplementation;
+CRenderMSAA									RMSAA;
 
 //////////////////////////////////////////////////////////////////////////
 class CGlow				: public IRender_Glow
@@ -158,7 +159,7 @@ static class cl_volumetric_fog_param : public R_constant_setup
 void					CRender::create					()
 {
 	Device.seqFrame.Add	(this,REG_PRIORITY_HIGH+0x12345678);
-
+	
 	m_skinning			= -1;
 	m_MSAASample		= -1;
 
@@ -347,36 +348,36 @@ void					CRender::create					()
 	o.dx10_1 = o.dx10_1 && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0 );
 #endif
 	//	MSAA option dependencies
-
-	o.dx10_msaa			= !!ps_r3_msaa;
-	o.dx10_msaa_samples = (1 << ps_r3_msaa);
+	
+	RMSAA._opt.dx10_msaa			= !!ps_r3_msaa;
+	RMSAA._opt.dx10_msaa_samples = (1 << ps_r3_msaa);
 
 #ifdef DIRECTX11	
-	o.full_rendering_msaa		= o.full_rendering_msaa && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 )
-			|| o.dx10_msaa && (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0);
+	RMSAA._opt.full_rendering_msaa		= RMSAA._opt.full_rendering_msaa && RMSAA._opt.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 )
+			|| RMSAA._opt.dx10_msaa && (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0);
 
-	o.dx10_msaa_hybrid	= o.dx11;
-	o.dx10_msaa_hybrid	&= !o.full_rendering_msaa && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 ) ;
+	RMSAA._opt.dx10_msaa_hybrid	= o.dx11;
+	RMSAA._opt.dx10_msaa_hybrid	&= !RMSAA._opt.full_rendering_msaa && RMSAA._opt.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 ) ;
 #else
-	o.full_rendering_msaa		= o.full_rendering_msaa && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0 );
+	RMSAA._opt.full_rendering_msaa		= RMSAA._opt.full_rendering_msaa && RMSAA._opt.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0 );
 
-	o.dx10_msaa_hybrid	= ps_r2_ls_flags.test((u32)R3FLAG_USE_DX10_1);
-	o.dx10_msaa_hybrid	&= !o.full_rendering_msaa && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0) ;
+	RMSAA._opt.dx10_msaa_hybrid	= ps_r2_ls_flags.test((u32)R3FLAG_USE_DX10_1);
+	RMSAA._opt.dx10_msaa_hybrid	&= !RMSAA._opt.full_rendering_msaa && RMSAA._opt.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0) ;
 #endif
-	o.dx10_msaa_alphatest = 0;
-	if (o.dx10_msaa)
+	RMSAA._opt.dx10_msaa_alphatest = 0;
+	if (RMSAA._opt.dx10_msaa)
 	{
-		if ( o.full_rendering_msaa || o.dx10_msaa_hybrid )
+		if (RMSAA._opt.full_rendering_msaa || RMSAA._opt.dx10_msaa_hybrid )
 		{
 			if (ps_r3_msaa_atest==1)
-				o.dx10_msaa_alphatest = MSAA_ATEST_DX10_1_ATOC;
+				RMSAA._opt.dx10_msaa_alphatest = MSAA_ATEST_DX10_1_ATOC;
 			else if (ps_r3_msaa_atest==2)
-				o.dx10_msaa_alphatest = MSAA_ATEST_DX10_1_NATIVE;
+				RMSAA._opt.dx10_msaa_alphatest = MSAA_ATEST_DX10_1_NATIVE;
 		}
 		else
 		{
 			if (ps_r3_msaa_atest)
-				o.dx10_msaa_alphatest = MSAA_ATEST_DX10_0_ATOC;
+				RMSAA._opt.dx10_msaa_alphatest = MSAA_ATEST_DX10_0_ATOC;
 		}
 	}
 

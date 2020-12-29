@@ -28,7 +28,7 @@ void CRenderTarget::phase_ssao	()
 	DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->ClearRenderTargetView(rt_ssao_temp->pRT, ColorRGBA);
 #endif
 	// low/hi RTs
-	if( !RImplementation.o.dx10_msaa )
+	if( !RMSAA._opt.dx10_msaa )
 	{
 		u_setrt				( rt_ssao_temp,0,0,0/*DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB*/ );
 	}
@@ -91,7 +91,7 @@ void CRenderTarget::phase_ssao	()
 #else
 	RCache.set_c				("resolution", float(_w), float(_h), 1.0f / float(_w), 1.0f / float(_h) );
 #endif
-	if( !RImplementation.o.dx10_msaa )
+	if( !RMSAA._opt.dx10_msaa )
 		RCache.Render				(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
 	else
 	{

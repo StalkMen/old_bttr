@@ -97,21 +97,11 @@ public:
         u32		advancedpp			: 1;	//	advanced post process (DOF, SSAO, volumetrics, etc.)
         u32		volumetricfog		: 1;
 
-      u32		dx10_msaa			: 1;	//	DX10.0 path
-      u32		dx10_msaa_hybrid	: 1;	//	DX10.0 main path with DX10.1 A-test msaa allowed
-
-      //OldSerpskiStalker
-      u32		full_rendering_msaa : 1;	//	Allow rendering of full MSAA with DX10.1 or DX11. DX10 enabled unfortunately does not support this.
-
-	  u32		dx10_1			    : 1;	//	DX10.1 path
-      u32		dx10_msaa_alphatest	: 2;	//	A-test mode
-      u32		dx10_msaa_samples	: 4;
-
-      u32		dx10_minmax_sm		: 2;
-      u32		dx10_minmax_sm_screenarea_threshold;
-        
-      u32		dx11_enable_tessellation : 1;
-      u32		dx11                : 1;	//	DX11 path
+        u32		dx10_minmax_sm		: 2;
+        u32		dx10_minmax_sm_screenarea_threshold;
+        u32		dx10_1              : 1;	                //	Enable DX10.1
+        u32		dx11_enable_tessellation : 1;
+        u32		dx11                : 1;	//	DX11 path
 
         u32		forcegloss			: 1;
         u32		forceskinw			: 1;
@@ -366,6 +356,20 @@ private:
     FS_FileSet						m_file_set;
 };
 
+class CRenderMSAA : public CRender
+{
+public:
+    //OldSerpskiStalker
+    struct msaa_render
+    {
+        u32		dx10_msaa : 1;	            //	DX10
+        u32		dx10_msaa_hybrid : 1;	    //	DX10 main path with DX10.1 A-test msaa allowed
+        u32		full_rendering_msaa : 1;	//	Allow rendering of full MSAA with DX10.1 or DX11. DX10 enabled unfortunately does not support this.
+        u32		dx10_msaa_alphatest : 2;	//	A-test mode
+        u32		dx10_msaa_samples : 4;
+    } _opt;
+};
+
 extern ENGINE_API BOOL              FullRenderingFunctionality;	//	advanced post process and effects
 extern ENGINE_API u32               renderer_value;
 
@@ -378,6 +382,7 @@ extern ENGINE_API u32               ps_r_sun_shafts;
 
 extern ENGINE_API Flags32           p_engine_flags32;
 extern            CRender			RImplementation;
+extern            CRenderMSAA       RMSAA;
 
 extern ENGINE_API float		        ps_r3_dyn_wet_surf_far;
 extern ENGINE_API float		        ps_r3_dyn_wet_surf_near;

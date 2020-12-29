@@ -111,7 +111,7 @@ void CRenderTarget::phase_pp		()
 	//	Element 4 for color map post-process
 	bool	bCMap = u_need_CM();
 	//RCache.set_Element	(s_postprocess->E[bCMap ? 4 : 0]);
-	if( !RImplementation.o.dx10_msaa )
+	if( !RMSAA._opt.dx10_msaa )
 	{
 		//		RCache.set_Shader	(s_postprocess	);
 		RCache.set_Element	(s_postprocess->E[bCMap ? 4 : 0]);

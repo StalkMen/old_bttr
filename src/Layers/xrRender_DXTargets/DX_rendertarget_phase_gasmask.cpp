@@ -31,7 +31,7 @@ void CRenderTarget::phase_gasmask()
 
 	//////////////////////////////////////////////////////////////////////////
 	//Set MSAA/NonMSAA rendertarget
-	ref_rt& dest_rt = RImplementation.o.dx10_msaa ? rt_Generic : rt_Color;
+	ref_rt& dest_rt = RMSAA._opt.dx10_msaa ? rt_Generic : rt_Color;
 	u_setrt(dest_rt, nullptr, nullptr, DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 
 	RCache.set_CullMode(CULL_NONE);

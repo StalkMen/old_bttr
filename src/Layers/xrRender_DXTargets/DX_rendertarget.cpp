@@ -24,7 +24,7 @@ void	CRenderTarget::u_setrt			(const ref_rt& _1, const ref_rt& _2, const ref_rt&
 		D3D_DEPTH_STENCIL_VIEW_DESC	desc;
 		zb->GetDesc(&desc);
 
-      if( !RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
          VERIFY(desc.ViewDimension==D3D_DSV_DIMENSION_TEXTURE2D);
 
 		ID3DResource *pRes;
@@ -38,7 +38,7 @@ void	CRenderTarget::u_setrt			(const ref_rt& _1, const ref_rt& _2, const ref_rt&
 		D3D10_DEPTH_STENCIL_VIEW_DESC	desc;
 		zb->GetDesc(&desc);
 
-      if( !RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
          VERIFY(desc.ViewDimension==D3D10_DSV_DIMENSION_TEXTURE2D);
 
 		ID3D10Resource *pRes;
@@ -76,7 +76,7 @@ void	CRenderTarget::u_setrt			(const ref_rt& _1, const ref_rt& _2, ID3DDepthSten
 #ifdef DIRECTX11
 		D3D_DEPTH_STENCIL_VIEW_DESC	desc;
 		zb->GetDesc(&desc);
-      if( ! RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
 		   VERIFY(desc.ViewDimension==D3D_DSV_DIMENSION_TEXTURE2D);
 
 		ID3DResource *pRes;
@@ -89,7 +89,7 @@ void	CRenderTarget::u_setrt			(const ref_rt& _1, const ref_rt& _2, ID3DDepthSten
 #else
 		D3D10_DEPTH_STENCIL_VIEW_DESC	desc;
 		zb->GetDesc(&desc);
-      if( ! RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
 		   VERIFY(desc.ViewDimension==D3D10_DSV_DIMENSION_TEXTURE2D);
 
 		ID3D10Resource *pRes;
@@ -287,8 +287,8 @@ CRenderTarget::CRenderTarget		()
 #ifdef DIRECTX11
 	RImplementation.o.ssao_ultra		= ps_r_ssao>3 && DEVICE_HW::CRYRAY_RENDER::HW.ComputeShadersSupported;
 #endif
-   if( RImplementation.o.dx10_msaa )
-      SampleCount    = RImplementation.o.dx10_msaa_samples;
+   if(RMSAA._opt.dx10_msaa )
+      SampleCount    = RMSAA._opt.dx10_msaa_samples;
 
 #ifdef DEBUG
 	Msg			("MSAA samples = %d", SampleCount );
@@ -322,7 +322,7 @@ CRenderTarget::CRenderTarget		()
 	b_accum_spot			= xr_new<BLENDER::CBlender_accum_spot>			();
 	b_accum_reflected		= xr_new<BLENDER::CBlender_accum_reflected>		();
 	b_bloom					= xr_new<BLENDER::CBlender_bloom_build>			();
-	if( RImplementation.o.dx10_msaa )
+	if(RMSAA._opt.dx10_msaa )
 	{
 		b_bloom_msaa		= xr_new<BLENDER::CBlender_bloom_build_msaa>		();
 		b_postprocess_msaa	= xr_new<BLENDER::CBlender_postprocess_msaa>	();
@@ -335,17 +335,17 @@ CRenderTarget::CRenderTarget		()
 #ifdef DIRECTX11
 	// HDAO
 	b_hdao_cs               = xr_new<CBlender_CS_HDAO>			();
-	if( RImplementation.o.dx10_msaa )
+	if(RMSAA._opt.dx10_msaa )
 	{
 		b_hdao_msaa_cs      = xr_new<CBlender_CS_HDAO_MSAA>     ();
 	}
 #endif
 
-	if( RImplementation.o.dx10_msaa )
+	if(RMSAA._opt.dx10_msaa )
 	{
-		int bound = RImplementation.o.dx10_msaa_samples;
+		int bound = RMSAA._opt.dx10_msaa_samples;
 
-		if( RImplementation.o.full_rendering_msaa )
+		if(RMSAA._opt.full_rendering_msaa )
 			bound = 1;
 
 		for( int i = 0; i < bound; ++i )
@@ -377,7 +377,7 @@ CRenderTarget::CRenderTarget		()
 		u32		w=Device.dwWidth, h=Device.dwHeight;
 		rt_Position.create			(r2_RT_P,		w,h,D3DFMT_A16B16G16R16F, SampleCount );
 
-		if( RImplementation.o.dx10_msaa )
+		if(RMSAA._opt.dx10_msaa )
 			rt_MSAADepth.create( r2_RT_MSAAdepth, w, h, D3DFMT_D24S8, SampleCount );
 
 		// select albedo & accum
@@ -412,13 +412,13 @@ CRenderTarget::CRenderTarget		()
 		rt_Generic.create		(r2_RT_generic, w, h, D3DFMT_A8R8G8B8, 1);
 		rt_secondVP.create		(r2_RT_secondVP,w,h,D3DFMT_A8R8G8B8, 1		); //--#SM+#-- +SecondVP+
 
-		if( RImplementation.o.dx10_msaa )
+		if(RMSAA._opt.dx10_msaa )
 		{
 			rt_Generic_0_r.create			(r2_RT_generic0_r,w,h,D3DFMT_A8R8G8B8, SampleCount	);
 			rt_Generic_1_r.create			(r2_RT_generic1_r,w,h,D3DFMT_A8R8G8B8, SampleCount		);
 		}
 		
-        if (RImplementation.o.dx10_msaa)
+        if (RMSAA._opt.dx10_msaa)
             rt_Generic_temp.create("$user$generic_temp", w, h, D3DFMT_A8R8G8B8, SampleCount);
         else
             rt_Generic_temp.create("$user$generic_temp", w, h, D3DFMT_A8R8G8B8, 1);
@@ -509,11 +509,11 @@ CRenderTarget::CRenderTarget		()
 		s_accum_mask.create			(b_accum_mask);
 		s_accum_direct.create		(b_accum_direct);
 
-		if (RImplementation.o.dx10_msaa)
+		if (RMSAA._opt.dx10_msaa)
 		{
-			int bound = RImplementation.o.dx10_msaa_samples;
+			int bound = RMSAA._opt.dx10_msaa_samples;
 
-			if (RImplementation.o.full_rendering_msaa)
+			if (RMSAA._opt.full_rendering_msaa)
 				bound = 1;
 
 			for (int i = 0; i < bound; ++i)
@@ -530,7 +530,7 @@ CRenderTarget::CRenderTarget		()
 			if (RImplementation.o.dx10_minmax_sm)
 				s_accum_direct_volumetric_minmax.create("accum_volumetric_sun_nomsaa_minmax");
 
-			if (RImplementation.o.dx10_msaa)
+			if (RMSAA._opt.dx10_msaa)
 			{
 				static LPCSTR snames[] = { "accum_volumetric_sun_msaa0",
 					"accum_volumetric_sun_msaa1",
@@ -540,9 +540,9 @@ CRenderTarget::CRenderTarget		()
 					"accum_volumetric_sun_msaa5",
 					"accum_volumetric_sun_msaa6",
 					"accum_volumetric_sun_msaa7" };
-				int bound = RImplementation.o.dx10_msaa_samples;
+				int bound = RMSAA._opt.dx10_msaa_samples;
 
-				if (RImplementation.o.full_rendering_msaa)
+				if (RMSAA._opt.full_rendering_msaa)
 					bound = 1;
 
 				for (int i = 0; i < bound; ++i)
@@ -562,14 +562,14 @@ CRenderTarget::CRenderTarget		()
 		CBlender_rain	TempBlender;
 		s_rain.create( &TempBlender, "null");
 
-		if( RImplementation.o.dx10_msaa )
+		if(RMSAA._opt.dx10_msaa )
 		{
 			static LPCSTR SampleDefs[] = { "0","1","2","3","4","5","6","7" };
 			CBlender_rain_msaa	TempBlender[8];
 
-			int bound = RImplementation.o.dx10_msaa_samples;
+			int bound = RMSAA._opt.dx10_msaa_samples;
 
-			if( RImplementation.o.full_rendering_msaa )
+			if(RMSAA._opt.full_rendering_msaa )
 				bound = 1;
 
 			for (int i = 0; i < bound; ++i)
@@ -584,7 +584,7 @@ CRenderTarget::CRenderTarget		()
 		}
 	}
 
-	if( RImplementation.o.dx10_msaa )
+	if(RMSAA._opt.dx10_msaa )
 	{
 		CBlender_msaa TempBlender;
 
@@ -616,11 +616,11 @@ CRenderTarget::CRenderTarget		()
 	// REFLECTED
 	{
 		s_accum_reflected.create	(b_accum_reflected);
-		if( RImplementation.o.dx10_msaa )
+		if(RMSAA._opt.dx10_msaa )
 		{
-			int bound = RImplementation.o.dx10_msaa_samples;
+			int bound = RMSAA._opt.dx10_msaa_samples;
 
-			if( RImplementation.o.full_rendering_msaa )
+			if(RMSAA._opt.full_rendering_msaa )
 				bound = 1;
 
 			for( int i = 0; i < bound; ++i )
@@ -643,7 +643,7 @@ CRenderTarget::CRenderTarget		()
 		s_bloom_dbg_1.create		("effects\\screen_set",		r2_RT_bloom1);
 		s_bloom_dbg_2.create		("effects\\screen_set",		r2_RT_bloom2);
 		s_bloom.create				(b_bloom);
-		if( RImplementation.o.dx10_msaa )
+		if(RMSAA._opt.dx10_msaa )
 		{
 			s_bloom_msaa.create		 (b_bloom_msaa);
 			s_postprocess_msaa.create(b_postprocess_msaa);
@@ -712,7 +712,7 @@ CRenderTarget::CRenderTarget		()
 			
 			rt_ssao_temp.create(r2_RT_ssao_temp, w, h, fmt, 1, true);
 			s_hdao_cs.create(b_hdao_cs);
-			if (RImplementation.o.dx10_msaa)
+			if (RMSAA._opt.dx10_msaa)
 				s_hdao_cs_msaa.create(b_hdao_msaa_cs);
 		}
 		else if (ssao_blur_on)
@@ -728,9 +728,9 @@ CRenderTarget::CRenderTarget		()
 		rt_ssao_temp.create			(r2_RT_ssao_temp, w, h, D3DFMT_G16R16F, SampleCount);
 		s_ssao.create				(b_ssao);
 
-		if( RImplementation.o.dx10_msaa )
+		if(RMSAA._opt.dx10_msaa )
 		{
-			int bound = RImplementation.o.full_rendering_msaa ? 1 : RImplementation.o.dx10_msaa_samples;
+			int bound = RMSAA._opt.full_rendering_msaa ? 1 : RMSAA._opt.dx10_msaa_samples;
 
 			for( int i = 0; i < bound; ++i )
 			{
@@ -1121,11 +1121,11 @@ CRenderTarget::~CRenderTarget()
 	xr_delete(b_ssao);
 	xr_delete(b_rain_drops);
 
-	if (RImplementation.o.dx10_msaa)
+	if (RMSAA._opt.dx10_msaa)
 	{
-		int bound = RImplementation.o.dx10_msaa_samples;
+		int bound = RMSAA._opt.dx10_msaa_samples;
 
-		if (RImplementation.o.full_rendering_msaa)
+		if (RMSAA._opt.full_rendering_msaa)
 			bound = 1;
 
 		for (int i = 0; i < bound; ++i)
@@ -1153,7 +1153,7 @@ CRenderTarget::~CRenderTarget()
 	xr_delete(b_sunshafts);
 	xr_delete(b_gasmask);
 #ifdef DIRECTX11
-	if (RImplementation.o.dx10_msaa)
+	if (RMSAA._opt.dx10_msaa)
 	{
 		xr_delete(b_hdao_msaa_cs);
 	}
@@ -1190,7 +1190,7 @@ void CRenderTarget::increment_light_marker()
 	dwLightMarkerID += 2;
 
 	//if (dwLightMarkerID>10)
-	const u32 iMaxMarkerValue = RImplementation.o.dx10_msaa ? 127 : 255;
+	const u32 iMaxMarkerValue = RMSAA._opt.dx10_msaa ? 127 : 255;
 	
 	if ( dwLightMarkerID > iMaxMarkerValue )
 		reset_light_marker(true);

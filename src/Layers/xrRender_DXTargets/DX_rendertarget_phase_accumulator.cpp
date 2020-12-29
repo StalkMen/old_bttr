@@ -5,7 +5,7 @@ void	CRenderTarget::phase_accumulator()
 	// Targets
 	if (dwAccumulatorClearMark==Device.dwFrame)	{
 		// normal operation - setup
-      if( !RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
       {
 		   if (RImplementation.o.fp16_blend)	u_setrt	(rt_Accumulator,		NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 		   else								u_setrt	(rt_Accumulator_temp,	NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
@@ -20,7 +20,7 @@ void	CRenderTarget::phase_accumulator()
 		dwAccumulatorClearMark				= Device.dwFrame;
 
 		// clear
-      if( !RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
    		u_setrt								(rt_Accumulator,		NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
       else
          u_setrt								(rt_Accumulator,		NULL,NULL,rt_MSAADepth->pZRT);
@@ -28,7 +28,7 @@ void	CRenderTarget::phase_accumulator()
 		reset_light_marker();
 		//	Igor: AMD bug workaround. Should be fixed in 8.7 catalyst
 		//	Need for MSAA to work correctly.
-		if( RImplementation.o.dx10_msaa )
+		if(RMSAA._opt.dx10_msaa )
 		{
 #ifdef DIRECTX11
 			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->OMSetRenderTargets(1, &(rt_Accumulator->pRT), 0);
@@ -72,7 +72,7 @@ void	CRenderTarget::phase_vol_accumulator()
 	if (!m_bHasActiveVolumetric)
 	{
 		m_bHasActiveVolumetric = true;
-		if( !RImplementation.o.dx10_msaa )
+		if( !RMSAA._opt.dx10_msaa )
 			u_setrt								(rt_Generic_2,		NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 		else
 			u_setrt								(rt_Generic_2,		NULL,NULL,RImplementation.Target->rt_MSAADepth->pZRT);
@@ -87,7 +87,7 @@ void	CRenderTarget::phase_vol_accumulator()
 	}
 	else
 	{
-		if( !RImplementation.o.dx10_msaa )
+		if( !RMSAA._opt.dx10_msaa )
 			u_setrt								(rt_Generic_2,		NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 		else
 			u_setrt								(rt_Generic_2,		NULL,NULL,RImplementation.Target->rt_MSAADepth->pZRT);

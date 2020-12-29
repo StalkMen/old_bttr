@@ -26,7 +26,7 @@ void	BLENDER::CBlender_light_occq::Compile(CBlender_Compile& C)
 		C.r_Pass	("stub_notransform_t", "dumb",false,FALSE,FALSE,FALSE);
 		C.r_ColorWriteEnable	(false,false,false,false);
 		C.r_CullMode			(D3DCULL_NONE);
-		if( RImplementation.o.dx10_msaa )
+		if(RMSAA._opt.dx10_msaa )
 			C.r_Stencil				(TRUE,D3DCMP_ALWAYS,0x00,0x7E, D3DSTENCILOP_ZERO, D3DSTENCILOP_ZERO, D3DSTENCILOP_ZERO);
 		else
 		{

@@ -79,12 +79,12 @@ void light::set_texture		(LPCSTR name)
 	s_spot.create			(RImplementation.Target->b_accum_spot,temp,name);
 
 	s_volumetric.create		("accum_volumetric_nomsaa", name);
-	if( RImplementation.o.dx10_msaa )
+	if(RMSAA._opt.dx10_msaa )
 	{
 		int bound = 1;
 
-		if( !RImplementation.o.full_rendering_msaa )
-			bound = RImplementation.o.dx10_msaa_samples;
+		if( !RMSAA._opt.full_rendering_msaa )
+			bound = RMSAA._opt.dx10_msaa_samples;
 
 		for( int i = 0; i < bound; ++i )
 		{
@@ -309,12 +309,12 @@ void	light::Export		(light_Package& package)
 						
 						// Holger - do we need to export msaa stuff as well ?
 #if defined(DIRECTX10) || defined(DIRECTX11)
-						if( RImplementation.o.dx10_msaa )
+						if(RMSAA._opt.dx10_msaa )
 						{
 							int bound = 1;
 
-							if( !RImplementation.o.full_rendering_msaa )
-								bound = RImplementation.o.dx10_msaa_samples;
+							if( !RMSAA._opt.full_rendering_msaa )
+								bound = RMSAA._opt.dx10_msaa_samples;
 
 							for( int i = 0; i < bound; ++i )
 							{

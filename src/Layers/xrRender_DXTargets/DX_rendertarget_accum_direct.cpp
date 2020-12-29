@@ -87,7 +87,7 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
 		// if (stencil>=1 && aref_pass)	stencil = light_id
 		//	Done in blender!
 		//RCache.set_ColorWriteEnable	(FALSE		);
-      if( ! RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
       {
    		RCache.set_Stencil		(TRUE,D3DCMP_LESSEQUAL,dwLightMarkerID,0x01,0xff,D3DSTENCILOP_KEEP,D3DSTENCILOP_REPLACE,D3DSTENCILOP_KEEP);
 	   	RCache.Render				(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
@@ -99,7 +99,7 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
 		   RCache.Render				(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
    		
 		   // per sample rendering
-         if( RImplementation.o.full_rendering_msaa )
+         if(RMSAA._opt.full_rendering_msaa )
          {
 		      RCache.set_Element		(s_accum_mask_msaa[0]->E[SE_MASK_DIRECT]);		// masker
 	         RCache.set_CullMode		(CULL_NONE	);
@@ -108,7 +108,7 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
          }
          else 
          {
-          for( u32 i = 0; i < RImplementation.o.dx10_msaa_samples; ++i )
+          for( u32 i = 0; i < RMSAA._opt.dx10_msaa_samples; ++i )
 		      {
 			      RCache.set_Element		   (s_accum_mask_msaa[i]->E[SE_MASK_DIRECT]);		// masker
 	            RCache.set_CullMode		   (CULL_NONE	);
@@ -260,7 +260,7 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
 //		}
 
 		// setup stencil
-      if( ! RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
       {
 		   RCache.set_Stencil	(TRUE,D3DCMP_LESSEQUAL,dwLightMarkerID,0xff,0x00);
 		   RCache.Render			(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
@@ -272,7 +272,7 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
 		   RCache.Render			(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
    		
          // per sample
-         if( RImplementation.o.full_rendering_msaa )
+         if(RMSAA._opt.full_rendering_msaa )
          {
 		      RCache.set_Element	(s_accum_direct_msaa[0]->E[uiElementIndex]);
             RCache.set_Stencil	(TRUE,D3DCMP_EQUAL,dwLightMarkerID|0x80,0xff,0x00);
@@ -281,7 +281,7 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
          }
          else
          {
-		      for( u32 i = 0; i < RImplementation.o.dx10_msaa_samples; ++i )
+		      for( u32 i = 0; i < RMSAA._opt.dx10_msaa_samples; ++i )
 		      {
 			      RCache.set_Element			(s_accum_direct_msaa[i]->E[uiElementIndex]);
                RCache.set_Stencil	      (TRUE,D3DCMP_EQUAL,dwLightMarkerID|0x80,0xff,0x00);
@@ -372,7 +372,7 @@ void CRenderTarget::accum_direct_cascade	( u32 sub_phase, Fmatrix& xform, Fmatri
 		// if (stencil>=1 && aref_pass)	stencil = light_id
 		//	Done in blender!
 		//RCache.set_ColorWriteEnable	(FALSE		);
-		if( ! RImplementation.o.dx10_msaa )
+		if( !RMSAA._opt.dx10_msaa )
 		{
 			RCache.set_Stencil		(TRUE,D3DCMP_LESSEQUAL,dwLightMarkerID,0x01,0xff,D3DSTENCILOP_KEEP,D3DSTENCILOP_REPLACE,D3DSTENCILOP_KEEP);
 			RCache.Render				(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
@@ -384,7 +384,7 @@ void CRenderTarget::accum_direct_cascade	( u32 sub_phase, Fmatrix& xform, Fmatri
 			RCache.Render				(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
 
 			// per sample rendering
-			if( RImplementation.o.full_rendering_msaa )
+			if(RMSAA._opt.full_rendering_msaa )
 			{
 				RCache.set_Element		(s_accum_mask_msaa[0]->E[SE_MASK_DIRECT]);		// masker
 				RCache.set_CullMode		(CULL_NONE	);
@@ -393,7 +393,7 @@ void CRenderTarget::accum_direct_cascade	( u32 sub_phase, Fmatrix& xform, Fmatri
 			}
 			else 
 			{
-				for( u32 i = 0; i < RImplementation.o.dx10_msaa_samples; ++i )
+				for( u32 i = 0; i < RMSAA._opt.dx10_msaa_samples; ++i )
 				{
 					RCache.set_Element		   (s_accum_mask_msaa[i]->E[SE_MASK_DIRECT]);		// masker
 					RCache.set_CullMode		   (CULL_NONE	);
@@ -606,7 +606,7 @@ void CRenderTarget::accum_direct_cascade	( u32 sub_phase, Fmatrix& xform, Fmatri
 		}
 
 		// setup stencil
-		if( ! RImplementation.o.dx10_msaa )
+		if( !RMSAA._opt.dx10_msaa )
 		{
 			//RCache.set_Stencil	(TRUE,D3DCMP_LESSEQUAL,dwLightMarkerID,0xff,0x00);
 			RCache.set_Stencil	(TRUE,D3DCMP_LESSEQUAL,dwLightMarkerID,0xff,st_mask, D3DSTENCILOP_KEEP, st_pass, D3DSTENCILOP_KEEP);
@@ -620,7 +620,7 @@ void CRenderTarget::accum_direct_cascade	( u32 sub_phase, Fmatrix& xform, Fmatri
 			RCache.Render			(D3DPT_TRIANGLELIST,Offset,0,8,0,16);
 
 			// per sample
-			if( RImplementation.o.full_rendering_msaa )
+			if(RMSAA._opt.full_rendering_msaa )
 			{
 				RCache.set_Element	(s_accum_direct_msaa[0]->E[uiElementIndex]);
 
@@ -639,7 +639,7 @@ void CRenderTarget::accum_direct_cascade	( u32 sub_phase, Fmatrix& xform, Fmatri
 			}
 			else
 			{
-				for( u32 i = 0; i < RImplementation.o.dx10_msaa_samples; ++i )
+				for( u32 i = 0; i < RMSAA._opt.dx10_msaa_samples; ++i )
 				{
 					RCache.set_Element			(s_accum_direct_msaa[i]->E[uiElementIndex]);
 
@@ -685,7 +685,7 @@ void CRenderTarget::accum_direct_blend	()
 // blend-copy
 	if (!RImplementation.o.fp16_blend)	{
 		VERIFY(0);
-      if( ! RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
 		   u_setrt						(rt_Accumulator,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
       else
          u_setrt						(rt_Accumulator,NULL,NULL,rt_MSAADepth->pZRT);
@@ -714,7 +714,7 @@ void CRenderTarget::accum_direct_blend	()
 		RCache.Vertex.Unlock		(4,g_combine_2UV->vb_stride);
 		RCache.set_Geometry			(g_combine_2UV);
 		RCache.set_Element			(s_accum_mask->E[SE_MASK_ACCUM_2D]	);
-      if( ! RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
       {
 		   RCache.set_Stencil			(TRUE,D3DCMP_LESSEQUAL,dwLightMarkerID,0xff,0x00);
 		   RCache.Render					(D3DPT_TRIANGLELIST,Offset,0,4,0,2	);
@@ -726,7 +726,7 @@ void CRenderTarget::accum_direct_blend	()
 		   RCache.Render					(D3DPT_TRIANGLELIST,Offset,0,4,0,2	);
    		
 		   // per sample
-         if( RImplementation.o.full_rendering_msaa )
+         if(RMSAA._opt.full_rendering_msaa )
          {
 		      RCache.set_Element			(s_accum_mask_msaa[0]->E[SE_MASK_ACCUM_2D]	);
             RCache.set_Stencil			(TRUE,D3DCMP_EQUAL,dwLightMarkerID|0x80,0xff,0x00);
@@ -734,7 +734,7 @@ void CRenderTarget::accum_direct_blend	()
          }
          else // checked Holger
          {
-		      for( u32 i = 0; i < RImplementation.o.dx10_msaa_samples; ++i )
+		      for( u32 i = 0; i < RMSAA._opt.dx10_msaa_samples; ++i )
 		      {
 			      RCache.set_Element		   (s_accum_mask_msaa[i]->E[SE_MASK_ACCUM_2D]	);
                RCache.set_Stencil			(TRUE,D3DCMP_EQUAL,dwLightMarkerID|0x80,0xff,0x00);
@@ -759,7 +759,7 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 		return				;
 	}
 	phase_accumulator					();
-	if( ! RImplementation.o.dx10_msaa )
+	if( !RMSAA._opt.dx10_msaa )
 		u_setrt								(rt_Generic_0,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 	else
 		u_setrt								(rt_Generic_0_r,NULL,NULL,RImplementation.Target->rt_MSAADepth->pZRT);
@@ -815,7 +815,7 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 		// if (stencil>=1 && aref_pass)	stencil = light_id
 		//	Done in blender!
 		//RCache.set_ColorWriteEnable	(FALSE		);
-      if( ! RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
       {
 		   RCache.set_Stencil	(TRUE,D3DCMP_LESSEQUAL,dwLightMarkerID,0x01,0xff,D3DSTENCILOP_KEEP,D3DSTENCILOP_REPLACE,D3DSTENCILOP_KEEP);
 		   RCache.Render			(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
@@ -827,7 +827,7 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 		   RCache.Render			(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
    		
 		   // per sample
-         if( RImplementation.o.full_rendering_msaa )
+         if(RMSAA._opt.full_rendering_msaa )
          {
 		      RCache.set_Element	(s_accum_mask_msaa[0]->E[SE_MASK_DIRECT]);		// masker
             RCache.set_Stencil	(TRUE,D3DCMP_LESS,dwLightMarkerID,0x81,0x7f,D3DSTENCILOP_KEEP,D3DSTENCILOP_REPLACE,D3DSTENCILOP_KEEP);
@@ -836,7 +836,7 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
          }
          else 
          {
-		      for( u32 i = 0; i < RImplementation.o.dx10_msaa_samples; ++i )
+		      for( u32 i = 0; i < RMSAA._opt.dx10_msaa_samples; ++i )
 		      {
 			      RCache.set_Element		   (s_accum_mask_msaa[i]->E[SE_MASK_DIRECT]);		// masker
                RCache.set_Stencil	      (TRUE,D3DCMP_LESS,dwLightMarkerID,0x81,0x7f,D3DSTENCILOP_KEEP,D3DSTENCILOP_REPLACE,D3DSTENCILOP_KEEP);
@@ -860,7 +860,7 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 
 	// Perform lighting
 	{
-		if( ! RImplementation.o.dx10_msaa )
+		if( !RMSAA._opt.dx10_msaa )
 			u_setrt								(rt_Generic_0,NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);  // enshure RT setup
 		else
 			u_setrt								(rt_Generic_0_r,NULL,NULL,RImplementation.Target->rt_MSAADepth->pZRT);  // enshure RT setup
@@ -926,7 +926,7 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 		RCache.set_c				("Ldynamic_color",		L_clr.x,L_clr.y,L_clr.z,L_spec	);
 		RCache.set_c				("m_shadow",			m_shadow						);
 
-      if( ! RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
       {
 		   // setup stencil
 		   RCache.set_Stencil	(TRUE,D3DCMP_LESSEQUAL,dwLightMarkerID,0xff,0x00);
@@ -939,7 +939,7 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 		   RCache.Render			(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
    		
          // per sample // checked Holger
-         if( RImplementation.o.full_rendering_msaa )
+         if(RMSAA._opt.full_rendering_msaa )
          {
 		      RCache.set_Element	(s_accum_direct_msaa[0]->E[sub_phase]);
 	         RCache.set_CullMode	(CULL_NONE	);
@@ -948,7 +948,7 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
          }
          else
          {
-		      for( u32 i = 0; i < RImplementation.o.dx10_msaa_samples; ++i )
+		      for( u32 i = 0; i < RMSAA._opt.dx10_msaa_samples; ++i )
 		      {
 			      RCache.set_Element	      (s_accum_direct_msaa[i]->E[sub_phase]);
 	            RCache.set_CullMode	      (CULL_NONE	);
@@ -1044,7 +1044,7 @@ void CRenderTarget::accum_direct_lum	()
 		RCache.set_c				("Ldynamic_dir",		L_dir.x,L_dir.y,L_dir.z,0		);
 		RCache.set_c				("Ldynamic_color",		L_clr.x,L_clr.y,L_clr.z,L_spec	);
 
-      if( ! RImplementation.o.dx10_msaa )
+      if( !RMSAA._opt.dx10_msaa )
       {
 		   // setup stencil
 		   RCache.set_Stencil	(TRUE,D3DCMP_LESSEQUAL,dwLightMarkerID,0xff,0x00);
@@ -1057,7 +1057,7 @@ void CRenderTarget::accum_direct_lum	()
 		   RCache.Render			(D3DPT_TRIANGLELIST,Offset,0,4,0,2);
    		
 		   // per sample
-         if( RImplementation.o.full_rendering_msaa )
+         if(RMSAA._opt.full_rendering_msaa )
          {
 		      RCache.set_Element	(s_accum_direct_msaa[0]->E[SE_SUN_LUMINANCE]);
             RCache.set_Stencil	(TRUE,D3DCMP_EQUAL,dwLightMarkerID|0x80,0xff,0x00);
@@ -1066,7 +1066,7 @@ void CRenderTarget::accum_direct_lum	()
          }
          else
          {
-	         for( u32 i = 0; i < RImplementation.o.dx10_msaa_samples; ++i )
+	         for( u32 i = 0; i < RMSAA._opt.dx10_msaa_samples; ++i )
 	         {
 		         RCache.set_Element	      (s_accum_direct_msaa[i]->E[SE_SUN_LUMINANCE]);
                StateManager.SetSampleMask ( u32(1) << i );

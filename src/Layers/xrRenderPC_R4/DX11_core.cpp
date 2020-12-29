@@ -367,7 +367,7 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 		}
 	}
 
-    if( o.dx10_msaa )
+    if(RMSAA._opt.dx10_msaa )
 	{
 		static char def[ 256 ];
 		def[0]= '0';
@@ -538,7 +538,7 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	//Be carefull!!!!! this should be at the end to correctly generate
 	//compiled shader name;
 	// add a #define for DX10_1 MSAA support
-   if( o.dx10_msaa )
+   if(RMSAA._opt.dx10_msaa )
    {
 	   defines[def_it].Name		=	"USE_MSAA";
 	   defines[def_it].Definition	=	"1";
@@ -548,21 +548,21 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	   static char samples[2];
 
 	   defines[def_it].Name		=	"MSAA_SAMPLES";
-	   samples[0] = char(o.dx10_msaa_samples) + '0';
+	   samples[0] = char(RMSAA._opt.dx10_msaa_samples) + '0';
 	   samples[1] = 0;
 	   defines[def_it].Definition	= samples;	
 	   def_it						++;
-	   sh_name[len]='0'+char(o.dx10_msaa_samples); ++len;
+	   sh_name[len]='0'+char(RMSAA._opt.dx10_msaa_samples); ++len;
 
-	   if( o.full_rendering_msaa )
+	   if(RMSAA._opt.full_rendering_msaa )
 	   {
 		   defines[def_it].Name		=	"FULL_RENDERING_MSAA_DX10_1_AND_DX11";
 		   defines[def_it].Definition	=	"1";
 		   def_it						++;
 	   }
-		sh_name[len]='0'+char(o.full_rendering_msaa); ++len;
+		sh_name[len]='0'+char(RMSAA._opt.full_rendering_msaa); ++len;
 
-		switch(o.dx10_msaa_alphatest)
+		switch(RMSAA._opt.dx10_msaa_alphatest)
 		{
 		case MSAA_ATEST_DX10_0_ATOC:
 			defines[def_it].Name		=	"MSAA_ALPHATEST_DX10_0_ATOC";

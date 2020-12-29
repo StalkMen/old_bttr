@@ -34,7 +34,7 @@ void	CRenderTarget::phase_scene_prepare	()
 		)
 	{
 		//	TODO: DX10: Check if we need to set RT here.
-		if (!RImplementation.o.dx10_msaa)
+		if (!RMSAA._opt.dx10_msaa)
 			u_setrt(Device.dwWidth, Device.dwHeight, rt_Position->pRT, NULL, NULL, DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 		else
 			u_setrt(Device.dwWidth, Device.dwHeight, rt_Position->pRT, NULL, NULL, rt_MSAADepth->pZRT);
@@ -45,7 +45,7 @@ void	CRenderTarget::phase_scene_prepare	()
 #else
 		DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->ClearRenderTargetView(rt_Position->pRT, ColorRGBA);
 #endif
-		if (!RImplementation.o.dx10_msaa)
+		if (!RMSAA._opt.dx10_msaa)
 #ifdef DIRECTX11
 			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearDepthStencilView(DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB, D3D_CLEAR_DEPTH | D3D_CLEAR_STENCIL, 1.0f, 0);
 #else
@@ -69,7 +69,7 @@ void	CRenderTarget::phase_scene_prepare	()
 	else
 	{
 		//	TODO: DX10: Check if we need to set RT here.
-		if (!RImplementation.o.dx10_msaa)
+		if (!RMSAA._opt.dx10_msaa)
 		{
 			u_setrt(Device.dwWidth, Device.dwHeight, DEVICE_HW::CRYRAY_RENDER::HW.pBaseRT, NULL, NULL, DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 #ifdef DIRECTX11
@@ -102,7 +102,7 @@ void	CRenderTarget::phase_scene_begin	()
 
    ID3DDepthStencilView* pZB = DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB;
 
-   if( RImplementation.o.dx10_msaa )
+   if(RMSAA._opt.dx10_msaa )
       pZB = rt_MSAADepth->pZRT;
 
 	// Targets, use accumulator for temporary storage
@@ -132,7 +132,7 @@ void	CRenderTarget::phase_scene_end		()
 	if (!RImplementation.o.albedo_wo)		return;
 
 	// transfer from "rt_Accumulator" into "rt_Color"
-   if( !RImplementation.o.dx10_msaa )
+   if( !RMSAA._opt.dx10_msaa )
    	u_setrt								( rt_Color,	0,	0,	DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB	);
    else
       u_setrt								( rt_Color,	0,	0,	rt_MSAADepth->pZRT	);

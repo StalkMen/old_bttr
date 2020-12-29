@@ -27,7 +27,7 @@ using namespace				luabind;
 class	adopt_dx10options
 {
 public:
-	bool	_dx10_msaa_alphatest_atoc()			{	return (RImplementation.o.dx10_msaa_alphatest==CRender::MSAA_ATEST_DX10_0_ATOC); }
+	bool	_dx10_msaa_alphatest_atoc()			{	return (RMSAA._opt.dx10_msaa_alphatest==CRender::MSAA_ATEST_DX10_0_ATOC); }
 };
 
 // wrapper
