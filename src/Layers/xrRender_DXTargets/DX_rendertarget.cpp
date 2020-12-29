@@ -292,7 +292,7 @@ CRenderTarget::CRenderTarget		()
 
 #ifdef DEBUG
 	Msg			("MSAA samples = %d", SampleCount );
-	if( RImplementation.o.dx10_msaa_opt )
+	if( RImplementation.o.full_rendering_msaa )
 		Msg		("dx10_MSAA_opt = on" );
 #endif // DEBUG
 	param_blur			= 0.f;
@@ -345,7 +345,7 @@ CRenderTarget::CRenderTarget		()
 	{
 		int bound = RImplementation.o.dx10_msaa_samples;
 
-		if( RImplementation.o.dx10_msaa_opt )
+		if( RImplementation.o.full_rendering_msaa )
 			bound = 1;
 
 		for( int i = 0; i < bound; ++i )
@@ -513,7 +513,7 @@ CRenderTarget::CRenderTarget		()
 		{
 			int bound = RImplementation.o.dx10_msaa_samples;
 
-			if (RImplementation.o.dx10_msaa_opt)
+			if (RImplementation.o.full_rendering_msaa)
 				bound = 1;
 
 			for (int i = 0; i < bound; ++i)
@@ -542,7 +542,7 @@ CRenderTarget::CRenderTarget		()
 					"accum_volumetric_sun_msaa7" };
 				int bound = RImplementation.o.dx10_msaa_samples;
 
-				if (RImplementation.o.dx10_msaa_opt)
+				if (RImplementation.o.full_rendering_msaa)
 					bound = 1;
 
 				for (int i = 0; i < bound; ++i)
@@ -569,7 +569,7 @@ CRenderTarget::CRenderTarget		()
 
 			int bound = RImplementation.o.dx10_msaa_samples;
 
-			if( RImplementation.o.dx10_msaa_opt )
+			if( RImplementation.o.full_rendering_msaa )
 				bound = 1;
 
 			for (int i = 0; i < bound; ++i)
@@ -620,7 +620,7 @@ CRenderTarget::CRenderTarget		()
 		{
 			int bound = RImplementation.o.dx10_msaa_samples;
 
-			if( RImplementation.o.dx10_msaa_opt )
+			if( RImplementation.o.full_rendering_msaa )
 				bound = 1;
 
 			for( int i = 0; i < bound; ++i )
@@ -730,7 +730,7 @@ CRenderTarget::CRenderTarget		()
 
 		if( RImplementation.o.dx10_msaa )
 		{
-			int bound = RImplementation.o.dx10_msaa_opt ? 1 : RImplementation.o.dx10_msaa_samples;
+			int bound = RImplementation.o.full_rendering_msaa ? 1 : RImplementation.o.dx10_msaa_samples;
 
 			for( int i = 0; i < bound; ++i )
 			{
@@ -1125,7 +1125,7 @@ CRenderTarget::~CRenderTarget()
 	{
 		int bound = RImplementation.o.dx10_msaa_samples;
 
-		if (RImplementation.o.dx10_msaa_opt)
+		if (RImplementation.o.full_rendering_msaa)
 			bound = 1;
 
 		for (int i = 0; i < bound; ++i)

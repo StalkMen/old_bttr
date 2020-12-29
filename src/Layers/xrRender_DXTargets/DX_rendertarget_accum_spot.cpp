@@ -174,7 +174,7 @@ void CRenderTarget::accum_spot	(light* L)
          RCache.set_CullMode( D3DCULL_CW );
 		   draw_volume				(L);
 		   // per sample		
-         if( RImplementation.o.dx10_msaa_opt )
+         if( RImplementation.o.full_rendering_msaa )
          {
 		      RCache.set_Element	(shader_msaa[0]->E[ _id ]	);
             RCache.set_Stencil	(TRUE,D3DCMP_EQUAL,dwLightMarkerID|0x80,0xff,0x00);
@@ -225,7 +225,7 @@ void CRenderTarget::accum_spot	(light* L)
          RCache.set_Stencil	(TRUE,D3DCMP_EQUAL,dwLightMarkerID,0xff,0x00);		
          draw_volume				(L);
          // per sample
-         if( RImplementation.o.dx10_msaa_opt )
+         if( RImplementation.o.full_rendering_msaa )
          {
 		      RCache.set_Element	(s_accum_mask_msaa[0]->E[SE_MASK_ACCUM_VOL]	);
             RCache.set_Stencil	(TRUE,D3DCMP_EQUAL,dwLightMarkerID|0x80,0xff,0x00);		
@@ -558,7 +558,7 @@ void CRenderTarget::accum_volumetric(light* L)
 			RCache.Render(D3DPT_TRIANGLELIST,0,0,iNumSlises*4,0,iNumSlises*2);
 
 			// per sample
-			if( RImplementation.o.dx10_msaa_opt )
+			if( RImplementation.o.full_rendering_msaa )
 			{
 				// per sample
 				RCache.set_Element	(shader_msaa[0]->E[0]);

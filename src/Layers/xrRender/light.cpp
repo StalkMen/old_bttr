@@ -83,7 +83,7 @@ void light::set_texture		(LPCSTR name)
 	{
 		int bound = 1;
 
-		if( !RImplementation.o.dx10_msaa_opt )
+		if( !RImplementation.o.full_rendering_msaa )
 			bound = RImplementation.o.dx10_msaa_samples;
 
 		for( int i = 0; i < bound; ++i )
@@ -313,7 +313,7 @@ void	light::Export		(light_Package& package)
 						{
 							int bound = 1;
 
-							if( !RImplementation.o.dx10_msaa_opt )
+							if( !RImplementation.o.full_rendering_msaa )
 								bound = RImplementation.o.dx10_msaa_samples;
 
 							for( int i = 0; i < bound; ++i )

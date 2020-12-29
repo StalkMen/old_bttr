@@ -47,9 +47,6 @@ void	CBlender_Compile::_cpp_Compile	(ShaderElement* _SH)
 	// Analyze possibility to detail this shader
 	detail_texture	= nullptr;
 	detail_scaler	= nullptr;
-#ifdef NEW_LOADING_TEXTURES
-	glossparams		= nullptr;
-#endif
 	LPCSTR	base	= nullptr;
 	if (bDetail && BT->canBeDetailed())
 	{
@@ -107,10 +104,6 @@ void	CBlender_Compile::_cpp_Compile	(ShaderElement* _SH)
 
 	bUseSteepParallax = DEV->m_textures_description.UseSteepParallax(base) 
 		&& BT->canUseSteepParallax();
-
-#ifdef NEW_LOADING_TEXTURES
-	DEV->m_textures_description.GetGlossParams(base, glossparams);
-#endif
 
 #ifdef DIRECTX11
 	TessMethod = 0;

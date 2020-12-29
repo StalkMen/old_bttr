@@ -143,7 +143,7 @@ void CRenderTarget::draw_rain( light &RainSetup )
 			RCache.Render		( D3DPT_TRIANGLELIST,Offset,0,4,0,2);
       		
 			// per sample
-			if( RImplementation.o.dx10_msaa_opt )
+			if( RImplementation.o.full_rendering_msaa )
 			{
 				RCache.set_Element( s_rain_msaa[0]->E[0]);
 				RCache.set_c				("Ldynamic_dir",		L_dir.x,L_dir.y,L_dir.z,0		);
@@ -199,7 +199,7 @@ void CRenderTarget::draw_rain( light &RainSetup )
 			RCache.Render		( D3DPT_TRIANGLELIST,Offset,0,4,0,2);
 
 			// per sample
-			if( RImplementation.o.dx10_msaa_opt )
+			if( RImplementation.o.full_rendering_msaa )
 			{
 				RCache.set_Element	( s_rain_msaa[0]->E[1]);
 				RCache.set_Stencil   ( TRUE, D3DCMP_EQUAL, 0x81, 0x81, 0 );
@@ -245,7 +245,7 @@ void CRenderTarget::draw_rain( light &RainSetup )
 			RCache.Render		( D3DPT_TRIANGLELIST,Offset,0,4,0,2);
 
 			// per sample
-			if( RImplementation.o.dx10_msaa_opt )
+			if( RImplementation.o.full_rendering_msaa )
 			{
 				RCache.set_Element(s_rain_msaa[0]->E[2]);
 				RCache.set_Stencil( TRUE, D3DCMP_EQUAL, 0x81, 0x81, 0 );

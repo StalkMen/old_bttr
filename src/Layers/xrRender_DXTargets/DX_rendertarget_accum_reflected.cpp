@@ -71,7 +71,7 @@ void CRenderTarget::accum_reflected		(light* L)
 		   draw_volume				(L);
    		
 		   // per sample
-         if( RImplementation.o.dx10_msaa_opt )
+         if( RImplementation.o.full_rendering_msaa )
          {
 		      RCache.set_Shader		(shader_msaa[0]);
             RCache.set_Stencil	(TRUE,D3DCMP_EQUAL,0x81,0x81,0x00);
@@ -116,7 +116,7 @@ void CRenderTarget::accum_reflected		(light* L)
          RCache.set_Stencil	(TRUE,D3DCMP_EQUAL,0x01,0x81,0x00);		
          draw_volume				(L);
          // per sample
-         if( RImplementation.o.dx10_msaa_opt )
+         if( RImplementation.o.full_rendering_msaa )
          {
 		      RCache.set_Element	(s_accum_mask_msaa[0]->E[SE_MASK_ACCUM_VOL]	);
             RCache.set_Stencil	(TRUE,D3DCMP_EQUAL,0x81,0x81,0x00);		

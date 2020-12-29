@@ -491,32 +491,30 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName, 
 	   samples[1] = 0;
 	   defines[def_it].Definition	= samples;	
 	   def_it						++;
+	   
+	   //Это только для DX10
+		   static char def[256];
+		   if (m_MSAASample < 0)
+			   def[0] = '0';
+		   else
+			   def[0] = '0' + char(m_MSAASample);
 
-		static char def[ 256 ];
-		if( m_MSAASample < 0 )
-			def[0]= '0';
-		else
-			def[0]= '0' + char(m_MSAASample);
-
-		def[1] = 0;
-		defines[def_it].Name		=	"ISAMPLE";
-		defines[def_it].Definition	=	def;
-		def_it						++	;
-		Msg("! ISAMPLE: %u", m_MSAASample);
-
-
-	   if( o.dx10_msaa_opt )
+		   def[1] = 0;
+		   defines[def_it].Name = "ISAMPLE";
+		   defines[def_it].Definition = def;
+		   def_it++;
+	   
+	   if( o.full_rendering_msaa )
 	   {
-		   defines[def_it].Name		=	"MSAA_OPTIMIZATION";
+		   defines[def_it].Name		=	"FULL_RENDERING_MSAA_DX10_1_AND_DX11";
 		   defines[def_it].Definition	=	"1";
 		   def_it						++;
-		   Msg("! MSAA_OPTIMIZATION on");
 	   }
 
 		sh_name[len]='1'; ++len;
 		sh_name[len]='0'+char(o.dx10_msaa_samples); ++len;
 		sh_name[len]='0'; ++len;
-		sh_name[len]='0'+char(o.dx10_msaa_opt); ++len;
+		sh_name[len]='0'+char(o.full_rendering_msaa); ++len;
 
 		switch(o.dx10_msaa_alphatest)
 		{

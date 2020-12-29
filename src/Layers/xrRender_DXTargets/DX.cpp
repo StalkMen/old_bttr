@@ -342,7 +342,7 @@ void					CRender::create					()
 	if (o.dx10_1)
 	{
 		EnvCryRay.used_dx10_1 = 1;
-		Msg("[CryRay Engine]: used DX10_1: %i", EnvCryRay.used_dx10_1);
+		Msg("[CryRay Engine]: used DX10.1: %i", EnvCryRay.used_dx10_1);
 	}
 	o.dx10_1 = o.dx10_1 && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0 );
 #endif
@@ -351,23 +351,22 @@ void					CRender::create					()
 	o.dx10_msaa			= !!ps_r3_msaa;
 	o.dx10_msaa_samples = (1 << ps_r3_msaa);
 
-	o.dx10_msaa_opt		= ps_r2_ls_flags.test(R3FLAG_MSAA_OPT);
 #ifdef DIRECTX11	
-	o.dx10_msaa_opt		= o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 )
+	o.full_rendering_msaa		= o.full_rendering_msaa && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 )
 			|| o.dx10_msaa && (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0);
 
 	o.dx10_msaa_hybrid	= o.dx11;
-	o.dx10_msaa_hybrid	&= !o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 ) ;
+	o.dx10_msaa_hybrid	&= !o.full_rendering_msaa && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 ) ;
 #else
-	o.dx10_msaa_opt		= o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0 );
+	o.full_rendering_msaa		= o.full_rendering_msaa && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0 );
 
 	o.dx10_msaa_hybrid	= ps_r2_ls_flags.test((u32)R3FLAG_USE_DX10_1);
-	o.dx10_msaa_hybrid	&= !o.dx10_msaa_opt && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0) ;
+	o.dx10_msaa_hybrid	&= !o.full_rendering_msaa && o.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0) ;
 #endif
 	o.dx10_msaa_alphatest = 0;
 	if (o.dx10_msaa)
 	{
-		if ( o.dx10_msaa_opt || o.dx10_msaa_hybrid )
+		if ( o.full_rendering_msaa || o.dx10_msaa_hybrid )
 		{
 			if (ps_r3_msaa_atest==1)
 				o.dx10_msaa_alphatest = MSAA_ATEST_DX10_1_ATOC;

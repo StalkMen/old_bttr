@@ -27,10 +27,6 @@ public:
 	BOOL				bUseSteepParallax;
 	int					iElement;
 
-#ifdef NEW_LOADING_TEXTURES
-	R_constant_setup* glossparams;
-#endif
-
 public:
 	CSimulator			RS;
 	IBlender*			BT;

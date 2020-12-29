@@ -554,14 +554,13 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 	   def_it						++;
 	   sh_name[len]='0'+char(o.dx10_msaa_samples); ++len;
 
-	   if( o.dx10_msaa_opt )
+	   if( o.full_rendering_msaa )
 	   {
-		   defines[def_it].Name		=	"MSAA_OPTIMIZATION";
+		   defines[def_it].Name		=	"FULL_RENDERING_MSAA_DX10_1_AND_DX11";
 		   defines[def_it].Definition	=	"1";
 		   def_it						++;
-		   Msg("! MSAA_OPTIMIZATION on");
 	   }
-		sh_name[len]='0'+char(o.dx10_msaa_opt); ++len;
+		sh_name[len]='0'+char(o.full_rendering_msaa); ++len;
 
 		switch(o.dx10_msaa_alphatest)
 		{

@@ -145,8 +145,7 @@ enum
 	R2FLAG_DOF					= (1<<23),
 	R2FLAG_DETAIL_BUMP			= (1<<24),
 	R3FLAG_VOLUMETRIC_SMOKE		= (1<<25),
-	R3FLAG_MSAA_OPT				= (1<<26),
-	R3FLAG_USE_DX10_1			= (1<<27),
+	R3FLAG_USE_DX10_1			= (1<<26),
 };
 
 enum
