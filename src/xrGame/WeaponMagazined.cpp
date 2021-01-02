@@ -902,6 +902,14 @@ void CWeaponMagazined::OnShot()
 void CWeaponMagazined::OnEmptyClick()
 {
     PlaySound("sndEmptyClick", get_LastFP());
+
+    if (Actor())
+    {
+        LPCSTR jam;
+        LUA_EXPORT jammed;
+        R_ASSERT(_SCRIPT_ENGINE("_export_cryray.weapon_jammed", jammed));
+        jam = jammed();
+    }
 }
 
 void CWeaponMagazined::OnAnimationEnd(u32 state)
