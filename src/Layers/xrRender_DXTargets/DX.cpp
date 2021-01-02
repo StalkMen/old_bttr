@@ -320,64 +320,64 @@ void					CRender::create					()
 	//	TODO: fix hbao shader to allow to perform per-subsample effect!
 	// LV da da idi nahuy suka 
 #ifdef DIRECTX11
-	if (o.ssao_hbao )
-	{
+	if (o.ssao_hbao)
 		o.ssao_opt_data = true;
-	}
 
-    if( o.ssao_hdao )
+    if (o.ssao_hdao)
         o.ssao_opt_data = false;
 
 	//OldSerpskiStalker
 	o.dx11		= renderer_value == 1;
 	o.dx11		= o.dx11 && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 );
 #else
-	if (o.ssao_hdao )
+	if (o.ssao_hdao)
 		o.ssao_opt_data = false;
-    else if( o.ssao_hbao)
-	{
+    else if (o.ssao_hbao)
 		o.ssao_opt_data = true;
-	}
 
 	o.dx10_1 = ps_r2_ls_flags.test((u32)R3FLAG_USE_DX10_1);
 	if (o.dx10_1)
 	{
 		EnvCryRay.used_dx10_1 = 1;
-		Msg("[CryRay Engine]: used DX10.1: %i", EnvCryRay.used_dx10_1);
+		Msg("# [CryRay Engine RenderINFO]: used DX10.1: %i", EnvCryRay.used_dx10_1);
 	}
 	o.dx10_1 = o.dx10_1 && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0 );
 #endif
-	//	MSAA option dependencies
-	
 	RMSAA._opt.dx10_msaa			= !!ps_r3_msaa;
-	RMSAA._opt.dx10_msaa_samples = (1 << ps_r3_msaa);
+	RMSAA._opt.dx10_msaa_samples    = (1 << ps_r3_msaa);
 
-#ifdef DIRECTX11	
-	RMSAA._opt.full_rendering_msaa		= RMSAA._opt.full_rendering_msaa && RMSAA._opt.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 )
-			|| RMSAA._opt.dx10_msaa && (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0);
-
-	RMSAA._opt.dx10_msaa_hybrid	= o.dx11;
-	RMSAA._opt.dx10_msaa_hybrid	&= !RMSAA._opt.full_rendering_msaa && RMSAA._opt.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 ) ;
-#else
-	RMSAA._opt.full_rendering_msaa		= RMSAA._opt.full_rendering_msaa && RMSAA._opt.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0 );
-
-	RMSAA._opt.dx10_msaa_hybrid	= ps_r2_ls_flags.test((u32)R3FLAG_USE_DX10_1);
-	RMSAA._opt.dx10_msaa_hybrid	&= !RMSAA._opt.full_rendering_msaa && RMSAA._opt.dx10_msaa && ( DEVICE_HW::CRYRAY_RENDER::HW.pDevice1 != 0) ;
-#endif
+	//-' OldSerpskiStalker. Реворк загрузки механизма MSAA
+	RMSAA._opt.full_rendering_msaa	= (RMSAA._opt.dx10_msaa && o.dx10_1) || (DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0);
 	RMSAA._opt.dx10_msaa_alphatest = 0;
+
 	if (RMSAA._opt.dx10_msaa)
 	{
-		if (RMSAA._opt.full_rendering_msaa || RMSAA._opt.dx10_msaa_hybrid )
+		if (RMSAA._opt.dx10_msaa)
+			Msg("# [CryRay Engine RenderINFO]: RMSAA._opt.dx10_msaa ON");
+
+		if (RMSAA._opt.full_rendering_msaa)
 		{
-			if (ps_r3_msaa_atest==1)
+			if (RMSAA._opt.full_rendering_msaa)
+				Msg("# [CryRay Engine RenderINFO]: RMSAA._opt.full_rendering_msaa ON");
+
+			if (ps_r3_msaa_atest == 1)
+			{
 				RMSAA._opt.dx10_msaa_alphatest = MSAA_ATEST_DX10_1_ATOC;
-			else if (ps_r3_msaa_atest==2)
+				Msg("# [CryRay Engine RenderINFO]: MSAA_ATEST_DX10_1_ATOC ON");
+			}
+			else if (ps_r3_msaa_atest == 2)
+			{
 				RMSAA._opt.dx10_msaa_alphatest = MSAA_ATEST_DX10_1_NATIVE;
+				Msg("# [CryRay Engine RenderINFO]: MSAA_ATEST_DX10_1_NATIVE ON");
+			}
 		}
 		else
 		{
-			if (ps_r3_msaa_atest)
+			if (ps_r3_msaa_atest == 1)
+			{
 				RMSAA._opt.dx10_msaa_alphatest = MSAA_ATEST_DX10_0_ATOC;
+				Msg("# [CryRay Engine RenderINFO]: MSAA_ATEST_DX10_0_ATOC ON");
+			}
 		}
 	}
 
@@ -446,13 +446,7 @@ void					CRender::create					()
 	qdesc.MiscFlags				= 0;
 	qdesc.Query					= D3D_QUERY_EVENT;
 	ZeroMemory(q_sync_point, sizeof(q_sync_point));
-	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(&qdesc,&q_sync_point[0]));
-	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(&qdesc,&q_sync_point[1]));
-	//	Prevent error on first get data
-	//q_sync_point[0]->End();
-	//q_sync_point[1]->End();
-	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[0]));
-	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[1]));
+	
 	for (u32 i=0; i<DEVICE_HW::CRYRAY_RENDER::HW.Caps.iGPUNum; ++i)
 		R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
 #ifdef DIRECTX11
@@ -462,7 +456,6 @@ void					CRender::create					()
 #endif
 	::PortalTraverser.initialize();
 	FluidManager.Initialize( 70, 70, 70 );
-//	FluidManager.Initialize( 100, 100, 100 );
 	FluidManager.SetScreenSize(Device.dwWidth, Device.dwHeight);
 }
 
@@ -471,8 +464,6 @@ void					CRender::destroy				()
 	m_bMakeAsyncSS				= false;
 	FluidManager.Destroy();
 	::PortalTraverser.destroy	();
-	//_RELEASE					(q_sync_point[1]);
-	//_RELEASE					(q_sync_point[0]);
 	for (u32 i=0; i<DEVICE_HW::CRYRAY_RENDER::HW.Caps.iGPUNum; ++i)
 		_RELEASE				(q_sync_point[i]);
 	
