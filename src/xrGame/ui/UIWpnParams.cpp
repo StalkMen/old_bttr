@@ -187,7 +187,7 @@ void CUIWpnParams::SetInfo( CInventoryItem* slot_wpn, CInventoryItem& cur_wpn )
 		if(ammo_types.empty())
 			return;
 
-		xr_sprintf(str, sizeof(str), "%s", pSettings->r_string(ammo_types[0].c_str(), "inv_name_short"));
+		xr_sprintf(str, sizeof(str), "%s", pSettings->r_string(ammo_types[0].c_str(), "inv_name"));
 		m_textAmmoUsedType.SetTextST(str);
 
 		m_stAmmoType1.SetShader(InventoryUtilities::GetEquipmentIconsShader());

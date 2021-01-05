@@ -1883,13 +1883,13 @@ bool CWeaponMagazined::GetBriefInfo(II_BriefInfo& info)
     if (ae != 0 && m_magazine.size() != 0)
     {
         LPCSTR ammo_type = m_ammoTypes[m_magazine.back().m_LocalAmmoType].c_str();
-        info.name = CStringTable().translate(pSettings->r_string(ammo_type, "inv_name_short"));
+        info.name = CStringTable().translate(pSettings->r_string(ammo_type, "inv_name"));
         info.icon = ammo_type;
     }
     else
     {
         LPCSTR ammo_type = m_ammoTypes[m_ammoType.type1].c_str();
-        info.name = CStringTable().translate(pSettings->r_string(ammo_type, "inv_name_short"));
+        info.name = CStringTable().translate(pSettings->r_string(ammo_type, "inv_name"));
         info.icon = ammo_type;
     }
     return true;
@@ -2045,7 +2045,7 @@ void CWeaponMagazined::GetBriefInfo_ammo(xr_string& str_name, xr_string& icon_se
         icon_sect_name = m_ammoTypes[m_magazine.back().m_LocalAmmoType].c_str();
 
     string256 sItemName;
-    strcpy_s(sItemName, *CStringTable().translate(pSettings->r_string(icon_sect_name.c_str(), "inv_name_short")));
+    strcpy_s(sItemName, *CStringTable().translate(pSettings->r_string(icon_sect_name.c_str(), "inv_name")));
 
     strcpy_s(fire_mode, sizeof(fire_mode), "");
     if (HasFireModes())
