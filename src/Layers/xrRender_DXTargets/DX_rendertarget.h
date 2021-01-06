@@ -50,6 +50,7 @@ public:
 	IBlender*					b_gasmask;
 	IBlender*					b_gamma;
 	IBlender*					b_rain_drops;
+	IBlender*					b_motion_vector;
 
 #ifdef DIRECTX11	
     // compute shader for hdao
@@ -77,7 +78,8 @@ public:
 	ref_rt						rt_Generic;
 	ref_rt						rt_Position;		// 64bit,	fat	(x,y,z,?)				(eye-space)
 	ref_rt						rt_Color;			// 64/32bit,fat	(r,g,b,specular-gloss)	(or decompressed MET-8-8-8-8)
-
+	ref_rt						rt_motion_vector	//32/64 RG 
+	
 	// 
 	ref_rt						rt_Accumulator;		// 64bit		(r,g,b,specular)
 	ref_rt						rt_Accumulator_temp;// only for HW which doesn't feature fp16 blend
@@ -128,6 +130,7 @@ private:
 	ref_shader					s_sunshafts;
 	ref_shader					s_gasmask;
 	ref_shader					s_rain_drops;
+	ref_shader					s_motion_vector;
 
 	// SSAO
 	ref_rt						rt_ssao_temp;
@@ -270,7 +273,7 @@ public:
 	bool						u_need_CM				();
 	BOOL						u_DBT_enable			(float zMin, float zMax);
 	void						u_DBT_disable			();
-	
+	void						phase_motion_vector		();
 	void						phase_sunshafts			();
 	void						phase_gasmask			();	
 	void						phase_gamma				();

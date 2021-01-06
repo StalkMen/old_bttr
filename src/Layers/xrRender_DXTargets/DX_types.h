@@ -55,6 +55,9 @@
 #define		r2_RT_sunshafts0	"$user$sun_shafts0"		// first rt
 #define		r2_RT_sunshafts1	"$user$sun_shafts1"		// second rt
 
+#define		r2_RT_motion_vector	"$user$motion_vector"
+
+
 #define		JITTER(a) r2_jitter #a
 
 const		float				SMAP_near_plane		= .1f	;

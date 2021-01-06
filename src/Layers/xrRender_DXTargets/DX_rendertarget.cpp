@@ -430,6 +430,16 @@ CRenderTarget::CRenderTarget		()
 			rt_Generic_2.create			(r2_RT_generic2, w, h, D3DFMT_A8R8G8B8, SampleCount );
 	}
 	
+	//Motion vectors
+	{
+		u32	w = Device.dwWidth;
+		u32 h = Device.dwHeight;	
+			
+		b_motion_vector = xr_new<BLENDER::CBlender_motion_vector>();
+		s_motion_vector.create(b_motion_vector);		
+		
+		rt_motion_vector.create(r2_RT_motion_vector, w, h, D3DFMT_G16R16F);
+	}
 	
 	//SSSS
 	{
@@ -1147,6 +1157,7 @@ CRenderTarget::~CRenderTarget()
 #ifdef DIRECTX11
 	xr_delete(b_hdao_cs);
 #endif
+	xr_delete(b_motion_vector);
 	xr_delete(b_fxaa);
 	xr_delete(b_dlaa);
 	xr_delete(b_smaa);

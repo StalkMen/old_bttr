@@ -393,6 +393,20 @@ namespace BLENDER // Пространство имен, общие бленде�
 		LPCSTR Definition;
 	};
 
+	class CBlender_motion_vector : public IBlender
+	{
+	public:
+		virtual		LPCSTR	getComment() { return "Generate motion vector"; }
+		virtual		BOOL		canBeDetailed() { return FALSE; }
+		virtual		BOOL		canBeLMAPped() { return FALSE; }
+
+		virtual		void		Compile(CBlender_Compile& C);
+
+		CBlender_motion_vector();
+		virtual ~CBlender_motion_vector();
+	};
+
+
 	namespace AA // Пространство имен, сглаживания -> BLENDER::AA::
 	{
 		class CBlender_dlaa : public IBlender

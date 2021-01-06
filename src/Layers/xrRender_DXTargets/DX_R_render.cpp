@@ -436,6 +436,11 @@ void CRender::Render		()
 		render_rain();
 	}
 
+	//Motion vector
+	{
+		Target->phase_motion_vector();
+	}
+	
 	// Directional light - fucking sun
 
 	if (bSUN)		
