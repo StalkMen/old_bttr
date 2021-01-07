@@ -518,6 +518,7 @@
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_gamma.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_gasmask.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\Blenders\blender_rain_drops.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\Blenders\blender_motion_vector.cpp" />
     <ClCompile Include="..\xrRender\light_GI.cpp" />
     <ClCompile Include="..\xrRender\Light_Render_Direct.cpp" />
     <ClCompile Include="..\xrRender\Light_Render_Direct_ComputeXFS.cpp" />
@@ -558,6 +559,7 @@
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_accumulator.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_luminance.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_gamma.cpp" />
+	<ClCompile Include="..\xrRender_DXTargets\DX_rendertarget_phase_motion_vector.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_loader.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_rendertarget.cpp" />
     <ClCompile Include="..\xrRender_DXTargets\DX_ScreenQuad.cpp" />

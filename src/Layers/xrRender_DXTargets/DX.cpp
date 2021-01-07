@@ -170,12 +170,9 @@ void					CRender::create					()
 
 	o.nullrt = false;
 	
-	if (o.nullrt)		{
+	if (o.nullrt)		
+	{
 		Msg				("* NULLRT supported");
-
-		//.	    _tzset			();
-		//.		??? _strdate	( date, 128 );	???
-		//.		??? if (date < 22-march-07)		
 		if (0)
 		{
 			u32 device_id	= DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_device;
@@ -221,11 +218,8 @@ void					CRender::create					()
 		if (o.nullrt)	Msg				("* ...and used");
 	};
 
-
 	// SMAP / DST
 	o.HW_smap_FETCH4	= FALSE;
-	//	DX10 disabled
-	//o.HW_smap			= DEVICE_HW::CRYRAY_RENDER::HW.support	(D3DFMT_D24X8,			D3DRTYPE_TEXTURE,D3DUSAGE_DEPTHSTENCIL);
 	o.HW_smap			= true;
 	o.HW_smap_PCF		= o.HW_smap		;
 	if (o.HW_smap)		
@@ -243,7 +237,8 @@ void					CRender::create					()
 	o.fp16_blend		= true;
 
 	// search for ATI formats
-	if (!o.HW_smap && (0==strstr(Core.Params,"-nodf24")) )		{
+	if (!o.HW_smap && (0==strstr(Core.Params,"-nodf24")) )		
+	{
 		o.HW_smap		= DEVICE_HW::CRYRAY_RENDER::HW.support	((D3DFORMAT)(MAKEFOURCC('D','F','2','4')),	D3DRTYPE_TEXTURE,D3DUSAGE_DEPTHSTENCIL);
 		if (o.HW_smap)	{
 			o.HW_smap_FORMAT= MAKEFOURCC	('D','F','2','4');
@@ -254,7 +249,8 @@ void					CRender::create					()
 	}
 
 	// emulate ATI-R4xx series
-	if (strstr(Core.Params,"-r4xx"))	{
+	if (strstr(Core.Params,"-r4xx"))	
+	{
 		o.mrtmixdepth	= FALSE;
 		o.HW_smap		= FALSE;
 		o.HW_smap_PCF	= FALSE;
@@ -269,26 +265,21 @@ void					CRender::create					()
 
 	// nvstencil on NV40 and up
 	o.nvstencil			= FALSE;
-	//if ((DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_vendor==0x10DE)&&(DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_device>=0x40))	o.nvstencil = TRUE;
 	if (strstr(Core.Params,"-nonvs"))		o.nvstencil	= FALSE;
 
 	// nv-dbt
-	//	DX10 disabled
-	//o.nvdbt				= DEVICE_HW::CRYRAY_RENDER::HW.support	((D3DFORMAT)MAKEFOURCC('N','V','D','B'), D3DRTYPE_SURFACE, 0);
 	o.nvdbt				= false;
 	if (o.nvdbt)		Msg	("* NV-DBT supported and used");
 
 	// gloss
 	char*	g			= strstr(Core.Params,"-gloss ");
 	o.forcegloss		= g?	TRUE	:FALSE	;
-	if (g)				{
+	if (g)				
 		o.forcegloss_v		= float	(atoi	(g+xr_strlen("-gloss ")))/255.f;
-	}
 
 	// options
 	o.bug				= (strstr(Core.Params,"-bug"))?			TRUE	:FALSE	;
 	o.sunfilter			= (strstr(Core.Params,"-sunfilter"))?	TRUE	:FALSE	;
-	//.	o.sunstatic			= (strstr(Core.Params,"-sunstatic"))?	TRUE	:FALSE	;
 	o.advancedpp		= FullRenderingFunctionality;
 	o.volumetricfog		= ps_r2_ls_flags.test(R3FLAG_VOLUMETRIC_SMOKE);
 	o.sjitter			= (strstr(Core.Params,"-sjitter"))?		TRUE	:FALSE	;
@@ -503,8 +494,6 @@ void CRender::reset_begin()
 
 	xr_delete					(Target);
 	HWOCC.occq_destroy			();
-	//_RELEASE					(q_sync_point[1]);
-	//_RELEASE					(q_sync_point[0]);
 	for (u32 i=0; i<DEVICE_HW::CRYRAY_RENDER::HW.Caps.iGPUNum; ++i)
 		_RELEASE				(q_sync_point[i]);
 }
@@ -514,8 +503,6 @@ void CRender::reset_end()
 	D3D_QUERY_DESC			qdesc;
 	qdesc.MiscFlags				= 0;
 	qdesc.Query					= D3D_QUERY_EVENT;
-	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(&qdesc,&q_sync_point[0]));
-	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(&qdesc,&q_sync_point[1]));
 	for (u32 i=0; i<DEVICE_HW::CRYRAY_RENDER::HW.Caps.iGPUNum; ++i)
 		R_CHK(DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->CreateQuery(&qdesc,&q_sync_point[i]));
 	//	Prevent error on first get data
@@ -524,9 +511,6 @@ void CRender::reset_end()
 #else
 	q_sync_point[0]->End();
 #endif
-	//q_sync_point[1]->End();
-	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[0]));
-	//R_CHK						(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->CreateQuery(D3DQUERYTYPE_EVENT,&q_sync_point[1]));
 	HWOCC.occq_create			(occq_size);
 
 	Target						=	xr_new<CRenderTarget>	();
@@ -545,15 +529,7 @@ void CRender::reset_end()
 	// that some data is not ready in the first frame (for example device camera position)
 	m_bFirstFrameAfterReset		= true;
 }
-/*
-void CRender::OnFrame()
-{
-	Models->DeleteQueue			();
-	if (ps_r2_ls_flags.test(R2FLAG_EXP_MT_CALC))	{
-		Device.seqParallel.insert	(Device.seqParallel.begin(),
-			fastdelegate::FastDelegate0<>(&HOM,&CHOM::MT_RENDER));
-	}
-}*/
+
 void CRender::OnFrame()
 {
 	Models->DeleteQueue			();
@@ -568,25 +544,27 @@ void CRender::OnFrame()
 	}
 }
 
-
 // Implementation
 IRender_ObjectSpecific*	CRender::ros_create				(IRenderable* parent)				{ return xr_new<CROS_impl>();			}
 void					CRender::ros_destroy			(IRender_ObjectSpecific* &p)		{ xr_delete(p);							}
 IRenderVisual*			CRender::model_Create			(LPCSTR name, IReader* data)		{ return Models->Create(name,data);		}
 IRenderVisual*			CRender::model_CreateChild		(LPCSTR name, IReader* data)		{ return Models->CreateChild(name,data);}
 IRenderVisual*			CRender::model_Duplicate		(IRenderVisual* V)					{ return Models->Instance_Duplicate((dxRender_Visual*)V);	}
+
 void					CRender::model_Delete			(IRenderVisual* &V, BOOL bDiscard)	
 { 
 	dxRender_Visual* pVisual = (dxRender_Visual*)V;
 	Models->Delete(pVisual, bDiscard);
 	V = 0;
 }
+
 IRender_DetailModel*	CRender::model_CreateDM			(IReader*	F)
 {
 	CDetail*	D		= xr_new<CDetail> ();
 	D->Load				(F);
 	return D;
 }
+
 void					CRender::model_Delete			(IRender_DetailModel* & F)
 {
 	if (F)
@@ -597,11 +575,13 @@ void					CRender::model_Delete			(IRender_DetailModel* & F)
 		F				= NULL;
 	}
 }
+
 IRenderVisual*			CRender::model_CreatePE			(LPCSTR name)	
 { 
 	PS::CPEDef*	SE			= PSLibrary.FindPED	(name);		R_ASSERT3(SE,"Particle effect doesn't exist",name);
 	return					Models->CreatePE	(SE);
 }
+
 IRenderVisual*			CRender::model_CreateParticles	(LPCSTR name)	
 { 
 	PS::CPEDef*	SE			= PSLibrary.FindPED	(name);
@@ -611,6 +591,7 @@ IRenderVisual*			CRender::model_CreateParticles	(LPCSTR name)
 		return				Models->CreatePG	(SG);
 	}
 }
+
 void					CRender::models_Prefetch		()					{ Models->Prefetch	();}
 void					CRender::models_Clear			(BOOL b_complete)	{ Models->ClearPool	(b_complete);}
 
@@ -674,24 +655,29 @@ void					CRender::add_SkeletonWallmark	(intrusive_ptr<CSkeletonWallmark> wm)
 {
 	Wallmarks->AddSkeletonWallmark				(wm);
 }
+
 void					CRender::add_SkeletonWallmark	(const Fmatrix* xf, CKinematics* obj, ref_shader& sh, const Fvector& start, const Fvector& dir, float size)
 {
 	Wallmarks->AddSkeletonWallmark				(xf, obj, sh, start, dir, size);
 }
+
 void					CRender::add_SkeletonWallmark	(const Fmatrix* xf, IKinematics* obj, IWallMarkArray *pArray, const Fvector& start, const Fvector& dir, float size)
 {
 	dxWallMarkArray *pWMA = (dxWallMarkArray *)pArray;
 	ref_shader *pShader = pWMA->dxGenerateWallmark();
 	if (pShader) add_SkeletonWallmark(xf, (CKinematics*)obj, *pShader, start, dir, size);
 }
-void					CRender::add_Occluder			(Fbox2&	bb_screenspace	)
+
+void CRender::add_Occluder			(Fbox2&	bb_screenspace	)
 {
 	HOM.occlude			(bb_screenspace);
 }
+
 void					CRender::set_Object				(IRenderable*	O )	
 { 
 	val_pObject				= O;
 }
+
 void					CRender::rmNear				()
 {
 	IRender_Target* T	=	getTarget	();
@@ -704,22 +690,22 @@ void					CRender::rmNear				()
 
 	DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->RSSetViewports(1, &VP);
 #endif
-	//CHK_DX				(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetViewport(&VP));
 }
-void					CRender::rmFar				()
+
+void					CRender::rmFar()
 {
-	IRender_Target* T	=	getTarget	();
+	IRender_Target* T = getTarget();
 #ifdef DIRECTX11
-	D3D_VIEWPORT VP		=	{0,0,(float)T->get_width(),(float)T->get_height(),0.99999f,1.f };
+	D3D_VIEWPORT VP = { 0,0,(float)T->get_width(),(float)T->get_height(),0.99999f,1.f };
 
 	DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->RSSetViewports(1, &VP);
 #else
-	D3D_VIEWPORT VP		=	{0,0,T->get_width(),T->get_height(),0.99999f,1.f };
+	D3D_VIEWPORT VP = { 0,0,T->get_width(),T->get_height(),0.99999f,1.f };
 
 	DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->RSSetViewports(1, &VP);
 #endif
-	//CHK_DX				(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetViewport(&VP));
 }
+
 void					CRender::rmNormal			()
 {
 	IRender_Target* T	=	getTarget	();
@@ -732,7 +718,6 @@ void					CRender::rmNormal			()
 
 	DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->RSSetViewports(1, &VP);
 #endif
-	//CHK_DX				(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->SetViewport(&VP));
 }
 
 //////////////////////////////////////////////////////////////////////
