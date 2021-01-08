@@ -436,10 +436,10 @@ void CRender::Render		()
 		render_rain();
 	}
 
-	//Motion vector
-	{
-		Target->phase_motion_vector();
-	}
+	//Motion vector -- Freezes fucking scereen probabluy
+	//{
+	//	Target->phase_motion_vector();
+	//}
 	
 	// Directional light - fucking sun
 
