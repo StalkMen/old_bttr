@@ -155,7 +155,7 @@ void CRender::ScreenshotImpl	(ScreenshotMode mode, LPCSTR name, CMemoryWriter* m
 					string_path			buf;
 					ID3DBlob* saved = 0;
 
-#ifdef DIRECTX11
+#ifndef DIRECTX11
 					xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx10.jpg", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
 #else
 					xr_sprintf(buf, sizeof(buf), "ss_%s_%s_(%s)_dx11.jpg", Core.UserName, timestamp(t_stemp), (g_pGameLevel) ? g_pGameLevel->name().c_str() : "mainmenu");
