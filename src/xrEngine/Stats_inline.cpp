@@ -198,22 +198,22 @@ void CStats::Show_HW_Stats()
                 case 14:
                         pFontHW->SetColor(DebugTextColor::DTC_WSU);
                         static bool WET_SURFACE = p_engine_flags32.test(R3FLAG_DYN_WET_SURF);
-                        pFontHW->Out(GetMainInfoStats, InfoScale, WET_SURFACE ? "Wet surfaces DX10+: On" : "Wet surfaces DX10+: Off");
+                        pFontHW->Out(GetMainInfoStats, InfoScale, WET_SURFACE ? "Wet Surfaces DX10: On" : "Wet Surfaces DX10: Off");
                         InfoScale += 15;
 
                 case 15:
                         pFontHW->SetColor(DebugTextColor::DTC_WSU);
-                        pFontHW->Out(GetMainInfoStats, InfoScale, "Wet Surface (near): %f", ps_r3_dyn_wet_surf_near);
+                        pFontHW->Out(GetMainInfoStats, InfoScale, "Wet Surfaces (near): %f", ps_r3_dyn_wet_surf_near);
                         InfoScale += 15;
 
                 case 16:
                         pFontHW->SetColor(DebugTextColor::DTC_WSU);
-                        pFontHW->Out(GetMainInfoStats, InfoScale, "Wet Surface (far): %f", ps_r3_dyn_wet_surf_far);
+                        pFontHW->Out(GetMainInfoStats, InfoScale, "Wet Surfaces (far): %f", ps_r3_dyn_wet_surf_far);
                         InfoScale += 15;
 
                 case 17:
                         pFontHW->SetColor(DebugTextColor::DTC_WSU);
-                        pFontHW->Out(GetMainInfoStats, InfoScale, "Wet Surface (sm res): %i", ps_r3_dyn_wet_surf_sm_res);
+                        pFontHW->Out(GetMainInfoStats, InfoScale, "Wet Surfaces (sm res): %i", ps_r3_dyn_wet_surf_sm_res);
                         InfoScale += 15;
 
                 case 18:

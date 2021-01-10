@@ -303,28 +303,42 @@ void					CRender::create					()
 	o.ssao_hbao			= !o.ssao_hdao && p_engine_flags32.test(R2FLAGEXT_SSAO_HBAO) && (ps_r_ssao != 0);
 	o.ssao_ssdo			= !o.ssao_hdao && !o.ssao_hbao && p_engine_flags32.test(R2FLAGEXT_SSAO_SSDO) && (ps_r_ssao != 0);
 
-	Msg("~ DX: Information about MSAA with xrEngine, selected token: %i", ps_r3_msaa);
-	Msg("~ DX: Information about MSAA A-Test with xrEngine, selected token: %i", ps_r3_msaa_atest);
-
-	Msg("~ DX: Information about 'Sun Quality' with xrEngine, selected token: %i", ps_r_sun_quality);
+	Msg("# [CryRay Engine RenderINFO]:: Information about MSAA with xrEngine, selected token: %i", ps_r3_msaa);
+	Msg("# [CryRay Engine RenderINFO]:: Information about MSAA A-Test with xrEngine, selected token: %i", ps_r3_msaa_atest);
+	Msg("# [CryRay Engine RenderINFO]:: Information about 'Sun Quality' with xrEngine, selected token: %i", ps_r_sun_quality);
 
 	//	TODO: fix hbao shader to allow to perform per-subsample effect!
 	// LV da da idi nahuy suka 
 #ifdef DIRECTX11
 	if (o.ssao_hbao)
+	{
 		o.ssao_opt_data = true;
-
-    if (o.ssao_hdao)
-        o.ssao_opt_data = false;
+		if (o.ssao_opt_data == true)
+			Msg("# [CryRay Engine RenderINFO]: SSAO->HBAO (opt_data) ON");
+	}
+	else if (o.ssao_hdao)
+	{
+		o.ssao_opt_data = false;
+		if (o.ssao_opt_data == false)
+			Msg("# [CryRay Engine RenderINFO]: SSAO->HDAO (opt_data) OFF");
+	}
 
 	//OldSerpskiStalker
 	o.dx11		= renderer_value == 1;
-	o.dx11		= o.dx11 && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_10_1 );
+	o.dx11		= o.dx11 && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 );
 #else
 	if (o.ssao_hdao)
+	{
 		o.ssao_opt_data = false;
-    else if (o.ssao_hbao)
+		if (o.ssao_opt_data == false)
+			Msg("# [CryRay Engine RenderINFO]: SSAO->HDAO (opt_data) OFF");
+	}
+	else if (o.ssao_hbao)
+	{
 		o.ssao_opt_data = true;
+		if (o.ssao_opt_data == true)
+			Msg("# [CryRay Engine RenderINFO]: SSAO->HBAO (opt_data) ON");
+	}
 
 	o.dx10_1 = ps_r2_ls_flags.test((u32)R3FLAG_USE_DX10_1);
 	if (o.dx10_1)
