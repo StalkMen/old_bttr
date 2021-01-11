@@ -335,9 +335,13 @@ void CExplosive::Explode()
 #endif
 //	Msg("---------CExplosive Explode [%d] frame[%d]",cast_game_object()->ID(), Device.dwFrame);
 	OnBeforeExplosion();
-	//играем звук взрыва
-	m_layered_sounds.PlaySound("sndExplode", pos, smart_cast<CObject*>(this), false, false, (u8)-1);
 
+	//играем звук взрыва
+	CObject* who = nullptr;
+	if (Initiator() != ALife::_OBJECT_ID(-1)) 
+		who = Level().Objects.net_Find(Initiator());
+
+	m_layered_sounds.PlaySound("sndExplode", pos, smart_cast<CObject*>(this), false, false, (u8)-1);
 	//показываем эффекты
 
 	m_wallmark_manager.PlaceWallmarks		(pos);
