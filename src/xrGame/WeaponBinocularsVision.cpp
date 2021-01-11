@@ -193,7 +193,8 @@ CBinocularsVision::~CBinocularsVision()
 
 void CBinocularsVision::Update()
 {
-	if (g_dedicated_server)
+	// Рамочек в прицеле нет - нечего и звуки издавать.
+	if (Device.m_SecondViewport.IsSVPActive())
 		return;
 	//-----------------------------------------------------
 	const CActor* pActor = NULL;
@@ -272,9 +273,12 @@ void CBinocularsVision::Update()
 
 void CBinocularsVision::Draw()
 {
-	VIS_OBJECTS_IT	it = m_active_objects.begin();
-	for(;it!=m_active_objects.end();++it)
-		(*it)->Draw							();
+	// Бессмысленно пытаться рендерить рамочки для 3д прицела. Они попадают только в кадр вне прицела. В кадр для прицела пытаться их редерить бессмысленно, т.к. туда идёт кадр до начала рендера UI.
+	if (Device.m_SecondViewport.IsSVPActive())
+		return;
+
+	for (auto* it : m_active_objects)
+		it->Draw();
 }
 
 void CBinocularsVision::Load(const shared_str& section)
@@ -290,6 +294,8 @@ void CBinocularsVision::Load(const shared_str& section)
 
 void CBinocularsVision::remove_links(CObject *object)
 {
+#pragma todo("OldSerpskiStalker, на будущее, если дальше тащить правки OGSR будем")
+#pragma todo("KRodin: во-первых, тут утечка, во-вторых, удалять принято через ремове_иф, в третьих - нечего вообще в m_active_objects хранить указатели.")
 	VIS_OBJECTS::iterator	I = std::find_if(m_active_objects.begin(),m_active_objects.end(),FindVisObjByObject(object));
 	if (I == m_active_objects.end())
 		return;
