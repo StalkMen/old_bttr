@@ -1,22 +1,16 @@
-// HUDCrosshair.h:  крестик прицела, отображающий текущую дисперсию
+// HUDCrosshair.h:  РєСЂРµСЃС‚РёРє РїСЂРёС†РµР»Р°, РѕС‚РѕР±СЂР°Р¶Р°СЋС‰РёР№ С‚РµРєСѓС‰СѓСЋ РґРёСЃРїРµСЂСЃРёСЋ
 // 
 //////////////////////////////////////////////////////////////////////
 
 #pragma once
-
-#define HUD_CURSOR_SECTION "hud_cursor"
-
 #include "ui_defs.h"
-
 
 class CHUDCrosshair	
 {
 private:
-	float			cross_length_perc;
 	float			min_radius_perc;
-	float			max_radius_perc;
 
-	//текущий радиус прицела
+	//С‚РµРєСѓС‰РёР№ СЂР°РґРёСѓСЃ РїСЂРёС†РµР»Р°
 	float			radius;
 	float			target_radius;
 #ifdef DEBUG
@@ -39,3 +33,5 @@ public:
 
 			void	Load			();
 };
+
+extern u32 type_crosshair;
