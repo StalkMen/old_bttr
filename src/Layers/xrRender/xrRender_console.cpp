@@ -6,8 +6,6 @@
 
 #include "../../build_engine_config.h"
 
-extern ENGINE_API u32 renderer_value;
-
 u32			ps_Preset				=	2	;
 xr_token							qpreset_token							[ ]={
 	{ "Minimum",					0											},

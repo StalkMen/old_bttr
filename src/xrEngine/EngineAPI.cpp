@@ -122,7 +122,7 @@ void CEngineAPI::CreateRendererList()
 		if (i == 3)
 		{
 			//-' Статическое освещение DX10
-			//RendererTokens.emplace_back(BttR_mode ? "renderer_dx10_static" : "renderer_r3_static"); // ТОКЕН РЕНДЕРА БУДЕТ НАЧИНАТЬСЯ С 0
+			RendererTokens.emplace_back(BttR_mode ? "renderer_dx10_static" : "renderer_r3_static"); // ТОКЕН РЕНДЕРА БУДЕТ НАЧИНАТЬСЯ С 0
 			#pragma todo("OldSerpskiStalker. Доделать статический режим рендеров")
 
 			auto dx10_rendering = (SupportsDX10Rendering*)RenderModule.GetProcAddress("SupportsDX10Rendering");
@@ -138,7 +138,7 @@ void CEngineAPI::CreateRendererList()
 		else if (i == 4)
 		{
 			//-' Статическое освещение DX11
-			//RendererTokens.emplace_back(BttR_mode ? "renderer_dx11_static" : "renderer_r4_static"); // ТОКЕН БУДЕТ РАВЕН 2
+			RendererTokens.emplace_back(BttR_mode ? "renderer_dx11_static" : "renderer_r4_static"); // ТОКЕН БУДЕТ РАВЕН 2
 			#pragma todo("OldSerpskiStalker. Доделать статический режим рендеров")
 
 			auto dx11_rendering = (SupportsDX11Rendering*)RenderModule.GetProcAddress("SupportsDX11Rendering");

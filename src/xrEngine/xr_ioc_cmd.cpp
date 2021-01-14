@@ -797,9 +797,8 @@ public:
             case 1:
             {
                 if (ps_r_ssao == 0)
-                {
                     ps_r_ssao = 1;
-                }
+
                 p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
                 p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
                 p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
@@ -809,9 +808,8 @@ public:
             case 2:
             {
                 if (ps_r_ssao == 0)
-                {
                     ps_r_ssao = 1;
-                }
+
                 p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
                 p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
                 p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, true);
@@ -822,9 +820,8 @@ public:
             case 3:
             {
                 if (ps_r_ssao == 0)
-                {
                     ps_r_ssao = 1;
-                }
+
                 p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, false);
                 p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, true);
                 p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
@@ -834,9 +831,8 @@ public:
             case 4:
             {
                 if (ps_r_ssao == 0)
-                {
                     ps_r_ssao = 1;
-                }
+
                 p_engine_flags32.set(R2FLAGEXT_SSAO_SSDO, true);
                 p_engine_flags32.set(R2FLAGEXT_SSAO_HBAO, false);
                 p_engine_flags32.set(R2FLAGEXT_SSAO_HDAO, false);
@@ -1086,7 +1082,8 @@ ENGINE_API int m_sun_cascade_1_size = 32;
 ENGINE_API int m_sun_cascade_2_size = 192;
 ENGINE_API BOOL FullRenderingFunctionality = FALSE; // advanced post process and effects
            int ps_teleport_demo_record = 0;
-u32 renderer_value = 0;
+           u32 renderer_value = 0;
+
 class CCC_DirectX : public CCC_Token
 {
     typedef CCC_Token inherited;
