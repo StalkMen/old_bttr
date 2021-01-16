@@ -26,9 +26,9 @@ void CRenderDevice::Destroy(void)
     if (!b_is_Ready) 
 		return;
 	
-	if (renderer_value == 0)
+	if (renderer_value == 0 || renderer_value == 1)
 		Log("# Destroying Direct3D10");
-	else if (renderer_value == 1)
+	else if (renderer_value == 2 || renderer_value == 3)
 		Log("# Destroying Direct3D11");
 	
     ShowCursor(TRUE);

@@ -1097,10 +1097,11 @@ public:
 
         inherited::Execute(args);
 
-        psDeviceFlags.set(rDX10, (renderer_value == 0));
-        psDeviceFlags.set(rDX11, (renderer_value == 1));
+        psDeviceFlags.set(rDX10, (renderer_value == 0 || renderer_value == 1));
+        psDeviceFlags.set(rDX11, (renderer_value == 2 || renderer_value == 3));
 
-        FullRenderingFunctionality = TRUE; // Сюда можно воткнуть условие, которое будет отлючать все постпроцессы шейдеров в рендере
+        EnvCryRay.static_render = (renderer_value == 0 || renderer_value == 2);
+        FullRenderingFunctionality = !EnvCryRay.static_render;              // OldSerpskiStalker
     }
 
     virtual void Save(IWriter* F)

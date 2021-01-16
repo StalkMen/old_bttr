@@ -144,15 +144,16 @@ void CStats::Show_HW_Stats()
                 case 4: 
                         pFontHW->SetColor(DebugTextColor::DTC_GREEN_DX);
                         if (!EnvCryRay.used_dx10_1)
-                            pFontHW->Out(GetMainInfoStats, InfoScale, (renderer_value == 0) ? "xrRender: DirectX10" : (renderer_value == 1) ? "xrRender: DirectX11" : "Render: ???");
+                            pFontHW->Out(GetMainInfoStats, InfoScale, renderer_value == 0 ? "xrRender: DirectX10 (Static)" : renderer_value == 1 ? "xrRender: DirectX10" :
+                                renderer_value == 2 ? "xrRender: DirectX11 (Static)" : renderer_value == 3 ? "xrRender: DirectX11" : "Render: ???");
                         else
-                            pFontHW->Out(GetMainInfoStats, InfoScale, "xrRender: DirectX10 + Device1");
+                            pFontHW->Out(GetMainInfoStats, InfoScale, renderer_value == 0 ? "xrRender: DirectX10 (Static) + Device1" : "xrRender: DirectX10 + Device1");
 
                         InfoScale += 15;
 
                 case 5:
                         pFontHW->SetColor(DebugTextColor::DTC_GREEN_DX);
-                        pFontHW->Out(GetMainInfoStats, InfoScale, (renderer_value == 0) ? "Tessellation quality: To activate this option, you must have DirectX11 enabled." :
+                        pFontHW->Out(GetMainInfoStats, InfoScale, (renderer_value == 0 || renderer_value == 1) ? "Tessellation quality: To activate this option, you must have DirectX11 enabled." :
                             optTessQuality_ == 0 ? "Tessellation quality: Low" : optTessQuality_ == 1 ? "Tessellation quality: Medium" : optTessQuality_ == 2 ? "Tessellation quality: Optimum" : optTessQuality_ == 3 ? "Tessellation quality: Overneeded" : "Tessellation quality: ???");
                         InfoScale += 15;
                 

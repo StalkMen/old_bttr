@@ -185,9 +185,19 @@ HRESULT CRender::shader_compile(LPCSTR name, IReader* fs, LPCSTR pFunctionName,
 
 /////////////////////////////////////////////////////////////////////////////////////////
 #pragma todo("OldSerpskiStalker. Новые дефайны для шейдеров")
-	const u32 DX11 = renderer_value == 1;
+	const u32 DX11_STATIC = renderer_value == 2;
+	const u32 DX11 = renderer_value == 3;
 	const bool NVIDIA = DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_vendor == 0x10DE;
 	const bool AMD = DEVICE_HW::CRYRAY_RENDER::HW.Caps.id_vendor == 0x1002;
+
+	if (DX11_STATIC)
+	{
+		defines[def_it].Name = "DIRECTX11_STATIC";
+		defines[def_it].Definition = "1";
+		def_it++;
+	}
+	sh_name[len] = '0' + char(DX11_STATIC); ++len;
+
 	if (DX11)
 	{
 		defines[def_it].Name = "DIRECTX11";

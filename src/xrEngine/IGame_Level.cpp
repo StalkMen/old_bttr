@@ -53,9 +53,9 @@ IGame_Level::~IGame_Level()
     if (Device.m_pRender)
         Device.m_pRender->ResourcesGetMemoryUsage(m_base, c_base, m_lmaps, c_lmaps);
 
-    if (renderer_value == 0)
+    if (renderer_value == 0 || renderer_value == 1)
         Msg("~ [D3D10]: textures[%d K]", (m_base + m_lmaps) / 1024);
-    if (renderer_value == 1)
+    else if (renderer_value == 2 || renderer_value == 3)
         Msg("~ [D3D11]: textures[%d K]", (m_base + m_lmaps) / 1024);
 }
 

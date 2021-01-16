@@ -324,7 +324,7 @@ void					CRender::create					()
 	}
 
 	//OldSerpskiStalker
-	o.dx11		= renderer_value == 1;
+	o.dx11		= renderer_value == 2 || renderer_value == 3;
 	o.dx11		= o.dx11 && ( DEVICE_HW::CRYRAY_RENDER::HW.FeatureLevel >= D3D_FEATURE_LEVEL_11_0 );
 #else
 	if (o.ssao_hdao)

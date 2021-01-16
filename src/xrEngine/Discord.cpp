@@ -273,351 +273,223 @@ void xrDiscordPresense::SetStatus(StatusId status)
     {
         case StatusId::In_Game:
             presenseInfo.largeImageKey = "bttr_logo";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             break;
         case StatusId::zaton:
             presenseInfo.largeImageKey = "zaton";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Затон";
             break;
 
         case StatusId::jupiter:
             presenseInfo.largeImageKey = "jupiter";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Юпитер";
             break;
 
         case StatusId::pripyat:
             presenseInfo.largeImageKey = "pripyat";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Восточная Припять";
             break;
 
         case StatusId::k00_marsh:
             presenseInfo.largeImageKey = "boloto";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Болота";
             break;
 
         case StatusId::l01_escape:
             presenseInfo.largeImageKey = "cordon";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Кордон";
             break;
 
         case StatusId::l02_garbage:
             presenseInfo.largeImageKey = "garbage";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Свалка";
             break;
 
         case StatusId::l03_agroprom:
             presenseInfo.largeImageKey = "agroprom";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Агропром";
             break;
 
         case StatusId::k01_darkscape:
             presenseInfo.largeImageKey = "darkscape";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Темная лощина";
             break;
 
         case StatusId::l04_darkvalley:
             presenseInfo.largeImageKey = "darkvalley";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Темная долина";
             break;
 
         case StatusId::l05_bar:
             presenseInfo.largeImageKey = "bar";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Бар 100 рентген";
             break;
 
         case StatusId::l06_rostok:
             presenseInfo.largeImageKey = "rostok";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Дикая территория";
             break;
 
         case StatusId::l07_military:
             presenseInfo.largeImageKey = "military";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Армейские склады";
             break;
 
         case StatusId::l08_yantar:
             presenseInfo.largeImageKey = "yantar";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Янтарь";
             break;
 
         case StatusId::l09_deadcity:
             presenseInfo.largeImageKey = "deadcity";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Мёртвый город";
             break;
 
         case StatusId::l10_limansk:
             presenseInfo.largeImageKey = "limansk";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Лиманск";
             break;
 
         case StatusId::l10_radar:
             presenseInfo.largeImageKey = "radar";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Радар";
             break;
 
         case StatusId::l10_red_forest:
             presenseInfo.largeImageKey = "red_forest";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Рыжий лес";
             break;
 
         case StatusId::l11_pripyat:
             presenseInfo.largeImageKey = "pripyat_soc";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Центральная Припять";
             break;
 
         case StatusId::l12_stancia:
             presenseInfo.largeImageKey = "stancia";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: ЧАЭС";
             break;
 
         case StatusId::l12_stancia_2:
             presenseInfo.largeImageKey = "stancia2";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: ЧАЭС-2";
             break;
 
         case StatusId::l13_generators:
             presenseInfo.largeImageKey = "generators";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Генераторы";
             break;
 
         case StatusId::l03u_agr_underground:
             presenseInfo.largeImageKey = "agr_underground";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Подземелья НИИ Агропром";
             break;
 
         case StatusId::l04u_labx18:
             presenseInfo.largeImageKey = "labx18";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Лаборатория Х-18";
             break;
 
         case StatusId::l08u_brainlab:
             presenseInfo.largeImageKey = "brainlab";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Лаборатория Х-10";
             break;
 
         case StatusId::l12u_sarcofag:
             presenseInfo.largeImageKey = "sarcofag";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Саркофаг";
             break;
 
         case StatusId::l12u_control_monolith:
             presenseInfo.largeImageKey = "control_monolith";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Управление монолитом";
             break;
 
         case StatusId::l13u_warlab:
             presenseInfo.largeImageKey = "warlab";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Варлаб";
             break;
 
         case StatusId::jupiter_underground:
             presenseInfo.largeImageKey = "jupiter_underground2";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Путепровод Припять-1";
             break;
 
         case StatusId::labx8:
             presenseInfo.largeImageKey = "labx8";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Лаборатория Х-8";
             break;
 
         case StatusId::k02_trucks_cemetery:
             presenseInfo.largeImageKey = "trucks_cemetery";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.details = "Локация: Кладбище техники";
             break;
 
         case StatusId::fake_start:
             presenseInfo.largeImageKey = "bttr_logo";
-
-            if (renderer_value == 0)
-                presenseInfo.state = "В игре. DX10";
-            if (renderer_value == 1)
-                presenseInfo.state = "В игре. DX11";
-
+            presenseInfo.state = renderer_value == 0 ? "В игре. DX10 (Static)" : renderer_value == 1 ? "В игре. DX10" :
+                renderer_value == 2 ? "В игре. DX11 (Static)" : renderer_value == 3 ? "В игре. DX11" : "В игре. ???";
             presenseInfo.state = "Локация: Фейк старт";
             break;
 
