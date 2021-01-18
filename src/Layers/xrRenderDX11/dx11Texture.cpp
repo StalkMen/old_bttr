@@ -30,56 +30,7 @@ void fix_texture_name(LPSTR fn)
 
 int get_texture_load_lod(LPCSTR fn)
 {
-#ifndef DISABLE_LOD_MANAGER
-	CInifile::Sect& sect	= pSettings->r_section("reduce_lod_texture_list");
-	CInifile::SectCIt it_	= sect.Data.begin();
-	CInifile::SectCIt it_e_	= sect.Data.end();
-#endif
-
-	ENGINE_API bool is_enough_address_space_available();
-	static bool enough_address_space_available = is_enough_address_space_available();
-
-#ifndef DISABLE_LOD_MANAGER
-	CInifile::SectCIt it	= it_;
-	CInifile::SectCIt it_e	= it_e_;
-
-	for(;it!=it_e;++it)
-	{
-		if( strstr(fn, it->first.c_str()) )
-		{
-			if(psTextureLOD<1) {
-				if ( enough_address_space_available )
-					return 0;
-				else
-					return 1;
-			}
-			else
-				if(psTextureLOD<3)
-					return 1;
-				else
-					return 2;
-		}
-	}
-
-	if(psTextureLOD<2) 
-	{
-		return 0;
-	}
-#endif
-
-#ifdef DISABLE_LOD_MANAGER
-	if (enough_address_space_available)
-		return psTextureLOD % 2 == 0 ? psTextureLOD / 2 : 0;
-#endif
-	else
-#ifndef DISABLE_LOD_MANAGER
-		if (psTextureLOD < 4)
-			return 1;
-		else
-			return 2;
-#else
-	return 2;
-#endif
+	return psTextureLOD % 2 == 0 ? psTextureLOD / 2 : 0;
 }
 
 u32 calc_texture_size(int lod, u32 mip_cnt, u32 orig_size)
@@ -315,10 +266,10 @@ else
 				LoadInfo.Height = IMG.Height;
 
 				// x64 crash workaround
-#pragma TODO("OldSerpskiStalker, èñïðàâëåíèå âûëåòà ñ òåêñòóðàìè íà õ64")
+#pragma TODO("OldSerpskiStalker, Ð¸ÑÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð²Ñ‹Ð»ÐµÑ‚Ð° Ñ Ñ‚ÐµÐºÑÑ‚ÑƒÑ€Ð°Ð¼Ð¸ Ð½Ð° Ñ…64")
 				LoadInfo.FirstMipLevel = img_loaded_lod;
 
-#pragma TODO("OldSerpskiStalker, ïî ñîâåòó Zagolski")
+#pragma TODO("OldSerpskiStalker, Ð¿Ð¾ ÑÐ¾Ð²ÐµÑ‚Ñƒ Zagolski")
 				LoadInfo.MipLevels = IMG.MipLevels;
 
 				if (bStaging)

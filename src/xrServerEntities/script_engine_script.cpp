@@ -197,26 +197,12 @@ IC	profile_timer_script	operator+	(const profile_timer_script &portion0, const p
     return					(result);
 }
 
-// IC	std::ostream& operator<<(std::ostream &stream, profile_timer_script &timer)
-// {
-// 	stream					<< timer.time();
-// 	return					(stream);
-// }
-
 #ifdef XRGAME_EXPORTS
     ICF	u32	script_time_global() { return Device.dwTimeGlobal; }
     ICF	u32	script_time_global_async() { return Device.TimerAsync_MMT(); }
 #else
     ICF	u32	script_time_global() { return 0; }
     ICF	u32	script_time_global_async() { return 0; }
-#endif //-XRGAME_EXPORTS
-
-#ifdef XRGAME_EXPORTS
-static bool is_enough_address_space_available_impl()
-{
-    ENGINE_API bool is_enough_address_space_available();
-    return is_enough_address_space_available();
-}
 #endif //-XRGAME_EXPORTS
 
 #pragma optimize("s",on)
@@ -240,8 +226,7 @@ void CScriptEngine::script_register(lua_State *L)
         def("time_global", &script_time_global),
         def("time_global_async", &script_time_global_async),
 #ifdef XRGAME_EXPORTS
-        def("device", &get_device),
-        def("is_enough_address_space_available", &is_enough_address_space_available_impl)
+        def("device", &get_device)
 #endif //-XRGAME_EXPORTS
     ];
 }

@@ -281,6 +281,9 @@ void					CRender::create					()
 	o.bug				= (strstr(Core.Params,"-bug"))?			TRUE	:FALSE	;
 	o.sunfilter			= (strstr(Core.Params,"-sunfilter"))?	TRUE	:FALSE	;
 	o.advancedpp		= FullRenderingFunctionality;
+	if (o.advancedpp)
+		Msg("# [CryRay Engine RenderINFO]: The full functionality of the renderer is active!");
+
 	o.volumetricfog		= ps_r2_ls_flags.test(R3FLAG_VOLUMETRIC_SMOKE);
 	o.sjitter			= (strstr(Core.Params,"-sjitter"))?		TRUE	:FALSE	;
 	o.depth16			= (strstr(Core.Params,"-depth16"))?		TRUE	:FALSE	;
@@ -294,7 +297,7 @@ void					CRender::create					()
 
 	o.no_ram_textures = ps_r__common_flags.test(RFLAG_NO_RAM_TEXTURES);
 	if (o.no_ram_textures)
-		Msg("# Managed textures disabled");
+		Msg("# [CryRay Engine RenderINFO]: Managed textures disabled");
 
 	o.ssao_blur_on		= p_engine_flags32.test(R2FLAGEXT_SSAO_BLUR) && (ps_r_ssao != 0);
 	o.ssao_opt_data		= p_engine_flags32.test(R2FLAGEXT_SSAO_OPT_DATA) && (ps_r_ssao != 0);
@@ -303,9 +306,9 @@ void					CRender::create					()
 	o.ssao_hbao			= !o.ssao_hdao && p_engine_flags32.test(R2FLAGEXT_SSAO_HBAO) && (ps_r_ssao != 0);
 	o.ssao_ssdo			= !o.ssao_hdao && !o.ssao_hbao && p_engine_flags32.test(R2FLAGEXT_SSAO_SSDO) && (ps_r_ssao != 0);
 
-	Msg("# [CryRay Engine RenderINFO]:: Information about MSAA with xrEngine, selected token: %i", ps_r3_msaa);
-	Msg("# [CryRay Engine RenderINFO]:: Information about MSAA A-Test with xrEngine, selected token: %i", ps_r3_msaa_atest);
-	Msg("# [CryRay Engine RenderINFO]:: Information about 'Sun Quality' with xrEngine, selected token: %i", ps_r_sun_quality);
+	Msg("# [CryRay Engine RenderINFO]: Information about MSAA with xrEngine, selected token: %i", ps_r3_msaa);
+	Msg("# [CryRay Engine RenderINFO]: Information about MSAA A-Test with xrEngine, selected token: %i", ps_r3_msaa_atest);
+	Msg("# [CryRay Engine RenderINFO]: Information about 'Sun Quality' with xrEngine, selected token: %i", ps_r_sun_quality);
 
 	//	TODO: fix hbao shader to allow to perform per-subsample effect!
 	// LV da da idi nahuy suka 
