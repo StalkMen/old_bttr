@@ -13,9 +13,7 @@ void CUIOptionsManager::RegisterItem(CUIOptionsItem* item, const shared_str& gro
 	groups_it it = m_groups.find(group);
 
 	if (m_groups.end() != it)
-	{
 		(*it).second.push_back(item);
-	}
 	else
 	{
 		group_name gr_name = group;
@@ -29,18 +27,20 @@ void CUIOptionsManager::RegisterItem(CUIOptionsItem* item, const shared_str& gro
 void CUIOptionsManager::UnRegisterItem(CUIOptionsItem* item)
 {
 	groups_it it;
-	for (it = m_groups.begin(); it!= m_groups.end(); it++){
+	for (it = m_groups.begin(); it!= m_groups.end(); it++)
 		for (u32 i = 0; i < (*it).second.size(); i++)
-			if ((*it).second[i] == item){
-				(*it).second.erase((*it).second.begin() + i); return;}
-	}
+			if ((*it).second[i] == item)
+			{
+				(*it).second.erase((*it).second.begin() + i); 
+				return;
+			}
 }
 
 void CUIOptionsManager::SendMessage2Group(const shared_str& group, const char* message)
 {
 	groups_it it = m_groups.find(group);
 
-	R_ASSERT2(m_groups.end() != it, "invalid group name");
+	CRASH_PROTECTION_OGSR(m_groups.end() != it, "! [CryRay Engine INFO]: Invalid settings group found in options!");
 
 	for (u32 i = 0; i < (*it).second.size(); i++)
 		(*it).second[i]->OnMessage(message);
@@ -50,7 +50,7 @@ void CUIOptionsManager::SaveBackupValues(const shared_str& group)
 {
 	groups_it it = m_groups.find(group);
 
-	R_ASSERT3(m_groups.end() != it, "invalid group name",group.c_str());
+	CRASH_PROTECTION_OGSR(m_groups.end() != it, "! [CryRay Engine INFO]: Invalid settings group found in options!", group.c_str());
 
 	for (u32 i = 0; i < (*it).second.size(); i++){
 		(*it).second[i]->SaveBackUpOptValue();
@@ -61,7 +61,7 @@ void CUIOptionsManager::SetCurrentValues(const shared_str& group)
 {
 	groups_it it = m_groups.find(group);
 
-	R_ASSERT3(m_groups.end() != it, "invalid group name",group.c_str());
+	CRASH_PROTECTION_OGSR(m_groups.end() != it, "! [CryRay Engine INFO]: Invalid settings group found in options!", group.c_str());
 
 	for (u32 i = 0; i < (*it).second.size(); i++)
 		(*it).second[i]->SetCurrentOptValue();
@@ -71,7 +71,7 @@ void CUIOptionsManager::SaveValues(const shared_str& group)
 {
 	groups_it it = m_groups.find(group);
 
-	R_ASSERT3(m_groups.end() != it, "invalid group name",group.c_str());
+	CRASH_PROTECTION_OGSR(m_groups.end() != it, "! [CryRay Engine INFO]: Invalid settings group found in options!", group.c_str());
 
 	for (u32 i = 0; i < (*it).second.size(); i++)
 	{
@@ -84,7 +84,7 @@ void CUIOptionsManager::SaveValues(const shared_str& group)
 void CUIOptionsManager::UndoGroup(const shared_str& group)
 {
 	groups_it it = m_groups.find(group);	
-	R_ASSERT2(m_groups.end() != it, "invalid group name");
+	CRASH_PROTECTION_OGSR(m_groups.end() != it, "! [CryRay Engine INFO]: Invalid settings group found in options!");
 
 	for (u32 i = 0; i < (*it).second.size(); i++)
 	{
