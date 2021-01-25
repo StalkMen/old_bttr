@@ -1,4 +1,5 @@
 #pragma once
+#include <wrl.h>
 
 const		u32					occq_size			= 8192; //256	;	// queue for occlusion queries
 
@@ -18,16 +19,16 @@ private:
 	struct	_Q	
 	{
 		u32			order;
-		ID3DQuery*	Q;
+		Microsoft::WRL::ComPtr<ID3DQuery> Q;
 		u32         ttl;
 	};
 
-	static const u32		iInvalidHandle = u32(-1);
+	static constexpr u32    iInvalidHandle = 0xFFFFFFFF;
 
-	BOOL					enabled;	// 
-	xr_vector<_Q>			pool;		// sorted (max ... min), insertions are usually at the end
-	xr_vector<_Q>			used;		// id's are generated from this and it is cleared from back only
-	xr_vector<u32>			fids;		// free id's
+	bool enabled;
+	std::vector<_Q>			pool;		// sorted (max ... min), insertions are usually at the end
+	std::vector<_Q>			used;		// id's are generated from this and it is cleared from back only
+	std::vector<u32>		fids;		// free id's
 	u32						last_frame;
 
 	void			cleanup_lost();
