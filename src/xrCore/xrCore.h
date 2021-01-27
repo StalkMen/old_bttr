@@ -19,6 +19,11 @@
 
 #pragma warning(disable:4996)
 
+#ifndef _WIN32_WINNT
+// Request Windows 7 functionality
+#define _WIN32_WINNT _WIN32_WINNT_WIN7
+#endif
+
 #if (defined(_DEBUG) || defined(MIXED) || defined(DEBUG)) && !defined(FORCE_NO_EXCEPTIONS)
 // "debug" or "mixed"
 #if !defined(_CPPUNWIND)
