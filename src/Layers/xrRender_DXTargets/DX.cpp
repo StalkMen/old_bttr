@@ -446,7 +446,7 @@ void					CRender::create					()
 
 	Models						= xr_new<CModelPool>		();
 	PSLibrary.OnCreate			();
-	HWOCC.occq_create			(occq_size);
+//	HWOCC.occq_create			(occq_size);
 
 	rmNormal					();
 	marker						= 0;
@@ -528,7 +528,7 @@ void CRender::reset_end()
 #else
 	q_sync_point[0]->End();
 #endif
-	HWOCC.occq_create			(occq_size);
+//	HWOCC.occq_create			(occq_size);
 
 	Target						=	xr_new<CRenderTarget>	();
 

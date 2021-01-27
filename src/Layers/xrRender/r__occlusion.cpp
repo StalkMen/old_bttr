@@ -115,9 +115,12 @@ R_occlusion::occq_result R_occlusion::occq_get(u32& ID) {
 }
 
 
-void R_occlusion::occq_free(u32 ID) {
-    if (used[ID].Q) {
+void R_occlusion::occq_free(u32 ID)
+{
+    if (used[ID].Q)
+    {
         pool.push_back(used[ID]);
         used[ID].Q.Reset();
         fids.push_back(std::move(ID));
     }
+}

@@ -40,7 +40,7 @@ public:
 	R_occlusion		();
 	~R_occlusion	();
 
-	void			occq_create		(u32	limit	);
+//	void			occq_create		(u32	limit	);
 	void			occq_destroy	(				);
 	u32				occq_begin		(u32&	ID		);	// returns 'order'
 	void			occq_end		(u32&	ID		);
