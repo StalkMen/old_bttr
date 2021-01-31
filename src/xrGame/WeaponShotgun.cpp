@@ -166,7 +166,10 @@ void CWeaponShotgun::switch2_EndReload	()
 void CWeaponShotgun::PlayAnimOpenWeapon()
 {
 	VERIFY(GetState()==eReload);
-	PlayHUDMotion("anm_open",FALSE,this,GetState());
+	if (m_ammoElapsed.type1 == 0)
+		PlayHUDMotion("anm_open_empty", FALSE, this, GetState());
+	else
+		PlayHUDMotion("anm_open", FALSE, this, GetState());
 
 	if (g_sprint_reload_wpn && smart_cast<CActor*>(H_Parent()) != NULL && Actor()->BlockCounter() > 0 || Actor()->BlockCounter() <= 0)
 		Actor()->BlockCounterSet(0);
@@ -272,5 +275,125 @@ void	CWeaponShotgun::net_Import	(NET_Packet& P)
 		Msg("! %s reload to %s", *l_cartridge.m_ammoSect, m_ammoTypes[LocalAmmoType].c_str());
 #endif
 		l_cartridge.Load( m_ammoTypes[LocalAmmoType].c_str(), LocalAmmoType, m_APk );
+	}
+}
+
+void CWeaponShotgun::PlayAnimShow()
+{
+	VERIFY(GetState() == eShowing);
+
+	if (m_ammoElapsed.type1 == 0)
+		PlayHUDMotion("anm_show_empty", FALSE, this, GetState());
+	else
+		inherited::PlayAnimShow();
+}
+
+void CWeaponShotgun::PlayAnimBore()
+{
+	if (m_ammoElapsed.type1 == 0)
+		PlayHUDMotion("anm_bore_empty", TRUE, this, GetState());
+	else
+		inherited::PlayAnimBore();
+}
+
+void CWeaponShotgun::PlayAnimIdleSprint()
+{
+	if (m_ammoElapsed.type1 == 0)
+		PlayHUDMotion("anm_idle_sprint_empty", TRUE, NULL, GetState());
+	else
+		inherited::PlayAnimIdleSprint();
+}
+
+void CWeaponShotgun::PlayAnimIdleMoving()
+{
+	if (m_ammoElapsed.type1 == 0)
+		PlayHUDMotion("anm_idle_moving_empty", TRUE, NULL, GetState());
+	else
+		inherited::PlayAnimIdleMoving();
+}
+
+void CWeaponShotgun::PlayAnimIdle()
+{
+	if (TryPlayAnimIdle()) return;
+
+	if (IsZoomed())
+		PlayAnimAim();
+	else
+	{
+		if (m_ammoElapsed.type1 == 0)
+			PlayHUDMotion("anm_idle_empty", TRUE, NULL, GetState());
+		else
+			inherited::PlayAnimIdle();
+	}
+}
+
+void CWeaponShotgun::PlayAnimCrouchIdleMoving()
+{
+	if (m_ammoElapsed.type1 == 0)
+		PlayHUDMotion("anm_idle_moving_crouch_empty", TRUE, NULL, GetState());
+	else
+		PlayHUDMotion("anm_idle_moving_crouch", TRUE, NULL, GetState());
+}
+
+void CWeaponShotgun::PlayAnimMovingSlow()
+{
+	if (m_ammoElapsed.type1 == 0)
+		PlayHUDMotion("anm_idle_moving_slow_empty", TRUE, NULL, GetState());
+	else
+		PlayHUDMotion("anm_idle_moving_slow", TRUE, NULL, GetState());
+}
+
+void CWeaponShotgun::PlayAnimAim()
+{
+	if (m_ammoElapsed.type1 == 0)
+	{
+		CActor* pActor = smart_cast<CActor*>(H_Parent());
+		if (pActor)
+		{
+			CEntity::SEntityState st;
+			pActor->g_State(st);
+			if (pActor->AnyMove())
+			{
+				if (HudAnimationExist("anm_idle_aim_moving_empty"))
+					PlayHUDMotion("anm_idle_aim_moving_empty", TRUE, NULL, GetState());
+				else
+					PlayHUDMotion("anm_idle_aim_empty", TRUE, NULL, GetState());
+			}
+			else
+				PlayHUDMotion("anm_idle_aim_empty", TRUE, NULL, GetState());
+		}
+	}
+	else
+		inherited::PlayAnimAim();
+}
+
+void CWeaponShotgun::PlayAnimHide()
+{
+	VERIFY(GetState() == eHiding);
+	if (m_ammoElapsed.type1 == 0)
+	{
+		PlaySound("sndClose", get_LastFP());
+		PlayHUDMotion("anm_hide_empty", TRUE, this, GetState());
+	}
+	else
+		inherited::PlayAnimHide();
+}
+
+void CWeaponShotgun::PlayAnimShoot()
+{
+	VERIFY(GetState() == eFire);
+	if (m_ammoElapsed.type1 > 1)
+		inherited::PlayAnimShoot();
+	else
+	{
+		if (IsZoomed())
+		{
+			if (HudAnimationExist("anm_shot_l_when_aim"))
+				PlayHUDMotion("anm_shot_l_when_aim", FALSE, this, GetState());
+			else
+				PlayHUDMotion("anm_shot_l", FALSE, this, GetState());
+		}
+		else
+			PlayHUDMotion("anm_shot_l", FALSE, this, GetState());
 	}
 }

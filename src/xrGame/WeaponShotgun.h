@@ -26,6 +26,17 @@ public:
 	virtual void	PlayAnimAddOneCartridgeWeapon();
 	void			PlayAnimCloseWeapon	();
 
+	virtual void	PlayAnimShow();
+	virtual void	PlayAnimIdle();
+	virtual void	PlayAnimIdleMoving();
+	virtual void	PlayAnimIdleSprint();
+	virtual void	PlayAnimHide();
+	virtual void	PlayAnimShoot();
+	virtual void	PlayAnimBore();
+	virtual void	PlayAnimAim();
+	virtual void	PlayAnimCrouchIdleMoving();
+	virtual void	PlayAnimMovingSlow();
+
 	virtual bool	Action(u16 cmd, u32 flags);
 
 protected:
