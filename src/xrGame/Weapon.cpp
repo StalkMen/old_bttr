@@ -555,6 +555,7 @@ void CWeapon::Load(LPCSTR section)
 
     m_zoom_params.m_bZoomEnabled = !!pSettings->r_bool(section, "zoom_enabled");
     m_zoom_params.m_fZoomRotateTime = pSettings->r_float(section, "zoom_rotate_time");
+    m_zoom_params.m_fZoomOutTime	= READ_IF_EXISTS(pSettings,r_float,section,"zoom_out_time", m_zoom_params.m_fZoomRotateTime);
 
     m_zoom_params.m_bUseDynamicZoom = FALSE;
     m_zoom_params.m_sUseZoomPostprocess = 0;
@@ -2204,7 +2205,7 @@ void CWeapon::UpdateHudAdditonal(Fmatrix& trans)
 		hud_rotation.translate_over(curr_offs);
 		trans.mulB_43(hud_rotation);
 
-        float src = 10 * Device.fTimeDelta * 0.65;
+        float src = 10 * Device.fTimeDelta * ( pActor->IsZoomAimingMode() ? m_zoom_params.m_fZoomRotateTime : m_zoom_params.m_fZoomOutTime ); //0.65;
         float target = pActor->IsZoomAimingMode() ? 1.3f : -0.3f;
         clamp(src, 0.f, 1.f);
         m_zoom_params.m_fZoomRotationFactor = _lerp(m_zoom_params.m_fZoomRotationFactor, target, src);
