@@ -1973,13 +1973,6 @@ xr_token token_weight_size[] = {
 	{ nullptr, 0 }
 };
 
-u32 type_crosshair = 0;
-xr_token type_crosshair_token[] = {
-	{ "type_crosshair_0",  0}, // стандарт
-	{ "type_crosshair_1",  1},
-	{ nullptr, 0 }
-};
-
 Flags32 p_game_flags32 = { /*ALIFE_FULL_ACTIVE*/ };
 #define ALIFE_FULL_ACTIVE (1<<0)
 
@@ -1997,7 +1990,6 @@ void CCC_RegisterCommands()
 	CMD1(CCC_TimeFactor, "xrGame_time_factor");
 
 	CMD3(CCC_Token, "xrGame_actor_portable_weight", &token_weight, token_weight_size);
-	CMD3(CCC_Token, "xrGame_type_crosshair", &type_crosshair, type_crosshair_token);
 
 	CMD3(CCC_Mask,    "xrGame_3d_scopes", &psActorFlags, AF_3DSCOPE_ENABLE);
 	if (BttR_mode)

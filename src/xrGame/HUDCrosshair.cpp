@@ -27,8 +27,11 @@ CHUDCrosshair::~CHUDCrosshair	()
 void CHUDCrosshair::Load		()
 {
 	//все размеры в процентах от длины экрана
-	min_radius_perc = pSettings->r_float ("hud_cursor", "min_radius");
-	cross_color = pSettings->r_fcolor ("hud_cursor", "cross_color").get();
+	//длина крестика 
+	cross_length_perc = pSettings->r_float (HUD_CURSOR_SECTION, "cross_length");
+	min_radius_perc = pSettings->r_float (HUD_CURSOR_SECTION, "min_radius");
+	max_radius_perc = pSettings->r_float (HUD_CURSOR_SECTION, "max_radius");
+	cross_color = pSettings->r_fcolor (HUD_CURSOR_SECTION, "cross_color").get();
 }
 
 //выставляет radius от min_radius до max_radius
@@ -122,10 +125,9 @@ void CHUDCrosshair::OnRender()
 
 		EnvCryRay.UIRender->StartPrimitive(10, IUIRender::ptLineList, UI().m_currentPointType);
 
-		//длина крестика
-		float cross_length = (type_crosshair == 0 ? static_cast<float>(0.015f) : static_cast<float>(0.0010f)) * scr_size.x;
+		float cross_length = cross_length_perc * scr_size.x;
 		float min_radius = min_radius_perc * scr_size.x;
-		float max_radius = (type_crosshair == 0 ? static_cast<float>(1.0f) : static_cast<float>(0.0f)) * scr_size.x;
+		float max_radius = max_radius_perc * scr_size.x;
 
 		clamp(target_radius, min_radius, max_radius);
 
@@ -194,10 +196,9 @@ void CHUDCrosshair::OnRender()
 
 		EnvCryRay.UIRender->StartPrimitive(10, IUIRender::ptLineList, UI().m_currentPointType);
 
-		//длина крестика
-		float cross_length = (type_crosshair == 0 ? static_cast<float>(0.015f) : static_cast<float>(0.0010f)) * scr_size.x;
+		float cross_length = cross_length_perc * scr_size.x;
 		float min_radius = min_radius_perc * scr_size.x;
-		float max_radius = (type_crosshair == 0 ? static_cast<float>(1.0f) : static_cast<float>(0.0f)) * scr_size.x;
+		float max_radius = max_radius_perc * scr_size.x;
 
 		clamp(target_radius, min_radius, max_radius);
 
