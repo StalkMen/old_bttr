@@ -37,6 +37,7 @@ void CWeaponShotgun::Load	(LPCSTR section)
 		m_sounds.LoadSound(section, "snd_add_cartridge", "sndAddCartridge", false, m_eSoundAddCartridge);
 
 		m_sounds.LoadSound(section, "snd_close_weapon", "sndClose", false, m_eSoundClose);
+		m_sounds.LoadSound(section, "snd_close_weapon_empty", "sndCloseEmpty", false, m_eSoundClose);
 	};
 
 }
@@ -159,7 +160,10 @@ void CWeaponShotgun::switch2_AddCartgidge	()
 void CWeaponShotgun::switch2_EndReload	()
 {
 	SetPending			(FALSE);
-	PlaySound			("sndClose",get_LastFP());
+	if (m_ammoElapsed.type1 == 0)
+		PlaySound("sndCloseEmpty",get_LastFP());
+	else
+		PlaySound("sndClose", get_LastFP());
 	PlayAnimCloseWeapon	();
 }
 
