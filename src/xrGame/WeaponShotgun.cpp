@@ -177,13 +177,19 @@ void CWeaponShotgun::PlayAnimOpenWeapon()
 void CWeaponShotgun::PlayAnimAddOneCartridgeWeapon()
 {
 	VERIFY(GetState()==eReload);
-	PlayHUDMotion("anm_add_cartridge",FALSE,this,GetState());
+	if (m_ammoElapsed.type1 == 0)
+		PlayHUDMotion("anm_add_cartridge_empty",FALSE,this,GetState());
+	else
+		PlayHUDMotion("anm_add_cartridge", FALSE, this, GetState());
 }
 void CWeaponShotgun::PlayAnimCloseWeapon()
 {
 	VERIFY(GetState()==eReload);
 
-	PlayHUDMotion("anm_close",FALSE,this,GetState());
+	if (m_ammoElapsed.type1 == 0)
+		PlayHUDMotion("anm_close_empty",FALSE,this,GetState());
+	else
+		PlayHUDMotion("anm_close", FALSE, this, GetState());
 }
 
 bool CWeaponShotgun::HaveCartridgeInInventory(u8 cnt)
