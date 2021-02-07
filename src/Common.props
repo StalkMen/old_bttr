@@ -18,6 +18,7 @@
   <PropertyGroup>
     <IncludePath>$(SolutionDir)..\src\3rd party;$(IncludePath);$(xrSdkDir)include;$(xrSdkDir)include\OpenAutomate;$(xrSdkDir)include\nvapi;$(xrSdkDir)include\dxsdk</IncludePath>
     <OutDir>$(xrGameDir)bin_dbg\</OutDir>
+	<PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
