@@ -59,16 +59,16 @@ void CHudItem::Load(LPCSTR section)
     m_strafe_offset[1] = READ_IF_EXISTS(pSettings, r_fvector3, hud_sect, "strafe_hud_offset_rot", Fvector().set(0.0f, 0.0f, 4.5f));
 
     // ֿאנאלוענû סענויפא
-    float fFullStrafeTime = READ_IF_EXISTS(pSettings, r_float, section, "strafe_transition_time", 0.25f);
-    bool bStrafeEnabled = !!READ_IF_EXISTS(pSettings, r_bool, section, "strafe_enabled", TRUE);
+    float fFullStrafeTime = READ_IF_EXISTS(pSettings, r_float, hud_sect, "strafe_transition_time", 0.25f);
+    bool bStrafeEnabled = !!READ_IF_EXISTS(pSettings, r_bool, hud_sect, "strafe_enabled", TRUE);
 
     m_strafe_offset[2].set(bStrafeEnabled ? 1.0f : 0.0f, fFullStrafeTime, 0.f); // normal
 
-    m_hud_fov_add_mod = READ_IF_EXISTS(pSettings, r_float, section, "hud_fov_addition_modifier", 0.f);
-    m_nearwall_dist_min = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_dist_min", 0.5f);
-    m_nearwall_dist_max = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_dist_max", 1.f);
-    m_nearwall_target_hud_fov = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_target_hud_fov", 0.27f);
-    m_nearwall_speed_mod = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_speed_mod", 10.f);
+    m_hud_fov_add_mod = READ_IF_EXISTS(pSettings, r_float, hud_sect, "hud_fov_addition_modifier", 0.f);
+    m_nearwall_dist_min = READ_IF_EXISTS(pSettings, r_float, hud_sect, "nearwall_dist_min", 0.5f);
+    m_nearwall_dist_max = READ_IF_EXISTS(pSettings, r_float, hud_sect, "nearwall_dist_max", 1.f);
+    m_nearwall_target_hud_fov = READ_IF_EXISTS(pSettings, r_float, hud_sect, "nearwall_target_hud_fov", 0.27f);
+    m_nearwall_speed_mod = READ_IF_EXISTS(pSettings, r_float, hud_sect, "nearwall_speed_mod", 10.f);
 }
 
 void CHudItem::PlaySound(LPCSTR alias, const Fvector& position)
