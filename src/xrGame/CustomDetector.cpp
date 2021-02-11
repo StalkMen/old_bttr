@@ -374,3 +374,8 @@ bool CAfList::feel_touch_contact	(CObject* O)
 	}
 	return						res;
 }
+
+void CCustomDetector::ForceHide()
+{
+	g_player_hud->detach_item(this);
+}

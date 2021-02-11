@@ -2050,5 +2050,55 @@ void CScriptGameObject::SetCharacterIcon(LPCSTR iconName)
 	}
 	return pInventoryOwner->SetIcon(iconName);
 }
-#endif
 //Alundaio: END
+
+void CScriptGameObject::ShowDetector(bool fast_mode)
+{
+    PIItem Det = Actor()->inventory().ItemFromSlot(DETECTOR_SLOT);
+    if (Det)
+    {
+        CCustomDetector* pDet = smart_cast<CCustomDetector*>(Det);
+        if (pDet)
+            pDet->ShowDetector(fast_mode);
+        else
+            ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CActor : item in detector slot is not detector!");
+    }
+    else
+        ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CActor : actor hasn't detector in slot!");
+}
+
+void CScriptGameObject::HideDetector(bool fast_mode)
+{
+    PIItem Det = Actor()->inventory().ItemFromSlot(DETECTOR_SLOT);
+    if (Det)
+    {
+        CCustomDetector* pDet = smart_cast<CCustomDetector*>(Det);
+        if (pDet)
+        {
+            if(pDet->IsWorking())
+                pDet->HideDetector(fast_mode);
+            else
+                ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CActor : detector is not active!");
+        }
+        else
+            ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CActor : item in detector slot is not detector!");
+    }
+    else
+        ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CActor : actor hasn't detector in slot!");
+}
+
+void CScriptGameObject::ForceHideDetector()
+{
+    PIItem Det = Actor()->inventory().ItemFromSlot(DETECTOR_SLOT);
+    if (Det)
+    {
+        CCustomDetector* pDet = smart_cast<CCustomDetector*>(Det);
+        if (pDet)
+            pDet->ForceHide();
+        else
+            ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CActor : item in detector slot is not detector!");
+    }
+    else
+        ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError, "CActor : actor hasn't detector in slot!");
+}
+#endif

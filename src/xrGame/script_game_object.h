@@ -937,6 +937,10 @@ public:
 			void		SetCharacterIcon(LPCSTR iconName);
 			void		BlockHands(bool val);
             bool		IsHandsBlocked();
+
+            void		ShowDetector(bool fast_mode = false);
+            void		HideDetector(bool fast_mode = false);
+            void		ForceHideDetector();
 #endif
 //-Alundaio
 

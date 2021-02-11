@@ -406,5 +406,9 @@ class_<CScriptGameObject> &script_register_game_object1(class_<CScriptGameObject
 		.def("block_hands", 					&CScriptGameObject::BlockHands)
 		.def("is_hands_blocked", 				&CScriptGameObject::IsHandsBlocked)
 
+		.def("show_detector",					&CScriptGameObject::ShowDetector)
+		.def("hide_detector",					&CScriptGameObject::HideDetector)
+		.def("force_hide_detector",				&CScriptGameObject::ForceHideDetector)
+
 	;return	(instance);
 }
