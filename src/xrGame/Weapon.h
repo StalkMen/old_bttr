@@ -59,7 +59,6 @@ public:
 	virtual float			GetControlInertionFactor() const;
 	IC		float			GetZRotatingFactor()    const { return m_zoom_params.m_fZoomRotationFactor; }
 	IC		float			GetSecondVPZoomFactor() const { return m_zoom_params.m_fSecondVPFovFactor; }
-			float			GetHudFov();
 			float			GetSecondVPFov() const;
 
 			shared_str		GetNameWithAttachment();
@@ -68,13 +67,6 @@ public:
 			float			m_fScopeInertionFactor;
 			float           m_fZoomStepCount;
 			float           m_fZoomMinKoeff;
-	// SWM3.0 hud collision
-			float			m_hud_fov_add_mod;
-			float			m_nearwall_dist_max;
-			float			m_nearwall_dist_min;
-			float			m_nearwall_last_hud_fov;
-			float			m_nearwall_target_hud_fov;
-			float			m_nearwall_speed_mod;
 			
 			float			m_fLR_MovingFactor; // Фактор бокового наклона худа при ходьбе [-1; +1]
 			float			m_fLR_CameraFactor; // Фактор бокового наклона худа при движении камеры [-1; +1]

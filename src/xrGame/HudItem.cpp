@@ -16,6 +16,8 @@
 
 #include "script_callback_ex.h"
 #include "script_game_object.h"
+#include "HUDManager.h"
+ENGINE_API extern float psHUD_FOV_def; //--#SM+#--
 
 CHudItem::CHudItem()
 {
@@ -25,6 +27,11 @@ CHudItem::CHudItem()
     m_bStopAtEndAnimIsRunning = false;
     m_current_motion_def = NULL;
     m_started_rnd_anim_idx = u8(-1);
+    m_fLR_MovingFactor = 0.f;
+    m_fLR_CameraFactor = 0.f;
+    m_fLR_InertiaFactor = 0.f;
+    m_fUD_InertiaFactor = 0.f;
+    m_nearwall_last_hud_fov = psHUD_FOV_def;
 }
 
 DLL_Pure *CHudItem::_construct()
@@ -47,6 +54,21 @@ void CHudItem::Load(LPCSTR section)
     m_animation_slot = pSettings->r_u32(section, "animation_slot");
 
     m_sounds.LoadSound(section, "snd_bore", "sndBore", true);
+    // Смещение в стрейфе
+    m_strafe_offset[0] = READ_IF_EXISTS(pSettings, r_fvector3, hud_sect, "strafe_hud_offset_pos", Fvector().set(0.015f, 0.0f, 0.0f));
+    m_strafe_offset[1] = READ_IF_EXISTS(pSettings, r_fvector3, hud_sect, "strafe_hud_offset_rot", Fvector().set(0.0f, 0.0f, 4.5f));
+
+    // Параметры стрейфа
+    float fFullStrafeTime = READ_IF_EXISTS(pSettings, r_float, section, "strafe_transition_time", 0.25f);
+    bool bStrafeEnabled = !!READ_IF_EXISTS(pSettings, r_bool, section, "strafe_enabled", TRUE);
+
+    m_strafe_offset[2].set(bStrafeEnabled ? 1.0f : 0.0f, fFullStrafeTime, 0.f); // normal
+
+    m_hud_fov_add_mod = READ_IF_EXISTS(pSettings, r_float, section, "hud_fov_addition_modifier", 0.f);
+    m_nearwall_dist_min = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_dist_min", 0.5f);
+    m_nearwall_dist_max = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_dist_max", 1.f);
+    m_nearwall_target_hud_fov = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_target_hud_fov", 0.27f);
+    m_nearwall_speed_mod = READ_IF_EXISTS(pSettings, r_float, section, "nearwall_speed_mod", 10.f);
 }
 
 void CHudItem::PlaySound(LPCSTR alias, const Fvector& position)
@@ -193,8 +215,225 @@ void CHudItem::SendHiddenItem()
     }
 }
 
-void CHudItem::UpdateHudAdditonal(Fmatrix& hud_trans)
-{}
+void __inertion(float& _val_cur, const float& _val_trgt, const float& _friction)
+{
+    float friction_i = 1.f - _friction;
+    _val_cur = _val_cur * _friction + _val_trgt * friction_i;
+}
+
+void CHudItem::UpdateHudAdditonal(Fmatrix& trans)
+{
+    attachable_hud_item* hi = HudItemData();
+    R_ASSERT(hi);
+
+    CActor* pActor = smart_cast<CActor*>(object().H_Parent());
+    if (!pActor)
+        return;
+
+    //============= Iiaaioaaeeaaai iauea ia?aiaiiua =============//
+
+    float fInertiaPower = GetInertionPowerFactor();
+
+    u32 iMovingState = pActor->MovingState();
+
+    float fYMag = pActor->fFPCamYawMagnitude;
+    float fPMag = pActor->fFPCamPitchMagnitude;
+
+    static float fAvgTimeDelta = Device.fTimeDelta;
+    __inertion(fAvgTimeDelta, Device.fTimeDelta, 0.8f);
+
+    //============= Aieiaie no?aeo n i?o?eai =============//
+    float fStrafeMaxTime = m_strafe_offset[2].y; // Iaen. a?aiy a naeoiaao, ca eioi?ia iu iaeeiieiny ec oaio?aeuiiai iiei?aiey
+    if (fStrafeMaxTime <= EPS)
+        fStrafeMaxTime = 0.01f;
+
+    float fStepPerUpd = fAvgTimeDelta / fStrafeMaxTime; // Aaee?eia eciaiaiea oaeoi?a iiai?ioa
+
+    // Aiaaaeyai aieiaie iaeeii io aae?aiey eaia?u
+    float fCamReturnSpeedMod = 1.5f;
+
+    float fCamLimit = 0.8f;
+
+    // N?eoaai no?aeo io iiai?ioa eaia?u
+    if (fYMag != 0.0f)
+    { //--> Eaia?a e?ooeony ii ine Y
+        m_fLR_CameraFactor -= (fYMag * 0.005f);
+
+        float fCamLimitBlend = 1.0f - ((1.0f - fCamLimit) * 1.0f);
+        clamp(m_fLR_CameraFactor, -fCamLimitBlend, fCamLimitBlend);
+    }
+    else
+    { //--> Eaia?a ia iiai?a?eaaaony - oae?aai iaeeii
+        if (m_fLR_CameraFactor < 0.0f)
+        {
+            m_fLR_CameraFactor += fStepPerUpd * (fCamReturnSpeedMod);
+            clamp(m_fLR_CameraFactor, -1.0f, 0.0f);
+        }
+        else
+        {
+            m_fLR_CameraFactor -= fStepPerUpd * (fCamReturnSpeedMod);
+            clamp(m_fLR_CameraFactor, 0.0f, 1.0f);
+        }
+    }
+    // Aiaaaeyai aieiaie iaeeii io oiauau aaie
+    float fChangeDirSpeedMod = 3; // Aineieuei auno?i iaiyai iai?aaeaiea iai?aaeaiea iaeeiia, anee iii a a?oao? noi?iio io oaeouaai
+
+    if ((iMovingState & mcLStrafe) != 0)
+    { // Aae?ainy aeaai
+        float fVal = (m_fLR_MovingFactor > 0.f ? fStepPerUpd * fChangeDirSpeedMod : fStepPerUpd);
+        m_fLR_MovingFactor -= fVal;
+    }
+    else if ((iMovingState & mcRStrafe) != 0)
+    { // Aae?ainy ai?aai
+        float fVal = (m_fLR_MovingFactor < 0.f ? fStepPerUpd * fChangeDirSpeedMod : fStepPerUpd);
+        m_fLR_MovingFactor += fVal;
+    }
+    else
+    { // Aaeaaainy a e?aii a?oaii iai?aaeaiee - ieaaii oae?aai iaeeii
+        if (m_fLR_MovingFactor < 0.0f)
+        {
+            m_fLR_MovingFactor += fStepPerUpd;
+            clamp(m_fLR_MovingFactor, -1.0f, 0.0f);
+        }
+        else
+        {
+            m_fLR_MovingFactor -= fStepPerUpd;
+            clamp(m_fLR_MovingFactor, 0.0f, 1.0f);
+        }
+    }
+
+    clamp(m_fLR_MovingFactor, -1.0f, 1.0f); // Oaeoi? aieiaie oiauau ia aie?ai i?aauoaou yoe eeieou
+
+    // Au?eneyai e ii?iaeece?oai eoiaiaue oaeoi? iaeeiia
+    float fLR_Factor = m_fLR_MovingFactor + m_fLR_CameraFactor;
+    clamp(fLR_Factor, -1.0f, 1.0f); // Oaeoi? aieiaie oiauau ia aie?ai i?aauoaou yoe eeieou
+
+    float fTrgStrafe = 1.f + fLR_Factor * (-1.f - 1.f);
+    float mStrafeFactor = fLR_Factor * (1 - fStepPerUpd) + fTrgStrafe * fStepPerUpd;
+
+    // I?iecaiaei iaeeii noaiea aey ii?iaeuiiai ?a?eia e aeia
+    if (m_strafe_offset[2].x != 0.0f)//<-- Aey ieaaiiai ia?aoiaa
+    {
+        Fvector curr_offs, curr_rot;
+
+        // Niauaiea iiceoee ooaa a no?aeoa
+        curr_offs = m_strafe_offset[0]; //pos
+        curr_offs.mul(mStrafeFactor);                   // Oiii?aai ia oaeoi? no?aeoa
+
+        // Iiai?io ooaa a no?aeoa
+        curr_rot = m_strafe_offset[1]; //rot
+        curr_rot.mul(-PI / 180.f);                          // I?aia?acoai oaeu a ?aaeaiu
+        curr_rot.mul(mStrafeFactor);                   // Oiii?aai ia oaeoi? no?aeoa
+
+        Fmatrix hud_rotation;
+        Fmatrix hud_rotation_y;
+
+        hud_rotation.identity();
+        hud_rotation.rotateX(curr_rot.x);
+
+        hud_rotation_y.identity();
+        hud_rotation_y.rotateY(curr_rot.y);
+        hud_rotation.mulA_43(hud_rotation_y);
+
+        hud_rotation_y.identity();
+        hud_rotation_y.rotateZ(curr_rot.z);
+        hud_rotation.mulA_43(hud_rotation_y);
+
+        hud_rotation.translate_over(curr_offs);
+        trans.mulB_43(hud_rotation);
+    }
+
+    //============= Eia?oey i?o?ey =============//
+   // Ia?aiao?u eia?oee
+    float fInertiaSpeedMod = hi->m_measures.m_inertion_params.m_tendto_speed;
+
+    float fInertiaReturnSpeedMod = hi->m_measures.m_inertion_params.m_tendto_ret_speed;
+
+    float fInertiaMinAngle = hi->m_measures.m_inertion_params.m_min_angle;
+
+    Fvector4 vIOffsets; // x = L, y = R, z = U, w = D
+    vIOffsets.x = hi->m_measures.m_inertion_params.m_offset_LRUD.x * fInertiaPower;
+    vIOffsets.y = hi->m_measures.m_inertion_params.m_offset_LRUD.y * fInertiaPower;
+    vIOffsets.z = hi->m_measures.m_inertion_params.m_offset_LRUD.z * fInertiaPower;
+    vIOffsets.w = hi->m_measures.m_inertion_params.m_offset_LRUD.w * fInertiaPower;
+
+    // Aun?eouaaai eia?oe? ec iiai?ioia eaia?u
+    bool bIsInertionPresent = m_fLR_InertiaFactor != 0.0f || m_fUD_InertiaFactor != 0.0f;
+    if (abs(fYMag) > fInertiaMinAngle || bIsInertionPresent)
+    {
+        float fSpeed = fInertiaSpeedMod;
+        if (fYMag > 0.0f && m_fLR_InertiaFactor > 0.0f ||
+            fYMag < 0.0f && m_fLR_InertiaFactor < 0.0f)
+        {
+            fSpeed *= 2.f; //--> Onei?yai eia?oe? i?e aae?aiee a i?ioeaiiiei?io? noi?iio
+        }
+
+        m_fLR_InertiaFactor -= (fYMag * fAvgTimeDelta * fSpeed); // Ai?eciioaeu (i.a. > |1.0|)
+    }
+
+    if (abs(fPMag) > fInertiaMinAngle || bIsInertionPresent)
+    {
+        float fSpeed = fInertiaSpeedMod;
+        if (fPMag > 0.0f && m_fUD_InertiaFactor > 0.0f ||
+            fPMag < 0.0f && m_fUD_InertiaFactor < 0.0f)
+        {
+            fSpeed *= 2.f; //--> Onei?yai eia?oe? i?e aae?aiee a i?ioeaiiiei?io? noi?iio
+        }
+
+        m_fUD_InertiaFactor -= (fPMag * fAvgTimeDelta * fSpeed); // Aa?oeeaeu (i.a. > |1.0|)
+    }
+
+    clamp(m_fLR_InertiaFactor, -1.0f, 1.0f);
+    clamp(m_fUD_InertiaFactor, -1.0f, 1.0f);
+
+    // Ieaaiia caoooaiea eia?oee (iniiaiia, ii aac eeiaeiie ieeiaaa ia iionoeo eia?oe? ai iieiiai 0.0f)
+    m_fLR_InertiaFactor *= clampr(1.f - fAvgTimeDelta * fInertiaReturnSpeedMod, 0.0f, 1.0f);
+    m_fUD_InertiaFactor *= clampr(1.f - fAvgTimeDelta * fInertiaReturnSpeedMod, 0.0f, 1.0f);
+
+    // Ieieiaeuiia eeiaeiia caoooaiea eia?oee i?e iieia (ai?eciioaeu)
+    if (fYMag == 0.0f)
+    {
+        float fRetSpeedMod = (fYMag == 0.0f ? 1.0f : 0.75f) * (fInertiaReturnSpeedMod * 0.075f);
+        if (m_fLR_InertiaFactor < 0.0f)
+        {
+            m_fLR_InertiaFactor += fAvgTimeDelta * fRetSpeedMod;
+            clamp(m_fLR_InertiaFactor, -1.0f, 0.0f);
+        }
+        else
+        {
+            m_fLR_InertiaFactor -= fAvgTimeDelta * fRetSpeedMod;
+            clamp(m_fLR_InertiaFactor, 0.0f, 1.0f);
+        }
+    }
+
+    // Ieieiaeuiia eeiaeiia caoooaiea eia?oee i?e iieia (aa?oeeaeu)
+    if (fPMag == 0.0f)
+    {
+        float fRetSpeedMod = (fPMag == 0.0f ? 1.0f : 0.75f) * (fInertiaReturnSpeedMod * 0.075f);
+        if (m_fUD_InertiaFactor < 0.0f)
+        {
+            m_fUD_InertiaFactor += fAvgTimeDelta * fRetSpeedMod;
+            clamp(m_fUD_InertiaFactor, -1.0f, 0.0f);
+        }
+        else
+        {
+            m_fUD_InertiaFactor -= fAvgTimeDelta * fRetSpeedMod;
+            clamp(m_fUD_InertiaFactor, 0.0f, 1.0f);
+        }
+    }
+
+    // I?eiaiyai eia?oe? e ooao
+    float fLR_lim = (m_fLR_InertiaFactor < 0.0f ? vIOffsets.x : vIOffsets.y);
+    float fUD_lim = (m_fUD_InertiaFactor < 0.0f ? vIOffsets.z : vIOffsets.w);
+
+    Fvector curr_offs;
+    curr_offs = { fLR_lim * -1.f * m_fLR_InertiaFactor, fUD_lim * m_fUD_InertiaFactor, 0.0f };
+
+    Fmatrix hud_rotation;
+    hud_rotation.identity();
+    hud_rotation.translate_over(curr_offs);
+    trans.mulB_43(hud_rotation);
+}
 
 void CHudItem::UpdateCL()
 {
@@ -245,12 +484,14 @@ void CHudItem::OnH_A_Chield()
 void CHudItem::OnH_B_Chield()
 {
     StopCurrentAnimWithoutCallback();
+    m_nearwall_last_hud_fov = psHUD_FOV_def;
 }
 
 void CHudItem::OnH_B_Independent(bool just_before_destroy)
 {
     m_sounds.StopAllSounds();
     UpdateXForm();
+    m_nearwall_last_hud_fov = psHUD_FOV_def;
 
     // next code was commented
     /*
@@ -480,4 +721,27 @@ attachable_hud_item* CHudItem::HudItemData()
         return hi;
 
     return NULL;
+}
+
+float CHudItem::GetHudFov()
+{
+    if (smart_cast<CActor*>(this->object().H_Parent()) && (Level().CurrentViewEntity() == object().H_Parent()))
+    {
+        collide::rq_result& RQ = HUD().GetCurrentRayQuery();
+        float dist = RQ.range;
+
+        clamp(dist, m_nearwall_dist_min, m_nearwall_dist_max);
+        float fDistanceMod =
+            ((dist - m_nearwall_dist_min) / (m_nearwall_dist_max - m_nearwall_dist_min)); // 0.f ... 1.f
+
+        float fBaseFov = psHUD_FOV_def + m_hud_fov_add_mod;
+        clamp(fBaseFov, 0.0f, FLT_MAX);
+
+        float src = m_nearwall_speed_mod * Device.fTimeDelta;
+        clamp(src, 0.f, 1.f);
+
+        float fTrgFov = m_nearwall_target_hud_fov + fDistanceMod * (fBaseFov - m_nearwall_target_hud_fov);
+        m_nearwall_last_hud_fov = m_nearwall_last_hud_fov * (1 - src) + fTrgFov * src;
+    }
+    return m_nearwall_last_hud_fov;
 }

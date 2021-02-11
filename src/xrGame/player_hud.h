@@ -125,7 +125,7 @@ public:
 	void			render_hud			();	
 	void			render_item_ui		();
 	bool			render_item_ui_query();
-	u32				anim_play			(u16 part, const MotionID& M, BOOL bMixIn, const CMotionDef*& md, float speed);
+	u32               anim_play(u16 part, const MotionID& M, BOOL bMixIn, const CMotionDef*& md, float speed, u16 override_part = u16(-1));
 	const shared_str& section_name		() const {return m_sect_name;}
 
 	attachable_hud_item* create_hud_item(const shared_str& sect);
@@ -142,21 +142,25 @@ public:
 	u32				motion_length		(const MotionID& M, const CMotionDef*& md, float speed);
 	u32				motion_length		(const shared_str& anim_name, const shared_str& hud_name, const CMotionDef*& md);
 	void			OnMovementChanged	(ACTOR_DEFS::EMoveCommand cmd)	;
+	void            re_sync_anim(u8 part);
 private:
 	void			update_inertion		(Fmatrix& trans);
 	void			update_additional	(Fmatrix& trans);
 public:
 	bool			inertion_allowed	();
 private:
-	const Fvector&	attach_rot			() const;
-	const Fvector&	attach_pos			() const;
+	const Fvector& attach_rot(u8 part) const;
+	const Fvector& attach_pos(u8 part) const;
 
 	shared_str							m_sect_name;
 
 	Fmatrix								m_attach_offset;
+	Fmatrix								m_attach_offset_2;
 
 	Fmatrix								m_transform;
+	Fmatrix								m_transform_2;
 	IKinematicsAnimated*				m_model;
+	IKinematicsAnimated*				m_model_2;
 	xr_vector<u16>						m_ancors;
 	attachable_hud_item*				m_attached_items[2];
 	xr_vector<attachable_hud_item*>		m_pool;

@@ -24,6 +24,7 @@
 #include "../xrphysics/actorcameracollision.h"
 #include "IKLimbsController.h"
 #include "GamePersistent.h"
+#include "CustomDetector.h"
 
 ENGINE_API extern float psHUD_FOV; //--#SM+#--
 ENGINE_API extern float psHUD_FOV_def; //--#SM+#--
@@ -292,11 +293,27 @@ void CActor::cam_Update(float dt, float fFOV)
 	if(m_holder)		return;
 	
 	// HUD FOV Update --#SM+#--
+#pragma todo ("Нужно переписать коллизию, чтобы детектор не лагал")
 	if (this == Level().CurrentControlEntity() && collision_wpn == 1)
 	{
-		CWeapon* pWeapon = smart_cast<CWeapon*>(this->inventory().ActiveItem());
-		if (eacFirstEye == cam_active && pWeapon)
-			psHUD_FOV = pWeapon->GetHudFov();
+		CHudItem* pItem = smart_cast<CHudItem*>(this->inventory().ActiveItem());
+		PIItem Det = Actor()->inventory().ItemFromSlot(DETECTOR_SLOT);
+
+		if (eacFirstEye == cam_active)
+		{
+			if (pItem)
+			{
+				psHUD_FOV = pItem->GetHudFov();
+			}
+			else if (Det)
+			{
+				CCustomDetector* pDet = smart_cast<CCustomDetector*>(Det);
+				if (pDet)
+					psHUD_FOV = pDet->GetHudFov();
+				else
+					psHUD_FOV = psHUD_FOV_def;
+			}
+		}
 		else
 			psHUD_FOV = psHUD_FOV_def;
 	}

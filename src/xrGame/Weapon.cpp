@@ -36,7 +36,6 @@
 #define WEAPON_REMOVE_TIME		60000
 #define ROTATION_TIME			0.25f
 
-ENGINE_API extern float psHUD_FOV_def;
 BOOL	b_toggle_weapon_aim = FALSE;
 extern CUIXml*	pWpnScopeXml = NULL;
 extern BOOL game_value_ammo_belt;
@@ -98,7 +97,6 @@ CWeapon::CWeapon()
 	bScopeIsHasTexture = false;
 	bNVsecondVPavaible = false;
 	bNVsecondVPstatus = false;
-	m_nearwall_last_hud_fov = psHUD_FOV_def;
 	m_fZoomStepCount = 3.0f;
 	m_fZoomMinKoeff = 0.3f;
 	m_fLR_MovingFactor			= 0.f;
@@ -1077,7 +1075,6 @@ void CWeapon::OnH_B_Independent(bool just_before_destroy)
     m_strapped_mode = false;
     m_zoom_params.m_bIsZoomModeNow = false;
     UpdateXForm();
-	m_nearwall_last_hud_fov		= psHUD_FOV_def;
 }
 
 void CWeapon::OnH_A_Independent()
@@ -1155,7 +1152,6 @@ void CWeapon::OnH_B_Chield()
 
     OnZoomOut();
     m_set_next_ammoType_on_reload = undefined_ammo_type;
-	m_nearwall_last_hud_fov = psHUD_FOV_def;
 }
 
 extern u32 hud_adj_mode;
@@ -2860,29 +2856,6 @@ void CWeapon::SyncronizeWeaponToServer()
 	packet.w_u16(m_ammoElapsed.data);
 	packet.w_u8(m_bGrenadeMode?1:0);
 	obj->u_EventSend(packet, net_flags(TRUE, TRUE, FALSE, TRUE));
-}
-
-float CWeapon::GetHudFov()
-{
-	if (ParentIsActor() && Level().CurrentViewEntity() == H_Parent())
-	{
-		collide::rq_result& RQ = HUD().GetCurrentRayQuery();
-		float dist = RQ.range;
-
-		clamp(dist, m_nearwall_dist_min, m_nearwall_dist_max);
-		float fDistanceMod =
-			((dist - m_nearwall_dist_min) / (m_nearwall_dist_max - m_nearwall_dist_min)); // 0.f ... 1.f
-
-		float fBaseFov = psHUD_FOV_def + m_hud_fov_add_mod;
-		clamp(fBaseFov, 0.0f, FLT_MAX);
-
-		float src = m_nearwall_speed_mod * Device.fTimeDelta;
-		clamp(src, 0.f, 1.f);
-
-		float fTrgFov = m_nearwall_target_hud_fov + fDistanceMod * (fBaseFov - m_nearwall_target_hud_fov);
-		m_nearwall_last_hud_fov = m_nearwall_last_hud_fov * (1 - src) + fTrgFov * src;
-	}
-	return m_nearwall_last_hud_fov;
 }
 
 float CWeapon::GetSecondVPFov() const

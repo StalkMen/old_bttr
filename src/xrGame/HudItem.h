@@ -147,6 +147,15 @@ public:
 	virtual bool				render_item_3d_ui_query	()					{return false;}
 
 	virtual bool				CheckCompatibility		(CHudItem*)			{return true;}
+
+	// SWM3.0 hud collision
+	float						m_hud_fov_add_mod;
+	float						m_nearwall_dist_max;
+	float						m_nearwall_dist_min;
+	float						m_nearwall_last_hud_fov;
+	float						m_nearwall_target_hud_fov;
+	float						m_nearwall_speed_mod;
+	virtual float				GetHudFov				();
 protected:
 
 	IC		void				SetPending			(BOOL H)			{ m_huditem_flags.set(fl_pending, H);}
@@ -180,5 +189,12 @@ public:
 	virtual void				PlayAnimCrouchIdleMoving(); //AVO: new crouch idle animation
 			bool				HudAnimationExist(LPCSTR anim_name);
 	virtual void				PlayAnimMovingSlow();
+
+	float						m_fLR_MovingFactor; // Сактор бокового наклона худа при ходьбе [-1; +1]
+	float						m_fLR_CameraFactor; // Сактор бокового наклона худа при движении камеры [-1; +1]
+	float						m_fLR_InertiaFactor; // Сактор горизонтальной инерции худа при движении камеры [-1; +1]
+	float						m_fUD_InertiaFactor; // Сактор вертикальной инерции худа при движении камеры [-1; +1]
+
+	Fvector						m_strafe_offset[3]; //pos,rot,data1 normal,aim-GL --#SM+#--
 };
 
