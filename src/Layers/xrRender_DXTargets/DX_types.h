@@ -56,7 +56,7 @@
 #define		r2_RT_sunshafts1	"$user$sun_shafts1"		// second rt
 
 #define		r2_RT_motion_vector	"$user$motion_vector"
-
+#define		r2_RT_emissive "user$emissive"
 
 #define		JITTER(a) r2_jitter #a
 

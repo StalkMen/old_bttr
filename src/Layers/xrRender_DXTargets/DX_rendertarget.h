@@ -79,6 +79,7 @@ public:
 	ref_rt						rt_Position;		// 64bit,	fat	(x,y,z,?)				(eye-space)
 	ref_rt						rt_Color;			// 64/32bit,fat	(r,g,b,specular-gloss)	(or decompressed MET-8-8-8-8)
 	ref_rt						rt_motion_vector;	//32/64 RG 
+	ref_rt						rt_emissive;
 	
 	// 
 	ref_rt						rt_Accumulator;		// 64bit		(r,g,b,specular)

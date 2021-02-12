@@ -428,6 +428,8 @@ CRenderTarget::CRenderTarget		()
 		//	temp: for higher quality blends
 		if (RImplementation.o.advancedpp)
 			rt_Generic_2.create			(r2_RT_generic2, w, h, D3DFMT_A8R8G8B8, SampleCount );
+		
+		rt_emissive.create(r2_RT_emissive, w, h, D3DFMT_A8R8G8B8, SampleCount);
 	}
 	
 	//Motion vectors
