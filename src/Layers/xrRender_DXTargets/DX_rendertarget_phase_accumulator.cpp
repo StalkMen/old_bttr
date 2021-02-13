@@ -67,6 +67,62 @@ void	CRenderTarget::phase_accumulator()
 	RImplementation.rmNormal();
 }
 
+
+void	CRenderTarget::phase_twoja_stara_zapierdala()
+{
+	// Targets
+	if (dwAccumulatorClearMark==Device.dwFrame)	{
+		// normal operation - setup
+      if( !RMSAA._opt.dx10_msaa )
+      {
+		   if (RImplementation.o.fp16_blend)	u_setrt	(rt_emissive,		NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
+		   else								u_setrt	(rt_emissive,	NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
+      }
+      else
+      {
+         if (RImplementation.o.fp16_blend)	u_setrt	(rt_emissive,		NULL,NULL, rt_MSAADepth->pZRT);
+         else								u_setrt	(rt_emissive,	NULL,NULL, rt_MSAADepth->pZRT);
+      }
+	} else {
+		// initial setup
+		dwAccumulatorClearMark				= Device.dwFrame;
+
+		// clear
+      if( !RMSAA._opt.dx10_msaa )
+   		u_setrt								(rt_emissive,		NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
+      else
+         u_setrt								(rt_emissive,		NULL,NULL,rt_MSAADepth->pZRT);
+		//dwLightMarkerID						= 5;					// start from 5, increment in 2 units
+		reset_light_marker();
+		//	Igor: AMD bug workaround. Should be fixed in 8.7 catalyst
+		//	Need for MSAA to work correctly.
+		if(RMSAA._opt.dx10_msaa )
+		{
+#ifdef DIRECTX11
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->OMSetRenderTargets(1, &(rt_emissive->pRT), 0);
+#else
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->OMSetRenderTargets(1, &(rt_emissive->pRT), 0);
+#endif
+		}
+
+		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+#ifdef DIRECTX11
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView( rt_emissive->pRT, ColorRGBA);
+#else
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->ClearRenderTargetView( rt_emissive->pRT, ColorRGBA);
+#endif
+
+		// Stencil	- draw only where stencil >= 0x1
+		RCache.set_Stencil					(TRUE,D3DCMP_LESSEQUAL,0x01,0xff,0x00);
+		RCache.set_CullMode					(CULL_NONE);
+		RCache.set_ColorWriteEnable			();
+		
+	}
+
+	//	Restore viewport after shadow map rendering
+	RImplementation.rmNormal();
+}
+
 void	CRenderTarget::phase_vol_accumulator()
 {
 	if (!m_bHasActiveVolumetric)
