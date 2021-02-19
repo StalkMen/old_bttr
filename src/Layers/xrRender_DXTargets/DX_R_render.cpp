@@ -451,10 +451,9 @@ void CRender::Render		()
 		Target->accum_direct_blend			();
 	}
 
-	//Emissive surfaces
 	{
 		PIX_EVENT(DEFER_SELF_ILLUM);
-		Target->phase_twoja_stara_zapierdala();
+		Target->phase_accumulator			();
 		// Render emissive geometry, stencil - write 0x0 at pixel pos
 		RCache.set_xform_project			(Device.mProject); 
 		RCache.set_xform_view				(Device.mView);

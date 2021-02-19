@@ -297,7 +297,6 @@ public:
 	void						phase_smap_spot			(light* L);
 	void						phase_smap_spot_tsh		(light* L);
 	void						phase_accumulator		();
-	void						phase_twoja_stara_zapierdala();
 	void						phase_vol_accumulator	();
 	void						shadow_direct			(light* L, u32 dls_phase);
 
