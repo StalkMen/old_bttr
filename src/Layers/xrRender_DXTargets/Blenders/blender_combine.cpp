@@ -28,7 +28,6 @@ void	BLENDER::CBlender_combine::Compile(CBlender_Compile& C)
 
 		C.r_dx10Texture		("s_position",		r2_RT_P				);
 		C.r_dx10Texture		("s_diffuse",		r2_RT_albedo		);
-		C.r_dx10Texture		("s_emissive",		r2_RT_emissive		);		
 		C.r_dx10Texture		("s_accumulator",	r2_RT_accum			);
 		C.r_dx10Texture		("s_depth",			r2_RT_depth			);
 		C.r_dx10Texture		("s_tonemap",		r2_RT_luminance_cur	);
@@ -115,7 +114,6 @@ void	BLENDER::CBlender_combine_msaa::Compile(CBlender_Compile& C)
       
       C.r_dx10Texture		("s_position",		r2_RT_P				);
       C.r_dx10Texture		("s_diffuse",		r2_RT_albedo		);
-		C.r_dx10Texture		("s_emissive",		r2_RT_emissive		);		  
       C.r_dx10Texture		("s_accumulator",	r2_RT_accum			);
       C.r_dx10Texture		("s_depth",			r2_RT_depth			);
       C.r_dx10Texture		("s_tonemap",		r2_RT_luminance_cur	);

@@ -7,12 +7,12 @@ void	CRenderTarget::phase_accumulator()
 		// normal operation - setup
       if( !RMSAA._opt.dx10_msaa )
       {
-		   if (RImplementation.o.fp16_blend)	u_setrt	(rt_emissive,		NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
+		   if (RImplementation.o.fp16_blend)	u_setrt	(rt_Accumulator,		NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
 		   else								u_setrt	(rt_Accumulator_temp,	NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
       }
       else
       {
-         if (RImplementation.o.fp16_blend)	u_setrt	(rt_emissive,		NULL,NULL, rt_MSAADepth->pZRT);
+         if (RImplementation.o.fp16_blend)	u_setrt	(rt_Accumulator,		NULL,NULL, rt_MSAADepth->pZRT);
          else								u_setrt	(rt_Accumulator_temp,	NULL,NULL, rt_MSAADepth->pZRT);
       }
 	} else {
@@ -21,9 +21,9 @@ void	CRenderTarget::phase_accumulator()
 
 		// clear
       if( !RMSAA._opt.dx10_msaa )
-   		u_setrt								(rt_emissive,		NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
+   		u_setrt								(rt_Accumulator,		NULL,NULL,DEVICE_HW::CRYRAY_RENDER::HW.pBaseZB);
       else
-         u_setrt								(rt_emissive,		NULL,NULL,rt_MSAADepth->pZRT);
+         u_setrt								(rt_Accumulator,		NULL,NULL,rt_MSAADepth->pZRT);
 		//dwLightMarkerID						= 5;					// start from 5, increment in 2 units
 		reset_light_marker();
 		//	Igor: AMD bug workaround. Should be fixed in 8.7 catalyst
@@ -31,18 +31,18 @@ void	CRenderTarget::phase_accumulator()
 		if(RMSAA._opt.dx10_msaa )
 		{
 #ifdef DIRECTX11
-			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->OMSetRenderTargets(1, &(rt_emissive->pRT), 0);
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->OMSetRenderTargets(1, &(rt_Accumulator->pRT), 0);
 #else
-			DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->OMSetRenderTargets(1, &(rt_emissive->pRT), 0);
+			DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->OMSetRenderTargets(1, &(rt_Accumulator->pRT), 0);
 #endif
 		}
 //		u32		clr4clear					= color_rgba(0,0,0,0);	// 0x00
 		//CHK_DX	(DEVICE_HW::CRYRAY_RENDER::HW.pDevice->Clear			( 0L, NULL, D3DCLEAR_TARGET, clr4clear, 1.0f, 0L));
 		FLOAT ColorRGBA[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 #ifdef DIRECTX11
-		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView( rt_emissive->pRT, ColorRGBA);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderContext->ClearRenderTargetView( rt_Accumulator->pRT, ColorRGBA);
 #else
-		DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->ClearRenderTargetView( rt_emissive->pRT, ColorRGBA);
+		DEVICE_HW::CRYRAY_RENDER::HW.pRenderDevice->ClearRenderTargetView( rt_Accumulator->pRT, ColorRGBA);
 #endif
 		//	render this after sun to avoid troubles with sun
 		/*
