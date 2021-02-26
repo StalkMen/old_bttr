@@ -339,6 +339,7 @@ protected:
 		float			m_fScopeZoomFactorMin;
 		float           m_f3dZoomFactor;        //коэффициент мирового зума при использовании второго вьюпорта
         float			m_fZoomRotationFactor;
+        Fvector2      	m_fZoomLimit;
 		
 		float           m_fSecondVPFovFactor;
 		
