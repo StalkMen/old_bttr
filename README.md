@@ -8,3 +8,6 @@ CryRay Engine, базируется на движке XRay 1.6.02. Copyright (C)
 ### Авторы: ###
 * [oldSerpskiStalker](https://github.com/oldSerpskiStalker)
 * [LVutner](https://github.com/LVutner)
+
+### Credits: ###
+OpenXRay team, Mortan, Anomaly, and others. 
